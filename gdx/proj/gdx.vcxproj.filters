@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Exported Header Files">
+      <UniqueIdentifier>{b6d6eaa7-4167-4e0e-a638-9df207bc7297}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\dllmain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\stdafx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Gdx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\IndexBufferObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Mesh.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\VertexArray.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\VertexBufferObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\GdxRuntimeException.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\VertexAttribute.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\VertexAttributes.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\BoundingBox.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ShaderProgram.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Matrix3.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Matrix4.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Quaternion.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Vector3.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Vector2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\MathUtils.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\NumberUtils.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\incl\stdafx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\incl\targetver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\exp\Application.h">
+      <Filter>Exported Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\exp\ApplicationListener.h">
+      <Filter>Exported Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\exp\Files.h">
+      <Filter>Exported Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\exp\Graphics.h">
+      <Filter>Exported Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\exp\Input.h">
+      <Filter>Exported Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\exp\GdxDefines.h">
+      <Filter>Exported Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\exp\GL10.h">
+      <Filter>Exported Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\exp\GL11.h">
+      <Filter>Exported Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\exp\GL20.h">
+      <Filter>Exported Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\exp\GLCommon.h">
+      <Filter>Exported Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\exp\Gdx.h">
+      <Filter>Exported Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\exp\GdxRuntimeException.h">
+      <Filter>Exported Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\exp\VertexAttribute.h">
+      <Filter>Exported Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\exp\VertexAttributes.h">
+      <Filter>Exported Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\exp\VertexArray.h">
+      <Filter>Exported Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\exp\VertexData.h">
+      <Filter>Exported Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\exp\VertexBufferObject.h">
+      <Filter>Exported Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\exp\Mesh.h">
+      <Filter>Exported Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\exp\IndexBufferObject.h">
+      <Filter>Exported Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\exp\IndexData.h">
+      <Filter>Exported Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\exp\BoundingBox.h">
+      <Filter>Exported Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\exp\ShaderProgram.h">
+      <Filter>Exported Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\exp\Vector3.h">
+      <Filter>Exported Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\exp\Vector2.h">
+      <Filter>Exported Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\exp\Matrix3.h">
+      <Filter>Exported Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\exp\Matrix4.h">
+      <Filter>Exported Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\exp\Quaternion.h">
+      <Filter>Exported Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\exp\MathUtils.h">
+      <Filter>Exported Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\exp\NumberUtils.h">
+      <Filter>Exported Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\ReadMe.txt" />
+  </ItemGroup>
+</Project>
