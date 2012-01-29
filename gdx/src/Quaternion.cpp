@@ -2,6 +2,7 @@
 #include "Quaternion.h"
 #include "Vector3.h"
 #include "Matrix4.h"
+#include "MathUtils.h"
 
 const float Quaternion::NORMALIZATION_TOLERANCE = 0.00001f;
 Quaternion Quaternion::m_tmp1 = Quaternion(0, 0, 0, 0);
@@ -264,9 +265,9 @@ Quaternion& Quaternion::setFromAxis(const Vector3& axis, float angle)
 * @return This quaternion for chaining. */
 Quaternion& Quaternion::setFromAxis(float x, float y, float z, float angle)
 {
-	float l_ang = toRadians(angle);
-	float l_sin = sin(l_ang / 2);
-	float l_cos = cos(l_ang / 2);
+	const float l_ang = angle * MathUtils::degreesToRadians;
+	float l_sin = MathUtils::sin(l_ang / 2);
+	float l_cos = MathUtils::cos(l_ang / 2);
 	return set(x * l_sin, y * l_sin, z * l_sin, l_cos).nor();
 }
 
