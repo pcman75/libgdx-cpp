@@ -110,8 +110,8 @@ public:
 	void dispose ();
 
 private:
-	IndexBufferObject(IndexBufferObject const&);
-    void operator=(IndexBufferObject const&);
+	IndexBufferObject(const IndexBufferObject&);
+    void operator=(const IndexBufferObject&);
 	void init(int numIndices);
-	int createBufferObject ();
+	int createBufferObject();
 };

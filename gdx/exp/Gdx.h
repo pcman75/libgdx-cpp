@@ -70,8 +70,8 @@ public:
 		bool isGL11Available();
     private:
         GdxClass();
-        //GdxClass(GdxClass const&);
-        //void operator=(GdxClass const&);
+        //GdxClass(const GdxClass&);
+        //void operator=(const GdxClass&);
 };
 
 extern GdxDllImportExport GdxClass Gdx;
