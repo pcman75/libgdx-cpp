@@ -53,7 +53,7 @@ extern "C" {
  * the dimensions and the format of the pixmap.
  * the format is one of the GDX2D_C_FORMAT_XXX constants.
  */
-typedef struct {
+typedef struct tag_gdx2d_pixmap{
 	uint32_t width;
 	uint32_t height;
 	uint32_t format;
