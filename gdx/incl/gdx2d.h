@@ -29,29 +29,29 @@ extern "C" {
  * the low order byte holds the lower half of g and b as well as a
  * if the format is RGBA4444
  */
-#define GDX2D_FORMAT_ALPHA 				1
-#define GDX2D_FORMAT_LUMINANCE_ALPHA 	2
-#define GDX2D_FORMAT_RGB888 			3
-#define GDX2D_FORMAT_RGBA8888			4
-#define GDX2D_FORMAT_RGB565				5
-#define GDX2D_FORMAT_RGBA4444			6
+#define GDX2D_C_FORMAT_ALPHA 				1
+#define GDX2D_C_FORMAT_LUMINANCE_ALPHA 	2
+#define GDX2D_C_FORMAT_RGB888 			3
+#define GDX2D_C_FORMAT_RGBA8888			4
+#define GDX2D_C_FORMAT_RGB565				5
+#define GDX2D_C_FORMAT_RGBA4444			6
 
 /**
  * blending modes, to be extended
  */
-#define GDX2D_BLEND_NONE 		0
-#define GDX2D_BLEND_SRC_OVER 	1
+#define GDX2D_C_BLEND_NONE 		0
+#define GDX2D_C_BLEND_SRC_OVER 	1
 
 /**
  * scaling modes, to be extended
  */
-#define GDX2D_SCALE_NEAREST		0
-#define GDX2D_SCALE_BILINEAR	1
+#define GDX2D_C_SCALE_NEAREST		0
+#define GDX2D_C_SCALE_BILINEAR	1
 
 /**
  * simple pixmap struct holding the pixel data,
  * the dimensions and the format of the pixmap.
- * the format is one of the GDX2D_FORMAT_XXX constants.
+ * the format is one of the GDX2D_C_FORMAT_XXX constants.
  */
 typedef struct {
 	uint32_t width;

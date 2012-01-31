@@ -18,8 +18,8 @@
 #define STBI_NO_FAILURE_STRINGS
 #include "..\src\stb_image.c"
 
-static uint32_t gdx2d_blend = GDX2D_BLEND_NONE;
-static uint32_t gdx2d_scale = GDX2D_SCALE_NEAREST;
+static uint32_t gdx2d_blend = GDX2D_C_BLEND_NONE;
+static uint32_t gdx2d_scale = GDX2D_C_SCALE_NEAREST;
 
 static uint32_t* lu4 = 0;
 static uint32_t* lu5 = 0;
@@ -54,25 +54,25 @@ uint32_t to_format(uint32_t format, uint32_t color) {
 	uint32_t r, g, b, a, l;
 
 	switch(format) {
-		case GDX2D_FORMAT_ALPHA: 
+		case GDX2D_C_FORMAT_ALPHA: 
 			return color & 0xff;
-		case GDX2D_FORMAT_LUMINANCE_ALPHA: 
+		case GDX2D_C_FORMAT_LUMINANCE_ALPHA: 
 			r = (color & 0xff000000) >> 24;
 			g = (color & 0xff0000) >> 16;
 			b = (color & 0xff00) >> 8;
 			a = (color & 0xff);
 			l = ((uint32_t)(0.2126f * r + 0.7152 * g + 0.0722 * b) & 0xff) << 8;
 			return (l & 0xffffff00) | a;
-		case GDX2D_FORMAT_RGB888:
+		case GDX2D_C_FORMAT_RGB888:
 			return color >> 8;
-		case GDX2D_FORMAT_RGBA8888:
+		case GDX2D_C_FORMAT_RGBA8888:
 			return color;
-		case GDX2D_FORMAT_RGB565: 
+		case GDX2D_C_FORMAT_RGB565: 
 			r = (((color & 0xff000000) >> 27) << 11) & 0xf800;
 			g = (((color & 0xff0000) >> 18) << 5) & 0x7e0;
 			b = ((color & 0xff00) >> 11) & 0x1f;
 			return r | g | b;
-		case GDX2D_FORMAT_RGBA4444:
+		case GDX2D_C_FORMAT_RGBA4444:
 			r = (((color & 0xff000000) >> 28) << 12) & 0xf000;
 			g = (((color & 0xff0000) >> 20) << 8) & 0xf00;
 			b = (((color & 0xff00) >> 12) << 4) & 0xf0;
@@ -99,20 +99,20 @@ uint32_t to_RGBA8888(uint32_t format, uint32_t color) {
 	if(!lu5) generate_look_ups();
 
 	switch(format) {
-		case GDX2D_FORMAT_ALPHA: 
+		case GDX2D_C_FORMAT_ALPHA: 
 			return (color & 0xff) | 0xffffff00;
-		case GDX2D_FORMAT_LUMINANCE_ALPHA: 
+		case GDX2D_C_FORMAT_LUMINANCE_ALPHA: 
 			return ((color & 0xff00) << 16) | ((color & 0xff00) << 8) | (color & 0xffff);
-		case GDX2D_FORMAT_RGB888:
+		case GDX2D_C_FORMAT_RGB888:
 			return (color << 8) | 0x000000ff;
-		case GDX2D_FORMAT_RGBA8888:
+		case GDX2D_C_FORMAT_RGBA8888:
 			return color;
-		case GDX2D_FORMAT_RGB565:
+		case GDX2D_C_FORMAT_RGB565:
 			r = lu5[(color & 0xf800) >> 11] << 24;
 			g = lu6[(color & 0x7e0) >> 5] << 16;
 			b = lu5[(color & 0x1f)] << 8;
 			return r | g | b | 0xff;
-		case GDX2D_FORMAT_RGBA4444:
+		case GDX2D_C_FORMAT_RGBA4444:
 			r = lu4[(color & 0xf000) >> 12] << 24;
 			g = lu4[(color & 0xf00) >> 8] << 16;
 			b = lu4[(color & 0xf0) >> 4] << 8;
@@ -155,12 +155,12 @@ void set_pixel_RGBA4444(unsigned char *pixel_addr, uint32_t color) {
 
 set_pixel_func set_pixel_func_ptr(uint32_t format) {
 	switch(format) {
-		case GDX2D_FORMAT_ALPHA:			return &set_pixel_alpha;
-		case GDX2D_FORMAT_LUMINANCE_ALPHA:	return &set_pixel_luminance_alpha;
-		case GDX2D_FORMAT_RGB888:			return &set_pixel_RGB888;
-		case GDX2D_FORMAT_RGBA8888:			return &set_pixel_RGBA8888;
-		case GDX2D_FORMAT_RGB565:			return &set_pixel_RGB565;
-		case GDX2D_FORMAT_RGBA4444:			return &set_pixel_RGBA4444;
+		case GDX2D_C_FORMAT_ALPHA:			return &set_pixel_alpha;
+		case GDX2D_C_FORMAT_LUMINANCE_ALPHA:	return &set_pixel_luminance_alpha;
+		case GDX2D_C_FORMAT_RGB888:			return &set_pixel_RGB888;
+		case GDX2D_C_FORMAT_RGBA8888:			return &set_pixel_RGBA8888;
+		case GDX2D_C_FORMAT_RGB565:			return &set_pixel_RGB565;
+		case GDX2D_C_FORMAT_RGBA4444:			return &set_pixel_RGBA4444;
 		default: return &set_pixel_alpha; // better idea for a default?
 	}
 }
@@ -209,12 +209,12 @@ uint32_t get_pixel_RGBA4444(unsigned char *pixel_addr) {
 
 get_pixel_func get_pixel_func_ptr(uint32_t format) {
 	switch(format) {
-		case GDX2D_FORMAT_ALPHA:			return &get_pixel_alpha;
-		case GDX2D_FORMAT_LUMINANCE_ALPHA:	return &get_pixel_luminance_alpha;
-		case GDX2D_FORMAT_RGB888:			return &get_pixel_RGB888;
-		case GDX2D_FORMAT_RGBA8888:			return &get_pixel_RGBA8888;
-		case GDX2D_FORMAT_RGB565:			return &get_pixel_RGB565;
-		case GDX2D_FORMAT_RGBA4444:			return &get_pixel_RGBA4444;
+		case GDX2D_C_FORMAT_ALPHA:			return &get_pixel_alpha;
+		case GDX2D_C_FORMAT_LUMINANCE_ALPHA:	return &get_pixel_luminance_alpha;
+		case GDX2D_C_FORMAT_RGB888:			return &get_pixel_RGB888;
+		case GDX2D_C_FORMAT_RGBA8888:			return &get_pixel_RGBA8888;
+		case GDX2D_C_FORMAT_RGB565:			return &get_pixel_RGB565;
+		case GDX2D_C_FORMAT_RGBA4444:			return &get_pixel_RGBA4444;
 		default: return &get_pixel_alpha; // better idea for a default?
 	}
 }
@@ -225,8 +225,8 @@ gdx2d_pixmap* gdx2d_load(const unsigned char *buffer, uint32_t len, uint32_t req
 	gdx2d_pixmap* pixmap;
 
 	// TODO fix this! Add conversion to requested format
-	if(req_format > GDX2D_FORMAT_RGBA8888) 
-		req_format = GDX2D_FORMAT_RGBA8888;
+	if(req_format > GDX2D_C_FORMAT_RGBA8888) 
+		req_format = GDX2D_C_FORMAT_RGBA8888;
 
 
 	pixels = stbi_load_from_memory(buffer, len, &width, &height, &format, req_format);
@@ -243,15 +243,15 @@ gdx2d_pixmap* gdx2d_load(const unsigned char *buffer, uint32_t len, uint32_t req
 
 uint32_t gdx2d_bytes_per_pixel(uint32_t format) {
 	switch(format) {
-		case GDX2D_FORMAT_ALPHA:
+		case GDX2D_C_FORMAT_ALPHA:
 			return 1;
-		case GDX2D_FORMAT_LUMINANCE_ALPHA:
-		case GDX2D_FORMAT_RGB565:
-		case GDX2D_FORMAT_RGBA4444:
+		case GDX2D_C_FORMAT_LUMINANCE_ALPHA:
+		case GDX2D_C_FORMAT_RGB565:
+		case GDX2D_C_FORMAT_RGBA4444:
 			return 2;
-		case GDX2D_FORMAT_RGB888:
+		case GDX2D_C_FORMAT_RGB888:
 			return 3;
-		case GDX2D_FORMAT_RGBA8888:
+		case GDX2D_C_FORMAT_RGBA8888:
 			return 4;
 		default:
 			return 4;
@@ -353,22 +353,22 @@ void gdx2d_clear(const gdx2d_pixmap* pixmap, uint32_t col) {
 	col = to_format(pixmap->format, col);
 
 	switch(pixmap->format) {
-		case GDX2D_FORMAT_ALPHA:
+		case GDX2D_C_FORMAT_ALPHA:
 			clear_alpha(pixmap, col);
 			break;
-		case GDX2D_FORMAT_LUMINANCE_ALPHA:
+		case GDX2D_C_FORMAT_LUMINANCE_ALPHA:
 			clear_luminance_alpha(pixmap, col);
 			break;
-		case GDX2D_FORMAT_RGB888:
+		case GDX2D_C_FORMAT_RGB888:
 			clear_RGB888(pixmap, col);
 			break;
-		case GDX2D_FORMAT_RGBA8888:
+		case GDX2D_C_FORMAT_RGBA8888:
 			clear_RGBA8888(pixmap, col);
 			break;
-		case GDX2D_FORMAT_RGB565:
+		case GDX2D_C_FORMAT_RGB565:
 			clear_RGB565(pixmap, col);
 			break;
-		case GDX2D_FORMAT_RGBA4444:
+		case GDX2D_C_FORMAT_RGBA4444:
 			clear_RGBA4444(pixmap, col);
 			break;
 		default:
@@ -842,9 +842,9 @@ void blit_linear(const gdx2d_pixmap* src_pixmap, const gdx2d_pixmap* dst_pixmap,
 void blit(const gdx2d_pixmap* src_pixmap, const gdx2d_pixmap* dst_pixmap,
 					   int32_t src_x, int32_t src_y, uint32_t src_width, uint32_t src_height,
 					   int32_t dst_x, int32_t dst_y, uint32_t dst_width, uint32_t dst_height) {
-	if(gdx2d_scale == GDX2D_SCALE_NEAREST)
+	if(gdx2d_scale == GDX2D_C_SCALE_NEAREST)
 		blit_linear(src_pixmap, dst_pixmap, src_x, src_y, src_width, src_height, dst_x, dst_y, dst_width, dst_height);
-	if(gdx2d_scale == GDX2D_SCALE_BILINEAR)
+	if(gdx2d_scale == GDX2D_C_SCALE_BILINEAR)
 		blit_bilinear(src_pixmap, dst_pixmap, src_x, src_y, src_width, src_height, dst_x, dst_y, dst_width, dst_height);
 }
 
