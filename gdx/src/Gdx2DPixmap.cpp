@@ -4,6 +4,7 @@
 #include "GdxRuntimeException.h"
 #include "GL10.h"
 
+const int Gdx2DPixmap::GDX2D_FORMAT_UNKNOWN = 0;
 const int Gdx2DPixmap::GDX2D_FORMAT_ALPHA = 1;
 const int Gdx2DPixmap::GDX2D_FORMAT_LUMINANCE_ALPHA = 2;
 const int Gdx2DPixmap::GDX2D_FORMAT_RGB888 = 3;
@@ -147,7 +148,7 @@ Gdx2DPixmap Gdx2DPixmap::newPixmap (int width, int height, int format)
 	return Gdx2DPixmap(width, height, format);
 }
 
-const unsigned char* Gdx2DPixmap::getPixels ()
+unsigned char* Gdx2DPixmap::getPixels ()
 {
 	return m_pixmap->pixels;
 }
@@ -162,7 +163,7 @@ int Gdx2DPixmap::getWidth ()
 	return  m_pixmap->width;
 }
 
-int Gdx2DPixmap::getFormat ()
+int Gdx2DPixmap::getFormat () const
 {
 	return  m_pixmap->format;
 }

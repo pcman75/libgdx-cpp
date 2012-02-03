@@ -45,6 +45,7 @@ public:
 	class Format
 	{
 	public:
+		static const Format Unknown;
 		static const Format Alpha;
 		static const Format Intensity;
 		static const Format LuminanceAlpha;
@@ -57,6 +58,7 @@ public:
 
 		static Format fromGdx2DPixmapFormat (int format);
 		bool operator==(const Format& other);
+		bool operator!=(const Format& other);
 	private:
 		Format(int format);
 		int m_format;
@@ -98,6 +100,9 @@ public:
 	* @param format the {@link Format} */
 	Pixmap (int width, int height, Format format);
 
+	//TODO: delete this or implement it
+	void createFrom(int width, int height, Format format) {};
+
 	/** Creates a new Pixmap instance from the given encoded image data. The image can be encoded as JPEG, PNG or BMP.
 	* @param encodedData the encoded image data
 	* @param offset the offset
@@ -113,6 +118,9 @@ public:
 	/** Constructs a new Pixmap from a {@link Gdx2DPixmap}.
 	* @param pixmap */
 	Pixmap (const Gdx2DPixmap& pixmap);
+
+	/*Construct an empty Pixmap*/
+	//Pixmap();
 
 	/** Sets the color for the following drawing operations
 	* @param color the color, encoded as RGBA8888 */
@@ -256,10 +264,10 @@ public:
 	* RGBA8888 the color components are stored in a single byte each in the order red, green, blue (alpha). For the formats RGB565
 	* and RGBA4444 the pixel colors are stored in shorts in machine dependent order.
 	* @return the direct {@link ByteBuffer} holding the pixel data. */
-	const unsigned char* getPixels ();
+	unsigned char* getPixels ();
 	
 	/** @return the {@link Format} of this Pixmap. */
-	Format getFormat ();
+	Format getFormat () const;
 
 	/** @return the currently set {@link Blending} */
 	static Blending getBlending ();

@@ -20,6 +20,7 @@
 class Gdx2DPixmap
 {
 public:
+	static const int GDX2D_FORMAT_UNKNOWN;
 	static const int GDX2D_FORMAT_ALPHA;
 	static const int GDX2D_FORMAT_LUMINANCE_ALPHA;
 	static const int GDX2D_FORMAT_RGB888;
@@ -93,10 +94,10 @@ public:
 	*/
 
 	static Gdx2DPixmap newPixmap(int width, int height, int format);
-	const unsigned char* getPixels ();
+	unsigned char* getPixels ();
 	int getHeight();
 	int getWidth();
-	int getFormat();
+	int getFormat() const;
 	int getGLInternalFormat ();
 	int getGLFormat();
 	int getGLType();

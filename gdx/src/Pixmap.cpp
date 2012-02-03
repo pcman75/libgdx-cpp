@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "Pixmap.h"
 
-
+const Pixmap::Format Pixmap::Format::Unknown = Pixmap::Format(Gdx2DPixmap::GDX2D_FORMAT_UNKNOWN);
 const Pixmap::Format Pixmap::Format::Alpha = Pixmap::Format(Gdx2DPixmap::GDX2D_FORMAT_ALPHA);
 const Pixmap::Format Pixmap::Format::Intensity = Pixmap::Format(Gdx2DPixmap::GDX2D_FORMAT_ALPHA);
 const Pixmap::Format Pixmap::Format::LuminanceAlpha = Pixmap::Format(Gdx2DPixmap::GDX2D_FORMAT_LUMINANCE_ALPHA);
@@ -10,8 +10,11 @@ const Pixmap::Format Pixmap::Format::RGBA4444 = Pixmap::Format(Gdx2DPixmap::GDX2
 const Pixmap::Format Pixmap::Format::RGB888 = Pixmap::Format(Gdx2DPixmap::GDX2D_FORMAT_RGB888);
 const Pixmap::Format Pixmap::Format::RGBA8888 = Pixmap::Format(Gdx2DPixmap::GDX2D_FORMAT_RGB888);
 
+Pixmap::Blending Pixmap::m_blending = None;
+
 int Pixmap::Format::toGdx2DPixmapFormat(Format format)
 {
+	if (format == Unknown) return Gdx2DPixmap::GDX2D_FORMAT_UNKNOWN;
 	if (format == Alpha) return Gdx2DPixmap::GDX2D_FORMAT_ALPHA;
 	if (format == Intensity) return Gdx2DPixmap::GDX2D_FORMAT_ALPHA;
 	if (format == LuminanceAlpha) return Gdx2DPixmap::GDX2D_FORMAT_LUMINANCE_ALPHA;
@@ -24,6 +27,7 @@ int Pixmap::Format::toGdx2DPixmapFormat(Format format)
 
 Pixmap::Format Pixmap::Format::fromGdx2DPixmapFormat (int format)
 {
+	if (format == Gdx2DPixmap::GDX2D_FORMAT_UNKNOWN) return Unknown;
 	if (format == Gdx2DPixmap::GDX2D_FORMAT_ALPHA) return Alpha;
 	if (format == Gdx2DPixmap::GDX2D_FORMAT_LUMINANCE_ALPHA) return LuminanceAlpha;
 	if (format == Gdx2DPixmap::GDX2D_FORMAT_RGB565) return RGB565;
@@ -35,6 +39,11 @@ Pixmap::Format Pixmap::Format::fromGdx2DPixmapFormat (int format)
 bool Pixmap::Format::operator==(const Format& other)
 {
 	return m_format == other.m_format;
+}
+
+bool Pixmap::Format::operator!=(const Format& other)
+{
+	return !(*this == other);
 }
 
 Pixmap::Format::Format(int format)
@@ -297,13 +306,13 @@ int Pixmap::getGLType ()
 * RGBA8888 the color components are stored in a single byte each in the order red, green, blue (alpha). For the formats RGB565
 * and RGBA4444 the pixel colors are stored in shorts in machine dependent order.
 * @return the direct {@link ByteBuffer} holding the pixel data. */
-const unsigned char* Pixmap::getPixels ()
+ unsigned char* Pixmap::getPixels ()
 {
 	return m_pixmap.getPixels();
 }
 
 /** @return the {@link Format} of this Pixmap. */
-Pixmap::Format Pixmap::getFormat ()
+Pixmap::Format Pixmap::getFormat () const
 {
 	return Format::fromGdx2DPixmapFormat(m_pixmap.getFormat());
 }

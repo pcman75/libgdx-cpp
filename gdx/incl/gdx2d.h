@@ -57,7 +57,7 @@ typedef struct tag_gdx2d_pixmap{
 	uint32_t width;
 	uint32_t height;
 	uint32_t format;
-	const unsigned char* pixels;
+	unsigned char* pixels;
 } gdx2d_pixmap;
 
 gdx2d_pixmap* gdx2d_load (const unsigned char *buffer, uint32_t len, uint32_t req_format);
