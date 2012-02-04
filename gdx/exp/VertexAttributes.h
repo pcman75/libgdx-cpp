@@ -16,13 +16,14 @@
 
 #pragma once
 
+#include "GdxDefines.h"
 #include "VertexAttribute.h"
 #include "GdxRuntimeException.h"
 
 /** Instances of this class specify the vertex attributes of a mesh. VertexAttributes are used by {@link Mesh} instances to define
  * its vertex structure. Vertex attributes have an order. The order is specified by the order they are added to this class.
  */
-class VertexAttributes
+class GdxDllImportExport VertexAttributes
 {
 public:
 

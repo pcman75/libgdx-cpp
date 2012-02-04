@@ -60,7 +60,7 @@ void IndexBufferObject::setIndices (const short* indices, int offset, int count)
 	if(offset + count > m_numIndices)
 		throw new GdxRuntimeException("Indices buffer overrun. Check offset and count");
 
-	memcpy(m_buffer, indices + offset, count);
+	memcpy(m_buffer, indices + offset, count * sizeof(indices[0]));
 
 	if(m_isBound)
 	{

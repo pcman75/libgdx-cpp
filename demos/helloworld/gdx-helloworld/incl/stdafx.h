@@ -17,8 +17,6 @@
 #include <memory.h>
 #include <tchar.h>
 
-
-// TODO: remove it and also the lib
-//opengl
-#include <gl/gl.h>
-#include <gl/glu.h>
+#include <string>
+#include <vector>
+#include <list>

@@ -7,33 +7,30 @@
 bool Mesh::forceVBO = false;
 std::list<Mesh> Mesh::m_meshes;
 
-/*
-Mesh::Mesh(bool isStatic, int maxVertices, int maxIndices, const VertexAttribute* attributes, int attributesLength)
+Mesh::Mesh(bool isStatic, int maxVertices, int maxIndices, const VertexAttribute& attribute) 
 {
-init();
-if (Gdx.gl20 != NULL || Gdx.gl11 != NULL || forceVBO) 
-{
-m_vertices = new VertexBufferObject(isStatic, maxVertices, attributes);
-m_indices = new IndexBufferObject(isStatic, maxIndices);
-m_isVertexArray = false;
-} 
-else 
-{
-m_vertices = new VertexArray(maxVertices, attributes);
-m_indices = new IndexBufferObject(maxIndices);
-m_isVertexArray = true;
-}
+	VertexAttributes attributes(&attribute, 1);
+	if (Gdx.gl20 != NULL || Gdx.gl11 != NULL || forceVBO) 
+	{
+		m_vertices = new VertexBufferObject(isStatic, maxVertices, attributes);
+		m_indices = new IndexBufferObject(isStatic, maxIndices);
+		m_isVertexArray = false;
+	} 
+	else 
+	{
+		m_vertices = new VertexArray(maxVertices, attributes);
+		m_indices = new IndexBufferObject(maxIndices);
+		m_isVertexArray = true;
+	}
 
-addManagedMesh(*this);
+	addManagedMesh(*this);
 }
-*/
 
 Mesh::Mesh(bool isStatic, int maxVertices, int maxIndices, const VertexAttributes& attributes) 
 {
 	if (Gdx.gl20 != NULL || Gdx.gl11 != NULL || forceVBO) 
 	{
-		//TODO:
-		//m_vertices = new VertexBufferObject(isStatic, maxVertices, attributes);
+		m_vertices = new VertexBufferObject(isStatic, maxVertices, attributes);
 		m_indices = new IndexBufferObject(isStatic, maxIndices);
 		m_isVertexArray = false;
 	} 

@@ -47,7 +47,7 @@
  * Meshes can be used with either OpenGL ES 1.x or OpenGL ES 2.0.
  * </p>
  */
-class Mesh
+class GdxDllImportExport Mesh
 {
 public:
 	//TODO: changed the enums, otherwise they clash with classes name
@@ -89,7 +89,7 @@ public:
 	 * @param maxIndices the maximum number of indices this mesh can hold
 	 * @param attributes the {@link VertexAttribute}s. Each vertex attribute defines one property of a vertex such as position,
 	 *           normal or texture coordinate */
-	Mesh(bool isStatic, int maxVertices, int maxIndices, const VertexAttribute* attributes, int attributesLength);
+	Mesh(bool isStatic, int maxVertices, int maxIndices, const VertexAttribute& attribute);
 
 	/** Creates a new Mesh with the given attributes.
 	 * 
