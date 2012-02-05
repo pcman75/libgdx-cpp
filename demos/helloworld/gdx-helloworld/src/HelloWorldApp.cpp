@@ -3,13 +3,12 @@
 
 HelloWorldApp::HelloWorldApp(void)
 {
-	//TODO:
-	create();
 }
 
 
 HelloWorldApp::~HelloWorldApp(void)
 {
+	dispose();
 }
 
 void HelloWorldApp::create ()

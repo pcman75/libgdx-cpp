@@ -96,7 +96,7 @@ void IndexBufferObject::bind ()
 		gl.glBindBuffer(GL11::GDX_GL_ELEMENT_ARRAY_BUFFER, m_bufferHandle);
 		if (m_isDirty) 
 		{
-			gl.glBufferData(GL11::GDX_GL_ELEMENT_ARRAY_BUFFER, m_numIndices, m_buffer, m_usage);
+			gl.glBufferData(GL11::GDX_GL_ELEMENT_ARRAY_BUFFER, m_numIndices * sizeof(short), m_buffer, m_usage);
 			m_isDirty = false;
 		}
 	} 
@@ -106,7 +106,7 @@ void IndexBufferObject::bind ()
 		gl.glBindBuffer(GL20::GDX_GL_ELEMENT_ARRAY_BUFFER, m_bufferHandle);
 		if (m_isDirty) 
 		{
-			gl.glBufferData(GL20::GDX_GL_ELEMENT_ARRAY_BUFFER, m_numIndices, m_buffer, m_usage);
+			gl.glBufferData(GL20::GDX_GL_ELEMENT_ARRAY_BUFFER, m_numIndices * sizeof(short), m_buffer, m_usage);
 			m_isDirty = false;
 		}
 	}

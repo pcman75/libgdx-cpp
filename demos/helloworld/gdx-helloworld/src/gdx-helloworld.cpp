@@ -12,7 +12,7 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
                      LPTSTR    lpCmdLine,
                      int       nCmdShow)
 {
-	WoglApplication(HelloWorldApp(), L"OpenGL Test", 400, 300, true);
+	WoglApplication(HelloWorldApp(), L"OpenGL Test", 400, 300, false);
     return 0;
 }
 

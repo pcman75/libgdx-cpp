@@ -6,7 +6,7 @@ class WoglGraphics : public Graphics
 {
 private:
 	ApplicationListener& m_listener;
-	bool m_useGL2;
+	bool m_useGL20;
 	bool created;
 	bool exclusiveMode;
 	//final JoglDisplayMode desktopMode;
@@ -14,7 +14,7 @@ private:
 	//String extensions;
 
 public:
-	WoglGraphics(ApplicationListener& listener/*, JoglApplicationConfiguration config*/);
+	WoglGraphics(ApplicationListener& listener, bool useGL20/*, JoglApplicationConfiguration config*/);
 	virtual ~WoglGraphics(void);
 
 	virtual bool isGL11Available ();

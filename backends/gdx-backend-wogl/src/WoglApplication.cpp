@@ -31,7 +31,7 @@ void WoglApplication::mainMessageLoop(HACCEL hAccelTable)
 WoglApplication::WoglApplication (ApplicationListener& listener, const wchar_t* title, int width, int height, bool useGL20IfAvailable)
 {
 	logLevel = LOG_INFO;
-	m_pGraphics = new WoglGraphics(listener);
+	m_pGraphics = new WoglGraphics(listener, useGL20IfAvailable);
 	m_pInput = new WoglInput();
 	m_pFiles = new WoglFiles();
 

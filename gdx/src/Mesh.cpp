@@ -220,14 +220,15 @@ void Mesh::render (int primitiveType, int offset, int count)
 	else 
 	{
 		if (m_indices->getNumIndices() > 0)
-			;
-		//TODO: what is this offset???
-		//Gdx.gl11->glDrawElements(primitiveType, count, GL10.GDX_GL_UNSIGNED_SHORT, offset * 2);
+		{
+			Gdx.gl11->glDrawElements(primitiveType, count, GL10::GDX_GL_UNSIGNED_SHORT, (void*)(offset * sizeof(short)));
+		}
 		else
 			Gdx.gl11->glDrawArrays(primitiveType, offset, count);
 	}
 
-	if (m_autoBind) unbind();
+	if (m_autoBind) 
+		unbind();
 }
 
 /** <p>

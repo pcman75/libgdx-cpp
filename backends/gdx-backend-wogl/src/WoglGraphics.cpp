@@ -6,8 +6,8 @@
 #include "Gdx.h"
 //#include <glew.h>
 
-WoglGraphics::WoglGraphics(ApplicationListener& listener)
-	:m_listener(listener),
+WoglGraphics::WoglGraphics(ApplicationListener& listener, bool useGL20)
+	:m_listener(listener), m_useGL20(useGL20),
 	m_major(-1), m_minor(0)
 	//TODO: Temporary
 	,mouseLeftDown(false), mouseRightDown(false),
@@ -36,9 +36,7 @@ WoglGraphics::~WoglGraphics(void)
 
 void WoglGraphics::initializeGLInstances() 
 {
-	//test
-	WoglGL20 ogl;
-	ogl.glCreateProgram();
+	WoglGLCommon ogl;
 
 	std::wstring version = ogl.glGetString(GL10::GDX_GL_VERSION);
 	std::wstring renderer = ogl.glGetString(GL10::GDX_GL_RENDERER);
@@ -47,9 +45,7 @@ void WoglGraphics::initializeGLInstances()
 	m_major = _wtoi(szVersion);
 	m_minor = _wtoi(szVersion + 2);
 
-	//TODO: useGL2
-	bool useGL2 = false;
-	if (useGL2 && m_major >= 2)
+	if (m_useGL20 && m_major >= 2)
 	{
 		m_pGL20 = new WoglGL20();
 		m_pGL = m_pGL20;	
@@ -211,6 +207,7 @@ bool WoglGraphics::supportsExtension (std::wstring extension)
 ///////////////////////////////////////////////////////////////////////////////
 void WoglGraphics::init()
 {
+	
 	glewInit();
 
 	glShadeModel(GL_SMOOTH);                        // shading mathod: GL_SMOOTH or GL_FLAT
@@ -238,7 +235,10 @@ void WoglGraphics::init()
 	initLights();
 	setCamera(0, 0, 10, 0, 0, 0);
 
+	
+
 	initializeGLInstances();
+	m_listener.create();
 }
 
 

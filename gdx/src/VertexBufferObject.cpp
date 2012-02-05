@@ -12,7 +12,6 @@
 VertexBufferObject::VertexBufferObject(bool isStatic, int numVertices, const VertexAttributes& attributes)
 	:m_attributes(attributes), m_isBound(false), m_numVertices(numVertices), m_isStatic(isStatic),	m_isDirty(false)
 {
-	//byteBuffer = ByteBuffer.allocateDirect(this.attributes.vertexSize * numVertices);
 	m_buffer = new float[m_attributes.size() / sizeof(float) * numVertices];
 	createBufferObject();
 	m_usage = isStatic ? GL11::GDX_GL_STATIC_DRAW : GL11::GDX_GL_DYNAMIC_DRAW;
@@ -100,7 +99,7 @@ void VertexBufferObject::bind()
 		{
 		case VertexAttributes::Position:
 			gl->glEnableClientState(GL11::GDX_GL_VERTEX_ARRAY);
-			gl->glVertexPointer(attribute.numComponents, GL10::GDX_GL_FLOAT, m_attributes.vertexSize(), &attribute.offset);
+			gl->glVertexPointer(attribute.numComponents, GL10::GDX_GL_FLOAT, m_attributes.vertexSize(), (void*)attribute.offset);
 			break;
 
 		case VertexAttributes::ColorPacked:
@@ -108,18 +107,18 @@ void VertexBufferObject::bind()
 			//don't break leave it to go trough, only color type is different
 		case VertexAttributes::Color:
 			gl->glEnableClientState(GL10::GDX_GL_COLOR_ARRAY);
-			gl->glColorPointer(attribute.numComponents, colorType, m_attributes.vertexSize(), &attribute.offset);
+			gl->glColorPointer(attribute.numComponents, colorType, m_attributes.vertexSize(), (void*)attribute.offset);
 			break;
 
 		case VertexAttributes::Normal:
 			gl->glEnableClientState(GL10::GDX_GL_NORMAL_ARRAY);
-			gl->glNormalPointer(GL10::GDX_GL_FLOAT, m_attributes.vertexSize(), &attribute.offset);
+			gl->glNormalPointer(GL10::GDX_GL_FLOAT, m_attributes.vertexSize(), (void*)attribute.offset);
 			break;
 
 		case VertexAttributes::TextureCoordinates:
 			gl->glClientActiveTexture(GL10::GDX_GL_TEXTURE0 + textureUnit);
 			gl->glEnableClientState(GL10::GDX_GL_TEXTURE_COORD_ARRAY);
-			gl->glTexCoordPointer(attribute.numComponents, GL10::GDX_GL_FLOAT, m_attributes.vertexSize(), &attribute.offset);
+			gl->glTexCoordPointer(attribute.numComponents, GL10::GDX_GL_FLOAT, m_attributes.vertexSize(), (void*)attribute.offset);
 			textureUnit++;
 			break;
 
