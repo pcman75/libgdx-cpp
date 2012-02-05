@@ -27,31 +27,19 @@
     <ClCompile Include="..\src\Gdx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\IndexBufferObject.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\Mesh.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\VertexArray.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\VertexBufferObject.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\GdxRuntimeException.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\VertexAttribute.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\VertexAttributes.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\src\BoundingBox.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\ShaderProgram.cpp">
+    <ClCompile Include="..\src\Color.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\IndexBufferObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\MathUtils.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\src\Matrix3.cpp">
@@ -60,55 +48,34 @@
     <ClCompile Include="..\src\Matrix4.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\Quaternion.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\Vector3.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\Vector2.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\MathUtils.cpp">
+    <ClCompile Include="..\src\Mesh.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\src\NumberUtils.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\Texture.cpp">
+    <ClCompile Include="..\src\Quaternion.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\gdx2d.c">
+    <ClCompile Include="..\src\ShaderProgram.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\stb_image.c">
+    <ClCompile Include="..\src\Vector2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\Gdx2DPixmap.cpp">
+    <ClCompile Include="..\src\Vector3.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\Color.cpp">
+    <ClCompile Include="..\src\VertexArray.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\Pixmap.cpp">
+    <ClCompile Include="..\src\VertexAttribute.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\ETC1Data.cpp">
+    <ClCompile Include="..\src\VertexAttributes.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\etc1_utils.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\ETC1.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\ETC1TextureData.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\FileTextureData.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\PixmapTextureData.cpp">
+    <ClCompile Include="..\src\VertexBufferObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -125,13 +92,7 @@
     <ClInclude Include="..\exp\ApplicationListener.h">
       <Filter>Exported Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\exp\Files.h">
-      <Filter>Exported Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\exp\Graphics.h">
-      <Filter>Exported Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\exp\Input.h">
       <Filter>Exported Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\exp\GdxDefines.h">
@@ -155,22 +116,19 @@
     <ClInclude Include="..\exp\GdxRuntimeException.h">
       <Filter>Exported Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\exp\VertexAttribute.h">
+    <ClInclude Include="..\exp\Input.h">
       <Filter>Exported Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\exp\VertexAttributes.h">
+    <ClInclude Include="..\exp\Files.h">
       <Filter>Exported Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\exp\VertexArray.h">
+    <ClInclude Include="..\exp\FileHandle.h">
       <Filter>Exported Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\exp\VertexData.h">
+    <ClInclude Include="..\exp\BoundingBox.h">
       <Filter>Exported Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\exp\VertexBufferObject.h">
-      <Filter>Exported Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\exp\Mesh.h">
+    <ClInclude Include="..\exp\Color.h">
       <Filter>Exported Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\exp\IndexBufferObject.h">
@@ -179,16 +137,7 @@
     <ClInclude Include="..\exp\IndexData.h">
       <Filter>Exported Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\exp\BoundingBox.h">
-      <Filter>Exported Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\exp\ShaderProgram.h">
-      <Filter>Exported Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\exp\Vector3.h">
-      <Filter>Exported Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\exp\Vector2.h">
+    <ClInclude Include="..\exp\MathUtils.h">
       <Filter>Exported Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\exp\Matrix3.h">
@@ -197,52 +146,37 @@
     <ClInclude Include="..\exp\Matrix4.h">
       <Filter>Exported Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\exp\Quaternion.h">
-      <Filter>Exported Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\exp\MathUtils.h">
+    <ClInclude Include="..\exp\Mesh.h">
       <Filter>Exported Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\exp\NumberUtils.h">
       <Filter>Exported Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\exp\Texture.h">
+    <ClInclude Include="..\exp\Quaternion.h">
       <Filter>Exported Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\exp\TextureData.h">
+    <ClInclude Include="..\exp\ShaderProgram.h">
       <Filter>Exported Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\exp\FileHandle.h">
+    <ClInclude Include="..\exp\Vector2.h">
       <Filter>Exported Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\exp\Pixmap.h">
+    <ClInclude Include="..\exp\Vector3.h">
       <Filter>Exported Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\incl\gdx2d.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\exp\Gdx2DPixmap.h">
+    <ClInclude Include="..\exp\VertexArray.h">
       <Filter>Exported Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\exp\Color.h">
+    <ClInclude Include="..\exp\VertexAttribute.h">
       <Filter>Exported Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\exp\ETC1.h">
+    <ClInclude Include="..\exp\VertexAttributes.h">
       <Filter>Exported Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\exp\ETC1Data.h">
+    <ClInclude Include="..\exp\VertexBufferObject.h">
       <Filter>Exported Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\exp\ETC1TextureData.h">
-      <Filter>Exported Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\incl\etc1_utils.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\exp\PixmapTextureData.h">
-      <Filter>Exported Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\exp\FileTextureData.h">
+    <ClInclude Include="..\exp\VertexData.h">
       <Filter>Exported Header Files</Filter>
     </ClInclude>
   </ItemGroup>

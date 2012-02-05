@@ -30,7 +30,7 @@ class GdxDllImportExport VertexAttribute
 public:
 	// don't change this!
 	int usage;
-	/** the number of components this attribute has don't change this! **/
+	/** the number of components this attribute has. don't change this! **/
 	int numComponents;
 	/** the offset of this attribute in bytes. don't change this!**/
 	int offset;

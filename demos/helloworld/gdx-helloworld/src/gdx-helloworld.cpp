@@ -7,32 +7,6 @@
 #include "WoglApplication.h"
 #include "HelloWorldApp.h"
 
-#include <string>
-
-/*
-class GLCommon
-{
-public:
-	virtual void f() = 0;
-};
-
-class GL10 : virtual public GLCommon
-{
-	virtual void f10() = 0;
-};
-
-class WoglGLCommon : virtual public GLCommon
-{
-public:
-	virtual void f() {};
-};
-
-class WoglGL10 : public WoglGLCommon, public GL10
-{
-public:
-	virtual void f10() {};
-};
-*/
 int APIENTRY _tWinMain(HINSTANCE hInstance,
                      HINSTANCE hPrevInstance,
                      LPTSTR    lpCmdLine,

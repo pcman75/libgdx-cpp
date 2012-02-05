@@ -1,7 +1,5 @@
 #include "StdAfx.h"
 #include "HelloWorldApp.h"
-#include "Mesh.h"
-#include "Gdx.h"
 
 HelloWorldApp::HelloWorldApp(void)
 {

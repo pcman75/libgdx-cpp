@@ -20,9 +20,8 @@
 class Files
 {
 public:
-	/** Indicates how to resolve a path to a file.
-	 * @author mzechner
-	 * @author Nathan Sweet */
+	/** Indicates how to resolve a path to a file*/
+	virtual ~Files() {}
 	 enum FileType 
 	 {
 	    /** Path relative to the root of the classpath. Classpath files are always readonly. Note that classpath files are not
