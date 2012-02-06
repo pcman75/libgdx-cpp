@@ -30,6 +30,10 @@ WoglGraphics::~WoglGraphics(void)
 		m_pGL10 = NULL;
 		m_pGL11 = NULL;
 		m_pGL20 = NULL;
+		Gdx.gl = NULL;
+		Gdx.gl10 = NULL;
+		Gdx.gl11 = NULL;
+		Gdx.gl20 = NULL;
 	}
 }
 

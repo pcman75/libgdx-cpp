@@ -27,6 +27,7 @@ void VertexBufferObject::createBufferObject()
 
 VertexBufferObject::~VertexBufferObject()
 {
+	//TODO: call dispose
 	if(m_buffer)
 	{
 		delete[] m_buffer;
@@ -228,20 +229,19 @@ void VertexBufferObject::invalidate()
 
 void VertexBufferObject::dispose()
 {
-	/* TODO:
-	if(Gdx.gl20 != NULL)
+	//TODO: check for multiple dispose
+	if(Gdx.gl20)
 	{
 		GL20* gl = Gdx.gl20;
 		gl->glBindBuffer(GL20::GDX_GL_ARRAY_BUFFER, 0);
 		gl->glDeleteBuffers(1, &m_bufferHandle);
 		m_bufferHandle = 0;
 	}
-	else
+	else if(Gdx.gl11)
 	{
 		GL11* gl = Gdx.gl11;
 		gl->glBindBuffer(GL11::GDX_GL_ARRAY_BUFFER, 0);
 		gl->glDeleteBuffers(1, &m_bufferHandle);
 		m_bufferHandle = 0;
 	}
-	*/
 };

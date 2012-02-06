@@ -68,8 +68,10 @@ public:
         }
 		bool isGL20Available();
 		bool isGL11Available();
+		~GdxClass();
     private:
         GdxClass();
+		
         //GdxClass(const GdxClass&);
         //void operator=(const GdxClass&);
 };
