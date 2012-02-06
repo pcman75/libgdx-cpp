@@ -12,7 +12,7 @@
 VertexBufferObject::VertexBufferObject(bool isStatic, int numVertices, const VertexAttributes& attributes)
 	:m_attributes(attributes), m_isBound(false), m_numVertices(numVertices), m_isStatic(isStatic),	m_isDirty(false)
 {
-	m_buffer = new float[m_attributes.size() / sizeof(float) * numVertices];
+	m_buffer = new float[m_attributes.vertexSize() / sizeof(float) * numVertices];
 	createBufferObject();
 	m_usage = isStatic ? GL11::GDX_GL_STATIC_DRAW : GL11::GDX_GL_DYNAMIC_DRAW;
 }
@@ -228,6 +228,7 @@ void VertexBufferObject::invalidate()
 
 void VertexBufferObject::dispose()
 {
+	/* TODO:
 	if(Gdx.gl20 != NULL)
 	{
 		GL20* gl = Gdx.gl20;
@@ -242,5 +243,5 @@ void VertexBufferObject::dispose()
 		gl->glDeleteBuffers(1, &m_bufferHandle);
 		m_bufferHandle = 0;
 	}
-
+	*/
 };

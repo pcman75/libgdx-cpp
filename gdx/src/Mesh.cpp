@@ -5,7 +5,7 @@
 #include "VertexArray.h"
 
 bool Mesh::forceVBO = false;
-std::list<Mesh> Mesh::m_meshes;
+std::list<Mesh*> Mesh::m_meshes;
 
 Mesh::Mesh(bool isStatic, int maxVertices, int maxIndices, const VertexAttribute& attribute) 
 {
@@ -23,7 +23,7 @@ Mesh::Mesh(bool isStatic, int maxVertices, int maxIndices, const VertexAttribute
 		m_isVertexArray = true;
 	}
 
-	addManagedMesh(*this);
+	addManagedMesh(this);
 }
 
 Mesh::Mesh(bool isStatic, int maxVertices, int maxIndices, const VertexAttributes& attributes) 
@@ -41,12 +41,22 @@ Mesh::Mesh(bool isStatic, int maxVertices, int maxIndices, const VertexAttribute
 		m_isVertexArray = true;
 	}
 
-	addManagedMesh(*this);
+	addManagedMesh(this);
 }
 
 Mesh::~Mesh(void)
 {
-
+	dispose();
+	if(m_vertices)
+	{
+		delete m_vertices;
+		m_vertices = NULL;
+	}
+	if(m_indices)
+	{
+		delete m_indices;
+		m_indices = NULL;
+	}
 }
 
 void Mesh::getVertices(float* vertices, int verticesLength)
@@ -70,13 +80,6 @@ void Mesh::init()
 	m_isVertexArray = true;
 	m_refCount = 0;
 }
-
-
-bool Mesh::operator==(const Mesh& other)
-{ 
-	return this == &other;
-}
-
 
 /** Creates a new Mesh with the given attributes. This is an expert method with no error checking. Use at your own risk.
 * 
@@ -296,11 +299,12 @@ if (autoBind) unbind(shader);
 
 void Mesh::dispose ()
 {
-	m_refCount--;
-	if (!m_refCount)
+	//TODO: who increase the refcount???
+	//m_refCount--;
+	//if (!m_refCount)
 	{
 		//TODO: costly to remove from a list!
-		m_meshes.remove(*this);
+		m_meshes.remove(this);
 		m_vertices->dispose();
 		m_indices->dispose();
 	}
@@ -389,7 +393,7 @@ short* Mesh::getIndicesBuffer ()
 	return m_indices->getBuffer();
 }
 
-void Mesh::addManagedMesh(const Mesh& mesh) 
+void Mesh::addManagedMesh(Mesh* mesh) 
 {
 	m_meshes.push_back(mesh);
 }
@@ -398,24 +402,15 @@ void Mesh::addManagedMesh(const Mesh& mesh)
 * @param app */
 void Mesh::invalidateAllMeshes() 
 {
-	std::list<Mesh>::iterator current = m_meshes.begin();
+	std::list<Mesh*>::iterator current = m_meshes.begin();
 	while (current != m_meshes.end())
 	{
-		/*TODO: implement it
-		current->vertices
-		*/
+		VertexBufferObject* vbo = dynamic_cast<VertexBufferObject*>((*current)->m_vertices);
+		if(vbo)
+			vbo->invalidate();
+		(*current)->m_indices->invalidate();
 		current++;
 	}
-	/*
-	List<Mesh> meshesList = meshes.get(app);
-	if (meshesList == NULL) return;
-	for (int i = 0; i < meshesList.size(); i++) {
-	if (meshesList.get(i).vertices instanceof VertexBufferObject) {
-	((VertexBufferObject)meshesList.get(i).vertices).invalidate();
-	meshesList.get(i).indices.invalidate();
-	}
-	}
-	*/
 }
 
 /** Will clear the managed mesh cache. I wouldn't use this if i was you :) */

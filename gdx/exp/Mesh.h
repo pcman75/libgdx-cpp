@@ -64,7 +64,7 @@ private:
 	/** list of all meshes **/
 	//TODO: single application is not enough???
 	//static final Map<Application, List<Mesh>> meshes = new HashMap<Application, List<Mesh>>();
-	static std::list<Mesh> m_meshes;
+	static std::list<Mesh*> m_meshes;
 	VertexData* m_vertices;
 	IndexData* m_indices;
 	bool m_autoBind;
@@ -77,10 +77,6 @@ private:
 	
 
 public:
-
-	//TODO: necessary to be able to add Mesh in list
-	//it compares Mesh instances not their content. Do not use it for something else!
-	bool operator==(const Mesh& other);
 
 	/** Creates a new Mesh with the given attributes.
 	 * 
@@ -129,7 +125,7 @@ public:
 	}
 	*/
 
-	Mesh::~Mesh();
+	~Mesh();
 
 	/** Sets the vertices of this Mesh. The attributes are assumed to be given in float format. If this mesh is configured to use
 	 * fixed point an IllegalArgumentException will be thrown.
@@ -306,7 +302,7 @@ public:
 	short* getIndicesBuffer ();
 
 private:
-	static void addManagedMesh(const Mesh& mesh);
+	static void addManagedMesh(Mesh* mesh);
 
 	/** Invalidates all meshes so the next time they are rendered new VBO handles are generated.
 	 * @param app */

@@ -134,6 +134,7 @@ void IndexBufferObject::invalidate ()
 
 void IndexBufferObject::dispose () 
 {
+	/* TODO:
 	if (Gdx.isGL20Available()) 
 	{
 		GL20& gl = *Gdx.gl20;
@@ -148,4 +149,5 @@ void IndexBufferObject::dispose ()
 		gl.glDeleteBuffers(1, &m_bufferHandle);
 		m_bufferHandle = 0;
 	}
+	*/
 }

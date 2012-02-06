@@ -61,8 +61,11 @@ public:
 	/** Disposes this VertexData and all its associated OpenGL resources. */
 	virtual void dispose();
 
+	/** Invalidates the VertexBufferObject so a new OpenGL buffer handle is created. Use this in case of a context loss. */
+	void invalidate();
+
 private:
 	void createBufferObject();
-	void invalidate();
+	
 };
 
