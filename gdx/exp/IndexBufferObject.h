@@ -63,12 +63,6 @@ public:
 	/** @return the number of indices currently stored in this m_buffer */
 	int getNumIndices ();
 
-	/** @return the maximum number of indices this IndexBufferObject can store. 
-	public int getNumMaxIndices () {
-	return m_buffer.capacity();
-	}
-	*/
-
 	/** <p>
 	* Sets the indices of this IndexBufferObject, discarding the old indices. The count must equal the number of indices to be
 	* copied to this IndexBufferObject.

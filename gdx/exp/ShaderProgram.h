@@ -132,14 +132,13 @@ private:
 	 *
 	 * @param vertexShader the vertex shader
 	 * @param fragmentShader the fragment shader */
-
+public:
 	ShaderProgram (const std::wstring& vertexShader, const std::wstring& fragmentShader);
 
 	/** Loads and compiles the shaders, creates a new program and links the shaders.
 	 *
 	 * @param vertexShader
 	 * @param fragmentShader */
-private:
 	void compileShaders (const std::wstring& vertexShader, const std::wstring& fragmentShader);
 
 	int loadShader (int type, const std::wstring& source);

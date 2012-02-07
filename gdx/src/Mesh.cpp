@@ -4,6 +4,7 @@
 #include "IndexBufferObject.h"
 #include "VertexArray.h"
 
+
 bool Mesh::forceVBO = false;
 std::list<Mesh*> Mesh::m_meshes;
 
@@ -150,26 +151,31 @@ void Mesh::unbind ()
 * ES 2.0 and when auto-bind is disabled.
 * 
 * @param shader the shader (does not bind the shader) */
-/*
-void bind (ShaderProgram shader) {
-if (!Gdx.graphics.isGL20Available()) throw new IllegalStateException("can't use this render method with OpenGL ES 1.x");
 
-((VertexBufferObject)vertices).bind(shader);
-if (indices.getNumIndices() > 0) indices.bind();
+void Mesh::bind(ShaderProgram& shader) 
+{
+	if (!Gdx.graphics->isGL20Available()) 
+		throw new GdxRuntimeException("can't use this render method with OpenGL ES 1.x");
+
+	((VertexBufferObject*)m_vertices)->bind(shader);
+	if (m_indices->getNumIndices() > 0) 
+		m_indices->bind();
 }
-*/
+
 /** Unbinds the underlying {@link VertexBufferObject} and {@link IndexBufferObject} is indices were given. Use this with OpenGL
 * ES 1.x and when auto-bind is disabled.
 * 
 * @param shader the shader (does not unbind the shader) */
-/*
-void unbind (ShaderProgram shader) {
-if (!Gdx.graphics.isGL20Available()) throw new IllegalStateException("can't use this render method with OpenGL ES 1.x");
 
-((VertexBufferObject)vertices).unbind(shader);
-if (indices.getNumIndices() > 0) indices.unbind();
+void Mesh::unbind(ShaderProgram& shader) 
+{
+	if (!Gdx.graphics->isGL20Available()) 
+		throw new GdxRuntimeException("can't use this render method with OpenGL ES 1.x");
+
+	((VertexBufferObject*)m_vertices)->unbind(shader);
+	if (m_indices->getNumIndices() > 0) 
+		m_indices->unbind();
 }
-*/
 
 void Mesh::render (int primitiveType) 
 {
@@ -227,12 +233,12 @@ void Mesh::render (int primitiveType, int offset, int count)
 * </p>
 * 
 * @param primitiveType the primitive type */
-/*
-void render (ShaderProgram shader, int primitiveType) 
+
+void Mesh::render (ShaderProgram& shader, int primitiveType) 
 {
-render(shader, primitiveType, 0, indices.getNumMaxIndices() > 0 ? getNumIndices() : getNumVertices());
+	render(shader, primitiveType, 0, m_indices->getNumIndices() > 0 ? getNumIndices() : getNumVertices());
 }
-*/
+
 /** <p>
 * Renders the mesh using the given primitive type. offset specifies the offset into either the vertex buffer or the index
 * buffer depending on whether indices are defined. count specifies the number of vertices or indices to use thus count /
@@ -256,20 +262,24 @@ render(shader, primitiveType, 0, indices.getNumMaxIndices() > 0 ? getNumIndices(
 * @param primitiveType the primitive type
 * @param offset the offset into the vertex or index buffer
 * @param count number of vertices or indices to use */
-/*
-void render (ShaderProgram shader, int primitiveType, int offset, int count) {
-if (!Gdx.graphics.isGL20Available()) throw new IllegalStateException("can't use this render method with OpenGL ES 1.x");
 
-if (autoBind) bind(shader);
+void Mesh::render(ShaderProgram& shader, int primitiveType, int offset, int count) 
+{
+	if (!Gdx.graphics->isGL20Available()) 
+		throw new GdxRuntimeException("can't use this render method with OpenGL ES 1.x");
 
-if (indices.getNumIndices() > 0)
-Gdx.gl20.glDrawElements(primitiveType, count, GL10.GL_UNSIGNED_SHORT, offset * 2);
-else
-Gdx.gl20.glDrawArrays(primitiveType, offset, count);
+	if (m_autoBind) 
+		bind(shader);
 
-if (autoBind) unbind(shader);
+	if (m_indices->getNumIndices() > 0)
+		Gdx.gl20->glDrawElements(primitiveType, count, GL10::GDX_GL_UNSIGNED_SHORT, offset * 2);
+	else
+		Gdx.gl20->glDrawArrays(primitiveType, offset, count);
+
+	if (m_autoBind) 
+		unbind(shader);
 }
-*/
+
 
 void Mesh::dispose ()
 {

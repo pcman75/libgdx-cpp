@@ -135,16 +135,15 @@ void VertexBufferObject::bind()
 /** Binds this VertexBufferObject for rendering via glDrawArrays or glDrawElements
 *
 * @param shader the shader */
-/*
-void VertexBufferObject::bind(ShaderProgram shader)
+void VertexBufferObject::bind(ShaderProgram& shader)
 {
-	GL20 gl = Gdx.gl20;
+	GL20* gl = Gdx.gl20;
+	int bufferSizeInBytes = m_attributes.vertexSize() * m_numVertices;
 
-	gl->glBindBuffer(GL20.GL_ARRAY_BUFFER, m_bufferHandle);
+	gl->glBindBuffer(GL20::GDX_GL_ARRAY_BUFFER, m_bufferHandle);
 	if(m_isDirty)
 	{
-		byteBuffer.limit(m_buffer.limit() * 4);
-		gl->glBufferData(GL20.GL_ARRAY_BUFFER, byteBuffer.limit(), byteBuffer, usage);
+		gl->glBufferData(GL20::GDX_GL_ARRAY_BUFFER, bufferSizeInBytes, m_buffer, m_usage);
 		m_isDirty = false;
 	}
 
@@ -153,11 +152,11 @@ void VertexBufferObject::bind(ShaderProgram shader)
 	{
 		VertexAttribute attribute = m_attributes.get(i);
 		shader.enableVertexAttribute(attribute.alias);
-		int colorType = GL20.GL_FLOAT;
+		int colorType = GL20::GDX_GL_FLOAT;
 		bool normalize = false;
 		if(attribute.usage == VertexAttributes::ColorPacked)
 		{
-			colorType = GL20.GL_UNSIGNED_BYTE;
+			colorType = GL20::GDX_GL_UNSIGNED_BYTE;
 			normalize = true;
 		}
 		shader.setVertexAttribute(attribute.alias, attribute.numComponents, colorType, normalize, m_attributes.vertexSize(),
@@ -165,7 +164,6 @@ void VertexBufferObject::bind(ShaderProgram shader)
 	}
 	m_isBound = true;
 }
-*/
 
 
 void VertexBufferObject::unbind()
@@ -204,20 +202,19 @@ void VertexBufferObject::unbind()
 /** Unbinds this VertexBufferObject.
 *
 * @param shader the shader */
-/*
-void VertexBufferObject::unbind(ShaderProgram shader)
+
+void VertexBufferObject::unbind(ShaderProgram& shader)
 {
-	GL20 gl = Gdx.gl20;
+	GL20* gl = Gdx.gl20;
 	int numAttributes = m_attributes.size();
 	for(int i = 0; i < numAttributes; i++)
 	{
-		VertexAttribute attribute = m_attributes.get(i);
+		const VertexAttribute& attribute = m_attributes.get(i);
 		shader.disableVertexAttribute(attribute.alias);
 	}
-	gl->glBindBuffer(GL20.GL_ARRAY_BUFFER, 0);
+	gl->glBindBuffer(GL20::GDX_GL_ARRAY_BUFFER, 0);
 	m_isBound = false;
 }
-*/
 
 /** Invalidates the VertexBufferObject so a new OpenGL m_buffer handle is created. Use this in case of a context loss. */
 void VertexBufferObject::invalidate()

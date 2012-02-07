@@ -1,6 +1,7 @@
 #pragma once
 #include "vertexdata.h"
 #include "VertexAttributes.h"
+#include "ShaderProgram.h"
 
 class VertexBufferObject
 	:	public VertexData
@@ -54,9 +55,11 @@ public:
 
 	/** Binds this VertexData for rendering via glDrawArrays or glDrawElements. */
 	virtual void bind();
+	void bind(ShaderProgram& shader);
 
 	/** Unbinds this VertexData. */
 	virtual void unbind();
+	void unbind(ShaderProgram& shader);
 
 	/** Disposes this VertexData and all its associated OpenGL resources. */
 	virtual void dispose();
