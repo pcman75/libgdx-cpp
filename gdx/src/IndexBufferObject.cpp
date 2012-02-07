@@ -134,20 +134,18 @@ void IndexBufferObject::invalidate ()
 
 void IndexBufferObject::dispose () 
 {
-	/* TODO:
-	if (Gdx.isGL20Available()) 
+	if (Gdx.gl20) 
 	{
 		GL20& gl = *Gdx.gl20;
 		gl.glBindBuffer(GL20::GDX_GL_ELEMENT_ARRAY_BUFFER, 0);
 		gl.glDeleteBuffers(1, &m_bufferHandle);
 		m_bufferHandle = 0;
 	} 
-	else if (Gdx.isGL11Available()) 
+	else if (Gdx.gl11) 
 	{
 		GL11& gl = *Gdx.gl11;
 		gl.glBindBuffer(GL11::GDX_GL_ELEMENT_ARRAY_BUFFER, 0);
 		gl.glDeleteBuffers(1, &m_bufferHandle);
 		m_bufferHandle = 0;
 	}
-	*/
 }
