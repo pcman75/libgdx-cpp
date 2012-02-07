@@ -18,27 +18,13 @@
 #include "VertexAttributes.h"
 #include "Gdx.h"
 
-/*
-VertexArray::VertexArray (int numVertices, VertexAttribute... attributes) 
-{
-this(numVertices, new VertexAttributes(attributes));
-}
-*/
-
 /** Constructs a new interleaved VertexArray
 * 
 * @param numVertices the number of vertices
 * @param attributes the {@link VertexAttributes} */
-VertexArray::VertexArray(int numVertices, const VertexAttributes& attributes)
-	:m_attributes(attributes), m_isBound(false), m_numVertices(numVertices)
+VertexArray::VertexArray(const VertexAttributes& attributes)
+	:m_attributes(attributes), m_isBound(false), m_numVertices(0), m_buffer(NULL)
 {
-	m_buffer = new float[m_attributes.vertexSize() / sizeof(float) * numVertices];
-	
-	//byteBuffer = ByteBuffer.allocateDirect(this.attributes.size() * numVertices);
-	//byteBuffer.order(ByteOrder.nativeOrder());
-	//buffer = byteBuffer.asFloatBuffer();
-	//buffer.flip();
-	//byteBuffer.flip();
 }
 
 void VertexArray::dispose() 
@@ -56,9 +42,10 @@ int VertexArray::getNumVertices ()
 }
 
 
-void VertexArray::setVertices(const float* vertices, int offset, int count) 
+void VertexArray::setVertices(const float* vertices, int count) 
 {
-	//TODO: offset
+	m_numVertices = count;
+	m_buffer = new float[m_attributes.vertexSize() / sizeof(float) * count];
 	memcpy(m_buffer, vertices, count * sizeof(float));
 }
 
@@ -69,7 +56,6 @@ void VertexArray::bind ()
 	int textureUnit = 0;
 	char* byteBuffer = (char*)m_buffer;
 	int colorType = GL10::GDX_GL_FLOAT;
-	//byteBuffer.limit(buffer.limit() * 4);
 
 	for (int i = 0; i < m_attributes.size(); i++) 
 	{

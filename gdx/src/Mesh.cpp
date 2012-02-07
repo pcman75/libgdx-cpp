@@ -7,37 +7,37 @@
 bool Mesh::forceVBO = false;
 std::list<Mesh*> Mesh::m_meshes;
 
-Mesh::Mesh(bool isStatic, int maxVertices, int maxIndices, const VertexAttribute& attribute) 
+Mesh::Mesh(bool isStatic,const VertexAttribute& attribute) 
 {
 	VertexAttributes attributes(&attribute, 1);
 	if (Gdx.gl20 != NULL || Gdx.gl11 != NULL || forceVBO) 
 	{
-		m_vertices = new VertexBufferObject(isStatic, maxVertices, attributes);
-		m_indices = new IndexBufferObject(isStatic, maxIndices);
+		m_vertices = new VertexBufferObject(isStatic, attributes);
+		m_indices = new IndexBufferObject(isStatic);
 		m_isVertexArray = false;
 	} 
 	else 
 	{
-		m_vertices = new VertexArray(maxVertices, attributes);
-		m_indices = new IndexBufferObject(maxIndices);
+		m_vertices = new VertexArray(attributes);
+		m_indices = new IndexBufferObject(isStatic);
 		m_isVertexArray = true;
 	}
 
 	addManagedMesh(this);
 }
 
-Mesh::Mesh(bool isStatic, int maxVertices, int maxIndices, const VertexAttributes& attributes) 
+Mesh::Mesh(bool isStatic, const VertexAttributes& attributes) 
 {
 	if (Gdx.gl20 != NULL || Gdx.gl11 != NULL || forceVBO) 
 	{
-		m_vertices = new VertexBufferObject(isStatic, maxVertices, attributes);
-		m_indices = new IndexBufferObject(isStatic, maxIndices);
+		m_vertices = new VertexBufferObject(isStatic, attributes);
+		m_indices = new IndexBufferObject(isStatic);
 		m_isVertexArray = false;
 	} 
 	else 
 	{
-		m_vertices = new VertexArray(maxVertices, attributes);
-		m_indices = new IndexBufferObject(maxIndices);
+		m_vertices = new VertexArray(attributes);
+		m_indices = new IndexBufferObject(isStatic);
 		m_isVertexArray = true;
 	}
 
@@ -57,19 +57,6 @@ Mesh::~Mesh(void)
 		delete m_indices;
 		m_indices = NULL;
 	}
-}
-
-void Mesh::getVertices(float* vertices, int verticesLength)
-{
-	/*TODO:
-	if (vertices.length < getNumVertices() * getVertexSize() / 4)
-	throw new IllegalArgumentException("not enough room in vertices array, has " + vertices.length + " floats, needs "
-	+ getNumVertices() * getVertexSize() / 4);
-	int pos = getVerticesBuffer().position();
-	getVerticesBuffer().position(0);
-	getVerticesBuffer().get(vertices, 0, getNumVertices() * getVertexSize() / 4);
-	getVerticesBuffer().position(pos);
-	*/
 }
 
 void Mesh::init()
@@ -110,27 +97,14 @@ addManagedMesh(Gdx.app, this);
 }
 */
 
-void Mesh::setVertices(const float* vertices, int offset, int verticesLength) 
+void Mesh::setVertices(const float* vertices, int verticesLength) 
 {
-	m_vertices->setVertices(vertices, offset, verticesLength);
+	m_vertices->setVertices(vertices, verticesLength);
 }
 
-void Mesh::setIndices (const short* indices, int offset, int count) 
+void Mesh::setIndices (const short* indices, int count) 
 {
-	m_indices->setIndices(indices, offset, count);
-}
-
-void Mesh::getIndices(short* indices, int indicesLength) 
-{
-	/*
-	if (indices.length < getNumIndices())
-	throw new IllegalArgumentException("not enough room in indices array, has " + indices.length + " floats, needs "
-	+ getNumIndices());
-	int pos = getIndicesBuffer().position();
-	getIndicesBuffer().position(0);
-	getIndicesBuffer().get(indices, 0, getNumIndices());
-	getIndicesBuffer().position(pos);
-	*/
+	m_indices->setIndices(indices, count);
 }
 
 int Mesh::getNumIndices () 
@@ -449,7 +423,7 @@ void Mesh::scale (float scaleX, float scaleY, float scaleZ)
 	int vertexSize = getVertexSize() / 4;
 
 	float* vertices = new float[numVertices * vertexSize];
-	getVertices(vertices, numVertices * vertexSize);
+	memcpy(vertices, m_vertices->getBuffer(), sizeof(float) * numVertices * vertexSize);
 
 	int idx = offset;
 	switch (numComponents) 
@@ -479,7 +453,6 @@ void Mesh::scale (float scaleX, float scaleY, float scaleZ)
 		}
 		break;
 	}
-
-	//TODO: what is offset???
-	setVertices(vertices, 0, numVertices * vertexSize);
+	setVertices(vertices, numVertices * vertexSize);
+	delete [] vertices;
 }

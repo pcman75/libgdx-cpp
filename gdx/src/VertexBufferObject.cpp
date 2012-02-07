@@ -9,10 +9,9 @@
 * @param isStatic whether the vertex data is static.
 * @param numVertices the maximum number of vertices
 * @param attributes the {@link VertexAttributes}. */
-VertexBufferObject::VertexBufferObject(bool isStatic, int numVertices, const VertexAttributes& attributes)
-	:m_attributes(attributes), m_isBound(false), m_numVertices(numVertices), m_isStatic(isStatic),	m_isDirty(false)
+VertexBufferObject::VertexBufferObject(bool isStatic, const VertexAttributes& attributes)
+	:m_attributes(attributes), m_isBound(false), m_numVertices(0), m_isStatic(isStatic), m_buffer(NULL), m_isDirty(false)
 {
-	m_buffer = new float[m_attributes.vertexSize() / sizeof(float) * numVertices];
 	createBufferObject();
 	m_usage = isStatic ? GL11::GDX_GL_STATIC_DRAW : GL11::GDX_GL_DYNAMIC_DRAW;
 }
@@ -27,7 +26,7 @@ void VertexBufferObject::createBufferObject()
 
 VertexBufferObject::~VertexBufferObject()
 {
-	//TODO: call dispose
+	//TODO: call dispose???
 	if(m_buffer)
 	{
 		delete[] m_buffer;
@@ -52,8 +51,10 @@ float* VertexBufferObject::getBuffer()
 	return m_buffer;
 }
 
-void VertexBufferObject::setVertices(const float* vertices, int offset, int count)
+void VertexBufferObject::setVertices(const float* vertices, int count)
 {
+	m_buffer = new float[m_attributes.vertexSize() / sizeof(float) * count];
+	m_numVertices = count;
 	memcpy(m_buffer, vertices, count * sizeof(float));
 	m_isDirty = true;
 	int bufferSizeInBytes = m_attributes.vertexSize() * m_numVertices;

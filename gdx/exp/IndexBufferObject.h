@@ -55,16 +55,10 @@ private:
 public:
 	/** Creates a new IndexBufferObject.
 	* 
-	* @param isStatic whether the index m_buffer is static
-	* @param maxIndices the maximum number of indices this m_buffer can hold */
-	IndexBufferObject(bool isStatic, int numIndices); 
+	* @param isStatic whether the index m_buffer is static*/
+	IndexBufferObject(bool isStatic); 
 
-	/** Creates a new IndexBufferObject to be used with vertex arrays.
-	* 
-	* @param maxIndices the maximum number of indices this m_buffer can hold */
-	IndexBufferObject (int numIndices);
-
-	virtual ~IndexBufferObject(void);
+	virtual ~IndexBufferObject();
 
 	/** @return the number of indices currently stored in this m_buffer */
 	int getNumIndices ();
@@ -87,7 +81,7 @@ public:
 	* @param indices the vertex data
 	* @param offset the offset to start copying the data from
 	* @param count the number of shorts to copy */
-	void setIndices (const short* indices, int offset, int count);
+	void setIndices (const short* indices, int count);
 
 	/** <p>
 	* Returns the underlying ShortBuffer. If you modify the m_buffer contents they wil be uploaded on the call to {@link #bind()}.
@@ -112,6 +106,6 @@ public:
 private:
 	IndexBufferObject(const IndexBufferObject&);
     void operator=(const IndexBufferObject&);
-	void init(int numIndices);
+	void init();
 	int createBufferObject();
 };

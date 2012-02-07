@@ -40,7 +40,7 @@ public:
 	 * @param indices the vertex data
 	 * @param offset the offset to start copying the data from
 	 * @param count the number of indices to copy */
-	 virtual void setIndices (const short* indices, int offset, int count) = 0;
+	 virtual void setIndices (const short* indices, int count) = 0;
 
 	/** <p>
 	 * Returns the underlying ShortBuffer. If you modify the buffer contents they wil be uploaded on the call to {@link #bind()}.

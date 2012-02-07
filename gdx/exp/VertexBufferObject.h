@@ -18,7 +18,7 @@ private:
 	bool m_isBound;
 
 public:
-	VertexBufferObject(bool isStatic, int numVertices, const VertexAttributes& attributes);
+	VertexBufferObject(bool isStatic, const VertexAttributes& attributes);
 	virtual ~VertexBufferObject();
 
 	virtual int getNumVertices();
@@ -42,7 +42,7 @@ public:
 	 * @param vertices the vertex data
 	 * @param offset the offset to start copying the data from
 	 * @param count the number of floats to copy */
-	virtual void setVertices(const float* vertices, int offset, int count);
+	virtual void setVertices(const float* vertices, int count);
 
 	/** <p>
 	 * Returns the underlying FloatBuffer. If you modify the buffer contents they will be uploaded on the next call to

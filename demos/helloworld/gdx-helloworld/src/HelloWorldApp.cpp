@@ -14,11 +14,11 @@ HelloWorldApp::~HelloWorldApp(void)
 void HelloWorldApp::create ()
 {
 	VertexAttribute attrib(VertexAttributes::Position, 3, L"a_position");
-	m_mesh = new Mesh(true, 3, 3, attrib);
+	m_mesh = new Mesh(true, attrib);
 	float vertices[] = {-0.5f, -0.5f, 0, 0.5f, -0.5f, 0, 0, 0.5f, 0};
 	short indices[] = {0, 1, 2};
-	m_mesh->setVertices(vertices, 0, sizeof(vertices)/sizeof(vertices[0]));
-	m_mesh->setIndices(indices, 0, sizeof(indices)/sizeof(indices[0]));
+	m_mesh->setVertices(vertices, sizeof(vertices)/sizeof(vertices[0]));
+	m_mesh->setIndices(indices, sizeof(indices)/sizeof(indices[0]));
 }
 
 void HelloWorldApp::resize (int width, int height){}

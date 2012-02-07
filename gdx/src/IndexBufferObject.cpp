@@ -1,23 +1,18 @@
 #include "StdAfx.h"
 #include "IndexBufferObject.h"
 
-IndexBufferObject::IndexBufferObject(bool isStatic, int numIndices) 
+IndexBufferObject::IndexBufferObject(bool isStatic) 
 {
-	init(numIndices);
+	init();
 	m_usage = isStatic ? GL11::GDX_GL_STATIC_DRAW : GL11::GDX_GL_DYNAMIC_DRAW;
 }
 
-IndexBufferObject::IndexBufferObject (int numIndices) 
-{
-	init(numIndices);
-}
-
-void IndexBufferObject::init(int numIndices)
+void IndexBufferObject::init()
 {
 	m_isDirty = true;
 	m_isBound = false;
-	m_buffer = new short[numIndices];
-	m_numIndices = numIndices;
+	m_buffer = NULL;
+	m_numIndices = 0;
 	m_isDirect = true;
 
 	m_bufferHandle = createBufferObject();
@@ -54,13 +49,13 @@ int IndexBufferObject::getNumIndices ()
 	return m_numIndices;
 }
 
-void IndexBufferObject::setIndices (const short* indices, int offset, int count) 
+void IndexBufferObject::setIndices (const short* indices, int count) 
 {
+	m_numIndices = count;
+	m_buffer = new short[m_numIndices];
 	m_isDirty = true;
-	if(offset + count > m_numIndices)
-		throw new GdxRuntimeException("Indices buffer overrun. Check offset and count");
 
-	memcpy(m_buffer, indices + offset, count * sizeof(indices[0]));
+	memcpy(m_buffer, indices, count * sizeof(indices[0]));
 
 	if(m_isBound)
 	{

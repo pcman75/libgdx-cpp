@@ -12,7 +12,7 @@ private:
 	int m_numVertices;
 
 public:
-	VertexArray(int numVertices, const VertexAttributes& attributes);
+	VertexArray(const VertexAttributes& attributes);
 	virtual ~VertexArray(void);
 
 	/** @return the number of vertices this VertexData stores */
@@ -37,7 +37,7 @@ public:
 	 * @param vertices the vertex data
 	 * @param offset the offset to start copying the data from
 	 * @param count the number of floats to copy */
-	virtual void setVertices(const float* vertices, int offset, int count);
+	virtual void setVertices(const float* vertices, int count);
 
 	/** <p>
 	 * Returns the underlying FloatBuffer. If you modify the buffer contents they will be uploaded on the next call to

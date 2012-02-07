@@ -85,7 +85,7 @@ public:
 	 * @param maxIndices the maximum number of indices this mesh can hold
 	 * @param attributes the {@link VertexAttribute}s. Each vertex attribute defines one property of a vertex such as position,
 	 *           normal or texture coordinate */
-	Mesh(bool isStatic, int maxVertices, int maxIndices, const VertexAttribute& attribute);
+	Mesh(bool isStatic, const VertexAttribute& attribute);
 
 	/** Creates a new Mesh with the given attributes.
 	 * 
@@ -94,7 +94,7 @@ public:
 	 * @param maxIndices the maximum number of indices this mesh can hold
 	 * @param attributes the {@link VertexAttributes}. Each vertex attribute defines one property of a vertex such as position,
 	 *           normal or texture coordinate */
-	Mesh (bool isStatic, int maxVertices, int maxIndices, const VertexAttributes& attributes);
+	Mesh (bool isStatic, const VertexAttributes& attributes);
 
 	/** Creates a new Mesh with the given attributes. This is an expert method with no error checking. Use at your own risk.
 	 * 
@@ -131,18 +131,14 @@ public:
 	 * fixed point an IllegalArgumentException will be thrown.
 	 * 
 	 * @param vertices the vertices. */
-	void setVertices(const float* vertices, int offset, int verticesLength);
-
-	/** Copies the vertices from the Mesh to the float array. The float array must be large enough to hold all the Mesh's vertices.
-	 * @param vertices the array to copy the vertices to */
-	void getVertices(float* vertices, int verticesLength);
+	void setVertices(const float* vertices, int verticesLength);
 
 	/** Sets the indices of this Mesh.
 	 * 
 	 * @param indices the indices
 	 * @param offset the offset into the indices array
 	 * @param count the number of indices to copy */
-	void setIndices (const short* indices, int offset, int count);
+	void setIndices (const short* indices, int count);
 
 	/** Copies the indices from the Mesh to the short array. The short array must be large enough to hold all the Mesh's indices.
 	 * @param indices the array to copy the indices to */
@@ -301,6 +297,14 @@ public:
 	/** @return the backing shortbuffer holding the indices. Does not have to be a direct buffer on Android! */
 	short* getIndicesBuffer ();
 
+		/** Method to scale the positions in the mesh. Normals will be kept as is. This is a potentially slow operation, use with care.
+	 * It will also create a temporary float[] which will be garbage collected.
+	 * 
+	 * @param scaleX scale on x
+	 * @param scaleY scale on y
+	 * @param scaleZ scale on z */
+	void scale (float scaleX, float scaleY, float scaleZ);
+
 private:
 	static void addManagedMesh(Mesh* mesh);
 
@@ -314,12 +318,4 @@ private:
 	/*
 	static String getManagedStatus ();
 	*/
-
-	/** Method to scale the positions in the mesh. Normals will be kept as is. This is a potentially slow operation, use with care.
-	 * It will also create a temporary float[] which will be garbage collected.
-	 * 
-	 * @param scaleX scale on x
-	 * @param scaleY scale on y
-	 * @param scaleZ scale on z */
-	void scale (float scaleX, float scaleY, float scaleZ);
 };
