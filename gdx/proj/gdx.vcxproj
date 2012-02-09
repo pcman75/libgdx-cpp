@@ -77,7 +77,20 @@
     <ClCompile Include="..\src\BoundingBox.cpp" />
     <ClCompile Include="..\src\Color.cpp" />
     <ClCompile Include="..\src\dllmain.cpp" />
+    <ClCompile Include="..\src\ETC1.cpp" />
+    <ClCompile Include="..\src\ETC1Data.cpp" />
+    <ClCompile Include="..\src\ETC1TextureData.cpp" />
+    <ClCompile Include="..\src\etc1_utils.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\src\FileTextureData.cpp" />
     <ClCompile Include="..\src\Gdx.cpp" />
+    <ClCompile Include="..\src\gdx2d.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\src\Gdx2DPixmap.cpp" />
     <ClCompile Include="..\src\GdxRuntimeException.cpp" />
     <ClCompile Include="..\src\IndexBufferObject.cpp" />
     <ClCompile Include="..\src\MathUtils.cpp" />
@@ -85,12 +98,19 @@
     <ClCompile Include="..\src\Matrix4.cpp" />
     <ClCompile Include="..\src\Mesh.cpp" />
     <ClCompile Include="..\src\NumberUtils.cpp" />
+    <ClCompile Include="..\src\Pixmap.cpp" />
+    <ClCompile Include="..\src\PixmapTextureData.cpp" />
     <ClCompile Include="..\src\Quaternion.cpp" />
     <ClCompile Include="..\src\ShaderProgram.cpp" />
+    <ClCompile Include="..\src\stb_image.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
     <ClCompile Include="..\src\stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="..\src\Texture.cpp" />
     <ClCompile Include="..\src\Vector2.cpp" />
     <ClCompile Include="..\src\Vector3.cpp" />
     <ClCompile Include="..\src\VertexArray.cpp" />
@@ -103,9 +123,14 @@
     <ClInclude Include="..\exp\ApplicationListener.h" />
     <ClInclude Include="..\exp\BoundingBox.h" />
     <ClInclude Include="..\exp\Color.h" />
+    <ClInclude Include="..\exp\ETC1.h" />
+    <ClInclude Include="..\exp\ETC1Data.h" />
+    <ClInclude Include="..\exp\ETC1TextureData.h" />
     <ClInclude Include="..\exp\FileHandle.h" />
     <ClInclude Include="..\exp\Files.h" />
+    <ClInclude Include="..\exp\FileTextureData.h" />
     <ClInclude Include="..\exp\Gdx.h" />
+    <ClInclude Include="..\exp\Gdx2DPixmap.h" />
     <ClInclude Include="..\exp\GdxDefines.h" />
     <ClInclude Include="..\exp\GdxRuntimeException.h" />
     <ClInclude Include="..\exp\GL10.h" />
@@ -121,8 +146,12 @@
     <ClInclude Include="..\exp\Matrix4.h" />
     <ClInclude Include="..\exp\Mesh.h" />
     <ClInclude Include="..\exp\NumberUtils.h" />
+    <ClInclude Include="..\exp\Pixmap.h" />
+    <ClInclude Include="..\exp\PixmapTextureData.h" />
     <ClInclude Include="..\exp\Quaternion.h" />
     <ClInclude Include="..\exp\ShaderProgram.h" />
+    <ClInclude Include="..\exp\Texture.h" />
+    <ClInclude Include="..\exp\TextureData.h" />
     <ClInclude Include="..\exp\Vector2.h" />
     <ClInclude Include="..\exp\Vector3.h" />
     <ClInclude Include="..\exp\VertexArray.h" />
@@ -130,6 +159,8 @@
     <ClInclude Include="..\exp\VertexAttributes.h" />
     <ClInclude Include="..\exp\VertexBufferObject.h" />
     <ClInclude Include="..\exp\VertexData.h" />
+    <ClInclude Include="..\incl\etc1_utils.h" />
+    <ClInclude Include="..\incl\gdx2d.h" />
     <ClInclude Include="..\incl\stdafx.h" />
     <ClInclude Include="..\incl\targetver.h" />
   </ItemGroup>

@@ -91,7 +91,7 @@ void ETC1TextureData::consumeCompressedData()
 }
 
 
-Pixmap ETC1TextureData::consumePixmap()
+Pixmap* ETC1TextureData::consumePixmap()
 {
 	throw new GdxRuntimeException("This TextureData implementation does not return a Pixmap");
 }

@@ -41,7 +41,7 @@ public:
 	bool isPrepared();
 	void prepare();
 	void consumeCompressedData();
-	Pixmap consumePixmap();
+	Pixmap* consumePixmap();
 	bool disposePixmap();
 	int getWidth();
 	int getHeight();

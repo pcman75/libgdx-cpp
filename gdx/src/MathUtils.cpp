@@ -168,14 +168,14 @@ int MathUtils::nextPowerOfTwo (int value)
 	return value + 1;
 }
 
-bool isPowerOfTwo (int value)
+bool MathUtils::isPowerOfTwo (int value)
 {
 	return value != 0 && (value & value - 1) == 0;
 }
 
 // ---
 
-int clamp (int value, int min, int max)
+int MathUtils::clamp (int value, int min, int max)
 {
 	if (value < min) return min;
 	if (value > max) return max;

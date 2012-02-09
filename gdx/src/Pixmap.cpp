@@ -57,6 +57,10 @@ void Pixmap::setBlending (Blending blending)
 	Gdx2DPixmap::setBlend(blending == None ? 0 : 1);
 }
 
+Pixmap::Pixmap()
+{
+}
+
 /** Sets the type of interpolation {@link Filter} to be used in conjunction with
 * {@link Pixmap#drawPixmap(Pixmap, int, int, int, int, int, int, int, int)}.
 * @param filter the filter. */

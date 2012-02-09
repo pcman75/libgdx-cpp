@@ -19,6 +19,7 @@
 #include "Gdx2DPixmap.h"
 #include "Color.h"
 #include "FileHandle.h"
+#include "GdxDefines.h"
 
 /** <p>
 * A Pixmap represents an image in memory. It has a width and height expressed in pixels as well as a {@link Format} specifying
@@ -38,7 +39,7 @@
 * </p>
 */
 
-class Pixmap
+class GdxDllImportExport Pixmap
 {
 public:
 	/** Different pixel formats*/
@@ -99,6 +100,9 @@ public:
 	* @param height the height in pixels
 	* @param format the {@link Format} */
 	Pixmap (int width, int height, Format format);
+
+	/*Empty Pixmap. Call afterwards one of the Create methods*/
+	Pixmap();
 
 	//TODO: delete this or implement it
 	void createFrom(int width, int height, Format format) {};

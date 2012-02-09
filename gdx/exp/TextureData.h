@@ -36,46 +36,47 @@ class TextureData
 {
 	/** The type of this {@link TextureData} */
 public:
+	virtual ~TextureData() {};
 	enum TextureDataType 
 	{
 	    PixmapTexture, CompressedTexture
 	};
 
 	/** @return the {@link TextureDataType} */
-	TextureDataType getType();
+	virtual TextureDataType getType() = 0;
 
 	/** @return whether the TextureData is prepared or not. */
-	bool isPrepared();
+	virtual bool isPrepared() = 0;
 
 	/** Prepares the TextureData for a call to {@link #consumePixmap()} or {@link #consumeCompressedData()}. This method can be
 	 * called from a non OpenGL thread and should thus not interact with OpenGL. */
-	void prepare();
+	virtual void prepare() = 0;
 
 	/** Returns the {@link Pixmap} for upload by Texture. A call to {@link #prepare()} must preceed a call to this method. Any
 	 * internal datastructures created in {@link #prepare()} should be disposed of here.
 	 *
 	 * @return the pixmap. */
-	Pixmap* consumePixmap();
+	virtual Pixmap* consumePixmap() = 0;
 
 	/** @return whether the caller of {@link #consumePixmap()} should dispose the Pixmap returned by {@link #consumePixmap()} */
-	bool disposePixmap();
+	virtual bool disposePixmap() = 0;
 
 	/** Uploads the pixel data to the OpenGL ES texture. The caller must bind an OpenGL ES texture. A call to {@link #prepare()}
 	 * must preceed a call to this method. Any internal datastructures created in {@link #prepare()}. */
-	void consumeCompressedData();
+	virtual void consumeCompressedData() = 0;
 
 	/** @return the width of the pixel data */
-	int getWidth();
+	virtual int getWidth() = 0;
 
 	/** @return the height of the pixel data */
-	int getHeight();
+	virtual int getHeight() = 0;
 
 	/** @return the {@link Format} of the pixel data */
-	Pixmap::Format getFormat();
+	virtual Pixmap::Format getFormat() = 0;
 
 	/** @return whether to generate mipmaps or not. */
-	bool useMipMaps();
+	virtual bool useMipMaps() = 0;
 
 	/** @return whether this implementation can cope with a EGL context loss. */
-	bool isManaged();
+	virtual bool isManaged() = 0;
 };
