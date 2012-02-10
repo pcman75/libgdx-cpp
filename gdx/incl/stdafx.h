@@ -19,6 +19,8 @@
 #include <list>
 #include <map>
 
+#include <fstream>
+
 #include <time.h> //for random
 
 #include <stdint.h> //for uint64_t

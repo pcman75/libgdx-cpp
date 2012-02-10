@@ -106,6 +106,7 @@ void Texture::init(const FileHandle& file, Pixmap::Format format, bool useMipMap
 
 Texture::Texture()
 {
+	init();
 }
 
 Texture::Texture(const std::wstring& internalPath)
@@ -157,6 +158,7 @@ Texture::Texture(TextureData* data)
 
 void Texture::init(TextureData* data)
 {
+	init();
 	create(data);
 }
 

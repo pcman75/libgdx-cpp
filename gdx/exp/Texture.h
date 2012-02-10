@@ -69,7 +69,8 @@ private:
 	typedef TextureMap::iterator TextureMapIterator;
 	static TextureMap m_managedTextures;
 
-	class TextureFilter
+public:
+	class GdxDllImportExport TextureFilter
 	{
 	public:
 	    static const TextureFilter Nearest;
@@ -93,7 +94,7 @@ private:
 	};
 
 public:
-	class TextureWrap
+	class GdxDllImportExport TextureWrap
 	{
 	public:
 		static const TextureWrap ClampToEdge;
@@ -163,6 +164,7 @@ private:
 	/** Used internally to reload after context loss. Creates a new GL handle then calls {@link #load(TextureData)}. */
 	void reload();
 
+public:
 	/** Binds this texture. The texture will be bound to the currently active texture unit specified via
 	 * {@link GLCommon#glActiveTexture(int)}. */
 	void bind();

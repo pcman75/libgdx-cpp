@@ -9,8 +9,8 @@ class PixmapTest :
 	public ApplicationListener
 {
 private:
-	Pixmap pixmap;
-	Texture texture;
+	Pixmap* m_pixmap;
+	Texture* m_texture;
 	//SpriteBatch batch;
 	//TextureRegion region;
 

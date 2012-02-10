@@ -21,11 +21,18 @@
 class FileHandle
 {
 public:
+	FileHandle(const std::wstring& name)
+		:m_name(name)
+	{
+	}
 	FileHandle()
 	{
 	}
 	//TODO:
-	std::wstring name() const {return L"Not implemented yet";}
+	const std::wstring& name() const {return m_name;}
+
+private:
+	std::wstring m_name;
 
 protected: 
 	//File file;
@@ -35,5 +42,6 @@ protected:
 
 public:
 	//TODO:
-	int readBytes(std::vector<unsigned char>& buffer) {return -1;}
+	int readBytes(std::vector<unsigned char>& buffer) const {return -1;}
+	void writeBytes(const char* bytes, int bufferLength) const;
 };

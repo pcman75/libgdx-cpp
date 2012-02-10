@@ -43,7 +43,7 @@ class GdxDllImportExport Pixmap
 {
 public:
 	/** Different pixel formats*/
-	class Format
+	class GdxDllImportExport Format
 	{
 	public:
 		static const Format Unknown;
