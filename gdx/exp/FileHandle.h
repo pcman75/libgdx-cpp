@@ -42,6 +42,6 @@ protected:
 
 public:
 	//TODO:
-	int readBytes(std::vector<unsigned char>& buffer) const {return -1;}
+	int readBytes(std::vector<unsigned char>& buffer) const;
 	void writeBytes(const char* bytes, int bufferLength) const;
 };

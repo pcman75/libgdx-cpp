@@ -1,12 +1,14 @@
 #pragma once
 #include "applicationlistener.h"
 #include "Mesh.h"
+#include "Texture.h"
 
 class HelloWorldApp :
 	public ApplicationListener
 {
 private:
 	Mesh* m_mesh;
+	Texture* m_texture;
 
 public:
 	HelloWorldApp(void);

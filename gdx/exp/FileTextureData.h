@@ -29,14 +29,14 @@ private:
 	int m_width;
 	int m_height;
 	Pixmap::Format m_format;
-	Pixmap m_pixmap;
+	Pixmap* m_pixmap;
 	bool m_useMipMaps;
 	bool m_isPrepared;
 
 public:
 	//preloaded Pixmap can be NULL
 	//TODO: implement Pixmap::Empty
-	FileTextureData(const FileHandle& file, Pixmap& preloadedPixmap, Pixmap::Format format, bool useMipMaps);
+	FileTextureData(const FileHandle& file, Pixmap* preloadedPixmap, Pixmap::Format format, bool useMipMaps);
 	bool isPrepared();
 	void prepare();
 
@@ -57,6 +57,6 @@ public:
 	void consumeCompressedData();
 
 private:
-	Pixmap ensurePot(Pixmap pixmap);
+	Pixmap* ensurePot(Pixmap* pixmap);
 
 };

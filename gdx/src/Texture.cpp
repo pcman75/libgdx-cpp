@@ -100,7 +100,7 @@ void Texture::init(const FileHandle& file, Pixmap::Format format, bool useMipMap
 	else
 	{
 		//TODO:
-		//create(FileTextureData(file, NULL, format, useMipMaps));
+		create(new FileTextureData(file, NULL, format, useMipMaps));
 	}
 }
 
@@ -111,8 +111,9 @@ Texture::Texture()
 
 Texture::Texture(const std::wstring& internalPath)
 {
-	//TODO:
+	//TODO: use internal path after is implemented
 	//init(Gdx.files->internalHandle(internalPath), Pixmap::Format::Unknown, false);
+	init(internalPath, Pixmap::Format::Unknown, false);
 }
 
 Texture::Texture(const FileHandle& file)
