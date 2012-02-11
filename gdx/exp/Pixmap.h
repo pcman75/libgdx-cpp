@@ -102,7 +102,7 @@ public:
 	Pixmap (int width, int height, Format format);
 
 	/*Empty Pixmap. Call afterwards one of the Create methods*/
-	Pixmap();
+	//Pixmap();
 
 	//TODO: delete this or implement it
 	void createFrom(int width, int height, Format format) {};
@@ -117,11 +117,11 @@ public:
 	* supported.
 	*
 	* @param file the {@link FileHandle} */
-	Pixmap (FileHandle& file);
+	Pixmap(const FileHandle& file);
 
 	/** Constructs a new Pixmap from a {@link Gdx2DPixmap}.
 	* @param pixmap */
-	Pixmap (const Gdx2DPixmap& pixmap);
+	Pixmap(const Gdx2DPixmap& pixmap);
 
 	/*Construct an empty Pixmap*/
 	//Pixmap();
@@ -136,14 +136,14 @@ public:
 	* @param g The green component.
 	* @param b The blue component.
 	* @param a The alpha component. */
-	void setColor (float r, float g, float b, float a);
+	void setColor(float r, float g, float b, float a);
 
 	/** Sets the color for the following drawing operations.
 	* @param color The color. */
 	void setColor(const Color& color);
 
 	/** Fills the complete bitmap with the currently set color. */
-	void fill ();
+	void fill();
 
 	// /**
 	// * Sets the width in pixels of strokes.
@@ -158,7 +158,7 @@ public:
 	* @param y The y-coordinate of the first point
 	* @param x2 The x-coordinate of the first point
 	* @param y2 The y-coordinate of the first point */
-	void drawLine (int x, int y, int x2, int y2);
+	void drawLine(int x, int y, int x2, int y2);
 
 	/** Draws a rectangle outline starting at x, y extending by width to the right and by height downwards (y-axis points downwards)
 	* using the current color.
@@ -167,7 +167,7 @@ public:
 	* @param y The y coordinate
 	* @param width The width in pixels
 	* @param height The height in pixels */
-	void drawRectangle (int x, int y, int width, int height);
+	void drawRectangle(int x, int y, int width, int height);
 
 	/** Draws an area form another Pixmap to this Pixmap.
 	*
@@ -178,7 +178,7 @@ public:
 	* @param srcy The source y-coordinate (top left corner);
 	* @param srcWidth The width of the area form the other Pixmap in pixels
 	* @param srcHeight The height of the area form the other Pixmap in pixles */
-	void drawPixmap (Pixmap pixmap, int x, int y, int srcx, int srcy, int srcWidth, int srcHeight);
+	void drawPixmap(Pixmap pixmap, int x, int y, int srcx, int srcy, int srcWidth, int srcHeight);
 
 	/** Draws an area form another Pixmap to this Pixmap. This will automatically scale and stretch the source image to the
 	* specified target rectangle. Use {@link Pixmap#setFilter(Filter)} to specify the type of filtering to be used (nearest
@@ -193,7 +193,7 @@ public:
 	* @param dsty The target y-coordinate (top left corner)
 	* @param dstWidth The target width
 	* @param dstHeight the target height */
-	void drawPixmap (Pixmap pixmap, int srcx, int srcy, int srcWidth, int srcHeight, int dstx, int dsty, int dstWidth,
+	void drawPixmap(Pixmap pixmap, int srcx, int srcy, int srcWidth, int srcHeight, int dstx, int dsty, int dstWidth,
 		int dstHeight);
 
 	/** Fills a rectangle starting at x, y extending by width to the right and by height downwards (y-axis points downwards) using
@@ -203,65 +203,65 @@ public:
 	* @param y The y coordinate
 	* @param width The width in pixels
 	* @param height The height in pixels */
-	void fillRectangle (int x, int y, int width, int height);
+	void fillRectangle(int x, int y, int width, int height);
 
 	/** Draws a circle outline with the center at x,y and a radius using the current color and stroke width.
 	*
 	* @param x The x-coordinate of the center
 	* @param y The y-coordinate of the center
 	* @param radius The radius in pixels */
-	void drawCircle (int x, int y, int radius);
+	void drawCircle(int x, int y, int radius);
 
 	/** Fills a circle with the center at x,y and a radius using the current color.
 	*
 	* @param x The x-coordinate of the center
 	* @param y The y-coordinate of the center
 	* @param radius The radius in pixels */
-	void fillCircle (int x, int y, int radius);
+	void fillCircle(int x, int y, int radius);
 
 	/** Returns the 32-bit RGBA8888 value of the pixel at x, y. For Alpha formats the RGB components will be one.
 	*
 	* @param x The x-coordinate
 	* @param y The y-coordinate
 	* @return The pixel color in RGBA8888 format. */
-	int getPixel (int x, int y);
+	int getPixel(int x, int y);
 
 	/** @return The width of the Pixmap in pixels. */
-	int getWidth ();
+	int getWidth();
 
 	/** @return The height of the Pixmap in pixels. */
-	int getHeight ();
+	int getHeight();
 
 	/** Releases all resources associated with this Pixmap. */
-	void dispose ();
+	void dispose();
 
 	/** Draws a pixel at the given location with the current color.
 	*
 	* @param x the x-coordinate
 	* @param y the y-coordinate */
-	void drawPixel (int x, int y);
+	void drawPixel(int x, int y);
 
 	/** Draws a pixel at the given location with the given color.
 	*
 	* @param x the x-coordinate
 	* @param y the y-coordinate
 	* @param color the color in RGBA8888 format. */
-	void drawPixel (int x, int y, int color);
+	void drawPixel(int x, int y, int color);
 
 	/** Returns the OpenGL ES format of this Pixmap. Used as the seventh parameter to
 	* {@link GLCommon#glTexImage2D(int, int, int, int, int, int, int, int, java.nio.Buffer)}.
 	* @return one of GL_ALPHA, GL_RGB, GL_RGBA, GL_LUMINANCE, or GL_LUMINANCE_ALPHA. */
-	int getGLFormat ();
+	int getGLFormat();
 
 	/** Returns the OpenGL ES format of this Pixmap. Used as the third parameter to
 	* {@link GLCommon#glTexImage2D(int, int, int, int, int, int, int, int, java.nio.Buffer)}.
 	* @return one of GL_ALPHA, GL_RGB, GL_RGBA, GL_LUMINANCE, or GL_LUMINANCE_ALPHA. */
-	int getGLInternalFormat ();
+	int getGLInternalFormat();
 
 	/** Returns the OpenGL ES type of this Pixmap. Used as the eighth parameter to
 	* {@link GLCommon#glTexImage2D(int, int, int, int, int, int, int, int, java.nio.Buffer)}.
 	* @return one of GL_UNSIGNED_BYTE, GL_UNSIGNED_SHORT_5_6_5, GL_UNSIGNED_SHORT_4_4_4_4 */
-	int getGLType ();
+	int getGLType();
 
 	/** Returns the direct ByteBuffer holding the pixel data. For the format Alpha each value is encoded as a byte. For the format
 	* LuminanceAlpha the luminance is the first byte and the alpha is the second byte of the pixel. For the formats RGB888 and
@@ -271,7 +271,7 @@ public:
 	unsigned char* getPixels ();
 	
 	/** @return the {@link Format} of this Pixmap. */
-	Format getFormat () const;
+	Format getFormat() const;
 
 	/** @return the currently set {@link Blending} */
 	static Blending getBlending ();

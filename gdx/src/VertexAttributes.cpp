@@ -59,7 +59,7 @@ int VertexAttributes::calculateOffsets ()
 	int count = 0;
 	for (int i = 0; i < m_attributesLength; i++) 
 	{
-		VertexAttribute attribute = m_attributes[i];
+		VertexAttribute& attribute = m_attributes[i];
 		attribute.offset = count;
 		if (attribute.usage == ColorPacked)
 			count += 4;

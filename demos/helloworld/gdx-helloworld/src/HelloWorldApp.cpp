@@ -1,5 +1,6 @@
 #include "StdAfx.h"
 #include "HelloWorldApp.h"
+#include "Color.h"
 
 HelloWorldApp::HelloWorldApp(void)
 {
@@ -13,9 +14,16 @@ HelloWorldApp::~HelloWorldApp(void)
 
 void HelloWorldApp::create ()
 {
-	VertexAttribute attrib(VertexAttributes::Position, 3, L"a_position");
-	m_mesh = new Mesh(true, attrib);
-	float vertices[] = {-0.5f, -0.5f, 0, 0.5f, -0.5f, 0, 0, 0.5f, 0};
+	VertexAttribute position(VertexAttributes::Position, 3, L"a_position");
+	VertexAttribute color(VertexAttributes::ColorPacked, 4, L"a_color");
+	VertexAttribute attributes[2] = {position, color};
+	m_mesh = new Mesh(true, VertexAttributes(attributes, 2));
+	float vertices[] = 
+	{
+		-0.5f, -0.5f, 0, Color::toFloatBits(255, 0, 0, 255),
+		0.5f, -0.5f, 0, Color::toFloatBits(0, 255, 0, 255),
+		0, 0.5f, 0, Color::toFloatBits(0, 0, 255, 255)
+	};
 	short indices[] = {0, 1, 2};
 	m_mesh->setVertices(vertices, sizeof(vertices)/sizeof(vertices[0]));
 	m_mesh->setIndices(indices, sizeof(indices)/sizeof(indices[0]));

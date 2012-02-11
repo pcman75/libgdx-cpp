@@ -57,10 +57,10 @@ void Pixmap::setBlending (Blending blending)
 	Gdx2DPixmap::setBlend(blending == None ? 0 : 1);
 }
 
-Pixmap::Pixmap()
+/*Pixmap::Pixmap()
 {
 }
-
+*/
 /** Sets the type of interpolation {@link Filter} to be used in conjunction with
 * {@link Pixmap#drawPixmap(Pixmap, int, int, int, int, int, int, int, int)}.
 * @param filter the filter. */
@@ -93,7 +93,7 @@ Pixmap::Pixmap(const unsigned char* encodedData, int len)
 * supported.
 *
 * @param file the {@link FileHandle} */
-Pixmap::Pixmap (FileHandle& file)
+Pixmap::Pixmap (const FileHandle& file)
 	: m_color(0)
 {
 	std::vector<unsigned char> bytes;

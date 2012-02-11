@@ -53,12 +53,12 @@ float* VertexBufferObject::getBuffer()
 
 void VertexBufferObject::setVertices(const float* vertices, int count)
 {
-	m_buffer = new float[m_attributes.vertexSize() / sizeof(float) * count];
+	int bufferSizeInBytes = m_attributes.vertexSize() * count;
 	m_numVertices = count;
-	memcpy(m_buffer, vertices, count * sizeof(float));
+	m_buffer = new float[bufferSizeInBytes];
+	memcpy(m_buffer, vertices, bufferSizeInBytes);
 	m_isDirty = true;
-	int bufferSizeInBytes = m_attributes.vertexSize() * m_numVertices;
-
+	
 	if(m_isBound)
 	{
 		if(Gdx.gl20 != NULL)
