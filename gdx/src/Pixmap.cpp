@@ -8,7 +8,7 @@ const Pixmap::Format Pixmap::Format::LuminanceAlpha = Pixmap::Format(Gdx2DPixmap
 const Pixmap::Format Pixmap::Format::RGB565 = Pixmap::Format(Gdx2DPixmap::GDX2D_FORMAT_RGB565);
 const Pixmap::Format Pixmap::Format::RGBA4444 = Pixmap::Format(Gdx2DPixmap::GDX2D_FORMAT_RGBA4444);
 const Pixmap::Format Pixmap::Format::RGB888 = Pixmap::Format(Gdx2DPixmap::GDX2D_FORMAT_RGB888);
-const Pixmap::Format Pixmap::Format::RGBA8888 = Pixmap::Format(Gdx2DPixmap::GDX2D_FORMAT_RGB888);
+const Pixmap::Format Pixmap::Format::RGBA8888 = Pixmap::Format(Gdx2DPixmap::GDX2D_FORMAT_RGBA8888);
 
 Pixmap::Blending Pixmap::m_blending = None;
 
@@ -21,7 +21,7 @@ int Pixmap::Format::toGdx2DPixmapFormat(Format format)
 	if (format == RGB565) return Gdx2DPixmap::GDX2D_FORMAT_RGB565;
 	if (format == RGBA4444) return Gdx2DPixmap::GDX2D_FORMAT_RGBA4444;
 	if (format == RGB888) return Gdx2DPixmap::GDX2D_FORMAT_RGB888;
-	if (format == RGBA8888) return Gdx2DPixmap::GDX2D_FORMAT_RGB888;
+	if (format == RGBA8888) return Gdx2DPixmap::GDX2D_FORMAT_RGBA8888;
 	throw new GdxRuntimeException(std::string("Unknown Format"));
 }
 
