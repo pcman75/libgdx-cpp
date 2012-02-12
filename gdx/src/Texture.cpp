@@ -26,24 +26,6 @@ Texture::TextureFilter::TextureFilter()
 	m_glEnum = GL10::GDX_GL_NEAREST;
 }
 
-/*
-Texture::TextureFilter::TextureFilter(const TextureFilter& other)
-:m_glEnum(other.m_glEnum)
-{
-}
-
-Texture::TextureFilter& Texture::TextureFilter::operator=(const TextureFilter& other)
-{
-if (this == &other)
-return *this;  
-
-m_glEnum = other.m_glEnum;
-return *this;
-}
-
-
-*/
-
 Texture::TextureFilter::TextureFilter(int glEnum)
 	:m_glEnum(glEnum)
 {
@@ -79,6 +61,11 @@ int Texture::TextureWrap::getGLEnum()
 
 Texture::~Texture()
 {
+	if(m_data)
+	{
+		delete m_data;
+		m_data = NULL;
+	}
 }
 
 void Texture::init()
@@ -99,7 +86,6 @@ void Texture::init(const FileHandle& file, Pixmap::Format format, bool useMipMap
 	}
 	else
 	{
-		//TODO:
 		create(new FileTextureData(file, NULL, format, useMipMaps));
 	}
 }
@@ -192,7 +178,10 @@ void Texture::load(TextureData* data)
 		Pixmap* pixmap = data->consumePixmap();
 		uploadImageData(pixmap);
 		if(data->disposePixmap()) 
+		{
 			pixmap->dispose();
+			delete pixmap;
+		}
 		setFilter(m_minFilter, m_magFilter);
 		setWrap(m_uWrap, m_vWrap);
 	}
@@ -219,11 +208,10 @@ void Texture::uploadImageData(Pixmap* pixmap)
 	bool disposePixmap = false;
 	if(m_data->getFormat() != pixmap->getFormat())
 	{
-		//TODO: review this!!!!
 		Pixmap* tmp = new Pixmap(pixmap->getWidth(), pixmap->getHeight(), m_data->getFormat());
 		Pixmap::Blending blend = Pixmap::getBlending();
 		Pixmap::setBlending(Pixmap::None);
-		tmp->drawPixmap(/*TODO: */*pixmap, 0, 0, 0, 0, pixmap->getWidth(), pixmap->getHeight());
+		tmp->drawPixmap(pixmap, 0, 0, 0, 0, pixmap->getWidth(), pixmap->getHeight());
 		Pixmap::setBlending(blend);
 		pixmap = tmp;
 		disposePixmap = true;
@@ -243,6 +231,7 @@ void Texture::uploadImageData(Pixmap* pixmap)
 		if(disposePixmap)
 		{
 			pixmap->dispose();
+			delete pixmap;
 		}
 	}
 }
@@ -366,7 +355,9 @@ void Texture::dispose()
 	// removal from the asset manager.
 	if(m_glHandle == 0) 
 		return;
-	Gdx.gl->glDeleteTextures(1, &m_glHandle);
+	GLCommon* gl = Gdx.gl;
+	if(gl)
+		gl->glDeleteTextures(1, &m_glHandle);
 	if(m_data->isManaged())
 	{
 		TextureMapIterator it = m_managedTextures.find(Gdx.app);

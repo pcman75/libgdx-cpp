@@ -1,7 +1,8 @@
 #include "stdafx.h"
 #include "FileTextureData.h"
 #include "FileHandle.h"
-
+#include "Gdx.h"
+#include "MathUtils.h"
 
 bool FileTextureData::copyToPOT = false;
 
@@ -53,22 +54,21 @@ void FileTextureData::prepare()
 
 Pixmap* FileTextureData::ensurePot(Pixmap* pixmap)
 {
-	/*TODO: implement ensurePot
-	if(Gdx.gl20 == null && copyToPOT)
+	if(Gdx.gl20 == NULL && copyToPOT)
 	{
-		int pixmapWidth = pixmap.getWidth();
-		int pixmapHeight = pixmap.getHeight();
-		int potWidth = MathUtils.nextPowerOfTwo(pixmapWidth);
-		int potHeight = MathUtils.nextPowerOfTwo(pixmapHeight);
+		int pixmapWidth = pixmap->getWidth();
+		int pixmapHeight = pixmap->getHeight();
+		int potWidth = MathUtils::nextPowerOfTwo(pixmapWidth);
+		int potHeight = MathUtils::nextPowerOfTwo(pixmapHeight);
 		if(pixmapWidth != potWidth || pixmapHeight != potHeight)
 		{
-			Pixmap tmp = new Pixmap(potWidth, potHeight, pixmap.getFormat());
-			tmp.drawPixmap(pixmap, 0, 0, 0, 0, pixmapWidth, pixmapHeight);
-			pixmap.dispose();
+			Pixmap* tmp = new Pixmap(potWidth, potHeight, pixmap->getFormat());
+			tmp->drawPixmap(pixmap, 0, 0, 0, 0, pixmapWidth, pixmapHeight);
+			pixmap->dispose();
+			delete pixmap;
 			return tmp;
 		}
 	}
-	*/
 	return pixmap;
 }
 

@@ -178,9 +178,9 @@ void Pixmap::drawRectangle (int x, int y, int width, int height)
 * @param srcy The source y-coordinate (top left corner);
 * @param srcWidth The width of the area form the other Pixmap in pixels
 * @param srcHeight The height of the area form the other Pixmap in pixles */
-void Pixmap::drawPixmap (Pixmap pixmap, int x, int y, int srcx, int srcy, int srcWidth, int srcHeight)
+void Pixmap::drawPixmap (Pixmap* pixmap, int x, int y, int srcx, int srcy, int srcWidth, int srcHeight)
 {
-	m_pixmap.drawPixmap(pixmap.m_pixmap, srcx, srcy, x, y, srcWidth, srcHeight);
+	m_pixmap.drawPixmap(pixmap->m_pixmap, srcx, srcy, x, y, srcWidth, srcHeight);
 }
 
 /** Draws an area form another Pixmap to this Pixmap. This will automatically scale and stretch the source image to the
@@ -196,10 +196,10 @@ void Pixmap::drawPixmap (Pixmap pixmap, int x, int y, int srcx, int srcy, int sr
 * @param dsty The target y-coordinate (top left corner)
 * @param dstWidth The target width
 * @param dstHeight the target height */
-void Pixmap::drawPixmap (Pixmap pixmap, int srcx, int srcy, int srcWidth, int srcHeight, int dstx, int dsty, int dstWidth,
+void Pixmap::drawPixmap (Pixmap* pixmap, int srcx, int srcy, int srcWidth, int srcHeight, int dstx, int dsty, int dstWidth,
 	int dstHeight)
 {
-	m_pixmap.drawPixmap(pixmap.m_pixmap, srcx, srcy, srcWidth, srcHeight, dstx, dsty, dstWidth, dstHeight);
+	m_pixmap.drawPixmap(pixmap->m_pixmap, srcx, srcy, srcWidth, srcHeight, dstx, dsty, dstWidth, dstHeight);
 }
 
 /** Fills a rectangle starting at x, y extending by width to the right and by height downwards (y-axis points downwards) using

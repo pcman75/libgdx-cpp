@@ -178,7 +178,7 @@ public:
 	* @param srcy The source y-coordinate (top left corner);
 	* @param srcWidth The width of the area form the other Pixmap in pixels
 	* @param srcHeight The height of the area form the other Pixmap in pixles */
-	void drawPixmap(Pixmap pixmap, int x, int y, int srcx, int srcy, int srcWidth, int srcHeight);
+	void drawPixmap(Pixmap* pixmap, int x, int y, int srcx, int srcy, int srcWidth, int srcHeight);
 
 	/** Draws an area form another Pixmap to this Pixmap. This will automatically scale and stretch the source image to the
 	* specified target rectangle. Use {@link Pixmap#setFilter(Filter)} to specify the type of filtering to be used (nearest
@@ -193,7 +193,7 @@ public:
 	* @param dsty The target y-coordinate (top left corner)
 	* @param dstWidth The target width
 	* @param dstHeight the target height */
-	void drawPixmap(Pixmap pixmap, int srcx, int srcy, int srcWidth, int srcHeight, int dstx, int dsty, int dstWidth,
+	void drawPixmap(Pixmap* pixmap, int srcx, int srcy, int srcWidth, int srcHeight, int dstx, int dsty, int dstWidth,
 		int dstHeight);
 
 	/** Fills a rectangle starting at x, y extending by width to the right and by height downwards (y-axis points downwards) using

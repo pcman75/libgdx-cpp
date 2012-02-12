@@ -53,22 +53,6 @@
  */
 class GdxDllImportExport Texture
 {
-
-
-private:
-	static bool m_enforcePotImages;
-
-	//TODO: unused???
-	static bool m_useHWMipMap;
-
-	//TODO:
-	//static AssetManager assetManager;
-	typedef std::list<Texture*> TextureList;
-	typedef TextureList::iterator TextureListIterator;
-	typedef std::map<Application*, TextureList> TextureMap;
-	typedef TextureMap::iterator TextureMapIterator;
-	static TextureMap m_managedTextures;
-
 public:
 	class GdxDllImportExport TextureFilter
 	{
@@ -80,9 +64,6 @@ public:
 		static const TextureFilter MipMapLinearNearest;
 		static const TextureFilter MipMapNearestLinear;
 		static const TextureFilter MipMapLinearLinear;
-	
-		//TextureFilter(const TextureFilter& other);
-		//TextureFilter& operator=(const TextureFilter& other);
 
 		TextureFilter();
 	private:
@@ -92,8 +73,6 @@ public:
 		bool isMipMap();
 		int getGLEnum();
 	};
-
-public:
 	class GdxDllImportExport TextureWrap
 	{
 	public:
@@ -110,6 +89,19 @@ public:
 	};
 
 private:
+	static bool m_enforcePotImages;
+
+	//TODO: unused???
+	static bool m_useHWMipMap;
+
+	//TODO:
+	//static AssetManager assetManager;
+	typedef std::list<Texture*> TextureList;
+	typedef TextureList::iterator TextureListIterator;
+	typedef std::map<Application*, TextureList> TextureMap;
+	typedef TextureMap::iterator TextureMapIterator;
+	static TextureMap m_managedTextures;
+
 	static unsigned int m_buffer;
 
 	TextureFilter m_minFilter;
@@ -121,46 +113,27 @@ private:
 
 private:
 	void init();
-
 	void init(const FileHandle& file, Pixmap::Format format, bool useMipMaps);
+	void init(TextureData* data);
+	void create(TextureData* data);
 
 public:
 	Texture();
-
 	Texture(const std::wstring& internalPath);
-
 	Texture(const FileHandle& file);
-
 	Texture(const FileHandle& file, bool useMipMaps);
-	
-
 	Texture(const FileHandle& file, Pixmap::Format format, bool useMipMaps);
-
 	Texture(Pixmap* pixmap);
-
 	Texture(Pixmap* pixmap, bool useMipMaps);
-
 	Texture(Pixmap* pixmap, Pixmap::Format format, bool useMipMaps);
-
 	Texture(int width, int height, Pixmap::Format format);
-
 	Texture(TextureData* data);
-
-	void init(TextureData* data);
-
 	virtual ~Texture();
 
 private:
-	
-	void create(TextureData* data);
-
 	static int createGLHandle();
-
 	void load(TextureData* data);
-
-private:
 	void uploadImageData(Pixmap* pixmap);
-
 	/** Used internally to reload after context loss. Creates a new GL handle then calls {@link #load(TextureData)}. */
 	void reload();
 
