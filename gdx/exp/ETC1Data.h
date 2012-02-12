@@ -18,7 +18,9 @@
 
 #include "FileHandle.h"
 
-/** Class for storing ETC1 compressed image data*/
+/** Class for storing ETC1 compressed image data
+TODO: review this implementation
+*/
 
 class ETC1Data
 {

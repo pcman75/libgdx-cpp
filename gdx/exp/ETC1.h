@@ -20,7 +20,9 @@
 #include "Pixmap.h"
 //#include "etc1_utils.h"
 
-/** Class for encoding and decoding ETC1 compressed images. Also provides methods to add a PKM header*/
+/** Class for encoding and decoding ETC1 compressed images. Also provides methods to add a PKM header
+TODO: review this implementation
+*/
 
 class ETC1
 {

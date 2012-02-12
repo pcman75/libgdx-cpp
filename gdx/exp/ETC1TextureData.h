@@ -19,6 +19,8 @@
 #include "TextureData.h"
 #include "ETC1.h"
 
+//TODO: review this implementation
+
 class ETC1TextureData : public TextureData
 {
 private:
