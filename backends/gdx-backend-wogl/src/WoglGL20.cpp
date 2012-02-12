@@ -380,9 +380,9 @@ void WoglGL20::glShaderBinary(int n, const unsigned int* shaders, int binaryform
 void WoglGL20::glShaderSource(int shader, const std::wstring& string)
 {
 	GLint length = string.size();
-	const GLchar* sources[1] = { wstring2string(string).c_str() };
-
-	::glShaderSource(shader, 1, &sources[0], &length);
+	std::string sources = wstring2string(string);
+	const char* src = sources.c_str();
+	::glShaderSource(shader, 1, &src, &length);
 }
 
 void WoglGL20::glStencilFuncSeparate(int face, int func, int ref, int mask)

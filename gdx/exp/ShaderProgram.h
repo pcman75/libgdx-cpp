@@ -19,6 +19,7 @@
 #include "GdxRuntimeException.h"
 
 #include "Matrix4.h"
+#include "GdxDefines.h"
 
 /** <p>
  * A shader program encapsulates a vertex and fragment shader pair linked to form a shader program useable with OpenGL ES 2.0.
@@ -46,9 +47,9 @@
  * happens on Android when a user switches to another application or receives an incoming call. Managed ShaderPrograms are
  * automatically reloaded when the OpenGL context is recreated so you don't have to do this manually.
  * </p>
- *
- * @author mzechner */
-class ShaderProgram
+ */
+
+class GdxDllImportExport ShaderProgram
 {
 public:
 	/** default name for position attributes **/

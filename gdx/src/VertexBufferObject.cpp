@@ -53,8 +53,8 @@ float* VertexBufferObject::getBuffer()
 
 void VertexBufferObject::setVertices(const float* vertices, int count)
 {
-	int bufferSizeInBytes = m_attributes.vertexSize() * count;
-	m_numVertices = count;
+	int bufferSizeInBytes = sizeof(float) * count;
+	m_numVertices = bufferSizeInBytes / m_attributes.vertexSize();
 	m_buffer = new float[bufferSizeInBytes];
 	memcpy(m_buffer, vertices, bufferSizeInBytes);
 	m_isDirty = true;

@@ -21,6 +21,7 @@ bool ShaderProgram::pedantic = true;
 
 ShaderProgram::ShaderProgram (const std::wstring& vertexShader, const std::wstring& fragmentShader)
 {
+	m_invalidated = false;
 	m_vertexShaderSource = vertexShader;
 	m_fragmentShaderSource = fragmentShader;
 
@@ -154,9 +155,9 @@ int ShaderProgram::fetchAttributeLocation (const std::wstring& name)
 int ShaderProgram::fetchUniformLocation (const std::wstring& name)
 {
 	GL20* gl = Gdx.gl20;
-	int location = -1;
-	ObjectIntMapIterator it = m_attributes.find(name);
-	if(it == m_attributes.end())
+	int location = 0;
+	ObjectIntMapIterator it = m_uniforms.find(name);
+	if(it == m_uniforms.end())
 	{
 		location = gl->glGetUniformLocation(m_program, name);
 		if (location == -1 && pedantic) 
@@ -525,7 +526,7 @@ void ShaderProgram::fetchUniforms ()
 	int numUniforms = -1;
 	Gdx.gl20->glGetProgramiv(m_program, GL20::GDX_GL_ACTIVE_UNIFORMS, &numUniforms);
 
-	m_uniformNames.reserve(numUniforms);
+	m_uniformNames.resize(numUniforms);
 
 	for (int i = 0; i < numUniforms; i++)
 	{
@@ -544,7 +545,7 @@ void ShaderProgram::fetchAttributes ()
 	int numAttributes = -1;
 	Gdx.gl20->glGetProgramiv(m_program, GL20::GDX_GL_ACTIVE_ATTRIBUTES, &numAttributes);
 
-	m_attributeNames.reserve(numAttributes);
+	m_attributeNames.resize(numAttributes);
 
 	for (int i = 0; i < numAttributes; i++)
 	{
