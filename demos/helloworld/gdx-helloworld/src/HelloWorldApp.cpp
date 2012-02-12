@@ -12,8 +12,8 @@ HelloWorldApp::~HelloWorldApp(void)
 	dispose();
 }
 
-void HelloWorldApp::create()
-{
+void HelloWorldApp::create()	
+{ 
 	VertexAttribute position(VertexAttributes::Position, 3, L"a_position");
 	VertexAttribute color(VertexAttributes::ColorPacked, 4, L"a_color");
 	VertexAttribute textureCoord(VertexAttributes::TextureCoordinates, 2, L"a_texCoords");

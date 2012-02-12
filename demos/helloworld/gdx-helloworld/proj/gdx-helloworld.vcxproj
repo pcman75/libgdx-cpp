@@ -80,6 +80,7 @@
   <ItemGroup>
     <ClInclude Include="..\incl\gdx-helloworld.h" />
     <ClInclude Include="..\incl\HelloWorldApp.h" />
+    <ClInclude Include="..\incl\MatrixTest.h" />
     <ClInclude Include="..\incl\PixmapTest.h" />
     <ClInclude Include="..\incl\stdafx.h" />
     <ClInclude Include="..\incl\targetver.h" />
@@ -87,6 +88,7 @@
   <ItemGroup>
     <ClCompile Include="..\src\gdx-helloworld.cpp" />
     <ClCompile Include="..\src\HelloWorldApp.cpp" />
+    <ClCompile Include="..\src\MatrixTest.cpp" />
     <ClCompile Include="..\src\PixmapTest.cpp" />
     <ClCompile Include="..\src\stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
