@@ -106,7 +106,9 @@
     <ClCompile Include="..\src\PixmapIO.cpp" />
     <ClCompile Include="..\src\PixmapTextureData.cpp" />
     <ClCompile Include="..\src\Quaternion.cpp" />
+    <ClCompile Include="..\src\Rectang.cpp" />
     <ClCompile Include="..\src\ShaderProgram.cpp" />
+    <ClCompile Include="..\src\Sprite.cpp" />
     <ClCompile Include="..\src\stb_image.c">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
@@ -116,6 +118,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="..\src\Texture.cpp" />
+    <ClCompile Include="..\src\TextureRegion.cpp" />
     <ClCompile Include="..\src\Vector2.cpp" />
     <ClCompile Include="..\src\Vector3.cpp" />
     <ClCompile Include="..\src\VertexArray.cpp" />
@@ -155,9 +158,13 @@
     <ClInclude Include="..\exp\PixmapIO.h" />
     <ClInclude Include="..\exp\PixmapTextureData.h" />
     <ClInclude Include="..\exp\Quaternion.h" />
+    <ClInclude Include="..\exp\Rectang.h" />
     <ClInclude Include="..\exp\ShaderProgram.h" />
+    <ClInclude Include="..\exp\Sprite.h" />
+    <ClInclude Include="..\exp\SpriteBatch.h" />
     <ClInclude Include="..\exp\Texture.h" />
     <ClInclude Include="..\exp\TextureData.h" />
+    <ClInclude Include="..\exp\TextureRegion.h" />
     <ClInclude Include="..\exp\Vector2.h" />
     <ClInclude Include="..\exp\Vector3.h" />
     <ClInclude Include="..\exp\VertexArray.h" />

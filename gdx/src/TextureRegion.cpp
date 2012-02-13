@@ -83,10 +83,10 @@ void TextureRegion::setRegion(TextureRegion* region)
 }
 
 /** Sets the texture to that of the specified region and sets the coordinates relative to the specified region. */
-void TextureRegion::setRegion(TextureRegion region, int x, int y, int width, int height)
+void TextureRegion::setRegion(TextureRegion* region, int x, int y, int width, int height)
 {
-	m_texture = region.m_texture;
-	setRegion(region.getRegionX() + x, region.getRegionY() + y, width, height);
+	m_texture = region->m_texture;
+	setRegion(region->getRegionX() + x, region->getRegionY() + y, width, height);
 }
 
 Texture* TextureRegion::getTexture()

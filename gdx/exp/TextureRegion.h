@@ -24,6 +24,7 @@
 
 class TextureRegion
 {
+protected:
 	Texture* m_texture;
 	float m_u, m_v;
 	float m_u2, m_v2;
@@ -67,7 +68,7 @@ public:
 	void setRegion(TextureRegion* region);
 
 	/** Sets the texture to that of the specified region and sets the coordinates relative to the specified region. */
-	void setRegion(TextureRegion region, int x, int y, int width, int height);
+	void setRegion(TextureRegion* region, int x, int y, int width, int height);
 
 	Texture* getTexture();
 
