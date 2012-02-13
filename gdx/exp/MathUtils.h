@@ -17,6 +17,9 @@
 /** Utility and fast math functions.<br>
  * <br>
  * Thanks to Riven on JavaGaming.org for sin/cos/atan2/floor/ceil.<br> */
+
+#pragma once
+
 class MathUtils
 {
 public:
