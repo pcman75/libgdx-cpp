@@ -53,17 +53,17 @@ class GdxDllImportExport ShaderProgram
 {
 public:
 	/** default name for position attributes **/
-	static const char* POSITION_ATTRIBUTE;
+	static const wchar_t* POSITION_ATTRIBUTE;
 	/** default name for normal attribtues **/
-	static const char* NORMAL_ATTRIBUTE;
+	static const wchar_t* NORMAL_ATTRIBUTE;
 	/** default name for color attributes **/
-	static const char* COLOR_ATTRIBUTE;
+	static const wchar_t* COLOR_ATTRIBUTE;
 	/** default name for texcoords attributes, append texture unit number **/
-	static const char* TEXCOORD_ATTRIBUTE;
+	static const wchar_t* TEXCOORD_ATTRIBUTE;
 	/** default name for tangent attribute **/
-	static const char* TANGENT_ATTRIBUTE;
+	static const wchar_t* TANGENT_ATTRIBUTE;
 	/** default name for binormal attribute **/
-	static const char* BINORMAL_ATTRIBUTE;
+	static const wchar_t* BINORMAL_ATTRIBUTE;
 
 	/** flag indicating whether attributes & uniforms must be present at all times **/
 	static bool pedantic;
