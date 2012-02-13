@@ -1,8 +1,8 @@
 #include "stdafx.h"
-#include "Rectangle.h"
+#include "Rectang.h"
 
 /** Constructs a new rectangle with all values set to zero */
-Rectangle::Rectangle()
+Rectang::Rectang()
 {
 }
 
@@ -11,7 +11,7 @@ Rectangle::Rectangle()
 * @param y The corner point y-coordinate
 * @param width The width
 * @param height The height */
-Rectangle::Rectangle(float x, float y, float width, float height)
+Rectang::Rectang(float x, float y, float width, float height)
 {
 	this->x = x;
 	this->y = y;
@@ -21,7 +21,7 @@ Rectangle::Rectangle(float x, float y, float width, float height)
 
 /** Constructs a rectangle based on the given rectangle
 * @param rect The rectangle */
-Rectangle::Rectangle(const Rectangle& rect)
+Rectang::Rectang(const Rectang& rect)
 {
 	x = rect.x;
 	y = rect.y;
@@ -30,60 +30,60 @@ Rectangle::Rectangle(const Rectangle& rect)
 }
 
 /** @return the x-coordinate of the bottom left corner */
-float Rectangle::getX ()
+float Rectang::getX ()
 {
 	return x;
 }
 
 /** Sets the x-coordinate of the bottom left corner
 * @param x The x-coordinate */
-void Rectangle::setX (float x)
+void Rectang::setX (float x)
 {
 	this->x = x;
 }
 
 /** @return the y-coordinate of the bottom left corner */
-float Rectangle::getY ()
+float Rectang::getY ()
 {
 	return y;
 }
 
 /** Sets the y-coordinate of the bottom left corner
 * @param y The y-coordinate */
-void Rectangle::setY (float y)
+void Rectang::setY (float y)
 {
 	this->y = y;
 }
 
 /** @return the width */
-float Rectangle::getWidth ()
+float Rectang::getWidth ()
 {
 	return width;
 }
 
 /** Sets the width of this rectangle
 * @param width The width */
-void Rectangle::setWidth (float width)
+void Rectang::setWidth (float width)
 {
 	this->width = width;
 }
 
 /** @return the height */
-float Rectangle::getHeight ()
+float Rectang::getHeight ()
 {
 	return height;
 }
 
 /** Sets the height of this rectangle
 * @param height The height */
-void Rectangle::setHeight (float height)
+void Rectang::setHeight (float height)
 {
 	this->height = height;
 }
 
-/** @param rectangle the other {@link Rectangle}.
+/** @param rectangle the other {@link Rectang}.
 * @return whether the other rectangle is contained in this rectangle. */
-bool Rectangle::contains(const Rectangle& rectangle)
+bool Rectang::contains(const Rectang& rectangle)
 {
 	float xmin = rectangle.x;
 	float xmax = xmin + rectangle.width;
@@ -95,14 +95,14 @@ bool Rectangle::contains(const Rectangle& rectangle)
 		&& ((ymin > y && ymin < y + height) && (ymax > y && ymax < y + height));
 }
 
-/** @param rectangle the other {@link Rectangle}
+/** @param rectangle the other {@link Rectang}
 * @return whether this rectangle overlaps the other rectangle. */
-bool Rectangle::overlaps(const Rectangle& rectangle)
+bool Rectang::overlaps(const Rectang& rectangle)
 {
 	return !(x > rectangle.x + rectangle.width || x + width < rectangle.x || y > rectangle.y + rectangle.height || y + height < rectangle.y);
 }
 
-void Rectangle::set(float x, float y, float width, float height)
+void Rectang::set(float x, float y, float width, float height)
 {
 	this->x = x;
 	this->y = y;
@@ -113,14 +113,14 @@ void Rectangle::set(float x, float y, float width, float height)
 /** @param x point x coordinate
 * @param y point y coordinate
 * @return whether the point is contained in the rectangle */
-bool Rectangle::contains (float x, float y)
+bool Rectang::contains (float x, float y)
 {
 	return this->x < x && this->x + this->width > x && this->y < y && this->y + this->height > y;
 }
 
 /** Sets the values of the given rectangle to this rectangle.
 * @param rect the other rectangle */
-void Rectangle::set(const Rectangle& rect)
+void Rectang::set(const Rectang& rect)
 {
 	this->x = rect.x;
 	this->y = rect.y;
@@ -130,7 +130,7 @@ void Rectangle::set(const Rectangle& rect)
 
 /** Merges this rectangle with the other rectangle.
 * @param rect the other rectangle */
-void Rectangle::merge(const Rectangle& rect)
+void Rectang::merge(const Rectang& rect)
 {
 	float minX = min(x, rect.x);
 	float maxX = max(x + width, rect.x + rect.width);
@@ -143,7 +143,7 @@ void Rectangle::merge(const Rectangle& rect)
 	height = maxY - minY;
 }
 
-std::string Rectangle::toString ()
+std::string Rectang::toString ()
 {
 	std::stringstream ret;
 	ret << x << "," << y << "," << width << "," << height;

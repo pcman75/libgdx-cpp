@@ -13,27 +13,26 @@
 
 #pragma once
 
-/** Encapsulates a 2D rectangle defined by it's bottom corner point and its extends in x (width) and y (height).
- * @author badlogicgames@gmail.com */
-class Rectangle
+/** Encapsulates a 2D rectangle defined by it's bottom corner point and its extends in x (width) and y (height)*/
+class Rectang
 {
 public:
 	float x, y;
 	float width, height;
 
 	/** Constructs a new rectangle with all values set to zero */
-	Rectangle();
+	Rectang();
 
 	/** Constructs a new rectangle with the given corner point in the bottom left and dimensions.
 	 * @param x The corner point x-coordinate
 	 * @param y The corner point y-coordinate
 	 * @param width The width
 	 * @param height The height */
-	Rectangle(float x, float y, float width, float height);
+	Rectang(float x, float y, float width, float height);
 
 	/** Constructs a rectangle based on the given rectangle
 	 * @param rect The rectangle */
-	Rectangle(const Rectangle& rect);
+	Rectang(const Rectang& rect);
 
 	/** @return the x-coordinate of the bottom left corner */
 	float getX ();
@@ -63,13 +62,13 @@ public:
 	 * @param height The height */
 	void setHeight (float height);
 
-	/** @param rectangle the other {@link Rectangle}.
+	/** @param rectangle the other {@link Rectang}.
 	 * @return whether the other rectangle is contained in this rectangle. */
-	bool contains(const Rectangle& rectangle);
+	bool contains(const Rectang& rectangle);
 
-	/** @param rectangle the other {@link Rectangle}
+	/** @param rectangle the other {@link Rectang}
 	 * @return whether this rectangle overlaps the other rectangle. */
-	bool overlaps(const Rectangle& rectangle);
+	bool overlaps(const Rectang& rectangle);
 
 	void set(float x, float y, float width, float height);
 
@@ -80,11 +79,11 @@ public:
 
 	/** Sets the values of the given rectangle to this rectangle.
 	 * @param rect the other rectangle */
-	void set(const Rectangle& rect);
+	void set(const Rectang& rect);
 
 	/** Merges this rectangle with the other rectangle.
 	 * @param rect the other rectangle */
-	void merge(const Rectangle& rect);
+	void merge(const Rectang& rect);
 
 	std::string toString ();
 };
