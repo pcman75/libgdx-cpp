@@ -116,17 +116,17 @@ public:
 	/** Packs the 4 components of this color into a 32-bit int and returns it as a float.
 	 *
 	 * @return the packed color as a 32-bit float */
-	float toFloatBits ();
+	float toFloatBits() const;
 
 	/** Packs the 4 components of this color into a 32-bit int.
 	 *
 	 * @return the packed color as a 32-bit int. */
-	int toIntBits ();
+	int toIntBits() const;
 
 	/** Packs the 4 components of this color into a 32-bit int and returns it as a float.
 	 *
 	 * @return the packed color as a 32-bit float */
-	static float toFloatBits (float r, float g, float b, float a);
+	static float toFloatBits(float r, float g, float b, float a);
 
 	static int alpha (float alpha);
 

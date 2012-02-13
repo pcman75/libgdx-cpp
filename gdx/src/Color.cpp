@@ -196,7 +196,7 @@ int Color::toIntBits (int r, int g, int b, int a)
 /** Packs the 4 components of this color into a 32-bit int and returns it as a float.
 *
 * @return the packed color as a 32-bit float */
-float Color::toFloatBits ()
+float Color::toFloatBits () const
 {
 	int color = ((int)(255 * a) << 24) | ((int)(255 * b) << 16) | ((int)(255 * g) << 8) | ((int)(255 * r));
 	return NumberUtils::intToFloatColor(color);
@@ -205,7 +205,7 @@ float Color::toFloatBits ()
 /** Packs the 4 components of this color into a 32-bit int.
 *
 * @return the packed color as a 32-bit int. */
-int Color::toIntBits ()
+int Color::toIntBits () const
 {
 	int color = ((int)(255 * a) << 24) | ((int)(255 * b) << 16) | ((int)(255 * g) << 8) | ((int)(255 * r));
 	return color;
