@@ -45,6 +45,35 @@ Mesh::Mesh(bool isStatic, const VertexAttributes& attributes)
 	addManagedMesh(this);
 }
 
+Mesh::Mesh(VertexDataType type, bool isStatic, const VertexAttributes& attributes)
+{
+	if (type == VertexArrayType && Gdx.graphics->isGL20Available()) 
+		type = VertexBufferObjectType;
+
+	if (type == VertexBufferObjectType) 
+	{
+		m_vertices = new VertexBufferObject(isStatic, attributes);
+		m_indices = new IndexBufferObject(isStatic);
+		m_isVertexArray = false;
+	} 
+	else if (type == VertexBufferObjectSubDataType) 
+	{
+		throw new GdxRuntimeException("TODO: not implemented Vertex Type");
+		/*
+		vertices = new VertexBufferObjectSubData(isStatic, maxVertices, attributes);
+		indices = new IndexBufferObjectSubData(isStatic, maxIndices);
+		isVertexArray = false;
+		*/
+	}
+	else 
+	{
+		m_vertices = new VertexArray(attributes);
+		m_indices = new IndexBufferObject(isStatic);
+		m_isVertexArray = true;
+	}
+	addManagedMesh(this);
+}
+
 Mesh::~Mesh(void)
 {
 	dispose();
