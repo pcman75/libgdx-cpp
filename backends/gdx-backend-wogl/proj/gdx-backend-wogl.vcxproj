@@ -79,7 +79,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\%40Git\backends\gdx-backend-wogl\exp\WoglFileHandleStream.h" />
+    <ClInclude Include="..\exp\WoglFileHandleStream.h" />
     <ClInclude Include="..\exp\WoglApplication.h" />
     <ClInclude Include="..\exp\WoglDefines.h" />
     <ClInclude Include="..\exp\WoglFiles.h" />
@@ -99,7 +99,7 @@
     <ClInclude Include="..\incl\Window.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\%40Git\backends\gdx-backend-wogl\src\WoglFileHandleStream.cpp" />
+    <ClCompile Include="..\src\WoglFileHandleStream.cpp" />
     <ClCompile Include="..\extern\glew.c">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
