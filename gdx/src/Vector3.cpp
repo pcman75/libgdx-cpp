@@ -345,9 +345,9 @@ Vector3 Vector3::slerp(Vector3 target, float alpha)
 }
 
 /** {@inheritDoc} */
-std::wstring Vector3::toString()
+std::string Vector3::toString()
 {
-	std::wstringstream ret;
+	std::stringstream ret;
 	ret << x << "," << y << "," << z;
 	return ret.str();
 }

@@ -14,57 +14,79 @@
  * limitations under the License.
  ******************************************************************************/
 #pragma once
+#include "GdxDefines.h"
 #include "FileHandle.h"
 
+/* 
+//usage
+FileHandle  hFile = Gdx.app->getFiles()->internalHandle( "c:\\jucarii.txt"); //"c:"
+bool        bDir = hFile.isDirectory();
+std::string path = hFile.path();
+std::string name = hFile.name();
+std::string ext = hFile.extension();
+std::string nameWithoutExt = hFile.nameWithoutExtension();
+FileType    nFileType = hFile.type();
+
+std::vector< FileHandle> subHandles;
+hFile.list( subHandles);
+
+
+// read test
+//
+FileHandleStream* pStream = hFile.getStream( Read, Binary);
+int nSize = pStream->size();
+unsigned char* pBuff = new unsigned char [ nSize];
+int nRead = pStream->readBytes( pBuff, nSize);
+delete pStream;
+pStream = NULL;
+
+
+// write test ..
+//
+FileHandle  hFile2 = Gdx.app->getFiles()->internalHandle( "c:\\jucarii2.txt"); //"c:"
+FileHandleStream* pStream2 = hFile2.getStream( Write, Binary);
+pStream2->writeBytes( pBuff, nSize);
+delete pStream2;
+*/
+
+
+
+
 /** Provides standard access to the filesystem, classpath, Android SD card, and Android assets directory.*/
-class Files
+class GdxDllImportExport Files
 {
 public:
-	/** Indicates how to resolve a path to a file*/
-	virtual ~Files() {}
-	 enum FileType 
-	 {
-	    /** Path relative to the root of the classpath. Classpath files are always readonly. Note that classpath files are not
-	     * compatible with some functionality on Android, such as {@link Audio#newSound(FileHandle)} and
-	     * {@link Audio#newMusic(FileHandle)}. */
-	    Classpath,
-
-	    /** Path relative to the asset directory on Android and to the application's root directory on the desktop. On the desktop,
-	     * if the file is not found, then the classpath is checked. This enables files to be found when using JWS or applets.
-	     * Internal files are always readonly. */
-	    Internal,
-
-	    /** Path relative to the root of the SD card on Android and to the home directory of the current user on the desktop. */
-	    External,
-
-	    /** Path that is a fully qualified, absolute filesystem path. To ensure portability across platforms use absolute files only
-	     * when absolutely (heh) necessary. */
-	    Absolute
-	};
+  Files();
+	virtual ~Files();
 
 	/** Returns a handle representing a file or directory.
 	 * @param type Determines how the path is resolved.
 	 * @throws GdxRuntimeException if the type is classpath or internal and the file does not exist.
 	 * @see FileType */
-	FileHandle getFileHandle (std::wstring path, FileType type);
+	virtual FileHandle getFileHandle (std::string path, FileType type) const = 0;
 
 	/** Convenience method that returns a {@link FileType#Classpath} file handle. */
-	FileHandle classpathHandle (std::wstring path);
+	virtual FileHandle classpathHandle (std::string path) const = 0;
 
 	/** Convenience method that returns a {@link FileType#Internal} file handle. */
-	FileHandle internalHandle (std::wstring path);
+	virtual FileHandle internalHandle (std::string path) const = 0;
 
 	/** Convenience method that returns a {@link FileType#External} file handle. */
-	FileHandle externalHandle (std::wstring path);
+	virtual FileHandle externalHandle (std::string path) const = 0;
 
 	/** Convenience method that returns a {@link FileType#Absolute} file handle. */
-	FileHandle absoluteHandle (std::wstring path);
+	virtual FileHandle absoluteHandle (std::string path) const = 0;
 
 	/** Returns the external storage path directory. This is the SD card on Android and the home directory of the current user on
 	 * the desktop. */
-	std::wstring getExternalStoragePath ();
+	virtual std::string getExternalStoragePath() const = 0;
 
 	/** Returns true if the external storage is ready for file IO. Eg, on Android, the SD card is not available when mounted for use
 	 * with a PC. */
-	bool isExternalStorageAvailable ();
+	virtual bool isExternalStorageAvailable() const = 0;
+
+  virtual FileType  getFileType( std::string path) const = 0;
+  virtual bool      isDirectory( std::string path) const = 0;
+  virtual void      list( std::string path, std::vector< FileHandle>& handles) const = 0;
+  virtual FileHandleStream* getStream( std::string path, FileAccess nFileAccess, StreamType nStreamType) const = 0;
 };

@@ -51,7 +51,7 @@ public:
 	 * @return the VertexAttribute at the given index */
 	const VertexAttribute& get(int index);
 
-	std::wstring toString ();
+	std::string toString ();
 	int vertexSize() const;
 
 private:

@@ -158,9 +158,9 @@ void Color::set (float r, float g, float b, float a)
 	this->a = a;
 }
 
-std::wstring Color::toString ()
+std::string Color::toString ()
 {
-	std::wstringstream ret;
+	std::stringstream ret;
 	ret << "0x" << std::hex << toIntBits();
 	return ret.str();
 }

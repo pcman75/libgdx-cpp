@@ -54,7 +54,7 @@ public:
 	virtual void glGenTextures (int n, unsigned int* textures) = 0;
 	virtual int glGetError () = 0;
 	virtual void glGetIntegerv (int pname, int* params) = 0;
-	virtual std::wstring glGetString (int name) = 0;
+	virtual std::string glGetString (int name) = 0;
 	virtual void glHint (int target, int mode) = 0;
 	virtual void glLineWidth (float width) = 0;
 	virtual void glPixelStorei (int pname, int param) = 0;

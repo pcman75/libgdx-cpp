@@ -69,10 +69,10 @@ public:
 			this->bitsPerPixel = bitsPerPixel;
 		}
 	public:
-		std::wstring toString () 
+		std::string toString () 
 		{
-			wchar_t buf[100];
-			wsprintf(buf, L"%dx%d, bpp: %d, hz: %d", width, height, bitsPerPixel, refreshRate);
+			char buf[100];
+			sprintf( buf, "%dx%d, bpp: %d, hz: %d", width, height, bitsPerPixel, refreshRate);
 			return buf;
 		}
 	};
@@ -102,12 +102,12 @@ public:
 			this->coverageSampling = coverageSampling;
 		}
 
-		std::wstring toString () 
+		std::string toString () 
 		{
-			wchar_t buf[200];
-			wsprintf(buf, L"r: %d, g: %d, b: %d, a: %d, depth: %d, stencil: %d, num samples: %d, coverage sampling:", r, g, b, a, depth, stencil, samples);
+			char buf[200];
+			sprintf( buf, "r: %d, g: %d, b: %d, a: %d, depth: %d, stencil: %d, num samples: %d, coverage sampling:", r, g, b, a, depth, stencil, samples);
 
-			return std::wstring(buf) + (coverageSampling?L"true":L"false");
+			return std::string(buf) + (coverageSampling? "true": "false");
 		}
 	};
 
@@ -203,7 +203,7 @@ public:
 	/** Sets the title of the window. Ignored on Android.
 	* 
 	* @param title the title. */
-	virtual void setTitle (std::wstring title) = 0;
+	virtual void setTitle (std::string title) = 0;
 
 	/** Sets one or more icons for the Desktop. This only works for Lwjgl. On Windows you should supply at least one 16x16 icon and
 	* one 32x32. Linux (and similar platforms) expect one 32x32 icon. Mac OS X should be supplied one 128x128 icon
@@ -220,6 +220,6 @@ public:
 
 	/** @param extension the extension name
 	* @return whether the extension is supported */
-	virtual bool supportsExtension (std::wstring extension) = 0;
+	virtual bool supportsExtension (std::string extension) = 0;
 };
 

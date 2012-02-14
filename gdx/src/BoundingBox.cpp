@@ -241,9 +241,9 @@ bool BoundingBox::contains(const Vector3& v)
 	return true;
 }
 
-std::wstring BoundingBox::toString()
+std::string BoundingBox::toString()
 {
-	std::wstringstream ret;
+	std::stringstream ret;
 	ret << "[" << m_min.toString() << "|" << m_max.toString() << "]";
 	return ret.str();
 }

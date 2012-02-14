@@ -119,7 +119,7 @@ private:
 
 public:
 	Texture();
-	Texture(const std::wstring& internalPath);
+	Texture(const std::string& internalPath);
 	Texture(const FileHandle& file);
 	Texture(const FileHandle& file, bool useMipMaps);
 	Texture(const FileHandle& file, Pixmap::Format format, bool useMipMaps);
@@ -209,5 +209,5 @@ public:
 	}
 	*/
 
-	static std::wstring getManagedStatus();
+	static std::string getManagedStatus();
 };

@@ -108,7 +108,7 @@ private:
 	 * @return the squared distance between this and the other vector */
 	float dst2(float x, float y);
 
-	std::wstring toString();
+	std::string toString();
 
 	/** Substracts the other vector from this vector.
 	 * @param x The x-component of the other vector

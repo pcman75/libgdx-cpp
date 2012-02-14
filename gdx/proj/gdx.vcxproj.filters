@@ -120,13 +120,10 @@
     <ClCompile Include="..\src\FileHandle.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\TextureRegion.cpp">
+    <ClCompile Include="..\..\..\%40Git\gdx\src\FileHandleStream.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\Sprite.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\Rectang.cpp">
+    <ClCompile Include="..\..\..\%40Git\gdx\src\Files.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -269,16 +266,7 @@
     <ClInclude Include="..\incl\lodepng.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\exp\SpriteBatch.h">
-      <Filter>Exported Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\exp\Sprite.h">
-      <Filter>Exported Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\exp\TextureRegion.h">
-      <Filter>Exported Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\exp\Rectang.h">
+    <ClInclude Include="..\..\..\%40Git\gdx\exp\FileHandleStream.h">
       <Filter>Exported Header Files</Filter>
     </ClInclude>
   </ItemGroup>

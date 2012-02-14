@@ -78,7 +78,6 @@ public:
 	virtual void glPolygonMode (int face, int mode);
 
 protected:
-	std::wstring glString2wstring(const unsigned char* glString);
 };
 
 #pragma warning( pop )

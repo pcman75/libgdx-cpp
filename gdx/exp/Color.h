@@ -91,7 +91,7 @@ public:
 
 	void set (float r, float g, float b, float a);
 
-	std::wstring toString ();
+	std::string toString ();
 
 	/** Packs the four color components which should be in the range 0-255 into a 32-bit integer and then converts it to a float.
 	 * Note that no range checking is performed for higher performance.

@@ -210,24 +210,24 @@ int Gdx2DPixmap::getGLType ()
 	}
 }
 
-std::wstring Gdx2DPixmap::getFormatString ()
+std::string Gdx2DPixmap::getFormatString ()
 {
 	switch(m_pixmap->format)
 	{
 	case GDX2D_FORMAT_ALPHA:
-		return L"alpha";
+		return "alpha";
 	case GDX2D_FORMAT_LUMINANCE_ALPHA:
-		return L"luminance alpha";
+		return "luminance alpha";
 	case GDX2D_FORMAT_RGB888:
-		return L"rgb888";
+		return "rgb888";
 	case GDX2D_FORMAT_RGBA8888:
-		return L"rgba8888";
+		return "rgba8888";
 	case GDX2D_FORMAT_RGB565:
-		return L"rgb565";
+		return "rgb565";
 	case GDX2D_FORMAT_RGBA4444:
-		return L"rgba4444";
+		return "rgba4444";
 	default:
-		return L"unknown";
+		return "unknown";
 	}
 }
 

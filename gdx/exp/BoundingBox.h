@@ -134,7 +134,7 @@ public:
 	 * @return Wheter the vector is contained or not. */
 	bool contains(const Vector3& v);
 
-	std::wstring toString();
+	std::string toString();
 
 	/** Extends the bounding box by the given vector.
 	 *

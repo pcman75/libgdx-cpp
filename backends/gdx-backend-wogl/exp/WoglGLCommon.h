@@ -36,7 +36,7 @@ public:
 	virtual void glGenTextures (int n, unsigned int*  textures);
 	virtual int glGetError ();
 	virtual void glGetIntegerv (int pname, int* params);
-	virtual std::wstring glGetString (int name);
+	virtual std::string glGetString (int name);
 	virtual void glHint (int target, int mode);
 	virtual void glLineWidth (float width);
 	virtual void glPixelStorei (int pname, int param);
@@ -52,7 +52,5 @@ public:
 	virtual void glViewport (int x, int y, int width, int height);
 
 protected:
-	std::wstring glString2wstring(const unsigned char* glString);
-	std::string wstring2string(const std::wstring& str);
 };
 

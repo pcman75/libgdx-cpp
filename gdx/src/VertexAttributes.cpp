@@ -88,9 +88,9 @@ int VertexAttributes::vertexSize() const
 	return m_vertexSize;
 }
 
-std::wstring VertexAttributes::toString () 
+std::string VertexAttributes::toString () 
 {
-	std::wstringstream ret;
+	std::stringstream ret;
 	for (int i = 0; i < m_attributesLength; i++) 
 	{
 		ret << m_attributes[i].alias;

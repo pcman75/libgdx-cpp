@@ -74,6 +74,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\%40Git\gdx\src\FileHandleStream.cpp" />
+    <ClCompile Include="..\..\..\%40Git\gdx\src\Files.cpp" />
     <ClCompile Include="..\src\BoundingBox.cpp" />
     <ClCompile Include="..\src\Color.cpp" />
     <ClCompile Include="..\src\dllmain.cpp" />
@@ -127,6 +129,7 @@
     <ClCompile Include="..\src\VertexBufferObject.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\%40Git\gdx\exp\FileHandleStream.h" />
     <ClInclude Include="..\exp\Application.h" />
     <ClInclude Include="..\exp\ApplicationListener.h" />
     <ClInclude Include="..\exp\BoundingBox.h" />

@@ -21,7 +21,7 @@ void VertexBufferObjectShaderTest::render()
 
 	gl->glEnable(GL20::GDX_GL_TEXTURE_2D);
 	m_shader->begin();
-	m_shader->setUniformi(L"u_texture", 0);
+	m_shader->setUniformi( "u_texture", 0);
 	m_texture->bind();
 	m_vbo->bind(*m_shader);
 	Gdx.gl->glDrawElements(GL20::GDX_GL_TRIANGLES, 3, GL20::GDX_GL_UNSIGNED_SHORT, &indices);
@@ -31,21 +31,21 @@ void VertexBufferObjectShaderTest::render()
 
 void VertexBufferObjectShaderTest::create()
 {
-	std::wstring vertexShader = std::wstring(L"attribute vec4 a_position;    \n") + L"attribute vec4 a_color;\n" + L"attribute vec2 a_texCoords;\n"
-		+ L"varying vec4 v_color;" + L"varying vec2 v_texCoords;" + L"void main()                  \n"
-		+ L"{                            \n" + L"   v_color = vec4(a_color.x, a_color.y, a_color.z, 1); \n"
-		+ L"   v_texCoords = a_texCoords; \n" + L"   gl_Position =  a_position;  \n" + L"}                            \n";
-	std::wstring fragmentShader =  std::wstring(L"#ifdef GL_ES\n") + L"precision mediump float;\n" + L"#endif\n" + L"varying vec4 v_color;\n"
-		+ L"varying vec2 v_texCoords;\n" + L"uniform sampler2D u_texture;\n" + L"void main()                                  \n"
-		+ L"{                                            \n" + L"  gl_FragColor = v_color * texture2D(u_texture, v_texCoords);\n"
-		+ L"}";
+	std::string vertexShader = std::string("attribute vec4 a_position;    \n") + "attribute vec4 a_color;\n" + "attribute vec2 a_texCoords;\n"
+		+ "varying vec4 v_color;" + "varying vec2 v_texCoords;" + "void main()                  \n"
+		+ "{                            \n" + "   v_color = vec4(a_color.x, a_color.y, a_color.z, 1); \n"
+		+ "   v_texCoords = a_texCoords; \n" + "   gl_Position =  a_position;  \n" + "}                            \n";
+	std::string fragmentShader =  std::string("#ifdef GL_ES\n") + "precision mediump float;\n" + "#endif\n" + "varying vec4 v_color;\n"
+		+ "varying vec2 v_texCoords;\n" + "uniform sampler2D u_texture;\n" + "void main()                                  \n"
+		+ "{                                            \n" + "  gl_FragColor = v_color * texture2D(u_texture, v_texCoords);\n"
+		+ "}";
 
 	m_shader = new ShaderProgram(vertexShader, fragmentShader);
 	//ShaderProgram::pedantic = false;
 
-	VertexAttribute attributes[] = {VertexAttribute(VertexAttributes::Position, 2, L"a_position"),
-		VertexAttribute(VertexAttributes::TextureCoordinates, 2, L"a_texCoords"), 
-		VertexAttribute(VertexAttributes::ColorPacked, 4, L"a_color")};
+	VertexAttribute attributes[] = {VertexAttribute(VertexAttributes::Position, 2, "a_position"),
+		VertexAttribute(VertexAttributes::TextureCoordinates, 2, "a_texCoords"), 
+		VertexAttribute(VertexAttributes::ColorPacked, 4, "a_color")};
 	m_vbo = new VertexBufferObject(true, VertexAttributes(attributes, sizeof(attributes)/sizeof(attributes[0])));
 
 	float vertices[] = { -1, -1, 0, 0, Color::toFloatBits(1, 0, 0, 1), 0, 1, 0.5f, 1.0f,
@@ -54,7 +54,7 @@ void VertexBufferObjectShaderTest::create()
 
 	m_vbo->setVertices(vertices, sizeof(vertices)/sizeof(vertices[0]));
 
-	m_texture = new Texture(L"c:\\badlogic.jpg");
+	m_texture = new Texture("c:\\badlogic.jpg");
 }
 
 void VertexBufferObjectShaderTest::resume()

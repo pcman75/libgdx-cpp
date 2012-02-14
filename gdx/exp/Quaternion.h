@@ -79,7 +79,7 @@ public:
 	float len();
 
 	/** {@inheritDoc} */
-	std::wstring toString();
+	std::string toString();
 
 	/** Sets the quaternion to the given euler angles.
 	 * @param yaw the yaw in degrees
