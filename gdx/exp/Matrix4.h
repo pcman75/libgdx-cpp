@@ -285,7 +285,7 @@ public:
 	Matrix4& setToWorld(Vector3 position, Vector3 forward, Vector3 up);
 
 	/** {@inheritDoc} */
-	std::wstring toString();
+	std::string toString();
 
 	/** Linearly interpolates between this matrix and the given matrix mixing by alpha
 	 * @param matrix the matrix

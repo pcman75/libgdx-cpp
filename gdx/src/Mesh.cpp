@@ -425,7 +425,7 @@ return builder.toString();
 void Mesh::scale (float scaleX, float scaleY, float scaleZ) 
 {
 	//TODO:
-	VertexAttribute posAttr(-1, 0, L"");
+	VertexAttribute posAttr(-1, 0, "");
 	getVertexAttribute(VertexAttributes::Position, posAttr);
 	int offset = posAttr.offset / 4;
 	int numComponents = posAttr.numComponents;

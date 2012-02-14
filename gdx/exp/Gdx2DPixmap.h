@@ -101,7 +101,7 @@ public:
 	int getGLInternalFormat ();
 	int getGLFormat();
 	int getGLType();
-	std::wstring getFormatString();
+	std::string getFormatString();
 	
 	static void setBlend (int blend);
 	static void setScale (int scale);

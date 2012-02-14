@@ -14,9 +14,9 @@ HelloWorldApp::~HelloWorldApp(void)
 
 void HelloWorldApp::create()	
 { 
-	VertexAttribute position(VertexAttributes::Position, 3, L"a_position");
-	VertexAttribute color(VertexAttributes::ColorPacked, 4, L"a_color");
-	VertexAttribute textureCoord(VertexAttributes::TextureCoordinates, 2, L"a_texCoords");
+	VertexAttribute position(VertexAttributes::Position, 3, "a_position");
+	VertexAttribute color(VertexAttributes::ColorPacked, 4, "a_color");
+	VertexAttribute textureCoord(VertexAttributes::TextureCoordinates, 2, "a_texCoords");
 	VertexAttribute attributes[] = {position, color, textureCoord};
 	m_mesh = new Mesh(true, VertexAttributes(attributes, sizeof(attributes)/sizeof(attributes[0])));
 	float vertices[] = 
@@ -29,7 +29,7 @@ void HelloWorldApp::create()
 	m_mesh->setVertices(vertices, sizeof(vertices)/sizeof(vertices[0]));
 	m_mesh->setIndices(indices, sizeof(indices)/sizeof(indices[0]));
 
-	m_texture = new Texture(L"c:\\badlogic.jpg");
+	m_texture = new Texture("c:\\badlogic.jpg");
 }
 
 void HelloWorldApp::resize (int width, int height){}

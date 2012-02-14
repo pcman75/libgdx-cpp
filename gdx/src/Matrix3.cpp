@@ -125,9 +125,9 @@ Matrix3& Matrix3::setToScaling(float scaleX, float scaleY)
 	return *this;
 }
 
-std::wstring Matrix3::toString()
+std::string Matrix3::toString()
 {
-	std::wstringstream ret;
+	std::stringstream ret;
 	ret << "[" << vals[0] << "|" << vals[3] << "|" << vals[6] << "]\n" << "[" << vals[1] << "|" << vals[4] << "|" << vals[7] << "]\n" << "["
 		<< vals[2] << "|" << vals[5] << "|" << vals[8] << "]";
 	return ret.str();

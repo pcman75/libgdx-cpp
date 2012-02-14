@@ -7,7 +7,7 @@ void PixmapIO::writePNG(const FileHandle& file, Pixmap* pixmap)
 {
 	int fileNameLength = file.name().length();
 	char* buf = new char[fileNameLength+1];
-	wcstombs(buf, file.name().c_str(), fileNameLength+1);
+	strcpy( buf, file.name().c_str());
 
 	//TODO: 
 	//Probably need to let the FileHandle write it

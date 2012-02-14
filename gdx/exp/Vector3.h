@@ -226,7 +226,7 @@ public:
 	Vector3 slerp(Vector3 target, float alpha);
 
 	/** {@inheritDoc} */
-	std::wstring toString();
+	std::string toString();
 
 	/** Returns the dot product between this and the given vector.
 	 *

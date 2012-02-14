@@ -48,7 +48,7 @@ public:
 	virtual const Input& getInput ();
 
 	/** @return the {@link Files} instance */
-	virtual const Files& getFiles ();
+	virtual const Files* getFiles ();
 
 	/** Logs a message to the console or logcat */
 	virtual void log(const wchar_t* tag, const wchar_t* message);

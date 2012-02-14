@@ -42,12 +42,12 @@ void WoglGraphics::initializeGLInstances()
 {
 	WoglGLCommon ogl;
 
-	std::wstring version = ogl.glGetString(GL10::GDX_GL_VERSION);
-	std::wstring renderer = ogl.glGetString(GL10::GDX_GL_RENDERER);
+	std::string version = ogl.glGetString(GL10::GDX_GL_VERSION);
+	std::string renderer = ogl.glGetString(GL10::GDX_GL_RENDERER);
 
-	const wchar_t* szVersion = version.c_str();
-	m_major = _wtoi(szVersion);
-	m_minor = _wtoi(szVersion + 2);
+	const char* szVersion = version.c_str();
+	m_major = atoi(szVersion);
+	m_minor = atoi(szVersion + 2);
 
 	if (m_useGL20 && m_major >= 2)
 	{
@@ -56,7 +56,7 @@ void WoglGraphics::initializeGLInstances()
 	} 
 	else 
 	{
-		if (m_major == 1 && m_minor < 5 || renderer == L"Mirage Graphics3") 
+		if (m_major == 1 && m_minor < 5 || renderer == "Mirage Graphics3") 
 		{
 			m_pGL10 = new WoglGL10();
 		} 
@@ -186,7 +186,7 @@ bool WoglGraphics::setDisplayMode (int width, int height, bool fullscreen)
 	return false;
 }
 
-void WoglGraphics::setTitle (std::wstring title)
+void WoglGraphics::setTitle (std::string title)
 {
 }
 //void WoglGraphics::setIcon (std::vector<Pixmap> pixmaps)
@@ -199,7 +199,7 @@ Graphics::BufferFormat WoglGraphics::getBufferFormat ()
 {
 	return BufferFormat(0,0,0,0,0,0,0,false);
 }
-bool WoglGraphics::supportsExtension (std::wstring extension)
+bool WoglGraphics::supportsExtension (std::string extension)
 {
 	return false;
 }

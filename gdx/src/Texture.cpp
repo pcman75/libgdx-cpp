@@ -80,7 +80,7 @@ void Texture::init()
 void Texture::init(const FileHandle& file, Pixmap::Format format, bool useMipMaps)
 {
 	init();
-	if(file.name().find(L".etc1") != std::wstring::npos)
+	if(file.name().find( ".etc1") != std::string::npos)
 	{
 		create(new ETC1TextureData(file, useMipMaps));
 	}
@@ -95,11 +95,12 @@ Texture::Texture()
 	init();
 }
 
-Texture::Texture(const std::wstring& internalPath)
+Texture::Texture(const std::string& internalPath)
 {
 	//TODO: use internal path after is implemented
 	//init(Gdx.files->internalHandle(internalPath), Pixmap::Format::Unknown, false);
-	init(internalPath, Pixmap::Format::Unknown, false);
+  FileHandle hFile = Gdx.app->getFiles()->internalHandle( internalPath);
+	init( hFile, Pixmap::Format::Unknown, false);
 }
 
 Texture::Texture(const FileHandle& file)
@@ -440,7 +441,7 @@ void Texture::invalidateAllTextures(Application* app)
 	params.texture = texture; // special parameter which will ensure that the references stay the same.
 	params.loadedCallback = new LoadedCallback()
 	{
-	void finishedLoading(AssetManager assetManager, const std::wstring& fileName, Class type)
+	void finishedLoading(AssetManager assetManager, const std::string& fileName, Class type)
 	{
 	assetManager.setReferenceCount(fileName, refCount);
 	}
@@ -470,9 +471,9 @@ Texture.assetManager = manager;
 }
 */
 
-std::wstring Texture::getManagedStatus()
+std::string Texture::getManagedStatus()
 {
-	std::wstringstream ret;
+	std::stringstream ret;
 	ret << "Managed textures/app: { ";
 	for(TextureMapIterator it = m_managedTextures.begin(); it != m_managedTextures.end(); it++)
 	{

@@ -16,8 +16,8 @@
 
 #include "Window.h"
 #include "procedure.h"
-using std::wstringstream;
-using std::wcout;
+using std::stringstream;
+using std::cout;
 using std::endl;
 using namespace Win;
 
@@ -110,22 +110,22 @@ void Window::show(int cmdShow)
 ///////////////////////////////////////////////////////////////////////////////
 void Window::printSelf() const
 {
-    wstringstream wss;                          // wide char output string stream buffer
+    stringstream wss;                          // wide char output string stream buffer
 
     // build output string
-    wss << L"=== Win::Window object ===\n"
-        << L"Name: " << title << L"\n"
-        << L"Position: (" << x << L", " << y << L")\n"
-        << L"Width: " << width << L"\n"
-        << L"Height: " << height << L"\n"
-        << L"Handle: " << handle << L"\n"
-        << L"Parent Handle: " << parentHandle << L"\n"
-        << L"Menu Handle: " << menuHandle << L"\n"
-        << L"Instance: " << instance << L"\n"
-        << L"Controller: " << std::hex << controller << L"\n"
+    wss << "=== Win::Window object ===\n"
+        << "Name: " << title << "\n"
+        << "Position: (" << x << ", " << y << ")\n"
+        << "Width: " << width << "\n"
+        << "Height: " << height << "\n"
+        << "Handle: " << handle << "\n"
+        << "Parent Handle: " << parentHandle << "\n"
+        << "Menu Handle: " << menuHandle << "\n"
+        << "Instance: " << instance << "\n"
+        << "Controller: " << std::hex << controller << "\n"
         << endl;
 
-    wcout << wss.str();                         // print the string to the console
+    cout << wss.str();                         // print the string to the console
 }
 
 

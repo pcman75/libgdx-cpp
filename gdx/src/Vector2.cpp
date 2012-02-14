@@ -165,9 +165,9 @@ float Vector2::dst2(float x, float y)
 	return x_d * x_d + y_d * y_d;
 }
 
-std::wstring Vector2::toString()
+std::string Vector2::toString()
 {
-	std::wstringstream ret;
+	std::stringstream ret;
 	ret << "[" << x << ":" << y << "]";
 	return ret.str();
 }

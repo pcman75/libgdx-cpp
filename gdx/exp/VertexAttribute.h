@@ -35,7 +35,7 @@ public:
 	/** the offset of this attribute in bytes. don't change this!**/
 	int offset;
 	/** the alias for the attribute used in a {@link ShaderProgram} **/
-	std::wstring alias;
+	std::string alias;
 
 	/** Constructs a new VertexAttribute.
 	* 
@@ -43,7 +43,7 @@ public:
 	*           pipeline.
 	* @param numComponents the number of components of this attribute, must be between 1 and 4.
 	* @param alias the alias used in a shader for this attribute. Can be changed after construction. */
-	VertexAttribute (int usage, int numComponents, std::wstring alias);
+	VertexAttribute (int usage, int numComponents, std::string alias);
 	
 	virtual ~VertexAttribute();
 

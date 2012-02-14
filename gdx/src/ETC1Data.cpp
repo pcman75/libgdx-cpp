@@ -113,9 +113,9 @@ void ETC1Data::dispose()
 	//BufferUtils.freeMemory(compressedData);
 }
 
-std::wstring ETC1Data::toString()
+std::string ETC1Data::toString()
 {
-	std::wstringstream ret;
+	std::stringstream ret;
 	if(hasPKMHeader())
 	{
 		ret << (ETC1::isValidPKM(compressedData, 0) ? "valid" : "invalid") << " pkm [" + ETC1::getWidthPKM(compressedData, 0)

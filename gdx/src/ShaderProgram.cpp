@@ -19,7 +19,7 @@ const char* ShaderProgram::BINORMAL_ATTRIBUTE = "a_binormal";
 bool ShaderProgram::pedantic = true;
 
 
-ShaderProgram::ShaderProgram (const std::wstring& vertexShader, const std::wstring& fragmentShader)
+ShaderProgram::ShaderProgram (const std::string& vertexShader, const std::string& fragmentShader)
 {
 	m_invalidated = false;
 	m_vertexShaderSource = vertexShader;
@@ -39,7 +39,7 @@ ShaderProgram::ShaderProgram (const std::wstring& vertexShader, const std::wstri
 * @param vertexShader
 * @param fragmentShader */
 
-void ShaderProgram::compileShaders (const std::wstring& vertexShader, const std::wstring& fragmentShader)
+void ShaderProgram::compileShaders (const std::string& vertexShader, const std::string& fragmentShader)
 {
 	m_vertexShaderHandle = loadShader(GL20::GDX_GL_VERTEX_SHADER, vertexShader);
 	m_fragmentShaderHandle = loadShader(GL20::GDX_GL_FRAGMENT_SHADER, fragmentShader);
@@ -60,7 +60,7 @@ void ShaderProgram::compileShaders (const std::wstring& vertexShader, const std:
 	m_isCompiled = true;
 }
 
-int ShaderProgram::loadShader (int type, const std::wstring& source)
+int ShaderProgram::loadShader (int type, const std::string& source)
 {
 	GL20* gl = Gdx.gl20;
 	int params = -1;
@@ -78,7 +78,7 @@ int ShaderProgram::loadShader (int type, const std::wstring& source)
 		gl->glGetShaderiv(shader, GL20::GDX_GL_INFO_LOG_LENGTH, &params);
 		if (params > 1)
 		{
-			std::wstring infoLog = gl->glGetShaderInfoLog(shader);
+			std::string infoLog = gl->glGetShaderInfoLog(shader);
 			m_log += infoLog;
 		}
 		return -1;
@@ -113,7 +113,7 @@ int ShaderProgram::linkProgram ()
 
 /** @return the log info for the shader compilation and program linking stage. The shader needs to be bound for this method to
 *         have an effect. */
-std::wstring ShaderProgram::getLog ()
+std::string ShaderProgram::getLog ()
 {
 	if (isCompiled())
 	{
@@ -135,7 +135,7 @@ bool ShaderProgram::isCompiled ()
 	return m_isCompiled;
 }
 
-int ShaderProgram::fetchAttributeLocation (const std::wstring& name)
+int ShaderProgram::fetchAttributeLocation (const std::string& name)
 {
 	GL20* gl = Gdx.gl20;
 
@@ -152,7 +152,7 @@ int ShaderProgram::fetchAttributeLocation (const std::wstring& name)
 	return location;
 }
 
-int ShaderProgram::fetchUniformLocation (const std::wstring& name)
+int ShaderProgram::fetchUniformLocation (const std::string& name)
 {
 	GL20* gl = Gdx.gl20;
 	int location = 0;
@@ -161,7 +161,7 @@ int ShaderProgram::fetchUniformLocation (const std::wstring& name)
 	{
 		location = gl->glGetUniformLocation(m_program, name);
 		if (location == -1 && pedantic) 
-			throw new GdxRuntimeException(std::wstring(L"no uniform with name '") + name + L"' in shader");
+			throw new GdxRuntimeException(std::string( "no uniform with name '") + name + "' in shader");
 		m_attributes[name] = location;
 	}
 	else
@@ -174,7 +174,7 @@ int ShaderProgram::fetchUniformLocation (const std::wstring& name)
 *
 * @param name the name of the uniform
 * @param value the value */
-void ShaderProgram::setUniformi (const std::wstring& name, int value)
+void ShaderProgram::setUniformi (const std::string& name, int value)
 {
 	GL20* gl = Gdx.gl20;
 	checkManaged();
@@ -188,7 +188,7 @@ void ShaderProgram::setUniformi (const std::wstring& name, int value)
 * @param name the name of the uniform
 * @param value1 the first value
 * @param value2 the second value */
-void ShaderProgram::setUniformi (const std::wstring& name, int value1, int value2)
+void ShaderProgram::setUniformi (const std::string& name, int value1, int value2)
 {
 	GL20* gl = Gdx.gl20;
 	checkManaged();
@@ -203,7 +203,7 @@ void ShaderProgram::setUniformi (const std::wstring& name, int value1, int value
 * @param value1 the first value
 * @param value2 the second value
 * @param value3 the third value */
-void ShaderProgram::setUniformi (const std::wstring& name, int value1, int value2, int value3)
+void ShaderProgram::setUniformi (const std::string& name, int value1, int value2, int value3)
 {
 	GL20* gl = Gdx.gl20;
 	checkManaged();
@@ -219,7 +219,7 @@ void ShaderProgram::setUniformi (const std::wstring& name, int value1, int value
 * @param value2 the second value
 * @param value3 the third value
 * @param value4 the fourth value */
-void ShaderProgram::setUniformi (const std::wstring& name, int value1, int value2, int value3, int value4)
+void ShaderProgram::setUniformi (const std::string& name, int value1, int value2, int value3, int value4)
 {
 	GL20* gl = Gdx.gl20;
 	checkManaged();
@@ -232,7 +232,7 @@ void ShaderProgram::setUniformi (const std::wstring& name, int value1, int value
 *
 * @param name the name of the uniform
 * @param value the value */
-void ShaderProgram::setUniformf (const std::wstring& name, float value)
+void ShaderProgram::setUniformf (const std::string& name, float value)
 {
 	GL20* gl = Gdx.gl20;
 	checkManaged();
@@ -246,7 +246,7 @@ void ShaderProgram::setUniformf (const std::wstring& name, float value)
 * @param name the name of the uniform
 * @param value1 the first value
 * @param value2 the second value */
-void ShaderProgram::setUniformf (const std::wstring& name, float value1, float value2)
+void ShaderProgram::setUniformf (const std::string& name, float value1, float value2)
 {
 	GL20* gl = Gdx.gl20;
 	checkManaged();
@@ -261,7 +261,7 @@ void ShaderProgram::setUniformf (const std::wstring& name, float value1, float v
 * @param value1 the first value
 * @param value2 the second value
 * @param value3 the third value */
-void ShaderProgram::setUniformf (const std::wstring& name, float value1, float value2, float value3)
+void ShaderProgram::setUniformf (const std::string& name, float value1, float value2, float value3)
 {
 	GL20* gl = Gdx.gl20;
 	checkManaged();
@@ -277,7 +277,7 @@ void ShaderProgram::setUniformf (const std::wstring& name, float value1, float v
 * @param value2 the second value
 * @param value3 the third value
 * @param value4 the fourth value */
-void ShaderProgram::setUniformf (const std::wstring& name, float value1, float value2, float value3, float value4)
+void ShaderProgram::setUniformf (const std::string& name, float value1, float value2, float value3, float value4)
 {
 	GL20* gl = Gdx.gl20;
 	checkManaged();
@@ -285,7 +285,7 @@ void ShaderProgram::setUniformf (const std::wstring& name, float value1, float v
 	gl->glUniform4f(location, value1, value2, value3, value4);
 }
 
-void ShaderProgram::setUniform1fv (const std::wstring& name, const float* values, int offset, int length)
+void ShaderProgram::setUniform1fv (const std::string& name, const float* values, int offset, int length)
 {
 	//TODO: need to copy values into an internal buffer like in Java???
 	//for now I pass it directly
@@ -298,7 +298,7 @@ void ShaderProgram::setUniform1fv (const std::wstring& name, const float* values
 	gl->glUniform1fv(location, length, values + offset);
 }
 
-void ShaderProgram::setUniform2fv (const std::wstring& name, const float* values, int offset, int length)
+void ShaderProgram::setUniform2fv (const std::string& name, const float* values, int offset, int length)
 {
 	GL20* gl = Gdx.gl20;
 	checkManaged();
@@ -309,7 +309,7 @@ void ShaderProgram::setUniform2fv (const std::wstring& name, const float* values
 	gl->glUniform2fv(location, length / 2, values + offset);
 }
 
-void ShaderProgram::setUniform3fv (const std::wstring& name, const float* values, int offset, int length)
+void ShaderProgram::setUniform3fv (const std::string& name, const float* values, int offset, int length)
 {
 	GL20* gl = Gdx.gl20;
 	checkManaged();
@@ -320,7 +320,7 @@ void ShaderProgram::setUniform3fv (const std::wstring& name, const float* values
 	gl->glUniform3fv(location, length / 3, values + offset);
 }
 
-void ShaderProgram::setUniform4fv (const std::wstring& name, const float* values, int offset, int length)
+void ShaderProgram::setUniform4fv (const std::string& name, const float* values, int offset, int length)
 {
 	GL20* gl = Gdx.gl20;
 	checkManaged();
@@ -336,7 +336,7 @@ void ShaderProgram::setUniform4fv (const std::wstring& name, const float* values
 *
 * @param name the name of the uniform
 * @param matrix the matrix */
-void ShaderProgram::setUniformMatrix (const std::wstring& name, const Matrix4& matrix)
+void ShaderProgram::setUniformMatrix (const std::string& name, const Matrix4& matrix)
 {
 	setUniformMatrix(name, matrix, false);
 }
@@ -347,7 +347,7 @@ void ShaderProgram::setUniformMatrix (const std::wstring& name, const Matrix4& m
 * @param name the name of the uniform
 * @param matrix the matrix
 * @param transpose whether the matrix shouls be transposed */
-void ShaderProgram::setUniformMatrix (const std::wstring& name, const Matrix4& matrix, bool transpose)
+void ShaderProgram::setUniformMatrix (const std::string& name, const Matrix4& matrix, bool transpose)
 {
 	GL20* gl = Gdx.gl20;
 	checkManaged();
@@ -362,7 +362,7 @@ void ShaderProgram::setUniformMatrix (const std::wstring& name, const Matrix4& m
 *
 * @param name the name of the uniform
 * @param matrix the matrix */
-void ShaderProgram::setUniformMatrix (const std::wstring& name, const Matrix3& matrix)
+void ShaderProgram::setUniformMatrix (const std::string& name, const Matrix3& matrix)
 {
 	setUniformMatrix(name, matrix, false);
 }
@@ -373,7 +373,7 @@ void ShaderProgram::setUniformMatrix (const std::wstring& name, const Matrix3& m
 * @param name the name of the uniform
 * @param matrix the matrix
 * @param transpose whether the uniform matrix should be transposed */
-void ShaderProgram::setUniformMatrix (const std::wstring& name, const Matrix3& matrix, bool transpose)
+void ShaderProgram::setUniformMatrix (const std::string& name, const Matrix3& matrix, bool transpose)
 {
 	GL20* gl = Gdx.gl20;
 	checkManaged();
@@ -394,7 +394,7 @@ void ShaderProgram::setUniformMatrix (const std::wstring& name, const Matrix3& m
 * @param normalize whether fixed point data should be normalized. Will not work on the desktop
 * @param stride the stride in bytes between successive attributes
 * @param buffer the buffer containing the vertex attributes. */
-void ShaderProgram::setVertexAttribute (const std::wstring& name, int size, int type, bool normalize, int stride, const float* buffer)
+void ShaderProgram::setVertexAttribute (const std::string& name, int size, int type, bool normalize, int stride, const float* buffer)
 {
 	GL20* gl = Gdx.gl20;
 	checkManaged();
@@ -412,7 +412,7 @@ void ShaderProgram::setVertexAttribute (const std::wstring& name, int size, int 
 * @param normalize whether fixed point data should be normalized. Will not work on the desktop
 * @param stride the stride in bytes between successive attributes
 * @param offset byte offset into the vertex buffer object bound to GL20::GDX_GL_ARRAY_BUFFER. */
-void ShaderProgram::setVertexAttribute (const std::wstring& name, int size, int type, bool normalize, int stride, int offset)
+void ShaderProgram::setVertexAttribute (const std::string& name, int size, int type, bool normalize, int stride, int offset)
 {
 	GL20* gl = Gdx.gl20;
 	checkManaged();
@@ -453,7 +453,7 @@ void ShaderProgram::dispose ()
 /** Disables the vertex attribute with the given name
 *
 * @param name the vertex attribute name */
-void ShaderProgram::disableVertexAttribute (const std::wstring& name)
+void ShaderProgram::disableVertexAttribute (const std::string& name)
 {
 	GL20* gl = Gdx.gl20;
 	checkManaged();
@@ -465,7 +465,7 @@ void ShaderProgram::disableVertexAttribute (const std::wstring& name)
 /** Enables the vertex attribute with the given name
 *
 * @param name the vertex attribute name */
-void ShaderProgram::enableVertexAttribute (const std::wstring& name)
+void ShaderProgram::enableVertexAttribute (const std::string& name)
 {
 	GL20* gl = Gdx.gl20;
 	checkManaged();
@@ -514,7 +514,7 @@ void ShaderProgram::clearAllShaderPrograms()
 * @param value2 the second value
 * @param value3 the third value
 * @param value4 the fourth value */
-void ShaderProgram::setAttributef (const std::wstring& name, float value1, float value2, float value3, float value4)
+void ShaderProgram::setAttributef (const std::string& name, float value1, float value2, float value3, float value4)
 {
 	GL20* gl = Gdx.gl20;
 	int location = fetchAttributeLocation(name);
@@ -532,7 +532,7 @@ void ShaderProgram::fetchUniforms ()
 	{
 		int size = -1;
 		unsigned int type = -1;
-		std::wstring name = Gdx.gl20->glGetActiveUniform(m_program, i, &size, &type);
+		std::string name = Gdx.gl20->glGetActiveUniform(m_program, i, &size, &type);
 		int location = Gdx.gl20->glGetUniformLocation(m_program, name);
 		m_uniforms[name] = location;
 		m_uniformTypes[name] = type;
@@ -552,7 +552,7 @@ void ShaderProgram::fetchAttributes ()
 		//params.clear();
 		int size = 256;
 		unsigned int type = -1;
-		std::wstring name = Gdx.gl20->glGetActiveAttrib(m_program, i, &size, &type);
+		std::string name = Gdx.gl20->glGetActiveAttrib(m_program, i, &size, &type);
 		int location = Gdx.gl20->glGetAttribLocation(m_program, name);
 		m_attributes[name] = location;
 		m_attributeTypes[name] = type;
@@ -562,14 +562,14 @@ void ShaderProgram::fetchAttributes ()
 
 /** @param name the name of the attribute
 * @return whether the attribute is available in the shader */
-bool ShaderProgram::hasAttribute (const std::wstring& name)
+bool ShaderProgram::hasAttribute (const std::string& name)
 {
 	return m_attributes.find(name) != m_attributes.end();
 }
 
 /** @param name the name of the attribute
 * @return the type of the attribute, one of {@link GL20#GL_FLOAT}, {@link GL20#GL_FLOAT_VEC2} etc. */
-int ShaderProgram::getAttributeType (const std::wstring& name)
+int ShaderProgram::getAttributeType (const std::string& name)
 {
 	ObjectIntMapIterator it = m_attributeTypes.find(name);
 	return it != m_attributeTypes.end()? it->second: 0;
@@ -577,7 +577,7 @@ int ShaderProgram::getAttributeType (const std::wstring& name)
 
 /** @param name the name of the attribute
 * @return the location of the attribute or -1. */
-int ShaderProgram::getAttributeLocation (const std::wstring& name)
+int ShaderProgram::getAttributeLocation (const std::string& name)
 {
 	ObjectIntMapIterator it = m_attributes.find(name);
 	return it != m_attributes.end()? it->second: 0;
@@ -585,14 +585,14 @@ int ShaderProgram::getAttributeLocation (const std::wstring& name)
 
 /** @param name the name of the uniform
 * @return whether the uniform is available in the shader */
-bool ShaderProgram::hasUniform (const std::wstring& name)
+bool ShaderProgram::hasUniform (const std::string& name)
 {
 	return m_uniforms.find(name) != m_uniforms.end();
 }
 
 /** @param name the name of the uniform
 * @return the type of the uniform, one of {@link GL20#GL_FLOAT}, {@link GL20#GL_FLOAT_VEC2} etc. */
-int ShaderProgram::getUniformType (const std::wstring& name)
+int ShaderProgram::getUniformType (const std::string& name)
 {
 	ObjectIntMapIterator it = m_uniformTypes.find(name);
 	return it != m_uniformTypes.end()? it->second: 0;
@@ -600,20 +600,20 @@ int ShaderProgram::getUniformType (const std::wstring& name)
 
 /** @param name the name of the uniform
 * @return the location of the uniform or -1. */
-int ShaderProgram::getUniformLocation (const std::wstring& name)
+int ShaderProgram::getUniformLocation (const std::string& name)
 {
 	ObjectIntMapIterator it = m_uniforms.find(name);
 	return it != m_uniforms.end()? it->second: 0;
 }
 
 /** @return the attributes */
-const std::vector<std::wstring>& ShaderProgram::getAttributes()
+const std::vector<std::string>& ShaderProgram::getAttributes()
 {
 	return m_attributeNames;
 }
 
 /** @return the uniforms */
-const std::vector<std::wstring>&  ShaderProgram::getUniforms()
+const std::vector<std::string>&  ShaderProgram::getUniforms()
 {
 	return m_uniformNames;
 }

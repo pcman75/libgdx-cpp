@@ -105,7 +105,7 @@ public:
 	/** Sets the title of the window. Ignored on Android.
 	* 
 	* @param title the title. */
-	virtual void setTitle (std::wstring title);
+	virtual void setTitle (std::string title);
 
 	/** Sets one or more icons for the Desktop. This only works for Lwjgl. On Windows you should supply at least one 16x16 icon and
 	* one 32x32. Linux (and similar platforms) expect one 32x32 icon. Mac OS X should be supplied one 128x128 icon
@@ -122,7 +122,7 @@ public:
 
 	/** @param extension the extension name
 	* @return whether the extension is supported */
-	virtual bool supportsExtension (std::wstring extension);
+	virtual bool supportsExtension (std::string extension);
 
 private:
 	void initializeGLInstances();

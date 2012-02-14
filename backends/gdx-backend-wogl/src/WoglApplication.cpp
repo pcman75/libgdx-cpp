@@ -89,9 +89,9 @@ const Input& WoglApplication::getInput ()
 }
 
 
-const Files& WoglApplication::getFiles ()
+const Files* WoglApplication::getFiles ()
 {
-	return *m_pFiles;
+	return m_pFiles;
 }
 
 

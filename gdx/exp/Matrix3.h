@@ -56,7 +56,7 @@ public:
 	 * @return this matrix */
 	Matrix3& setToScaling(float scaleX, float scaleY);
 
-	std::wstring toString();
+	std::string toString();
 
 	/** @return the determinant of this matrix */
 	float det();

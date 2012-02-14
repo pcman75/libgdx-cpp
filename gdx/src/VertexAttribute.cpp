@@ -2,7 +2,7 @@
 #include "VertexAttribute.h"
 
 
-VertexAttribute::VertexAttribute(int usage, int numComponents, std::wstring alias)
+VertexAttribute::VertexAttribute(int usage, int numComponents, std::string alias)
 	:usage(usage), numComponents(numComponents), alias(alias), offset(0)
 {
 }

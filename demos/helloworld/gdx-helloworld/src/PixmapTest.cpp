@@ -19,7 +19,7 @@ void PixmapTest::create ()
 	
 	//PixmapIO.writePNG(Gdx.files.absolute("test.png"), pixmap);
 	//TODO:
-	FileHandle handle(L"c:\\test.png");
+	FileHandle handle( "c:\\test.png");
 	PixmapIO::writePNG(handle, m_pixmap);
 
 	m_pixmap->dispose();
@@ -45,7 +45,7 @@ void PixmapTest::create ()
 	m_pixmap->setColor(1.0f, 1.0f, 1.0f, 1.0f); // White
 	m_pixmap->drawCircle(400, 300, 100);
 
-	FileHandle handle2(L"c:\\test2.png");
+	FileHandle handle2( "c:\\test2.png");
 	PixmapIO::writePNG(handle2, m_pixmap);
 
 	// Blit the composited overlay to a texture

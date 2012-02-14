@@ -26,3 +26,9 @@
 #include <stdint.h> //for uint64_t
 
 #include <float.h>
+
+#include <math.h>
+
+#pragma warning( disable : 4251 )
+#pragma warning( disable : 4996 )
+#pragma warning( disable : 4275 )

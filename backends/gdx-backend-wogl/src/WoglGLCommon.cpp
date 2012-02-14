@@ -165,9 +165,9 @@ void WoglGLCommon::glGetIntegerv (int pname, int* params)
 
 
 
-std::wstring WoglGLCommon::glGetString (int name)
+std::string WoglGLCommon::glGetString (int name)
 {
-	std::wstring ws = glString2wstring(::glGetString(name));
+	std::string ws = ( char*) ::glGetString( name);
 	return ws;
 }
 
@@ -236,24 +236,3 @@ void WoglGLCommon::glViewport (int x, int y, int width, int height)
 	::glViewport(x, y, width, height);
 }
 
-std::wstring WoglGLCommon::glString2wstring(const unsigned char* glString)
-{
-	size_t glStringLen = strlen((const char*)glString);
-	wchar_t* buf = new wchar_t[glStringLen];
-	size_t num_chars = mbstowcs(buf, (const char*)glString, glStringLen);
-	std::wstring ws(buf, num_chars);
-	delete[] buf;
-
-	return ws;
-}
-
-std::string WoglGLCommon::wstring2string(const std::wstring& str)
-{
-	char* buf = new char[str.length()];
-	size_t num_chars = wcstombs(buf, str.c_str(), str.length());
-	
-	std::string ret(buf, num_chars);
-	delete[] buf;
-
-	return ret;
-}

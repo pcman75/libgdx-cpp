@@ -6,9 +6,9 @@ void WoglGL20::glAttachShader(int program, int shader)
 	::glAttachShader(program, shader);
 }
 
-void WoglGL20::glBindAttribLocation(int program, int index, const std::wstring& name)
+void WoglGL20::glBindAttribLocation(int program, int index, const std::string& name)
 {
-	::glBindAttribLocation(program, index, wstring2string(name.c_str()).c_str());
+	::glBindAttribLocation( program, index, name.c_str());
 }
 
 void WoglGL20::glBindBuffer(int target, int buffer)
@@ -151,31 +151,31 @@ void WoglGL20::glGenRenderbuffers(int n, unsigned int* renderbuffers)
 	::glGenRenderbuffers(n, renderbuffers);
 }
 
-std::wstring WoglGL20::glGetActiveAttrib(int program, int index, int* size, unsigned int* type)
+std::string WoglGL20::glGetActiveAttrib(int program, int index, int* size, unsigned int* type)
 {
-	std::wstring ret;
+	std::string ret;
 	GLint len;
 	::glGetProgramiv(program, GL_ACTIVE_ATTRIBUTE_MAX_LENGTH, &len);
 	if(len)
 	{
 		GLchar* buffer = new GLchar[len];
 		::glGetActiveAttrib(program, index, len, NULL, size, type, buffer);
-		ret = glString2wstring((unsigned char*)buffer);
+		ret = buffer;
 		delete buffer;
 	}
 	return ret;
 }
 
-std::wstring WoglGL20::glGetActiveUniform(int program, int index, int* size, unsigned int* type)
+std::string WoglGL20::glGetActiveUniform(int program, int index, int* size, unsigned int* type)
 {
-	std::wstring ret;
+	std::string ret;
 	GLint len;
 	::glGetProgramiv(program, GL_ACTIVE_UNIFORM_MAX_LENGTH, &len);
 	if(len)
 	{
 		GLchar* buffer = new GLchar[len];
 		::glGetActiveUniform(program, index, len, NULL, size, type, buffer);
-		ret = glString2wstring((unsigned char*)buffer);
+		ret = buffer;
 		delete buffer;
 	}
 	return ret;
@@ -186,9 +186,9 @@ void WoglGL20::glGetAttachedShaders(int program, int maxcount, int* count, unsig
 	::glGetAttachedShaders(program, maxcount, (GLsizei*) count, shaders);
 }
 
-int WoglGL20::glGetAttribLocation(int program, const std::wstring& name)
+int WoglGL20::glGetAttribLocation(int program, const std::string& name)
 {
-	return ::glGetAttribLocation(program, wstring2string(name).c_str());
+	return ::glGetAttribLocation(program, name.c_str());
 }
 
 void WoglGL20::glGetBooleanv(int pname, bool* params)
@@ -216,17 +216,17 @@ void WoglGL20::glGetProgramiv(int program, int pname, int* params)
 	::glGetProgramiv(program, pname, params);
 }
 
-std::wstring WoglGL20::glGetProgramInfoLog(int program)
+std::string WoglGL20::glGetProgramInfoLog(int program)
 {
 
-	std::wstring ret;
+	std::string ret;
 	GLint len;
 	::glGetProgramiv(program, GL_INFO_LOG_LENGTH, &len);
 	if(len)
 	{
 		GLchar* buffer = new GLchar[len];
 		::glGetProgramInfoLog(program, len, NULL, buffer);
-		ret = glString2wstring((unsigned char*)buffer);
+		ret = (char*)buffer;
 		delete buffer;
 	}
 	return ret;
@@ -242,16 +242,16 @@ void WoglGL20::glGetShaderiv(int shader, int pname, int* params)
 	::glGetShaderiv(shader, pname, params);
 }
 
-std::wstring WoglGL20::glGetShaderInfoLog(int shader)
+std::string WoglGL20::glGetShaderInfoLog(int shader)
 {
-	std::wstring ret;
+	std::string ret;
 	GLint len;
 	::glGetShaderiv(shader, GL_INFO_LOG_LENGTH, &len);
 	if(len)
 	{
 		GLchar* buffer = new GLchar[len];
 		::glGetShaderInfoLog(shader, len, NULL, buffer);
-		ret = glString2wstring((unsigned char*)buffer);
+		ret = (char*)buffer;
 		delete buffer;
 	}
 	return ret;
@@ -262,16 +262,16 @@ void WoglGL20::glGetShaderPrecisionFormat(int shadertype, int precisiontype, int
 	::glGetShaderPrecisionFormat(shadertype, precisiontype, range, precision);
 }
 
-std::wstring WoglGL20::glGetShaderSource(int shader)
+std::string WoglGL20::glGetShaderSource(int shader)
 {
-	std::wstring ret;
+	std::string ret;
 	GLint len;
 	::glGetShaderiv(shader, GL_SHADER_SOURCE_LENGTH, &len);
 	if(len)
 	{
 		GLchar* buffer = new GLchar[len];
 		::glGetShaderSource(shader, len, NULL, buffer);
-		ret = glString2wstring((unsigned char*)buffer);
+		ret = (char*)buffer;
 		delete buffer;
 	}
 	return ret;
@@ -297,9 +297,9 @@ void WoglGL20::glGetUniformiv(int program, int location, int* params)
 	::glGetUniformiv(program, location, params);
 }
 
-int WoglGL20::glGetUniformLocation(int program, const std::wstring& name)
+int WoglGL20::glGetUniformLocation(int program, const std::string& name)
 {
-	return ::glGetUniformLocation(program, wstring2string(name).c_str());
+	return ::glGetUniformLocation(program, name.c_str());
 }
 
 void WoglGL20::glGetVertexAttribfv(int index, int pname, float* params)
@@ -377,10 +377,10 @@ void WoglGL20::glShaderBinary(int n, const unsigned int* shaders, int binaryform
 	::glShaderBinary(n, shaders, binaryformat, binary, length);
 }
 
-void WoglGL20::glShaderSource(int shader, const std::wstring& string)
+void WoglGL20::glShaderSource(int shader, const std::string& string)
 {
 	GLint length = string.size();
-	std::string sources = wstring2string(string);
+	std::string sources = string;
 	const char* src = sources.c_str();
 	::glShaderSource(shader, 1, &src, &length);
 }
@@ -679,10 +679,10 @@ void WoglGL20::glVertexAttribPointer(int indx, int size, int type, bool normaliz
 //{
 //	::glGetIntegerv(pname, params);
 //}
-//std::wstring WoglGL20::glGetString(int name)
+//std::string WoglGL20::glGetString(int name)
 //{
 //	const GLubyte* str = ::glGetString(name);
-//	return std::wstring((char*)str);
+//	return std::string((char*)str);
 //}
 //void WoglGL20::glHint(int target, int mode)
 //{

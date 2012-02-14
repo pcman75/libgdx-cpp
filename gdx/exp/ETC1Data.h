@@ -55,5 +55,5 @@ public:
 	Releases the resources of the ETC1Data instance. */
 	void dispose();
 
-	std::wstring toString();
+	std::string toString();
 };

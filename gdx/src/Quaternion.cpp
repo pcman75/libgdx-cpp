@@ -86,9 +86,9 @@ float Quaternion::len()
 }
 
 /** {@inheritDoc} */
-std::wstring Quaternion::toString()
+std::string Quaternion::toString()
 {
-	std::wstringstream ret;
+	std::stringstream ret;
 	ret << "[" << x << "|" << y << "|" << z << "|" << w << "]";
 	return ret.str();
 }

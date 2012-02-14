@@ -74,13 +74,13 @@ private:
 	static std::list<ShaderProgram> m_shaders;
 
 	/** the log **/
-	std::wstring m_log;
+	std::string m_log;
 
 	/** whether this program compiled succesfully **/
 	bool m_isCompiled;
 
-	typedef std::map<std::wstring, int> ObjectIntMap;
-	typedef std::map<std::wstring, int>::iterator ObjectIntMapIterator;
+	typedef std::map<std::string, int> ObjectIntMap;
+	typedef std::map<std::string, int>::iterator ObjectIntMapIterator;
 
 	/** uniform lookup **/
 	ObjectIntMap m_uniforms;
@@ -89,7 +89,7 @@ private:
 	ObjectIntMap m_uniformTypes;
 
 	/** uniform names **/
-	std::vector<std::wstring> m_uniformNames;
+	std::vector<std::string> m_uniformNames;
 
 	/** attribute lookup **/
 	ObjectIntMap m_attributes;
@@ -98,7 +98,7 @@ private:
 	ObjectIntMap m_attributeTypes;
 
 	/** attribute names **/
-	std::vector<std::wstring> m_attributeNames;
+	std::vector<std::string> m_attributeNames;
 
 	/** program handle **/
 	int m_program;
@@ -113,10 +113,10 @@ private:
 	//float m_matrix[16];
 
 	/** vertex shader source **/
-	std::wstring m_vertexShaderSource;
+	std::string m_vertexShaderSource;
 
 	/** fragment shader source **/
-	std::wstring m_fragmentShaderSource;
+	std::string m_fragmentShaderSource;
 
 	/** whether this shader was invalidated **/
 	bool m_invalidated;
@@ -134,15 +134,15 @@ private:
 	 * @param vertexShader the vertex shader
 	 * @param fragmentShader the fragment shader */
 public:
-	ShaderProgram (const std::wstring& vertexShader, const std::wstring& fragmentShader);
+	ShaderProgram (const std::string& vertexShader, const std::string& fragmentShader);
 
 	/** Loads and compiles the shaders, creates a new program and links the shaders.
 	 *
 	 * @param vertexShader
 	 * @param fragmentShader */
-	void compileShaders (const std::wstring& vertexShader, const std::wstring& fragmentShader);
+	void compileShaders (const std::string& vertexShader, const std::string& fragmentShader);
 
-	int loadShader (int type, const std::wstring& source);
+	int loadShader (int type, const std::string& source);
 
 	int linkProgram ();
 
@@ -150,21 +150,21 @@ public:
 
 	/** @return the log info for the shader compilation and program linking stage. The shader needs to be bound for this method to
 	 *         have an effect. */
-	std::wstring getLog ();
+	std::string getLog ();
 
 	/** @return whether this ShaderProgram compiled successfully. */
 	bool isCompiled ();
 
-	int fetchAttributeLocation (const std::wstring& name);
+	int fetchAttributeLocation (const std::string& name);
 
-	int fetchUniformLocation (const std::wstring& name);
+	int fetchUniformLocation (const std::string& name);
 
 	/** Sets the uniform with the given name. Throws an IllegalArgumentException in case it is not called in between a
 	 * {@link #begin()}/{@link #end()} block.
 	 *
 	 * @param name the name of the uniform
 	 * @param value the value */
-	void setUniformi (const std::wstring& name, int value);
+	void setUniformi (const std::string& name, int value);
 
 	/** Sets the uniform with the given name. Throws an IllegalArgumentException in case it is not called in between a
 	 * {@link #begin()}/{@link #end()} block.
@@ -172,7 +172,7 @@ public:
 	 * @param name the name of the uniform
 	 * @param value1 the first value
 	 * @param value2 the second value */
-	void setUniformi (const std::wstring& name, int value1, int value2);
+	void setUniformi (const std::string& name, int value1, int value2);
 
 	/** Sets the uniform with the given name. Throws an IllegalArgumentException in case it is not called in between a
 	 * {@link #begin()}/{@link #end()} block.
@@ -181,7 +181,7 @@ public:
 	 * @param value1 the first value
 	 * @param value2 the second value
 	 * @param value3 the third value */
-	void setUniformi (const std::wstring& name, int value1, int value2, int value3);
+	void setUniformi (const std::string& name, int value1, int value2, int value3);
 
 	/** Sets the uniform with the given name. Throws an IllegalArgumentException in case it is not called in between a
 	 * {@link #begin()}/{@link #end()} block.
@@ -191,14 +191,14 @@ public:
 	 * @param value2 the second value
 	 * @param value3 the third value
 	 * @param value4 the fourth value */
-	void setUniformi (const std::wstring& name, int value1, int value2, int value3, int value4);
+	void setUniformi (const std::string& name, int value1, int value2, int value3, int value4);
 
 	/** Sets the uniform with the given name. Throws an IllegalArgumentException in case it is not called in between a
 	 * {@link #begin()}/{@link #end()} block.
 	 *
 	 * @param name the name of the uniform
 	 * @param value the value */
-	void setUniformf (const std::wstring& name, float value);
+	void setUniformf (const std::string& name, float value);
 
 	/** Sets the uniform with the given name. Throws an IllegalArgumentException in case it is not called in between a
 	 * {@link #begin()}/{@link #end()} block.
@@ -206,7 +206,7 @@ public:
 	 * @param name the name of the uniform
 	 * @param value1 the first value
 	 * @param value2 the second value */
-	void setUniformf (const std::wstring& name, float value1, float value2);
+	void setUniformf (const std::string& name, float value1, float value2);
 
 	/** Sets the uniform with the given name. Throws an IllegalArgumentException in case it is not called in between a
 	 * {@link #begin()}/{@link #end()} block.
@@ -215,7 +215,7 @@ public:
 	 * @param value1 the first value
 	 * @param value2 the second value
 	 * @param value3 the third value */
-	void setUniformf (const std::wstring& name, float value1, float value2, float value3);
+	void setUniformf (const std::string& name, float value1, float value2, float value3);
 
 	/** Sets the uniform with the given name. Throws an IllegalArgumentException in case it is not called in between a
 	 * {@link #begin()}/{@link #end()} block.
@@ -225,22 +225,22 @@ public:
 	 * @param value2 the second value
 	 * @param value3 the third value
 	 * @param value4 the fourth value */
-	void setUniformf (const std::wstring& name, float value1, float value2, float value3, float value4);
+	void setUniformf (const std::string& name, float value1, float value2, float value3, float value4);
 
-	void setUniform1fv (const std::wstring& name, const float* values, int offset, int length);
+	void setUniform1fv (const std::string& name, const float* values, int offset, int length);
 
-	void setUniform2fv (const std::wstring& name, const float* values, int offset, int length);
+	void setUniform2fv (const std::string& name, const float* values, int offset, int length);
 
-	void setUniform3fv (const std::wstring& name, const float* values, int offset, int length);
+	void setUniform3fv (const std::string& name, const float* values, int offset, int length);
 
-	void setUniform4fv (const std::wstring& name, const float* values, int offset, int length);
+	void setUniform4fv (const std::string& name, const float* values, int offset, int length);
 
 	/** Sets the uniform matrix with the given name. Throws an IllegalArgumentException in case it is not called in between a
 	 * {@link #begin()}/{@link #end()} block.
 	 *
 	 * @param name the name of the uniform
 	 * @param matrix the matrix */
-	void setUniformMatrix (const std::wstring& name, const Matrix4& matrix);
+	void setUniformMatrix (const std::string& name, const Matrix4& matrix);
 
 	/** Sets the uniform matrix with the given name. Throws an IllegalArgumentException in case it is not called in between a
 	 * {@link #begin()}/{@link #end()} block.
@@ -248,14 +248,14 @@ public:
 	 * @param name the name of the uniform
 	 * @param matrix the matrix
 	 * @param transpose whether the matrix shouls be transposed */
-	void setUniformMatrix (const std::wstring& name, const Matrix4& matrix, bool transpose);
+	void setUniformMatrix (const std::string& name, const Matrix4& matrix, bool transpose);
 
 	/** Sets the uniform matrix with the given name. Throws an IllegalArgumentException in case it is not called in between a
 	 * {@link #begin()}/{@link #end()} block.
 	 *
 	 * @param name the name of the uniform
 	 * @param matrix the matrix */
-	void setUniformMatrix (const std::wstring& name, const Matrix3& matrix);
+	void setUniformMatrix (const std::string& name, const Matrix3& matrix);
 
 	/** Sets the uniform matrix with the given name. Throws an IllegalArgumentException in case it is not called in between a
 	 * {@link #begin()}/{@link #end()} block.
@@ -263,7 +263,7 @@ public:
 	 * @param name the name of the uniform
 	 * @param matrix the matrix
 	 * @param transpose whether the uniform matrix should be transposed */
-	void setUniformMatrix (const std::wstring& name, const Matrix3& matrix, bool transpose);
+	void setUniformMatrix (const std::string& name, const Matrix3& matrix, bool transpose);
 
 	/** Sets the vertex attribute with the given name. Throws an IllegalArgumentException in case it is not called in between a
 	 * {@link #begin()}/{@link #end()} block.
@@ -275,7 +275,7 @@ public:
 	 * @param normalize whether fixed point data should be normalized. Will not work on the desktop
 	 * @param stride the stride in bytes between successive attributes
 	 * @param buffer the buffer containing the vertex attributes. */
-	void setVertexAttribute (const std::wstring& name, int size, int type, bool normalize, int stride, const float* buffer);
+	void setVertexAttribute (const std::string& name, int size, int type, bool normalize, int stride, const float* buffer);
 
 	/** Sets the vertex attribute with the given name. Throws an IllegalArgumentException in case it is not called in between a
 	 * {@link #begin()}/{@link #end()} block.
@@ -287,7 +287,7 @@ public:
 	 * @param normalize whether fixed point data should be normalized. Will not work on the desktop
 	 * @param stride the stride in bytes between successive attributes
 	 * @param offset byte offset into the vertex buffer object bound to GL20::GDX_GL_ARRAY_BUFFER. */
-	void setVertexAttribute (const std::wstring& name, int size, int type, bool normalize, int stride, int offset);
+	void setVertexAttribute (const std::string& name, int size, int type, bool normalize, int stride, int offset);
 
 	/** Makes OpenGL ES 2.0 use this vertex and fragment shader pair. When you are done with this shader you have to call
 	 * {@link ShaderProgram#end()}. */
@@ -303,12 +303,12 @@ public:
 	/** Disables the vertex attribute with the given name
 	 *
 	 * @param name the vertex attribute name */
-	void disableVertexAttribute (const std::wstring& name);
+	void disableVertexAttribute (const std::string& name);
 
 	/** Enables the vertex attribute with the given name
 	 *
 	 * @param name the vertex attribute name */
-	void enableVertexAttribute (const std::wstring& name);
+	void enableVertexAttribute (const std::string& name);
 
 private:
 	void checkManaged ();
@@ -345,7 +345,7 @@ for (Application app : m_shaders.keys())
 	 * @param value2 the second value
 	 * @param value3 the third value
 	 * @param value4 the fourth value */
-	void setAttributef (const std::wstring& name, float value1, float value2, float value3, float value4);
+	void setAttributef (const std::string& name, float value1, float value2, float value3, float value4);
 
 private:
 
@@ -355,31 +355,31 @@ private:
 
 	/** @param name the name of the attribute
 	 * @return whether the attribute is available in the shader */
-	bool hasAttribute (const std::wstring& name);
+	bool hasAttribute (const std::string& name);
 
 	/** @param name the name of the attribute
 	 * @return the type of the attribute, one of {@link GL20#GL_FLOAT}, {@link GL20#GL_FLOAT_VEC2} etc. */
-	int getAttributeType (const std::wstring& name);
+	int getAttributeType (const std::string& name);
 
 	/** @param name the name of the attribute
 	 * @return the location of the attribute or -1. */
-	int getAttributeLocation (const std::wstring& name);
+	int getAttributeLocation (const std::string& name);
 
 	/** @param name the name of the uniform
 	 * @return whether the uniform is available in the shader */
-	bool hasUniform (const std::wstring& name);
+	bool hasUniform (const std::string& name);
 
 	/** @param name the name of the uniform
 	 * @return the type of the uniform, one of {@link GL20#GL_FLOAT}, {@link GL20#GL_FLOAT_VEC2} etc. */
-	int getUniformType (const std::wstring& name);
+	int getUniformType (const std::string& name);
 
 	/** @param name the name of the uniform
 	 * @return the location of the uniform or -1. */
-	int getUniformLocation (const std::wstring& name);
+	int getUniformLocation (const std::string& name);
 
 	/** @return the attributes */
-	const std::vector<std::wstring>& getAttributes();
+	const std::vector<std::string>& getAttributes();
 
 	/** @return the uniforms */
-	const std::vector<std::wstring>&  getUniforms();
+	const std::vector<std::string>&  getUniforms();
 };

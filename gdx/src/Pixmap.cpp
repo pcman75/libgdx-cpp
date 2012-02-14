@@ -96,9 +96,13 @@ Pixmap::Pixmap(const unsigned char* encodedData, int len)
 Pixmap::Pixmap (const FileHandle& file)
 	: m_color(0)
 {
-	std::vector<unsigned char> bytes;
-	file.readBytes(bytes);
-	m_pixmap.createFrom(bytes.data(), bytes.size(), 0);
+  FileHandleStream* pStream = file.getStream( Read, Binary);
+  int nSize = pStream->size();
+  unsigned char* pBuff = new unsigned char [ nSize];
+  int nRead = pStream->readBytes( pBuff, nSize);
+	m_pixmap.createFrom( pBuff, nSize, 0);
+  delete [] pBuff;
+  delete pStream;
 }
 
 /** Constructs a new Pixmap from a {@link Gdx2DPixmap}.

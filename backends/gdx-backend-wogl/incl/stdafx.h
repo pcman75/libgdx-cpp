@@ -31,3 +31,9 @@
 
 #include <process.h>                                // for _beginthreadex()
 
+#include <io.h>
+#include <fcntl.h>
+
+#pragma warning( disable : 4251 )
+#pragma warning( disable : 4996 )
+#pragma warning( disable : 4275 )
