@@ -23,9 +23,9 @@ void VertexBufferObjectShaderTest::render()
 	m_shader->begin();
 	m_shader->setUniformi( "u_texture", 0);
 	m_texture->bind();
-	m_vbo->bind(*m_shader);
+	m_vbo->bind(m_shader);
 	Gdx.gl->glDrawElements(GL20::GDX_GL_TRIANGLES, 3, GL20::GDX_GL_UNSIGNED_SHORT, &indices);
-	m_vbo->unbind(*m_shader);
+	m_vbo->unbind(m_shader);
 	m_shader->end();
 }
 

@@ -56,11 +56,11 @@ public:
 
 	/** Binds this VertexData for rendering via glDrawArrays or glDrawElements. */
 	virtual void bind();
-	void bind(ShaderProgram& shader);
+	void bind(ShaderProgram* shader);
 
 	/** Unbinds this VertexData. */
 	virtual void unbind();
-	void unbind(ShaderProgram& shader);
+	void unbind(ShaderProgram* shader);
 
 	/** Disposes this VertexData and all its associated OpenGL resources. */
 	virtual void dispose();

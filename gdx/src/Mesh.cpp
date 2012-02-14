@@ -158,7 +158,7 @@ void Mesh::setAutoBind (bool autoBind)
 }
 
 
-void Mesh::bind () 
+void Mesh::bind() 
 {
 	if (Gdx.graphics->isGL20Available()) 
 		throw new GdxRuntimeException("can't use this render method with OpenGL ES 2.0");
@@ -181,7 +181,7 @@ void Mesh::unbind ()
 * 
 * @param shader the shader (does not bind the shader) */
 
-void Mesh::bind(ShaderProgram& shader) 
+void Mesh::bind(ShaderProgram* shader) 
 {
 	if (!Gdx.graphics->isGL20Available()) 
 		throw new GdxRuntimeException("can't use this render method with OpenGL ES 1.x");
@@ -196,7 +196,7 @@ void Mesh::bind(ShaderProgram& shader)
 * 
 * @param shader the shader (does not unbind the shader) */
 
-void Mesh::unbind(ShaderProgram& shader) 
+void Mesh::unbind(ShaderProgram* shader) 
 {
 	if (!Gdx.graphics->isGL20Available()) 
 		throw new GdxRuntimeException("can't use this render method with OpenGL ES 1.x");
@@ -263,7 +263,7 @@ void Mesh::render (int primitiveType, int offset, int count)
 * 
 * @param primitiveType the primitive type */
 
-void Mesh::render (ShaderProgram& shader, int primitiveType) 
+void Mesh::render (ShaderProgram* shader, int primitiveType) 
 {
 	render(shader, primitiveType, 0, m_indices->getNumIndices() > 0 ? getNumIndices() : getNumVertices());
 }
@@ -292,7 +292,7 @@ void Mesh::render (ShaderProgram& shader, int primitiveType)
 * @param offset the offset into the vertex or index buffer
 * @param count number of vertices or indices to use */
 
-void Mesh::render(ShaderProgram& shader, int primitiveType, int offset, int count) 
+void Mesh::render(ShaderProgram* shader, int primitiveType, int offset, int count) 
 {
 	if (!Gdx.graphics->isGL20Available()) 
 		throw new GdxRuntimeException("can't use this render method with OpenGL ES 1.x");

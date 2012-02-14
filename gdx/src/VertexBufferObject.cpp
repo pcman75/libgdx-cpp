@@ -135,7 +135,7 @@ void VertexBufferObject::bind()
 /** Binds this VertexBufferObject for rendering via glDrawArrays or glDrawElements
 *
 * @param shader the shader */
-void VertexBufferObject::bind(ShaderProgram& shader)
+void VertexBufferObject::bind(ShaderProgram* shader)
 {
 	GL20* gl = Gdx.gl20;
 	int bufferSizeInBytes = m_attributes.vertexSize() * m_numVertices;
@@ -151,7 +151,7 @@ void VertexBufferObject::bind(ShaderProgram& shader)
 	for(int i = 0; i < numAttributes; i++)
 	{
 		VertexAttribute attribute = m_attributes.get(i);
-		shader.enableVertexAttribute(attribute.alias);
+		shader->enableVertexAttribute(attribute.alias);
 		int colorType = GL20::GDX_GL_FLOAT;
 		bool normalize = false;
 		if(attribute.usage == VertexAttributes::ColorPacked)
@@ -159,7 +159,7 @@ void VertexBufferObject::bind(ShaderProgram& shader)
 			colorType = GL20::GDX_GL_UNSIGNED_BYTE;
 			normalize = true;
 		}
-		shader.setVertexAttribute(attribute.alias, attribute.numComponents, colorType, normalize, m_attributes.vertexSize(),
+		shader->setVertexAttribute(attribute.alias, attribute.numComponents, colorType, normalize, m_attributes.vertexSize(),
 			attribute.offset);
 	}
 	m_isBound = true;
@@ -203,14 +203,14 @@ void VertexBufferObject::unbind()
 *
 * @param shader the shader */
 
-void VertexBufferObject::unbind(ShaderProgram& shader)
+void VertexBufferObject::unbind(ShaderProgram* shader)
 {
 	GL20* gl = Gdx.gl20;
 	int numAttributes = m_attributes.size();
 	for(int i = 0; i < numAttributes; i++)
 	{
 		const VertexAttribute& attribute = m_attributes.get(i);
-		shader.disableVertexAttribute(attribute.alias);
+		shader->disableVertexAttribute(attribute.alias);
 	}
 	gl->glBindBuffer(GL20::GDX_GL_ARRAY_BUFFER, 0);
 	m_isBound = false;

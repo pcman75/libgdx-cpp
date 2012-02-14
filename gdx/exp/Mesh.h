@@ -155,13 +155,13 @@ public:
 	 * ES 2.0 and when auto-bind is disabled.
 	 * 
 	 * @param shader the shader (does not bind the shader) */
-	void bind (ShaderProgram& shader);
+	void bind (ShaderProgram* shader);
 
 	/** Unbinds the underlying {@link VertexBufferObject} and {@link IndexBufferObject} is indices were given. Use this with OpenGL
 	 * ES 1.x and when auto-bind is disabled.
 	 * 
 	 * @param shader the shader (does not unbind the shader) */
-	void unbind(ShaderProgram& shader);
+	void unbind(ShaderProgram* shader);
 
 	/** <p>
 	 * Renders the mesh using the given primitive type. If indices are set for this mesh then getNumIndices() / #vertices per
@@ -209,7 +209,7 @@ public:
 	 * </p>
 	 * 
 	 * @param primitiveType the primitive type */
-	void render (ShaderProgram& shader, int primitiveType);
+	void render (ShaderProgram* shader, int primitiveType);
 
 	/** <p>
 	 * Renders the mesh using the given primitive type. offset specifies the offset into either the vertex buffer or the index
@@ -234,7 +234,7 @@ public:
 	 * @param primitiveType the primitive type
 	 * @param offset the offset into the vertex or index buffer
 	 * @param count number of vertices or indices to use */
-	void render (ShaderProgram& shader, int primitiveType, int offset, int count);
+	void render (ShaderProgram* shader, int primitiveType, int offset, int count);
 
 	/** Frees all resources associated with this Mesh */
 	void dispose ();
