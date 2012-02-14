@@ -130,7 +130,7 @@ public:
 	//int getMaxVertices(); 
 
 	/** @return the maximum number of indices this mesh can hold */
-	int getMaxIndices ();
+	//int getMaxIndices ();
 
 	/** @return the size of a single vertex in bytes */
 	int getVertexSize ();

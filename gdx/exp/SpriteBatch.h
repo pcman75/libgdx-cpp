@@ -129,37 +129,7 @@ private:
 	
 	void init(int size, ShaderProgram* defaultShader)
 	{
-		init();
-		m_buffers = new Mesh*[1];
-		VertexAttribute attributes[] = {VertexAttribute(VertexAttributes::Position, 2, ShaderProgram.POSITION_ATTRIBUTE), 
-			VertexAttribute(VertexAttributes::ColorPacked, 4, ShaderProgram::COLOR_ATTRIBUTE),
-			VertexAttribute(VertexAttributes::TextureCoordinates, 2, (std::wstring(ShaderProgram::TEXCOORD_ATTRIBUTE) + L"0").c_str())};
-
-		m_buffers[0] = new Mesh(Mesh::VertexArrayType, false, VertexAttributes(attributes, sizeof(attributes)/sizeof(attributes[0])));
-
-		m_projectionMatrix.setToOrtho2D(0, 0, Gdx.graphics->getWidth(), Gdx.graphics->getHeight());
-
-		m_vertices = new float[size * Sprite::SPRITE_SIZE];
-
-		int len = size * 6;
-		short* indices = new short[len];
-		short j = 0;
-		for(int i = 0; i < len; i += 6, j += 4)
-		{
-			indices[i + 0] = (short)(j + 0);
-			indices[i + 1] = (short)(j + 1);
-			indices[i + 2] = (short)(j + 2);
-			indices[i + 3] = (short)(j + 2);
-			indices[i + 4] = (short)(j + 3);
-			indices[i + 5] = (short)(j + 0);
-		}
-		m_buffers[0]->setIndices(indices, len);
-		m_mesh = m_buffers[0];
-
-		if(Gdx.graphics->isGL20Available() && defaultShader == NULL)
-			m_shader = createDefaultShader();
-		else
-			m_shader = defaultShader;
+		init(size, 1, defaultShader);
 	}
 
 	virtual ~SpriteBatch()
@@ -199,17 +169,18 @@ private:
 
 		for(int i = 0; i < buffers; i++)
 		{
-			m_buffers[i] = new Mesh(false, size * 4, size * 6, new VertexAttribute(Usage.Position, 2,
-			                           ShaderProgram.POSITION_ATTRIBUTE), new VertexAttribute(Usage.ColorPacked, 4, ShaderProgram.COLOR_ATTRIBUTE),
-			                           new VertexAttribute(Usage.TextureCoordinates, 2, ShaderProgram.TEXCOORD_ATTRIBUTE + "0"));
+			VertexAttribute attributes[] = {VertexAttribute(VertexAttributes::Position, 2, ShaderProgram.POSITION_ATTRIBUTE), 
+			VertexAttribute(VertexAttributes::ColorPacked, 4, ShaderProgram::COLOR_ATTRIBUTE),
+			VertexAttribute(VertexAttributes::TextureCoordinates, 2, (std::wstring(ShaderProgram::TEXCOORD_ATTRIBUTE) + L"0").c_str())};
+			m_buffers[i] = new Mesh(/*TODO: Mesh::VertexArrayType, */false, VertexAttributes(attributes, sizeof(attributes)/sizeof(attributes[0])));
 		}
 
-		m_projectionMatrix.setToOrtho2D(0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+		m_projectionMatrix.setToOrtho2D(0, 0, Gdx.graphics->getWidth(), Gdx.graphics->getHeight());
 
-		m_vertices = new float[size * Sprite.SPRITE_SIZE];
+		m_vertices = new float[size * Sprite::SPRITE_SIZE];
 
 		int len = size * 6;
-		short[] indices = new short[len];
+		short* indices = new short[len];
 		short j = 0;
 		for(int i = 0; i < len; i += 6, j += 4)
 		{
@@ -222,11 +193,11 @@ private:
 		}
 		for(int i = 0; i < buffers; i++)
 		{
-			m_buffers[i].setIndices(indices);
+			m_buffers[i]->setIndices(indices);
 		}
 		m_mesh = m_buffers[0];
 
-		if(Gdx.graphics.isGL20Available() && defaultShader == null)
+		if(Gdx.graphics->isGL20Available() && defaultShader == NULL)
 			m_shader = createDefaultShader();
 		else
 			m_shader = defaultShader;
@@ -293,29 +264,29 @@ public:
 	/** Returns a new instance of the default shader used by SpriteBatch for GL2 when no shader is specified. */
 	static ShaderProgram* createDefaultShader()
 	{
-		String vertexShader = "attribute vec4 " + ShaderProgram.POSITION_ATTRIBUTE + ";\n" //
-		                      + "attribute vec4 " + ShaderProgram.COLOR_ATTRIBUTE + ";\n" //
-		                      + "attribute vec2 " + ShaderProgram.TEXCOORD_ATTRIBUTE + "0;\n" //
-		                      + "uniform mat4 u_projectionViewMatrix;\n" //
-		                      + "varying vec4 v_color;\n" //
-		                      + "varying vec2 v_texCoords;\n" //
-		                      + "\n" //
-		                      + "void main()\n" //
-		                      + "{\n" //
-		                      + "   v_color = " + ShaderProgram.COLOR_ATTRIBUTE + ";\n" //
-		                      + "   v_texCoords = " + ShaderProgram.TEXCOORD_ATTRIBUTE + "0;\n" //
-		                      + "   gl_Position =  u_projectionViewMatrix * " + ShaderProgram.POSITION_ATTRIBUTE + ";\n" //
-		                      + "}\n";
+		std::wstring vertexShader = std::wstring(L"attribute vec4 ") + ShaderProgram::POSITION_ATTRIBUTE + L";\n"
+		                      + L"attribute vec4 " + ShaderProgram.COLOR_ATTRIBUTE + L";\n"
+		                      + L"attribute vec2 " + ShaderProgram.TEXCOORD_ATTRIBUTE + L"0;\n" //
+		                      + L"uniform mat4 u_projectionViewMatrix;\n" //
+		                      + L"varying vec4 v_color;\n" //
+		                      + L"varying vec2 v_texCoords;\n" //
+		                      + L"\n" //
+		                      + L"void main()\n" //
+		                      + L"{\n" //
+		                      + L"   v_color = " + ShaderProgram.COLOR_ATTRIBUTE + L";\n" //
+		                      + L"   v_texCoords = " + ShaderProgram.TEXCOORD_ATTRIBUTE + "0;\n" //
+		                      + "   gl_Position =  u_projectionViewMatrix * " + ShaderProgram.POSITION_ATTRIBUTE + L";\n" //
+		                      + L"}\n";
 		String fragmentShader = "#ifdef GL_ES\n" //
-		                        + "#define LOWP lowp\n" + "precision mediump float;\n" //
-		                        + "#else\n" + "#define LOWP \n" + "#endif\n" //
-		                        + "varying LOWP vec4 v_color;\n" //
-		                        + "varying vec2 v_texCoords;\n" //
-		                        + "uniform sampler2D u_texture;\n" //
-		                        + "void main()\n"//
-		                        + "{\n" //
-		                        + "  gl_FragColor = v_color * texture2D(u_texture, v_texCoords);\n" //
-		                        + "}";
+		                        + L"#define LOWP lowp\n" + L"precision mediump float;\n" //
+		                        + L"#else\n" + L"#define LOWP \n" + L"#endif\n" //
+		                        + L"varying LOWP vec4 v_color;\n" //
+		                        + L"varying vec2 v_texCoords;\n" //
+		                        + L"uniform sampler2D u_texture;\n" //
+		                        + L"void main()\n"//
+		                        + L"{\n" //
+		                        + L"  gl_FragColor = v_color * texture2D(u_texture, v_texCoords);\n" //
+		                        + L"}";
 
 		ShaderProgram shader = new ShaderProgram(vertexShader, fragmentShader);
 		if(shader.isCompiled() == false) throw new IllegalArgumentException("couldn't compile shader: " + shader.getLog());
