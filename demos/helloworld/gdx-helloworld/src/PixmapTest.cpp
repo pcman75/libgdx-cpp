@@ -50,8 +50,8 @@ void PixmapTest::create ()
 
 	// Blit the composited overlay to a texture
 	m_texture->draw(m_pixmap, 0, 0);
-	//m_region = new TextureRegion(texture, 0, 0, 800, 480);
-	//batch = new SpriteBatch();
+	m_region = new TextureRegion(m_texture, 0, 0, 800, 480);
+	m_batch = new SpriteBatch();
 
 	Pixmap* pixmap = new Pixmap(512, 1024, Pixmap::Format::RGBA8888);
 	for (int y = 0; y < pixmap->getHeight(); y++) 
@@ -75,9 +75,9 @@ void PixmapTest::render ()
 {
 		Gdx.gl->glClearColor(0.6f, 0.6f, 0.6f, 1);
 		Gdx.gl->glClear(GL10::GDX_GL_COLOR_BUFFER_BIT);
-		//batch.begin();
-		//batch.draw(region, 0, 0);
-		//batch.end();
+		m_batch->begin();
+		m_batch->draw(m_region, 0, 0);
+		m_batch->end();
 }
 
 void PixmapTest::pause (){}

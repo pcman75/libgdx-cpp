@@ -278,20 +278,20 @@
     <ClInclude Include="..\incl\lodepng.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\exp\FileHandleStream.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\exp\Rectang.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\exp\Sprite.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\exp\SpriteBatch.h">
-      <Filter>Header Files</Filter>
+      <Filter>Exported Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\exp\TextureRegion.h">
-      <Filter>Header Files</Filter>
+      <Filter>Exported Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\exp\Sprite.h">
+      <Filter>Exported Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\exp\Rectang.h">
+      <Filter>Exported Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\exp\FileHandleStream.h">
+      <Filter>Exported Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

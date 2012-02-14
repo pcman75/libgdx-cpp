@@ -2,8 +2,8 @@
 #include "applicationlistener.h"
 #include "Pixmap.h"
 #include "Texture.h"
-//#include "SpriteBatch.h"
-//#include "TextureRegion.h"
+#include "SpriteBatch.h"
+#include "TextureRegion.h"
 
 class PixmapTest :
 	public ApplicationListener
@@ -11,8 +11,8 @@ class PixmapTest :
 private:
 	Pixmap* m_pixmap;
 	Texture* m_texture;
-	//SpriteBatch batch;
-	//TextureRegion region;
+	SpriteBatch* m_batch;
+	TextureRegion* m_region;
 
 public:
 	PixmapTest(void);

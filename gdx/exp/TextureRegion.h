@@ -15,14 +15,14 @@
  ******************************************************************************/
 
 #pragma once
-
+#include "GdxDefines.h"
 #include "Texture.h"
 
 /** Defines a rectangular area of a texture. The coordinate system used has its origin in the upper left corner with the x-axis
  * pointing to the right and the y axis pointing downwards.
  */
 
-class TextureRegion
+class GdxDllImportExport TextureRegion
 {
 protected:
 	Texture* m_texture;

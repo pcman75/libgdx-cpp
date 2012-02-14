@@ -181,7 +181,10 @@ void Texture::load(TextureData* data)
 		if(data->disposePixmap()) 
 		{
 			pixmap->dispose();
-			delete pixmap;
+
+			//TODO: review this! cannot delete now the pixmap. 
+			//if I do it getWidth and Height will not work
+			//delete pixmap;
 		}
 		setFilter(m_minFilter, m_magFilter);
 		setWrap(m_uWrap, m_vWrap);

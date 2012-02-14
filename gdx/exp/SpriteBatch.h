@@ -14,7 +14,7 @@
  * limitations under the License.
  ******************************************************************************/
 #pragma once
-
+#include "GdxDefines.h"
 #include "Sprite.h"
 #include "Mesh.h"
 #include "Texture.h"
@@ -56,7 +56,7 @@
  * </p>
  */
 
-class SpriteBatch
+class GdxDllImportExport SpriteBatch
 {
 public:
 	/** number of render calls **/
