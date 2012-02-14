@@ -3,17 +3,17 @@
 
 std::list<ShaderProgram> ShaderProgram::m_shaders;
 /** default name for position attributes **/
-const wchar_t* ShaderProgram::POSITION_ATTRIBUTE = L"a_position";
+const char* ShaderProgram::POSITION_ATTRIBUTE = "a_position";
 /** default name for normal attribtues **/
-const wchar_t* ShaderProgram::NORMAL_ATTRIBUTE = L"a_normal";
+const char* ShaderProgram::NORMAL_ATTRIBUTE = "a_normal";
 /** default name for color attributes **/
-const wchar_t* ShaderProgram::COLOR_ATTRIBUTE = L"a_color";
+const char* ShaderProgram::COLOR_ATTRIBUTE = "a_color";
 /** default name for texcoords attributes, append texture unit number **/
-const wchar_t* ShaderProgram::TEXCOORD_ATTRIBUTE = L"a_texCoord";
+const char* ShaderProgram::TEXCOORD_ATTRIBUTE = "a_texCoord";
 /** default name for tangent attribute **/
-const wchar_t* ShaderProgram::TANGENT_ATTRIBUTE = L"a_tangent";
+const char* ShaderProgram::TANGENT_ATTRIBUTE = "a_tangent";
 /** default name for binormal attribute **/
-const wchar_t* ShaderProgram::BINORMAL_ATTRIBUTE = L"a_binormal";
+const char* ShaderProgram::BINORMAL_ATTRIBUTE = "a_binormal";
 
 /** flag indicating whether attributes & uniforms must be present at all times **/
 bool ShaderProgram::pedantic = true;
