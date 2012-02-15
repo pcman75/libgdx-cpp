@@ -11,7 +11,7 @@ void VertexBufferObjectShaderTest::dispose()
 
 void VertexBufferObjectShaderTest::render()
 {
-	static short indices[] = {0,1,2};
+	static unsigned short indices[] = {0,1,2};
 	GL20* gl = Gdx.gl20;
 
 	//TODO:
@@ -24,17 +24,17 @@ void VertexBufferObjectShaderTest::render()
 	m_shader->setUniformi( "u_texture", 0);
 	m_texture->bind();
 	m_vbo->bind(m_shader);
-	Gdx.gl->glDrawElements(GL20::GDX_GL_TRIANGLES, 3, GL20::GDX_GL_UNSIGNED_SHORT, &indices);
+	gl->glDrawElements(GL20::GDX_GL_TRIANGLES, 3, GL20::GDX_GL_UNSIGNED_SHORT, indices);
 	m_vbo->unbind(m_shader);
 	m_shader->end();
 }
 
 void VertexBufferObjectShaderTest::create()
 {
-	std::string vertexShader = std::string("attribute vec4 a_position;    \n") + "attribute vec4 a_color;\n" + "attribute vec2 a_texCoords;\n"
+	std::string vertexShader = std::string("attribute vec2 a_position;    \n") + "attribute vec4 a_color;\n" + "attribute vec2 a_texCoords;\n"
 		+ "varying vec4 v_color;" + "varying vec2 v_texCoords;" + "void main()                  \n"
 		+ "{                            \n" + "   v_color = vec4(a_color.x, a_color.y, a_color.z, 1); \n"
-		+ "   v_texCoords = a_texCoords; \n" + "   gl_Position =  a_position;  \n" + "}                            \n";
+		+ "   v_texCoords = a_texCoords; \n" + "   gl_Position =  vec4(a_position.x, a_position.y, 0, 0);  \n" + "}                            \n";
 	std::string fragmentShader =  std::string("#ifdef GL_ES\n") + "precision mediump float;\n" + "#endif\n" + "varying vec4 v_color;\n"
 		+ "varying vec2 v_texCoords;\n" + "uniform sampler2D u_texture;\n" + "void main()                                  \n"
 		+ "{                                            \n" + "  gl_FragColor = v_color * texture2D(u_texture, v_texCoords);\n"
@@ -48,13 +48,12 @@ void VertexBufferObjectShaderTest::create()
 		VertexAttribute(VertexAttributes::ColorPacked, 4, "a_color")};
 
 	m_vbo = new VertexBufferObject(true, VertexAttributes(attributes, sizeof(attributes)/sizeof(attributes[0])));
-
+	
   float vertices[] = { 
-    -1, -1, 0, 0, 1, 0, 0, 1, 
-    0, 1, 0.5f, 1.0f, 0, 1, 0, 1, 
-    1, -1, 1, 0, 0, 0, 1, 1
+    -1, -1, 0, 0, Color::WHITE.toFloatBits(), 
+    0, 1, 0.5f, 1.0f, Color::WHITE.toFloatBits(), 
+    1, -1, 1, 0, Color::WHITE.toFloatBits()
 	};
-
 	m_vbo->setVertices(vertices, sizeof(vertices)/sizeof(vertices[0]));
 
 	m_texture = new Texture("c:\\badlogic.jpg");

@@ -111,9 +111,9 @@ void WoglGL20::glDisableVertexAttribArray(int index)
 	::glDisableVertexAttribArray(index);
 }
 
-void WoglGL20::glDrawElements(int mode, int count, int type, int indices)
+void WoglGL20::glDrawElements(int mode, int count, int type, const void* indices)
 {
-	::glDrawElements(mode, count, type, &indices);
+	::glDrawElements(mode, count, type, indices);
 }
 
 void WoglGL20::glEnableVertexAttribArray(int index)
