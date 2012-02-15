@@ -19,7 +19,7 @@
  * @author badlogicgames@gmail.com */
 class Vector2
 {
-private:
+public:
 	/** Static temporary vector. Use with care! Use only when sure other code will not also use this.
 	 * @see #tmp() **/
 	static Vector2 m_tmp;

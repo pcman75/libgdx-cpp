@@ -138,6 +138,18 @@
     <ClCompile Include="..\src\SpriteBatch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\%40Git\gdx\src\Circle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\%40Git\gdx\src\Plane.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\%40Git\gdx\src\Polygon.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\%40Git\gdx\src\Rectangle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\incl\stdafx.h">
@@ -291,6 +303,18 @@
       <Filter>Exported Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\exp\FileHandleStream.h">
+      <Filter>Exported Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\%40Git\gdx\exp\Circle.h">
+      <Filter>Exported Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\%40Git\gdx\exp\Plane.h">
+      <Filter>Exported Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\%40Git\gdx\exp\Polygon.h">
+      <Filter>Exported Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\%40Git\gdx\exp\Rectangle.h">
       <Filter>Exported Header Files</Filter>
     </ClInclude>
   </ItemGroup>
