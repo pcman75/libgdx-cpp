@@ -42,16 +42,15 @@ void SpriteBatch::init()
 	m_blendingDisabled = false;
 	m_blendSrcFunc = GL11::GDX_GL_SRC_ALPHA;
 	m_blendDstFunc = GL11::GDX_GL_ONE_MINUS_SRC_ALPHA;
-	ShaderProgram* m_shader = NULL;
-	ShaderProgram* m_customShader = NULL;
+	m_shader = NULL;
+	m_customShader = NULL;
 	m_color = Color::WHITE.toFloatBits();
 	m_tempColor = Color(1, 1, 1, 1);
 }
 
 void SpriteBatch::init(int size)
 {
-	init();
-	init(size, NULL);
+	init(size, (ShaderProgram*)NULL);
 }
 
 void SpriteBatch::init(int size, ShaderProgram* defaultShader)
@@ -88,13 +87,11 @@ SpriteBatch::~SpriteBatch()
 
 void SpriteBatch::init(int size, int buffers)
 {
-	init();
 	init(size, buffers, NULL);
 }
 
 void SpriteBatch::init(int size, int buffers, ShaderProgram* defaultShader)
 {
-	init();
 	m_numBuffers = buffers;
 	m_buffers = new Mesh*[buffers];
 
@@ -140,6 +137,7 @@ void SpriteBatch::init(int size, int buffers, ShaderProgram* defaultShader)
 * respect to the screen resolution. */
 SpriteBatch::SpriteBatch()
 {
+	init();
 	init(1000);
 }
 
@@ -147,6 +145,7 @@ SpriteBatch::SpriteBatch()
 * {@link #SpriteBatch(int, ShaderProgram)}. */
 SpriteBatch::SpriteBatch(int size)
 {
+	init();
 	init(size);
 }
 
@@ -164,6 +163,7 @@ SpriteBatch::SpriteBatch(int size)
 * @param defaultShader the default shader to use */
 SpriteBatch::SpriteBatch(int size, ShaderProgram* defaultShader)
 {
+	init();
 	init(size, defaultShader);
 }
 
@@ -171,6 +171,7 @@ SpriteBatch::SpriteBatch(int size, ShaderProgram* defaultShader)
 * {@link #SpriteBatch(int, int, ShaderProgram)}. */
 SpriteBatch::SpriteBatch(int size, int buffers)
 {
+	init();
 	init(size, buffers);
 }
 
@@ -189,6 +190,7 @@ SpriteBatch::SpriteBatch(int size, int buffers)
 * @param defaultShader the default shader to use */
 SpriteBatch::SpriteBatch(int size, int buffers, ShaderProgram* defaultShader)
 {
+	init();
 	init(size, buffers, defaultShader);
 }
 

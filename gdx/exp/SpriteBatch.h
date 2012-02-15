@@ -100,18 +100,14 @@ private:
 
 private:
 	void init();
-
 	void init(int size);
-	
 	void init(int size, ShaderProgram* defaultShader);
-
-	virtual ~SpriteBatch();
-
 	void init(int size, int buffers);
-
 	void init(int size, int buffers, ShaderProgram* defaultShader);
 
 public:
+	virtual ~SpriteBatch();
+
 	/** Constructs a new SpriteBatch. Sets the projection matrix to an orthographic projection with y-axis point upwards, x-axis
 	 * point to the right and the origin being in the bottom left corner of the screen. The projection will be pixel perfect with
 	 * respect to the screen resolution. */
