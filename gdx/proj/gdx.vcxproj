@@ -113,7 +113,6 @@
     <ClCompile Include="..\src\Polygon.cpp" />
     <ClCompile Include="..\src\Quaternion.cpp" />
     <ClCompile Include="..\src\Rectang.cpp" />
-    <ClCompile Include="..\src\Rectangle.cpp" />
     <ClCompile Include="..\src\ShaderProgram.cpp" />
     <ClCompile Include="..\src\Sprite.cpp" />
     <ClCompile Include="..\src\SpriteBatch.cpp" />
@@ -171,7 +170,6 @@
     <ClInclude Include="..\exp\Polygon.h" />
     <ClInclude Include="..\exp\Quaternion.h" />
     <ClInclude Include="..\exp\Rectang.h" />
-    <ClInclude Include="..\exp\Rectangle.h" />
     <ClInclude Include="..\exp\ShaderProgram.h" />
     <ClInclude Include="..\exp\Sprite.h" />
     <ClInclude Include="..\exp\SpriteBatch.h" />

@@ -147,9 +147,6 @@
     <ClCompile Include="..\src\Polygon.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\Rectangle.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\incl\stdafx.h">
@@ -312,9 +309,6 @@
       <Filter>Exported Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\exp\Polygon.h">
-      <Filter>Exported Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\exp\Rectangle.h">
       <Filter>Exported Header Files</Filter>
     </ClInclude>
   </ItemGroup>
