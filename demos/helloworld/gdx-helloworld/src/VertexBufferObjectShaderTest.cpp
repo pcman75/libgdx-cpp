@@ -46,10 +46,13 @@ void VertexBufferObjectShaderTest::create()
 	VertexAttribute attributes[] = {VertexAttribute(VertexAttributes::Position, 2, "a_position"),
 		VertexAttribute(VertexAttributes::TextureCoordinates, 2, "a_texCoords"), 
 		VertexAttribute(VertexAttributes::ColorPacked, 4, "a_color")};
+
 	m_vbo = new VertexBufferObject(true, VertexAttributes(attributes, sizeof(attributes)/sizeof(attributes[0])));
 
-	float vertices[] = { -1, -1, 0, 0, Color::toFloatBits(1, 0, 0, 1), 0, 1, 0.5f, 1.0f,
-		Color::toFloatBits(0, 1, 0, 1), 1, -1, 1, 0, Color::toFloatBits(0, 0, 1, 1)
+  float vertices[] = { 
+    -1, -1, 0, 0, 1, 0, 0, 1, 
+    0, 1, 0.5f, 1.0f, 0, 1, 0, 1, 
+    1, -1, 1, 0, 0, 0, 1, 1
 	};
 
 	m_vbo->setVertices(vertices, sizeof(vertices)/sizeof(vertices[0]));
