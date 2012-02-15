@@ -9,6 +9,10 @@ private:
 	bool m_useGL20;
 	bool created;
 	bool exclusiveMode;
+
+	int m_width;
+	int m_height;
+
 	//final JoglDisplayMode desktopMode;
 	//final JoglApplicationConfiguration config;
 	//String extensions;

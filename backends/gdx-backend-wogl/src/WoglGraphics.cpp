@@ -113,13 +113,11 @@ const GLU& WoglGraphics::getGLU ()
 }
 int WoglGraphics::getWidth ()
 {
-	//TODO:
-	return -1;
+	return m_width;
 }
 int WoglGraphics::getHeight ()
 {
-	//TODO:
-	return -1;
+	return m_height;
 }
 float WoglGraphics::getDeltaTime ()
 {
@@ -286,6 +284,9 @@ void WoglGraphics::setCamera(float posX, float posY, float posZ, float targetX, 
 ///////////////////////////////////////////////////////////////////////////////
 void WoglGraphics::setViewport(int w, int h)
 {
+	m_width = w;
+	m_height = h;
+
 	// set viewport to be the entire window
 	glViewport(0, 0, (GLsizei)w, (GLsizei)h);
 
