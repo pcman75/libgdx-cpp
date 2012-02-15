@@ -146,6 +146,7 @@ private:
 	///////////////////
 public:
 	void init();                                    // initialize OpenGL states
+	void create();
     void setCamera(float posX, float posY, float posZ, float targetX, float targetY, float targetZ);
     void setViewport(int width, int height);
     void draw();

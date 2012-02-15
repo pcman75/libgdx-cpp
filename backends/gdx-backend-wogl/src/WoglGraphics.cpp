@@ -236,14 +236,13 @@ void WoglGraphics::init()
 
 	initLights();
 	setCamera(0, 0, 10, 0, 0, 0);
+}
 
-	
-
+void WoglGraphics::create()
+{
 	initializeGLInstances();
 	m_listener.create();
 }
-
-
 
 ///////////////////////////////////////////////////////////////////////////////
 // initialize lights

@@ -13,10 +13,7 @@ void VertexBufferObjectShaderTest::render()
 {
 	static unsigned short indices[] = {0,1,2};
 	GL20* gl = Gdx.gl20;
-
-	//TODO:
-	//gl->glViewport(0, 0, Gdx.graphics->getWidth(), Gdx.graphics->getHeight());
-	//gl->glViewport(0, 0, 400, 300);
+	gl->glViewport(0, 0, Gdx.graphics->getWidth(), Gdx.graphics->getHeight());	
 	gl->glClear(GL20::GDX_GL_COLOR_BUFFER_BIT);
 
 	gl->glEnable(GL20::GDX_GL_TEXTURE_2D);
@@ -31,10 +28,11 @@ void VertexBufferObjectShaderTest::render()
 
 void VertexBufferObjectShaderTest::create()
 {
-	std::string vertexShader = std::string("attribute vec2 a_position;    \n") + "attribute vec4 a_color;\n" + "attribute vec2 a_texCoords;\n"
-		+ "varying vec4 v_color;" + "varying vec2 v_texCoords;" + "void main()                  \n"
-		+ "{                            \n" + "   v_color = vec4(a_color.x, a_color.y, a_color.z, 1); \n"
-		+ "   v_texCoords = a_texCoords; \n" + "   gl_Position =  vec4(a_position.x, a_position.y, 0, 0);  \n" + "}                            \n";
+	std::string vertexShader = std::string("attribute vec4 a_position;    \n") + "attribute vec4 a_color;\n" + "attribute vec2 a_texCoords;\n"
+			+ "varying vec4 v_color;" + "varying vec2 v_texCoords;" + "void main()                  \n"
+			+ "{                            \n" + "   v_color = vec4(a_color.x, a_color.y, a_color.z, 1); \n"
+			+ "   v_texCoords = a_texCoords; \n" + "   gl_Position =  a_position;  \n" + "}                            \n";
+
 	std::string fragmentShader =  std::string("#ifdef GL_ES\n") + "precision mediump float;\n" + "#endif\n" + "varying vec4 v_color;\n"
 		+ "varying vec2 v_texCoords;\n" + "uniform sampler2D u_texture;\n" + "void main()                                  \n"
 		+ "{                                            \n" + "  gl_FragColor = v_color * texture2D(u_texture, v_texCoords);\n"

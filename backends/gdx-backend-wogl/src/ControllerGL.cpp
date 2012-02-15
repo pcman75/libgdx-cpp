@@ -125,6 +125,8 @@ void ControllerGL::runThread()
     ::GetClientRect(handle, &rect);
     m_pGraphics->setViewport(rect.right, rect.bottom);
 
+	m_pGraphics->create();
+
     // rendering loop
     while(loopFlag)
     {
