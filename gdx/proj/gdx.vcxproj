@@ -74,6 +74,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\src\Circle.cpp" />
     <ClCompile Include="..\src\FileHandleStream.cpp" />
     <ClCompile Include="..\src\Files.cpp" />
     <ClCompile Include="..\src\BoundingBox.cpp" />
@@ -98,6 +99,7 @@
     <ClCompile Include="..\src\IndexBufferObject.cpp" />
     <ClCompile Include="..\src\lodepng.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="..\src\MathUtils.cpp" />
     <ClCompile Include="..\src\Matrix3.cpp" />
@@ -107,8 +109,11 @@
     <ClCompile Include="..\src\Pixmap.cpp" />
     <ClCompile Include="..\src\PixmapIO.cpp" />
     <ClCompile Include="..\src\PixmapTextureData.cpp" />
+    <ClCompile Include="..\src\Plane.cpp" />
+    <ClCompile Include="..\src\Polygon.cpp" />
     <ClCompile Include="..\src\Quaternion.cpp" />
     <ClCompile Include="..\src\Rectang.cpp" />
+    <ClCompile Include="..\src\Rectangle.cpp" />
     <ClCompile Include="..\src\ShaderProgram.cpp" />
     <ClCompile Include="..\src\Sprite.cpp" />
     <ClCompile Include="..\src\SpriteBatch.cpp" />
@@ -130,6 +135,7 @@
     <ClCompile Include="..\src\VertexBufferObject.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\exp\Circle.h" />
     <ClInclude Include="..\exp\FileHandleStream.h" />
     <ClInclude Include="..\exp\Application.h" />
     <ClInclude Include="..\exp\ApplicationListener.h" />
@@ -161,8 +167,11 @@
     <ClInclude Include="..\exp\Pixmap.h" />
     <ClInclude Include="..\exp\PixmapIO.h" />
     <ClInclude Include="..\exp\PixmapTextureData.h" />
+    <ClInclude Include="..\exp\Plane.h" />
+    <ClInclude Include="..\exp\Polygon.h" />
     <ClInclude Include="..\exp\Quaternion.h" />
     <ClInclude Include="..\exp\Rectang.h" />
+    <ClInclude Include="..\exp\Rectangle.h" />
     <ClInclude Include="..\exp\ShaderProgram.h" />
     <ClInclude Include="..\exp\Sprite.h" />
     <ClInclude Include="..\exp\SpriteBatch.h" />

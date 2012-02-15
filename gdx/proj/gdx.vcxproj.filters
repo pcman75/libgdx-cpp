@@ -138,16 +138,16 @@
     <ClCompile Include="..\src\SpriteBatch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\%40Git\gdx\src\Circle.cpp">
+    <ClCompile Include="..\src\Circle.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\%40Git\gdx\src\Plane.cpp">
+    <ClCompile Include="..\src\Plane.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\%40Git\gdx\src\Polygon.cpp">
+    <ClCompile Include="..\src\Polygon.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\%40Git\gdx\src\Rectangle.cpp">
+    <ClCompile Include="..\src\Rectangle.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -305,16 +305,16 @@
     <ClInclude Include="..\exp\FileHandleStream.h">
       <Filter>Exported Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\%40Git\gdx\exp\Circle.h">
+    <ClInclude Include="..\exp\Circle.h">
       <Filter>Exported Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\%40Git\gdx\exp\Plane.h">
+    <ClInclude Include="..\exp\Plane.h">
       <Filter>Exported Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\%40Git\gdx\exp\Polygon.h">
+    <ClInclude Include="..\exp\Polygon.h">
       <Filter>Exported Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\%40Git\gdx\exp\Rectangle.h">
+    <ClInclude Include="..\exp\Rectangle.h">
       <Filter>Exported Header Files</Filter>
     </ClInclude>
   </ItemGroup>
