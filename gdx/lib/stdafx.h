@@ -10,7 +10,9 @@
 
 #define WIN32_LEAN_AND_MEAN             // Exclude rarely-used stuff from Windows headers
 // Windows Header Files:
+#if defined (__WIN32__)
 #include <windows.h>
+#endif
 
 #include <iostream>
 #include <sstream>

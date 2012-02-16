@@ -222,7 +222,10 @@ void WoglGraphics::init()
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_LIGHTING);
 	glEnable(GL_TEXTURE_2D);
-	//glEnable(GL_CULL_FACE);
+	
+  // commented for the moment
+  //glEnable(GL_CULL_FACE);
+
 	glEnable(GL_BLEND);
 
 	// track material ambient and diffuse from surface color, call it before glEnable(GL_COLOR_MATERIAL)
@@ -234,7 +237,8 @@ void WoglGraphics::init()
 	glClearDepth(1.0f);                             // 0 is near, 1 is far
 	glDepthFunc(GL_LEQUAL);
 
-	initLights();
+  
+  initLights();
 	setCamera(0, 0, 10, 0, 0, 0);
 }
 

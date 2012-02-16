@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "circle.h"
+#include "Circle.h"
 
 Circle::Circle( float x, float y, float radius) 
 {

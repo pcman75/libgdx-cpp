@@ -6,7 +6,9 @@ NumberUtils::lutype NumberUtils::lu;
 
 int NumberUtils::floatToIntBits(float value)
 {
-	if (_isnan(value)) 
+//TODO: OK?
+//	if (_isnan(value)) 
+	if (value != value) 
 	{
 		return 0x7fc00000;
 	} 

@@ -790,7 +790,7 @@ void SpriteBatch::draw(Texture* texture, float* spriteVertices, int offset, int 
 		renderMesh();
 		remainingVertices = m_verticesSize;
 	}
-	int vertexCount = min(remainingVertices, length - offset);
+	int vertexCount = std::min(remainingVertices, length - offset);
 	//System.arraycopy(spriteVertices, offset, m_vertices, m_idx, vertexCount);
 	memcpy(m_vertices + m_idx, spriteVertices + offset, vertexCount * sizeof(float));
 
@@ -800,7 +800,7 @@ void SpriteBatch::draw(Texture* texture, float* spriteVertices, int offset, int 
 	while(offset < length)
 	{
 		renderMesh();
-		vertexCount = min(m_verticesSize, length - offset);
+		vertexCount = std::min(m_verticesSize, length - offset);
 		//System.arraycopy(spriteVertices, offset, m_vertices, 0, vertexCount);
 		memcpy(m_vertices, spriteVertices + offset, vertexCount * sizeof(float));
 		offset += vertexCount;
