@@ -121,13 +121,13 @@ int WoglGraphics::getHeight ()
 }
 float WoglGraphics::getDeltaTime ()
 {
-	return 0;
+	return 5000000;
 }
 
 int WoglGraphics::getFramesPerSecond ()
 {
 	//TODO:
-	return 0;
+	return 20;
 }
 Graphics::GraphicsType WoglGraphics::getType ()
 {

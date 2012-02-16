@@ -23,10 +23,13 @@
  */
 #pragma once
 
+#include "GdxDefines.h"
+
 #include "TextureRegion.h"
 #include "Rectang.h"
+class SpriteBatch;
 
-class Sprite: public TextureRegion
+class GdxDllImportExport Sprite: public TextureRegion
 {
 public:
 	static const int VERTEX_SIZE = 2 + 1 + 2;
@@ -169,9 +172,8 @@ public:
 	 * @return the bounding Rectangle */
 	const Rectang& getBoundingRectangle();
 
-	//TODO:
-	//void draw(SpriteBatch* spriteBatch)
-	//void draw(SpriteBatch* spriteBatch, float alphaModulation);
+	void draw(SpriteBatch* spriteBatch);
+	void draw(SpriteBatch* spriteBatch, float alphaModulation);
 
 	float getX();
 
