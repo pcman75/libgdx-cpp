@@ -8,9 +8,11 @@
 
 #include "targetver.h"
 
+ #define NOMINMAX
+
 #define WIN32_LEAN_AND_MEAN             // Exclude rarely-used stuff from Windows headers
 // Windows Header Files:
-#if defined (__WIN32__)
+#ifdef WIN32
 #include <windows.h>
 #endif
 

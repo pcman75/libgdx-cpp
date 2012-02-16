@@ -124,3 +124,13 @@ public:
 	/** Returns the closest integer to the specified float. This method will only properly round floats that are positive. */
 	static int roundPositive (float x);
 };
+
+inline float min(float a, float b)
+{
+	return a > b ? b : a;
+}
+
+inline float max(float a, float b)
+{
+	return a > b ? a : b;
+}

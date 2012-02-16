@@ -1,8 +1,10 @@
 // dllmain.cpp : Defines the entry point for the DLL application.
 
-#if defined (__WIN32__)
-
 #include "stdafx.h"
+
+#if defined (WIN32)
+
+
 
 BOOL APIENTRY DllMain( HMODULE hModule,
                        DWORD  ul_reason_for_call,

@@ -1,6 +1,6 @@
 #pragma once
 
-#if defined (__WIN32__)
+#if defined (WIN32)
 #ifdef GDX_EXPORTS
   #define GdxDllImportExport __declspec(dllexport)
 #else

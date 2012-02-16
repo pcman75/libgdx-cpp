@@ -1,315 +1,318 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
-    </Filter>
     <Filter Include="Resource Files">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Exported Header Files">
+    <Filter Include="include">
       <UniqueIdentifier>{b6d6eaa7-4167-4e0e-a638-9df207bc7297}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="lib">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\dllmain.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\src\stdafx.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\src\Gdx.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\src\GdxRuntimeException.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\src\BoundingBox.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\src\Color.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\src\IndexBufferObject.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\src\MathUtils.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\src\Matrix3.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\src\Matrix4.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\src\Mesh.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\src\NumberUtils.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\src\Quaternion.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\src\ShaderProgram.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\src\Vector2.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\src\Vector3.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\src\VertexArray.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\src\VertexAttribute.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\src\VertexAttributes.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\src\VertexBufferObject.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\src\Pixmap.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\src\Texture.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\src\PixmapTextureData.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\src\FileTextureData.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\src\ETC1TextureData.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\src\ETC1Data.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\src\ETC1.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\src\Gdx2DPixmap.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\src\etc1_utils.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\src\gdx2d.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\stb_image.c">
-      <Filter>Source Files</Filter>
+      <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\src\lodepng.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\src\PixmapIO.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\src\FileHandle.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\src\FileHandleStream.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\src\Files.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\src\Rectang.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\src\Sprite.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\src\TextureRegion.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\src\SpriteBatch.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\src\Circle.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\src\Plane.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\src\Polygon.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\stb_image.c">
+      <Filter>lib</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\incl\stdafx.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="..\lib\etc1_utils.h">
+      <Filter>lib</Filter>
     </ClInclude>
-    <ClInclude Include="..\incl\targetver.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="..\lib\gdx2d.h">
+      <Filter>lib</Filter>
     </ClInclude>
-    <ClInclude Include="..\exp\Application.h">
-      <Filter>Exported Header Files</Filter>
+    <ClInclude Include="..\lib\lodepng.h">
+      <Filter>lib</Filter>
     </ClInclude>
-    <ClInclude Include="..\exp\ApplicationListener.h">
-      <Filter>Exported Header Files</Filter>
+    <ClInclude Include="..\lib\stdafx.h">
+      <Filter>lib</Filter>
     </ClInclude>
-    <ClInclude Include="..\exp\Graphics.h">
-      <Filter>Exported Header Files</Filter>
+    <ClInclude Include="..\lib\targetver.h">
+      <Filter>lib</Filter>
     </ClInclude>
-    <ClInclude Include="..\exp\GdxDefines.h">
-      <Filter>Exported Header Files</Filter>
+    <ClInclude Include="..\include\Application.h">
+      <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="..\exp\GL10.h">
-      <Filter>Exported Header Files</Filter>
+    <ClInclude Include="..\include\ApplicationListener.h">
+      <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="..\exp\GL11.h">
-      <Filter>Exported Header Files</Filter>
+    <ClInclude Include="..\include\BoundingBox.h">
+      <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="..\exp\GL20.h">
-      <Filter>Exported Header Files</Filter>
+    <ClInclude Include="..\include\Circle.h">
+      <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="..\exp\GLCommon.h">
-      <Filter>Exported Header Files</Filter>
+    <ClInclude Include="..\include\Color.h">
+      <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="..\exp\Gdx.h">
-      <Filter>Exported Header Files</Filter>
+    <ClInclude Include="..\include\ETC1.h">
+      <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="..\exp\GdxRuntimeException.h">
-      <Filter>Exported Header Files</Filter>
+    <ClInclude Include="..\include\ETC1Data.h">
+      <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="..\exp\Input.h">
-      <Filter>Exported Header Files</Filter>
+    <ClInclude Include="..\include\ETC1TextureData.h">
+      <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="..\exp\Files.h">
-      <Filter>Exported Header Files</Filter>
+    <ClInclude Include="..\include\FileHandle.h">
+      <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="..\exp\FileHandle.h">
-      <Filter>Exported Header Files</Filter>
+    <ClInclude Include="..\include\FileHandleStream.h">
+      <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="..\exp\BoundingBox.h">
-      <Filter>Exported Header Files</Filter>
+    <ClInclude Include="..\include\Files.h">
+      <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="..\exp\Color.h">
-      <Filter>Exported Header Files</Filter>
+    <ClInclude Include="..\include\FileTextureData.h">
+      <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="..\exp\IndexBufferObject.h">
-      <Filter>Exported Header Files</Filter>
+    <ClInclude Include="..\include\Gdx.h">
+      <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="..\exp\IndexData.h">
-      <Filter>Exported Header Files</Filter>
+    <ClInclude Include="..\include\Gdx2DPixmap.h">
+      <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="..\exp\MathUtils.h">
-      <Filter>Exported Header Files</Filter>
+    <ClInclude Include="..\include\GdxDefines.h">
+      <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="..\exp\Matrix3.h">
-      <Filter>Exported Header Files</Filter>
+    <ClInclude Include="..\include\GdxRuntimeException.h">
+      <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="..\exp\Matrix4.h">
-      <Filter>Exported Header Files</Filter>
+    <ClInclude Include="..\include\GL10.h">
+      <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="..\exp\Mesh.h">
-      <Filter>Exported Header Files</Filter>
+    <ClInclude Include="..\include\GL11.h">
+      <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="..\exp\NumberUtils.h">
-      <Filter>Exported Header Files</Filter>
+    <ClInclude Include="..\include\GL20.h">
+      <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="..\exp\Quaternion.h">
-      <Filter>Exported Header Files</Filter>
+    <ClInclude Include="..\include\GLCommon.h">
+      <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="..\exp\ShaderProgram.h">
-      <Filter>Exported Header Files</Filter>
+    <ClInclude Include="..\include\Graphics.h">
+      <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="..\exp\Vector2.h">
-      <Filter>Exported Header Files</Filter>
+    <ClInclude Include="..\include\IndexBufferObject.h">
+      <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="..\exp\Vector3.h">
-      <Filter>Exported Header Files</Filter>
+    <ClInclude Include="..\include\IndexData.h">
+      <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="..\exp\VertexArray.h">
-      <Filter>Exported Header Files</Filter>
+    <ClInclude Include="..\include\Input.h">
+      <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="..\exp\VertexAttribute.h">
-      <Filter>Exported Header Files</Filter>
+    <ClInclude Include="..\include\MathUtils.h">
+      <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="..\exp\VertexAttributes.h">
-      <Filter>Exported Header Files</Filter>
+    <ClInclude Include="..\include\Matrix3.h">
+      <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="..\exp\VertexBufferObject.h">
-      <Filter>Exported Header Files</Filter>
+    <ClInclude Include="..\include\Matrix4.h">
+      <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="..\exp\VertexData.h">
-      <Filter>Exported Header Files</Filter>
+    <ClInclude Include="..\include\Mesh.h">
+      <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="..\incl\etc1_utils.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="..\include\NumberUtils.h">
+      <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="..\incl\gdx2d.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="..\include\Pixmap.h">
+      <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="..\exp\ETC1.h">
-      <Filter>Exported Header Files</Filter>
+    <ClInclude Include="..\include\PixmapIO.h">
+      <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="..\exp\ETC1Data.h">
-      <Filter>Exported Header Files</Filter>
+    <ClInclude Include="..\include\PixmapTextureData.h">
+      <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="..\exp\ETC1TextureData.h">
-      <Filter>Exported Header Files</Filter>
+    <ClInclude Include="..\include\Plane.h">
+      <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="..\exp\FileTextureData.h">
-      <Filter>Exported Header Files</Filter>
+    <ClInclude Include="..\include\Polygon.h">
+      <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="..\exp\Gdx2DPixmap.h">
-      <Filter>Exported Header Files</Filter>
+    <ClInclude Include="..\include\Quaternion.h">
+      <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="..\exp\Pixmap.h">
-      <Filter>Exported Header Files</Filter>
+    <ClInclude Include="..\include\Rectang.h">
+      <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="..\exp\PixmapTextureData.h">
-      <Filter>Exported Header Files</Filter>
+    <ClInclude Include="..\include\Rectangle.h">
+      <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="..\exp\Texture.h">
-      <Filter>Exported Header Files</Filter>
+    <ClInclude Include="..\include\ShaderProgram.h">
+      <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="..\exp\TextureData.h">
-      <Filter>Exported Header Files</Filter>
+    <ClInclude Include="..\include\Sprite.h">
+      <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="..\exp\PixmapIO.h">
-      <Filter>Exported Header Files</Filter>
+    <ClInclude Include="..\include\SpriteBatch.h">
+      <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="..\incl\lodepng.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="..\include\Texture.h">
+      <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="..\exp\SpriteBatch.h">
-      <Filter>Exported Header Files</Filter>
+    <ClInclude Include="..\include\TextureData.h">
+      <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="..\exp\TextureRegion.h">
-      <Filter>Exported Header Files</Filter>
+    <ClInclude Include="..\include\TextureRegion.h">
+      <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="..\exp\Sprite.h">
-      <Filter>Exported Header Files</Filter>
+    <ClInclude Include="..\include\Vector2.h">
+      <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="..\exp\Rectang.h">
-      <Filter>Exported Header Files</Filter>
+    <ClInclude Include="..\include\Vector3.h">
+      <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="..\exp\FileHandleStream.h">
-      <Filter>Exported Header Files</Filter>
+    <ClInclude Include="..\include\VertexArray.h">
+      <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="..\exp\Circle.h">
-      <Filter>Exported Header Files</Filter>
+    <ClInclude Include="..\include\VertexAttribute.h">
+      <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="..\exp\Plane.h">
-      <Filter>Exported Header Files</Filter>
+    <ClInclude Include="..\include\VertexAttributes.h">
+      <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="..\exp\Polygon.h">
-      <Filter>Exported Header Files</Filter>
+    <ClInclude Include="..\include\VertexBufferObject.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\VertexData.h">
+      <Filter>include</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

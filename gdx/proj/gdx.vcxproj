@@ -49,7 +49,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;GDX_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\incl;..\exp</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\include;..\lib</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -64,7 +64,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;GDX_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\incl;..\exp</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\include;..\lib</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -74,6 +74,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\lib\stb_image.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
     <ClCompile Include="..\src\Circle.cpp" />
     <ClCompile Include="..\src\FileHandleStream.cpp" />
     <ClCompile Include="..\src\Files.cpp" />
@@ -116,10 +120,6 @@
     <ClCompile Include="..\src\ShaderProgram.cpp" />
     <ClCompile Include="..\src\Sprite.cpp" />
     <ClCompile Include="..\src\SpriteBatch.cpp" />
-    <ClCompile Include="..\src\stb_image.c">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
-    </ClCompile>
     <ClCompile Include="..\src\stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
@@ -134,60 +134,61 @@
     <ClCompile Include="..\src\VertexBufferObject.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\exp\Circle.h" />
-    <ClInclude Include="..\exp\FileHandleStream.h" />
-    <ClInclude Include="..\exp\Application.h" />
-    <ClInclude Include="..\exp\ApplicationListener.h" />
-    <ClInclude Include="..\exp\BoundingBox.h" />
-    <ClInclude Include="..\exp\Color.h" />
-    <ClInclude Include="..\exp\ETC1.h" />
-    <ClInclude Include="..\exp\ETC1Data.h" />
-    <ClInclude Include="..\exp\ETC1TextureData.h" />
-    <ClInclude Include="..\exp\FileHandle.h" />
-    <ClInclude Include="..\exp\Files.h" />
-    <ClInclude Include="..\exp\FileTextureData.h" />
-    <ClInclude Include="..\exp\Gdx.h" />
-    <ClInclude Include="..\exp\Gdx2DPixmap.h" />
-    <ClInclude Include="..\exp\GdxDefines.h" />
-    <ClInclude Include="..\exp\GdxRuntimeException.h" />
-    <ClInclude Include="..\exp\GL10.h" />
-    <ClInclude Include="..\exp\GL11.h" />
-    <ClInclude Include="..\exp\GL20.h" />
-    <ClInclude Include="..\exp\GLCommon.h" />
-    <ClInclude Include="..\exp\Graphics.h" />
-    <ClInclude Include="..\exp\IndexBufferObject.h" />
-    <ClInclude Include="..\exp\IndexData.h" />
-    <ClInclude Include="..\exp\Input.h" />
-    <ClInclude Include="..\exp\MathUtils.h" />
-    <ClInclude Include="..\exp\Matrix3.h" />
-    <ClInclude Include="..\exp\Matrix4.h" />
-    <ClInclude Include="..\exp\Mesh.h" />
-    <ClInclude Include="..\exp\NumberUtils.h" />
-    <ClInclude Include="..\exp\Pixmap.h" />
-    <ClInclude Include="..\exp\PixmapIO.h" />
-    <ClInclude Include="..\exp\PixmapTextureData.h" />
-    <ClInclude Include="..\exp\Plane.h" />
-    <ClInclude Include="..\exp\Polygon.h" />
-    <ClInclude Include="..\exp\Quaternion.h" />
-    <ClInclude Include="..\exp\Rectang.h" />
-    <ClInclude Include="..\exp\ShaderProgram.h" />
-    <ClInclude Include="..\exp\Sprite.h" />
-    <ClInclude Include="..\exp\SpriteBatch.h" />
-    <ClInclude Include="..\exp\Texture.h" />
-    <ClInclude Include="..\exp\TextureData.h" />
-    <ClInclude Include="..\exp\TextureRegion.h" />
-    <ClInclude Include="..\exp\Vector2.h" />
-    <ClInclude Include="..\exp\Vector3.h" />
-    <ClInclude Include="..\exp\VertexArray.h" />
-    <ClInclude Include="..\exp\VertexAttribute.h" />
-    <ClInclude Include="..\exp\VertexAttributes.h" />
-    <ClInclude Include="..\exp\VertexBufferObject.h" />
-    <ClInclude Include="..\exp\VertexData.h" />
-    <ClInclude Include="..\incl\etc1_utils.h" />
-    <ClInclude Include="..\incl\gdx2d.h" />
-    <ClInclude Include="..\incl\lodepng.h" />
-    <ClInclude Include="..\incl\stdafx.h" />
-    <ClInclude Include="..\incl\targetver.h" />
+    <ClInclude Include="..\include\Application.h" />
+    <ClInclude Include="..\include\ApplicationListener.h" />
+    <ClInclude Include="..\include\BoundingBox.h" />
+    <ClInclude Include="..\include\Circle.h" />
+    <ClInclude Include="..\include\Color.h" />
+    <ClInclude Include="..\include\ETC1.h" />
+    <ClInclude Include="..\include\ETC1Data.h" />
+    <ClInclude Include="..\include\ETC1TextureData.h" />
+    <ClInclude Include="..\include\FileHandle.h" />
+    <ClInclude Include="..\include\FileHandleStream.h" />
+    <ClInclude Include="..\include\Files.h" />
+    <ClInclude Include="..\include\FileTextureData.h" />
+    <ClInclude Include="..\include\Gdx.h" />
+    <ClInclude Include="..\include\Gdx2DPixmap.h" />
+    <ClInclude Include="..\include\GdxDefines.h" />
+    <ClInclude Include="..\include\GdxRuntimeException.h" />
+    <ClInclude Include="..\include\GL10.h" />
+    <ClInclude Include="..\include\GL11.h" />
+    <ClInclude Include="..\include\GL20.h" />
+    <ClInclude Include="..\include\GLCommon.h" />
+    <ClInclude Include="..\include\Graphics.h" />
+    <ClInclude Include="..\include\IndexBufferObject.h" />
+    <ClInclude Include="..\include\IndexData.h" />
+    <ClInclude Include="..\include\Input.h" />
+    <ClInclude Include="..\include\MathUtils.h" />
+    <ClInclude Include="..\include\Matrix3.h" />
+    <ClInclude Include="..\include\Matrix4.h" />
+    <ClInclude Include="..\include\Mesh.h" />
+    <ClInclude Include="..\include\NumberUtils.h" />
+    <ClInclude Include="..\include\Pixmap.h" />
+    <ClInclude Include="..\include\PixmapIO.h" />
+    <ClInclude Include="..\include\PixmapTextureData.h" />
+    <ClInclude Include="..\include\Plane.h" />
+    <ClInclude Include="..\include\Polygon.h" />
+    <ClInclude Include="..\include\Quaternion.h" />
+    <ClInclude Include="..\include\Rectang.h" />
+    <ClInclude Include="..\include\Rectangle.h" />
+    <ClInclude Include="..\include\ShaderProgram.h" />
+    <ClInclude Include="..\include\Sprite.h" />
+    <ClInclude Include="..\include\SpriteBatch.h" />
+    <ClInclude Include="..\include\Texture.h" />
+    <ClInclude Include="..\include\TextureData.h" />
+    <ClInclude Include="..\include\TextureRegion.h" />
+    <ClInclude Include="..\include\Vector2.h" />
+    <ClInclude Include="..\include\Vector3.h" />
+    <ClInclude Include="..\include\VertexArray.h" />
+    <ClInclude Include="..\include\VertexAttribute.h" />
+    <ClInclude Include="..\include\VertexAttributes.h" />
+    <ClInclude Include="..\include\VertexBufferObject.h" />
+    <ClInclude Include="..\include\VertexData.h" />
+    <ClInclude Include="..\lib\etc1_utils.h" />
+    <ClInclude Include="..\lib\gdx2d.h" />
+    <ClInclude Include="..\lib\lodepng.h" />
+    <ClInclude Include="..\lib\stdafx.h" />
+    <ClInclude Include="..\lib\targetver.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\ReadMe.txt" />

@@ -143,9 +143,4 @@ public:
 	 * @param z The z-coordinate
 	 * @return This bounding box for chaining. */
 	BoundingBox& ext(float x, float y, float z);
-	
-	//TODO: why don't use math.h?
-	static float min(float a, float b);
-
-	static float max(float a, float b);
 };

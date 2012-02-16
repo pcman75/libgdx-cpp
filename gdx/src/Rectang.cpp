@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "Rectang.h"
+#include "MathUtils.h"
 
 /** Constructs a new rectangle with all values set to zero */
 Rectang::Rectang()

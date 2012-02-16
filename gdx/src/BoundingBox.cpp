@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "BoundingBox.h"
+#include "MathUtils.h"
 
 
 /** @return the center of the bounding box */
@@ -258,14 +259,4 @@ BoundingBox& BoundingBox::ext(float x, float y, float z)
 {
 	m_crn_dirty = true;
 	return this->set(m_min.set(min(m_min.x, x), min(m_min.y, y), min(m_min.z, z)), m_max.set(max(m_max.x, x), max(m_max.y, y), max(m_max.z, z)));
-}
-
-float BoundingBox::min(float a, float b)
-{
-	return a > b ? b : a;
-}
-
-float BoundingBox::max(float a, float b)
-{
-	return a > b ? a : b;
 }
