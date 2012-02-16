@@ -93,6 +93,7 @@ private:
 	int m_blendDstFunc;
 
 	ShaderProgram* m_shader;
+	bool m_shaderProvided;
 	ShaderProgram* m_customShader;
 
 	float m_color;

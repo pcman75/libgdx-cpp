@@ -352,8 +352,7 @@ void ShaderProgram::setUniformMatrix (const std::string& name, const Matrix4& ma
 	GL20* gl = Gdx.gl20;
 	checkManaged();
 	int location = fetchUniformLocation(name);
-	//m_matrix.clear();
-	//BufferUtils.copy(matrix.val, m_matrix, matrix.val.length, 0);
+	memcpy(m_matrix, matrix.val, 16 * sizeof(float));
 	gl->glUniformMatrix4fv(location, 1, transpose, matrix.getValues());
 }
 

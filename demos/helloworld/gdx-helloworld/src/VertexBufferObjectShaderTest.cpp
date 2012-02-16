@@ -11,7 +11,7 @@ void VertexBufferObjectShaderTest::dispose()
 
 void VertexBufferObjectShaderTest::render()
 {
-	static unsigned short indices[] = {0,1,2};
+	static unsigned short indices[] = {0,2,1};
 	GL20* gl = Gdx.gl20;
 	gl->glViewport(0, 0, Gdx.graphics->getWidth(), Gdx.graphics->getHeight());	
 	gl->glClear(GL20::GDX_GL_COLOR_BUFFER_BIT);

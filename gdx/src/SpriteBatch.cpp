@@ -43,6 +43,7 @@ void SpriteBatch::init()
 	m_blendSrcFunc = GL11::GDX_GL_SRC_ALPHA;
 	m_blendDstFunc = GL11::GDX_GL_ONE_MINUS_SRC_ALPHA;
 	m_shader = NULL;
+	m_shaderProvided = true;
 	m_customShader = NULL;
 	m_color = Color::WHITE.toFloatBits();
 	m_tempColor = Color(1, 1, 1, 1);
@@ -82,6 +83,13 @@ SpriteBatch::~SpriteBatch()
 	{
 		delete[] m_vertices;
 		m_vertices = NULL;
+	}
+
+	if(!m_shaderProvided)
+	{
+		m_shader->dispose();
+		delete m_shader;
+		m_shader = NULL;
 	}
 }
 
@@ -127,7 +135,10 @@ void SpriteBatch::init(int size, int buffers, ShaderProgram* defaultShader)
 	m_mesh = m_buffers[0];
 
 	if(Gdx.graphics->isGL20Available() && defaultShader == NULL)
+	{
 		m_shader = createDefaultShader();
+		m_shaderProvided = false;
+	}
 	else
 		m_shader = defaultShader;
 }
