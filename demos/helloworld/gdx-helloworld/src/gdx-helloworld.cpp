@@ -9,6 +9,7 @@
 #include "PixmapTest.h"
 #include "MatrixTest.h"
 #include "VertexBufferObjectShaderTest.h"
+#include "SpriteBatchTest.h"
 
 int APIENTRY _tWinMain(HINSTANCE hInstance,
                      HINSTANCE hPrevInstance,
@@ -18,7 +19,9 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 	//WoglApplication(HelloWorldApp(), L"OpenGL Test", 400, 300, false);
 	//WoglApplication(PixmapTest(), L"Pixmap Test", 400, 300, true);
 	//WoglApplication(MatrixTest(), L"Matrix Test", 400, 300, false);
-	WoglApplication(VertexBufferObjectShaderTest(), L"VertexBufferObjectShader Test", 400, 300, true);
+	//WoglApplication(VertexBufferObjectShaderTest(), L"VertexBufferObjectShader Test", 400, 300, true);
+  
+  WoglApplication(SpriteBatchTest(), L"SpriteBatchTest Test", 400, 300, false);
     return 0;
 }
 

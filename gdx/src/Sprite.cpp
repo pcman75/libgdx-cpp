@@ -2,6 +2,7 @@
 #include "Sprite.h"
 #include "NumberUtils.h"
 #include "MathUtils.h"
+#include "SpriteBatch.h"
 
 const int Sprite::X1 = 0;
 const int Sprite::Y1 = 1;
@@ -475,13 +476,12 @@ const Rectang& Sprite::getBoundingRectangle()
 	return m_bounds;
 }
 
-/*
-void Sprite::draw(SpriteBatch* spriteBatch)
+void Sprite::draw( SpriteBatch* spriteBatch)
 {
-	spriteBatch->draw(m_texture, getVertices(), 0, SPRITE_SIZE);
+	spriteBatch->draw( m_texture, getVertices(), 0, SPRITE_SIZE);
 }
 
-void Sprite::draw(SpriteBatch* spriteBatch, float alphaModulation)
+void Sprite::draw( SpriteBatch* spriteBatch, float alphaModulation)
 {
 	Color& color = getColor();
 	float oldAlpha = color.a;
@@ -491,7 +491,7 @@ void Sprite::draw(SpriteBatch* spriteBatch, float alphaModulation)
 	color.a = oldAlpha;
 	setColor(color);
 }
-*/
+
 
 float Sprite::getX()
 {
