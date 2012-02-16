@@ -11,7 +11,7 @@ void VertexBufferObjectShaderTest::dispose()
 
 void VertexBufferObjectShaderTest::render()
 {
-	static unsigned short indices[] = {0,2,1};
+	static unsigned short indices[] = {0,1,2};
 	GL20* gl = Gdx.gl20;
 	gl->glViewport(0, 0, Gdx.graphics->getWidth(), Gdx.graphics->getHeight());	
 	gl->glClear(GL20::GDX_GL_COLOR_BUFFER_BIT);
@@ -39,7 +39,6 @@ void VertexBufferObjectShaderTest::create()
 		+ "}";
 
 	m_shader = new ShaderProgram(vertexShader, fragmentShader);
-	//ShaderProgram::pedantic = false;
 
 	VertexAttribute attributes[] = {VertexAttribute(VertexAttributes::Position, 2, "a_position"),
 		VertexAttribute(VertexAttributes::TextureCoordinates, 2, "a_texCoords"), 
@@ -48,9 +47,9 @@ void VertexBufferObjectShaderTest::create()
 	m_vbo = new VertexBufferObject(true, VertexAttributes(attributes, sizeof(attributes)/sizeof(attributes[0])));
 	
   float vertices[] = { 
-    -1, -1, 0, 0, Color::WHITE.toFloatBits(), 
-    0, 1, 0.5f, 1.0f, Color::WHITE.toFloatBits(), 
-    1, -1, 1, 0, Color::WHITE.toFloatBits()
+    -1, -1, 0, 0, Color::RED.toFloatBits(), 
+    0, 1, 0.5f, 1.0f, Color::GREEN.toFloatBits(), 
+    1, -1, 1, 0, Color::BLUE.toFloatBits()
 	};
 	m_vbo->setVertices(vertices, sizeof(vertices)/sizeof(vertices[0]));
 
