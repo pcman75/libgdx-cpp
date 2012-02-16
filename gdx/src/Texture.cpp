@@ -180,7 +180,7 @@ void Texture::load(TextureData* data)
 		uploadImageData(pixmap);
 		if(data->disposePixmap()) 
 		{
-			pixmap->dispose();
+			//pixmap->dispose();
 
 			//TODO: review this! cannot delete now the pixmap. 
 			//if I do it getWidth and Height will not work
