@@ -88,6 +88,7 @@
     <ClInclude Include="..\incl\PixmapTest.h" />
     <ClInclude Include="..\incl\stdafx.h" />
     <ClInclude Include="..\incl\targetver.h" />
+    <ClInclude Include="..\incl\TextureDataTest.h" />
     <ClInclude Include="..\incl\VertexBufferObjectShaderTest.h" />
   </ItemGroup>
   <ItemGroup>

@@ -18,8 +18,10 @@
 
 #include "TextureData.h"
 #include "Pixmap.h"
+#include "GdxDefines.h"
 
-class FileTextureData : public TextureData
+class GdxDllImportExport FileTextureData :
+	public TextureData
 {
 public:
 	static bool copyToPOT;

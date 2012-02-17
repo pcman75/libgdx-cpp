@@ -48,6 +48,9 @@
     <ClInclude Include="..\incl\AlphaTest.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\incl\TextureDataTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\gdx-helloworld.cpp">

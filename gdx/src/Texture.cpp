@@ -79,7 +79,6 @@ void Texture::init()
 
 void Texture::init(const FileHandle& file, Pixmap::Format format, bool useMipMaps)
 {
-	init();
 	if(file.name().find( ".etc1") != std::string::npos)
 	{
 		create(new ETC1TextureData(file, useMipMaps));
@@ -97,56 +96,62 @@ Texture::Texture()
 
 Texture::Texture(const std::string& internalPath)
 {
-	//TODO: use internal path after is implemented
-	//init(Gdx.files->internalHandle(internalPath), Pixmap::Format::Unknown, false);
-  FileHandle hFile = Gdx.app->getFiles()->internalHandle( internalPath);
+	init();
+	FileHandle hFile = Gdx.files->internalHandle( internalPath);
 	init( hFile, Pixmap::Format::Unknown, false);
 }
 
 Texture::Texture(const FileHandle& file)
 {
+	init();
 	init(file, Pixmap::Format::Unknown, false);
 }
 
 Texture::Texture(const FileHandle& file, bool useMipMaps)
 {
+	init();
 	init(file, Pixmap::Format::Unknown, useMipMaps);
 }
 
 
 Texture::Texture(const FileHandle& file, Pixmap::Format format, bool useMipMaps)
 {
+	init();
 	init(file, format, useMipMaps);
 }
 
 Texture::Texture(Pixmap* pixmap)
 {
+	init();
 	init(new PixmapTextureData(pixmap, Pixmap::Format::Unknown, false, false));
 }
 
 Texture::Texture(Pixmap* pixmap, bool useMipMaps)
 {
+	init();
 	init(new PixmapTextureData(pixmap, Pixmap::Format::Unknown, useMipMaps, false));
 }
 
 Texture::Texture(Pixmap* pixmap, Pixmap::Format format, bool useMipMaps)
 {
+	init();
 	init(new PixmapTextureData(pixmap, format, useMipMaps, false));
 }
 
 Texture::Texture(int width, int height, Pixmap::Format format)
 {
+	init();
 	init(new PixmapTextureData(new Pixmap(width, height, format), Pixmap::Format::Unknown, false, true));
 }
 
 Texture::Texture(TextureData* data)
 {
+	init();
 	create(data);
 }
 
 void Texture::init(TextureData* data)
 {
-	init();
 	create(data);
 }
 

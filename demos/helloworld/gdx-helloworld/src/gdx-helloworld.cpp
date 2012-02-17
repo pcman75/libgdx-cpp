@@ -13,6 +13,7 @@
 #include "SpriteBatchTest.h"
 #include "PixmapBlendingTest.h"
 #include "AlphaTest.h"
+#include "TextureDataTest.h"
 
 int APIENTRY _tWinMain(HINSTANCE hInstance,
                      HINSTANCE hPrevInstance,
@@ -26,7 +27,8 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 	//WoglApplication(MeshShaderTest(), L"MeshShaderTest Test", 400, 300, true);
 	//WoglApplication(SpriteBatchTest(), L"SpriteBatchTest Test", 400, 300, false);
 	//WoglApplication(PixmapBlendingTest(), L"PixmapBlending Test", 400, 300, false);
-	WoglApplication(AlphaTest(), L"Alpha Test", 400, 300, false);
+	//WoglApplication(AlphaTest(), L"Alpha Test", 400, 300, false);
+	WoglApplication(TextureDataTest(), L"TextureData Test", 400, 300, false);
 	
     return 0;
 }
