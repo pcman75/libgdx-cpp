@@ -1,22 +1,30 @@
 #include "stdafx.h"
 #include "SpriteBatchTest.h"
-
+#include <time.h>
 
 long nTime = 0;
 long nanoTime()
 {
-  return nTime++;
+  nTime += 10000;
+  return nTime;
 }
 
 float random()
 {
-  float ret = rand() / RAND_MAX;
+  float fRandMax = RAND_MAX;
+  float fRand = rand();
+  float ret = fRand / fRandMax;
   return ret;
 }
 
 
 SpriteBatchTest::SpriteBatchTest()
 {
+  // init random numbers
+  //
+  srand( (unsigned)time( NULL ) );
+
+
   spriteBatch = NULL;
 
   SPRITES = 100 / 2;
@@ -36,7 +44,7 @@ SpriteBatchTest::SpriteBatchTest()
 	scale = 1;
 	SCALE_SPEED = -1;
 
-	renderMethod = 1;
+	renderMethod = 0;
 }
 SpriteBatchTest::~SpriteBatchTest()
 {
@@ -74,6 +82,7 @@ void SpriteBatchTest::renderNormal()
 	long start = nanoTime();
 	spriteBatch->begin();
 	begin = (nanoTime() - start) / 1000000000.0f;
+
 
 	start = nanoTime();
 	for (int i = 0; i < sprites.size(); i += 6)
@@ -158,7 +167,7 @@ void SpriteBatchTest::renderSprites ()
 		if (scale != 1) sprites3[i].setScale(scale); // this is aids
 		sprites3[i].draw( spriteBatch);
 	}
-	draw1 = (nanoTime() - start) / 1000000000.0f;
+  draw1 = (nanoTime() - start) / 1000000000.0f;
 
 	start = nanoTime();
 	for (int i = SPRITES; i < SPRITES << 1; i++) {
@@ -166,6 +175,7 @@ void SpriteBatchTest::renderSprites ()
 		if (scale != 1) sprites3[i].setScale(scale); // this is aids
 		sprites3[i].draw( spriteBatch);
 	}
+  
 	draw2 = (nanoTime() - start) / 1000000000.0f;
 
 	start = nanoTime();
@@ -196,7 +206,6 @@ void SpriteBatchTest::create ()
 	spriteBatch = new SpriteBatch( 1000);
 
   FileHandle handle( "c:\\badlogicsmall.jpg");
-	//Pixmap pixmap( Gdx.files->internal( "data/badlogicsmall.jpg"));
   Pixmap* pixmap = new Pixmap( handle);
 
 	texture = new Texture( 32, 32, Pixmap::Format::RGB565);

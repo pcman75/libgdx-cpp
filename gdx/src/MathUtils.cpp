@@ -2,44 +2,78 @@
 #include "MathUtils.h"
 #include "NumberUtils.h"
 
-float MathUtils::PI = 3.1415927f;
+
 
 MathUtils  MathUtils::m_self;
 
-const int MathUtils::SIN_BITS = 13; // Adjust for accuracy.
-const int MathUtils::SIN_MASK = ~(-1 << SIN_BITS);
-const int MathUtils::SIN_COUNT = SIN_MASK + 1;
+float MathUtils::PI;
 
-const float MathUtils::m_radFull = PI * 2;
-const float MathUtils::m_degFull = 360;
-const float MathUtils::m_radToIndex = SIN_COUNT / m_radFull;
-const float MathUtils::m_degToIndex = SIN_COUNT / m_degFull;
+int MathUtils::SIN_BITS; // Adjust for accuracy.
+int MathUtils::SIN_MASK;
+int MathUtils::SIN_COUNT;
 
-const float MathUtils::radiansToDegrees = 180.f / MathUtils::PI;
-const float MathUtils::degreesToRadians = MathUtils::PI / 180;
+float MathUtils::m_radFull;
+float MathUtils::m_degFull;
+float MathUtils::m_radToIndex;
+float MathUtils::m_degToIndex;
+
+float MathUtils::radiansToDegrees;
+float MathUtils::degreesToRadians;
 
 float* MathUtils::m_sin;
 float* MathUtils::m_cos;
 
-const int MathUtils::ATAN2_BITS = 7; // Adjust for accuracy.
-const int MathUtils::ATAN2_BITS2 = ATAN2_BITS << 1;
-const int MathUtils::ATAN2_MASK = ~(-1 << ATAN2_BITS2);
-const int MathUtils::ATAN2_COUNT = ATAN2_MASK + 1;
-const int MathUtils::ATAN2_DIM = (int)sqrt((float)ATAN2_COUNT);
-const float MathUtils::INV_ATAN2_DIM_MINUS_1 = 1.0f / (ATAN2_DIM - 1);
+int MathUtils::ATAN2_BITS; // Adjust for accuracy.
+int MathUtils::ATAN2_BITS2;
+int MathUtils::ATAN2_MASK;
+int MathUtils::ATAN2_COUNT;
+int MathUtils::ATAN2_DIM;
+float MathUtils::INV_ATAN2_DIM_MINUS_1;
 float* MathUtils::m_atan2;
 
 
 // ---
 
-const int MathUtils::BIG_ENOUGH_INT = 16 * 1024;
-const double MathUtils::BIG_ENOUGH_FLOOR = BIG_ENOUGH_INT;
-const double MathUtils::CEIL = 0.9999999;
-const double MathUtils::BIG_ENOUGH_CEIL = NumberUtils::longBitsToDouble(NumberUtils::doubleToLongBits(BIG_ENOUGH_INT + 1) - 1);
-const double MathUtils::BIG_ENOUGH_ROUND = BIG_ENOUGH_INT + 0.5f;
+int MathUtils::BIG_ENOUGH_INT;
+double MathUtils::BIG_ENOUGH_FLOOR;
+double MathUtils::CEIL;
+double MathUtils::BIG_ENOUGH_CEIL;
+double MathUtils::BIG_ENOUGH_ROUND;
 
 MathUtils::MathUtils()
 {
+  PI = 3.1415927f;
+
+  SIN_BITS = 13; // Adjust for accuracy.
+  SIN_MASK = ~(-1 << SIN_BITS);
+  SIN_COUNT = SIN_MASK + 1;
+
+  m_radFull = PI * 2;
+  m_degFull = 360;
+  m_radToIndex = SIN_COUNT / m_radFull;
+  m_degToIndex = SIN_COUNT / m_degFull;
+
+  radiansToDegrees = 180.f / PI;
+  degreesToRadians = PI / 180;
+
+
+  ATAN2_BITS = 7; // Adjust for accuracy.
+  ATAN2_BITS2 = ATAN2_BITS << 1;
+  ATAN2_MASK = ~(-1 << ATAN2_BITS2);
+  ATAN2_COUNT = ATAN2_MASK + 1;
+  ATAN2_DIM = (int)sqrt((float)ATAN2_COUNT);
+  INV_ATAN2_DIM_MINUS_1 = 1.0f / (ATAN2_DIM - 1);
+  // ---
+  BIG_ENOUGH_INT = 16 * 1024;
+  BIG_ENOUGH_FLOOR = BIG_ENOUGH_INT;
+  CEIL = 0.9999999;
+  BIG_ENOUGH_CEIL = NumberUtils::longBitsToDouble(NumberUtils::doubleToLongBits(BIG_ENOUGH_INT + 1) - 1);
+  BIG_ENOUGH_ROUND = BIG_ENOUGH_INT + 0.5f;
+
+
+
+
+
 	//initialize random seed:
 	srand((unsigned)time(NULL));
 
@@ -48,22 +82,23 @@ MathUtils::MathUtils()
 	for (int i = 0; i < SIN_COUNT; i++)
 	{
 		float a = (i + 0.5f) / SIN_COUNT * m_radFull;
-		m_sin[i] = sin(a);
-		m_cos[i] = cos(a);
+		MathUtils::m_sin[i] = ::sin(a);
+		MathUtils::m_cos[i] = ::cos(a);
 	}
 	for (int i = 0; i < 360; i += 90)
 	{
-		m_sin[(int)(i * m_degToIndex) & SIN_MASK] = sin(i * degreesToRadians);
-		m_cos[(int)(i * m_degToIndex) & SIN_MASK] = cos(i * degreesToRadians);
+		MathUtils::m_sin[(int)(i * m_degToIndex) & SIN_MASK] = ::sin(i * degreesToRadians);
+		MathUtils::m_cos[(int)(i * m_degToIndex) & SIN_MASK] = ::cos(i * degreesToRadians);
 	}
 
+  m_atan2 = new float[ATAN2_COUNT];
 	for (int i = 0; i < ATAN2_DIM; i++)
 	{
 		for (int j = 0; j < ATAN2_DIM; j++)
 		{
 			float x0 = (float)i / ATAN2_DIM;
 			float y0 = (float)j / ATAN2_DIM;
-			m_atan2[j * ATAN2_DIM + i] = atan2(y0, x0);
+			MathUtils::m_atan2[j * ATAN2_DIM + i] = ::atan2(y0, x0);
 		}
 	}
 }
