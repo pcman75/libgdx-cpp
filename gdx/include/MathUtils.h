@@ -24,38 +24,38 @@ class MathUtils
 {
 public:
 	static float PI;
-	static const float radiansToDegrees;
-	static const float degreesToRadians;
+	static float radiansToDegrees;
+	static float degreesToRadians;
 
 private:
 	static MathUtils m_self;
 
-	static const int SIN_BITS;
-	static const int SIN_MASK;
-	static const int SIN_COUNT;
+	static int SIN_BITS;
+	static int SIN_MASK;
+	static int SIN_COUNT;
 
-	static const float m_radFull;
-	static const float m_degFull;
-	static const float m_radToIndex;
-	static const float m_degToIndex;
+	static float m_radFull;
+	static float m_degFull;
+	static float m_radToIndex;
+	static float m_degToIndex;
 
 	static float* m_sin;
 	static float* m_cos;
 	
-	static const int ATAN2_BITS;
-	static const int ATAN2_BITS2;
-	static const int ATAN2_MASK;
-	static const int ATAN2_COUNT;
-	static const int ATAN2_DIM;
-	static const float INV_ATAN2_DIM_MINUS_1;
+	static int ATAN2_BITS;
+	static int ATAN2_BITS2;
+	static int ATAN2_MASK;
+	static int ATAN2_COUNT;
+	static int ATAN2_DIM;
+	static float INV_ATAN2_DIM_MINUS_1;
 	static float* m_atan2;
 
 		
-	static const int BIG_ENOUGH_INT;
-	static const double BIG_ENOUGH_FLOOR;
-	static const double CEIL;
-	static const double BIG_ENOUGH_CEIL;
-	static const double BIG_ENOUGH_ROUND;
+	static int BIG_ENOUGH_INT;
+	static double BIG_ENOUGH_FLOOR;
+	static double CEIL;
+	static double BIG_ENOUGH_CEIL;
+	static double BIG_ENOUGH_ROUND;
 
 private:
 	MathUtils();
