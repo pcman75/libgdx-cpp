@@ -78,6 +78,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\incl\PixmapBlendingTest.h" />
     <ClInclude Include="..\incl\SpriteBatchTest.h" />
     <ClInclude Include="..\incl\gdx-helloworld.h" />
     <ClInclude Include="..\incl\HelloWorldApp.h" />
@@ -89,6 +90,7 @@
     <ClInclude Include="..\incl\VertexBufferObjectShaderTest.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\src\PixmapBlendingTest.cpp" />
     <ClCompile Include="..\src\SpriteBatchTest.cpp" />
     <ClCompile Include="..\src\gdx-helloworld.cpp" />
     <ClCompile Include="..\src\HelloWorldApp.cpp" />
