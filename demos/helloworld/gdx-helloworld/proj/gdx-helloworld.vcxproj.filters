@@ -45,6 +45,9 @@
     <ClInclude Include="..\incl\PixmapBlendingTest.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\incl\AlphaTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\gdx-helloworld.cpp">

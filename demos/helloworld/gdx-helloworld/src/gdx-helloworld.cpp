@@ -12,6 +12,7 @@
 #include "MeshShaderTest.h"
 #include "SpriteBatchTest.h"
 #include "PixmapBlendingTest.h"
+#include "AlphaTest.h"
 
 int APIENTRY _tWinMain(HINSTANCE hInstance,
                      HINSTANCE hPrevInstance,
@@ -23,8 +24,9 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 	//WoglApplication(MatrixTest(), L"Matrix Test", 400, 300, false);
 	//WoglApplication(VertexBufferObjectShaderTest(), L"VertexBufferObjectShader Test", 400, 300, true);
 	//WoglApplication(MeshShaderTest(), L"MeshShaderTest Test", 400, 300, true);
-  WoglApplication(SpriteBatchTest(), L"SpriteBatchTest Test", 400, 300, false);
+	//WoglApplication(SpriteBatchTest(), L"SpriteBatchTest Test", 400, 300, false);
 	//WoglApplication(PixmapBlendingTest(), L"PixmapBlending Test", 400, 300, false);
+	WoglApplication(AlphaTest(), L"Alpha Test", 400, 300, false);
 	
     return 0;
 }

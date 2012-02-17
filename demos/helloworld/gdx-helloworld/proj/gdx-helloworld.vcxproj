@@ -78,6 +78,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\incl\AlphaTest.h" />
     <ClInclude Include="..\incl\PixmapBlendingTest.h" />
     <ClInclude Include="..\incl\SpriteBatchTest.h" />
     <ClInclude Include="..\incl\gdx-helloworld.h" />
