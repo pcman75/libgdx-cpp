@@ -91,7 +91,8 @@ public:
 
 		//TODO:
 	public:
-		BufferFormat (int r, int g, int b, int a, int depth, int stencil, int samples, bool coverageSampling) {
+		BufferFormat (int r, int g, int b, int a, int depth, int stencil, int samples, bool coverageSampling)
+		{
 			this->r = r;
 			this->g = g;
 			this->b = b;
@@ -125,19 +126,19 @@ public:
 	virtual bool isGL20Available () = 0;
 
 	/** @return a {@link GLCommon} instance */
-	virtual const GLCommon& getGLCommon () = 0;
+	virtual const GLCommon* getGLCommon () = 0;
 
 	/** @return the {@link GL10} instance or null if not supported */
-	virtual const GL10& getGL10 () = 0;
+	virtual GL10* getGL10 () = 0;
 
 	/** @return the {@link GL11} instance or null if not supported */
-	virtual const GL11& getGL11 () = 0;
+	virtual GL11* getGL11 () = 0;
 
 	/** @return the {@link GL20} instance or null if not supported */
-	virtual const GL20& getGL20 () = 0;
+	virtual GL20* getGL20 () = 0;
 
 	/** @return the {@link GLU} instance */
-	virtual const GLU& getGLU () = 0;
+	virtual const GLU* getGLU () = 0;
 
 	/** @return the width in pixels of the display surface */
 	virtual int getWidth () = 0;

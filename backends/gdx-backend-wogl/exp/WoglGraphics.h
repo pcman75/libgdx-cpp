@@ -21,38 +21,38 @@ public:
 	WoglGraphics(ApplicationListener& listener, bool useGL20/*, JoglApplicationConfiguration config*/);
 	virtual ~WoglGraphics(void);
 
-	virtual bool isGL11Available ();
+	virtual bool isGL11Available();
 
 	/** Returns whether OpenGL ES 2.0 is available. If it is you can get an instance of {@link GL20} via {@link #getGL20()} to
 	* access OpenGL ES 2.0 functionality. Note that this functionality will only be available if you instructed the
 	* {@link Application} instance to use OpenGL ES 2.0!
 	* 
 	* @return whether OpenGL ES 2.0 is available */
-	virtual bool isGL20Available ();
+	virtual bool isGL20Available();
 
 	/** @return a {@link GLCommon} instance */
-	virtual const GLCommon& getGLCommon ();
+	virtual GLCommon* getGLCommon();
 
 	/** @return the {@link GL10} instance or null if not supported */
-	virtual const GL10& getGL10 ();
+	virtual GL10* getGL10();
 
 	/** @return the {@link GL11} instance or null if not supported */
-	virtual const GL11& getGL11 ();
+	virtual GL11* getGL11();
 
 	/** @return the {@link GL20} instance or null if not supported */
-	virtual const GL20& getGL20 ();
+	virtual GL20* getGL20();
 
 	/** @return the {@link GLU} instance */
-	virtual const GLU& getGLU ();
+	virtual GLU* getGLU();
 
 	/** @return the width in pixels of the display surface */
-	virtual int getWidth ();
+	virtual int getWidth();
 
 	/** @return the height in pixels of the display surface */
-	virtual int getHeight ();
+	virtual int getHeight();
 
 	/** @return the time span between the current frame and the last frame in seconds */
-	virtual float getDeltaTime ();
+	virtual float getDeltaTime();
 
 	/** @return the average number of frames per second */
 	virtual int getFramesPerSecond ();

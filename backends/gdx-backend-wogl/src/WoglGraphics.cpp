@@ -4,7 +4,6 @@
 #include "WoglGL11.h"
 #include "WoglGL20.h"
 #include "Gdx.h"
-//#include <glew.h>
 
 WoglGraphics::WoglGraphics(ApplicationListener& listener, bool useGL20)
 	:m_listener(listener), m_useGL20(useGL20),
@@ -87,29 +86,29 @@ bool WoglGraphics::isGL20Available()
 }
 
 
-const GLCommon& WoglGraphics::getGLCommon ()
+GLCommon* WoglGraphics::getGLCommon ()
 {
-	return *m_pGL;
+	return m_pGL;
 }
 
-const GL10& WoglGraphics::getGL10 ()
+GL10* WoglGraphics::getGL10()
 {
-	return *m_pGL10;
+	return m_pGL10;
 }
 
-const GL11& WoglGraphics::getGL11 ()
+GL11* WoglGraphics::getGL11 ()
 {
-	return *m_pGL11;
+	return m_pGL11;
 }	
 
 
-const GL20& WoglGraphics::getGL20 ()
+GL20* WoglGraphics::getGL20()
 {
-	return *m_pGL20;
+	return m_pGL20;
 }
-const GLU& WoglGraphics::getGLU ()
+GLU* WoglGraphics::getGLU()
 {
-	return *m_pGLU;
+	return m_pGLU;
 }
 int WoglGraphics::getWidth ()
 {

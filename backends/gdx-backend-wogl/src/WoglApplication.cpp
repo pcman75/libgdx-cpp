@@ -40,7 +40,7 @@ WoglApplication::WoglApplication (ApplicationListener& listener, const wchar_t* 
 	Gdx.graphics = m_pGraphics;
 	//Gdx.audio = 
 	//Gdx.input = *m_pInput;
-	//Gdx.files = *m_pFiles;
+	Gdx.files = m_pFiles;
 
 	// instantiate model and view components, so "controller" component can reference them
     Win::ViewGL view;   // under "Win" namespace because it is Windows specific view component.
