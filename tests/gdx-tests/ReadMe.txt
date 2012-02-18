@@ -1,57 +1,43 @@
 ========================================================================
-    WIN32 APPLICATION : OpenGLTest Project Overview
+    DYNAMIC LINK LIBRARY : gdx-tests Project Overview
 ========================================================================
 
-AppWizard has created this OpenGLTest application for you.
+AppWizard has created this gdx-tests DLL for you.
 
 This file contains a summary of what you will find in each of the files that
-make up your OpenGLTest application.
+make up your gdx-tests application.
 
 
-OpenGLTest.vcxproj
+gdx-tests.vcxproj
     This is the main project file for VC++ projects generated using an Application Wizard.
     It contains information about the version of Visual C++ that generated the file, and
     information about the platforms, configurations, and project features selected with the
     Application Wizard.
 
-OpenGLTest.vcxproj.filters
+gdx-tests.vcxproj.filters
     This is the filters file for VC++ projects generated using an Application Wizard. 
     It contains information about the association between the files in your project 
     and the filters. This association is used in the IDE to show grouping of files with
     similar extensions under a specific node (for e.g. ".cpp" files are associated with the
     "Source Files" filter).
 
-OpenGLTest.cpp
-    This is the main application source file.
+gdx-tests.cpp
+    This is the main DLL source file.
 
-/////////////////////////////////////////////////////////////////////////////
-AppWizard has created the following resources:
-
-OpenGLTest.rc
-    This is a listing of all of the Microsoft Windows resources that the
-    program uses.  It includes the icons, bitmaps, and cursors that are stored
-    in the RES subdirectory.  This file can be directly edited in Microsoft
-    Visual C++.
-
-Resource.h
-    This is the standard header file, which defines new resource IDs.
-    Microsoft Visual C++ reads and updates this file.
-
-OpenGLTest.ico
-    This is an icon file, which is used as the application's icon (32x32).
-    This icon is included by the main resource file OpenGLTest.rc.
-
-small.ico
-    This is an icon file, which contains a smaller version (16x16)
-    of the application's icon. This icon is included by the main resource
-    file OpenGLTest.rc.
+	When created, this DLL does not export any symbols. As a result, it
+	will not produce a .lib file when it is built. If you wish this project
+	to be a project dependency of some other project, you will either need to
+	add code to export some symbols from the DLL so that an export library
+	will be produced, or you can set the Ignore Input Library property to Yes
+	on the General propert page of the Linker folder in the project's Property
+	Pages dialog box.
 
 /////////////////////////////////////////////////////////////////////////////
 Other standard files:
 
 StdAfx.h, StdAfx.cpp
     These files are used to build a precompiled header (PCH) file
-    named OpenGLTest.pch and a precompiled types file named StdAfx.obj.
+    named gdx-tests.pch and a precompiled types file named StdAfx.obj.
 
 /////////////////////////////////////////////////////////////////////////////
 Other notes:

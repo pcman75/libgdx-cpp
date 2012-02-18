@@ -17,12 +17,5 @@
 #include <memory.h>
 #include <tchar.h>
 
-//#include <exception>
-
-//opengl
-#include <gl/gl.h>
-#include <gl/glu.h>
-
-
 
 // TODO: reference additional headers your program requires here
