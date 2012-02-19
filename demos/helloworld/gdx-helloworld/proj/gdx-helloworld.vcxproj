@@ -78,32 +78,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\incl\AlphaTest.h" />
-    <ClInclude Include="..\incl\PixmapBlendingTest.h" />
-    <ClInclude Include="..\incl\SpriteBatchTest.h" />
     <ClInclude Include="..\incl\gdx-helloworld.h" />
     <ClInclude Include="..\incl\HelloWorldApp.h" />
-    <ClInclude Include="..\incl\MatrixTest.h" />
-    <ClInclude Include="..\incl\MeshShaderTest.h" />
-    <ClInclude Include="..\incl\PixmapTest.h" />
     <ClInclude Include="..\incl\stdafx.h" />
     <ClInclude Include="..\incl\targetver.h" />
-    <ClInclude Include="..\incl\TextureDataTest.h" />
-    <ClInclude Include="..\incl\VertexBufferObjectShaderTest.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\src\PixmapBlendingTest.cpp" />
-    <ClCompile Include="..\src\SpriteBatchTest.cpp" />
     <ClCompile Include="..\src\gdx-helloworld.cpp" />
     <ClCompile Include="..\src\HelloWorldApp.cpp" />
-    <ClCompile Include="..\src\MatrixTest.cpp" />
-    <ClCompile Include="..\src\MeshShaderTest.cpp" />
-    <ClCompile Include="..\src\PixmapTest.cpp" />
     <ClCompile Include="..\src\stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="..\src\VertexBufferObjectShaderTest.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\ReadMe.txt" />

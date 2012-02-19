@@ -61,3 +61,7 @@ void VertexBufferObjectShaderTest::resume()
 	m_vbo->invalidate();
 }
 
+bool VertexBufferObjectShaderTest::needsGL20()
+{
+	return true;
+}

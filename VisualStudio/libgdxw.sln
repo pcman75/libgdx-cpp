@@ -16,11 +16,14 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "gdx-backend-wogl", "..\back
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "gdx-tests-win", "..\tests\gdx-tests-win\proj\gdx-tests-win.vcxproj", "{B6AF2F3B-0A4A-4CC2-A69F-E56D13678083}"
 	ProjectSection(ProjectDependencies) = postProject
-		{DBD14494-A5F4-4726-9E52-1635E8479C3A} = {DBD14494-A5F4-4726-9E52-1635E8479C3A}
-		{27EBB0C6-84CB-4FC2-8B0E-9F729966B979} = {27EBB0C6-84CB-4FC2-8B0E-9F729966B979}
+		{61B8C145-B580-4A77-A62D-D6F53C8F4DC3} = {61B8C145-B580-4A77-A62D-D6F53C8F4DC3}
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "gdx-tests", "..\tests\gdx-tests\proj\gdx-tests.vcxproj", "{61B8C145-B580-4A77-A62D-D6F53C8F4DC3}"
+	ProjectSection(ProjectDependencies) = postProject
+		{DBD14494-A5F4-4726-9E52-1635E8479C3A} = {DBD14494-A5F4-4726-9E52-1635E8479C3A}
+		{27EBB0C6-84CB-4FC2-8B0E-9F729966B979} = {27EBB0C6-84CB-4FC2-8B0E-9F729966B979}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

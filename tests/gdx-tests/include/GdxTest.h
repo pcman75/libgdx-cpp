@@ -26,7 +26,8 @@ class GdxTest :
 	public ApplicationListener
 {
 public:
-	virtual bool needsGL20 ()
+
+	virtual bool needsGL20()
 	{
 		return false;
 	}

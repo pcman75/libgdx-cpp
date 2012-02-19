@@ -86,6 +86,11 @@
     <ClInclude Include="..\include\GdxTestsDefines.h" />
     <ClInclude Include="..\include\MatrixJNITest.h" />
     <ClInclude Include="..\include\MeshShaderTest.h" />
+    <ClInclude Include="..\include\PixmapBlendingTest.h" />
+    <ClInclude Include="..\include\PixmapTest.h" />
+    <ClInclude Include="..\include\SpriteBatchTest.h" />
+    <ClInclude Include="..\include\TextureDataTest.h" />
+    <ClInclude Include="..\include\VertexBufferObjectShaderTest.h" />
     <ClInclude Include="..\incl\stdafx.h" />
     <ClInclude Include="..\incl\targetver.h" />
   </ItemGroup>
@@ -94,10 +99,14 @@
     <ClCompile Include="..\src\GdxTests.cpp" />
     <ClCompile Include="..\src\MatrixJNITest.cpp" />
     <ClCompile Include="..\src\MeshShaderTest.cpp" />
+    <ClCompile Include="..\src\PixmapBlendingTest.cpp" />
+    <ClCompile Include="..\src\PixmapTest.cpp" />
+    <ClCompile Include="..\src\SpriteBatchTest.cpp" />
     <ClCompile Include="..\src\stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="..\src\VertexBufferObjectShaderTest.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

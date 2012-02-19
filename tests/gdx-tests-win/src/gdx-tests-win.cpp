@@ -48,7 +48,11 @@ void Controller::Command (HWND hwnd, int controlID, int command)
 					SendMessage(hList, LB_GETTEXT, (WPARAM) itemIndex, (LPARAM) textBuffer );
 
 					test = GdxTests::newTest(textBuffer);
-					WoglApplication(*test, textBuffer, 400, 300, test->needsGL20());
+					if(test)
+					{
+						WoglApplication(*test, textBuffer, 400, 300, test->needsGL20());
+						delete test;
+					}
 					delete[] textBuffer;
 				}
 			}

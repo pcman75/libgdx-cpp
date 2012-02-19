@@ -13,8 +13,9 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 ******************************************************************************/
+
 #pragma once
-#include "ApplicationListener.h"
+#include "GdxTest.h"
 
 #include "SpriteBatch.h"
 #include "Texture.h"
@@ -22,7 +23,7 @@
 #include "Pixmap.h"
 
 class PixmapBlendingTest  :
-	public ApplicationListener
+	public GdxTest 
 {
 public:
 	PixmapBlendingTest();
@@ -31,12 +32,7 @@ public:
 	virtual void create();
 	virtual void render();
 
-	//TODO: note necessary. remove them after implementing Test base class
-	virtual void resize(int width, int height) {}
-
-	virtual void pause() {}
-	virtual void resume() {}
-	virtual void dispose() {}
+	GDX_DEFINE_CREATOR(PixmapBlendingTest);
 
 private: 
 	SpriteBatch* m_spriteBatch;

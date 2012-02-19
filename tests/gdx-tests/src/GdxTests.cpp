@@ -75,8 +75,8 @@
 //#include "ParticleEmitterTest.h"
 //#include "PickingTest.h"
 //#include "PixelsPerInchTest.h"
-//#include "PixmapBlendingTest.h"
-//#include "PixmapTest.h"
+#include "PixmapBlendingTest.h"
+#include "PixmapTest.h"
 //#include "PreferencesTest.h"
 //#include "ProjectiveTextureTest.h"
 //#include "Pong.h"
@@ -95,13 +95,13 @@
 //#include "SpriteCacheOffsetTest.h"
 //#include "SpriteBatchRotationTest.h"
 //#include "SpriteBatchShaderTest.h"
-//#include "SpriteBatchTest.h"
+#include "SpriteBatchTest.h"
 //#include "SpritePerformanceTest.h"
 //#include "SpritePerformanteTest2.h"
 //#include "StagePerformanceTest.h"
 //#include "StageTest.h"
 //#include "TerrainTest.h"
-//#include "TextureDataTest.h"
+#include "TextureDataTest.h"
 //#include "TextureDownloadTest.h"
 //#include "TextureFormatTest.h"
 //#include "TextureAtlasTest.h"
@@ -115,7 +115,7 @@
 //#include "VertexBufferObjectTest.h"
 //#include "VertexArrayClassTest.h"
 //#include "VertexBufferObjectClassTest.h"
-//#include "VertexBufferObjectShaderTest.h"
+#include "VertexBufferObjectShaderTest.h"
 //#include "VibratorTest.h"
 //#include "VorbisTest.h"
 //#include "WaterRipples.h"
@@ -212,8 +212,8 @@ GdxTests::GdxTests()
 	//GDX_DEFINE_TEST(ParticleEmitterTest
 	//GDX_DEFINE_TEST(PickingTest
 	//GDX_DEFINE_TEST(PixelsPerInchTest
-	//GDX_DEFINE_TEST(PixmapBlendingTest
-	//GDX_DEFINE_TEST(PixmapTest
+	GDX_DEFINE_TEST(PixmapBlendingTest);
+	GDX_DEFINE_TEST(PixmapTest);
 	//GDX_DEFINE_TEST(PreferencesTest
 	//GDX_DEFINE_TEST(ProjectiveTextureTest
 	//GDX_DEFINE_TEST(Pong
@@ -232,13 +232,13 @@ GdxTests::GdxTests()
 	//GDX_DEFINE_TEST(SpriteCacheOffsetTest
 	//GDX_DEFINE_TEST(SpriteBatchRotationTest
 	//GDX_DEFINE_TEST(SpriteBatchShaderTest
-	//GDX_DEFINE_TEST(SpriteBatchTest
+	GDX_DEFINE_TEST(SpriteBatchTest);
 	//GDX_DEFINE_TEST(SpritePerformanceTest
 	//GDX_DEFINE_TEST(SpritePerformanteTest2
 	//GDX_DEFINE_TEST(StagePerformanceTest
 	//GDX_DEFINE_TEST(StageTest
 	//GDX_DEFINE_TEST(TerrainTest
-	//GDX_DEFINE_TEST(TextureDataTest
+	GDX_DEFINE_TEST(TextureDataTest);
 	//GDX_DEFINE_TEST(TextureDownloadTest
 	//GDX_DEFINE_TEST(TextureFormatTest
 	//GDX_DEFINE_TEST(TextureAtlasTest
@@ -252,7 +252,7 @@ GdxTests::GdxTests()
 	//GDX_DEFINE_TEST(VertexBufferObjectTest
 	//GDX_DEFINE_TEST(VertexArrayClassTest
 	//GDX_DEFINE_TEST(VertexBufferObjectClassTest
-	//GDX_DEFINE_TEST(VertexBufferObjectShaderTest
+	GDX_DEFINE_TEST(VertexBufferObjectShaderTest);
 	//GDX_DEFINE_TEST(VibratorTest
 	//GDX_DEFINE_TEST(VorbisTest
 	//GDX_DEFINE_TEST(WaterRipples

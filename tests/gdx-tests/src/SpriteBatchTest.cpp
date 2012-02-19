@@ -52,8 +52,10 @@ SpriteBatchTest::~SpriteBatchTest()
 
 void SpriteBatchTest::render() 
 {
-	if (renderMethod == 0) renderNormal();
-	if (renderMethod == 1) renderSprites();
+	if (renderMethod == 0) 
+		renderNormal();
+	if (renderMethod == 1) 
+		renderSprites();
 }
 
 void SpriteBatchTest::renderNormal() 
@@ -257,7 +259,9 @@ void SpriteBatchTest::create ()
 	
 void SpriteBatchTest::resize(int width, int height) 
 {
-	//Gdx.app->log("SpriteBatchTest", "resized: " + width + ", " + height);
+	std::stringstream message;
+	message << "resized: " << width << ", " << height;
+	Gdx.app->log("SpriteBatchTest", message.str().c_str());
 }
 
 bool SpriteBatchTest::keyDown (int keycode) 
@@ -288,11 +292,6 @@ bool SpriteBatchTest::touchDragged (int x, int y, int pointer)
 bool SpriteBatchTest::touchUp (int x, int y, int pointer, int button) 
 {
 	renderMethod = (renderMethod + 1) % 2;
-	return false;
-}
-
-bool SpriteBatchTest::needsGL20 () 
-{
 	return false;
 }
 

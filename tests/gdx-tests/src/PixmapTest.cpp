@@ -2,6 +2,11 @@
 #include "PixmapTest.h"
 #include "PixmapIO.h"
 
+bool PixmapTest::needsGL20()
+{
+	return true;
+}
+
 PixmapTest::PixmapTest()
 {
 }
@@ -67,10 +72,6 @@ void PixmapTest::create ()
 	delete pixmap;
 }
 
-void PixmapTest::resize (int width, int height)
-{
-}
-
 void PixmapTest::render ()
 {
 		Gdx.gl->glClearColor(0.6f, 0.6f, 0.6f, 1);
@@ -78,12 +79,4 @@ void PixmapTest::render ()
 		m_batch->begin();
 		m_batch->draw(m_region, 0, 0);
 		m_batch->end();
-}
-
-void PixmapTest::pause (){}
-
-void PixmapTest::resume (){}
-
-void PixmapTest::dispose ()
-{
 }
