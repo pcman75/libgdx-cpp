@@ -53,7 +53,7 @@ void VertexBufferObjectShaderTest::create()
 	};
 	m_vbo->setVertices(vertices, sizeof(vertices)/sizeof(vertices[0]));
 
-	m_texture = new Texture("c:\\badlogic.jpg");
+	m_texture = new Texture(Gdx.files->internalHandle("data/badlogic.jpg"));
 }
 
 void VertexBufferObjectShaderTest::resume()

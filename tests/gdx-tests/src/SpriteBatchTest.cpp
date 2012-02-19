@@ -207,8 +207,7 @@ void SpriteBatchTest::create ()
 {
 	spriteBatch = new SpriteBatch( 1000);
 
-  FileHandle handle( "c:\\badlogicsmall.jpg");
-  Pixmap* pixmap = new Pixmap( handle);
+  Pixmap* pixmap = new Pixmap(Gdx.files->internalHandle("data/badlogicsmall.jpg"));
 
 	texture = new Texture( 32, 32, Pixmap::Format::RGB565);
 	texture->setFilter( Texture::TextureFilter::Linear, Texture::TextureFilter::Linear);

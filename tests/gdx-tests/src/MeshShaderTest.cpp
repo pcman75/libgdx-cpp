@@ -73,7 +73,7 @@ void MeshShaderTest::create()
 // texture = Gdx.graphics.newUnmanagedTexture(pixmap, TextureFilter.Nearest, TextureFilter.Nearest, TextureWrap.ClampToEdge,
 // TextureWrap.ClampToEdge);
 // pixmap.dispose();
-		m_texture = new Texture(Gdx.app->getFiles()->internalHandle("c:\\bobrgb888-32x32.png"));
+		m_texture = new Texture(Gdx.app->getFiles()->internalHandle("data/bobrgb888-32x32.png"));
 
 		m_spriteBatch = new SpriteBatch();
 		// font = Gdx.graphics.newFont("Arial", 12, FontStyle.Plain);

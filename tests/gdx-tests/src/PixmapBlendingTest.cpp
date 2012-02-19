@@ -36,13 +36,13 @@ void PixmapBlendingTest::create()
 	transform.mul(Matrix4().setToScaling(1, -1, 1));
 	m_spriteBatch->setTransformMatrix(transform);
 	
-	m_pixS1 = new Pixmap(Gdx.files->getFileHandle("c:/test4.png", Internal));
-	m_pixS2 = new Pixmap(Gdx.files->getFileHandle("c:/test3.png", Internal));
+	m_pixS1 = new Pixmap(Gdx.files->internalHandle("data/test4.png"));
+	m_pixS2 = new Pixmap(Gdx.files->internalHandle("data/test3.png"));
 	m_pixD = new Pixmap(64, 128, Pixmap::Format::RGBA8888);
 
 	m_pixD->drawPixmap(m_pixS1, 0, 0, 0, 0, 76, 76);
 	m_pixD->drawPixmap(m_pixS2, 0, 0, 0, 0, 76, 76);
-	PixmapIO::writePNG(Gdx.files->getFileHandle("c:\\debug.png", Internal), m_pixD);
+	PixmapIO::writePNG(Gdx.files->getFileHandle("data/debug.png", Internal), m_pixD);
 	
 	m_logoSprite = new Sprite(new Texture(m_pixD));
 	m_logoSprite->flip(false, true);
