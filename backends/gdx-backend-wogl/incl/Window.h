@@ -23,7 +23,7 @@ namespace Win
     {
     public:
         // ctor/dtor with minimal args
-        Window(HINSTANCE hInst, const wchar_t* name, HWND hParent, Controller* ctrl);
+        Window(HINSTANCE hInst, const char* name, HWND hParent, Controller* ctrl);
         ~Window();
 
         void printSelf() const;                 // print itself
@@ -62,8 +62,8 @@ namespace Win
         WNDCLASSEX winClass;                    // window class information
         DWORD winStyle;                         // window style: WS_OVERLAPPEDWINDOW, WS_CHILD, ...
         DWORD winStyleEx;                       // extended window style
-        wchar_t title[MAX_STRING];              // title of window
-        wchar_t className[MAX_STRING];          // name of window class
+        char title[MAX_STRING];                 // title of window
+        char className[MAX_STRING];             // name of window class
         int x;                                  // window position X
         int y;                                  // window position Y
         int width;                              // window width

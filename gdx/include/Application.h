@@ -118,24 +118,24 @@ public:
 	virtual const Files* getFiles () = 0;
 
 	/** Logs a message to the console or logcat */
-	virtual void log(const wchar_t* tag, const wchar_t* message) = 0;
+	virtual void log(const char* tag, const char* message) = 0;
 
 	/** Logs a message to the console or logcat */
-	//virtual void log (const wchar_t* tag, const wchar_t* message, class exception ex) = 0;
+	//virtual void log (const char* tag, const char* message, class exception ex) = 0;
 
 
 
 	/** Logs an error message to the console or logcat */
-	virtual void error (const wchar_t* tag, const wchar_t* message) = 0;
+	virtual void error (const char* tag, const char* message) = 0;
 
 	/** Logs an error message to the console or logcat */
-	//virtual void error (const wchar_t* tag, const wchar_t* message, class exception ex) = 0;
+	//virtual void error (const char* tag, const char* message, class exception ex) = 0;
 
 	/** Logs an error message to the console or logcat */
-	virtual void debug (const wchar_t* tag, const wchar_t* message) = 0;
+	virtual void debug (const char* tag, const char* message) = 0;
 
 	/** Logs an error message to the console or logcat */
-	//virtual void debug (const wchar_t* tag, const wchar_t* message, class exception ex) = 0;
+	//virtual void debug (const char* tag, const char* message, class exception ex) = 0;
 
 
 
@@ -161,7 +161,7 @@ public:
 	* @param name the name of the preferences, must be useable as a file name.
 	* @return the preferences. */
 
-	//virtual const Preferences& getPreferences (const wchar_t* name) = 0;
+	//virtual const Preferences& getPreferences (const char* name) = 0;
 
 	/** Exits the application. This will cause a call to pause() and dispose() some time in the loadFuture, it will not immediately
 	* finish your application! */

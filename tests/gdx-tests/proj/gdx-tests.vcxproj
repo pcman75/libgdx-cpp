@@ -54,6 +54,8 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>gdx.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(OutDir);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -71,20 +73,27 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>Gdx.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
     <None Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\include\GdxTest..h" />
+    <ClInclude Include="..\include\AlphaTest.h" />
+    <ClInclude Include="..\include\GdxTest.h" />
     <ClInclude Include="..\include\GdxTests.h" />
+    <ClInclude Include="..\include\GdxTestsDefines.h" />
+    <ClInclude Include="..\include\MatrixJNITest.h" />
+    <ClInclude Include="..\include\MeshShaderTest.h" />
     <ClInclude Include="..\incl\stdafx.h" />
     <ClInclude Include="..\incl\targetver.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\dllmain.cpp" />
-    <ClCompile Include="..\src\gdx-tests.cpp" />
+    <ClCompile Include="..\src\GdxTests.cpp" />
+    <ClCompile Include="..\src\MatrixJNITest.cpp" />
+    <ClCompile Include="..\src\MeshShaderTest.cpp" />
     <ClCompile Include="..\src\stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>

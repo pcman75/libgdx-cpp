@@ -58,7 +58,7 @@ bool ViewGL::createContext(HWND handle, int colorBits, int depthBits, int stenci
     // set pixel format
     if(!setPixelFormat(hdc, colorBits, depthBits, stencilBits))
     {
-        ::MessageBox(0, L"Cannot set a suitable pixel format.", L"Error", MB_ICONEXCLAMATION | MB_OK);
+        ::MessageBox(0, "Cannot set a suitable pixel format.", "Error", MB_ICONEXCLAMATION | MB_OK);
         ::ReleaseDC(handle, hdc);                     // remove device context
         return false;
     }

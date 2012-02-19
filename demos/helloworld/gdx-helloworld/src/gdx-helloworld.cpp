@@ -28,7 +28,7 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 	//WoglApplication(SpriteBatchTest(), L"SpriteBatchTest Test", 400, 300, false);
 	//WoglApplication(PixmapBlendingTest(), L"PixmapBlending Test", 400, 300, false);
 	//WoglApplication(AlphaTest(), L"Alpha Test", 400, 300, false);
-	WoglApplication(TextureDataTest(), L"TextureData Test", 400, 300, false);
+	WoglApplication(TextureDataTest(), "TextureData Test", 400, 300, false);
 	
     return 0;
 }

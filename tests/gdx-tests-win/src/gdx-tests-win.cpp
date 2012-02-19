@@ -2,9 +2,12 @@
 #include "gdx-tests-win.h"
 #include "resource.h"
 
+#include "GdxTests.h"
+#include "WoglApplication.h"
+
 HINSTANCE TheInstance = 0;
 
-Controller::Controller (HWND hwnd)
+Controller::Controller(HWND hwnd)
 {
     // Attach icon to main dialog
     HICON hIcon = LoadIcon (TheInstance, MAKEINTRESOURCE (DLG_ICON));
@@ -12,31 +15,42 @@ Controller::Controller (HWND hwnd)
     hIcon = LoadIcon (TheInstance, MAKEINTRESOURCE (DLG_ICON_S));
     SendMessage (hwnd, WM_SETICON, WPARAM (FALSE), LPARAM (hIcon));
 
-	int idx = ::SendDlgItemMessage(hwnd, IDC_TESTS_LIST, LB_ADDSTRING, 0, (LPARAM)L"Test3");
-	SendDlgItemMessage(hwnd, IDC_TESTS_LIST, LB_SETITEMDATA, (WPARAM)idx, (LPARAM)3);
+	for(GdxTests::TestsMapIterator it = GdxTests::tests.begin(); it != GdxTests::tests.end(); it++)
+		addTestToList(hwnd, it->first.c_str());
+}
 
-	idx = ::SendDlgItemMessage(hwnd, IDC_TESTS_LIST, LB_ADDSTRING, 0, (LPARAM)L"Test1");
-	SendDlgItemMessage(hwnd, IDC_TESTS_LIST, LB_SETITEMDATA, (WPARAM)idx, (LPARAM)1);
-	
-	idx = ::SendDlgItemMessage(hwnd, IDC_TESTS_LIST, LB_ADDSTRING, 0, (LPARAM)L"Test2");
-	SendDlgItemMessage(hwnd, IDC_TESTS_LIST, LB_SETITEMDATA, (WPARAM)idx, (LPARAM)2);
-	
-	idx = ::SendDlgItemMessage(hwnd, IDC_TESTS_LIST, LB_ADDSTRING, 0, (LPARAM)L"Test5");
-	SendDlgItemMessage(hwnd, IDC_TESTS_LIST, LB_SETITEMDATA, (WPARAM)idx, (LPARAM)5);
+void Controller::addTestToList(HWND hwnd, const char* testName)
+{
+	::SendDlgItemMessage(hwnd, IDC_TESTS_LIST, LB_ADDSTRING, 0, (LPARAM)testName);
 }
 
 void Controller::Command (HWND hwnd, int controlID, int command)
 {
-    TCHAR statusMessage[64];
-
     switch (controlID)
     {
 		case IDC_BUTTON_RUN:
 			if (command == BN_CLICKED)
 			{
-				HWND hList = GetDlgItem(hwnd, IDC_TESTS_LIST);
-                int index = ::SendMessage(hList, LB_GETCURSEL, 0, 0);
-				int data = SendMessage(hList, LB_GETITEMDATA, (WPARAM)index, 0);
+				GdxTest* test = NULL;
+				HWND hList = ::GetDlgItem(hwnd, IDC_TESTS_LIST);
+
+					// Get current selection index in listbox
+				int itemIndex = (int) ::SendMessage(hList, LB_GETCURSEL, (WPARAM)0, (LPARAM) 0);
+				if (itemIndex != LB_ERR)
+				{
+						// Get length of text in listbox
+					int textLen = (int) SendMessage(hList, LB_GETTEXTLEN, (WPARAM) itemIndex, 0);
+		
+					// Allocate buffer to store text (consider +1 for end of string)
+					TCHAR * textBuffer = new TCHAR[textLen + 1];
+
+					// Get actual text in buffer
+					SendMessage(hList, LB_GETTEXT, (WPARAM) itemIndex, (LPARAM) textBuffer );
+
+					test = GdxTests::newTest(textBuffer);
+					WoglApplication(*test, textBuffer, 400, 300, test->needsGL20());
+					delete[] textBuffer;
+				}
 			}
 			break;
     }
@@ -75,8 +89,8 @@ int WINAPI WinMain
     if (!hDialog)
     {
         TCHAR buf [100];
-        wsprintf (buf, L"Error x%x", GetLastError ());
-        MessageBox (0, buf, L"CreateDialog", MB_ICONEXCLAMATION | MB_OK);
+        wsprintf (buf, "Error x%x", GetLastError ());
+        MessageBox (0, buf, "CreateDialog", MB_ICONEXCLAMATION | MB_OK);
         return 1;
     }
 

@@ -34,7 +34,7 @@ public:
 	 * @param width the width of the surface in pixels
 	 * @param height the height of the surface in pixels
 	 * @param useGL20IfAvailable wheter to use OpenGL 2.0 if it is available or not */
-	WoglApplication (ApplicationListener& listener, const wchar_t* title, int width, int height,
+	WoglApplication (ApplicationListener& listener, const char* title, int width, int height,
 		bool useGL20IfAvailable);
 	virtual ~WoglApplication(void);
 
@@ -51,24 +51,24 @@ public:
 	virtual const Files* getFiles ();
 
 	/** Logs a message to the console or logcat */
-	virtual void log(const wchar_t* tag, const wchar_t* message);
+	virtual void log(const char* tag, const char* message);
 
 	/** Logs a message to the console or logcat */
-	//virtual void log (const wchar_t* tag, const wchar_t* message, class std::exception ex);
+	//virtual void log (const char* tag, const char* message, class std::exception ex);
 
 
 
 	/** Logs an error message to the console or logcat */
-	virtual void error (const wchar_t* tag, const wchar_t* message);
+	virtual void error (const char* tag, const char* message);
 
 	/** Logs an error message to the console or logcat */
-	//virtual void error (const wchar_t* tag, const wchar_t* message, class std::exception ex);
+	//virtual void error (const char* tag, const char* message, class std::exception ex);
 
 	/** Logs an error message to the console or logcat */
-	virtual void debug (const wchar_t* tag, const wchar_t* message);
+	virtual void debug (const char* tag, const char* message);
 
 	/** Logs an error message to the console or logcat */
-	//virtual void debug (const wchar_t* tag, const wchar_t* message, std::exception ex);
+	//virtual void debug (const char* tag, const char* message, std::exception ex);
 
 
 
@@ -94,7 +94,7 @@ public:
 	* @param name the name of the preferences, must be useable as a file name.
 	* @return the preferences. */
 
-	//virtual const Preferences& getPreferences (const wchar_t* name);
+	//virtual const Preferences& getPreferences (const char* name);
 
 	/** Exits the application. This will cause a call to pause() and dispose() some time in the loadFuture, it will not immediately
 	* finish your application! */

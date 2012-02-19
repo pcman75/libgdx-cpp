@@ -30,14 +30,14 @@ using namespace Win;
 // To prevent the parent window from drawing over its child window area, the
 // parent window must have WS_CLIPCHILDREN flag.
 ///////////////////////////////////////////////////////////////////////////////
-Window::Window(HINSTANCE hInst, const wchar_t* name, HWND hParent, Controller* ctrl) : handle(0), instance(hInst), controller(ctrl), winStyle(WS_OVERLAPPEDWINDOW | WS_CLIPCHILDREN),
+Window::Window(HINSTANCE hInst, const char* name, HWND hParent, Controller* ctrl) : handle(0), instance(hInst), controller(ctrl), winStyle(WS_OVERLAPPEDWINDOW | WS_CLIPCHILDREN),
                                                                                        winStyleEx(WS_EX_CLIENTEDGE), x(CW_USEDEFAULT), y(CW_USEDEFAULT),
                                                                                        width(CW_USEDEFAULT), height(CW_USEDEFAULT),
                                                                                        parentHandle(hParent), menuHandle(0)
 {
     // copy string
-    wcsncpy(this->title, name, MAX_STRING-1);
-    wcsncpy(this->className, name, MAX_STRING-1);
+    strncpy(this->title, name, MAX_STRING-1);
+    strncpy(this->className, name, MAX_STRING-1);
 
     // populate window class struct
     winClass.cbSize        = sizeof(WNDCLASSEX);

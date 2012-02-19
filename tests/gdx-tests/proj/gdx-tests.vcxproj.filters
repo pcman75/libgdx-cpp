@@ -28,10 +28,22 @@
     <ClInclude Include="..\incl\targetver.h">
       <Filter>internal</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\GdxTest..h">
+    <ClInclude Include="..\include\GdxTests.h">
       <Filter>inlcude</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\GdxTests.h">
+    <ClInclude Include="..\include\GdxTest.h">
+      <Filter>inlcude</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\AlphaTest.h">
+      <Filter>inlcude</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\GdxTestsDefines.h">
+      <Filter>inlcude</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\MatrixJNITest.h">
+      <Filter>inlcude</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\MeshShaderTest.h">
       <Filter>inlcude</Filter>
     </ClInclude>
   </ItemGroup>
@@ -39,10 +51,16 @@
     <ClCompile Include="..\src\dllmain.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\gdx-tests.cpp">
+    <ClCompile Include="..\src\stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\stdafx.cpp">
+    <ClCompile Include="..\src\GdxTests.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\MatrixJNITest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\MeshShaderTest.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

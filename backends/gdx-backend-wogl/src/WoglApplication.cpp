@@ -28,7 +28,7 @@ void WoglApplication::mainMessageLoop(HACCEL hAccelTable)
     }
 }
 
-WoglApplication::WoglApplication (ApplicationListener& listener, const wchar_t* title, int width, int height, bool useGL20IfAvailable)
+WoglApplication::WoglApplication (ApplicationListener& listener, const char* title, int width, int height, bool useGL20IfAvailable)
 {
 	logLevel = LOG_INFO;
 	m_pGraphics = new WoglGraphics(listener, useGL20IfAvailable);
@@ -95,12 +95,12 @@ const Files* WoglApplication::getFiles ()
 }
 
 
-void WoglApplication::log(const wchar_t* tag, const wchar_t* message)
+void WoglApplication::log(const char* tag, const char* message)
 {
 }
 
 /* TODO imlement it only iof it's the case i.e u used C++ throw exceptions or gdx throws exceptions
-void WoglApplication::log (const wchar_t* tag, const wchar_t* message, std::exception ex)
+void WoglApplication::log (const char* tag, const char* message, std::exception ex)
 {
 	if (logLevel >= LOG_INFO)
 	{
@@ -108,19 +108,19 @@ void WoglApplication::log (const wchar_t* tag, const wchar_t* message, std::exce
 	}
 }
 */
-void WoglApplication::error (const wchar_t* tag, const wchar_t* message)
+void WoglApplication::error (const char* tag, const char* message)
 {
 }
 
-//void WoglApplication::error (const wchar_t* tag, const wchar_t* message, std::exception ex)
+//void WoglApplication::error (const char* tag, const char* message, std::exception ex)
 //{
 //}
 
-void WoglApplication::debug (const wchar_t* tag, const wchar_t* message)
+void WoglApplication::debug (const char* tag, const char* message)
 {
 }
 
-//void WoglApplication::debug (const wchar_t* tag, const wchar_t* message, std::exception ex)
+//void WoglApplication::debug (const char* tag, const char* message, std::exception ex)
 //{
 //}
 
@@ -144,7 +144,7 @@ int WoglApplication::getVersion ()
 /** @return the heap memory use in bytes */
 //long getHeap ();
 
-//const Preferences& WoglApplication::getPreferences (const wchar_t* name)
+//const Preferences& WoglApplication::getPreferences (const char* name)
 //{
 //	return 
 //}
