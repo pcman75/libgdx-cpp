@@ -16,6 +16,13 @@ VertexBufferObject::VertexBufferObject(bool isStatic, const VertexAttributes& at
 	m_usage = isStatic ? GL11::GDX_GL_STATIC_DRAW : GL11::GDX_GL_DYNAMIC_DRAW;
 }
 
+VertexBufferObject::VertexBufferObject(bool isStatic, const VertexAttribute attributes[], int attributesLength)
+	:m_attributes(attributes, attributesLength), m_isBound(false), m_numVertices(0), m_isStatic(isStatic), m_buffer(NULL), m_isDirty(false)
+{
+	createBufferObject();
+	m_usage = isStatic ? GL11::GDX_GL_STATIC_DRAW : GL11::GDX_GL_DYNAMIC_DRAW;
+}
+
 void VertexBufferObject::createBufferObject()
 {
 	if(Gdx.gl20 != NULL)

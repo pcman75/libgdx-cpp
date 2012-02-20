@@ -13,6 +13,7 @@ private:
 
 public:
 	VertexArray(const VertexAttributes& attributes);
+	VertexArray(const VertexAttribute attributes[], int attributesLength);
 	virtual ~VertexArray(void);
 
 	/** @return the number of vertices this VertexData stores */

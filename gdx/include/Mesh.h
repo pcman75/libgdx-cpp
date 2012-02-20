@@ -92,6 +92,8 @@ public:
 	 *           normal or texture coordinate */
 	Mesh (bool isStatic, const VertexAttributes& attributes);
 
+	Mesh (bool isStatic, const VertexAttribute attributes[], int attributesLength);
+
 	/** Creates a new Mesh with the given attributes. This is an expert method with no error checking. Use at your own risk.
 	 * 
 	 * @param type the {@link VertexDataType} to be used, VBO or VA.

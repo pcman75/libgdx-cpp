@@ -44,7 +44,7 @@ void VertexBufferObjectShaderTest::create()
 		VertexAttribute(VertexAttributes::TextureCoordinates, 2, "a_texCoords"), 
 		VertexAttribute(VertexAttributes::ColorPacked, 4, "a_color")};
 
-	m_vbo = new VertexBufferObject(true, VertexAttributes(attributes, sizeof(attributes)/sizeof(attributes[0])));
+	m_vbo = new VertexBufferObject(true, attributes, sizeof(attributes)/sizeof(attributes[0]));
 	
   float vertices[] = { 
     -1, -1, 0, 0, Color::RED.toFloatBits(), 

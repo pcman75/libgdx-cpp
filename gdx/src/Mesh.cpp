@@ -44,6 +44,24 @@ Mesh::Mesh(bool isStatic, const VertexAttributes& attributes)
 
 	addManagedMesh(this);
 }
+Mesh::Mesh(bool isStatic, const VertexAttribute attributes[], int attributesLength)
+{
+		if (Gdx.gl20 != NULL || Gdx.gl11 != NULL || forceVBO) 
+	{
+		m_vertices = new VertexBufferObject(isStatic, attributes, attributesLength);
+		m_indices = new IndexBufferObject(isStatic);
+		m_isVertexArray = false;
+	} 
+	else 
+	{
+		m_vertices = new VertexArray(attributes, attributesLength);
+		m_indices = new IndexBufferObject(isStatic);
+		m_isVertexArray = true;
+	}
+
+	addManagedMesh(this);
+
+}
 
 Mesh::Mesh(VertexDataType type, bool isStatic, const VertexAttributes& attributes)
 {

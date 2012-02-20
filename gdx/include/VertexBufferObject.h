@@ -21,6 +21,7 @@ private:
 
 public:
 	VertexBufferObject(bool isStatic, const VertexAttributes& attributes);
+	VertexBufferObject(bool isStatic, const VertexAttribute attributes[], int attributesLength);
 	virtual ~VertexBufferObject();
 
 	virtual int getNumVertices();

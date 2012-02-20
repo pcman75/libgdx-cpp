@@ -56,7 +56,7 @@ void MeshShaderTest::create()
 		VertexAttribute(VertexAttributes::Color, 4, "a_color"),
 		VertexAttribute(VertexAttributes::TextureCoordinates, 2, "a_texCoords")};
 
-		m_mesh = new Mesh(true, VertexAttributes(attributes, 3));
+		m_mesh = new Mesh(true, attributes, 3);
 
 		float vertices[] = {-0.5f, -0.5f, 0, 1, 1, 1, 1, 0, 1, 0.5f, -0.5f, 0, 1, 1, 1, 1, 1, 1, 0.5f, 0.5f, 0, 1, 1, 1,
 			1, 1, 0, -0.5f, 0.5f, 0, 1, 1, 1, 1, 0, 0};
@@ -82,26 +82,26 @@ void MeshShaderTest::create()
 
 void MeshShaderTest::render() 
 {
-	m_angle += 1000/*TODO: Gdx.graphics->getDeltaTime()*/ * 45;
+	m_angle += 1234578/*TODO: Gdx.graphics->getDeltaTime()*/ * 45;
 	m_matrix.setToRotation(m_axis, m_angle);
 
-	//TODO Gdx.graphics->getGL20() must return GL20*
-	//GL20* gl = Gdx.graphics->getGL20();
-	GL20* gl = Gdx.gl20;
-		gl->glViewport(0, 0, Gdx.graphics->getWidth(), Gdx.graphics->getHeight());
-		gl->glClearColor(0.2f, 0.2f, 0.2f, 1);
-		gl->glClear(GL20::GDX_GL_COLOR_BUFFER_BIT);
-		gl->glEnable(GL20::GDX_GL_TEXTURE_2D);
-		gl->glEnable(GL10::GDX_GL_BLEND);
-		gl->glBlendFunc(GL10::GDX_GL_SRC_ALPHA, GL10::GDX_GL_ONE_MINUS_SRC_ALPHA);
-		m_texture->bind();
-		m_shader->begin();
-		m_shader->setUniformMatrix(std::string("u_worldView"), m_matrix);
-		m_shader->setUniformi("u_texture", 0);
-		m_mesh->render(m_shader, GL10::GDX_GL_TRIANGLES);
-		m_shader->end();
+	
+	GL20* gl = Gdx.graphics->getGL20();
+	
+	gl->glViewport(0, 0, Gdx.graphics->getWidth(), Gdx.graphics->getHeight());
+	gl->glClearColor(0.2f, 0.2f, 0.2f, 1);
+	gl->glClear(GL20::GDX_GL_COLOR_BUFFER_BIT);
+	gl->glEnable(GL20::GDX_GL_TEXTURE_2D);
+	gl->glEnable(GL10::GDX_GL_BLEND);
+	gl->glBlendFunc(GL10::GDX_GL_SRC_ALPHA, GL10::GDX_GL_ONE_MINUS_SRC_ALPHA);
+	m_texture->bind();
+	m_shader->begin();
+	m_shader->setUniformMatrix(std::string("u_worldView"), m_matrix);
+	m_shader->setUniformi("u_texture", 0);
+	m_mesh->render(m_shader, GL10::GDX_GL_TRIANGLES);
+	m_shader->end();
 
-		m_spriteBatch->begin();
-		// spriteBatch.drawText(font, "This is a test", 100, 100, Color.RED);
-		m_spriteBatch->end();
+	m_spriteBatch->begin();
+	// spriteBatch.drawText(font, "This is a test", 100, 100, Color.RED);
+	m_spriteBatch->end();
 }

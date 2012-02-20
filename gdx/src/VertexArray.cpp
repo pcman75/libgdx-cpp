@@ -27,6 +27,13 @@ VertexArray::VertexArray(const VertexAttributes& attributes)
 {
 }
 
+VertexArray::VertexArray(const VertexAttribute attributes[], int attributesLength)
+	:m_attributes(attributes, attributesLength), m_isBound(false), m_numVertices(0), m_buffer(NULL)
+{
+}
+
+
+
 void VertexArray::dispose() 
 {
 }
