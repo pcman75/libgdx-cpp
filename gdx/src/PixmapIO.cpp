@@ -5,9 +5,10 @@
 
 void PixmapIO::writePNG(const FileHandle& file, Pixmap* pixmap)
 {
-	int fileNameLength = file.name().length();
+	std::string filePath = file.path() + "\\" + file.name();
+	int fileNameLength = filePath.length();
 	char* buf = new char[fileNameLength+1];
-	strcpy( buf, file.name().c_str());
+	strcpy( buf, filePath.c_str());
 
 	//TODO: 
 	//Probably need to let the FileHandle write it

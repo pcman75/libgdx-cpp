@@ -108,7 +108,7 @@ void SpriteBatch::init(int size, int buffers, ShaderProgram* defaultShader)
 		VertexAttribute attributes[] = {VertexAttribute(VertexAttributes::Position, 2, ShaderProgram::POSITION_ATTRIBUTE), 
 			VertexAttribute(VertexAttributes::ColorPacked, 4, ShaderProgram::COLOR_ATTRIBUTE),
 			VertexAttribute(VertexAttributes::TextureCoordinates, 2, (std::string(ShaderProgram::TEXCOORD_ATTRIBUTE) + "0").c_str())};
-		m_buffers[i] = new Mesh(/*TODO: Mesh::VertexArrayType, */false, VertexAttributes(attributes, sizeof(attributes)/sizeof(attributes[0])));
+		m_buffers[i] = new Mesh(Mesh::VertexArrayType, false, VertexAttributes(attributes, sizeof(attributes)/sizeof(attributes[0])));
 	}
 
 	m_projectionMatrix.setToOrtho2D(0, 0, (float)Gdx.graphics->getWidth(), (float)Gdx.graphics->getHeight());
@@ -282,7 +282,10 @@ void SpriteBatch::end()
 
 	GLCommon* gl = Gdx.gl;
 	gl->glDepthMask(true);
-	if(isBlendingEnabled()) gl->glDisable(GL10::GDX_GL_BLEND);
+	if(isBlendingEnabled()) 
+		gl->glDisable(GL10::GDX_GL_BLEND);
+	
+	gl->glDisable(GL10::GDX_GL_TEXTURE_2D);
 
 	if(Gdx.graphics->isGL20Available())
 	{
@@ -290,10 +293,6 @@ void SpriteBatch::end()
 			m_customShader->end();
 		else
 			m_shader->end();
-	}
-	else
-	{
-		gl->glDisable(GL10::GDX_GL_TEXTURE_2D);
 	}
 }
 
@@ -1157,19 +1156,18 @@ void SpriteBatch::renderMesh()
 
 	m_lastTexture->bind();
 	m_mesh->setVertices(m_vertices, m_idx);
-
-	if(m_blendingDisabled)
-	{
-		Gdx.gl->glDisable(GL20::GDX_GL_BLEND);
-	}
-	else
-	{
-		Gdx.gl->glEnable(GL20::GDX_GL_BLEND);
-		Gdx.gl->glBlendFunc(m_blendSrcFunc, m_blendDstFunc);
-	}
-
 	if(Gdx.graphics->isGL20Available())
 	{
+		if(m_blendingDisabled)
+		{
+			Gdx.gl->glDisable(GL20::GDX_GL_BLEND);
+		}
+		else
+		{
+			Gdx.gl->glEnable(GL20::GDX_GL_BLEND);
+			Gdx.gl->glBlendFunc(m_blendSrcFunc, m_blendDstFunc);
+		}
+	
 		if(m_customShader != NULL)
 			m_mesh->render(m_customShader, GL10::GDX_GL_TRIANGLES, 0, spritesInBatch * 6);
 		else
