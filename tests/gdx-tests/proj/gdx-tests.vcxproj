@@ -92,7 +92,6 @@
     <None Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\gdx\include\MipMapGenerator.h" />
     <ClInclude Include="..\include\AlphaTest.h" />
     <ClInclude Include="..\include\GdxTest.h" />
     <ClInclude Include="..\include\GdxTests.h" />

@@ -64,9 +64,6 @@
     <ClInclude Include="..\include\MeshTest.h">
       <Filter>inlcude</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\gdx\include\MipMapGenerator.h">
-      <Filter>inlcude</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\dllmain.cpp">
