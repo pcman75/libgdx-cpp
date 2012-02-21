@@ -130,7 +130,7 @@ void SpriteBatch::init(int size, int buffers, ShaderProgram* defaultShader)
 	}
 	for(int i = 0; i < buffers; i++)
 	{
-		m_buffers[i]->setIndices(indices, size * Sprite::SPRITE_SIZE);
+		m_buffers[i]->setIndices(indices, len);
 	}
 	m_mesh = m_buffers[0];
 
