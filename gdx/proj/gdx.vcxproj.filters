@@ -147,6 +147,9 @@
     <ClCompile Include="..\lib\stb_image.c">
       <Filter>lib</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\MipMapGenerator.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\lib\etc1_utils.h">
@@ -312,6 +315,9 @@
       <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="..\include\VertexData.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\MipMapGenerator.h">
       <Filter>include</Filter>
     </ClInclude>
   </ItemGroup>

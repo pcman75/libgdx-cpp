@@ -92,6 +92,7 @@
     <None Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\gdx\include\MipMapGenerator.h" />
     <ClInclude Include="..\include\AlphaTest.h" />
     <ClInclude Include="..\include\GdxTest.h" />
     <ClInclude Include="..\include\GdxTests.h" />
@@ -108,6 +109,7 @@
     <ClInclude Include="..\incl\targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\gdx\src\MipMapGenerator.cpp" />
     <ClCompile Include="..\src\dllmain.cpp" />
     <ClCompile Include="..\src\GdxTests.cpp" />
     <ClCompile Include="..\src\MatrixJNITest.cpp" />

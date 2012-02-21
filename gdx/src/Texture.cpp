@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "Texture.h"
 #include "GL10.h"
+#include "MipMapGenerator.h"
 
 bool Texture::m_enforcePotImages = true;
 
@@ -230,8 +231,7 @@ void Texture::uploadImageData(Pixmap* pixmap)
 	Gdx.gl->glPixelStorei(GL10::GDX_GL_UNPACK_ALIGNMENT, 1);
 	if(m_data->useMipMaps())
 	{
-		//TODO:
-		//MipMapGenerator.generateMipMap(pixmap, pixmap->getWidth(), pixmap->getHeight(), disposePixmap);
+		MipMapGenerator::generateMipMap(pixmap, pixmap->getWidth(), pixmap->getHeight(), disposePixmap);
 	}
 	else
 	{
