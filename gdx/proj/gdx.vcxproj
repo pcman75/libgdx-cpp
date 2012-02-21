@@ -109,6 +109,7 @@
     <ClCompile Include="..\src\Matrix3.cpp" />
     <ClCompile Include="..\src\Matrix4.cpp" />
     <ClCompile Include="..\src\Mesh.cpp" />
+    <ClCompile Include="..\src\MipMapGenerator.cpp" />
     <ClCompile Include="..\src\NumberUtils.cpp" />
     <ClCompile Include="..\src\Pixmap.cpp" />
     <ClCompile Include="..\src\PixmapIO.cpp" />
@@ -162,6 +163,7 @@
     <ClInclude Include="..\include\Matrix3.h" />
     <ClInclude Include="..\include\Matrix4.h" />
     <ClInclude Include="..\include\Mesh.h" />
+    <ClInclude Include="..\include\MipMapGenerator.h" />
     <ClInclude Include="..\include\NumberUtils.h" />
     <ClInclude Include="..\include\Pixmap.h" />
     <ClInclude Include="..\include\PixmapIO.h" />

@@ -49,7 +49,7 @@ public:
 		short indices[] = {0, 1, 2, 2, 3, 0};
 		m_mesh->setIndices(indices, sizeof(indices)/sizeof(indices[0]));
 
-		m_texture = new Texture(Gdx.files->internalHandle("data/badlogic.jpg"), false);
+		m_texture = new Texture(Gdx.files->internalHandle("data/badlogic.jpg"), true);
 		m_texture->setFilter(Texture::TextureFilter::MipMap, Texture::TextureFilter::Linear);
 	}
 
