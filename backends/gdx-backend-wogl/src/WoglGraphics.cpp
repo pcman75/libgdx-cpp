@@ -219,7 +219,10 @@ void WoglGraphics::init()
 	//glHint(GL_LINE_SMOOTH_HINT, GL_NICEST);
 	//glHint(GL_POLYGON_SMOOTH_HINT, GL_NICEST);
 	glEnable(GL_DEPTH_TEST);
-	glEnable(GL_LIGHTING);
+
+  // commented for the moment
+	//glEnable(GL_LIGHTING);
+
 	glEnable(GL_TEXTURE_2D);
 	
   // commented for the moment
