@@ -64,6 +64,12 @@
     <ClInclude Include="..\include\MeshTest.h">
       <Filter>inlcude</Filter>
     </ClInclude>
+    <ClInclude Include="..\include\VertexArrayClassTest.h">
+      <Filter>inlcude</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\VertexArrayTest.h">
+      <Filter>inlcude</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\dllmain.cpp">

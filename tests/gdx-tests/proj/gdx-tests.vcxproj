@@ -103,6 +103,8 @@
     <ClInclude Include="..\include\PixmapTest.h" />
     <ClInclude Include="..\include\SpriteBatchTest.h" />
     <ClInclude Include="..\include\TextureDataTest.h" />
+    <ClInclude Include="..\include\VertexArrayClassTest.h" />
+    <ClInclude Include="..\include\VertexArrayTest.h" />
     <ClInclude Include="..\include\VertexBufferObjectShaderTest.h" />
     <ClInclude Include="..\incl\stdafx.h" />
     <ClInclude Include="..\incl\targetver.h" />

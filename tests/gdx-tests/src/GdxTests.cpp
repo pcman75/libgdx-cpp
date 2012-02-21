@@ -111,9 +111,9 @@
 //#include "TileTest.h"
 //#include "UITest.h"
 //#include "VBOVATestv
-//#include "VertexArrayTest.h"
+#include "VertexArrayTest.h"
 //#include "VertexBufferObjectTest.h"
-//#include "VertexArrayClassTest.h"
+#include "VertexArrayClassTest.h"
 //#include "VertexBufferObjectClassTest.h"
 #include "VertexBufferObjectShaderTest.h"
 //#include "VibratorTest.h"
@@ -248,9 +248,9 @@ GdxTests::GdxTests()
 	//GDX_DEFINE_TEST(TileTest
 	//GDX_DEFINE_TEST(UITest
 	//GDX_DEFINE_TEST(VBOVATest
-	//GDX_DEFINE_TEST(VertexArrayTest
+	GDX_DEFINE_TEST(VertexArrayTest);
 	//GDX_DEFINE_TEST(VertexBufferObjectTest
-	//GDX_DEFINE_TEST(VertexArrayClassTest
+	GDX_DEFINE_TEST(VertexArrayClassTest);
 	//GDX_DEFINE_TEST(VertexBufferObjectClassTest
 	GDX_DEFINE_TEST(VertexBufferObjectShaderTest);
 	//GDX_DEFINE_TEST(VibratorTest
