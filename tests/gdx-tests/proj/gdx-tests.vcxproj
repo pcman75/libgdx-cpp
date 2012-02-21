@@ -98,6 +98,7 @@
     <ClInclude Include="..\include\GdxTestsDefines.h" />
     <ClInclude Include="..\include\MatrixJNITest.h" />
     <ClInclude Include="..\include\MeshShaderTest.h" />
+    <ClInclude Include="..\include\MeshTest.h" />
     <ClInclude Include="..\include\PixmapBlendingTest.h" />
     <ClInclude Include="..\include\PixmapTest.h" />
     <ClInclude Include="..\include\SpriteBatchTest.h" />
