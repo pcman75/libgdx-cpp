@@ -1,8 +1,9 @@
 #pragma once
 #include "vertexdata.h"
 #include "VertexAttributes.h"
+#include "GdxDefines.h"
 
-class VertexArray :
+class GdxDllImportExport VertexArray :
 	public VertexData
 {
 private:

@@ -72,7 +72,7 @@ void VertexArray::bind ()
 	for (int i = 0; i < m_attributes.size(); i++) 
 	{
 		VertexAttribute attribute = m_attributes.get(i);
-		byteBuffer = byteBuffer + attribute.offset;
+		byteBuffer = (char*)m_buffer + attribute.offset;
 
 		switch (attribute.usage) 
 		{
