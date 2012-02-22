@@ -150,6 +150,15 @@
     <ClCompile Include="..\src\MipMapGenerator.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\Ray.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Frustum.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Camera.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\lib\etc1_utils.h">
@@ -318,6 +327,15 @@
       <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="..\include\MipMapGenerator.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Camera.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Ray.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Frustum.h">
       <Filter>include</Filter>
     </ClInclude>
   </ItemGroup>

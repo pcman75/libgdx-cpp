@@ -93,7 +93,7 @@ Vector3 Vector3::tmp() const
 * as well.
 *
 * @return a temporary copy of this vector */
-Vector3 Vector3::tmp2()
+Vector3 Vector3::tmp2() const
 {
 	return m_tmp2.set(*this);
 }
@@ -102,7 +102,7 @@ Vector3 Vector3::tmp2()
 * as well.
 *
 * @return a temporary copy of this vector */
-Vector3 Vector3::tmp3()
+Vector3 Vector3::tmp3() const
 {
 	return m_tmp3.set(*this);
 }
@@ -234,7 +234,7 @@ Vector3& Vector3::nor()
 
 /** @param vector The other vector
 * @return The dot product between this and the other vector */
-float Vector3::dot(const Vector3& vector)
+float Vector3::dot(const Vector3& vector) const
 {
 	return x * vector.x + y * vector.y + z * vector.z;
 }
@@ -358,7 +358,7 @@ std::string Vector3::toString()
 * @param y The y-component of the other vector
 * @param z The z-component of the other vector
 * @return The dot product */
-float Vector3::dot(float x, float y, float z)
+float Vector3::dot(float x, float y, float z) const
 {
 	return this->x * x + this->y * y + this->z * z;
 }

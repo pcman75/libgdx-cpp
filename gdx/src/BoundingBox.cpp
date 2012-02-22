@@ -28,7 +28,7 @@ void BoundingBox::updateCorners()
 
 
 /** @return the corners of this bounding box */
-const Vector3* const BoundingBox::getCorners()
+Vector3* BoundingBox::getCorners()
 {
 	updateCorners();
 	return m_crn;

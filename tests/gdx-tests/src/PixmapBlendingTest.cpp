@@ -42,22 +42,23 @@ void PixmapBlendingTest::create()
 
 	m_pixD->drawPixmap(m_pixS1, 0, 0, 0, 0, 76, 76);
 	m_pixD->drawPixmap(m_pixS2, 0, 0, 0, 0, 76, 76);
-	PixmapIO::writePNG(Gdx.files->getFileHandle("data/debug.png", Internal), m_pixD);
+	PixmapIO::writePNG(Gdx.files->getFileHandle("c:\\debug.png", Absolute), m_pixD);
 	
 	m_logoSprite = new Sprite(new Texture(m_pixD));
 	m_logoSprite->flip(false, true);
 
-	m_pixS1->dispose();
-	m_pixS2->dispose();
-	m_pixD->dispose();	
+	//TODO: delete these
+	//m_pixS1->dispose();
+	//m_pixS2->dispose();
+	//m_pixD->dispose();	
 	
 }
 
 void PixmapBlendingTest::render()
 {
 	GL10* gl = Gdx.graphics->getGL10();
-	//gl->glClearColor(0, 1, 0, 1);
-	Gdx.gl->glClearColor(0.6f, 0.6f, 0.6f, 1);
+	gl->glClearColor(0, 1, 0, 1);
+	//Gdx.gl->glClearColor(0.6f, 0.6f, 0.6f, 1);
 	gl->glClear(GL10::GDX_GL_COLOR_BUFFER_BIT);
 
 	m_spriteBatch->begin();

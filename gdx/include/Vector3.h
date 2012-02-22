@@ -92,13 +92,13 @@ public:
 	 * as well.
 	 *
 	 * @return a temporary copy of this vector */
-	Vector3 tmp2();
+	Vector3 tmp2() const;
 
 	/** NEVER EVER SAVE THIS REFERENCE! Do not use this unless you are aware of the side-effects, e.g. other methods might call this
 	 * as well.
 	 *
 	 * @return a temporary copy of this vector */
-	Vector3 tmp3();
+	Vector3 tmp3() const;
 
 	/** Adds the given vector to this vector
 	 *
@@ -171,7 +171,7 @@ public:
 
 	/** @param vector The other vector
 	 * @return The dot product between this and the other vector */
-	float dot(const Vector3& vector);
+	float dot(const Vector3& vector) const;
 
 	/** Sets this vector to the cross product between it and the other vector.
 	 * @param vector The other vector
@@ -234,7 +234,7 @@ public:
 	 * @param y The y-component of the other vector
 	 * @param z The z-component of the other vector
 	 * @return The dot product */
-	float dot(float x, float y, float z);
+	float dot(float x, float y, float z) const;
 
 	/** Returns the squared distance between this point and the given point
 	 *

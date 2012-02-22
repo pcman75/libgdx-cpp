@@ -40,7 +40,7 @@ protected:
 
 public:
 	/** @return the corners of this bounding box */
-	const Vector3* const getCorners();
+	Vector3* getCorners();
 
 	/** @return The dimensions of this bounding box on all three axis */
 	const Vector3& getDimensions();

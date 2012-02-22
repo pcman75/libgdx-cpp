@@ -78,6 +78,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="..\src\Camera.cpp" />
     <ClCompile Include="..\src\Circle.cpp" />
     <ClCompile Include="..\src\FileHandleStream.cpp" />
     <ClCompile Include="..\src\Files.cpp" />
@@ -93,6 +94,7 @@
     </ClCompile>
     <ClCompile Include="..\src\FileHandle.cpp" />
     <ClCompile Include="..\src\FileTextureData.cpp" />
+    <ClCompile Include="..\src\Frustum.cpp" />
     <ClCompile Include="..\src\Gdx.cpp" />
     <ClCompile Include="..\src\gdx2d.c">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
@@ -117,6 +119,7 @@
     <ClCompile Include="..\src\Plane.cpp" />
     <ClCompile Include="..\src\Polygon.cpp" />
     <ClCompile Include="..\src\Quaternion.cpp" />
+    <ClCompile Include="..\src\Ray.cpp" />
     <ClCompile Include="..\src\Rectang.cpp" />
     <ClCompile Include="..\src\ShaderProgram.cpp" />
     <ClCompile Include="..\src\Sprite.cpp" />
@@ -138,6 +141,7 @@
     <ClInclude Include="..\include\Application.h" />
     <ClInclude Include="..\include\ApplicationListener.h" />
     <ClInclude Include="..\include\BoundingBox.h" />
+    <ClInclude Include="..\include\Camera.h" />
     <ClInclude Include="..\include\Circle.h" />
     <ClInclude Include="..\include\Color.h" />
     <ClInclude Include="..\include\ETC1.h" />
@@ -147,6 +151,7 @@
     <ClInclude Include="..\include\FileHandleStream.h" />
     <ClInclude Include="..\include\Files.h" />
     <ClInclude Include="..\include\FileTextureData.h" />
+    <ClInclude Include="..\include\Frustum.h" />
     <ClInclude Include="..\include\Gdx.h" />
     <ClInclude Include="..\include\Gdx2DPixmap.h" />
     <ClInclude Include="..\include\GdxDefines.h" />
@@ -171,6 +176,7 @@
     <ClInclude Include="..\include\Plane.h" />
     <ClInclude Include="..\include\Polygon.h" />
     <ClInclude Include="..\include\Quaternion.h" />
+    <ClInclude Include="..\include\Ray.h" />
     <ClInclude Include="..\include\Rectang.h" />
     <ClInclude Include="..\include\Rectangle.h" />
     <ClInclude Include="..\include\ShaderProgram.h" />

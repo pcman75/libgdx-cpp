@@ -1,24 +1,31 @@
 #include "stdafx.h"
 #include "Plane.h"
 
-Plane::Plane( Vector3 normal, float d) 
+Plane::Plane()
+{
+	//normal is (0, 0, 0)
+	//distance is 0
+	this->d = 0.f;
+}
+
+Plane::Plane( const Vector3& normal, float d) 
 {
 	this->normal.set(normal).nor();
 	this->d = d;
 }
 
-Plane::Plane( Vector3 normal, Vector3 point) 
+Plane::Plane( const Vector3& normal, const Vector3& point) 
 {
 	this->normal.set(normal).nor();
 	this->d = -this->normal.dot(point);
 }
 
-Plane::Plane( Vector3 point1, Vector3 point2, Vector3 point3)
+Plane::Plane( const Vector3& point1, const Vector3& point2, const Vector3& point3)
 {
 	set(point1, point2, point3);
 }
 
-void Plane::set( Vector3 point1, Vector3 point2, Vector3 point3) 
+void Plane::set( const Vector3& point1, const Vector3& point2, const Vector3& point3) 
 {
 	Vector3 l = point1.tmp().sub(point2);
 	Vector3 r = point2.tmp2().sub(point3);
@@ -33,12 +40,12 @@ void Plane::set( float nx, float ny, float nz, float d)
 	this->d = d;
 }
 
-float Plane::distance( Vector3 point) 
+float Plane::distance( const Vector3& point) 
 {
 	return normal.dot(point) + d;
 }
 
-Plane::PlaneSide Plane::testPoint( Vector3 point) 
+Plane::PlaneSide Plane::testPoint( const Vector3& point) 
 {
 	float dist = normal.dot(point) + d;
 
@@ -50,13 +57,13 @@ Plane::PlaneSide Plane::testPoint( Vector3 point)
 		return Front;
 }
 
-bool Plane::isFrontFacing( Vector3 direction) 
+bool Plane::isFrontFacing( const Vector3& direction) 
 {
 	float dot = normal.dot(direction);
 	return dot <= 0;
 }
 
-Vector3 Plane::getNormal() 
+Vector3& Plane::getNormal() 
 {
 	return normal;
 }
@@ -66,13 +73,13 @@ float Plane::getD()
 	return d;
 }
 
-void Plane::set( Vector3 point, Vector3 normal) 
+void Plane::set( const Vector3& point, const Vector3& normal) 
 {
 	this->normal.set(normal);
 	d = -point.dot(normal);
 }
 
-void Plane::set( Plane plane) 
+void Plane::set(const Plane& plane) 
 {
 	this->normal.set(plane.normal);
 	this->d = plane.d;
