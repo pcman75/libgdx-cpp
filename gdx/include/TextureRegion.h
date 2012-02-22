@@ -62,7 +62,7 @@ public:
 	 * @param height The height of the texture region. May be negative to flip the sprite when drawn. */
 	void setRegion(int x, int y, int width, int height);
 
-	void setRegion(float u, float v, float u2, float v2);
+	virtual void setRegion(float u, float v, float u2, float v2);
 
 	/** Sets the texture and coordinates to the specified region. */
 	void setRegion(TextureRegion* region);
@@ -76,19 +76,19 @@ public:
 
 	float getU();
 
-	void setU(float u);
+	virtual void setU(float u);
 
 	float getV();
 
-	void setV(float v);
+	virtual void setV(float v);
 
 	float getU2();
 
-	void setU2(float u2);
+	virtual void setU2(float u2);
 
 	float getV2();
 
-	void setV2(float v2);
+	virtual void setV2(float v2);
 
 	int getRegionX();
 
@@ -108,13 +108,13 @@ public:
 
 	void setRegionHeight(int height);
 
-	void flip(bool x, bool y);
+	virtual void flip(bool x, bool y);
 
 	/** Offsets the region relative to the current region. Generally the region's size should be the entire size of the texture in
 	 * the direction(s) it is scrolled.
 	 * @param xAmount The percentage to offset horizontally.
 	 * @param yAmount The percentage to offset vertically. This is done in texture space, so up is negative. */
-	void scroll(float xAmount, float yAmount);
+	virtual void scroll(float xAmount, float yAmount);
 
 	/** Helper function to create tiles out of this TextureRegion starting from the top left corner going to the left and ending at
 	 * the bottom right corner. Only complete tiles will be returned so if the region's width or height are not a multiple of the

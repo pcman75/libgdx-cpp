@@ -197,17 +197,18 @@ public:
 	 * {@link #setColor(float, float, float, float)} must be used. */
 	Color& getColor();
 
-	void setRegion(float u, float v, float u2, float v2);
+	virtual void setRegion(float u, float v, float u2, float v2);
+	
+	virtual void setU(float u);
 
-	void setU(float u);
+	virtual void setV(float v);
 
-	void setV(float v);
+	virtual void setU2(float u2);
 
-	void setU2(float u2);
+	virtual void setV2(float v2);
 
-	void setV2(float v2);
+	virtual void flip(bool x, bool y);
 
-	void flip(bool x, bool y);
-
-	void scroll(float xAmount, float yAmount);
+	virtual void scroll(float xAmount, float yAmount);
+	
 };
