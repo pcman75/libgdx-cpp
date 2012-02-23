@@ -12,9 +12,10 @@
  ******************************************************************************/
 
 #pragma once
+#include "GdxDefines.h"
 
 /** Encapsulates a 2D rectangle defined by it's bottom corner point and its extends in x (width) and y (height)*/
-class Rectang
+class GdxDllImportExport Rectang
 {
 public:
 	float x, y;

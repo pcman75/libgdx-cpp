@@ -70,7 +70,7 @@
 //#include "MyFirstTriangle.h"
 //#include "ObjTest.h"
 //#include "OnscreenKeyboardTest.h"
-//#include "OrthoCamBorderTest.h"
+#include "OrthoCamBorderTest.h"
 //#include "ParallaxTest.h"
 //#include "ParticleEmitterTest.h"
 //#include "PickingTest.h"
@@ -207,7 +207,7 @@ GdxTests::GdxTests()
 	//GDX_DEFINE_TEST(MyFirstTriangle
 	//GDX_DEFINE_TEST(ObjTest
 	//GDX_DEFINE_TEST(OnscreenKeyboardTest
-	//GDX_DEFINE_TEST(OrthoCamBorderTest
+	GDX_DEFINE_TEST(OrthoCamBorderTest);
 	//GDX_DEFINE_TEST(ParallaxTest
 	//GDX_DEFINE_TEST(ParticleEmitterTest
 	//GDX_DEFINE_TEST(PickingTest

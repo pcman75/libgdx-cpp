@@ -93,12 +93,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\AlphaTest.h" />
+    <ClInclude Include="..\include\FrustumTest.h" />
     <ClInclude Include="..\include\GdxTest.h" />
     <ClInclude Include="..\include\GdxTests.h" />
     <ClInclude Include="..\include\GdxTestsDefines.h" />
     <ClInclude Include="..\include\MatrixJNITest.h" />
     <ClInclude Include="..\include\MeshShaderTest.h" />
     <ClInclude Include="..\include\MeshTest.h" />
+    <ClInclude Include="..\include\OrthoCamBorderTest.h" />
     <ClInclude Include="..\include\PixmapBlendingTest.h" />
     <ClInclude Include="..\include\PixmapTest.h" />
     <ClInclude Include="..\include\SpriteBatchTest.h" />

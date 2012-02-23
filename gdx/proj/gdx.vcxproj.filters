@@ -290,9 +290,6 @@
     <ClInclude Include="..\include\Rectang.h">
       <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\Rectangle.h">
-      <Filter>include</Filter>
-    </ClInclude>
     <ClInclude Include="..\include\ShaderProgram.h">
       <Filter>include</Filter>
     </ClInclude>

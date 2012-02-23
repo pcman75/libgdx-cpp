@@ -70,6 +70,12 @@
     <ClInclude Include="..\include\VertexArrayTest.h">
       <Filter>inlcude</Filter>
     </ClInclude>
+    <ClInclude Include="..\include\FrustumTest.h">
+      <Filter>inlcude</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\OrthoCamBorderTest.h">
+      <Filter>inlcude</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\dllmain.cpp">

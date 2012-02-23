@@ -182,7 +182,6 @@
     <ClInclude Include="..\include\Quaternion.h" />
     <ClInclude Include="..\include\Ray.h" />
     <ClInclude Include="..\include\Rectang.h" />
-    <ClInclude Include="..\include\Rectangle.h" />
     <ClInclude Include="..\include\ShaderProgram.h" />
     <ClInclude Include="..\include\Sprite.h" />
     <ClInclude Include="..\include\SpriteBatch.h" />
