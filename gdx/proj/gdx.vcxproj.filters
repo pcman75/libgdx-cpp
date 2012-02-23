@@ -159,6 +159,12 @@
     <ClCompile Include="..\src\Camera.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\OrthographicCamera.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\PerspectiveCamera.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\lib\etc1_utils.h">
@@ -336,6 +342,12 @@
       <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="..\include\Frustum.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\OrthographicCamera.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\PerspectiveCamera.h">
       <Filter>include</Filter>
     </ClInclude>
   </ItemGroup>
