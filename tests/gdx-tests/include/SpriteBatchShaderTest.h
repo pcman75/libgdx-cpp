@@ -18,6 +18,7 @@
 #include "Texture.h"
 #include "SpriteBatch.h"
 #include "Color.h"
+#include "Timer.h"
 
 class SpriteBatchShaderTest :
 	public GdxTest
@@ -38,12 +39,22 @@ class SpriteBatchShaderTest :
 
 	Mesh* mesh;
 	float vertices[SPRITES * 6 * (2 + 2 + 4)];
+	Timer* timer;
 
 public:
-	SpriteBatchShaderTest():
-		frames(0), col(1, 1, 1, 0.6f)
+	~SpriteBatchShaderTest()
 	{
-		long startTime = System.nanoTime();
+		delete texture;
+		delete texture2;
+		delete spriteBatch;
+		delete mesh;
+		delete timer;
+	}
+
+	SpriteBatchShaderTest():
+		frames(0), col(1, 1, 1, 0.6f),
+		texture(0), texture2(0), spriteBatch(0), mesh(0), timer(0)
+	{
 	}
 
 	void render()
@@ -58,69 +69,81 @@ public:
 		float draw2 = 0;
 		float drawText = 0;
 
-		long start = System.nanoTime();
-		spriteBatch.begin();
-		begin = (System.nanoTime() - start) / 1000000000.0f;
+		timer->startTimer();
+		spriteBatch->begin();
+		begin = timer->stopTimer();
 
-		int len = coords.length;
-		start = System.nanoTime();
+		int len = sizeof(coords) / sizeof(coords[0]);
+		
+		timer->startTimer();
 		for(int i = 0; i < len; i += 2)
-			spriteBatch.draw(texture, coords[i], coords[i + 1], 0, 0, 32, 32);
-		draw1 = (System.nanoTime() - start) / 1000000000.0f;
+			spriteBatch->draw(texture, coords[i], coords[i + 1], 0, 0, 32, 32);
+		draw1 = timer->stopTimer();
 
-		start = System.nanoTime();
-		spriteBatch.setColor(col);
-		for(int i = 0; i < coords2.length; i += 2)
-			spriteBatch.draw(texture2, coords2[i], coords2[i + 1], 0, 0, 32, 32);
-		draw2 = (System.nanoTime() - start) / 1000000000.0f;
+		timer->startTimer();
+		spriteBatch->setColor(col);
+		int len2 = sizeof(coords2) / sizeof(coords2[0]);
+		for(int i = 0; i < len2; i += 2)
+			spriteBatch->draw(texture2, coords2[i], coords2[i + 1], 0, 0, 32, 32);
+		draw2 = timer->stopTimer();
 
-		start = System.nanoTime();
+		timer->startTimer();
 // spriteBatch.drawText(font, "Question?", 100, 300, Color.RED);
 // spriteBatch.drawText(font, "and another this is a test", 200, 100, Color.WHITE);
 // spriteBatch.drawText(font, "all hail and another this is a test", 200, 200, Color.WHITE);
-		drawText = (System.nanoTime() - start) / 1000000000.0f;
+		drawText = timer->stopTimer();
 
-		start = System.nanoTime();
-		spriteBatch.end();
-		end = (System.nanoTime() - start) / 1000000000.0f;
+		timer->startTimer();
+		spriteBatch->end();
+		end = timer->stopTimer();
 
-		if(System.nanoTime() - startTime > 1000000000)
+		//if(end > 1000000000)
 		{
-			Gdx.app.log("SpriteBatch", "fps: " + frames + ", render calls: " + spriteBatch.renderCalls + ", " + begin + ", " + draw1
-			            + ", " + draw2 + ", " + drawText + ", " + end);
+			std::stringstream logText;
+			logText << "fps: " << frames << ", render calls: " << spriteBatch->renderCalls << ", " << begin << ", " << draw1
+			            << ", " << draw2 << ", " << drawText << ", " << end;
+			Gdx.app->log("SpriteBatch", logText.str().c_str());
 			frames = 0;
-			startTime = System.nanoTime();
 		}
 		frames++;
 	}
 
 	void create()
 	{
+		timer = Gdx.app->createTimer();
+
 		spriteBatch = new SpriteBatch();
-		Pixmap pixmap = new Pixmap(Gdx.files.internal("data/badlogicsmall.jpg"));
+		Pixmap* pixmap = new Pixmap(Gdx.files->internalHandle("data/badlogicsmall.jpg"));
 // pixmap.setColor( 0, 0, 0, 0 );
 // pixmap.fillCircle( 16, 16, 4 );
-		texture = new Texture(32, 32, Format.RGB565);
-		texture.draw(pixmap, 0, 0);
-		pixmap.dispose();
+		texture = new Texture(32, 32, Pixmap::Format::RGB565);
+		texture->draw(pixmap, 0, 0);
+		pixmap->dispose();
 
-		pixmap = new Pixmap(32, 32, Format.RGB565);
-		pixmap.setColor(1, 1, 0, 0.7f);
-		pixmap.fill();
+		pixmap = new Pixmap(32, 32, Pixmap::Format::RGB565);
+		pixmap->setColor(1, 1, 0, 0.7f);
+		pixmap->fill();
 // pixmap.setColor( 0, 0, 0, 0 );
 // pixmap.fillCircle( 16, 16, 4 );
 //
 		texture2 = new Texture(pixmap);
-		pixmap.dispose();
+		pixmap->dispose();
 
 // if (font == null) font = Gdx.graphics.newFont("Arial", 32, FontStyle.Plain);
-
-		for(int i = 0; i < coords.length; i += 2)
+		int len = sizeof(coords) / sizeof(coords[0]);
+		for(int i = 0; i < len; i += 2)
 		{
-			coords[i] = (int)(Math.random() * Gdx.graphics.getWidth());
-			coords[i + 1] = (int)(Math.random() * Gdx.graphics.getHeight());
-			coords2[i] = (int)(Math.random() * Gdx.graphics.getWidth());
-			coords2[i + 1] = (int)(Math.random() * Gdx.graphics.getHeight());
+			coords[i] = MathUtils::random(Gdx.graphics->getWidth());
+			coords[i + 1] = MathUtils::random(Gdx.graphics->getHeight());
+			coords2[i] = MathUtils::random(Gdx.graphics->getWidth());
+			coords2[i + 1] = MathUtils::random(Gdx.graphics->getHeight());
 		}
 	}
+
+	virtual bool needsGL20()
+	{
+		return true;
+	}
+
+	GDX_DEFINE_CREATOR(SpriteBatchShaderTest);
 };

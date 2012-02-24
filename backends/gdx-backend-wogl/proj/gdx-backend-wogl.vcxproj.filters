@@ -75,6 +75,9 @@
     <ClInclude Include="..\exp\WoglFileHandleStream.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\exp\WindowsTimer.h">
+      <Filter>Exported Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\dllmain.cpp">
@@ -132,6 +135,9 @@
       <Filter>extern</Filter>
     </ClCompile>
     <ClCompile Include="..\src\WoglFileHandleStream.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\WindowsTimer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

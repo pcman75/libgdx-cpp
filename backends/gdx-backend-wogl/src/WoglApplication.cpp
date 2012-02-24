@@ -10,6 +10,8 @@
 #include "Window.h"
 #include "Gdx.h"
 
+#include "WindowsTimer.h"
+
 ///////////////////////////////////////////////////////////////////////////////
 // main message loop
 ///////////////////////////////////////////////////////////////////////////////
@@ -94,9 +96,17 @@ const Files* WoglApplication::getFiles ()
 	return m_pFiles;
 }
 
+Timer* WoglApplication::createTimer()
+{
+	return new WindowsTimer();
+}
 
 void WoglApplication::log(const char* tag, const char* message)
 {
+	::OutputDebugString(tag);
+	::OutputDebugString("\t");
+	::OutputDebugString(message);
+	::OutputDebugString("\n");
 }
 
 /* TODO imlement it only iof it's the case i.e u used C++ throw exceptions or gdx throws exceptions

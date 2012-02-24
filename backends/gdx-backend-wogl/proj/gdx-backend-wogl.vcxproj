@@ -79,6 +79,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\exp\WindowsTimer.h" />
     <ClInclude Include="..\exp\WoglFileHandleStream.h" />
     <ClInclude Include="..\exp\WoglApplication.h" />
     <ClInclude Include="..\exp\WoglDefines.h" />
@@ -99,6 +100,7 @@
     <ClInclude Include="..\incl\Window.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\src\WindowsTimer.cpp" />
     <ClCompile Include="..\src\WoglFileHandleStream.cpp" />
     <ClCompile Include="..\extern\glew.c">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
