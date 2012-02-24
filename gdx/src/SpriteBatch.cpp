@@ -1156,18 +1156,20 @@ void SpriteBatch::renderMesh()
 
 	m_lastTexture->bind();
 	m_mesh->setVertices(m_vertices, m_idx);
+
+  if(m_blendingDisabled)
+	{
+		Gdx.gl->glDisable(GL20::GDX_GL_BLEND);
+	}
+	else
+	{
+		Gdx.gl->glEnable(GL20::GDX_GL_BLEND);
+		Gdx.gl->glBlendFunc(m_blendSrcFunc, m_blendDstFunc);
+	}
+	
+
 	if(Gdx.graphics->isGL20Available())
 	{
-		if(m_blendingDisabled)
-		{
-			Gdx.gl->glDisable(GL20::GDX_GL_BLEND);
-		}
-		else
-		{
-			Gdx.gl->glEnable(GL20::GDX_GL_BLEND);
-			Gdx.gl->glBlendFunc(m_blendSrcFunc, m_blendDstFunc);
-		}
-	
 		if(m_customShader != NULL)
 			m_mesh->render(m_customShader, GL10::GDX_GL_TRIANGLES, 0, spritesInBatch * 6);
 		else
