@@ -120,7 +120,7 @@
 //#include "VorbisTest.h"
 //#include "WaterRipples.h"
 //#include "HelloTriangle.h"
-//#include "SimpleVertexShader.h"
+#include "SimpleVertexShader.h"
 //#include "ShapeRendererTest.h"
 //#include "MoveSpriteExample.h"
 //#include "StbTrueTypeTest.h"
@@ -257,7 +257,7 @@ GdxTests::GdxTests()
 	//GDX_DEFINE_TEST(VorbisTest
 	//GDX_DEFINE_TEST(WaterRipples
 	//GDX_DEFINE_TEST(HelloTriangle
-	//GDX_DEFINE_TEST(SimpleVertexShader
+	GDX_DEFINE_TEST(SimpleVertexShader);
 	//GDX_DEFINE_TEST(ShapeRendererTest
 	//GDX_DEFINE_TEST(MoveSpriteExample
 	//GDX_DEFINE_TEST(StbTrueTypeTest

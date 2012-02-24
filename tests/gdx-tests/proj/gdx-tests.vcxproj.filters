@@ -85,6 +85,15 @@
     <ClInclude Include="..\include\SpriteBatchShaderTest.h">
       <Filter>inlcude</Filter>
     </ClInclude>
+    <ClInclude Include="..\include\MipMapTest.h">
+      <Filter>inlcude</Filter>
+    </ClInclude>
+    <ClInclude Include="..\incl\Shapes.h">
+      <Filter>internal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\SimpleVertexShader.h">
+      <Filter>inlcude</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\dllmain.cpp">
