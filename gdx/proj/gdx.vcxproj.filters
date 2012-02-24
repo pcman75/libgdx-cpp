@@ -347,6 +347,9 @@
     <ClInclude Include="..\include\PerspectiveCamera.h">
       <Filter>include</Filter>
     </ClInclude>
+    <ClInclude Include="..\include\Timer.h">
+      <Filter>include</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\ReadMe.txt" />

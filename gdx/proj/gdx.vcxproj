@@ -188,6 +188,7 @@
     <ClInclude Include="..\include\Texture.h" />
     <ClInclude Include="..\include\TextureData.h" />
     <ClInclude Include="..\include\TextureRegion.h" />
+    <ClInclude Include="..\include\Timer.h" />
     <ClInclude Include="..\include\Vector2.h" />
     <ClInclude Include="..\include\Vector3.h" />
     <ClInclude Include="..\include\VertexArray.h" />

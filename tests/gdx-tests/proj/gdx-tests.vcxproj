@@ -105,6 +105,7 @@
     <ClInclude Include="..\include\OrthoCamBorderTest.h" />
     <ClInclude Include="..\include\PixmapBlendingTest.h" />
     <ClInclude Include="..\include\PixmapTest.h" />
+    <ClInclude Include="..\include\SpriteBatchShaderTest.h" />
     <ClInclude Include="..\include\SpriteBatchTest.h" />
     <ClInclude Include="..\include\TextureDataTest.h" />
     <ClInclude Include="..\include\VertexArrayClassTest.h" />

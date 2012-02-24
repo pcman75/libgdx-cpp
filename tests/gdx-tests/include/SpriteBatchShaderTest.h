@@ -13,44 +13,44 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  ******************************************************************************/
+#pragma once
+#include "GdxTest.h"
+#include "Texture.h"
+#include "SpriteBatch.h"
+#include "Color.h"
 
-package com.badlogic.gdx.tests;
-
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.Mesh;
-import com.badlogic.gdx.graphics.Pixmap;
-import com.badlogic.gdx.graphics.Pixmap.Format;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.tests.utils.GdxTest;
-
-public class SpriteBatchShaderTest extends GdxTest
+class SpriteBatchShaderTest :
+	public GdxTest
 {
-	int SPRITES = 400;
+	static const int SPRITES = 400;
 
-	long startTime = System.nanoTime();
-	int frames = 0;
+	long startTime;
+	int frames;
 
-	Texture texture;
-	Texture texture2;
-// Font font;
-	SpriteBatch spriteBatch;
-	int coords[] = new int[SPRITES * 2];
-	int coords2[] = new int[SPRITES * 2];
+	Texture* texture;
+	Texture* texture2;
+	// Font font;
+	SpriteBatch* spriteBatch;
+	int coords[SPRITES * 2];
+	int coords2[SPRITES * 2];
 
-	Color col = new Color(1, 1, 1, 0.6f);
+	Color col;
 
-	Mesh mesh;
-	float vertices[] = new float[SPRITES * 6 * (2 + 2 + 4)];
+	Mesh* mesh;
+	float vertices[SPRITES * 6 * (2 + 2 + 4)];
 
-	@Override
-	public void render()
+public:
+	SpriteBatchShaderTest():
+		frames(0), col(1, 1, 1, 0.6f)
 	{
-		GL20 gl = Gdx.graphics.getGL20();
-		gl.glClearColor(0.7f, 0.7f, 0.7f, 1);
-		gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+		long startTime = System.nanoTime();
+	}
+
+	void render()
+	{
+		GL20* gl = Gdx.graphics->getGL20();
+		gl->glClearColor(0.7f, 0.7f, 0.7f, 1);
+		gl->glClear(GL20::GDX_GL_COLOR_BUFFER_BIT);
 
 		float begin = 0;
 		float end = 0;
@@ -94,8 +94,7 @@ public class SpriteBatchShaderTest extends GdxTest
 		frames++;
 	}
 
-	@Override
-	public void create()
+	void create()
 	{
 		spriteBatch = new SpriteBatch();
 		Pixmap pixmap = new Pixmap(Gdx.files.internal("data/badlogicsmall.jpg"));
@@ -124,11 +123,4 @@ public class SpriteBatchShaderTest extends GdxTest
 			coords2[i + 1] = (int)(Math.random() * Gdx.graphics.getHeight());
 		}
 	}
-
-	@Override
-	public boolean needsGL20()
-	{
-		return true;
-	}
-
-}
+};
