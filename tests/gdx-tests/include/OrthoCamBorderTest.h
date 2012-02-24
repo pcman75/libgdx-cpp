@@ -26,8 +26,8 @@ class OrthoCamBorderTest :
 	public GdxTest
 {
 
-	static const int WIDTH = 1;//480;
-	static const int HEIGHT = 1;//320;
+	static const int WIDTH = 480;
+	static const int HEIGHT = 320;
 	
 	OrthographicCamera m_cam;
 	Rectang m_glViewport;
@@ -35,15 +35,19 @@ class OrthoCamBorderTest :
 
 public:
 	GDX_DEFINE_CREATOR(OrthoCamBorderTest);	
-	void create ()
+	void create()
 	{
-		VertexAttribute attributes[] = {VertexAttribute(VertexAttributes::Position, 2, "a_pos"), VertexAttribute(VertexAttributes::ColorPacked, 4, "a_col")};
+		VertexAttribute attributes[] = {VertexAttribute(VertexAttributes::Position, 2, "a_pos"), VertexAttribute(VertexAttributes::Color, 4, "a_col")};
 		m_mesh = new Mesh(true, attributes, 2);
-		//float vertices[] = {0, 0, 1, 0, 0, 1, WIDTH, 0, 0, 1, 0, 1, WIDTH, HEIGHT, 0, 0, 1, 1, 0, HEIGHT, 1, 0, 1, 1};
-		float vertices[] = {0, 0, Color::toFloatBits(1.f, 0.f, 0.f, 1.f), WIDTH, 0, Color::toFloatBits(0.f, 1.f, 0.f, 1.f), WIDTH, HEIGHT, Color::toFloatBits(0.f, 0.f, 1.f, 1.f), 0, HEIGHT, Color::toFloatBits(1.f, 0.f, 1.f, 1.f)};
+		float vertices[] = {
+			0, 0, 1, 0, 0, 1, 
+			WIDTH, 0,  0, 1, 0, 1, 
+			WIDTH, HEIGHT, 0, 0, 1, 1, 
+			0, HEIGHT, 1, 0, 1, 1};
+		
 		m_mesh->setVertices(vertices, sizeof(vertices)/sizeof(vertices[0]));
 		short indices[] = {0, 1, 2, 2, 3, 0};
-		m_mesh->setIndices(indices, sizeof(indices)/sizeof(indices));
+		m_mesh->setIndices(indices, sizeof(indices)/sizeof(indices[0]));
 
 		m_cam = OrthographicCamera(WIDTH, HEIGHT);
 		m_cam.position.set(WIDTH / 2, HEIGHT / 2, 0);
@@ -75,12 +79,12 @@ private:
 	}
 
 public:
-	void resize (int width, int height)
+	void resize(int width, int height)
 	{
 		m_glViewport = calculateGLViewport(WIDTH, HEIGHT);
 	}
 
-	void render ()
+	void render()
 	{
 		GL10* gl = Gdx.gl10;
 		gl->glClear(GL10::GDX_GL_COLOR_BUFFER_BIT);

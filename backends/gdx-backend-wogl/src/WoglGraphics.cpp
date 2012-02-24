@@ -303,6 +303,8 @@ void WoglGraphics::setViewport(int w, int h)
 
 	// switch to modelview matrix in order to set scene
 	glMatrixMode(GL_MODELVIEW);
+
+	m_listener.resize(w, h);
 }
 
 
