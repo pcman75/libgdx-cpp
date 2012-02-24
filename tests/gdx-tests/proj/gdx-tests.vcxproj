@@ -92,6 +92,7 @@
     <None Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\include\Gdx2DTest.h" />
     <ClInclude Include="..\include\SpriteBatchRotationTest.h" />
     <ClInclude Include="..\include\AlphaTest.h" />
     <ClInclude Include="..\include\FrustumTest.h" />

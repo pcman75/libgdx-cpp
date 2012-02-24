@@ -42,7 +42,7 @@
 //#include "FramebufferToTextureTest.h"
 //#include "FrustumTest.h"
 //#include "FullscreenTest.h"
-//#include "Gdx2DTest.h"
+#include "Gdx2DTest.h"
 //#include "GroupFadeTest.h"
 //#include "ImmediateModeRendererTest.h"
 //#include "ImmediateModeRendererAlphaTest.h"
@@ -180,7 +180,7 @@ GdxTests::GdxTests()
 	//GDX_DEFINE_TEST(FramebufferToTextureTest
 	//GDX_DEFINE_TEST(FrustumTest
 	//GDX_DEFINE_TEST(FullscreenTest
-	//GDX_DEFINE_TEST(Gdx2DTest
+	GDX_DEFINE_TEST(Gdx2DTest);
 	//GDX_DEFINE_TEST(GroupFadeTest
 	//GDX_DEFINE_TEST(ImmediateModeRendererTest
 	//GDX_DEFINE_TEST(ImmediateModeRendererAlphaTest

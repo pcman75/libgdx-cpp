@@ -15,24 +15,34 @@
  ******************************************************************************/
 #pragma once
 
+#include "GdxDefines.h"
 //#include "gdx2d.h"
 
-class Gdx2DPixmap
+class GdxDllImportExport Gdx2DPixmap
 {
 public:
-	static const int GDX2D_FORMAT_UNKNOWN;
-	static const int GDX2D_FORMAT_ALPHA;
-	static const int GDX2D_FORMAT_LUMINANCE_ALPHA;
-	static const int GDX2D_FORMAT_RGB888;
-	static const int GDX2D_FORMAT_RGBA8888;
-	static const int GDX2D_FORMAT_RGB565;
-	static const int GDX2D_FORMAT_RGBA4444;
+	enum GDX2D_FORMAT
+	{
+		GDX2D_FORMAT_UNKNOWN = 0,
+		GDX2D_FORMAT_ALPHA = 1,
+		GDX2D_FORMAT_LUMINANCE_ALPHA = 2,
+		GDX2D_FORMAT_RGB888 = 3,
+		GDX2D_FORMAT_RGBA8888 = 4,
+		GDX2D_FORMAT_RGB565 = 5,
+		GDX2D_FORMAT_RGBA4444 = 6
+	};
 
-	static const int GDX2D_SCALE_NEAREST;
-	static const int GDX2D_SCALE_LINEAR;
+	enum GDX2D_SCALE
+	{
+		GDX2D_SCALE_NEAREST = 0,
+		GDX2D_SCALE_LINEAR = 1
+	};
 
-	static const int GDX2D_BLEND_NONE;
-	static const int GDX2D_BLEND_SRC_OVER;
+	enum GDX2D_BLEND
+	{
+		GDX2D_BLEND_NONE = 0,
+		GDX2D_BLEND_SRC_OVER = 1
+	};
 
 private:
 	struct tag_gdx2d_pixmap* m_pixmap;
@@ -77,8 +87,8 @@ public:
 	void drawCircle (int x, int y, int radius, int color);
 	void fillRect (int x, int y, int width, int height, int color);
 	void fillCircle (int x, int y, int radius, int color);
-	void drawPixmap (Gdx2DPixmap src, int srcX, int srcY, int dstX, int dstY, int width, int height);
-	void drawPixmap (Gdx2DPixmap src, int srcX, int srcY, int srcWidth, int srcHeight, int dstX, int dstY, int dstWidth, int dstHeight);
+	void drawPixmap (Gdx2DPixmap* src, int srcX, int srcY, int dstX, int dstY, int width, int height);
+	void drawPixmap (Gdx2DPixmap* src, int srcX, int srcY, int srcWidth, int srcHeight, int dstX, int dstY, int dstWidth, int dstHeight);
 	/*
 	static Gdx2DPixmap newPixmap (InputStream in, int requestedFormat)
 	{
@@ -93,7 +103,8 @@ public:
 	}
 	*/
 
-	static Gdx2DPixmap newPixmap(int width, int height, int format);
+	/*caller must delete it*/
+	static Gdx2DPixmap* newPixmap(int width, int height, int format);
 	unsigned char* getPixels ();
 	int getHeight();
 	int getWidth();

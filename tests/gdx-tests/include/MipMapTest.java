@@ -1,12 +1,12 @@
 /*******************************************************************************
  * Copyright 2011 See AUTHORS file.
- * 
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  *   http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -41,9 +41,11 @@ import com.badlogic.gdx.tests.utils.GdxTest;
 import com.badlogic.gdx.tests.utils.PerspectiveCamController;
 import com.badlogic.gdx.utils.GdxRuntimeException;
 
-public class MipMapTest extends GdxTest {
+public class MipMapTest extends GdxTest
+{
 	@Override
-	public boolean needsGL20 () {
+	public boolean needsGL20()
+	{
 		return true;
 	}
 
@@ -61,7 +63,8 @@ public class MipMapTest extends GdxTest {
 	CheckBox hwMipMap;
 
 	@Override
-	public void create () {
+	public void create()
+	{
 		camera = new PerspectiveCamera(67, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 		camera.position.set(0, 1.5f, 1.5f);
 		camera.lookAt(0, 0, 0);
@@ -69,13 +72,13 @@ public class MipMapTest extends GdxTest {
 		controller = new PerspectiveCamController(camera);
 
 		mesh = new Mesh(true, 4, 4, new VertexAttribute(Usage.Position, 3, ShaderProgram.POSITION_ATTRIBUTE), new VertexAttribute(
-			Usage.TextureCoordinates, 2, ShaderProgram.TEXCOORD_ATTRIBUTE));
+		                    Usage.TextureCoordinates, 2, ShaderProgram.TEXCOORD_ATTRIBUTE));
 		mesh.setVertices(new float[] {-1, 0, 1, 0, 1, 1, 0, 1, 1, 1, 1, 0, -1, 1, 0, -1, 0, -1, 0, 0,});
 		mesh.setIndices(new short[] {0, 1, 2, 3});
 
 		shader = new ShaderProgram(Gdx.files.internal("data/shaders/flattex-vert.glsl").readString(), Gdx.files.internal(
-			"data/shaders/flattex-frag.glsl").readString());
-		if (!shader.isCompiled()) throw new GdxRuntimeException("shader error: " + shader.getLog());
+		                               "data/shaders/flattex-frag.glsl").readString());
+		if(!shader.isCompiled()) throw new GdxRuntimeException("shader error: " + shader.getLog());
 
 		textureHW = new Texture(Gdx.files.internal("data/badlogic.jpg"), Format.RGB565, true);
 		MipMapGenerator.setUseHardwareMipMap(false);
@@ -90,13 +93,15 @@ public class MipMapTest extends GdxTest {
 		multiplexer.addProcessor(controller);
 	}
 
-	private void createUI () {
+	private void createUI()
+	{
 		Skin skin = new Skin(Gdx.files.internal("data/uiskin.json"), Gdx.files.internal("data/uiskin.png"));
 		ui = new Stage(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), false);
 
 		String[] filters = new String[TextureFilter.values().length];
 		int idx = 0;
-		for (TextureFilter filter : TextureFilter.values()) {
+		for(TextureFilter filter : TextureFilter.values())
+		{
 			filters[idx++] = filter.toString();
 		}
 		hwMipMap = new CheckBox("Hardware Mips", skin.getStyle(CheckBoxStyle.class), "hardware");
@@ -117,7 +122,8 @@ public class MipMapTest extends GdxTest {
 	}
 
 	@Override
-	public void render () {
+	public void render()
+	{
 		Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
 		Gdx.gl.glEnable(GL10.GL_TEXTURE_2D);
 

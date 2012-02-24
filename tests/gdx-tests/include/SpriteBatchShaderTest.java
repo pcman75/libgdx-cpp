@@ -1,12 +1,12 @@
 /*******************************************************************************
  * Copyright 2011 See AUTHORS file.
- * 
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  *   http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -26,7 +26,8 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.tests.utils.GdxTest;
 
-public class SpriteBatchShaderTest extends GdxTest {
+public class SpriteBatchShaderTest extends GdxTest
+{
 	int SPRITES = 400;
 
 	long startTime = System.nanoTime();
@@ -45,7 +46,8 @@ public class SpriteBatchShaderTest extends GdxTest {
 	float vertices[] = new float[SPRITES * 6 * (2 + 2 + 4)];
 
 	@Override
-	public void render () {
+	public void render()
+	{
 		GL20 gl = Gdx.graphics.getGL20();
 		gl.glClearColor(0.7f, 0.7f, 0.7f, 1);
 		gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
@@ -62,13 +64,13 @@ public class SpriteBatchShaderTest extends GdxTest {
 
 		int len = coords.length;
 		start = System.nanoTime();
-		for (int i = 0; i < len; i += 2)
+		for(int i = 0; i < len; i += 2)
 			spriteBatch.draw(texture, coords[i], coords[i + 1], 0, 0, 32, 32);
 		draw1 = (System.nanoTime() - start) / 1000000000.0f;
 
 		start = System.nanoTime();
 		spriteBatch.setColor(col);
-		for (int i = 0; i < coords2.length; i += 2)
+		for(int i = 0; i < coords2.length; i += 2)
 			spriteBatch.draw(texture2, coords2[i], coords2[i + 1], 0, 0, 32, 32);
 		draw2 = (System.nanoTime() - start) / 1000000000.0f;
 
@@ -82,9 +84,10 @@ public class SpriteBatchShaderTest extends GdxTest {
 		spriteBatch.end();
 		end = (System.nanoTime() - start) / 1000000000.0f;
 
-		if (System.nanoTime() - startTime > 1000000000) {
+		if(System.nanoTime() - startTime > 1000000000)
+		{
 			Gdx.app.log("SpriteBatch", "fps: " + frames + ", render calls: " + spriteBatch.renderCalls + ", " + begin + ", " + draw1
-				+ ", " + draw2 + ", " + drawText + ", " + end);
+			            + ", " + draw2 + ", " + drawText + ", " + end);
 			frames = 0;
 			startTime = System.nanoTime();
 		}
@@ -92,7 +95,8 @@ public class SpriteBatchShaderTest extends GdxTest {
 	}
 
 	@Override
-	public void create () {
+	public void create()
+	{
 		spriteBatch = new SpriteBatch();
 		Pixmap pixmap = new Pixmap(Gdx.files.internal("data/badlogicsmall.jpg"));
 // pixmap.setColor( 0, 0, 0, 0 );
@@ -112,7 +116,8 @@ public class SpriteBatchShaderTest extends GdxTest {
 
 // if (font == null) font = Gdx.graphics.newFont("Arial", 32, FontStyle.Plain);
 
-		for (int i = 0; i < coords.length; i += 2) {
+		for(int i = 0; i < coords.length; i += 2)
+		{
 			coords[i] = (int)(Math.random() * Gdx.graphics.getWidth());
 			coords[i + 1] = (int)(Math.random() * Gdx.graphics.getHeight());
 			coords2[i] = (int)(Math.random() * Gdx.graphics.getWidth());
@@ -121,7 +126,8 @@ public class SpriteBatchShaderTest extends GdxTest {
 	}
 
 	@Override
-	public boolean needsGL20 () {
+	public boolean needsGL20()
+	{
 		return true;
 	}
 

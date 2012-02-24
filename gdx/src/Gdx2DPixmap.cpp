@@ -4,21 +4,6 @@
 #include "GdxRuntimeException.h"
 #include "GL10.h"
 
-const int Gdx2DPixmap::GDX2D_FORMAT_UNKNOWN = 0;
-const int Gdx2DPixmap::GDX2D_FORMAT_ALPHA = 1;
-const int Gdx2DPixmap::GDX2D_FORMAT_LUMINANCE_ALPHA = 2;
-const int Gdx2DPixmap::GDX2D_FORMAT_RGB888 = 3;
-const int Gdx2DPixmap::GDX2D_FORMAT_RGBA8888 = 4;
-const int Gdx2DPixmap::GDX2D_FORMAT_RGB565 = 5;
-const int Gdx2DPixmap::GDX2D_FORMAT_RGBA4444 = 6;
-
-const int Gdx2DPixmap::GDX2D_SCALE_NEAREST = 0;
-const int Gdx2DPixmap::GDX2D_SCALE_LINEAR = 1;
-
-const int Gdx2DPixmap::GDX2D_BLEND_NONE = 0;
-const int Gdx2DPixmap::GDX2D_BLEND_SRC_OVER = 1;
-
-
 void Gdx2DPixmap::init()
 {
 	m_pixmap = NULL;
@@ -118,15 +103,15 @@ void Gdx2DPixmap::fillCircle (int x, int y, int radius, int color)
 	gdx2d_fill_circle(m_pixmap, x, y, radius, color);
 }
 
-void Gdx2DPixmap::drawPixmap (Gdx2DPixmap src, int srcX, int srcY, int dstX, int dstY, int width, int height)
+void Gdx2DPixmap::drawPixmap(Gdx2DPixmap* src, int srcX, int srcY, int dstX, int dstY, int width, int height)
 {
-	gdx2d_draw_pixmap(src.m_pixmap, m_pixmap, srcX, srcY, width, height, dstX, dstY, width, height);
+	gdx2d_draw_pixmap(src->m_pixmap, m_pixmap, srcX, srcY, width, height, dstX, dstY, width, height);
 }
 
-void Gdx2DPixmap::drawPixmap (Gdx2DPixmap src, int srcX, int srcY, int srcWidth, int srcHeight, int dstX, int dstY, int dstWidth,
+void Gdx2DPixmap::drawPixmap (Gdx2DPixmap* src, int srcX, int srcY, int srcWidth, int srcHeight, int dstX, int dstY, int dstWidth,
 	int dstHeight)
 {
-	gdx2d_draw_pixmap(src.m_pixmap, m_pixmap, srcX, srcY, srcWidth, srcHeight, dstX, dstY, dstWidth, dstHeight);
+	gdx2d_draw_pixmap(src->m_pixmap, m_pixmap, srcX, srcY, srcWidth, srcHeight, dstX, dstY, dstWidth, dstHeight);
 }
 
 /*
@@ -143,9 +128,9 @@ return null;
 }
 */
 
-Gdx2DPixmap Gdx2DPixmap::newPixmap (int width, int height, int format)
+Gdx2DPixmap* Gdx2DPixmap::newPixmap (int width, int height, int format)
 {
-	return Gdx2DPixmap(width, height, format);
+	return new Gdx2DPixmap(width, height, format);
 }
 
 unsigned char* Gdx2DPixmap::getPixels ()

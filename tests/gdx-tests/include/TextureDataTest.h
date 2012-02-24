@@ -29,8 +29,8 @@ public:
 	void create () 
 	{
 		m_spriteBatch = new SpriteBatch();
-		m_texture = new Texture(new PixmapTextureData(new Pixmap(Gdx.files->internalHandle("c:\\t8890.png")), Pixmap::Format::Unknown, false, true));
-		//m_texture = new Texture(new FileTextureData(Gdx.files->internalHandle("c:\\t8890.png"), NULL, Pixmap::Format::Unknown, false));
+		m_texture = new Texture(new PixmapTextureData(new Pixmap(Gdx.files->internalHandle("data\\t8890.png")), Pixmap::Format::Unknown, false, true));
+		//m_texture = new Texture(new FileTextureData(Gdx.files->internalHandle("data\\t8890.png"), NULL, Pixmap::Format::Unknown, false));
 	}
 
 	void render () 
