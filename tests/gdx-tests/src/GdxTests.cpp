@@ -77,6 +77,7 @@
 //#include "PixelsPerInchTest.h"
 #include "PixmapBlendingTest.h"
 #include "PixmapTest.h"
+#include "SpriteBatchRotationTest.h"
 //#include "PreferencesTest.h"
 //#include "ProjectiveTextureTest.h"
 //#include "Pong.h"
@@ -214,6 +215,7 @@ GdxTests::GdxTests()
 	//GDX_DEFINE_TEST(PixelsPerInchTest
 	GDX_DEFINE_TEST(PixmapBlendingTest);
 	GDX_DEFINE_TEST(PixmapTest);
+  GDX_DEFINE_TEST(SpriteBatchRotationTest);
 	//GDX_DEFINE_TEST(PreferencesTest
 	//GDX_DEFINE_TEST(ProjectiveTextureTest
 	//GDX_DEFINE_TEST(Pong

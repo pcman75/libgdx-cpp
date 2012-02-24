@@ -76,6 +76,9 @@
     <ClInclude Include="..\include\OrthoCamBorderTest.h">
       <Filter>inlcude</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\%40Git\tests\gdx-tests\include\SpriteBatchRotationTest.h">
+      <Filter>inlcude</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\dllmain.cpp">
@@ -106,6 +109,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\gdx\src\MipMapGenerator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\%40Git\tests\gdx-tests\src\SpriteBatchRotationTest.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

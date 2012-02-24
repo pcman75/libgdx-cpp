@@ -92,6 +92,7 @@
     <None Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\..\%40Git\tests\gdx-tests\include\SpriteBatchRotationTest.h" />
     <ClInclude Include="..\include\AlphaTest.h" />
     <ClInclude Include="..\include\FrustumTest.h" />
     <ClInclude Include="..\include\GdxTest.h" />
@@ -112,6 +113,7 @@
     <ClInclude Include="..\incl\targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\..\%40Git\tests\gdx-tests\src\SpriteBatchRotationTest.cpp" />
     <ClCompile Include="..\..\..\gdx\src\MipMapGenerator.cpp" />
     <ClCompile Include="..\src\dllmain.cpp" />
     <ClCompile Include="..\src\GdxTests.cpp" />
