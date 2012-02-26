@@ -1,7 +1,7 @@
 #include "StdAfx.h"
 #include "WoglApplication.h"
 #include "WoglGraphics.h"
-#include "WoglInput.h"
+#include "WindowsInput.h"
 #include "WoglFiles.h"
 
 #include "WoglGraphics.h"
@@ -34,7 +34,7 @@ WoglApplication::WoglApplication (ApplicationListener& listener, const char* tit
 {
 	logLevel = LOG_INFO;
 	m_pGraphics = new WoglGraphics(listener, useGL20IfAvailable);
-	m_pInput = new WoglInput();
+	m_pInput = new WindowsInput();
 	m_pFiles = new WoglFiles();
 
 
