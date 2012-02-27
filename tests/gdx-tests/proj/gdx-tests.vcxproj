@@ -95,6 +95,7 @@
     <ClInclude Include="..\include\Gdx2DTest.h" />
     <ClInclude Include="..\include\IndexBufferObjectClassTest.h" />
     <ClInclude Include="..\include\IndexBufferObjectShaderTest.h" />
+    <ClInclude Include="..\include\MeshMultitextureTest.h" />
     <ClInclude Include="..\include\MipMapTest.h" />
     <ClInclude Include="..\include\SimpleVertexShader.h" />
     <ClInclude Include="..\include\SpriteBatchRotationTest.h" />

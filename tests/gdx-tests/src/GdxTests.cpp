@@ -61,7 +61,7 @@
 //#include "ManualBindTest.h"
 #include "MatrixJNITest.h"
 //#include "MD5Test.h"
-//#include "MeshMultitextureTest.h"
+#include "MeshMultitextureTest.h"
 #include "MeshShaderTest.h"
 #include "MeshTest.h"
 //#include "MipMapTest.h"
@@ -198,7 +198,7 @@ GdxTests::GdxTests()
 	//GDX_DEFINE_TEST(ManualBindTest
 	GDX_DEFINE_TEST(MatrixJNITest);
 	//GDX_DEFINE_TEST(MD5Test
-	//GDX_DEFINE_TEST(MeshMultitextureTest
+	GDX_DEFINE_TEST(MeshMultitextureTest);
 	GDX_DEFINE_TEST(MeshShaderTest);
 	GDX_DEFINE_TEST(MeshTest);
 	//GDX_DEFINE_TEST(MipMapTest
