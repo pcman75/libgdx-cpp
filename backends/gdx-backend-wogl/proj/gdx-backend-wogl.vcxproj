@@ -79,6 +79,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\exp\WindowsTimer.h" />
     <ClInclude Include="..\exp\WoglFileHandleStream.h" />
     <ClInclude Include="..\exp\WoglApplication.h" />
     <ClInclude Include="..\exp\WoglDefines.h" />
@@ -88,7 +89,7 @@
     <ClInclude Include="..\exp\WoglGL20.h" />
     <ClInclude Include="..\exp\WoglGLCommon.h" />
     <ClInclude Include="..\exp\WoglGraphics.h" />
-    <ClInclude Include="..\exp\WoglInput.h" />
+    <ClInclude Include="..\exp\WindowsInput.h" />
     <ClInclude Include="..\incl\Controller.h" />
     <ClInclude Include="..\incl\ControllerGL.h" />
     <ClInclude Include="..\incl\procedure.h" />
@@ -99,6 +100,7 @@
     <ClInclude Include="..\incl\Window.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\src\WindowsTimer.cpp" />
     <ClCompile Include="..\src\WoglFileHandleStream.cpp" />
     <ClCompile Include="..\extern\glew.c">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
@@ -123,7 +125,7 @@
     <ClCompile Include="..\src\WoglGL20.cpp" />
     <ClCompile Include="..\src\WoglGLCommon.cpp" />
     <ClCompile Include="..\src\WoglGraphics.cpp" />
-    <ClCompile Include="..\src\WoglInput.cpp" />
+    <ClCompile Include="..\src\WindowsInput.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\ReadMe.txt" />

@@ -36,9 +36,6 @@
     <ClInclude Include="..\exp\WoglGraphics.h">
       <Filter>Exported Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\exp\WoglInput.h">
-      <Filter>Exported Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\exp\WoglDefines.h">
       <Filter>Exported Header Files</Filter>
     </ClInclude>
@@ -72,8 +69,14 @@
     <ClInclude Include="..\exp\WoglGL20.h">
       <Filter>Exported Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\exp\WindowsTimer.h">
+      <Filter>Exported Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\exp\WindowsInput.h">
+      <Filter>Exported Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="..\exp\WoglFileHandleStream.h">
-      <Filter>Header Files</Filter>
+      <Filter>Exported Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -93,9 +96,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\src\WoglGraphics.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\WoglInput.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\src\Controller.cpp">
@@ -132,6 +132,12 @@
       <Filter>extern</Filter>
     </ClCompile>
     <ClCompile Include="..\src\WoglFileHandleStream.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\WindowsTimer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\WindowsInput.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

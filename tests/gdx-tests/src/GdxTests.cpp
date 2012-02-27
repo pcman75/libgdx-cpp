@@ -77,7 +77,6 @@
 //#include "PixelsPerInchTest.h"
 #include "PixmapBlendingTest.h"
 #include "PixmapTest.h"
-#include "SpriteBatchRotationTest.h"
 //#include "PreferencesTest.h"
 //#include "ProjectiveTextureTest.h"
 //#include "Pong.h"
@@ -94,8 +93,8 @@
 //#include "SoundTest.h"
 //#include "SpriteCacheTest.h"
 //#include "SpriteCacheOffsetTest.h"
-//#include "SpriteBatchRotationTest.h"
-//#include "SpriteBatchShaderTest.h"
+#include "SpriteBatchRotationTest.h"
+#include "SpriteBatchShaderTest.h"
 #include "SpriteBatchTest.h"
 //#include "SpritePerformanceTest.h"
 //#include "SpritePerformanteTest2.h"
@@ -121,7 +120,7 @@
 //#include "VorbisTest.h"
 //#include "WaterRipples.h"
 //#include "HelloTriangle.h"
-//#include "SimpleVertexShader.h"
+#include "SimpleVertexShader.h"
 //#include "ShapeRendererTest.h"
 //#include "MoveSpriteExample.h"
 //#include "StbTrueTypeTest.h"
@@ -215,7 +214,6 @@ GdxTests::GdxTests()
 	//GDX_DEFINE_TEST(PixelsPerInchTest
 	GDX_DEFINE_TEST(PixmapBlendingTest);
 	GDX_DEFINE_TEST(PixmapTest);
-  GDX_DEFINE_TEST(SpriteBatchRotationTest);
 	//GDX_DEFINE_TEST(PreferencesTest
 	//GDX_DEFINE_TEST(ProjectiveTextureTest
 	//GDX_DEFINE_TEST(Pong
@@ -232,8 +230,8 @@ GdxTests::GdxTests()
 	//GDX_DEFINE_TEST(SoundTest
 	//GDX_DEFINE_TEST(SpriteCacheTest
 	//GDX_DEFINE_TEST(SpriteCacheOffsetTest
-	//GDX_DEFINE_TEST(SpriteBatchRotationTest
-	//GDX_DEFINE_TEST(SpriteBatchShaderTest
+	GDX_DEFINE_TEST(SpriteBatchRotationTest);
+	GDX_DEFINE_TEST(SpriteBatchShaderTest);
 	GDX_DEFINE_TEST(SpriteBatchTest);
 	//GDX_DEFINE_TEST(SpritePerformanceTest
 	//GDX_DEFINE_TEST(SpritePerformanteTest2
@@ -259,7 +257,7 @@ GdxTests::GdxTests()
 	//GDX_DEFINE_TEST(VorbisTest
 	//GDX_DEFINE_TEST(WaterRipples
 	//GDX_DEFINE_TEST(HelloTriangle
-	//GDX_DEFINE_TEST(SimpleVertexShader
+	GDX_DEFINE_TEST(SimpleVertexShader);
 	//GDX_DEFINE_TEST(ShapeRendererTest
 	//GDX_DEFINE_TEST(MoveSpriteExample
 	//GDX_DEFINE_TEST(StbTrueTypeTest

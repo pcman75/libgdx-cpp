@@ -24,6 +24,7 @@ class Audio;
 class Input;
 class Files;
 class Preferences;
+class Timer;
 
 class GdxDllImportExport Application {
 public:
@@ -116,6 +117,9 @@ public:
 
 	/** @return the {@link Files} instance */
 	virtual const Files* getFiles () = 0;
+
+	/** @create a Timer. caller must delete it after use*/
+	virtual Timer* createTimer() = 0;
 
 	/** Logs a message to the console or logcat */
 	virtual void log(const char* tag, const char* message) = 0;

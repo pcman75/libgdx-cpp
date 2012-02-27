@@ -165,6 +165,12 @@
     <ClCompile Include="..\src\PerspectiveCamera.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\InputAdapter.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\InputMultiplexer.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\lib\etc1_utils.h">
@@ -348,6 +354,15 @@
       <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="..\include\Timer.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\InputAdapter.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\InputMultiplexer.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\InputProcessor.h">
       <Filter>include</Filter>
     </ClInclude>
   </ItemGroup>

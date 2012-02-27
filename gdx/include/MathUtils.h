@@ -19,8 +19,9 @@
  * Thanks to Riven on JavaGaming.org for sin/cos/atan2/floor/ceil.<br> */
 
 #pragma once
+#include "GdxDefines.h"
 
-class MathUtils
+class GdxDllImportExport MathUtils
 {
 public:
 	static float PI;

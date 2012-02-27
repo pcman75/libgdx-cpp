@@ -13,42 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  ******************************************************************************/
+#pragma once
 
-package com.badlogic.gdx.tests;
-
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.InputMultiplexer;
-import com.badlogic.gdx.graphics.GL10;
-import com.badlogic.gdx.graphics.Mesh;
-import com.badlogic.gdx.graphics.PerspectiveCamera;
-import com.badlogic.gdx.graphics.Pixmap.Format;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.Texture.TextureFilter;
-import com.badlogic.gdx.graphics.VertexAttribute;
-import com.badlogic.gdx.graphics.VertexAttributes.Usage;
-import com.badlogic.gdx.graphics.glutils.MipMapGenerator;
-import com.badlogic.gdx.graphics.glutils.ShaderProgram;
-import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.scenes.scene2d.ui.CheckBox;
-import com.badlogic.gdx.scenes.scene2d.ui.CheckBox.CheckBoxStyle;
-import com.badlogic.gdx.scenes.scene2d.ui.SelectBox;
-import com.badlogic.gdx.scenes.scene2d.ui.SelectBox.SelectBoxStyle;
-import com.badlogic.gdx.scenes.scene2d.ui.Label;
-import com.badlogic.gdx.scenes.scene2d.ui.Label.LabelStyle;
-import com.badlogic.gdx.scenes.scene2d.ui.Skin;
-import com.badlogic.gdx.scenes.scene2d.ui.tablelayout.Table;
-import com.badlogic.gdx.tests.utils.GdxTest;
-import com.badlogic.gdx.tests.utils.PerspectiveCamController;
-import com.badlogic.gdx.utils.GdxRuntimeException;
-
-public class MipMapTest extends GdxTest
+class MipMapTest :
+	public GdxTest
 {
-	@Override
-	public boolean needsGL20()
-	{
-		return true;
-	}
-
+public:
+	
 	PerspectiveCamera camera;
 	PerspectiveCamController controller;
 	Mesh mesh;
@@ -62,8 +33,11 @@ public class MipMapTest extends GdxTest
 	SelectBox magFilter;
 	CheckBox hwMipMap;
 
-	@Override
-	public void create()
+	bool needsGL20()
+	{
+		return true;
+	}
+	void create()
 	{
 		camera = new PerspectiveCamera(67, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 		camera.position.set(0, 1.5f, 1.5f);
