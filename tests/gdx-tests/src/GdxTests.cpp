@@ -46,8 +46,8 @@
 //#include "GroupFadeTest.h"
 //#include "ImmediateModeRendererTest.h"
 //#include "ImmediateModeRendererAlphaTest.h"
-//#include "IndexBufferObjectClassTest.h"
-//#include "IndexBufferObjectShaderTest.h"
+#include "IndexBufferObjectClassTest.h"
+#include "IndexBufferObjectShaderTest.h"
 //#include "InputTest.h"
 //#include "IntegerBitmapFontTest.h"
 //#include "InverseKinematicsTest.h"
@@ -183,8 +183,8 @@ GdxTests::GdxTests()
 	//GDX_DEFINE_TEST(GroupFadeTest
 	//GDX_DEFINE_TEST(ImmediateModeRendererTest
 	//GDX_DEFINE_TEST(ImmediateModeRendererAlphaTest
-	//GDX_DEFINE_TEST(IndexBufferObjectClassTest
-	//GDX_DEFINE_TEST(IndexBufferObjectShaderTest
+	GDX_DEFINE_TEST(IndexBufferObjectClassTest);
+	GDX_DEFINE_TEST(IndexBufferObjectShaderTest);
 	//GDX_DEFINE_TEST(InputTest
 	//GDX_DEFINE_TEST(IntegerBitmapFontTest
 	//GDX_DEFINE_TEST(InverseKinematicsTest

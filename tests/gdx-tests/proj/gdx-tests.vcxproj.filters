@@ -94,6 +94,12 @@
     <ClInclude Include="..\include\SimpleVertexShader.h">
       <Filter>inlcude</Filter>
     </ClInclude>
+    <ClInclude Include="..\include\IndexBufferObjectClassTest.h">
+      <Filter>inlcude</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\IndexBufferObjectShaderTest.h">
+      <Filter>inlcude</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\dllmain.cpp">
