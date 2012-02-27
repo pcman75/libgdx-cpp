@@ -18,7 +18,7 @@
 //#include "GestureDetectorTest.h"
 //#include "LabelTest.h"
 //#include "BitmapFontTest.h"
-//#include "BlitTest.h"
+#include "BlitTest.h"
 //#include "TableTest.h"
 //#include "BobTest.h"
 //#include "ImageScaleTest.h"
@@ -155,7 +155,7 @@ GdxTests::GdxTests()
 	//GDX_DEFINE_TEST(GestureDetectorTest
 	//GDX_DEFINE_TEST(LabelTest
 	//GDX_DEFINE_TEST(BitmapFontTest
-	//GDX_DEFINE_TEST(BlitTest
+	GDX_DEFINE_TEST(BlitTest);
 	//GDX_DEFINE_TEST(TableTest
 	//GDX_DEFINE_TEST(BobTest
 	//GDX_DEFINE_TEST(ImageScaleTest

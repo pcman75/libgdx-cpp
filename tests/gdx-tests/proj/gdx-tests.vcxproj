@@ -92,6 +92,7 @@
     <None Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\include\BlitTest.h" />
     <ClInclude Include="..\include\Gdx2DTest.h" />
     <ClInclude Include="..\include\IndexBufferObjectClassTest.h" />
     <ClInclude Include="..\include\IndexBufferObjectShaderTest.h" />
