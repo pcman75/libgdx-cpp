@@ -20,7 +20,7 @@
 //#include "BitmapFontTest.h"
 #include "BlitTest.h"
 //#include "TableTest.h"
-//#include "BobTest.h"
+#include "BobTest.h"
 //#include "ImageScaleTest.h"
 //#include "Box2DInitialOverlapTest.h"
 //#include "Box2DTest.h"
@@ -157,7 +157,7 @@ GdxTests::GdxTests()
 	//GDX_DEFINE_TEST(BitmapFontTest
 	GDX_DEFINE_TEST(BlitTest);
 	//GDX_DEFINE_TEST(TableTest
-	//GDX_DEFINE_TEST(BobTest
+	GDX_DEFINE_TEST(BobTest);
 	//GDX_DEFINE_TEST(ImageScaleTest
 	//GDX_DEFINE_TEST(Box2DInitialOverlapTest
 	//GDX_DEFINE_TEST(Box2DTest

@@ -109,6 +109,9 @@
     <ClInclude Include="..\include\BlitTest.h">
       <Filter>inlcude</Filter>
     </ClInclude>
+    <ClInclude Include="..\include\BobTest.h">
+      <Filter>inlcude</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\dllmain.cpp">
