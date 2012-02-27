@@ -83,7 +83,7 @@
 //#include "ProjectTest.h"
 //#include "RemoteTest.h"
 //#include "RotationTest.h"
-//#include "ShaderMultitextureTest.h"
+#include "ShaderMultitextureTest.h"
 //#include "ShadowMappingTest.h"
 //#include "SplineTest.h"
 //#include "SimpleTest.h"
@@ -220,7 +220,7 @@ GdxTests::GdxTests()
 	//GDX_DEFINE_TEST(ProjectTest
 	//GDX_DEFINE_TEST(RemoteTest
 	//GDX_DEFINE_TEST(RotationTest
-	//GDX_DEFINE_TEST(ShaderMultitextureTest
+	GDX_DEFINE_TEST(ShaderMultitextureTest);
 	//GDX_DEFINE_TEST(ShadowMappingTest
 	//GDX_DEFINE_TEST(SplineTest
 	//GDX_DEFINE_TEST(SimpleTest
