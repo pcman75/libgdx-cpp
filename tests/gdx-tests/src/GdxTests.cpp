@@ -37,7 +37,7 @@
 //#include "ExitTest.h"
 //#include "FilesTest.h"
 //#include "FlickScrollPaneTest.h"
-//#include "FloatTest.h"
+#include "FloatTest.h"
 //#include "FrameBufferTest.h"
 //#include "FramebufferToTextureTest.h"
 //#include "FrustumTest.h"
@@ -174,7 +174,7 @@ GdxTests::GdxTests()
 	//GDX_DEFINE_TEST(ExitTest
 	//GDX_DEFINE_TEST(FilesTest
 	//GDX_DEFINE_TEST(FlickScrollPaneTest
-	//GDX_DEFINE_TEST(FloatTest
+	GDX_DEFINE_TEST(FloatTest);
 	//GDX_DEFINE_TEST(FrameBufferTest
 	//GDX_DEFINE_TEST(FramebufferToTextureTest
 	//GDX_DEFINE_TEST(FrustumTest

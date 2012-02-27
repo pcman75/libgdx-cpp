@@ -94,6 +94,7 @@
   <ItemGroup>
     <ClInclude Include="..\include\BlitTest.h" />
     <ClInclude Include="..\include\BobTest.h" />
+    <ClInclude Include="..\include\FloatTest.h" />
     <ClInclude Include="..\include\Gdx2DTest.h" />
     <ClInclude Include="..\include\IndexBufferObjectClassTest.h" />
     <ClInclude Include="..\include\IndexBufferObjectShaderTest.h" />
