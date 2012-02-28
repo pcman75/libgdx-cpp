@@ -22,10 +22,11 @@ using namespace Win;
 ///////////////////////////////////////////////////////////////////////////////
 // default contructor
 ///////////////////////////////////////////////////////////////////////////////
-ControllerGL::ControllerGL(WoglGraphics* graphics, ViewGL* view) : m_pGraphics(graphics), viewGL(view),
-                                                           threadHandle(0), threadId(0),
-                                                           loopFlag(false), resizeFlag(false),
-                                                           clientWidth(0), clientHeight(0)
+ControllerGL::ControllerGL(WoglGraphics* graphics, WindowsInput* input, ViewGL* view) 
+	: m_pGraphics(graphics), m_pInput(input), viewGL(view),
+    threadHandle(0), threadId(0),
+    loopFlag(false), resizeFlag(false),
+    clientWidth(0), clientHeight(0)
 {
 }
 
@@ -154,6 +155,7 @@ void ControllerGL::runThread()
 ///////////////////////////////////////////////////////////////////////////////
 int ControllerGL::lButtonDown(WPARAM state, int x, int y)
 {
+	m_pInput->buttonDown(state, x, y);
     // update mouse position
     m_pGraphics->setMousePosition(x, y);
 
@@ -172,6 +174,8 @@ int ControllerGL::lButtonDown(WPARAM state, int x, int y)
 ///////////////////////////////////////////////////////////////////////////////
 int ControllerGL::lButtonUp(WPARAM state, int x, int y)
 {
+	m_pInput->buttonUp(state, x, y);
+
     // update mouse position
     m_pGraphics->setMousePosition(x, y);
 

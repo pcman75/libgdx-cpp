@@ -20,6 +20,7 @@
 #include "ViewGL.h"
 #include "WoglGraphics.h"
 #include "ViewGL.h"
+#include "WindowsInput.h"
 
 
 namespace Win
@@ -27,7 +28,7 @@ namespace Win
     class ControllerGL : public Controller
     {
     public:
-        ControllerGL(WoglGraphics* graphics, ViewGL* view); // ctor with params
+        ControllerGL(WoglGraphics* graphics, WindowsInput* input, ViewGL* view); // ctor with params
         ~ControllerGL() {};                         // dtor
 
         int close();                                // close the RC and destroy OpenGL window
@@ -47,6 +48,7 @@ namespace Win
         void runThread();                           // thread for OpenGL rendering
 
         WoglGraphics* m_pGraphics;                           //
+		WindowsInput* m_pInput;
         ViewGL* viewGL;                             //
         HANDLE threadHandle;
         unsigned int threadId;

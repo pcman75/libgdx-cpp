@@ -318,3 +318,14 @@ void WindowsInput::setCursorPosition(int x, int y)
 	//TODO:
 }
 
+
+void WindowsInput::buttonDown(WPARAM state, int x, int y)
+{
+	//if(state
+}
+
+void WindowsInput::buttonUp(WPARAM state, int x, int y)
+{
+}
+
+

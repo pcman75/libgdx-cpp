@@ -4,6 +4,7 @@
 class WindowsInput :
 	public Input
 {
+
 public:
 	WindowsInput();
 	virtual ~WindowsInput();
@@ -188,5 +189,9 @@ public:
 	* @param x the x-position
 	* @param y the y-position */
 	virtual void setCursorPosition(int x, int y);
+
+	void buttonDown(WPARAM state, int x, int y);
+	void buttonUp(WPARAM state, int x, int y);
+
 };
 

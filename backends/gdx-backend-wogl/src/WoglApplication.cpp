@@ -48,7 +48,7 @@ WoglApplication::WoglApplication (ApplicationListener& listener, const char* tit
     Win::ViewGL view;   // under "Win" namespace because it is Windows specific view component.
 
     // create "controller" component by specifying what are "model" and "view"
-    Win::ControllerGL glCtrl((WoglGraphics*)m_pGraphics, &view);
+    Win::ControllerGL glCtrl((WoglGraphics*)m_pGraphics, (WindowsInput*)m_pInput, &view);
 
     // create window with given controller
     Win::Window glWin(::GetModuleHandle(NULL), title, 0, &glCtrl);
