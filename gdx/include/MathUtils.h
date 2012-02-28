@@ -124,6 +124,12 @@ public:
 
 	/** Returns the closest integer to the specified float. This method will only properly round floats that are positive. */
 	static int roundPositive (float x);
+
+	template <typename T> 
+	static int sign(T val)
+	{
+		return (val > T(0)) - (val < T(0));
+	}
 };
 
 inline float min(float a, float b)

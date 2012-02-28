@@ -100,6 +100,7 @@
     <ClInclude Include="..\include\IndexBufferObjectShaderTest.h" />
     <ClInclude Include="..\include\MeshMultitextureTest.h" />
     <ClInclude Include="..\include\MipMapTest.h" />
+    <ClInclude Include="..\include\Pong.h" />
     <ClInclude Include="..\include\RotationTest.h" />
     <ClInclude Include="..\include\ShaderMultitextureTest.h" />
     <ClInclude Include="..\include\SimpleVertexShader.h" />
