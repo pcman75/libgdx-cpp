@@ -20,8 +20,10 @@
 #include <sstream>
 #include <string>
 #include <vector>
+#include <set>
 #include <list>
 #include <map>
+#include <algorithm>
 
 #include <fstream>
 
