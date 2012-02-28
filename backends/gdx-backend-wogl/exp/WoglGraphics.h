@@ -1,6 +1,7 @@
 #pragma once
 #include "Graphics.h"
 #include "ApplicationListener.h"
+#include "WindowsTimer.h"
 
 class WoglGraphics : public Graphics
 {
@@ -16,6 +17,13 @@ private:
 	//final JoglDisplayMode desktopMode;
 	//final JoglApplicationConfiguration config;
 	//String extensions;
+
+	WindowsTimer m_timer;
+	long long m_frameStart;
+	long long m_lastFrameTime;
+	float m_deltaTime;
+	int m_fps;
+	int m_frames;
 
 public:
 	WoglGraphics(ApplicationListener& listener, bool useGL20/*, JoglApplicationConfiguration config*/);
@@ -174,6 +182,6 @@ private:
     float cameraAngleY;
     float cameraDistance;
 
-
+	void updateTimes();
 };
 

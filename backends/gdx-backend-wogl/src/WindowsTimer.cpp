@@ -9,7 +9,7 @@ long long WindowsTimer::systemNanoSeconds()
 	::QueryPerformanceCounter(&systemCounter);
 	::SetThreadAffinityMask(::GetCurrentThread(), oldmask);
 
-	return  (long long)(10E6 * systemCounter.QuadPart / frequency);
+	return  (long long)(10E9 * systemCounter.QuadPart / frequency);
 }
 
 WindowsTimer::WindowsTimer(void)

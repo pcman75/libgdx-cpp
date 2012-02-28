@@ -4,6 +4,7 @@
 #include "WoglGL11.h"
 #include "WoglGL20.h"
 #include "Gdx.h"
+#include "WindowsTimer.h"
 
 WoglGraphics::WoglGraphics(ApplicationListener& listener, bool useGL20)
 	:m_listener(listener), m_useGL20(useGL20),
@@ -16,6 +17,8 @@ WoglGraphics::WoglGraphics(ApplicationListener& listener, bool useGL20)
 	m_pGL10 = NULL;
 	m_pGL11 = NULL;
 	m_pGL20 = NULL;
+
+	m_deltaTime = 0;
 }
 
 
@@ -120,13 +123,12 @@ int WoglGraphics::getHeight ()
 }
 float WoglGraphics::getDeltaTime ()
 {
-	return 50000;
+	return m_deltaTime;
 }
 
 int WoglGraphics::getFramesPerSecond ()
 {
-	//TODO:
-	return 20;
+	return m_fps;
 }
 Graphics::GraphicsType WoglGraphics::getType ()
 {
@@ -248,7 +250,25 @@ void WoglGraphics::create()
 {
 	initializeGLInstances();
 	m_listener.create();
+
+	m_frameStart = m_timer.systemNanoSeconds();
+	m_lastFrameTime = m_frameStart;
+	m_deltaTime = 0;
 }
+
+void WoglGraphics::updateTimes() 
+{
+		m_deltaTime = (m_timer.systemNanoSeconds() - m_lastFrameTime) / 10.0E9f;
+		m_lastFrameTime = m_timer.systemNanoSeconds();
+
+		if(m_timer.systemNanoSeconds() - m_frameStart > 10E9) 
+		{
+			m_fps = m_frames;
+			m_frames = 0;
+			m_frameStart = m_timer.systemNanoSeconds();
+		}
+		m_frames++;
+	}
 
 ///////////////////////////////////////////////////////////////////////////////
 // initialize lights
@@ -314,6 +334,8 @@ void WoglGraphics::setViewport(int w, int h)
 ///////////////////////////////////////////////////////////////////////////////
 void WoglGraphics::draw()
 {
+	
+
 	// clear buffer
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
 
@@ -325,6 +347,7 @@ void WoglGraphics::draw()
 	glRotatef(cameraAngleX, 1, 0, 0);   // pitch
 	glRotatef(cameraAngleY, 0, 1, 0);   // heading
 
+	updateTimes();
 	m_listener.render();
 
 	glPopMatrix();
