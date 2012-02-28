@@ -14,10 +14,12 @@
  * limitations under the License.
  ******************************************************************************/
 #pragma once
+#include "GdxDefines.h"
+
 
 /** Encapsulates a 2D vector. Allows chaining methods by returning a reference to itself
  * @author badlogicgames@gmail.com */
-class Vector2
+class GdxDllImportExport Vector2
 {
 public:
 	/** Static temporary vector. Use with care! Use only when sure other code will not also use this.
