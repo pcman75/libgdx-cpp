@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="mpg123">
+</Property><Property Name="Solution File" Value="C:\libgdx-cpp\gdx-audio\extern\mpg123-1.13.1.4\ports\MSVC++\2008\mpg123.sln">
+</Property><Property Name="Date" Value="Tuesday, February 28, 2012">
+</Property><Property Name="Time" Value="23:36 PM">
+</Property></Properties><Event ErrorLevel="0" Project="" Source="mpg123.sln" Description="File successfully backed up as C:\libgdx-cpp\gdx-audio\extern\mpg123-1.13.1.4\ports\MSVC++\2008\mpg123.sln.old">
+</Event><Event ErrorLevel="0" Project="libmpg123" Source="libmpg123\libmpg123.vcproj" Description="Converting project file 'c:\libgdx-cpp\gdx-audio\extern\mpg123-1.13.1.4\ports\MSVC++\2008\libmpg123\libmpg123.vcproj'.">
+</Event><Event ErrorLevel="1" Project="libmpg123" Source="libmpg123\libmpg123.vcproj" Description="VCWebServiceProxyGeneratorTool is no longer supported. The tool has been removed from your project settings.">
+</Event><Event ErrorLevel="0" Project="libmpg123" Source="libmpg123\libmpg123.vcproj" Description="Done converting to new project file 'c:\libgdx-cpp\gdx-audio\extern\mpg123-1.13.1.4\ports\MSVC++\2008\libmpg123\libmpg123.vcxproj'.">
+</Event><Event ErrorLevel="3" Project="libmpg123" Source="libmpg123\libmpg123.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="mpglib" Source="mpglib\mpglib.vcproj" Description="Converting project file 'c:\libgdx-cpp\gdx-audio\extern\mpg123-1.13.1.4\ports\MSVC++\2008\mpglib\mpglib.vcproj'.">
+</Event><Event ErrorLevel="1" Project="mpglib" Source="mpglib\mpglib.vcproj" Description="VCWebServiceProxyGeneratorTool is no longer supported. The tool has been removed from your project settings.">
+</Event><Event ErrorLevel="1" Project="mpglib" Source="mpglib\mpglib.vcproj" Description="Attribute 'CopyLocalDependencies' of 'ProjectReference' is not supported in this version and has been removed during conversion.">
+</Event><Event ErrorLevel="1" Project="mpglib" Source="mpglib\mpglib.vcproj" Description="Attribute 'UseDependenciesInBuild' of 'ProjectReference' is not supported in this version and has been removed during conversion.">
+</Event><Event ErrorLevel="0" Project="mpglib" Source="mpglib\mpglib.vcproj" Description="Done converting to new project file 'c:\libgdx-cpp\gdx-audio\extern\mpg123-1.13.1.4\ports\MSVC++\2008\mpglib\mpglib.vcxproj'.">
+</Event><Event ErrorLevel="3" Project="mpglib" Source="mpglib\mpglib.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="feedseek" Source="feedseek\feedseek.vcproj" Description="Converting project file 'c:\libgdx-cpp\gdx-audio\extern\mpg123-1.13.1.4\ports\MSVC++\2008\feedseek\feedseek.vcproj'.">
+</Event><Event ErrorLevel="1" Project="feedseek" Source="feedseek\feedseek.vcproj" Description="VCWebServiceProxyGeneratorTool is no longer supported. The tool has been removed from your project settings.">
+</Event><Event ErrorLevel="1" Project="feedseek" Source="feedseek\feedseek.vcproj" Description="Attribute 'CopyLocalDependencies' of 'ProjectReference' is not supported in this version and has been removed during conversion.">
+</Event><Event ErrorLevel="1" Project="feedseek" Source="feedseek\feedseek.vcproj" Description="Attribute 'UseDependenciesInBuild' of 'ProjectReference' is not supported in this version and has been removed during conversion.">
+</Event><Event ErrorLevel="0" Project="feedseek" Source="feedseek\feedseek.vcproj" Description="Done converting to new project file 'c:\libgdx-cpp\gdx-audio\extern\mpg123-1.13.1.4\ports\MSVC++\2008\feedseek\feedseek.vcxproj'.">
+</Event><Event ErrorLevel="3" Project="feedseek" Source="feedseek\feedseek.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="scan" Source="scan\scan.vcproj" Description="Converting project file 'c:\libgdx-cpp\gdx-audio\extern\mpg123-1.13.1.4\ports\MSVC++\2008\scan\scan.vcproj'.">
+</Event><Event ErrorLevel="1" Project="scan" Source="scan\scan.vcproj" Description="VCWebServiceProxyGeneratorTool is no longer supported. The tool has been removed from your project settings.">
+</Event><Event ErrorLevel="1" Project="scan" Source="scan\scan.vcproj" Description="Attribute 'CopyLocalDependencies' of 'ProjectReference' is not supported in this version and has been removed during conversion.">
+</Event><Event ErrorLevel="1" Project="scan" Source="scan\scan.vcproj" Description="Attribute 'UseDependenciesInBuild' of 'ProjectReference' is not supported in this version and has been removed during conversion.">
+</Event><Event ErrorLevel="0" Project="scan" Source="scan\scan.vcproj" Description="Done converting to new project file 'c:\libgdx-cpp\gdx-audio\extern\mpg123-1.13.1.4\ports\MSVC++\2008\scan\scan.vcxproj'.">
+</Event><Event ErrorLevel="3" Project="scan" Source="scan\scan.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="dump_seekindex" Source="dump_seekindex\dump_seekindex.vcproj" Description="Converting project file 'c:\libgdx-cpp\gdx-audio\extern\mpg123-1.13.1.4\ports\MSVC++\2008\dump_seekindex\dump_seekindex.vcproj'.">
+</Event><Event ErrorLevel="1" Project="dump_seekindex" Source="dump_seekindex\dump_seekindex.vcproj" Description="VCWebServiceProxyGeneratorTool is no longer supported. The tool has been removed from your project settings.">
+</Event><Event ErrorLevel="1" Project="dump_seekindex" Source="dump_seekindex\dump_seekindex.vcproj" Description="Attribute 'CopyLocalDependencies' of 'ProjectReference' is not supported in this version and has been removed during conversion.">
+</Event><Event ErrorLevel="1" Project="dump_seekindex" Source="dump_seekindex\dump_seekindex.vcproj" Description="Attribute 'UseDependenciesInBuild' of 'ProjectReference' is not supported in this version and has been removed during conversion.">
+</Event><Event ErrorLevel="0" Project="dump_seekindex" Source="dump_seekindex\dump_seekindex.vcproj" Description="Done converting to new project file 'c:\libgdx-cpp\gdx-audio\extern\mpg123-1.13.1.4\ports\MSVC++\2008\dump_seekindex\dump_seekindex.vcxproj'.">
+</Event><Event ErrorLevel="3" Project="dump_seekindex" Source="dump_seekindex\dump_seekindex.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="mpg123.sln" Description="Solution converted successfully">
+</Event><Event ErrorLevel="3" Project="" Source="mpg123.sln" Description="Converted">
+</Event></UpgradeLog>
