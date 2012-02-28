@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "Polygon.h"
 #include "GdxRuntimeException.h"
+#include "MathUtils.h"
 
 Polygon::Polygon()
 {
@@ -24,8 +25,8 @@ std::vector<float> Polygon::getVertices()
 
 	float translateX = m_x + m_originX;
 	float translateY = m_y + m_originY;
-	float fcos = cos( m_rotation);
-	float fsin = sin( m_rotation);
+	float fcos = MathUtils::cosDeg( m_rotation);
+	float fsin = MathUtils::sinDeg( m_rotation);
 	float x, y;
 	for( int i = 0; i < numFloats; i += 2) 
   {
