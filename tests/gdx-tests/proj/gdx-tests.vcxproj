@@ -127,6 +127,7 @@
     <ClInclude Include="..\incl\targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\src\Pong.cpp" />
     <ClCompile Include="..\src\SpriteBatchRotationTest.cpp" />
     <ClCompile Include="..\src\dllmain.cpp" />
     <ClCompile Include="..\src\GdxTests.cpp" />
