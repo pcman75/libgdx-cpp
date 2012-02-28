@@ -74,12 +74,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\%40Git\gdx\src\Action.cpp" />
-    <ClCompile Include="..\..\..\%40Git\gdx\src\Actor.cpp" />
-    <ClCompile Include="..\..\..\%40Git\gdx\src\Cullable.cpp" />
-    <ClCompile Include="..\..\..\%40Git\gdx\src\Group.cpp" />
-    <ClCompile Include="..\..\..\%40Git\gdx\src\OnActionCompleted.cpp" />
-    <ClCompile Include="..\..\..\%40Git\gdx\src\Stage.cpp" />
+    <ClCompile Include="..\src\Action.cpp" />
+    <ClCompile Include="..\src\Actor.cpp" />
+    <ClCompile Include="..\src\Cullable.cpp" />
+    <ClCompile Include="..\src\Group.cpp" />
+    <ClCompile Include="..\src\OnActionCompleted.cpp" />
+    <ClCompile Include="..\src\Stage.cpp" />
     <ClCompile Include="..\lib\stb_image.c">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
@@ -148,12 +148,12 @@
     <ClCompile Include="..\src\VertexBufferObject.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\%40Git\gdx\include\Action.h" />
-    <ClInclude Include="..\..\..\%40Git\gdx\include\Actor.h" />
-    <ClInclude Include="..\..\..\%40Git\gdx\include\Cullable.h" />
-    <ClInclude Include="..\..\..\%40Git\gdx\include\Group.h" />
-    <ClInclude Include="..\..\..\%40Git\gdx\include\OnActionCompleted.h" />
-    <ClInclude Include="..\..\..\%40Git\gdx\include\Stage.h" />
+    <ClInclude Include="..\include\Action.h" />
+    <ClInclude Include="..\include\Actor.h" />
+    <ClInclude Include="..\include\Cullable.h" />
+    <ClInclude Include="..\include\Group.h" />
+    <ClInclude Include="..\include\OnActionCompleted.h" />
+    <ClInclude Include="..\include\Stage.h" />
     <ClInclude Include="..\include\Application.h" />
     <ClInclude Include="..\include\ApplicationListener.h" />
     <ClInclude Include="..\include\BoundingBox.h" />

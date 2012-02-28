@@ -171,6 +171,24 @@
     <ClCompile Include="..\src\InputMultiplexer.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\Action.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Actor.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Cullable.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Group.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\OnActionCompleted.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Stage.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\lib\etc1_utils.h">
@@ -363,6 +381,24 @@
       <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="..\include\InputProcessor.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Action.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Actor.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Cullable.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Group.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\OnActionCompleted.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Stage.h">
       <Filter>include</Filter>
     </ClInclude>
   </ItemGroup>
