@@ -193,18 +193,19 @@ void Pong::updateGame()
 		leftPaddleMulti = min(1, MathUtils::randomFloat() + 0.3f);
 	}
 
-	/*
+	
 	// Has the user touched the screen? then position the paddle
 	if(Gdx.input->isTouched())
 	{
-	// get the touch coordinates and translate them
-	// to the game coordinate system.
-	float touchX = 480 * (Gdx.input->getX() / (float)Gdx.graphics->getWidth() - 0.5f);
-	float touchY = 320 * (0.5f - Gdx.input->getY() / (float)Gdx.graphics->getHeight());
+		// get the touch coordinates and translate them
+		// to the game coordinate system.
+		float touchX = 480 * (Gdx.input->getX() / (float)Gdx.graphics->getWidth() - 0.5f);
+		float touchY = 320 * (0.5f - Gdx.input->getY() / (float)Gdx.graphics->getHeight());
 
-	if(touchX > rightPaddle.x) rightPaddle.y = touchY;
+		if(touchX > rightPaddle.x)
+			rightPaddle.y = touchY;
 	}
-	*/
+	
 	// very very simple ai. moves when the ball is heading towards
 	// the left paddle
 	if(ballDirection.x < 0)

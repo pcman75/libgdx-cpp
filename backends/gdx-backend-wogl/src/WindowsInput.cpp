@@ -4,6 +4,9 @@
 
 WindowsInput::WindowsInput(void)
 {
+	m_touchDown = false;
+	m_touchX = m_touchY = 0;
+
 }
 
 
@@ -33,8 +36,7 @@ float WindowsInput::getAccelerometerZ()
 /** @return the last touch x coordinate in screen coordinates. The screen origin is the top left corner. */
 int WindowsInput::getX()
 {
-	//TODO:
-	return -1;
+	return m_touchX;
 }
 
 /** Returns the x coordinate in screen coordinates of the given pointer. Pointers are indexed from 0 to n. The pointer id
@@ -67,8 +69,7 @@ int WindowsInput::getDeltaX(int pointer)
 /** @return the last touch y coordinate in screen coordinates. The screen origin is the top left corner. */
 int WindowsInput::getY()
 {
-	//TODO:
-	return -1;
+	return m_touchY;
 }
 
 
@@ -103,8 +104,7 @@ int WindowsInput::getDeltaY(int pointer)
 /** @return whether the screen is currently touched. */
 bool WindowsInput::isTouched()
 {
-	//TODO:
-	return -1;
+	return m_touchDown;
 }
 
 /** @return whether a new touch down event just occured. */
@@ -321,11 +321,18 @@ void WindowsInput::setCursorPosition(int x, int y)
 
 void WindowsInput::buttonDown(WPARAM state, int x, int y)
 {
-	//if(state
+	if(state == MK_LBUTTON)
+	{
+		m_touchDown = true;
+	}
+	m_touchX = x;
+	m_touchY = y;
 }
 
 void WindowsInput::buttonUp(WPARAM state, int x, int y)
 {
+	if(m_touchDown)
+		m_touchDown = false;
 }
 
 

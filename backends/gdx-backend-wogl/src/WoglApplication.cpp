@@ -41,7 +41,7 @@ WoglApplication::WoglApplication (ApplicationListener& listener, const char* tit
 	Gdx.app = this;
 	Gdx.graphics = m_pGraphics;
 	//Gdx.audio = 
-	//Gdx.input = *m_pInput;
+	Gdx.input = m_pInput;
 	Gdx.files = m_pFiles;
 
 	// instantiate model and view components, so "controller" component can reference them

@@ -4,6 +4,10 @@
 class WindowsInput :
 	public Input
 {
+private:
+	bool m_touchDown;
+	int m_touchX;
+	int m_touchY;
 
 public:
 	WindowsInput();
