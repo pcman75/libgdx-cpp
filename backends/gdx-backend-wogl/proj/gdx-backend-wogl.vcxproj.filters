@@ -78,6 +78,12 @@
     <ClInclude Include="..\exp\WoglFileHandleStream.h">
       <Filter>Exported Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\exp\WindowsAudio.h">
+      <Filter>Exported Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\exp\WindowsAudioDevice.h">
+      <Filter>Exported Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\dllmain.cpp">
@@ -138,6 +144,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\src\WindowsInput.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\WindowsAudio.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\WindowsAudioDevice.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

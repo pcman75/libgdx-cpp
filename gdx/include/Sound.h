@@ -87,4 +87,4 @@ public:
 	 * @param pan panning in the range -1 (full right) to 1 (full left). 0 is center position.
 	 * @param volume the volume in the range [0,1]. */
 	virtual void setPan(long soundId, float pan, float volume) = 0;
-}
+};

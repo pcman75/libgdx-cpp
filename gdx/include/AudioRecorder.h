@@ -34,4 +34,4 @@ public:
 
 	/** Disposes the AudioRecorder */
 	virtual void dispose() = 0;
-}
+};

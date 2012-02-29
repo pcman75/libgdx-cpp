@@ -16,12 +16,13 @@
 
 #pragma once
 
+#include "GdxAudioDefines.h"
 #include "Decoder.h"
 #include "FileHandle.h"
 
 /** A {@link Decoder} implementation that decodes MP3 files via libmpg123 natively.*/
 
-class Mpg123Decoder :
+class GdxAudioDllImportExport Mpg123Decoder :
 	public Decoder
 {
 

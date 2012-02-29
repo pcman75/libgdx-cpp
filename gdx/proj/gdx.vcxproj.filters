@@ -192,6 +192,9 @@
     <ClCompile Include="..\src\PerspectiveCamController.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\Application.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\lib\etc1_utils.h">

@@ -39,13 +39,13 @@ public:
 	virtual ~WoglApplication(void);
 
 	/** @return the {@link Graphics} instance */
-	virtual const Graphics& getGraphics ();
+	virtual const Graphics* getGraphics ();
 
 	/** @return the {@link Audio} instance */
-	//virtual const Audio& getAudio ();
+	virtual const Audio* getAudio ();
 
 	/** @return the {@link Input} instance */
-	virtual const Input& getInput ();
+	virtual const Input* getInput ();
 
 	/** @return the {@link Files} instance */
 	virtual const Files* getFiles ();
@@ -110,7 +110,7 @@ private:
 	Graphics* m_pGraphics;
 	Input* m_pInput;
 	Files* m_pFiles;
-	//OpenALAudio m_audio;
+	Audio* m_pAudio;
 	int logLevel;
 	
 };

@@ -3,6 +3,7 @@
 #include "WoglGraphics.h"
 #include "WindowsInput.h"
 #include "WoglFiles.h"
+#include "WindowsAudio.h"
 
 #include "WoglGraphics.h"
 #include "ViewGL.h"
@@ -36,11 +37,12 @@ WoglApplication::WoglApplication (ApplicationListener& listener, const char* tit
 	m_pGraphics = new WoglGraphics(listener, useGL20IfAvailable);
 	m_pInput = new WindowsInput();
 	m_pFiles = new WoglFiles();
-
+	m_pAudio = new WindowsAudio();
+	
 
 	Gdx.app = this;
 	Gdx.graphics = m_pGraphics;
-	//Gdx.audio = 
+	Gdx.audio = m_pAudio;
 	Gdx.input = m_pInput;
 	Gdx.files = m_pFiles;
 
@@ -69,25 +71,25 @@ WoglApplication::~WoglApplication(void)
 	delete m_pGraphics;
 	delete m_pInput;
 	delete m_pFiles;
-	//delete m_pAudio;
+	delete m_pAudio;
 }
 
-const Graphics& WoglApplication::getGraphics ()
+const Graphics* WoglApplication::getGraphics ()
 {
-	return *m_pGraphics;
+	return m_pGraphics;
 }
 
 
-/*
-const Audio& WoglApplication::getAudio ()
-{
-	return *m_pAudio;
-}
-*/
 
-const Input& WoglApplication::getInput ()
+const Audio* WoglApplication::getAudio ()
 {
-	return *m_pInput;
+	return m_pAudio;
+}
+
+
+const Input* WoglApplication::getInput ()
+{
+	return m_pInput;
 }
 
 
