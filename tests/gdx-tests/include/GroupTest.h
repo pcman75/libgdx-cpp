@@ -1,18 +1,18 @@
 /*******************************************************************************
- * Copyright 2011 See AUTHORS file.
- * 
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- * 
- *   http://www.apache.org/licenses/LICENSE-2.0
- * 
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- ******************************************************************************/
+* Copyright 2011 See AUTHORS file.
+* 
+* Licensed under the Apache License, Version 2.0 (the "License");
+* you may not use this file except in compliance with the License.
+* You may obtain a copy of the License at
+* 
+*   http://www.apache.org/licenses/LICENSE-2.0
+* 
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+******************************************************************************/
 #pragma once 
 #include "Stage.h"
 #include "Group.h"
@@ -22,29 +22,29 @@
 class GroupTest : public GdxTest 
 {
 public:
-  GDX_DEFINE_CREATOR(GroupTest);
+	GDX_DEFINE_CREATOR(GroupTest);
 
 	Stage* stage;
 
-  GroupTest::GroupTest()
-  {
-    stage = NULL;
-  }
+	GroupTest::GroupTest()
+	{
+		stage = NULL;
+	}
 
-  virtual GroupTest::~GroupTest()
-  {
-    if( NULL != stage)
-    {
-      delete stage;
-      stage = NULL;
-    }
-  }
+	virtual GroupTest::~GroupTest()
+	{
+		if( NULL != stage)
+		{
+			delete stage;
+			stage = NULL;
+		}
+	}
 
 	virtual void create() 
-  {
-    stage = new Stage(0, 0, false);
+	{
+		stage = new Stage(0, 0, false);
 		Gdx.input->setInputProcessor( stage);
-		
+
 		Group::enableDebugging("data/group-debug.png");
 
 		Group* group1 = new Group("group1");
@@ -84,20 +84,20 @@ public:
 	}
 
 	void render () 
-  {
-    Gdx.graphics->getGL10()->glClearColor(0, 0, 0, 1);
+	{
+		Gdx.graphics->getGL10()->glClearColor(0, 0, 0, 1);
 		Gdx.graphics->getGL10()->glClear(GL10::GDX_GL_COLOR_BUFFER_BIT);
 		stage->draw();
 	}
 
 	void resize (int width, int height) 
-  {
-    if( stage)
-		  stage->setViewport(width, height, false);
+	{
+		if( stage)
+			stage->setViewport(width, height, false);
 	}
 
 	bool needsGL20 () 
-  {
+	{
 		return false;
 	}
 };
