@@ -149,12 +149,17 @@
     <ClCompile Include="..\src\VertexBufferObject.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\include\Audio.h" />
+    <ClInclude Include="..\include\AudioDevice.h" />
+    <ClInclude Include="..\include\AudioRecorder.h" />
+    <ClInclude Include="..\include\Music.h" />
     <ClInclude Include="..\include\PerspectiveCamController.h" />
     <ClInclude Include="..\include\Action.h" />
     <ClInclude Include="..\include\Actor.h" />
     <ClInclude Include="..\include\Cullable.h" />
     <ClInclude Include="..\include\Group.h" />
     <ClInclude Include="..\include\OnActionCompleted.h" />
+    <ClInclude Include="..\include\Sound.h" />
     <ClInclude Include="..\include\Stage.h" />
     <ClInclude Include="..\include\Application.h" />
     <ClInclude Include="..\include\ApplicationListener.h" />

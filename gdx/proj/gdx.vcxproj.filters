@@ -407,6 +407,21 @@
     <ClInclude Include="..\include\PerspectiveCamController.h">
       <Filter>include</Filter>
     </ClInclude>
+    <ClInclude Include="..\include\AudioDevice.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Audio.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\AudioRecorder.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Music.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Sound.h">
+      <Filter>include</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\ReadMe.txt" />
