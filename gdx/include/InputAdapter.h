@@ -20,8 +20,7 @@
 
 /** An adapter class for {@link InputProcessor}. You can derive from this and only override what you are interested in.*/
 
-class InputAdapter :
-	virtual InputProcessor
+class InputAdapter : public InputProcessor
 {
 	virtual bool keyDown(int keycode);
 	virtual bool keyUp(int keycode);

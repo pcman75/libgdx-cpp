@@ -60,6 +60,8 @@ public:
 	 * @param name the name of the group */
 	Group( std::string name);
 
+  virtual ~Group();
+
   virtual ObjectType type() { return ObjectGroup; }
   
 	void act( float delta);

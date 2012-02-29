@@ -15,6 +15,7 @@
  ******************************************************************************/
 
 #pragma once
+#include "GdxDefines.h"
 #include "InputAdapter.h"
 #include "Camera.h"
 #include "Vector2.h"
@@ -38,7 +39,7 @@ class Actor;
  * focus states get reset for each pointer id. You also have to make sure that the actors that were focused reset their state if
  * the depend on being focused, e.g. wait for a touch up event. An easier way to tackle this is to recreate the stage if possible.
  * @author mzechner */
-class Stage : public InputAdapter
+class GdxDllImportExport Stage : public InputAdapter
 {
 protected:
   float m_width;

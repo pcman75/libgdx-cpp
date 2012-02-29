@@ -74,6 +74,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\src\PerspectiveCamController.cpp" />
     <ClCompile Include="..\src\Action.cpp" />
     <ClCompile Include="..\src\Actor.cpp" />
     <ClCompile Include="..\src\Cullable.cpp" />
@@ -148,6 +149,7 @@
     <ClCompile Include="..\src\VertexBufferObject.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\include\PerspectiveCamController.h" />
     <ClInclude Include="..\include\Action.h" />
     <ClInclude Include="..\include\Actor.h" />
     <ClInclude Include="..\include\Cullable.h" />
