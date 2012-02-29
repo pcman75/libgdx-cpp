@@ -29,7 +29,7 @@ public:
 	 * @param samples The number of samples to read.
 	 * @return the number of samples read, < numSamples means end of file */
 
-	virtual int readSamples(short samples[], int offset, int numSamples) = 0;
+	virtual int readSamples(short samples[], int numSamples) = 0;
 
 	/** Skips numSamples samples. If the decoded file is in stereo the left and right channel samples are counted as 2 samples.
 	 *
