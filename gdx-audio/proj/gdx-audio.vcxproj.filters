@@ -33,6 +33,12 @@
     <ClCompile Include="..\src\stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\Mp3File.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Mpg123Decoder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\incl\stdafx.h">
@@ -43,6 +49,9 @@
     </ClInclude>
     <ClInclude Include="..\include\Mpg123Decoder.h">
       <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\incl\Mp3File.h">
+      <Filter>incl</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

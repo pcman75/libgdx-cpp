@@ -12,6 +12,10 @@ FileHandle::FileHandle( std::string strFullPath)
   m_strFullPath = strFullPath;
 }
 
+std::string FileHandle::getFullPathName() const
+{
+	return m_strFullPath;
+}
 
 std::string FileHandle::path() const
 {

@@ -53,6 +53,7 @@ public:
   std::string name() const;
   std::string extension() const;
   std::string nameWithoutExtension() const;
+  std::string getFullPathName() const;
   FileType    type() const;
 
 

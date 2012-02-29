@@ -11,6 +11,13 @@
 // Windows Header Files:
 #include <windows.h>
 
+#include <iostream>
+#include <sstream>
+#include <string>
+#include <vector>
+#include <set>
+#include <list>
+#include <map>
 
+#define MPG123_NO_CONFIGURE
 
-// TODO: reference additional headers your program requires here

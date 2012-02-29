@@ -48,4 +48,4 @@ public:
 
 	/** Disposes the decoder and frees all associated resources */
 	virtual  void dispose() = 0;
-}
+};
