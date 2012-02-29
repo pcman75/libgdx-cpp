@@ -22,6 +22,31 @@ Group::Group( std::string name)
   hasCullingArea = false;
 }
 
+Group::~Group()
+{
+  std::set<Actor*> toDelete;
+
+  std::list<Actor*>::iterator it;
+  for( it = children.begin(); it != children.end(); it++) 
+  {
+    if( NULL != *it)
+      toDelete.insert( *it);
+  }
+
+  std::list<Group*>::iterator it2;
+	for( it2 = groups.begin(); it2 != groups.end(); it2++)
+  {
+    if( NULL != *it2)
+      toDelete.insert( *it);
+  }
+
+  std::set<Actor*>::iterator it3;
+  for( it3 = toDelete.begin(); it3 != toDelete.end(); it3++)
+  {
+    delete *it3;
+  }
+}
+
 void Group::act( float delta) 
 {
   /*

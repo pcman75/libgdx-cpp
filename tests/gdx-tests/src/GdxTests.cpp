@@ -5,7 +5,7 @@
 //#include "AccelerometerTest.h"
 //#include "ActionTest.h"
 //#include "ActionSequenceTest.h"
-//#include "GroupTest.h"
+#include "GroupTest.h"
 #include "AlphaTest.h"
 //#include "AtlasIssueTest.h"
 //#include "AssetManagerTest.h"
@@ -140,9 +140,9 @@ GdxTests::GdxTests()
 {
 	//GDX_DEFINE_TEST(AnimationTest
 	//GDX_DEFINE_TEST(AccelerometerTest
-	//GDX_DEFINE_TEST(ActionTest
+	//GDX_DEFINE_TEST(ActionTest);
 	//GDX_DEFINE_TEST(ActionSequenceTest
-	//GDX_DEFINE_TEST(GroupTest
+	GDX_DEFINE_TEST(GroupTest);
 	GDX_DEFINE_TEST(AlphaTest);
 	//GDX_DEFINE_TEST(AtlasIssueTest
 	//GDX_DEFINE_TEST(AssetManagerTest

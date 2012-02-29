@@ -23,6 +23,20 @@ Actor::Actor()
 
 Actor::Actor(std::string name) 
 {
+  parent = NULL;
+	touchable = true;
+	visible = true;
+
+  x = y = width = height = originX = originY = 0;
+	scaleX = 1;
+	scaleY = 1;
+  rotation = 0;
+	color = Color(1, 1, 1, 1);
+  
+  stage = NULL;
+
+  toRemove = false;	
+
 	this->name = name;
 }
 
@@ -100,7 +114,6 @@ void Actor::act( float delta)
 		}
 	}*/
 
-  int nToDoBetter;
   std::list<Action*>::iterator it;
   for( it = actions.begin(); it != actions.end(); it++)
   {

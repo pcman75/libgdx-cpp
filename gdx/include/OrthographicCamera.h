@@ -22,8 +22,7 @@
 #include "MathUtils.h"
 
 /** A camera with orthographic projection.*/
-class GdxDllImportExport OrthographicCamera :
-	public Camera
+class GdxDllImportExport OrthographicCamera : public Camera
 {
 public:
 	/** the zoom of the camera **/

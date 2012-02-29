@@ -92,6 +92,7 @@
     <None Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\include\GroupTest.h" />
     <ClInclude Include="..\include\BlitTest.h" />
     <ClInclude Include="..\include\BobTest.h" />
     <ClInclude Include="..\include\FloatTest.h" />

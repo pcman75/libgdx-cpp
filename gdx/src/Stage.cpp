@@ -66,7 +66,11 @@ Stage::Stage( float width, float height, bool stretch, SpriteBatch* batch)
 
 Stage::~Stage()
 {
-
+  if( NULL != root)
+  {
+    delete root;
+    root = NULL;
+  }
 
   if( NULL != camera)
   {
@@ -452,7 +456,9 @@ void Stage::removeActor( Actor* actor)
 void Stage::unfocusAll() 
 {
 	for (int i = 0, n = 20; i < n; i++)
+  {
 		touchFocus[i] = NULL;
+  }
 	scrollFocus = NULL;
 	keyboardFocus = NULL;
 }
@@ -474,7 +480,9 @@ void Stage::unfocus( Actor* actor, int pointer)
 
 void Stage::setKeyboardFocus( Actor* actor) 
 {
-	keyboardFocus = actor;
+  if( NULL != keyboardFocus)
+    delete keyboardFocus;
+  keyboardFocus = actor;
 }
 
 Actor* Stage::getKeyboardFocus() 
@@ -484,6 +492,8 @@ Actor* Stage::getKeyboardFocus()
 
 void Stage::setScrollFocus( Actor* actor) 
 {
+  if( NULL != scrollFocus)
+    delete scrollFocus;
 	scrollFocus = actor;
 }
 

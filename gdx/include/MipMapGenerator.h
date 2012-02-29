@@ -16,8 +16,9 @@
 #pragma once
 
 #include "Pixmap.h"
+#include "GdxDefines.h"
 
-class MipMapGenerator
+class GdxDllImportExport MipMapGenerator
 {
 private:
 	static bool m_useHWMipMap;
