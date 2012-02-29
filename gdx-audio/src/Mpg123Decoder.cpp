@@ -29,7 +29,7 @@ Mpg123Decoder::Mpg123Decoder(const FileHandle& file)
 {
 	if(file.type() != External && file.type() != Absolute)
 		throw new GdxRuntimeException("File must be absolute or external!");
-	const char* filename = file.getFullPathName().c_str();
+	std::string filename = file.getFullPathName().c_str();
 
 	mpg123_handle *mh = NULL;
 	int  channels = 0, encoding = 0;
@@ -38,7 +38,7 @@ Mpg123Decoder::Mpg123Decoder(const FileHandle& file)
 
 	err = mpg123_init();
 	if( err != MPG123_OK || (mh = mpg123_new(NULL, &err)) == NULL
-		|| mpg123_open(mh, filename) != MPG123_OK
+		|| mpg123_open(mh, filename.c_str()) != MPG123_OK
 		|| mpg123_getformat(mh, &rate, &channels, &encoding) != MPG123_OK )
 	{
 		Gdx.app->log( "Mpg123Decoder", (std::string("Trouble with mpg123: ") +

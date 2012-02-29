@@ -18,6 +18,7 @@
 
 #include "GdxTest.h"
 #include "Mpg123Decoder.h"
+#include "AudioDevice.h"
 
 /**
  * Demonstrates how to read and playback an OGG file with the {@link VorbisDecoder} found
@@ -29,28 +30,34 @@ class Mpg123Test :
 	public GdxTest
 {
 private:
-	/** the file to playback **/
-	static const char* FILE = "data/8.12.mp3";
+	
 
 	/** a VorbisDecoder to read PCM data from the ogg file **/
 	Mpg123Decoder* decoder;
 	
 	/** an AudioDevice for playing back the PCM data **/
-	//AudioDevice device;
+	AudioDevice* device;
 
 public:
 	
 	void create()
 	{
+		/** the file to playback **/
+		static const char* FILE = "c:/8.12.mp3";
+
 		// copy ogg file to SD card, can't playback from assets
-		FileHandle externalFile = Gdx.files->external("tmp/test.mp3");
-		Gdx.files.internal(FILE).copyTo(externalFile);
+		FileHandle externalFile = Gdx.files->absoluteHandle(FILE);
+		//Gdx.files->internalHandle(FILE).copyTo(externalFile);
 
 		// Create the decoder and log some properties. Note that we need
 		// an external or absolute file
 		decoder = new Mpg123Decoder(externalFile);
-		Gdx.app->log("Mp3", std::string("channels: ") + decoder->getChannels() + ", rate: " + decoder->getRate() + ", length: " + decoder->getLength());
+		std::stringstream logMessage;
+		logMessage << "channels: " << decoder->getChannels() << ", rate: " << decoder->getRate() << ", length: " << decoder->getLength();
 
+		Gdx.app->log("Mp3", logMessage.str());
+
+		/*
 		// Create an audio device for playback
 		device = Gdx.audio.newAudioDevice(decoder.getRate(), decoder.getChannels() == 1? true: false);
 
@@ -73,15 +80,18 @@ public:
 		});
 		playbackThread.setDaemon(true);
 		playbackThread.start();
+		*/
 	}
 
 	void dispose()
 	{
 		// we should synchronize with the thread here
 		// left as an excercise to the reader :)
-		device.dispose();
-		decoder.dispose();
+		device->dispose();
+		decoder->dispose();
 		// kill the file again
-		Gdx.files.external("tmp/test.mp3").delete();
+		//Gdx.files->external("tmp/test.mp3").delete();
 	}
-}
+
+	GDX_DEFINE_CREATOR(Mpg123Test);
+};

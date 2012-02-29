@@ -26,9 +26,10 @@ class Files;
 class Preferences;
 class Timer;
 
-class GdxDllImportExport Application {
+class GdxDllImportExport Application 
+{
 public:
-	virtual ~Application() {};
+	virtual ~Application() {}
 
 	/**
 	* An <code>Application</code> is the main entry point of your project. It sets up a window and rendering surface and manages the
@@ -123,6 +124,7 @@ public:
 
 	/** Logs a message to the console or logcat */
 	virtual void log(const char* tag, const char* message) = 0;
+	void log(const char* tag, const std::string& message);
 
 	/** Logs a message to the console or logcat */
 	//virtual void log (const char* tag, const char* message, class exception ex) = 0;
@@ -131,12 +133,14 @@ public:
 
 	/** Logs an error message to the console or logcat */
 	virtual void error (const char* tag, const char* message) = 0;
+	void error (const char* tag, const std::string& message);
 
 	/** Logs an error message to the console or logcat */
 	//virtual void error (const char* tag, const char* message, class exception ex) = 0;
 
 	/** Logs an error message to the console or logcat */
 	virtual void debug (const char* tag, const char* message) = 0;
+	void debug (const char* tag, const std::string& message);
 
 	/** Logs an error message to the console or logcat */
 	//virtual void debug (const char* tag, const char* message, class exception ex) = 0;
