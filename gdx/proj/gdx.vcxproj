@@ -74,6 +74,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\src\AnimationAction.cpp" />
+    <ClCompile Include="..\src\CompositeAction.cpp" />
+    <ClCompile Include="..\src\Delay.cpp" />
+    <ClCompile Include="..\src\FadeIn.cpp" />
+    <ClCompile Include="..\src\FadeOut.cpp" />
+    <ClCompile Include="..\src\FadeTo.cpp" />
+    <ClCompile Include="..\src\Interpolator.cpp" />
+    <ClCompile Include="..\src\Layout.cpp" />
+    <ClCompile Include="..\src\TemporalAction.cpp" />
     <ClCompile Include="..\src\PerspectiveCamController.cpp" />
     <ClCompile Include="..\src\Action.cpp" />
     <ClCompile Include="..\src\Actor.cpp" />
@@ -149,6 +158,15 @@
     <ClCompile Include="..\src\VertexBufferObject.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\include\AnimationAction.h" />
+    <ClInclude Include="..\include\CompositeAction.h" />
+    <ClInclude Include="..\include\Delay.h" />
+    <ClInclude Include="..\include\FadeIn.h" />
+    <ClInclude Include="..\include\FadeOut.h" />
+    <ClInclude Include="..\include\FadeTo.h" />
+    <ClInclude Include="..\include\Interpolator.h" />
+    <ClInclude Include="..\include\Layout.h" />
+    <ClInclude Include="..\include\TemporalAction.h" />
     <ClInclude Include="..\include\PerspectiveCamController.h" />
     <ClInclude Include="..\include\Action.h" />
     <ClInclude Include="..\include\Actor.h" />

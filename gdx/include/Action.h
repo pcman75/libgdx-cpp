@@ -15,16 +15,17 @@
  ******************************************************************************/
 
 #pragma once
+#include "GdxDefines.h"
 #include "OnActionCompleted.h"
 class Actor;
 
 /** An Action is used with an {@link Actor} and modifes the Actor's attributes over time.
  * 
  * @author mzechner */
-class Action 
+class GdxDllImportExport Action 
 {
 protected:
-  OnActionCompleted* pListener;
+  OnActionCompleted* listener;
 
 public:
   Action();
@@ -60,7 +61,7 @@ public:
 	/** Sets the listener to be invoked when the action is finished.
 	 * @param listener
 	 * @return this */
-	void setCompletionListener( OnActionCompleted* pListener);
+	void setCompletionListener( OnActionCompleted* listener);
   
 	/** @return the {@link OnActionCompleted} listener or null. */
 	OnActionCompleted* getCompletionListener();

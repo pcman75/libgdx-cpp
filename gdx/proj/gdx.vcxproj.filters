@@ -192,6 +192,33 @@
     <ClCompile Include="..\src\PerspectiveCamController.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\TemporalAction.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\AnimationAction.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\CompositeAction.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Layout.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Interpolator.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Delay.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\FadeTo.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\FadeIn.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\FadeOut.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\lib\etc1_utils.h">
@@ -405,6 +432,33 @@
       <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="..\include\PerspectiveCamController.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\TemporalAction.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\AnimationAction.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\CompositeAction.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Layout.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Interpolator.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Delay.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\FadeTo.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\FadeIn.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\FadeOut.h">
       <Filter>include</Filter>
     </ClInclude>
   </ItemGroup>
