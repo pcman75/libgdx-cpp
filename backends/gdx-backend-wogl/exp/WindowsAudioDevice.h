@@ -23,11 +23,28 @@
  * {@link #writeSamples(short[], int, int)} methods to write float or 16-bit signed short PCM data directly to the audio device.
  * Stereo samples are interleaved in the order left channel sample, right channel sample. The {@link #dispose()} method must be
  * called when this AudioDevice is no longer needed.
+ *
+ * implementation based on http://www.planet-source-code.com/vb/scripts/ShowCode.asp?txtCodeId=4422&lngWId=3 article
  */
 class WindowsAudioDevice :
 	public AudioDevice
 {
+private:
+	/*
+	* some good values for block size and count
+	*/
+	static const int BLOCK_SIZE = 8192;
+	static const int BLOCK_COUNT = 20;
+
+	HWAVEOUT hWaveOut; /* device handle */
+
+	CRITICAL_SECTION waveCriticalSection;
+	WAVEHDR* waveBlocks;
+	int waveFreeBlockCount;
+	int waveCurrentBlock;
+	bool m_mono;
 public:
+	WindowsAudioDevice(int samplingRate, bool isMono);
 	virtual ~WindowsAudioDevice();
 
 	/** @return whether this AudioDevice is in mono or stereo mode. */
@@ -50,4 +67,10 @@ public:
 
 	/** Frees all resources associated with this AudioDevice. Needs to be called when the device is no longer needed. */
 	virtual void dispose();
+
+private:
+	static void CALLBACK waveOutProc(HWAVEOUT, UINT, DWORD, DWORD, DWORD);
+	WAVEHDR* allocateBlocks(int size, int count);
+	void freeBlocks(WAVEHDR* blockArray);
+	void writeAudio(HWAVEOUT hWaveOut, LPSTR data, int size);
 };

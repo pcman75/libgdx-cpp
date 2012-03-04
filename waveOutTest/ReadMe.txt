@@ -1,1 +1,0 @@
-sample from http://www.planet-source-code.com/vb/scripts/ShowCode.asp?txtCodeId=4422&lngWId=3
