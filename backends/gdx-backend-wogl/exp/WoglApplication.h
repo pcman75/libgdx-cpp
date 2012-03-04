@@ -39,16 +39,16 @@ public:
 	virtual ~WoglApplication(void);
 
 	/** @return the {@link Graphics} instance */
-	virtual const Graphics* getGraphics ();
+	virtual Graphics* getGraphics ();
 
 	/** @return the {@link Audio} instance */
-	virtual const Audio* getAudio ();
+	virtual Audio* getAudio ();
 
 	/** @return the {@link Input} instance */
-	virtual const Input* getInput ();
+	virtual Input* getInput ();
 
 	/** @return the {@link Files} instance */
-	virtual const Files* getFiles ();
+	virtual Files* getFiles ();
 	
 	/** @create a Timer. caller must delete it after use*/
 	virtual Timer* createTimer();

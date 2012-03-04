@@ -108,16 +108,16 @@ public:
 
 
 	/** @return the {@link Graphics} instance */
-	virtual const Graphics* getGraphics () = 0;
+	virtual Graphics* getGraphics () = 0;
 
 	/** @return the {@link Audio} instance */
-	//virtual const Audio& getAudio () = 0;
+	virtual Audio* getAudio () = 0;
 
 	/** @return the {@link Input} instance */
-	virtual const Input* getInput () = 0;
+	virtual Input* getInput () = 0;
 
 	/** @return the {@link Files} instance */
-	virtual const Files* getFiles () = 0;
+	virtual Files* getFiles () = 0;
 
 	/** @create a Timer. caller must delete it after use*/
 	virtual Timer* createTimer() = 0;

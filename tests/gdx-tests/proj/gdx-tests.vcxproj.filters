@@ -127,6 +127,9 @@
     <ClInclude Include="..\include\Mpg123Test.h">
       <Filter>inlcude</Filter>
     </ClInclude>
+    <ClInclude Include="..\include\AudioDeviceTest.h">
+      <Filter>inlcude</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\dllmain.cpp">

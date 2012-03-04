@@ -18,7 +18,7 @@
 
 #include "Application.h"
 #include "Graphics.h"
-//#include "Audio.h"
+#include "Audio.h"
 #include "Input.h"
 #include "Files.h"
 #include "GLCommon.h"

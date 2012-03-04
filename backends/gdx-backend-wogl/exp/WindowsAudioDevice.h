@@ -43,6 +43,8 @@ private:
 	int waveFreeBlockCount;
 	int waveCurrentBlock;
 	bool m_mono;
+	char* m_bytesBuf;
+	int m_bytesBufLength;
 public:
 	WindowsAudioDevice(int samplingRate, bool isMono);
 	virtual ~WindowsAudioDevice();

@@ -1,9 +1,10 @@
 #include "stdafx.h"
 #include "WindowsAudioDevice.h"
 #include "GdxRuntimeException.h"
+#include "MathUtils.h"
 
 WindowsAudioDevice::WindowsAudioDevice(int samplingRate, bool isMono)
-	: m_mono(isMono)
+	: m_mono(isMono), m_bytesBuf(NULL), m_bytesBufLength(0)
 {
 	WAVEFORMATEX wfx;
 	waveBlocks = allocateBlocks(BLOCK_SIZE, BLOCK_COUNT);
@@ -37,6 +38,10 @@ WindowsAudioDevice::WindowsAudioDevice(int samplingRate, bool isMono)
 
 WindowsAudioDevice::~WindowsAudioDevice()
 {
+	delete m_bytesBuf;
+	m_bytesBuf = NULL;
+	m_bytesBufLength = 0;
+
 	/*
 	* wait for all blocks to complete
 	*/
@@ -76,7 +81,23 @@ void WindowsAudioDevice::writeSamples(short samples[], int numSamples)
 * @param numSamples the number of samples to write to the device */
 void WindowsAudioDevice::writeSamples(float samples[], int numSamples)
 {
-	throw GdxRuntimeException("not implemented yet");
+		if(m_bytesBuf == NULL || m_bytesBufLength < numSamples * 2)
+		{
+			delete[] m_bytesBuf;
+			m_bytesBufLength = numSamples * 2;
+			m_bytesBuf = new char[m_bytesBufLength];
+			
+		}
+
+		for (int i = 0, ii = 0; i < numSamples; i++) 
+		{
+			float floatSample = samples[i];
+			floatSample = MathUtils::clamp(floatSample, -1.f, 1.f);
+			int intSample = (int)(floatSample * 32767);
+			m_bytesBuf[ii++] = (char)(intSample & 0xFF);
+			m_bytesBuf[ii++] = (char)((intSample >> 8) & 0xFF);
+		}
+		writeSamples((short*)m_bytesBuf, numSamples);
 }
 
 /** @return the latency in samples. */

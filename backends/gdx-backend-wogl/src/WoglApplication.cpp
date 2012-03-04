@@ -74,26 +74,26 @@ WoglApplication::~WoglApplication(void)
 	delete m_pAudio;
 }
 
-const Graphics* WoglApplication::getGraphics ()
+Graphics* WoglApplication::getGraphics ()
 {
 	return m_pGraphics;
 }
 
 
 
-const Audio* WoglApplication::getAudio ()
+Audio* WoglApplication::getAudio ()
 {
 	return m_pAudio;
 }
 
 
-const Input* WoglApplication::getInput ()
+Input* WoglApplication::getInput ()
 {
 	return m_pInput;
 }
 
 
-const Files* WoglApplication::getFiles ()
+Files* WoglApplication::getFiles ()
 {
 	return m_pFiles;
 }

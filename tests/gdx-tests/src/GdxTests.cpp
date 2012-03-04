@@ -10,7 +10,7 @@
 //#include "AtlasIssueTest.h"
 //#include "AssetManagerTest.h"
 //#include "FilterPerformanceTest.h"
-//#include "AudioDeviceTest.h"
+#include "AudioDeviceTest.h"
 //#include "AudioRecorderTest.h"
 //#include "BitmapFontAlignmentTest.h"
 //#include "BitmapFontFlipTest.h"
@@ -147,7 +147,7 @@ GdxTests::GdxTests()
 	//GDX_DEFINE_TEST(AtlasIssueTest
 	//GDX_DEFINE_TEST(AssetManagerTest
 	//GDX_DEFINE_TEST(FilterPerformanceTest
-	//GDX_DEFINE_TEST(AudioDeviceTest
+	GDX_DEFINE_TEST(AudioDeviceTest);
 	//GDX_DEFINE_TEST(AudioRecorderTest
 	//GDX_DEFINE_TEST(BitmapFontAlignmentTest
 	//GDX_DEFINE_TEST(BitmapFontFlipTest
