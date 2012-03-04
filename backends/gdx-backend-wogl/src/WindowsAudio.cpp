@@ -12,7 +12,7 @@
 * @throws GdxRuntimeException in case the device could not be created */
 AudioDevice* WindowsAudio::newAudioDevice(int samplingRate, bool isMono)
 {
-	return new WindowsAudioDevice();
+	return new WindowsAudioDevice(samplingRate, isMono);
 }
 
 /** Creates a new {@link AudioRecorder}. The AudioRecorder has to be disposed after it is no longer used.
