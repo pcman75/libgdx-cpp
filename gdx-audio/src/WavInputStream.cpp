@@ -1,16 +1,16 @@
 #include "stdafx.h"
 #include "WavInputStream.h"
 
-WavInputStream::WavInputStream(FileHandleStream& file)
+WavInputStream::WavInputStream(FileHandleStream* file)
 	: m_file(file)
 {	
 	if(read() != 'R' || read() != 'I' || read() != 'F' || read() != 'F')
-		throw new GdxRuntimeException(std::string() + "RIFF header not found: " + file.fileName());
+		throw new GdxRuntimeException(std::string() + "RIFF header not found: " + file->fileName());
 
 	skip(4);
 
 	if(read() != 'W' || read() != 'A' || read() != 'V' || read() != 'E')
-		throw new GdxRuntimeException(std::string() + "Invalid wave file header: " + file.fileName());
+		throw new GdxRuntimeException(std::string() + "Invalid wave file header: " + file->fileName());
 
 	int fmtChunkLength = seekToChunk('f', 'm', 't', ' ');
 
@@ -55,7 +55,7 @@ int WavInputStream::seekToChunk(char c1, char c2, char c3, char c4)
 
 int WavInputStream::skip(int count)
 {
-	return m_file.skip(count);
+	return m_file->skip(count);
 }
 
 int WavInputStream::readData(char buffer[], int bufLen)
@@ -71,12 +71,12 @@ int WavInputStream::readData(char buffer[], int bufLen)
 
 int WavInputStream::read(char buffer[], int bufLen)
 {
-	return m_file.readBytes((unsigned char*)buffer, bufLen);
+	return m_file->readBytes((unsigned char*)buffer, bufLen);
 }
 
 char WavInputStream::read()
 {
 	unsigned char ret;
-	m_file.readBytes(&ret, 1);
+	m_file->readBytes(&ret, 1);
 	return ret;
 }

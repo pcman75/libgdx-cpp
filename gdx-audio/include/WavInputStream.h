@@ -9,10 +9,10 @@ public:
 	int channels, sampleRate, dataRemaining;
 
 private:
-	FileHandleStream& m_file;
+	FileHandleStream* m_file;
 
 public:
-	WavInputStream(FileHandleStream& file);
+	WavInputStream(FileHandleStream* file);
 	int readData(char buffer[], int bufLen);
 	int skip(int count);
 	char read();

@@ -63,7 +63,7 @@
       <Filter>Include</Filter>
     </ClInclude>
     <ClInclude Include="..\incl\WavInputStream.h">
-      <Filter>incl</Filter>
+      <Filter>Include</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

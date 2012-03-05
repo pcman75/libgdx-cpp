@@ -125,6 +125,7 @@
     <ClInclude Include="..\include\VertexArrayClassTest.h" />
     <ClInclude Include="..\include\VertexArrayTest.h" />
     <ClInclude Include="..\include\VertexBufferObjectShaderTest.h" />
+    <ClInclude Include="..\include\WavTest.h" />
     <ClInclude Include="..\incl\Shapes.h" />
     <ClInclude Include="..\incl\stdafx.h" />
     <ClInclude Include="..\incl\targetver.h" />

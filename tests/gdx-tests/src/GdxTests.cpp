@@ -126,7 +126,7 @@
 //#include "StbTrueTypeTest.h"
 //#include "SoundTouchTest.h"
 #include "Mpg123Test.h"
-//#include "WavTest.h"
+#include "WavTest.h"
 //#include "TextButtonTest.h"
 //#include "TextureBindTest.h"
 
@@ -263,7 +263,7 @@ GdxTests::GdxTests()
 	//GDX_DEFINE_TEST(StbTrueTypeTest
 	//GDX_DEFINE_TEST(SoundTouchTest
 	GDX_DEFINE_TEST(Mpg123Test);
-	//GDX_DEFINE_TEST(WavTest
+	GDX_DEFINE_TEST(WavTest);
 	//GDX_DEFINE_TEST(TextButtonTest
 	//GDX_DEFINE_TEST(TextureBindTest
 }
