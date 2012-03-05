@@ -74,6 +74,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\src\AccelerateDecelerateInterpolator.cpp" />
+    <ClCompile Include="..\src\AccelerateInterpolator.cpp" />
+    <ClCompile Include="..\src\AnticipateInterpolator.cpp" />
+    <ClCompile Include="..\src\DecelerateInterpolator.cpp" />
+    <ClCompile Include="..\src\LinearInterpolator.cpp" />
+    <ClCompile Include="..\src\OvershootInterpolator.cpp" />
     <ClCompile Include="..\src\Forever.cpp" />
     <ClCompile Include="..\src\MoveBy.cpp" />
     <ClCompile Include="..\src\MoveTo.cpp" />
@@ -169,6 +175,12 @@
     <ClCompile Include="..\src\VertexBufferObject.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\include\AccelerateDecelerateInterpolator.h" />
+    <ClInclude Include="..\include\AccelerateInterpolator.h" />
+    <ClInclude Include="..\include\AnticipateInterpolator.h" />
+    <ClInclude Include="..\include\DecelerateInterpolator.h" />
+    <ClInclude Include="..\include\LinearInterpolator.h" />
+    <ClInclude Include="..\include\OvershootInterpolator.h" />
     <ClInclude Include="..\include\Audio.h" />
     <ClInclude Include="..\include\AudioDevice.h" />
     <ClInclude Include="..\include\AudioRecorder.h" />
