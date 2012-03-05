@@ -16,21 +16,28 @@
 
 #pragma once
 #include "GdxDefines.h"
-#include "Action.h"
+#include "AnimationAction.h"
 
-/** A base class for composite actions which deals with multiple child {@link Action}.
- * 
- * @author Moritz Post <moritzpost@gmail.com> */
-class GdxDllImportExport CompositeAction : public Action 
+class GdxDllImportExport MoveTo : public AnimationAction 
 {
 protected:
-  std::vector<Action*> actions;
+	float x;
+	float y;
+	float startX;
+	float startY;
+	float deltaX;
+	float deltaY;
 
 public:
-  CompositeAction();
-  virtual ~CompositeAction();
-	/** Gets all target {@link Action}s which are affected by the composite action.
-	 * 
-	 * @return the {@link Action}s orchestrated by this {@link CompositeAction} */
-	std::vector<Action*>& getActions();
+	MoveTo(float x, float y, float duration);
+  virtual ~MoveTo();
+
+	virtual void setTarget (Actor* actor);
+
+	virtual void act (float delta);
+
+	virtual void finish ();
+
+	virtual Action* copy ();
+
 };

@@ -74,6 +74,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\src\Forever.cpp" />
+    <ClCompile Include="..\src\MoveBy.cpp" />
+    <ClCompile Include="..\src\MoveTo.cpp" />
+    <ClCompile Include="..\src\Parallel.cpp" />
+    <ClCompile Include="..\src\Remove.cpp" />
+    <ClCompile Include="..\src\Repeat.cpp" />
+    <ClCompile Include="..\src\RotateBy.cpp" />
+    <ClCompile Include="..\src\RotateTo.cpp" />
+    <ClCompile Include="..\src\ScaleTo.cpp" />
+    <ClCompile Include="..\src\Sequence.cpp" />
     <ClCompile Include="..\src\AnimationAction.cpp" />
     <ClCompile Include="..\src\CompositeAction.cpp" />
     <ClCompile Include="..\src\Delay.cpp" />
@@ -163,6 +173,16 @@
     <ClInclude Include="..\include\AudioDevice.h" />
     <ClInclude Include="..\include\AudioRecorder.h" />
     <ClInclude Include="..\include\Music.h" />
+    <ClInclude Include="..\include\Forever.h" />
+    <ClInclude Include="..\include\MoveBy.h" />
+    <ClInclude Include="..\include\MoveTo.h" />
+    <ClInclude Include="..\include\Parallel.h" />
+    <ClInclude Include="..\include\Remove.h" />
+    <ClInclude Include="..\include\Repeat.h" />
+    <ClInclude Include="..\include\RotateBy.h" />
+    <ClInclude Include="..\include\RotateTo.h" />
+    <ClInclude Include="..\include\ScaleTo.h" />
+    <ClInclude Include="..\include\Sequence.h" />
     <ClInclude Include="..\include\AnimationAction.h" />
     <ClInclude Include="..\include\CompositeAction.h" />
     <ClInclude Include="..\include\Delay.h" />
