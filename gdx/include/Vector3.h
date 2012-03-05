@@ -28,14 +28,14 @@ public:
 	/** the x-component of this vector **/
 	float z;
 	
-	static const Vector3& X;
-	static const Vector3& Y;
-	static const Vector3& Z;
+	static const Vector3 X;
+	static const Vector3 Y;
+	static const Vector3 Z;
 
 private:
-	static Vector3* m_tmp;
-	static Vector3* m_tmp2;
-	static Vector3* m_tmp3;
+	static Vector3 m_tmp;
+	static Vector3 m_tmp2;
+	static Vector3 m_tmp3;
 
 public:
 	/** Constructs a vector at (0,0,0) */

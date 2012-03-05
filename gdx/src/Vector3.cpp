@@ -2,13 +2,13 @@
 #include "Vector3.h"
 #include "Matrix4.h"
 
-const Vector3& Vector3::X = Vector3(1, 0, 0);
-const Vector3& Vector3::Y = Vector3(0, 1, 0);
-const Vector3& Vector3::Z = Vector3(0, 0, 1);
+const Vector3 Vector3::X = Vector3(1, 0, 0);
+const Vector3 Vector3::Y = Vector3(0, 1, 0);
+const Vector3 Vector3::Z = Vector3(0, 0, 1);
 
-Vector3* Vector3::m_tmp = new Vector3();
-Vector3* Vector3::m_tmp2 = new Vector3();
-Vector3* Vector3::m_tmp3 = new Vector3();
+Vector3 Vector3::m_tmp;
+Vector3 Vector3::m_tmp2;
+Vector3 Vector3::m_tmp3;
 
 Vector3::Vector3()
 {
@@ -86,7 +86,7 @@ Vector3 Vector3::cpy()
 * @return a temporary copy of this vector */
 Vector3 Vector3::tmp() const
 {
-	return m_tmp->set(*this);
+	return m_tmp.set(*this);
 }
 
 /** NEVER EVER SAVE THIS REFERENCE! Do not use this unless you are aware of the side-effects, e.g. other methods might call this
@@ -95,7 +95,7 @@ Vector3 Vector3::tmp() const
 * @return a temporary copy of this vector */
 Vector3 Vector3::tmp2() const
 {
-	return m_tmp2->set(*this);
+	return m_tmp2.set(*this);
 }
 
 /** NEVER EVER SAVE THIS REFERENCE! Do not use this unless you are aware of the side-effects, e.g. other methods might call this
@@ -104,7 +104,7 @@ Vector3 Vector3::tmp2() const
 * @return a temporary copy of this vector */
 Vector3 Vector3::tmp3() const
 {
-	return m_tmp3->set(*this);
+	return m_tmp3.set(*this);
 }
 
 /** Adds the given vector to this vector
