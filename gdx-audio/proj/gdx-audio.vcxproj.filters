@@ -39,6 +39,12 @@
     <ClCompile Include="..\src\Mpg123Decoder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\WavInputStream.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\WavDecoder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\incl\stdafx.h">
@@ -51,6 +57,12 @@
       <Filter>Include</Filter>
     </ClInclude>
     <ClInclude Include="..\incl\Mp3File.h">
+      <Filter>incl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\WavDecoder.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\incl\WavInputStream.h">
       <Filter>incl</Filter>
     </ClInclude>
   </ItemGroup>

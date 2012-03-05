@@ -69,3 +69,8 @@ int WoglFileHandleStream::writeBytes( unsigned char* pFrom, int nLen)
 {
   return fwrite( ( void*) pFrom, sizeof( char), nLen, m_pFile);
 }
+
+int WoglFileHandleStream::skip( int nCount)
+{
+	return fseek( m_pFile, nCount, SEEK_CUR);
+}

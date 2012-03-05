@@ -22,7 +22,9 @@ public:
   //
   virtual int         writeBytes( unsigned char* pFrom, int nLen);
 
-
+  // skip nCount bytes
+  //
+  virtual int         skip( int nCount);
 
 
 protected:

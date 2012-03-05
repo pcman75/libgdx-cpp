@@ -38,6 +38,10 @@ public:
   //
   virtual int         writeBytes( unsigned char* pFrom, int nLen) = 0;
 
+  // skip nCount bytes
+  //
+  virtual int         skip( int nCount) = 0;
+
 private:
   std::string m_strFileName;
   FileAccess  m_nFileAccess;
