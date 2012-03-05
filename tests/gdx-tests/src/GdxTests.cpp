@@ -117,7 +117,7 @@
 //#include "VertexBufferObjectClassTest.h"
 #include "VertexBufferObjectShaderTest.h"
 //#include "VibratorTest.h"
-//#include "VorbisTest.h"
+#include "VorbisTest.h"
 //#include "WaterRipples.h"
 //#include "HelloTriangle.h"
 #include "SimpleVertexShader.h"
@@ -254,7 +254,7 @@ GdxTests::GdxTests()
 	//GDX_DEFINE_TEST(VertexBufferObjectClassTest
 	GDX_DEFINE_TEST(VertexBufferObjectShaderTest);
 	//GDX_DEFINE_TEST(VibratorTest
-	//GDX_DEFINE_TEST(VorbisTest
+	GDX_DEFINE_TEST(VorbisTest);
 	//GDX_DEFINE_TEST(WaterRipples
 	//GDX_DEFINE_TEST(HelloTriangle
 	GDX_DEFINE_TEST(SimpleVertexShader);

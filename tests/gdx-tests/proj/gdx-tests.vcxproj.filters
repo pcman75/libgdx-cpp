@@ -133,6 +133,9 @@
     <ClInclude Include="..\include\WavTest.h">
       <Filter>inlcude</Filter>
     </ClInclude>
+    <ClInclude Include="..\include\VorbisTest.h">
+      <Filter>inlcude</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\dllmain.cpp">
