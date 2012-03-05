@@ -252,6 +252,24 @@
     <ClCompile Include="..\src\Application.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\OvershootInterpolator.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\AccelerateDecelerateInterpolator.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\AccelerateInterpolator.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\AnticipateInterpolator.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\DecelerateInterpolator.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\LinearInterpolator.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\lib\etc1_utils.h">
@@ -537,6 +555,24 @@
       <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="..\include\Sound.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\OvershootInterpolator.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\AccelerateDecelerateInterpolator.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\AccelerateInterpolator.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\AnticipateInterpolator.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\DecelerateInterpolator.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\LinearInterpolator.h">
       <Filter>include</Filter>
     </ClInclude>
   </ItemGroup>
