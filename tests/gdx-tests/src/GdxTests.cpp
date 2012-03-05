@@ -122,7 +122,7 @@
 //#include "HelloTriangle.h"
 #include "SimpleVertexShader.h"
 //#include "ShapeRendererTest.h"
-//#include "MoveSpriteExample.h"
+#include "MoveSpriteExample.h"
 //#include "StbTrueTypeTest.h"
 //#include "SoundTouchTest.h"
 #include "Mpg123Test.h"
@@ -259,7 +259,7 @@ GdxTests::GdxTests()
 	//GDX_DEFINE_TEST(HelloTriangle
 	GDX_DEFINE_TEST(SimpleVertexShader);
 	//GDX_DEFINE_TEST(ShapeRendererTest
-	//GDX_DEFINE_TEST(MoveSpriteExample
+	GDX_DEFINE_TEST(MoveSpriteExample);
 	//GDX_DEFINE_TEST(StbTrueTypeTest
 	//GDX_DEFINE_TEST(SoundTouchTest
 	GDX_DEFINE_TEST(Mpg123Test);
