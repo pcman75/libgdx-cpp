@@ -27,6 +27,9 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "gdx-tests", "..\tests\gdx-t
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "gdx-audio", "..\gdx-audio\proj\gdx-audio.vcxproj", "{43E30B47-63FB-4009-9F8F-EBE856D844A3}"
+	ProjectSection(ProjectDependencies) = postProject
+		{DBD14494-A5F4-4726-9E52-1635E8479C3A} = {DBD14494-A5F4-4726-9E52-1635E8479C3A}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
