@@ -16,21 +16,26 @@
 
 #pragma once
 #include "GdxDefines.h"
-#include "Action.h"
+#include "TemporalAction.h"
 
-/** A base class for composite actions which deals with multiple child {@link Action}.
- * 
- * @author Moritz Post <moritzpost@gmail.com> */
-class GdxDllImportExport CompositeAction : public Action 
+/** Base class for {@link OrthographicCamera} and {@link PerspectiveCamera}.*/
+
+class GdxDllImportExport Forever : public TemporalAction 
 {
-protected:
-  std::vector<Action*> actions;
-
 public:
-  CompositeAction();
-  virtual ~CompositeAction();
-	/** Gets all target {@link Action}s which are affected by the composite action.
-	 * 
-	 * @return the {@link Action}s orchestrated by this {@link CompositeAction} */
-	std::vector<Action*>& getActions();
+	Forever( Action* action);
+  virtual ~Forever();
+
+  virtual void setTarget( Actor* actor);
+  
+	virtual void act( float delta);
+  
+	virtual bool isDone ();
+  
+	virtual void finish ();
+  
+	virtual Action* copy ();
+  
+	virtual Actor* getTarget();
+  
 };

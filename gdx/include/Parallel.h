@@ -16,21 +16,29 @@
 
 #pragma once
 #include "GdxDefines.h"
-#include "Action.h"
+#include "CompositeAction.h"
+class Actor;
 
-/** A base class for composite actions which deals with multiple child {@link Action}.
- * 
- * @author Moritz Post <moritzpost@gmail.com> */
-class GdxDllImportExport CompositeAction : public Action 
+class GdxDllImportExport Parallel : public CompositeAction 
 {
 protected:
-  std::vector<Action*> actions;
+  std::vector<bool> finished;
+	Actor* target;
 
 public:
-  CompositeAction();
-  virtual ~CompositeAction();
-	/** Gets all target {@link Action}s which are affected by the composite action.
-	 * 
-	 * @return the {@link Action}s orchestrated by this {@link CompositeAction} */
-	std::vector<Action*>& getActions();
+	Parallel( std::vector<Action*> actions);
+  virtual ~Parallel();
+
+  virtual void setTarget (Actor* actor);
+  
+	virtual void act (float delta);
+  
+  virtual bool isDone ();
+  
+  virtual void finish ();
+  
+  virtual Action* copy ();
+  
+  virtual Actor* getTarget ();
+  
 };

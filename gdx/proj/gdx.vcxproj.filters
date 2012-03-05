@@ -219,6 +219,36 @@
     <ClCompile Include="..\src\FadeOut.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\Sequence.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Forever.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\MoveBy.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\MoveTo.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Parallel.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Remove.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Repeat.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\RotateBy.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\RotateTo.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ScaleTo.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\lib\etc1_utils.h">
@@ -459,6 +489,36 @@
       <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="..\include\FadeOut.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\RotateBy.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\RotateTo.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\ScaleTo.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Sequence.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Forever.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\MoveBy.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\MoveTo.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Parallel.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Remove.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Repeat.h">
       <Filter>include</Filter>
     </ClInclude>
   </ItemGroup>

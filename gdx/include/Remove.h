@@ -18,19 +18,24 @@
 #include "GdxDefines.h"
 #include "Action.h"
 
-/** A base class for composite actions which deals with multiple child {@link Action}.
- * 
- * @author Moritz Post <moritzpost@gmail.com> */
-class GdxDllImportExport CompositeAction : public Action 
+class GdxDllImportExport Remove : public Action 
 {
 protected:
-  std::vector<Action*> actions;
+  Actor* target;
+	bool removed;
 
 public:
-  CompositeAction();
-  virtual ~CompositeAction();
-	/** Gets all target {@link Action}s which are affected by the composite action.
-	 * 
-	 * @return the {@link Action}s orchestrated by this {@link CompositeAction} */
-	std::vector<Action*>& getActions();
+  Remove();
+  virtual ~Remove();
+
+	virtual void setTarget (Actor* actor);
+
+	virtual void act (float delta);
+
+	virtual bool isDone ();
+
+	virtual Action* copy ();
+
+	virtual Actor* getTarget ();
+
 };
