@@ -10,7 +10,8 @@ ipch/
 *.aps
 !gdx-audio/extern/mpg123/ports/MSVC++/2008/Debug/
 !gdx-audio/extern/mpg123/ports/MSVC++/2008/Release/
-
+!gdx-audio/extern/vorbis/Debug/
+!gdx-audio/extern/vorbis/Release/
 
 # Mac #
 ###################

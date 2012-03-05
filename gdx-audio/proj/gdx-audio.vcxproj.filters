@@ -22,6 +22,9 @@
     <None Include="..\include\Decoder.h">
       <Filter>Include</Filter>
     </None>
+    <None Include="..\incl\OggFile.h">
+      <Filter>incl</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\dllmain.cpp">
@@ -45,6 +48,9 @@
     <ClCompile Include="..\src\WavDecoder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\VorbisDecoder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\incl\stdafx.h">
@@ -62,8 +68,11 @@
     <ClInclude Include="..\include\WavDecoder.h">
       <Filter>Include</Filter>
     </ClInclude>
-    <ClInclude Include="..\incl\WavInputStream.h">
+    <ClInclude Include="..\include\VorbisDecoder.h">
       <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\incl\WavInputStream.h">
+      <Filter>incl</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

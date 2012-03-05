@@ -19,5 +19,9 @@
 #include <list>
 #include <map>
 
+#include <ogg.h>
+#include <ivorbiscodec.h>
+#include <ivorbisfile.h>
+
 #define MPG123_NO_CONFIGURE
 

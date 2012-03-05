@@ -2,7 +2,7 @@
 
 #include "GdxAudioDefines.h"
 #include "Decoder.h"
-#include "WavInputStream.h"
+#include "FileHandle.h"
 
 /**
 * {@link Decoder} implementation for WAV files
@@ -11,14 +11,17 @@ class GdxAudioDllImportExport WavDecoder :
 	public Decoder
 {
 private:
-	WavInputStream m_in;
+	class WavInputStream* m_in;
+	FileHandleStream* m_fileHandleStream;
 
 public:
 	/**
 	* Creates a new WAV decoder. The file can be of any type.
 	* @param file the {@link FileHandle}
 	*/
-	WavDecoder(FileHandleStream* file);
+	WavDecoder(const FileHandle& file);
+
+	~WavDecoder();
 
 	virtual int readSamples(short samples[], int numSamples);
 
