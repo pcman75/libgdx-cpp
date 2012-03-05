@@ -16,7 +16,11 @@
 
 #define STBI_HEADER_FILE_ONLY
 #define STBI_NO_FAILURE_STRINGS
+#ifdef WIN32
 #include "stb_image.c"
+#else
+#include "../../gdx/lib/stb_image.c"
+#endif
 
 static uint32_t gdx2d_blend = GDX2D_C_BLEND_NONE;
 static uint32_t gdx2d_scale = GDX2D_C_SCALE_NEAREST;

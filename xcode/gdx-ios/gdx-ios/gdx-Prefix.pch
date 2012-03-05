@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'gdx' target in the 'gdx' project
+//
+
+#ifdef __OBJC__
+    #import <Foundation/Foundation.h>
+#endif

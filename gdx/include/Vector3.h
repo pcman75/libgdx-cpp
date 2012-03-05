@@ -33,9 +33,9 @@ public:
 	static const Vector3& Z;
 
 private:
-	static Vector3& m_tmp;
-	static Vector3& m_tmp2;
-	static Vector3& m_tmp3;
+	static Vector3* m_tmp;
+	static Vector3* m_tmp2;
+	static Vector3* m_tmp3;
 
 public:
 	/** Constructs a vector at (0,0,0) */
@@ -267,5 +267,6 @@ public:
 	 * @param scalarY
 	 * @param scalarZ */
 	Vector3& scale(float scalarX, float scalarY, float scalarZ);
+    
 };
 
