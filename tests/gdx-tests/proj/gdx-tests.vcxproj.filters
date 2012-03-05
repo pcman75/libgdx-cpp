@@ -139,6 +139,9 @@
     <ClInclude Include="..\include\MoveSpriteExample.h">
       <Filter>inlcude</Filter>
     </ClInclude>
+    <ClInclude Include="..\include\MipMap2D.h">
+      <Filter>inlcude</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\dllmain.cpp">

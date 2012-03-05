@@ -101,6 +101,7 @@
     <ClInclude Include="..\include\IndexBufferObjectClassTest.h" />
     <ClInclude Include="..\include\IndexBufferObjectShaderTest.h" />
     <ClInclude Include="..\include\MeshMultitextureTest.h" />
+    <ClInclude Include="..\include\MipMap2D.h" />
     <ClInclude Include="..\include\MipMapTest.h" />
     <ClInclude Include="..\include\MoveSpriteExample.h" />
     <ClInclude Include="..\include\Mpg123Test.h" />

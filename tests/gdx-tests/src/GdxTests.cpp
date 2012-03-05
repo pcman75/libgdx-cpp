@@ -65,6 +65,7 @@
 #include "MeshShaderTest.h"
 #include "MeshTest.h"
 //#include "MipMapTest.h"
+#include "MipMap2D.h"
 //#include "MultitouchTest.h"
 //#include "MusicTest.h"
 //#include "MyFirstTriangle.h"
@@ -202,6 +203,7 @@ GdxTests::GdxTests()
 	GDX_DEFINE_TEST(MeshShaderTest);
 	GDX_DEFINE_TEST(MeshTest);
 	//GDX_DEFINE_TEST(MipMapTest
+	GDX_DEFINE_TEST(MipMap2D);
 	//GDX_DEFINE_TEST(MultitouchTest
 	//GDX_DEFINE_TEST(MusicTest
 	//GDX_DEFINE_TEST(MyFirstTriangle
