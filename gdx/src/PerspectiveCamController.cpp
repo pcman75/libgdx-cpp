@@ -4,8 +4,9 @@
 
 PerspectiveCamController::PerspectiveCamController( const PerspectiveCamera& cam)
 {
-  mode = TransformMode::Translate;
-	translated = false;
+//    mode = TransformMode::Translate;
+    mode = Translate;
+    translated = false;
 
   lookAtPlane = Plane( Vector3(0, 1, 0), 0);
 	xAxis = Vector3(1, 0, 0);
