@@ -270,6 +270,9 @@
     <ClCompile Include="..\src\LinearInterpolator.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\Animation.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\lib\etc1_utils.h">
@@ -573,6 +576,12 @@
       <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="..\include\LinearInterpolator.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Animation.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\BitmapFont.h">
       <Filter>include</Filter>
     </ClInclude>
   </ItemGroup>

@@ -76,6 +76,7 @@
   <ItemGroup>
     <ClCompile Include="..\src\AccelerateDecelerateInterpolator.cpp" />
     <ClCompile Include="..\src\AccelerateInterpolator.cpp" />
+    <ClCompile Include="..\src\Animation.cpp" />
     <ClCompile Include="..\src\AnticipateInterpolator.cpp" />
     <ClCompile Include="..\src\DecelerateInterpolator.cpp" />
     <ClCompile Include="..\src\LinearInterpolator.cpp" />
@@ -177,7 +178,9 @@
   <ItemGroup>
     <ClInclude Include="..\include\AccelerateDecelerateInterpolator.h" />
     <ClInclude Include="..\include\AccelerateInterpolator.h" />
+    <ClInclude Include="..\include\Animation.h" />
     <ClInclude Include="..\include\AnticipateInterpolator.h" />
+    <ClInclude Include="..\include\BitmapFont.h" />
     <ClInclude Include="..\include\DecelerateInterpolator.h" />
     <ClInclude Include="..\include\LinearInterpolator.h" />
     <ClInclude Include="..\include\OvershootInterpolator.h" />
