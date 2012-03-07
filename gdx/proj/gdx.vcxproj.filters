@@ -273,6 +273,21 @@
     <ClCompile Include="..\src\Animation.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\BitmapFont.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Glyph.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\TextBounds.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\BitmapFontData.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\StringTokenizer.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\lib\etc1_utils.h">
@@ -583,6 +598,9 @@
     </ClInclude>
     <ClInclude Include="..\include\BitmapFont.h">
       <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\lib\StringTokenizer.h">
+      <Filter>lib</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -33,7 +33,10 @@ public:
   // read nLen bytes in pWhere ( allocated by the caller)
   //
   virtual int         readBytes( unsigned char* pWhere, int nLen) = 0;
-
+  
+  // call fgets
+  virtual char*		  readLine( char* pWhere, int nLen) = 0;
+  
   // write nLen bytes from pWhere
   //
   virtual int         writeBytes( unsigned char* pFrom, int nLen) = 0;

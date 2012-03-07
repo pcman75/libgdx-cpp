@@ -297,7 +297,7 @@ void SpriteBatch::end()
 }
 
 /** Sets the color used to tint images when they are added to the SpriteBatch. Default is {@link Color#WHITE}. */
-void SpriteBatch::setColor(Color tint)
+void SpriteBatch::setColor(const Color& tint)
 {
 	m_color = tint.toFloatBits();
 }

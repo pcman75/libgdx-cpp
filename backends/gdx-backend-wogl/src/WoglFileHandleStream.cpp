@@ -65,6 +65,12 @@ int WoglFileHandleStream::readBytes( unsigned char* pWhere, int nLen)
   return fread( ( void*) pWhere, sizeof( char), nLen, m_pFile);
 }
 
+char* WoglFileHandleStream::readLine( char* pWhere, int nLen)
+{
+  return fgets( pWhere, nLen, m_pFile);
+}
+
+
 int WoglFileHandleStream::writeBytes( unsigned char* pFrom, int nLen)
 {
   return fwrite( ( void*) pFrom, sizeof( char), nLen, m_pFile);

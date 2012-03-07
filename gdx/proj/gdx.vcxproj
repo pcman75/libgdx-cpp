@@ -78,7 +78,10 @@
     <ClCompile Include="..\src\AccelerateInterpolator.cpp" />
     <ClCompile Include="..\src\Animation.cpp" />
     <ClCompile Include="..\src\AnticipateInterpolator.cpp" />
+    <ClCompile Include="..\src\BitmapFont.cpp" />
+    <ClCompile Include="..\src\BitmapFontData.cpp" />
     <ClCompile Include="..\src\DecelerateInterpolator.cpp" />
+    <ClCompile Include="..\src\Glyph.cpp" />
     <ClCompile Include="..\src\LinearInterpolator.cpp" />
     <ClCompile Include="..\src\OvershootInterpolator.cpp" />
     <ClCompile Include="..\src\Forever.cpp" />
@@ -99,6 +102,7 @@
     <ClCompile Include="..\src\FadeTo.cpp" />
     <ClCompile Include="..\src\Interpolator.cpp" />
     <ClCompile Include="..\src\Layout.cpp" />
+    <ClCompile Include="..\src\StringTokenizer.cpp" />
     <ClCompile Include="..\src\TemporalAction.cpp" />
     <ClCompile Include="..\src\Application.cpp" />
     <ClCompile Include="..\src\PerspectiveCamController.cpp" />
@@ -166,6 +170,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="..\src\TextBounds.cpp" />
     <ClCompile Include="..\src\Texture.cpp" />
     <ClCompile Include="..\src\TextureRegion.cpp" />
     <ClCompile Include="..\src\Vector2.cpp" />
@@ -278,6 +283,7 @@
     <ClInclude Include="..\lib\gdx2d.h" />
     <ClInclude Include="..\lib\lodepng.h" />
     <ClInclude Include="..\lib\stdafx.h" />
+    <ClInclude Include="..\lib\StringTokenizer.h" />
     <ClInclude Include="..\lib\targetver.h" />
   </ItemGroup>
   <ItemGroup>

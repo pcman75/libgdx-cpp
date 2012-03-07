@@ -166,7 +166,7 @@ public:
 	void end();
 
 	/** Sets the color used to tint images when they are added to the SpriteBatch. Default is {@link Color#WHITE}. */
-	void setColor(Color tint);
+	void setColor(const Color& tint);
 
 	/** @see #setColor(Color) */
 	void setColor(float r, float g, float b, float a);
