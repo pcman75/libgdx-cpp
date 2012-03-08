@@ -1,9 +1,11 @@
 #include "stdafx.h"
 #include "BitmapFont.h"
 
+BitmapFont::Glyph::Glyph()
+	:kerning(0)
+{
+}
 
-///////////////////////////////////////////////////////////////
-//Glyph
 int BitmapFont::Glyph::getKerning(char ch)
 {
 	if(kerning)
@@ -26,4 +28,18 @@ void BitmapFont::Glyph::setKerning(int ch, int value)
 	if(!page) 
 		kerning[ch >> LOG2_PAGE_SIZE] = page = new char[PAGE_SIZE];
 	page[ch & PAGE_SIZE - 1] = (char)value;
+}
+
+BitmapFont::Glyph::~Glyph()
+{
+	if(kerning)
+	{
+		for(int i = 0; i < PAGES; i++)
+		{
+			char* page = kerning[i];		
+			delete[] page;
+		}
+
+		delete[] kerning;
+	}
 }

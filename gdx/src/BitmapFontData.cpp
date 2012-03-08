@@ -37,6 +37,24 @@ void makeSamePathAs(const char* sibling, const char* filename, string& result)
 	result = resbuf;
 }
 
+BitmapFont::BitmapFontData::~BitmapFontData()
+{
+	for(int i = 0; i < PAGES; i++)
+	{
+		Glyph** page = this->glyphs[i];
+		if(page)
+		{
+			for(int j = 0; j < PAGE_SIZE; j++)
+			{
+				//delete the glyph
+				delete page[j];
+			}
+			delete[] page;
+		}
+	}
+	delete[] glyphs;
+}
+
 BitmapFont::BitmapFontData::BitmapFontData(const FileHandle& fontFile, bool flip)
 	:capHeight(1), scaleX(1), scaleY(1),
 	m_lineHeight(0.f), ascent(0.f), descent(0.f), down(0.f), spaceWidth(0.f), 
@@ -196,7 +214,7 @@ BitmapFont::BitmapFontData::BitmapFontData(const FileHandle& fontFile, bool flip
 				if(page == NULL) 
 					continue;
 
-				for(int j = 0; j < PAGE_SIZE; i++)
+				for(int j = 0; j < PAGE_SIZE; j++)
 				{
 					Glyph* glyph = page[j];
 					if(glyph == NULL || glyph->height == 0 || glyph->width == 0)
@@ -244,7 +262,7 @@ BitmapFont::Glyph* BitmapFont::BitmapFontData::getFirstGlyph()
 		Glyph** page = this->glyphs[i];
 		if(!page) 
 			continue;
-		for(int j = 0; j < PAGE_SIZE; i++)
+		for(int j = 0; j < PAGE_SIZE; j++)
 		{
 			Glyph* glyph = page[j];
 			if(glyph == NULL || glyph->height == 0 || glyph->width == 0) 

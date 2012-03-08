@@ -76,4 +76,6 @@ void HelloWorldApp::resume (){}
 
 void HelloWorldApp::dispose ()
 {
+	delete font;
+	delete spriteBatch;
 }

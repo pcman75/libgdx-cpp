@@ -96,5 +96,12 @@ public:
 		*/
 	}
 
+	~BitmapFontTest()
+	{
+		delete font;
+		delete spriteBatch;
+		
+	}
+
 	GDX_DEFINE_CREATOR(BitmapFontTest);
 };

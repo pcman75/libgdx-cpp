@@ -57,8 +57,9 @@ public:
 		int xadvance;
 		char** kerning;
 
+		Glyph();
+		~Glyph();
 		int getKerning(char ch);
-
 		void setKerning(int ch, int value);
 	};
 
@@ -94,6 +95,7 @@ public:
 
 	public:
 		BitmapFontData(const FileHandle& fontFile, bool flip);
+		~BitmapFontData();
 
 	private:
 		void setGlyph(int ch, Glyph* glyph);
@@ -123,9 +125,12 @@ private:
 	bool integer;
 	BitmapFontData* data;
 	bool ownsTexture;
+	bool ownsBitmapFontData;
 
 	
 public:
+
+	~BitmapFont();
 
 	/** Creates a BitmapFont using the default 15pt Arial font included in the libgdx JAR file. This is convenient to easily display
 	 * text without bothering with generating a bitmap font. */

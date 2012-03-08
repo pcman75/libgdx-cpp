@@ -18,6 +18,27 @@ void BitmapFont::init()
 	color = Color::WHITE.toFloatBits();
 	tempColor = Color(1, 1, 1, 1);
 	integer = true;
+	ownsBitmapFontData = false;
+	region = NULL;
+}
+
+BitmapFont::~BitmapFont()
+{
+	if(ownsTexture)
+	{
+		Texture* texture = region->getTexture();
+		texture->dispose();
+		delete texture;
+		texture = NULL;
+
+		delete region;
+		region = NULL;
+	}
+	if(ownsBitmapFontData)
+	{
+		delete data;
+		data = NULL;
+	}
 }
 
 /** Creates a BitmapFont using the default 15pt Arial font included in the libgdx JAR file. This is convenient to easily display
@@ -43,7 +64,7 @@ BitmapFont::BitmapFont(bool flip)
 	//init(Gdx.files->classpathHandle("com/badlogic/gdx/utils/arial-15.fnt"),
 	//	Gdx.files->classpathHandle("com/badlogic/gdx/utils/arial-15.png"), flip, true);
 	init(Gdx.files->internalHandle("data/arial-15.fnt"),
-		Gdx.files->internalHandle("data/arial-15.png"), false, true);
+		Gdx.files->internalHandle("data/arial-15.png"), flip, true);
 }
 
 /** Creates a BitmapFont with the glyphs relative to the specified region. If the region is NULL, the glyph textures are loaded
@@ -56,6 +77,7 @@ BitmapFont::BitmapFont(const FileHandle& fontFile, TextureRegion* region, bool f
 {
 	init();
 	init(new BitmapFontData(fontFile, flip), region, true);
+	ownsBitmapFontData = true;
 }
 
 /** Creates a BitmapFont from a BMFont file. The image file name is read from the BMFont file and the image is loaded from the
@@ -65,6 +87,7 @@ BitmapFont::BitmapFont(const FileHandle& fontFile, bool flip)
 {
 	init();
 	init(new BitmapFontData(fontFile, flip), NULL, true);
+	ownsBitmapFontData = true;
 }
 
 /** Creates a BitmapFont from a BMFont file, using the specified image for glyphs. Any image specified in the BMFont file is
@@ -103,6 +126,7 @@ void BitmapFont::init(const FileHandle& fontFile, const FileHandle& imageFile, b
 {
 	init(new BitmapFontData(fontFile, flip), new TextureRegion(new Texture(imageFile, false)), integer);
 	ownsTexture = true;
+	ownsBitmapFontData = true;
 }
 
 void BitmapFont::init(BitmapFontData* data, TextureRegion* region, bool integer)
@@ -115,7 +139,7 @@ void BitmapFont::init(BitmapFontData* data, TextureRegion* region, bool integer)
 	this->integer = integer;
 	this->data = data;
 	load(data);
-	ownsTexture = region != NULL;
+	ownsTexture = region == NULL;
 }
 
 void BitmapFont::load(BitmapFontData* data)
@@ -749,12 +773,6 @@ bool BitmapFont::isFlipped()
 /** Disposes the texture used by this BitmapFont's region IF this BitmapFont created the texture. */
 void BitmapFont::dispose()
 {
-	if(ownsTexture)
-	{
-		Texture* texture = region->getTexture();
-		texture->dispose();
-		delete texture;
-	}
 }
 
 /** Makes the specified glyphs fixed width. This can be useful to make the numbers in a font fixed width. Eg, when horizontally
