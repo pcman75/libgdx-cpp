@@ -3,6 +3,7 @@
 #include "Color.h"
 
 HelloWorldApp::HelloWorldApp(void)
+	: textPosition(100, 100), textDirection(1, 1)
 {
 }
 
@@ -12,35 +13,62 @@ HelloWorldApp::~HelloWorldApp(void)
 	dispose();
 }
 
-void HelloWorldApp::create()	
-{ 
-	VertexAttribute position(VertexAttributes::Position, 3, "a_position");
-	VertexAttribute color(VertexAttributes::ColorPacked, 4, "a_color");
-	VertexAttribute textureCoord(VertexAttributes::TextureCoordinates, 2, "a_texCoords");
-	VertexAttribute attributes[] = {position, color, textureCoord};
-	m_mesh = new Mesh(true, VertexAttributes(attributes, sizeof(attributes)/sizeof(attributes[0])));
-	float vertices[] = 
-	{
-		-0.5f, -0.5f, 0, Color::toFloatBits(255, 0, 0, 255), 0, 1,
-		0.5f, -0.5f, 0, Color::toFloatBits(0, 255, 0, 255), 1, 1,
-		0, 0.5f, 0, Color::toFloatBits(0, 0, 255, 255), 0.5f, 0
-	};
-	short indices[] = {0, 1, 2};
-	m_mesh->setVertices(vertices, sizeof(vertices)/sizeof(vertices[0]));
-	m_mesh->setIndices(indices, sizeof(indices)/sizeof(indices[0]));
-
-	m_texture = new Texture("c:\\badlogic.jpg");
-}
-
-void HelloWorldApp::resize (int width, int height){}
-
-void HelloWorldApp::render ()
+void HelloWorldApp::create () 
 {
-	Gdx.gl10->glClear(GL10::GDX_GL_COLOR_BUFFER_BIT);
-	Gdx.gl10->glEnable(GL10::GDX_GL_TEXTURE_2D);
-    m_texture->bind();
-	m_mesh->render(GL10::GDX_GL_TRIANGLES, 0, 3);
+		//font = new BitmapFont();
+		font = new BitmapFont(Gdx.files->internalHandle("data/default.fnt"), false);
+		font->setColor(Color::RED);
+		texture = new Texture(Gdx.files->internalHandle("data/badlogic.jpg"));
+		spriteBatch = new SpriteBatch();
 }
+
+void HelloWorldApp::render () 
+{
+		int centerX = Gdx.graphics->getWidth() / 2;
+		int centerY = Gdx.graphics->getHeight() / 2;
+
+		Gdx.graphics->getGL10()->glClear(GL10::GDX_GL_COLOR_BUFFER_BIT);
+
+		// more fun but confusing :)
+		// textPosition.add(textDirection.tmp().mul(Gdx.graphics.getDeltaTime()).mul(60));
+		textPosition.x += textDirection.x * Gdx.graphics->getDeltaTime() * 60;
+		textPosition.y += textDirection.y * Gdx.graphics->getDeltaTime() * 60;
+
+		if (textPosition.x < 0) 
+		{
+			textDirection.x = -textDirection.x;
+			textPosition.x = 0;
+		}
+		if (textPosition.x > Gdx.graphics->getWidth()) 
+		{
+			textDirection.x = -textDirection.x;
+			textPosition.x = Gdx.graphics->getWidth();
+		}
+		if (textPosition.y < 0) 
+		{
+			textDirection.y = -textDirection.y;
+			textPosition.y = 0;
+		}
+		if (textPosition.y > Gdx.graphics->getHeight()) 
+		{
+			textDirection.y = -textDirection.y;
+			textPosition.y = Gdx.graphics->getHeight();
+		}
+
+		spriteBatch->begin();
+		spriteBatch->setColor(Color::WHITE);
+		spriteBatch->draw(texture, centerX - texture->getWidth() / 2, centerY - texture->getHeight() / 2, 0, 0, texture->getWidth(),
+			texture->getHeight());
+		font->draw(spriteBatch, "Hello World!", (int)textPosition.x, (int)textPosition.y);
+		spriteBatch->end();
+	}
+
+	void HelloWorldApp::resize (int width, int height) 
+	{
+		spriteBatch->getProjectionMatrix().setToOrtho2D(0, 0, width, height);
+		textPosition.set(0, 0);
+	}
+
 
 void HelloWorldApp::pause (){}
 
@@ -48,15 +76,4 @@ void HelloWorldApp::resume (){}
 
 void HelloWorldApp::dispose ()
 {
-	if(m_mesh)
-	{
-		delete m_mesh;
-		m_mesh = NULL;
-	}
-	if(m_texture)
-	{
-		m_texture->dispose();
-		delete m_texture;
-		m_texture = NULL;
-	}
 }

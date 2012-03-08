@@ -124,7 +124,7 @@ void ControllerGL::runThread()
     // cofigure projection matrix
     RECT rect;
     ::GetClientRect(handle, &rect);
-    m_pGraphics->setViewport(rect.right, rect.bottom);
+    m_pGraphics->setViewport(rect.right, rect.bottom, false);
 
 	m_pGraphics->create();
 
@@ -135,7 +135,7 @@ void ControllerGL::runThread()
 
         if(resizeFlag)
         {
-            m_pGraphics->setViewport(clientWidth, clientHeight);
+            m_pGraphics->setViewport(clientWidth, clientHeight, true);
             resizeFlag = false;
         }
 

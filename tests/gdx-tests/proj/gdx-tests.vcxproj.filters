@@ -13,7 +13,7 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
-    <Filter Include="inlcude">
+    <Filter Include="include">
       <UniqueIdentifier>{abaac589-fad9-4441-a3ab-08f9a9220f5c}</UniqueIdentifier>
       <Extensions>h</Extensions>
     </Filter>
@@ -29,121 +29,121 @@
       <Filter>internal</Filter>
     </ClInclude>
     <ClInclude Include="..\include\GdxTests.h">
-      <Filter>inlcude</Filter>
+      <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="..\include\GdxTest.h">
-      <Filter>inlcude</Filter>
+      <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="..\include\AlphaTest.h">
-      <Filter>inlcude</Filter>
+      <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="..\include\GdxTestsDefines.h">
-      <Filter>inlcude</Filter>
+      <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="..\include\MatrixJNITest.h">
-      <Filter>inlcude</Filter>
+      <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="..\include\MeshShaderTest.h">
-      <Filter>inlcude</Filter>
+      <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="..\include\PixmapTest.h">
-      <Filter>inlcude</Filter>
+      <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="..\include\PixmapBlendingTest.h">
-      <Filter>inlcude</Filter>
+      <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="..\include\SpriteBatchTest.h">
-      <Filter>inlcude</Filter>
+      <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="..\include\VertexBufferObjectShaderTest.h">
-      <Filter>inlcude</Filter>
+      <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="..\include\TextureDataTest.h">
-      <Filter>inlcude</Filter>
+      <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="..\include\MeshTest.h">
-      <Filter>inlcude</Filter>
+      <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="..\include\VertexArrayClassTest.h">
-      <Filter>inlcude</Filter>
+      <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="..\include\VertexArrayTest.h">
-      <Filter>inlcude</Filter>
+      <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="..\include\FrustumTest.h">
-      <Filter>inlcude</Filter>
+      <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="..\include\OrthoCamBorderTest.h">
-      <Filter>inlcude</Filter>
+      <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="..\include\SpriteBatchRotationTest.h">
-      <Filter>inlcude</Filter>
+      <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="..\include\Gdx2DTest.h">
-      <Filter>inlcude</Filter>
+      <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="..\include\SpriteBatchShaderTest.h">
-      <Filter>inlcude</Filter>
+      <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="..\include\MipMapTest.h">
-      <Filter>inlcude</Filter>
+      <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="..\incl\Shapes.h">
       <Filter>internal</Filter>
     </ClInclude>
     <ClInclude Include="..\include\SimpleVertexShader.h">
-      <Filter>inlcude</Filter>
+      <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="..\include\IndexBufferObjectClassTest.h">
-      <Filter>inlcude</Filter>
+      <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="..\include\IndexBufferObjectShaderTest.h">
-      <Filter>inlcude</Filter>
+      <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="..\include\MeshMultitextureTest.h">
-      <Filter>inlcude</Filter>
+      <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="..\include\ShaderMultitextureTest.h">
-      <Filter>inlcude</Filter>
+      <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="..\include\BlitTest.h">
-      <Filter>inlcude</Filter>
+      <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="..\include\BobTest.h">
-      <Filter>inlcude</Filter>
+      <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="..\include\FloatTest.h">
-      <Filter>inlcude</Filter>
+      <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="..\include\RotationTest.h">
-      <Filter>inlcude</Filter>
+      <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="..\include\Pong.h">
-      <Filter>inlcude</Filter>
+      <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="..\include\GroupTest.h">
-      <Filter>inlcude</Filter>
+      <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="..\include\Mpg123Test.h">
-      <Filter>inlcude</Filter>
+      <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="..\include\AudioDeviceTest.h">
-      <Filter>inlcude</Filter>
+      <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="..\include\WavTest.h">
-      <Filter>inlcude</Filter>
+      <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="..\include\VorbisTest.h">
-      <Filter>inlcude</Filter>
+      <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="..\include\MoveSpriteExample.h">
-      <Filter>inlcude</Filter>
+      <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="..\include\MipMap2D.h">
-      <Filter>inlcude</Filter>
+      <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="..\include\BitmapFontTest.h">
-      <Filter>inlcude</Filter>
+      <Filter>include</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

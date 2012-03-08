@@ -307,7 +307,7 @@ void WoglGraphics::setCamera(float posX, float posY, float posZ, float targetX, 
 ///////////////////////////////////////////////////////////////////////////////
 // configure projection and viewport
 ///////////////////////////////////////////////////////////////////////////////
-void WoglGraphics::setViewport(int w, int h)
+void WoglGraphics::setViewport(int w, int h, bool graphicsCreated)
 {
 	m_width = w;
 	m_height = h;
@@ -324,7 +324,8 @@ void WoglGraphics::setViewport(int w, int h)
 	// switch to modelview matrix in order to set scene
 	glMatrixMode(GL_MODELVIEW);
 
-	m_listener.resize(w, h);
+	if(graphicsCreated)
+		m_listener.resize(w, h);
 }
 
 

@@ -25,8 +25,12 @@ void BitmapFont::init()
 BitmapFont::BitmapFont()
 {
 	init();
-	init(Gdx.files->classpathHandle("com/badlogic/gdx/utils/arial-15.fnt"),
-		Gdx.files->classpathHandle("com/badlogic/gdx/utils/arial-15.png"), false, true);
+
+	//TODO:
+	//init(Gdx.files->classpathHandle("com/badlogic/gdx/utils/arial-15.fnt"),
+	//	Gdx.files->classpathHandle("com/badlogic/gdx/utils/arial-15.png"), false, true);
+	init(Gdx.files->internalHandle("data/arial-15.fnt"),
+		Gdx.files->internalHandle("data/arial-15.png"), false, true);
 }
 
 /** Creates a BitmapFont using the default 15pt Arial font included in the libgdx JAR file. This is convenient to easily display
@@ -35,8 +39,11 @@ BitmapFont::BitmapFont()
 BitmapFont::BitmapFont(bool flip)
 {
 	init();
-	init(Gdx.files->classpathHandle("com/badlogic/gdx/utils/arial-15.fnt"),
-		Gdx.files->classpathHandle("com/badlogic/gdx/utils/arial-15.png"), flip, true);
+	//TODO:
+	//init(Gdx.files->classpathHandle("com/badlogic/gdx/utils/arial-15.fnt"),
+	//	Gdx.files->classpathHandle("com/badlogic/gdx/utils/arial-15.png"), flip, true);
+	init(Gdx.files->internalHandle("data/arial-15.fnt"),
+		Gdx.files->internalHandle("data/arial-15.png"), false, true);
 }
 
 /** Creates a BitmapFont with the glyphs relative to the specified region. If the region is NULL, the glyph textures are loaded
