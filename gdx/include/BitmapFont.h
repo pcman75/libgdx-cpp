@@ -23,6 +23,7 @@
 
 #include "TextureRegion.h"
 #include "SpriteBatch.h"
+#include "GdxDefines.h"
 
 /** Renders bitmap fonts. The font consists of 2 files: an image file or {@link TextureRegion} containing the glyphs and a file in
  * the AngleCode BMFont text format that describes where each glyph is on the image. Currently only a single image of glyphs is
@@ -34,11 +35,10 @@
  * * The texture for a BitmapFont loaded from a file is managed. {@link #dispose()} must be called to free the texture when no
  * longer needed. A BitmapFont loaded using a {@link TextureRegion} is managed if the region's texture is managed. Disposing the
  * BitmapFont disposes the region's texture, which may not be desirable if the texture is still being used elsewhere.<br>
- * <br>
- * The code is based on Matthias Mann's TWL BitmapFont class. Thanks for sharing, Matthias! :)
- * @author Nathan Sweet
- * @author Matthias Mann */
-class BitmapFont
+ */
+
+
+class GdxDllImportExport BitmapFont
 {
 public:
 	enum HAlignment
@@ -177,6 +177,7 @@ private:
 
 	void load(BitmapFontData* data);
 
+public:
 	/** Draws a string at the specified position.
 	 * @param x The x position for the left most character.
 	 * @param y The y position for the top of most capital letters in the font (the {@link #getCapHeight() cap height}).

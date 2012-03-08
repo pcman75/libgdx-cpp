@@ -4,7 +4,7 @@
 
 using namespace std;
 
-void split(const char* line, vector<string> tokens)
+void split(const char* line, vector<string>& tokens)
 {
 	istringstream iss(line);
     copy(istream_iterator<string>(iss),
@@ -40,9 +40,11 @@ void makeSamePathAs(const char* sibling, const char* filename, string& result)
 BitmapFont::BitmapFontData::BitmapFontData(const FileHandle& fontFile, bool flip)
 	:capHeight(1), scaleX(1), scaleY(1),
 	m_lineHeight(0.f), ascent(0.f), descent(0.f), down(0.f), spaceWidth(0.f), 
-	m_fontFile(fontFile), m_flipped(flip),
-	glyphs(NULL)
+	m_fontFile(fontFile), m_flipped(flip)
 {
+	glyphs = new Glyph**[PAGES];
+	memset(glyphs, NULL, PAGES * sizeof(void*));
+
 	int maxBuf = 1024;
 	char* line = new char[maxBuf];
 
@@ -77,14 +79,14 @@ BitmapFont::BitmapFontData::BitmapFontData(const FileHandle& fontFile, bool flip
 		if(!startsWith(pageLine[2], "file=")) 
 			throw new GdxRuntimeException("Invalid font file: " + m_fontFile.getFullPathName());
 		
-		string imgFilename = NULL;
+		string imgFilename;
 		if(endsWith(pageLine[2], "\""))
 		{
-			imgFilename = pageLine[2].substr(6, pageLine[2].length() - 1);
+			imgFilename = pageLine[2].substr(6, pageLine[2].length() - 1 - 6);
 		}
 		else
 		{
-			imgFilename = pageLine[2].substr(5, pageLine[2].length());
+			imgFilename = pageLine[2].substr(5, pageLine[2].length() - 6);
 		}
 
 		//TODO:
@@ -227,8 +229,11 @@ BitmapFont::BitmapFontData::BitmapFontData(const FileHandle& fontFile, bool flip
 void BitmapFont::BitmapFontData::setGlyph(int ch, Glyph* glyph)
 {
 	Glyph** page = glyphs[ch / PAGE_SIZE];
-	if(page)
+	if(!page)
+	{
 		glyphs[ch / PAGE_SIZE] = page = new Glyph*[PAGE_SIZE];
+		memset(page, NULL, PAGE_SIZE * sizeof(void*));
+	}
 	page[ch & PAGE_SIZE - 1] = glyph;
 }
 

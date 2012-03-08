@@ -100,7 +100,10 @@ void BitmapFont::init(const FileHandle& fontFile, const FileHandle& imageFile, b
 
 void BitmapFont::init(BitmapFontData* data, TextureRegion* region, bool integer)
 {
-	this->region = region == NULL ? new TextureRegion(new Texture(Gdx.files->internalHandle(data->m_imagePath), false)) : region;
+	//TODO:
+	//this->region = region == NULL ? new TextureRegion(new Texture(Gdx.files->internalHandle(data->m_imagePath), false)) : region;
+	this->region = region == NULL ? new TextureRegion(new Texture(Gdx.files->absoluteHandle(data->m_imagePath), false)) : region;
+
 	this->flipped = data->m_flipped;
 	this->integer = integer;
 	this->data = data;

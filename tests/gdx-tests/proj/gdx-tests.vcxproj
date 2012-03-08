@@ -93,6 +93,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\AudioDeviceTest.h" />
+    <ClInclude Include="..\include\BitmapFontTest.h" />
     <ClInclude Include="..\include\GroupTest.h" />
     <ClInclude Include="..\include\BlitTest.h" />
     <ClInclude Include="..\include\BobTest.h" />
