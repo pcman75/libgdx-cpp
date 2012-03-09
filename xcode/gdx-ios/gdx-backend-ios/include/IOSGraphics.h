@@ -10,10 +10,12 @@
 #define gdx_ios_IOSGraphics_h
 
 #include "Graphics.h"
+#include "ApplicationListener.h"
 
 class IOSGraphics : public Graphics
 {
-    
-}
+    public:
+    IOSGraphics(ApplicationListener& listener, bool useGL20);
+};
 
 #endif
