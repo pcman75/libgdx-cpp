@@ -20,6 +20,7 @@
     
     self.m_window = [[UIWindow alloc] initWithFrame:screenBounds];
     
+    m_view = [[GLView alloc] initWithFrame:screenBounds];
     // create the tests
     
     [self.m_window addSubview:m_view];
