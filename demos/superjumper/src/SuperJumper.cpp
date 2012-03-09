@@ -28,7 +28,8 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
                      LPTSTR    lpCmdLine,
                      int       nCmdShow)
 {
-	WoglApplication(SuperJumper(), "Super Jumper", 400, 300, false);
+    WoglApplication(SuperJumper(), "Super Jumper", 320, 480, false);
+
     return 0;
 }
 

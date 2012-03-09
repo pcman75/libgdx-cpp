@@ -15,30 +15,30 @@
  ******************************************************************************/
 #pragma once
 
+#include "World.h"
 #include "OrthographicCamera.h"
 #include "SpriteBatch.h"
-#include "Rectang.h"
-#include "Vector3.h"
-#include "Screen.h"
 
-class MainMenuScreen :
-	public Screen
+class WorldRenderer
 {
-	OrthographicCamera* m_guiCam;
-	SpriteBatch* m_batcher;
-	Rectang m_soundBounds;
-	Rectang m_playBounds;
-	Rectang m_highscoresBounds;
-	Rectang m_helpBounds;
-	Vector3 m_touchPoint;
+	static const float FRUSTUM_WIDTH;
+	static const float FRUSTUM_HEIGHT;
+
+	World* world;
+	OrthographicCamera cam;
+	SpriteBatch* batch;
+	TextureRegion* background;
 
 public:
-	MainMenuScreen(Game* game);
-	~MainMenuScreen();
+	WorldRenderer(SpriteBatch* pBatch, World* pWorld);
+	void render();
+	void renderBackground();
+	void renderObjects();
 
-	void update(float deltaTime);
-	void present(float deltaTime);
-	void pause();
-	void resume();
-	void dispose();
+private:
+	void renderBob();
+	void renderPlatforms();
+	void renderItems();
+	void renderSquirrels();
+	void renderCastle();
 };

@@ -111,7 +111,7 @@ bool WindowsInput::isTouched()
 bool WindowsInput::justTouched()
 {
 	//TODO:
-	return -1;
+	return true;
 }
 
 /** Whether the screen is currently touched by the pointer with the given index. Pointers are indexed from 0 to n. The pointer

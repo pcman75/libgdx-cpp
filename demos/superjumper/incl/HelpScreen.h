@@ -13,22 +13,30 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  ******************************************************************************/
+#pragma once
 
-package com.badlogicgames.superjumper;
+#include "Screen.h"
+#include "OrthographicCamera.h"
+#include "SpriteBatch.h"
+#include "Rectang.h"
+#include "Vector3.h"
+#include "Texture.h"
 
-public class Coin extends GameObject {
-	public static final float COIN_WIDTH = 0.5f;
-	public static final float COIN_HEIGHT = 0.8f;
-	public static final int COIN_SCORE = 10;
+class HelpScreen :
+	public Screen 
+{
+	OrthographicCamera guiCam;
+	SpriteBatch* batcher;
+	Rectang nextBounds;
+	Vector3 touchPoint;
+	Texture* helpImage;
+	TextureRegion* helpRegion;
 
-	float stateTime;
-
-	public Coin (float x, float y) {
-		super(x, y, COIN_WIDTH, COIN_HEIGHT);
-		stateTime = 0;
-	}
-
-	public void update (float deltaTime) {
-		stateTime += deltaTime;
-	}
-}
+public:
+	HelpScreen(Game* game);
+	void resume();
+	void pause();
+	void update(float deltaTime);
+	void present(float deltaTime);
+	void dispose();
+};

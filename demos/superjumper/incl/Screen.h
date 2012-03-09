@@ -19,7 +19,7 @@ class Game;
 
 class Screen
 {
-private:
+protected:
 	Game* m_game;
 
 public:

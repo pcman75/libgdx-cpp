@@ -13,13 +13,29 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  ******************************************************************************/
+#pragma once
 
-package com.badlogicgames.superjumper;
+#include "DynamicGameObject.h"
 
-import com.badlogic.gdx.backends.jogl.JoglApplication;
+class Bob :
+	public DynamicGameObject 
+{
+public:
+	static const int BOB_STATE_JUMP;
+	static const int BOB_STATE_FALL;
+	static const int BOB_STATE_HIT;
+	static const float BOB_JUMP_VELOCITY;
+	static const float BOB_MOVE_VELOCITY;
+	static const float BOB_WIDTH;
+	static const float BOB_HEIGHT;
 
-public class SuperJumperDesktop {
-	public static void main (String[] argv) {
-		new JoglApplication(new SuperJumper(), "Super Jumper", 320, 480, false);
-	}
-}
+	int state;
+	float stateTime;
+
+public:
+	Bob(float x, float y);
+	void update (float deltaTime);
+	void hitSquirrel ();
+	void hitPlatform ();
+	void hitSpring ();
+};

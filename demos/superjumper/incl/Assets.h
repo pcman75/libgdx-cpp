@@ -22,8 +22,8 @@
 class Assets
 {
 public:
-	static Texture background;
-	static TextureRegion backgroundRegion;
+	static Texture* background;
+	static TextureRegion* backgroundRegion;
 
 	static Texture* items;
 	static TextureRegion* mainMenu;

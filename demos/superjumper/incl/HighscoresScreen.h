@@ -14,13 +14,29 @@
  * limitations under the License.
  ******************************************************************************/
 
-package com.badlogicgames.superjumper;
+#pragma once
+#include "Screen.h"
+#include "OrthographicCamera.h"
+#include "SpriteBatch.h"
+#include "Rectang.h"
+#include "Vector3.h"
 
-public class Spring extends GameObject {
-	public static float SPRING_WIDTH = 0.3f;
-	public static float SPRING_HEIGHT = 0.3f;
 
-	public Spring (float x, float y) {
-		super(x, y, SPRING_WIDTH, SPRING_HEIGHT);
-	}
-}
+class HighscoresScreen :
+	public Screen 
+{
+	OrthographicCamera guiCam;
+	SpriteBatch* batcher;
+	Rectang backBounds;
+	Vector3 touchPoint;
+	std::string highScores[5];
+	float xOffset;
+
+public:
+	HighscoresScreen(Game* game);
+	void update(float deltaTime);
+	void present (float deltaTime);
+	void resume ();
+	void pause ();
+	void dispose ();
+};

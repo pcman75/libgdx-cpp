@@ -13,32 +13,72 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  ******************************************************************************/
-#pragma once
-
-#include "OrthographicCamera.h"
-#include "SpriteBatch.h"
-#include "Rectang.h"
-#include "Vector3.h"
 #include "Screen.h"
+#include "OrthographicCamera.h"
+#include "Vector3.h"
+#include "SpriteBatch.h"
+#include "World.h"
+#include "WorldListener.h"
+#include "WorldRenderer.h"
+#include "Rectang.h"
+#include "Game.h"
 
-class MainMenuScreen :
+class GameScreen :
 	public Screen
 {
-	OrthographicCamera* m_guiCam;
-	SpriteBatch* m_batcher;
-	Rectang m_soundBounds;
-	Rectang m_playBounds;
-	Rectang m_highscoresBounds;
-	Rectang m_helpBounds;
-	Vector3 m_touchPoint;
+private:
+	static const int GAME_READY;
+	static const int GAME_RUNNING;
+	static const int GAME_PAUSED;
+	static const int GAME_LEVEL_END;
+	static const int GAME_OVER;
+
+	int state;
+	OrthographicCamera guiCam;
+	Vector3 touchPoint;
+	SpriteBatch* batcher;
+	World* world;
+	WorldListener* worldListener;
+	WorldRenderer* renderer;
+	Rectang pauseBounds;
+	Rectang resumeBounds;
+	Rectang quitBounds;
+	int lastScore;
+	std::string scoreString;
 
 public:
-	MainMenuScreen(Game* game);
-	~MainMenuScreen();
+	GameScreen(Game* game);
 
 	void update(float deltaTime);
+
+	void updateReady();
+
+private:
+	void updateRunning(float deltaTime);
+
+	void updatePaused();
+
+	void updateLevelEnd();
+
+	void updateGameOver();
+
 	void present(float deltaTime);
+
+	void presentReady();
+
+	void presentRunning();
+
+	void presentPaused();
+
+	void presentLevelEnd();
+
+	void presentGameOver();
+
+public:
+
 	void pause();
+
 	void resume();
+
 	void dispose();
 };

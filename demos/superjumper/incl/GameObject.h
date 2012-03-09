@@ -13,18 +13,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  ******************************************************************************/
+#pragma once
 
-package com.badlogicgames.superjumper;
+#include "Vector2.h"
+#include "Rectang.h"
 
-import com.badlogic.gdx.math.Rectangle;
-import com.badlogic.gdx.math.Vector2;
+class GameObject 
+{
+public:
+	Vector2 position;
+	Rectang bounds;
 
-public class GameObject {
-	public final Vector2 position;
-	public final Rectangle bounds;
-
-	public GameObject (float x, float y, float width, float height) {
-		this.position = new Vector2(x, y);
-		this.bounds = new Rectangle(x - width / 2, y - height / 2, width, height);
-	}
-}
+public:
+	GameObject(float x, float y, float width, float height);
+};

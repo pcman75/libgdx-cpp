@@ -13,15 +13,28 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  ******************************************************************************/
+#pragma once 
 
-package com.badlogicgames.superjumper;
+#include "DynamicGameObject.h"
 
-public class Castle extends GameObject {
-	public static float CASTLE_WIDTH = 1.7f;
-	public static float CASTLE_HEIGHT = 1.7f;
+class Platform :
+	public DynamicGameObject 
+{
+public:
+	static const float PLATFORM_WIDTH;
+	static const float PLATFORM_HEIGHT;
+	static const int PLATFORM_TYPE_STATIC;
+	static const int PLATFORM_TYPE_MOVING;
+	static const int PLATFORM_STATE_NORMAL;
+	static const int PLATFORM_STATE_PULVERIZING;
+	static const float PLATFORM_PULVERIZE_TIME;
+	static const float PLATFORM_VELOCITY;
 
-	public Castle (float x, float y) {
-		super(x, y, CASTLE_WIDTH, CASTLE_HEIGHT);
-	}
+	int type;
+	int state;
+	float stateTime;
 
-}
+	Platform (int type, float x, float y);
+	void update (float deltaTime);
+	void pulverize ();
+};

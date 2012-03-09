@@ -12,14 +12,29 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\incl\Assets.h" />
+    <ClInclude Include="..\incl\Bob.h" />
+    <ClInclude Include="..\incl\Castle.h" />
+    <ClInclude Include="..\incl\Coin.h" />
+    <ClInclude Include="..\incl\DynamicGameObject.h" />
     <ClInclude Include="..\incl\Game.h" />
+    <ClInclude Include="..\incl\GameObject.h" />
+    <ClInclude Include="..\incl\GameScreen.h" />
+    <ClInclude Include="..\incl\HelpScreen.h" />
+    <ClInclude Include="..\incl\HighscoresScreen.h" />
     <ClInclude Include="..\incl\MainMenuScreen.h" />
     <ClInclude Include="..\incl\OverlapTester.h" />
+    <ClInclude Include="..\incl\Platform.h" />
     <ClInclude Include="..\incl\Screen.h" />
     <ClInclude Include="..\incl\Settings.h" />
+    <ClInclude Include="..\incl\SoundController.h" />
+    <ClInclude Include="..\incl\Spring.h" />
+    <ClInclude Include="..\incl\Squirrel.h" />
     <ClInclude Include="..\incl\stdafx.h" />
     <ClInclude Include="..\incl\SuperJumper.h" />
     <ClInclude Include="..\incl\targetver.h" />
+    <ClInclude Include="..\incl\World.h" />
+    <ClInclude Include="..\incl\WorldListener.h" />
+    <ClInclude Include="..\incl\WorldRenderer.h" />
     <ClInclude Include="..\res\resource.h" />
   </ItemGroup>
   <ItemGroup>
@@ -27,20 +42,37 @@
     <None Include="..\res\superjumper.ico" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="..\res\superjumper.rc" />
+    <ResourceCompile Include="..\res\superjumper.rc">
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\incl</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\incl</AdditionalIncludeDirectories>
+    </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\Assets.cpp" />
+    <ClCompile Include="..\src\Bob.cpp" />
+    <ClCompile Include="..\src\Castle.cpp" />
+    <ClCompile Include="..\src\Coin.cpp" />
+    <ClCompile Include="..\src\DynamicGameObject.cpp" />
     <ClCompile Include="..\src\Game.cpp" />
+    <ClCompile Include="..\src\GameObject.cpp" />
+    <ClCompile Include="..\src\GameScreen.cpp" />
+    <ClCompile Include="..\src\HelpScreen.cpp" />
+    <ClCompile Include="..\src\HighscoresScreen.cpp" />
     <ClCompile Include="..\src\MainMenuScreen.cpp" />
     <ClCompile Include="..\src\OverlapTester.cpp" />
+    <ClCompile Include="..\src\Platform.cpp" />
     <ClCompile Include="..\src\Screen.cpp" />
     <ClCompile Include="..\src\Settings.cpp" />
+    <ClCompile Include="..\src\SoundController.cpp" />
+    <ClCompile Include="..\src\Spring.cpp" />
+    <ClCompile Include="..\src\Squirrel.cpp" />
     <ClCompile Include="..\src\stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="..\src\SuperJumper.cpp" />
+    <ClCompile Include="..\src\World.cpp" />
+    <ClCompile Include="..\src\WorldRenderer.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{65CB8279-2F18-427E-AB62-C263F0C3CE38}</ProjectGuid>
@@ -71,6 +103,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
+    <CustomBuildAfterTargets>Link</CustomBuildAfterTargets>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -86,7 +119,15 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>gdx.lib;gdx-backend-wogl.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(OutDir);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
+    <CustomBuildStep>
+      <Command>xcopy /i /y ..\data $(OutDir)\data</Command>
+    </CustomBuildStep>
+    <CustomBuildStep>
+      <Outputs>$(OutDir)\data</Outputs>
+    </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -103,6 +144,8 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>$(OutDir);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>gdx.lib;gdx-backend-wogl.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

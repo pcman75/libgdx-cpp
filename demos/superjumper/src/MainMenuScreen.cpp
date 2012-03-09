@@ -1,5 +1,12 @@
 #include "stdafx.h"
 #include "MainMenuScreen.h"
+#include "HighscoresScreen.h"
+#include "HelpScreen.h"
+#include "OverlapTester.h"
+#include "Assets.h"
+#include "Settings.h"
+#include "Game.h"
+#include "GameScreen.h"
 
 MainMenuScreen::MainMenuScreen(Game* game)
 	:Screen(game),
@@ -28,32 +35,32 @@ void MainMenuScreen::update(float deltaTime)
 	{
 		m_guiCam->unproject(m_touchPoint.set(Gdx.input->getX(), Gdx.input->getY(), 0));
 
-		if(OverlapTester.pointInRectangle(m_playBounds, m_touchPoint.x, m_touchPoint.y))
+		if(OverlapTester::pointInRectangle(m_playBounds, m_touchPoint.x, m_touchPoint.y))
 		{
-			Assets.playSound(Assets.clickSound);
-			game.setScreen(new GameScreen(game));
+			Assets::playSound(Assets::clickSound);
+			m_game->setScreen(new GameScreen(m_game));
 			return;
 		}
-		if(OverlapTester.pointInRectangle(m_highscoresBounds, m_touchPoint.x, m_touchPoint.y))
+		if(OverlapTester::pointInRectangle(m_highscoresBounds, m_touchPoint.x, m_touchPoint.y))
 		{
-			Assets.playSound(Assets.clickSound);
-			game.setScreen(new HighscoresScreen(game));
+			Assets::playSound(Assets::clickSound);
+			m_game->setScreen(new HighscoresScreen(m_game));
 			return;
 		}
-		if(OverlapTester.pointInRectangle(m_helpBounds, m_touchPoint.x, m_touchPoint.y))
+		if(OverlapTester::pointInRectangle(m_helpBounds, m_touchPoint.x, m_touchPoint.y))
 		{
-			Assets.playSound(Assets.clickSound);
-			game.setScreen(new HelpScreen(game));
+			Assets::playSound(Assets::clickSound);
+			m_game->setScreen(new HelpScreen(m_game));
 			return;
 		}
-		if(OverlapTester.pointInRectangle(m_soundBounds, m_touchPoint.x, m_touchPoint.y))
+		if(OverlapTester::pointInRectangle(m_soundBounds, m_touchPoint.x, m_touchPoint.y))
 		{
-			Assets.playSound(Assets.clickSound);
-			Settings.soundEnabled = !Settings.soundEnabled;
-			if(Settings.soundEnabled)
-				Assets.music.play();
+			Assets::playSound(Assets::clickSound);
+			Settings::soundEnabled = !Settings::soundEnabled;
+			if(Settings::soundEnabled)
+				Assets::music->play();
 			else
-				Assets.music.pause();
+				Assets::music->pause();
 		}
 	}
 }
@@ -62,26 +69,26 @@ void MainMenuScreen::present(float deltaTime)
 {
 	GLCommon* gl = Gdx.gl;
 	gl->glClearColor(1, 0, 0, 1);
-	gl->glClear(GL10.GL_COLOR_BUFFER_BIT);
+	gl->glClear(GL10::GDX_GL_COLOR_BUFFER_BIT);
 	m_guiCam->update();
 	m_batcher->setProjectionMatrix(m_guiCam->combined);
 
 	m_batcher->disableBlending();
 	m_batcher->begin();
-	m_batcher->draw(Assets.backgroundRegion, 0, 0, 320, 480);
+	m_batcher->draw(Assets::backgroundRegion, 0, 0, 320, 480);
 	m_batcher->end();
 
 	m_batcher->enableBlending();
 	m_batcher->begin();
-	m_batcher->draw(Assets.logo, 160 - 274 / 2, 480 - 10 - 142, 274, 142);
-	m_batcher->draw(Assets.mainMenu, 10, (int)(200 - 110 / 2), 300, 110);
-	m_batcher->draw(Settings.soundEnabled ? Assets.soundOn : Assets.soundOff, 0, 0, 64, 64);
+	m_batcher->draw(Assets::logo, 160 - 274 / 2, 480 - 10 - 142, 274, 142);
+	m_batcher->draw(Assets::mainMenu, 10, (int)(200 - 110 / 2), 300, 110);
+	m_batcher->draw(Settings::soundEnabled ? Assets::soundOn : Assets::soundOff, 0, 0, 64, 64);
 	m_batcher->end();
 }
 
 void MainMenuScreen::pause()
 {
-	Settings.save();
+	Settings::save();
 }
 
 void MainMenuScreen::resume()
