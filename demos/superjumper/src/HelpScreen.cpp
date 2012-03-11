@@ -8,9 +8,9 @@ HelpScreen::HelpScreen(Game* game)
 	: Screen(game),	
 	guiCam(320, 480), nextBounds(320 - 64, 0, 64, 64)
 {
-	helpRegion = new TextureRegion(helpImage, 0, 0, 320, 480);
 	guiCam.position.set(320 / 2, 480 / 2, 0);
 	helpImage = Assets::loadTexture("data/help1.png");
+	helpRegion = new TextureRegion(helpImage, 0, 0, 320, 480);
 	batcher = new SpriteBatch();
 }
 

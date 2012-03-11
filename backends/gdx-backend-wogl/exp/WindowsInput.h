@@ -6,8 +6,11 @@ class WindowsInput :
 {
 private:
 	bool m_touchDown;
+	bool m_justTouched;
 	int m_touchX;
 	int m_touchY;
+
+	std::set<int> m_keys;
 
 public:
 	WindowsInput();
@@ -197,5 +200,10 @@ public:
 	void buttonDown(WPARAM state, int x, int y);
 	void buttonUp(WPARAM state, int x, int y);
 
+	void keyDown(int key, LPARAM lParam);
+	void keyUp(int key, LPARAM lParam);
+
+private:
+	int translateKey(int keyCode);
 };
 

@@ -14,7 +14,9 @@ HighscoresScreen::HighscoresScreen(Game* game)
 	guiCam.position.set(320 / 2, 480 / 2, 0);
 	for (int i = 0; i < 5; i++) 
 	{
-		highScores[i] = (i + 1) + ". " + Settings::highscores[i];
+		std::stringstream score;
+		score << (i + 1) << ". " << Settings::highscores[i];
+		highScores[i] = score.str();
 		xOffset = max(Assets::font->getBounds(highScores[i]).width, xOffset);
 	}
 	xOffset = 160 - xOffset / 2 + Assets::font->getSpaceWidth() / 2;

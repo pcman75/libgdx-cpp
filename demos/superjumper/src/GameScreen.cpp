@@ -80,9 +80,9 @@ void GameScreen::updateRunning(float deltaTime)
 	else
 	{
 		float accel = 0;
-		if(Gdx.input->isKeyPressed(Keys::DPAD_LEFT)) 
+		if(Gdx.input->isKeyPressed(Input::Keys::DPAD_LEFT)) 
 			accel = 5.f;
-		if(Gdx.input->isKeyPressed(Keys::DPAD_RIGHT)) 
+		if(Gdx.input->isKeyPressed(Input::Keys::DPAD_RIGHT)) 
 			accel = -5.f;
 		world->update(deltaTime, accel);
 	}

@@ -243,14 +243,21 @@ int ControllerGL::mouseMove(WPARAM state, int x, int y)
 ///////////////////////////////////////////////////////////////////////////////
 int ControllerGL::keyDown(int key, LPARAM lParam)
 {
+	/* TODO: need this?
     if(key == VK_ESCAPE)
     {
         ::PostMessage(handle, WM_CLOSE, 0, 0);
     }
-
+	*/
+	m_pInput->keyDown(key, lParam);
     return 0;
 }
 
+int ControllerGL::keyUp(int key, LPARAM lParam)
+{
+	m_pInput->keyUp(key, lParam);
+    return 0;
+}
 
 
 ///////////////////////////////////////////////////////////////////////////////
