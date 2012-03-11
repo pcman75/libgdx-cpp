@@ -54,10 +54,22 @@ WoglApplication::WoglApplication (ApplicationListener& listener, const char* tit
 
     // create window with given controller
     Win::Window glWin(::GetModuleHandle(NULL), title, 0, &glCtrl);
-    glWin.setWindowStyle(WS_OVERLAPPEDWINDOW | WS_VISIBLE | WS_CLIPSIBLINGS | WS_CLIPCHILDREN);
+	DWORD style = WS_OVERLAPPEDWINDOW | WS_VISIBLE | WS_CLIPSIBLINGS | WS_CLIPCHILDREN;
+    glWin.setWindowStyle(style);
     glWin.setClassStyle(CS_OWNDC);
-    glWin.setWidth(width);
-    glWin.setHeight(height);
+    
+	
+	RECT rcWindow = {0, 0, width, height};
+	AdjustWindowRectEx(&rcWindow,                // pointer to the RECT structure to use
+                  style,     // window styles
+                   FALSE,    // TRUE if the window has a menu, FALSE if not
+                   style);  // extended window styles
+	
+	
+	
+	//glWin.setPosition(rcWindow.left, rcWindow.top);
+	glWin.setWidth(rcWindow.right - rcWindow.left);
+    glWin.setHeight(rcWindow.bottom - rcWindow.top);
 
     glWin.create();
     glWin.show();
