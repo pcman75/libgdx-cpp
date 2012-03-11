@@ -50,7 +50,7 @@ void MainMenuScreen::update(float deltaTime)
 		if(OverlapTester::pointInRectangle(m_helpBounds, m_touchPoint.x, m_touchPoint.y))
 		{
 			Assets::playSound(Assets::clickSound);
-			m_game->setScreen(new HelpScreen(m_game));
+			m_game->setScreen(new HelpScreen(m_game, 1));
 			return;
 		}
 		if(OverlapTester::pointInRectangle(m_soundBounds, m_touchPoint.x, m_touchPoint.y))

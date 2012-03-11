@@ -25,18 +25,22 @@
 class HelpScreen :
 	public Screen 
 {
-	OrthographicCamera guiCam;
-	SpriteBatch* batcher;
-	Rectang nextBounds;
-	Vector3 touchPoint;
-	Texture* helpImage;
-	TextureRegion* helpRegion;
+	OrthographicCamera m_guiCam;
+	SpriteBatch* m_batcher;
+	Rectang m_nextBounds;
+	Vector3 m_touchPoint;
+	Texture* m_helpImage;
+	TextureRegion* m_helpRegion;
+	int m_helpScreenNumber;
 
 public:
-	HelpScreen(Game* game);
+	HelpScreen(Game* game, int helpScreenNumber);
 	void resume();
 	void pause();
 	void update(float deltaTime);
 	void present(float deltaTime);
 	void dispose();
+
+private:
+	const char* getPictureName();
 };
