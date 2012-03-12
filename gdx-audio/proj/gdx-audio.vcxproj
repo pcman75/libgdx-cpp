@@ -96,6 +96,8 @@
     <ClCompile Include="..\src\WavInputStream.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\include\GdxMusic.h" />
+    <ClInclude Include="..\include\GdxSound.h" />
     <ClInclude Include="..\include\Mpg123Decoder.h" />
     <ClInclude Include="..\include\VorbisDecoder.h" />
     <ClInclude Include="..\include\WavDecoder.h" />

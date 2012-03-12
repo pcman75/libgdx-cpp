@@ -21,9 +21,6 @@
 class SuperJumper :
 	public Game
 {
-	//TODO:
-	//bool firstTimeCreate = true;
-
 public:
 	Screen* getStartScreen();
 	void create();

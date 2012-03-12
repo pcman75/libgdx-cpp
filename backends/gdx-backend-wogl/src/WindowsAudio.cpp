@@ -1,6 +1,8 @@
 #include "stdafx.h"
 #include "WindowsAudio.h"
 #include "WindowsAudioDevice.h"
+#include "GdxMusic.h"
+#include "GdxSound.h"
 
 /** Creates a new {@link AudioDevice} either in mono or stereo mode. The AudioDevice has to be disposed via its
 * {@link AudioDevice#dispose()} method when it is no longer used.
@@ -45,7 +47,7 @@ AudioRecorder* WindowsAudio::newAudioRecorder(int samplingRate, bool isMono)
 * @throws GdxRuntimeException in case the sound could not be loaded */
 Sound* WindowsAudio::newSound(const FileHandle& fileHandle)
 {
-	return NULL;
+	return new GdxSound();
 }
 
 /** Creates a new {@link Music} instance which is used to play back a music stream from a file. Currently supported formats are
@@ -58,6 +60,7 @@ Sound* WindowsAudio::newSound(const FileHandle& fileHandle)
 * @throws GdxRuntimeException in case the music could not be loaded */
 Music* WindowsAudio::newMusic(const FileHandle& file)
 {
-	return NULL;
+	//TODO:
+	return new GdxMusic();
 }
 

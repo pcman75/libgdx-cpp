@@ -60,12 +60,10 @@ void MainMenuScreen::update(float deltaTime)
 		{
 			Assets::playSound(Assets::clickSound);
 			Settings::soundEnabled = !Settings::soundEnabled;
-			/*TODO:
 			if(Settings::soundEnabled)
 				Assets::music->play();
 			else
 				Assets::music->pause();
-				*/
 		}
 	}
 }

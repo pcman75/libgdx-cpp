@@ -74,5 +74,11 @@
     <ClInclude Include="..\incl\WavInputStream.h">
       <Filter>incl</Filter>
     </ClInclude>
+    <ClInclude Include="..\include\GdxMusic.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\GdxSound.h">
+      <Filter>Include</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
