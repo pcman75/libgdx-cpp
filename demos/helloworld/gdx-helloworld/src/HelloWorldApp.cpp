@@ -10,7 +10,6 @@ HelloWorldApp::HelloWorldApp(void)
 
 HelloWorldApp::~HelloWorldApp(void)
 {
-	dispose();
 }
 
 void HelloWorldApp::create () 

@@ -114,18 +114,18 @@ private:
 	static const int PAGE_SIZE;
 	static const int PAGES;
 
-	static const char xChars[];
-	static const char capChars[];
+	static const char m_xChars[];
+	static const char m_capChars[];
 
-	TextureRegion* region;
+	TextureRegion* m_region;
 	TextBounds m_textBounds;
-	float color;
-	Color tempColor;
-	bool flipped;
-	bool integer;
-	BitmapFontData* data;
-	bool ownsTexture;
-	bool ownsBitmapFontData;
+	float m_color;
+	Color m_tempColor;
+	bool m_flipped;
+	bool m_integer;
+	BitmapFontData* m_data;
+	bool m_ownsTexture;
+	bool m_ownsBitmapFontData;
 
 	
 public:
