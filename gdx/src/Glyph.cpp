@@ -25,8 +25,11 @@ void BitmapFont::Glyph::setKerning(int ch, int value)
 		memset(kerning, NULL, PAGES * sizeof(char*));
 	}
 	char* page = kerning[ch >> LOG2_PAGE_SIZE];
-	if(!page) 
+	if(!page)
+	{
 		kerning[ch >> LOG2_PAGE_SIZE] = page = new char[PAGE_SIZE];
+		memset(page, 0, PAGE_SIZE * sizeof(char));
+	}
 	page[ch & PAGE_SIZE - 1] = (char)value;
 }
 
