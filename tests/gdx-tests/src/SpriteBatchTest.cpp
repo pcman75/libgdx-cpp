@@ -5,38 +5,38 @@
 long nTime = 0;
 long nanoTime()
 {
-  nTime += 10000;
-  return nTime;
+	nTime += 10000;
+	return nTime;
 }
 
 float random()
 {
-  float fRandMax = RAND_MAX;
-  float fRand = rand();
-  float ret = fRand / fRandMax;
-  return ret;
+	float fRandMax = RAND_MAX;
+	float fRand = rand();
+	float ret = fRand / fRandMax;
+	return ret;
 }
 
 
 SpriteBatchTest::SpriteBatchTest()
 {
-  // init random numbers
-  //
-  srand( (unsigned)time( NULL ) );
+	// init random numbers
+	//
+	srand( (unsigned)time( NULL ) );
 
 
-  spriteBatch = NULL;
+	spriteBatch = NULL;
 
-  SPRITES = 100 / 2;
+	SPRITES = 100 / 2;
 	startTime = nanoTime();
 	frames = 0;
 
-  texture = texture2 = NULL;
+	texture = texture2 = NULL;
 
-  //sprites = new float[SPRITES * 6];
+	//sprites = new float[SPRITES * 6];
 	//sprites2 = new float[SPRITES * 6];
 	sprites.resize( SPRITES * 6);
-  sprites2.resize( SPRITES * 6);
+	sprites2.resize( SPRITES * 6);
 
 	sprites3 = new Sprite[SPRITES * 2];
 	angle = 0;
@@ -97,10 +97,10 @@ void SpriteBatchTest::renderNormal()
 	draw2 = (nanoTime() - start) / 1000000000.0f;
 
 	start = nanoTime();
-// spriteBatch->drawText(font, "Question?", 100, 300, Color.RED);
-// spriteBatch->drawText(font, "and another this is a test", 200, 100, Color.WHITE);
-// spriteBatch->drawText(font, "all hail and another this is a test", 200, 200, Color.WHITE);
-// spriteBatch->drawText(font, "normal fps: " + Gdx.graphics->getFramesPerSecond(), 10, 30, Color.RED);
+	// spriteBatch->drawText(font, "Question?", 100, 300, Color.RED);
+	// spriteBatch->drawText(font, "and another this is a test", 200, 100, Color.WHITE);
+	// spriteBatch->drawText(font, "all hail and another this is a test", 200, 200, Color.WHITE);
+	// spriteBatch->drawText(font, "normal fps: " + Gdx.graphics->getFramesPerSecond(), 10, 30, Color.RED);
 	drawText = (nanoTime() - start) / 1000000000.0f;
 
 	start = nanoTime();
@@ -108,28 +108,28 @@ void SpriteBatchTest::renderNormal()
 	end = (nanoTime() - start) / 1000000000.0f;
 
 	if (nanoTime() - startTime > 1000000000) 
-  {
-    /*
-    std::stringstream stream;
-    stream << "SpriteBatch";
+	{
+		/*
+		std::stringstream stream;
+		stream << "SpriteBatch";
 		stream << "fps: ";
-    stream <<  frames;
-    stream << ", render calls: ";
-    stream << spriteBatch->renderCalls;
-    stream << ", ";
-    stream << begin;
-    stream << ", ";
-    stream << draw1;
+		stream <<  frames;
+		stream << ", render calls: ";
+		stream << spriteBatch->renderCalls;
 		stream << ", ";
-    stream << draw2;
-    stream << ", ";
-    stream << drawText;
-    stream << ", ";
-    stream << end;
+		stream << begin;
+		stream << ", ";
+		stream << draw1;
+		stream << ", ";
+		stream << draw2;
+		stream << ", ";
+		stream << drawText;
+		stream << ", ";
+		stream << end;
 		frames = 0;
 		startTime = nanoTime();
-    Gdx.app->log( L"Sprite", stream);
-    */
+		Gdx.app->log( L"Sprite", stream);
+		*/
 	}
 	frames++;
 }
@@ -164,12 +164,12 @@ void SpriteBatchTest::renderSprites ()
 
 	start = nanoTime();
 	for (int i = 0; i < SPRITES; i++) 
-  {
+	{
 		if (angleInc != 0) sprites3[i].rotate(angleInc); // this is aids
 		if (scale != 1) sprites3[i].setScale(scale); // this is aids
 		sprites3[i].draw( spriteBatch);
 	}
-  draw1 = (nanoTime() - start) / 1000000000.0f;
+	draw1 = (nanoTime() - start) / 1000000000.0f;
 
 	start = nanoTime();
 	for (int i = SPRITES; i < SPRITES << 1; i++) {
@@ -177,14 +177,14 @@ void SpriteBatchTest::renderSprites ()
 		if (scale != 1) sprites3[i].setScale(scale); // this is aids
 		sprites3[i].draw( spriteBatch);
 	}
-  
+
 	draw2 = (nanoTime() - start) / 1000000000.0f;
 
 	start = nanoTime();
-// spriteBatch->drawText(font, "Question?", 100, 300, Color.RED);
-// spriteBatch->drawText(font, "and another this is a test", 200, 100, Color.WHITE);
-// spriteBatch->drawText(font, "all hail and another this is a test", 200, 200, Color.WHITE);
-// spriteBatch->drawText(font, "Sprite fps: " + Gdx.graphics->getFramesPerSecond(), 10, 30, Color.RED);
+	// spriteBatch->drawText(font, "Question?", 100, 300, Color.RED);
+	// spriteBatch->drawText(font, "and another this is a test", 200, 100, Color.WHITE);
+	// spriteBatch->drawText(font, "all hail and another this is a test", 200, 200, Color.WHITE);
+	// spriteBatch->drawText(font, "Sprite fps: " + Gdx.graphics->getFramesPerSecond(), 10, 30, Color.RED);
 	drawText = (nanoTime() - start) / 1000000000.0f;
 
 	start = nanoTime();
@@ -192,11 +192,11 @@ void SpriteBatchTest::renderSprites ()
 	end = (nanoTime() - start) / 1000000000.0f;
 
 	if (nanoTime() - startTime > 1000000000) 
-  {
-    /*
+	{
+		/*
 		Gdx.app.log("SpriteBatch", "fps: " + frames + ", render calls: " + spriteBatch->renderCalls + ", " + begin + ", " + draw1
-			+ ", " + draw2 + ", " + drawText + ", " + end);
-      */
+		+ ", " + draw2 + ", " + drawText + ", " + end);
+		*/
 		frames = 0;
 		startTime = nanoTime();
 	}
@@ -207,7 +207,7 @@ void SpriteBatchTest::create ()
 {
 	spriteBatch = new SpriteBatch( 1000);
 
-  Pixmap* pixmap = new Pixmap(Gdx.files->internalHandle("data/badlogicsmall.jpg"));
+	Pixmap* pixmap = new Pixmap(Gdx.files->internalHandle("data/badlogicsmall.jpg"));
 
 	texture = new Texture( 32, 32, Pixmap::Format::RGB565);
 	texture->setFilter( Texture::TextureFilter::Linear, Texture::TextureFilter::Linear);
@@ -220,7 +220,7 @@ void SpriteBatchTest::create ()
 	texture2 = new Texture( pixmap2);
 	pixmap2->dispose();
 
-// font = Gdx.graphics->newFont("Arial", 32, FontStyle.Plain);
+	// font = Gdx.graphics->newFont("Arial", 32, FontStyle.Plain);
 
 	for (int i = 0; i < sprites.size(); i += 6) {
 		sprites[i] = (int)(random() * (Gdx.graphics->getWidth() - 32));
@@ -250,12 +250,12 @@ void SpriteBatchTest::create ()
 	}
 
 	//Gdx.input->setInputProcessor(this);
-  //Gdx.input = dynamic_cast< Input*> this;
+	//Gdx.input = dynamic_cast< Input*> this;
 
 }
 
-	
-	
+
+
 void SpriteBatchTest::resize(int width, int height) 
 {
 	std::stringstream message;

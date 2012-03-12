@@ -21,8 +21,7 @@ HelpScreen::~HelpScreen()
 	m_helpRegion = NULL;
 	delete m_helpImage;
 	m_helpImage = NULL;
-	//TODO delete this
-	//delete m_batcher;
+	delete m_batcher;
 	m_batcher = NULL;
 }
 

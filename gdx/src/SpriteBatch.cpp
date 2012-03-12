@@ -61,16 +61,11 @@ void SpriteBatch::init(int size, ShaderProgram* defaultShader)
 
 SpriteBatch::~SpriteBatch()
 {
-	short* indices = m_mesh->getIndicesBuffer();
-	if(indices)
-	{
-		delete[] indices;
-	}
 	for(int i = 0; i < m_numBuffers; i++)
 	{
 		if(m_buffers[i])
 		{
-			delete[] m_buffers[i];
+			delete m_buffers[i];
 			m_buffers[i] = NULL;
 		}
 	}

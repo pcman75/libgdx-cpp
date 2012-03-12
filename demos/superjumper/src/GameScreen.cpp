@@ -236,8 +236,7 @@ void GameScreen::resume()
 GameScreen::~GameScreen()
 {
 	m_batcher->dispose();
-	//TODO: delete this
-	//delete m_batcher;
+	delete m_batcher;
 	m_batcher = NULL;
 	
 	delete m_worldListener;

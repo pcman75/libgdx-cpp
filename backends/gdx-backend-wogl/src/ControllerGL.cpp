@@ -143,6 +143,8 @@ void ControllerGL::runThread()
         viewGL->swapBuffers();
     }
 
+	m_pGraphics->dispose();
+
     // terminate rendering thread
     ::wglMakeCurrent(0, 0);             // unset RC
     ::CloseHandle(threadHandle);

@@ -53,4 +53,10 @@ public:
 		m_batch->draw(m_texture, 0, 0, 256, 256, 0, 0, 256, 256, false, false);
 		m_batch->end();
 	}
+
+	void dispose()
+	{
+		m_batch->dispose();
+		delete m_batch;
+	}
 };
