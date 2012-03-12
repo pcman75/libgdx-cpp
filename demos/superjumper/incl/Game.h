@@ -26,12 +26,11 @@ private:
 	Screen* m_screen;
 
 public:
-	void setScreen(Screen* helpScreen2);
+	void setScreen(Screen* screen);
 	virtual Screen* getStartScreen() = 0;
 	virtual void create();
 	virtual void resume();
 	virtual void render();
 	virtual void resize(int width, int height);
 	virtual void pause();
-	virtual void dispose();
 };

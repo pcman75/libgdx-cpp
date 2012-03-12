@@ -15,6 +15,18 @@ HelpScreen::HelpScreen(Game* game, int helpScreenNumber)
 	m_batcher = new SpriteBatch();
 }
 
+HelpScreen::~HelpScreen()
+{
+	delete m_helpRegion;
+	m_helpRegion = NULL;
+	delete m_helpImage;
+	m_helpImage = NULL;
+	//TODO delete this
+	//delete m_batcher;
+	m_batcher = NULL;
+}
+
+
 void HelpScreen::resume() 
 {
 }
@@ -62,11 +74,6 @@ void HelpScreen::present(float deltaTime)
 	m_batcher->end();
 
 	gl->glDisable(GL10::GDX_GL_BLEND);
-}
-
-
-void HelpScreen::dispose() 
-{
 }
 
 const char* HelpScreen::getPictureName()

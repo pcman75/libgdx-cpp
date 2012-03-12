@@ -23,12 +23,6 @@ World::World(WorldListener* listener)
 
 World::~World()
 {
-	/*
-	delete bob; 
-	bob = NULL;
-	delete castle; 
-	castle = NULL;
-	*/
 }
 
 

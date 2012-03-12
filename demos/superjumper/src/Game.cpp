@@ -4,12 +4,11 @@
 #include "Gdx.h"
 
 
-void Game::setScreen(Screen* helpScreen2)
+void Game::setScreen(Screen* screen)
 {
 	m_screen->pause();
-	m_screen->dispose();
 	delete m_screen;
-	m_screen = helpScreen2;
+	m_screen = screen;
 }
 
 
@@ -34,14 +33,8 @@ void Game::resize(int width, int height)
 
 }
 
-
 void Game::pause()
 {
 	m_screen->pause();
-}
-
-void Game::dispose()
-{
-	m_screen->dispose();
 }
 

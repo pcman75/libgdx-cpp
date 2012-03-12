@@ -8,7 +8,6 @@ const int Coin::COIN_SCORE = 10;
 Coin::Coin(float x, float y) 
 	: GameObject(x, y, COIN_WIDTH, COIN_HEIGHT)
 {
-
 	stateTime = 0;
 }
 

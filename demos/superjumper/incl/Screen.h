@@ -25,10 +25,10 @@ protected:
 public:
 	
 	Screen(Game* game);
+	virtual ~Screen() {}
 
 	virtual void update(float deltaTime) = 0;
 	virtual void present(float deltaTime) = 0;
 	virtual void pause() = 0;
 	virtual void resume() = 0;
-	virtual void dispose() = 0;
 };

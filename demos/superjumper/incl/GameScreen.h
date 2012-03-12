@@ -33,52 +33,41 @@ private:
 	static const int GAME_LEVEL_END;
 	static const int GAME_OVER;
 
-	int state;
-	OrthographicCamera guiCam;
-	Vector3 touchPoint;
-	SpriteBatch* batcher;
-	World* world;
-	WorldListener* worldListener;
-	WorldRenderer* renderer;
-	Rectang pauseBounds;
-	Rectang resumeBounds;
-	Rectang quitBounds;
-	int lastScore;
-	std::string scoreString;
+	int m_state;
+	OrthographicCamera m_guiCam;
+	Vector3 m_touchPoint;
+	SpriteBatch* m_batcher;
+	World* m_world;
+	WorldListener* m_worldListener;
+	WorldRenderer* m_renderer;
+	Rectang m_pauseBounds;
+	Rectang m_resumeBounds;
+	Rectang m_quitBounds;
+	int m_lastScore;
+	std::string m_scoreString;
 
 public:
 	GameScreen(Game* game);
+	~GameScreen();
 
-	void update(float deltaTime);
-
-	void updateReady();
+	void pause();
+	void resume();
 
 private:
+	void update(float deltaTime);
+	void updateReady();
+
 	void updateRunning(float deltaTime);
-
 	void updatePaused();
-
 	void updateLevelEnd();
-
 	void updateGameOver();
 
 	void present(float deltaTime);
-
 	void presentReady();
-
 	void presentRunning();
-
 	void presentPaused();
-
 	void presentLevelEnd();
-
 	void presentGameOver();
 
 public:
-
-	void pause();
-
-	void resume();
-
-	void dispose();
 };

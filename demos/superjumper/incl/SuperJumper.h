@@ -27,4 +27,5 @@ class SuperJumper :
 public:
 	Screen* getStartScreen();
 	void create();
+	virtual void dispose() {}
 };

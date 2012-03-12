@@ -34,6 +34,7 @@ class HighscoresScreen :
 
 public:
 	HighscoresScreen(Game* game);
+	~HighscoresScreen();
 	void update(float deltaTime);
 	void present (float deltaTime);
 	void resume ();

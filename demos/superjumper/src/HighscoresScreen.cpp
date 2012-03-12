@@ -22,6 +22,9 @@ HighscoresScreen::HighscoresScreen(Game* game)
 	xOffset = 160 - xOffset / 2 + Assets::font->getSpaceWidth() / 2;
 }
 
+HighscoresScreen::~HighscoresScreen()
+{
+}
 
 void HighscoresScreen::update(float deltaTime) 
 {

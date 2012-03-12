@@ -23,9 +23,13 @@ MainMenuScreen::MainMenuScreen(Game* game)
 
 MainMenuScreen::~MainMenuScreen()
 {
-	delete m_guiCam;		
-	delete m_batcher;
+	delete m_guiCam;
 	m_guiCam = NULL;
+
+	m_batcher->dispose();
+	//TODO: delete this
+	//delete m_batcher;
+
 	m_batcher = NULL;
 }
 

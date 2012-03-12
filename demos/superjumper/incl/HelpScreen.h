@@ -35,11 +35,11 @@ class HelpScreen :
 
 public:
 	HelpScreen(Game* game, int helpScreenNumber);
+	~HelpScreen();
 	void resume();
 	void pause();
 	void update(float deltaTime);
 	void present(float deltaTime);
-	void dispose();
 
 private:
 	const char* getPictureName();
