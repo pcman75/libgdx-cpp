@@ -11,6 +11,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\incl\GdxInvaders.h" />
+    <ClInclude Include="..\incl\MainMenu.h" />
+    <ClInclude Include="..\incl\Screen.h" />
     <ClInclude Include="..\incl\stdafx.h" />
     <ClInclude Include="..\incl\GdxInvadersDesktop.h" />
     <ClInclude Include="..\res\resource.h" />
@@ -26,6 +29,8 @@
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\src\GdxInvaders.cpp" />
+    <ClCompile Include="..\src\MainMenu.cpp" />
     <ClCompile Include="..\src\stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
