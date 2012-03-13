@@ -8,11 +8,6 @@ GdxClass::GdxClass()
 	input(NULL),
 	files(NULL),
     glVersion(GL_VERSION_0)
-//	gl(NULL),
-//	gl10(NULL),
-//	gl11(NULL),
-//	gl20(NULL),
-//	glu(NULL)
 {
 	
 };
@@ -47,11 +42,6 @@ GdxClass::~GdxClass()
 	input = NULL;
 
 	files = NULL;
-//	gl = NULL;
-//	gl10 = NULL;
-//	gl11 = NULL;
-//	gl20 = NULL;
-//	glu = NULL;
 }
 
 GdxClass Gdx = GdxClass::getInstance();

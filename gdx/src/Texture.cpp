@@ -166,7 +166,7 @@ void Texture::create(TextureData* data)
 
 int Texture::createGLHandle()
 {
-	Gdx.gl->glGenTextures(1, &m_buffer);
+	glGenTextures(1, &m_buffer);
 	return m_buffer;
 }
 
@@ -198,18 +198,18 @@ void Texture::load(TextureData* data)
 
 	if(data->getType() == TextureData::CompressedTexture)
 	{
-		Gdx.gl->glBindTexture(GL10::GDX_GL_TEXTURE_2D, m_glHandle);
+		glBindTexture(GL_TEXTURE_2D, m_glHandle);
 		data->consumeCompressedData();
 		setFilter(m_minFilter, m_magFilter);
 		setWrap(m_uWrap, m_vWrap);
 	}
-	Gdx.gl->glBindTexture(GL10::GDX_GL_TEXTURE_2D, 0);
+	glBindTexture(GL_TEXTURE_2D, 0);
 }
 
 
 void Texture::uploadImageData(Pixmap* pixmap)
 {
-	if(m_enforcePotImages && Gdx.gl20 == NULL
+	if(m_enforcePotImages && Gdx.getGLVersion() != GL_VERSION_20
 		&& (!MathUtils::isPowerOfTwo(m_data->getWidth()) || !MathUtils::isPowerOfTwo(m_data->getHeight())))
 	{
 		throw new GdxRuntimeException("Texture width and height must be powers of two");
@@ -227,16 +227,15 @@ void Texture::uploadImageData(Pixmap* pixmap)
 		disposePixmap = true;
 	}
 
-	Gdx.gl->glBindTexture(GL10::GDX_GL_TEXTURE_2D, m_glHandle);
-	Gdx.gl->glPixelStorei(GL10::GDX_GL_UNPACK_ALIGNMENT, 1);
+	glBindTexture(GL_TEXTURE_2D, m_glHandle);
+	glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
 	if(m_data->useMipMaps())
 	{
 		MipMapGenerator::generateMipMap(pixmap, pixmap->getWidth(), pixmap->getHeight(), disposePixmap);
 	}
 	else
 	{
-		Gdx.gl->glTexImage2D(GL10::GDX_GL_TEXTURE_2D, 0, pixmap->getGLInternalFormat(), pixmap->getWidth(), pixmap->getHeight(), 0,
-			pixmap->getGLFormat(), pixmap->getGLType(), pixmap->getPixels());
+		glTexImage2D(GL_TEXTURE_2D, 0, pixmap->getGLInternalFormat(), pixmap->getWidth(), pixmap->getHeight(), 0, pixmap->getGLFormat(), pixmap->getGLType(), pixmap->getPixels());
 		if(disposePixmap)
 		{
 			pixmap->dispose();
@@ -257,7 +256,7 @@ void Texture::reload()
 * {@link GLCommon#glActiveTexture(int)}. */
 void Texture::bind()
 {
-	Gdx.gl->glBindTexture(GL10::GDX_GL_TEXTURE_2D, m_glHandle);
+	glBindTexture(GL_TEXTURE_2D, m_glHandle);
 }
 
 /** Binds the texture to the given texture unit. Sets the currently active texture unit via
@@ -265,8 +264,8 @@ void Texture::bind()
 * @param unit the unit (0 to MAX_TEXTURE_UNITS). */
 void Texture::bind(int unit)
 {
-	Gdx.gl->glActiveTexture(GL10::GDX_GL_TEXTURE0 + unit);
-	Gdx.gl->glBindTexture(GL10::GDX_GL_TEXTURE_2D, m_glHandle);
+	glActiveTexture(GL_TEXTURE0 + unit);
+	glBindTexture(GL_TEXTURE_2D, m_glHandle);
 }
 
 /** Draws the given {@link Pixmap} to the texture at position x, y. No clipping is performed so you have to make sure that you
@@ -280,8 +279,8 @@ void Texture::draw(Pixmap* pixmap, int x, int y)
 	if(m_data->isManaged()) 
 		throw new GdxRuntimeException("can't draw to a managed texture");
 
-	Gdx.gl->glBindTexture(GL10::GDX_GL_TEXTURE_2D, m_glHandle);
-	Gdx.gl->glTexSubImage2D(GL10::GDX_GL_TEXTURE_2D, 0, x, y, pixmap->getWidth(), pixmap->getHeight(), pixmap->getGLFormat(),
+	glBindTexture(GL_TEXTURE_2D, m_glHandle);
+	glTexSubImage2D(GL_TEXTURE_2D, 0, x, y, pixmap->getWidth(), pixmap->getHeight(), pixmap->getGLFormat(),
 		pixmap->getGLType(), pixmap->getPixels());
 }
 
@@ -342,8 +341,8 @@ void Texture::setWrap(TextureWrap u, TextureWrap v)
 	m_uWrap = u;
 	m_vWrap = v;
 	bind();
-	Gdx.gl->glTexParameterf(GL10::GDX_GL_TEXTURE_2D, GL10::GDX_GL_TEXTURE_WRAP_S, u.getGLEnum());
-	Gdx.gl->glTexParameterf(GL10::GDX_GL_TEXTURE_2D, GL10::GDX_GL_TEXTURE_WRAP_T, v.getGLEnum());
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, u.getGLEnum());
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, v.getGLEnum());
 }
 
 void Texture::setFilter(TextureFilter minFilter, TextureFilter magFilter)
@@ -351,8 +350,8 @@ void Texture::setFilter(TextureFilter minFilter, TextureFilter magFilter)
 	m_minFilter = minFilter;
 	m_magFilter = magFilter;
 	bind();
-	Gdx.gl->glTexParameterf(GL10::GDX_GL_TEXTURE_2D, GL10::GDX_GL_TEXTURE_MIN_FILTER, minFilter.getGLEnum());
-	Gdx.gl->glTexParameterf(GL10::GDX_GL_TEXTURE_2D, GL10::GDX_GL_TEXTURE_MAG_FILTER, magFilter.getGLEnum());
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, minFilter.getGLEnum());
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, magFilter.getGLEnum());
 }
 
 /** Disposes all resources associated with the texture */
@@ -364,9 +363,8 @@ void Texture::dispose()
 	// removal from the asset manager.
 	if(m_glHandle == 0) 
 		return;
-	GLCommon* gl = Gdx.gl;
-	if(gl)
-		gl->glDeleteTextures(1, &m_glHandle);
+	if(Gdx.isGLInitialised())
+		glDeleteTextures(1, &m_glHandle);
 	if(m_data->isManaged())
 	{
 		TextureMapIterator it = m_managedTextures.find(Gdx.app);

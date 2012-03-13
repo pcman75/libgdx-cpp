@@ -24,12 +24,6 @@
 #include <OpenGLES/ES2/gl.h>
 #include <OpenGLES/ES2/glext.h>
 
-//#include "GLCommon.h"
-//#include "GL10.h"
-//#include "GL11.h"
-//#include "GL20.h"
-//#include "GLU.h"
-
 /** <p>
 * Environment class holding references to the {@link Application}, {@link Graphics}, {@link Audio}, {@link Files} and
 * {@link Input} instances. The references are held in public  fields. Do not mess with this! This essentially allows you
@@ -59,18 +53,13 @@ enum GLversion
 class GdxDllImportExport GdxClass 
 {
 public:
-	//TODO: store pointer and make accesor returning refference 
+	//TODO: store pointer and make accesor returning reference 
 	Application* app;
 	Graphics* graphics;
 	Audio* audio;
 	Input* input;
 	Files* files;
     GLversion glVersion;
-//	GLCommon* gl;
-//	GL10* gl10;
-//	GL11* gl11;
-//	GL20* gl20;
-//	GLU* glu;
 
 	public:
         static GdxClass& getInstance()

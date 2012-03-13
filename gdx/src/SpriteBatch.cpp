@@ -40,8 +40,8 @@ void SpriteBatch::init()
 	m_verticesSize = 0;
 	m_drawing = false;
 	m_blendingDisabled = false;
-	m_blendSrcFunc = GL11::GDX_GL_SRC_ALPHA;
-	m_blendDstFunc = GL11::GDX_GL_ONE_MINUS_SRC_ALPHA;
+	m_blendSrcFunc = GL_SRC_ALPHA;
+	m_blendDstFunc = GL_ONE_MINUS_SRC_ALPHA;
 	m_shader = NULL;
 	m_shaderProvided = true;
 	m_customShader = NULL;
@@ -244,7 +244,7 @@ void SpriteBatch::begin()
 		throw new GdxRuntimeException("you have to call SpriteBatch.end() first");
 	renderCalls = 0;
 
-	Gdx.gl->glDepthMask(false);
+	glDepthMask(false);
 	if(Gdx.graphics->isGL20Available())
 	{
 		if(m_customShader != NULL)
@@ -254,7 +254,7 @@ void SpriteBatch::begin()
 	}
 	else
 	{
-		Gdx.gl->glEnable(GL10::GDX_GL_TEXTURE_2D);
+		glEnable(GL_TEXTURE_2D);
 	}
 	setupMatrices();
 
@@ -275,12 +275,11 @@ void SpriteBatch::end()
 	m_idx = 0;
 	m_drawing = false;
 
-	GLCommon* gl = Gdx.gl;
-	gl->glDepthMask(true);
+	glDepthMask(true);
 	if(isBlendingEnabled()) 
-		gl->glDisable(GL10::GDX_GL_BLEND);
+		glDisable(GL_BLEND);
 	
-	gl->glDisable(GL10::GDX_GL_TEXTURE_2D);
+	glDisable(GL_TEXTURE_2D);
 
 	if(Gdx.graphics->isGL20Available())
 	{
@@ -1154,25 +1153,25 @@ void SpriteBatch::renderMesh()
 
   if(m_blendingDisabled)
 	{
-		Gdx.gl->glDisable(GL20::GDX_GL_BLEND);
+		glDisable(GL_BLEND);
 	}
 	else
 	{
-		Gdx.gl->glEnable(GL20::GDX_GL_BLEND);
-		Gdx.gl->glBlendFunc(m_blendSrcFunc, m_blendDstFunc);
+		glEnable(GL_BLEND);
+		glBlendFunc(m_blendSrcFunc, m_blendDstFunc);
 	}
 	
 
 	if(Gdx.graphics->isGL20Available())
 	{
 		if(m_customShader != NULL)
-			m_mesh->render(m_customShader, GL10::GDX_GL_TRIANGLES, 0, spritesInBatch * 6);
+			m_mesh->render(m_customShader, GL_TRIANGLES, 0, spritesInBatch * 6);
 		else
-			m_mesh->render(m_shader, GL10::GDX_GL_TRIANGLES, 0, spritesInBatch * 6);
+			m_mesh->render(m_shader, GL_TRIANGLES, 0, spritesInBatch * 6);
 	}
 	else
 	{
-		m_mesh->render(GL10::GDX_GL_TRIANGLES, 0, spritesInBatch * 6);
+		m_mesh->render(GL_TRIANGLES, 0, spritesInBatch * 6);
 	}
 
 	m_idx = 0;
@@ -1262,11 +1261,11 @@ void SpriteBatch::setupMatrices()
 {
 	if(!Gdx.graphics->isGL20Available())
 	{
-		GL10* gl = Gdx.gl10;
-		gl->glMatrixMode(GL10::GDX_GL_PROJECTION);
-		gl->glLoadMatrixf(m_projectionMatrix.val, 0);
-		gl->glMatrixMode(GL10::GDX_GL_MODELVIEW);
-		gl->glLoadMatrixf(m_transformMatrix.val, 0);
+        // TODO add OpenGL10 support
+//		glMatrixMode(GL_PROJECTION);
+//		glLoadMatrixf(m_projectionMatrix.val, 0);
+//		glMatrixMode(GL_MODELVIEW);
+//		glLoadMatrixf(m_transformMatrix.val, 0);
 	}
 	else
 	{
