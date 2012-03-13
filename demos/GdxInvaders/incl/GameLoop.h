@@ -10,86 +10,34 @@
  * BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language
  * governing permissions and limitations under the License.
  */
+#pragma once
+#include "Screen.h"
+#include "SimulationListener.h"
+#include "Simulation.h"
+#include "Renderer.h"
+#include "Sound.h"
+#include "Application.h"
 
-package com.badlogic.gdxinvaders.screens;
-
-import com.badlogic.gdx.Application;
-import com.badlogic.gdx.Files.FileType;
-import com.badlogic.gdx.Input;
-import com.badlogic.gdx.Input.Keys;
-import com.badlogic.gdx.audio.Sound;
-import com.badlogic.gdx.graphics.GL10;
-import com.badlogic.gdxinvaders.Renderer;
-import com.badlogic.gdxinvaders.simulation.Simulation;
-import com.badlogic.gdxinvaders.simulation.SimulationListener;
-
-public class GameLoop implements Screen, SimulationListener
+class GameLoop :
+	public Screen, SimulationListener
 {
+private: 
 	/** the simulation **/
-	private final Simulation simulation;
+	Simulation m_simulation;
 	/** the renderer **/
-	private final Renderer renderer;
+	Renderer m_renderer;
 	/** explosion sound **/
-	private final Sound explosion;
+	Sound* m_explosion;
 	/** shot sound **/
-	private final Sound shot;
+	Sound* m_shot;
 
-	public GameLoop (Application app)
-	{
-		simulation = new Simulation();
-		simulation.listener = this;
-		renderer = new Renderer(app);
-		explosion = app.getAudio().newSound(app.getFiles().getFileHandle("data/explosion.ogg", FileType.Internal));
-		shot = app.getAudio().newSound(app.getFiles().getFileHandle("data/shot.ogg", FileType.Internal));
-	}
+public:
+	GameLoop(Application* app);
 
-	@Override
-	public void dispose ()
-	{
-		renderer.dispose();
-		shot.dispose();
-		explosion.dispose();
-	}
-
-	@Override
-	public boolean isDone ()
-	{
-		return simulation.ship.lives == 0;
-	}
-
-	@Override
-	public void render (Application app)
-	{
-		app.getGraphics().getGL10().glClear(GL10.GL_COLOR_BUFFER_BIT | GL10.GL_DEPTH_BUFFER_BIT);
-		renderer.render(app, simulation);
-	}
-
-	@Override
-	public void update (Application app)
-	{
-		simulation.update(app.getGraphics().getDeltaTime());
-
-		Input input = app.getInput();
-		if (input.getAccelerometerY() < 0)
-			simulation.moveShipLeft(app.getGraphics().getDeltaTime(), Math.abs(input.getAccelerometerY()) / 10);
-		else
-			simulation.moveShipRight(app.getGraphics().getDeltaTime(), Math.abs(input.getAccelerometerY()) / 10);
-
-		if (input.isKeyPressed(Keys.DPAD_LEFT)) simulation.moveShipLeft(app.getGraphics().getDeltaTime(), 0.5f);
-		if (input.isKeyPressed(Keys.DPAD_RIGHT)) simulation.moveShipRight(app.getGraphics().getDeltaTime(), 0.5f);
-
-		if (input.isTouched() || input.isKeyPressed(Keys.SPACE)) simulation.shot();
-	}
-
-	@Override
-	public void explosion ()
-	{
-		explosion.play();
-	}
-
-	@Override
-	public void shot ()
-	{
-		shot.play();
-	}
-}
+	void dispose();
+	bool isDone();
+	void render(Application* app);
+	void update(Application* app);
+	void explosion();
+	void shot();
+};

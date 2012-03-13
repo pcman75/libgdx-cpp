@@ -4,13 +4,14 @@
 #include "stdafx.h"
 #include "GdxInvadersDesktop.h"
 #include "WoglApplication.h"
+#include "GdxInvaders.h"
 
 int APIENTRY _tWinMain(HINSTANCE hInstance,
                      HINSTANCE hPrevInstance,
                      LPTSTR    lpCmdLine,
                      int       nCmdShow)
 {
-    //WoglApplication(GdxInvaders(), "Gdx Invaders", 800, 480, false);
+    WoglApplication(GdxInvaders(), "Gdx Invaders", 800, 480, false);
     return 0;
 }
 

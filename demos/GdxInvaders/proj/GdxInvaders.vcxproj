@@ -11,11 +11,22 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\incl\Block.h" />
+    <ClInclude Include="..\incl\Explosion.h" />
+    <ClInclude Include="..\incl\GameLoop.h" />
+    <ClInclude Include="..\incl\GameOver.h" />
     <ClInclude Include="..\incl\GdxInvaders.h" />
+    <ClInclude Include="..\incl\Invader.h" />
     <ClInclude Include="..\incl\MainMenu.h" />
+    <ClInclude Include="..\incl\Renderer.h" />
     <ClInclude Include="..\incl\Screen.h" />
+    <ClInclude Include="..\incl\Ship.h" />
+    <ClInclude Include="..\incl\Shot.h" />
+    <ClInclude Include="..\incl\Simulation.h" />
+    <ClInclude Include="..\incl\SimulationListener.h" />
     <ClInclude Include="..\incl\stdafx.h" />
     <ClInclude Include="..\incl\GdxInvadersDesktop.h" />
+    <ClInclude Include="..\incl\targetver.h" />
     <ClInclude Include="..\res\resource.h" />
   </ItemGroup>
   <ItemGroup>
@@ -29,8 +40,17 @@
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\src\Block.cpp" />
+    <ClCompile Include="..\src\Explosion.cpp" />
+    <ClCompile Include="..\src\GameLoop.cpp" />
+    <ClCompile Include="..\src\GameOver.cpp" />
     <ClCompile Include="..\src\GdxInvaders.cpp" />
+    <ClCompile Include="..\src\Invader.cpp" />
     <ClCompile Include="..\src\MainMenu.cpp" />
+    <ClCompile Include="..\src\Renderer.cpp" />
+    <ClCompile Include="..\src\Ship.cpp" />
+    <ClCompile Include="..\src\Shot.cpp" />
+    <ClCompile Include="..\src\Simulation.cpp" />
     <ClCompile Include="..\src\stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
@@ -78,6 +98,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>..\res;..\incl;..\..\..\gdx\include;..\..\..\backends\gdx-backend-wogl\exp</AdditionalIncludeDirectories>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -101,6 +122,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>..\res;..\incl;..\..\..\gdx\include;..\..\..\backends\gdx-backend-wogl\exp</AdditionalIncludeDirectories>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>

@@ -2,8 +2,8 @@
 #include "GdxInvaders.h"
 #include "Gdx.h"
 #include "MainMenu.h"
-//#include "GameLoop.h"
-//#include "GameOver.h"
+#include "GameLoop.h"
+#include "GameOver.h"
 
 
 GdxInvaders::GdxInvaders() 
@@ -36,17 +36,17 @@ void GdxInvaders::render ()
 
 		// if this screen is a main menu screen we switch to
 		// the game loop
-		if(typeid(screen) == typeid(MainMenu*))
+		if(dynamic_cast<MainMenu*>(screen))
 		{
-			//screen = new GameLoop(app);
+			screen = new GameLoop(app);
 		}
-		//else if( typeid(screen) == typeid(GameLoop*))
+		else if(dynamic_cast<GameLoop*>(screen))
 		{
 			// if this screen is a game loop screen we switch to the
 			// game over screen	
-			//screen = new GameOver(app);
+			screen = new GameOver(app);
 		}
-		//else if(typeid(screen) == typeid(GameOver)) 
+		else if(dynamic_cast<GameOver*>(screen))
 		{
 			screen = new MainMenu(app);
 		

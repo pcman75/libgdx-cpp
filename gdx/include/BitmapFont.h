@@ -63,7 +63,7 @@ public:
 		void setKerning(int ch, int value);
 	};
 
-	class TextBounds
+	class GdxDllImportExport TextBounds
 	{
 	public:
 		float width;
@@ -76,7 +76,8 @@ public:
 
 		void set(const TextBounds& bounds);
 	};
-	class BitmapFontData
+
+	class GdxDllImportExport BitmapFontData
 	{
 	public:
 		std::string m_imagePath;
