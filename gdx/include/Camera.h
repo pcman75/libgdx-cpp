@@ -83,7 +83,7 @@ public:
 	 * this method so all matrices are up to date.
 	 *
 	 * @param gl the GL10 or GL11 instance. */
-	void apply(GL10* gl);
+//	void apply(GL10* gl);
 
 	/** Recalculates the direction of the camera to look at the point (x, y, z).
 	 * @param x the x-coordinate of the point to look at

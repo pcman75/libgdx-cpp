@@ -9,7 +9,7 @@ void split(const char* line, vector<string>& tokens)
 	istringstream iss(line);
     copy(istream_iterator<string>(iss),
              istream_iterator<string>(),
-             back_inserter<vector<string>>(tokens));
+             back_inserter<vector<string> >(tokens));
 }
 
 bool startsWith(const string& str, const char* with)
@@ -24,18 +24,19 @@ bool endsWith(const string& str, const char* with)
 	return str.compare(lenStr - lenWidth, strlen(with), with) == 0;
 }
 
-void makeSamePathAs(const char* sibling, const char* filename, string& result)
-{
-	char drive[_MAX_DRIVE];
-	char dir[_MAX_DIR];
-	char fname[_MAX_FNAME];
-	char ext[_MAX_EXT];
-	_splitpath(sibling, drive, dir, fname, ext);
-
-	char resbuf[MAX_PATH];
-	_makepath(resbuf, drive, dir, filename, NULL);
-	result = resbuf;
-}
+// TODO need to check this for mac/linux too @tamas
+//void makeSamePathAs(const char* sibling, const char* filename, string& result)
+//{
+//	char drive[_MAX_DRIVE];
+//	char dir[_MAX_DIR];
+//	char fname[_MAX_FNAME];
+//	char ext[_MAX_EXT];
+//	_splitpath(sibling, drive, dir, fname, ext);
+//
+//	char resbuf[MAX_PATH];
+//	_makepath(resbuf, drive, dir, filename, NULL);
+//	result = resbuf;
+//}
 
 BitmapFont::BitmapFontData::~BitmapFontData()
 {
@@ -111,7 +112,7 @@ BitmapFont::BitmapFontData::BitmapFontData(const FileHandle& fontFile, bool flip
 		//imagePath = m_fontFile.parent().child(imgFilename).path().replaceAll("\\\\", "/");
 		//I don't think this works on something else except Windows but right now 
 		//FileHandle parent and child are not implemented
-		makeSamePathAs(m_fontFile.getFullPathName().c_str(), imgFilename.c_str(), m_imagePath);
+//		makeSamePathAs(m_fontFile.getFullPathName().c_str(), imgFilename.c_str(), m_imagePath);
 		descent = 0;
 
 		while(true)
@@ -130,10 +131,11 @@ BitmapFont::BitmapFontData::BitmapFontData(const FileHandle& fontFile, bool flip
 			tokens.nextToken();
 			tokens.nextToken();
 			int ch = atoi(tokens.nextToken().c_str());
-			if(ch <= MAXCHAR)
-				setGlyph(ch, glyph);
-			else
-				continue;
+// TODO - check MAXCHAR @tamas
+//			if(ch <= MAXCHAR)
+//				setGlyph(ch, glyph);
+//			else
+//				continue;
 			tokens.nextToken();
 			glyph->srcX = atoi(tokens.nextToken().c_str());
 			tokens.nextToken();
@@ -169,8 +171,9 @@ BitmapFont::BitmapFontData::BitmapFontData(const FileHandle& fontFile, bool flip
 			int first = atoi(tokens.nextToken().c_str());
 			tokens.nextToken();
 			int second = atoi(tokens.nextToken().c_str());
-			if(first < 0 || first > MAXCHAR || second < 0 || second > MAXCHAR) 
-				continue;
+// TODO - mac? @tamas
+//			if(first < 0 || first > MAXCHAR || second < 0 || second > MAXCHAR) 
+//				continue;
 			Glyph* glyph = getGlyph((char)first);
 			tokens.nextToken();
 			int amount = atoi(tokens.nextToken().c_str());

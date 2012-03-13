@@ -11,7 +11,7 @@ std::list<Mesh*> Mesh::m_meshes;
 Mesh::Mesh(bool isStatic,const VertexAttribute& attribute) 
 {
 	VertexAttributes attributes(&attribute, 1);
-	if (Gdx.gl20 != NULL || Gdx.gl11 != NULL || forceVBO) 
+	if (Gdx.isGLInitialised() || forceVBO) 
 	{
 		m_vertices = new VertexBufferObject(isStatic, attributes);
 		m_indices = new IndexBufferObject(isStatic);
@@ -29,7 +29,7 @@ Mesh::Mesh(bool isStatic,const VertexAttribute& attribute)
 
 Mesh::Mesh(bool isStatic, const VertexAttributes& attributes) 
 {
-	if (Gdx.gl20 != NULL || Gdx.gl11 != NULL || forceVBO) 
+	if (Gdx.isGLInitialised() || forceVBO) 
 	{
 		m_vertices = new VertexBufferObject(isStatic, attributes);
 		m_indices = new IndexBufferObject(isStatic);
@@ -46,7 +46,7 @@ Mesh::Mesh(bool isStatic, const VertexAttributes& attributes)
 }
 Mesh::Mesh(bool isStatic, const VertexAttribute attributes[], int attributesLength)
 {
-		if (Gdx.gl20 != NULL || Gdx.gl11 != NULL || forceVBO) 
+	if (Gdx.isGLInitialised() || forceVBO) 
 	{
 		m_vertices = new VertexBufferObject(isStatic, attributes, attributesLength);
 		m_indices = new IndexBufferObject(isStatic);
@@ -241,20 +241,20 @@ void Mesh::render (int primitiveType, int offset, int count)
 	{
 		if (m_indices->getNumIndices() > 0)
 		{
-			short* buffer = m_indices->getBuffer() + offset;
-			Gdx.gl10->glDrawElements(primitiveType, count, GL10::GDX_GL_UNSIGNED_SHORT, buffer);
+			GLshort* buffer = m_indices->getBuffer() + offset;
+			glDrawElements(primitiveType, count, GL_UNSIGNED_SHORT, buffer);
 		} 
 		else
-			Gdx.gl10->glDrawArrays(primitiveType, offset, count);
+			glDrawArrays(primitiveType, offset, count);
 	}
 	else 
 	{
 		if (m_indices->getNumIndices() > 0)
 		{
-			Gdx.gl11->glDrawElements(primitiveType, count, GL10::GDX_GL_UNSIGNED_SHORT, (void*)(offset * sizeof(short)));
+			glDrawElements(primitiveType, count, GL_UNSIGNED_SHORT, (void*)(offset * sizeof(GLshort)));
 		}
 		else
-			Gdx.gl11->glDrawArrays(primitiveType, offset, count);
+			glDrawArrays(primitiveType, offset, count);
 	}
 
 	if (m_autoBind) 
@@ -319,9 +319,9 @@ void Mesh::render(ShaderProgram* shader, int primitiveType, int offset, int coun
 		bind(shader);
 
 	if (m_indices->getNumIndices() > 0)
-		Gdx.gl20->glDrawElements(primitiveType, count, GL10::GDX_GL_UNSIGNED_SHORT, /*TODO: OK???*/(void*)(offset * 2));
+		glDrawElements(primitiveType, count, GL_UNSIGNED_SHORT, m_indices);
 	else
-		Gdx.gl20->glDrawArrays(primitiveType, offset, count);
+		glDrawArrays(primitiveType, offset, count);
 
 	if (m_autoBind) 
 		unbind(shader);

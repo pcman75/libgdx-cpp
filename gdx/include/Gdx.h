@@ -21,10 +21,13 @@
 #include "Audio.h"
 #include "Input.h"
 #include "Files.h"
-#include "GLCommon.h"
-#include "GL10.h"
-#include "GL11.h"
-#include "GL20.h"
+#include <OpenGLES/ES2/gl.h>
+#include <OpenGLES/ES2/glext.h>
+
+//#include "GLCommon.h"
+//#include "GL10.h"
+//#include "GL11.h"
+//#include "GL20.h"
 //#include "GLU.h"
 
 /** <p>
@@ -44,6 +47,15 @@
 * </p>
 * 
 * */
+
+enum GLversion
+{
+    GL_VERSION_0,
+    GL_VERSION_10,
+    GL_VERSION_11,
+    GL_VERSION_20
+};
+
 class GdxDllImportExport GdxClass 
 {
 public:
@@ -52,13 +64,13 @@ public:
 	Graphics* graphics;
 	Audio* audio;
 	Input* input;
-
 	Files* files;
-	GLCommon* gl;
-	GL10* gl10;
-	GL11* gl11;
-	GL20* gl20;
-	GLU* glu;
+    GLversion glVersion;
+//	GLCommon* gl;
+//	GL10* gl10;
+//	GL11* gl11;
+//	GL20* gl20;
+//	GLU* glu;
 
 	public:
         static GdxClass& getInstance()
@@ -68,6 +80,8 @@ public:
         }
 		bool isGL20Available();
 		bool isGL11Available();
+        bool isGLInitialised();
+        GLversion getGLVersion();
 		~GdxClass();
     private:
         GdxClass();

@@ -13,6 +13,7 @@ const char BitmapFont::m_capChars[] = {'M', 'N', 'B', 'D', 'C', 'E', 'F', 'K', '
 	'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
 };
 
+
 void BitmapFont::init()
 {
 	m_color = Color::WHITE.toFloatBits();

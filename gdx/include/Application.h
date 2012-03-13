@@ -17,6 +17,12 @@
 #pragma once
 
 #include "GdxDefines.h"
+#include "Graphics.h"
+#include "Audio.h"
+#include "Input.h"
+#include "Files.h"
+//#include "Preferences.h"
+#include "Timer.h"
 
 //forward declarations
 class Graphics;

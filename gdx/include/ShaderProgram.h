@@ -110,7 +110,7 @@ private:
 	int m_fragmentShaderHandle;
 
 	/** matrix float buffer **/
-	float m_matrix[16];
+	GLfloat m_matrix[16];
 
 	/** vertex shader source **/
 	std::string m_vertexShaderSource;
