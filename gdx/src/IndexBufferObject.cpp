@@ -4,7 +4,7 @@
 IndexBufferObject::IndexBufferObject(bool isStatic) 
 {
 	init();
-	m_usage = isStatic ? GL11::GDX_GL_STATIC_DRAW : GL11::GDX_GL_DYNAMIC_DRAW;
+	m_usage = isStatic ? GL_STATIC_DRAW : GL_DYNAMIC_DRAW;
 }
 
 void IndexBufferObject::init()
@@ -16,7 +16,7 @@ void IndexBufferObject::init()
 	m_isDirect = true;
 
 	m_bufferHandle = createBufferObject();
-	m_usage = GL11::GDX_GL_STATIC_DRAW;
+	m_usage = GL_STATIC_DRAW;
 }
 
 IndexBufferObject::~IndexBufferObject(void)

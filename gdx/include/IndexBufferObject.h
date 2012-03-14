@@ -16,7 +16,6 @@
 
 #pragma once
 #include "indexdata.h"
-#include "GL11.h"
 #include "Gdx.h"
 
 #include "GdxRuntimeException.h"

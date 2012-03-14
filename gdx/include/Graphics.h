@@ -1,20 +1,6 @@
 #pragma once
 
 
-//#include "GLCommon.h"
-//#include "GL10.h"
-//#include "GL11.h"
-//#include "GL20.h"
-
-//#include <vector>
-
-//class GLCommon;
-//class GL10;
-//class GL11;
-//class GL20;
-//
-//class GLU;
-
 #include "Pixmap.h"
 
 class Pixmap;

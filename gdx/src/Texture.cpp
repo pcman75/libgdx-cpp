@@ -1,6 +1,5 @@
 #include "stdafx.h"
 #include "Texture.h"
-#include "GL10.h"
 #include "MipMapGenerator.h"
 
 bool Texture::m_enforcePotImages = true;
@@ -12,19 +11,19 @@ bool m_useHWMipMap = true;
 //AssetManager assetManager;
 Texture::TextureMap Texture::m_managedTextures;
 
-const Texture::TextureFilter Texture::TextureFilter::Nearest = Texture::TextureFilter::TextureFilter(GL10::GDX_GL_NEAREST);
-const Texture::TextureFilter Texture::TextureFilter::Linear = Texture::TextureFilter::TextureFilter(GL10::GDX_GL_LINEAR);
-const Texture::TextureFilter Texture::TextureFilter::MipMap = Texture::TextureFilter::TextureFilter(GL10::GDX_GL_LINEAR_MIPMAP_LINEAR);
-const Texture::TextureFilter Texture::TextureFilter::MipMapNearestNearest = Texture::TextureFilter::TextureFilter(GL10::GDX_GL_NEAREST_MIPMAP_NEAREST);
-const Texture::TextureFilter Texture::TextureFilter::MipMapLinearNearest = Texture::TextureFilter::TextureFilter(GL10::GDX_GL_LINEAR_MIPMAP_NEAREST);
-const Texture::TextureFilter Texture::TextureFilter::MipMapNearestLinear = Texture::TextureFilter::TextureFilter(GL10::GDX_GL_NEAREST_MIPMAP_LINEAR);
-const Texture::TextureFilter Texture::TextureFilter::MipMapLinearLinear = Texture::TextureFilter::TextureFilter(GL10::GDX_GL_LINEAR_MIPMAP_LINEAR);
+const Texture::TextureFilter Texture::TextureFilter::Nearest = Texture::TextureFilter::TextureFilter(GL_NEAREST);
+const Texture::TextureFilter Texture::TextureFilter::Linear = Texture::TextureFilter::TextureFilter(GL_LINEAR);
+const Texture::TextureFilter Texture::TextureFilter::MipMap = Texture::TextureFilter::TextureFilter(GL_LINEAR_MIPMAP_LINEAR);
+const Texture::TextureFilter Texture::TextureFilter::MipMapNearestNearest = Texture::TextureFilter::TextureFilter(GL_NEAREST_MIPMAP_NEAREST);
+const Texture::TextureFilter Texture::TextureFilter::MipMapLinearNearest = Texture::TextureFilter::TextureFilter(GL_LINEAR_MIPMAP_NEAREST);
+const Texture::TextureFilter Texture::TextureFilter::MipMapNearestLinear = Texture::TextureFilter::TextureFilter(GL_NEAREST_MIPMAP_LINEAR);
+const Texture::TextureFilter Texture::TextureFilter::MipMapLinearLinear = Texture::TextureFilter::TextureFilter(GL_LINEAR_MIPMAP_LINEAR);
 
 unsigned int Texture::m_buffer = -1;
 
 Texture::TextureFilter::TextureFilter()
 {
-	m_glEnum = GL10::GDX_GL_NEAREST;
+	m_glEnum = GL_NEAREST;
 }
 
 Texture::TextureFilter::TextureFilter(int glEnum)
@@ -34,7 +33,7 @@ Texture::TextureFilter::TextureFilter(int glEnum)
 
 bool Texture::TextureFilter::isMipMap()
 {
-	return m_glEnum != GL10::GDX_GL_NEAREST && m_glEnum != GL10::GDX_GL_LINEAR;
+	return m_glEnum != GL_NEAREST && m_glEnum != GL_LINEAR;
 }
 
 int Texture::TextureFilter::getGLEnum()
@@ -42,12 +41,12 @@ int Texture::TextureFilter::getGLEnum()
 	return m_glEnum;
 }
 
-const Texture::TextureWrap Texture::TextureWrap::ClampToEdge = Texture::TextureWrap::TextureWrap(GL10::GDX_GL_CLAMP_TO_EDGE);
-const Texture::TextureWrap Texture::TextureWrap::Repeat = Texture::TextureWrap::TextureWrap(GL10::GDX_GL_REPEAT);
+const Texture::TextureWrap Texture::TextureWrap::ClampToEdge = Texture::TextureWrap::TextureWrap(GL_CLAMP_TO_EDGE);
+const Texture::TextureWrap Texture::TextureWrap::Repeat = Texture::TextureWrap::TextureWrap(GL_REPEAT);
 
 Texture::TextureWrap::TextureWrap()
 {
-	m_glEnum = GL10::GDX_GL_CLAMP_TO_EDGE;
+	m_glEnum = GL_CLAMP_TO_EDGE;
 }
 
 Texture::TextureWrap::TextureWrap(int glEnum)
