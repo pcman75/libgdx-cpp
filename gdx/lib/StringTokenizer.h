@@ -10,6 +10,6 @@ public:
 	StringTokenizer(const std::string& str, const std::string& delimiters);
 	std::string& nextToken();
 
-private:
-	void tokenize(const std::string& str, const std::string& delimiters);
+	static void split(const std::string& str, std::vector<std::string>& tokens);
+	static void split(const std::string& str, const std::string& delimiters, std::vector<std::string>& tokens);
 };

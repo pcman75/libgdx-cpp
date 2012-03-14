@@ -154,10 +154,10 @@ void Simulation::checkShipCollision()
 		if(invader->position.dst(ship.position) < Ship::SHIP_RADIUS)
 		{
 			ship.lives--;
-			invaders.erase(invader);
 			ship.isExploding = true;
 			explosions.push_back(Explosion(invader->position));
 			explosions.push_back(Explosion(ship.position));
+			invaders.erase(invader);
 			if(listener != NULL) 
 				listener->explosion();
 			break;

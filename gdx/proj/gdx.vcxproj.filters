@@ -288,6 +288,15 @@
     <ClCompile Include="..\src\StringTokenizer.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\ModelLoaderOld.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ObjLoader.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\StringUtils.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\lib\etc1_utils.h">
@@ -600,6 +609,12 @@
       <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="..\lib\StringTokenizer.h">
+      <Filter>lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\ModelLoaderOld.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\lib\StringUtils.h">
       <Filter>lib</Filter>
     </ClInclude>
   </ItemGroup>

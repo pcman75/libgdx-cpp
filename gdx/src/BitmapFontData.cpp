@@ -1,28 +1,9 @@
 #include "stdafx.h"
 #include "BitmapFont.h"
 #include "StringTokenizer.h"
+#include "StringUtils.h"
 
 using namespace std;
-
-void split(const char* line, vector<string>& tokens)
-{
-	istringstream iss(line);
-    copy(istream_iterator<string>(iss),
-             istream_iterator<string>(),
-             back_inserter<vector<string>>(tokens));
-}
-
-bool startsWith(const string& str, const char* with)
-{
-	return str.compare(0, strlen(with), with) == 0;
-}
-
-bool endsWith(const string& str, const char* with)
-{
-	int lenWidth = strlen(with);
-	int lenStr = str.size();
-	return str.compare(lenStr - lenWidth, strlen(with), with) == 0;
-}
 
 void makeSamePathAs(const char* sibling, const char* filename, string& result)
 {
@@ -63,6 +44,8 @@ BitmapFont::BitmapFontData::BitmapFontData(const FileHandle& fontFile, bool flip
 	glyphs = new Glyph**[PAGES];
 	memset(glyphs, NULL, PAGES * sizeof(void*));
 
+	//TODO: this is ugly
+	//do something else after implementing proper "File" abstraction
 	int maxBuf = 1024;
 	char* line = new char[maxBuf];
 
@@ -76,15 +59,15 @@ BitmapFont::BitmapFontData::BitmapFontData(const FileHandle& fontFile, bool flip
 			throw new GdxRuntimeException("Invalid font file: " + m_fontFile.getFullPathName());
 		
 		vector<string> common;
-		split(line, common);
+		StringTokenizer::split(line, common);
 		if(common.size() < 4) 
 			throw new GdxRuntimeException("Invalid font file: " + m_fontFile.getFullPathName());
 
-		if(!startsWith(common[1], "lineHeight="))
+		if(!StringUtils::startsWith(common[1], "lineHeight="))
 			throw new GdxRuntimeException("Invalid font file: " + m_fontFile.getFullPathName());
 		m_lineHeight = atoi(common[1].substr(11).c_str());
 		
-		if(!startsWith(common[2], "base="))
+		if(!StringUtils::startsWith(common[2], "base="))
 			throw new GdxRuntimeException("Invalid font file: " + m_fontFile.getFullPathName());
 		int baseLine = atoi(common[2].substr(5).c_str());
 
@@ -93,12 +76,12 @@ BitmapFont::BitmapFontData::BitmapFontData(const FileHandle& fontFile, bool flip
 			throw new GdxRuntimeException("Invalid font file: " + m_fontFile.getFullPathName());
 
 		vector<string> pageLine;
-		split(line, pageLine);
-		if(!startsWith(pageLine[2], "file=")) 
+		StringTokenizer::split(line, pageLine);
+		if(!StringUtils::startsWith(pageLine[2], "file=")) 
 			throw new GdxRuntimeException("Invalid font file: " + m_fontFile.getFullPathName());
 		
 		string imgFilename;
-		if(endsWith(pageLine[2], "\""))
+		if(StringUtils::endsWith(pageLine[2], "\""))
 		{
 			imgFilename = pageLine[2].substr(6, pageLine[2].length() - 1 - 6);
 		}
@@ -119,9 +102,9 @@ BitmapFont::BitmapFontData::BitmapFontData(const FileHandle& fontFile, bool flip
 			line = reader->readLine(line, maxBuf);
 			if(line == NULL) 
 				break;
-			if(startsWith(line, "kernings ")) 
+			if(StringUtils::startsWith(line, "kernings ")) 
 				break;
-			if(!startsWith(line, "char ")) 
+			if(!StringUtils::startsWith(line, "char ")) 
 				continue;
 
 			Glyph* glyph = new Glyph();
@@ -160,7 +143,7 @@ BitmapFont::BitmapFontData::BitmapFontData(const FileHandle& fontFile, bool flip
 			line = reader->readLine(line, maxBuf);
 			if(line == NULL) 
 				break;
-			if(!startsWith(line, "kerning ")) 
+			if(!StringUtils::startsWith(line, "kerning ")) 
 				break;
 
 			StringTokenizer tokens(line, " =");

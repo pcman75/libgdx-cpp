@@ -83,6 +83,8 @@
     <ClCompile Include="..\src\DecelerateInterpolator.cpp" />
     <ClCompile Include="..\src\Glyph.cpp" />
     <ClCompile Include="..\src\LinearInterpolator.cpp" />
+    <ClCompile Include="..\src\ModelLoaderOld.cpp" />
+    <ClCompile Include="..\src\ObjLoader.cpp" />
     <ClCompile Include="..\src\OvershootInterpolator.cpp" />
     <ClCompile Include="..\src\Forever.cpp" />
     <ClCompile Include="..\src\MoveBy.cpp" />
@@ -103,6 +105,7 @@
     <ClCompile Include="..\src\Interpolator.cpp" />
     <ClCompile Include="..\src\Layout.cpp" />
     <ClCompile Include="..\src\StringTokenizer.cpp" />
+    <ClCompile Include="..\src\StringUtils.cpp" />
     <ClCompile Include="..\src\TemporalAction.cpp" />
     <ClCompile Include="..\src\Application.cpp" />
     <ClCompile Include="..\src\PerspectiveCamController.cpp" />
@@ -188,6 +191,7 @@
     <ClInclude Include="..\include\BitmapFont.h" />
     <ClInclude Include="..\include\DecelerateInterpolator.h" />
     <ClInclude Include="..\include\LinearInterpolator.h" />
+    <ClInclude Include="..\include\ModelLoaderOld.h" />
     <ClInclude Include="..\include\OvershootInterpolator.h" />
     <ClInclude Include="..\include\Audio.h" />
     <ClInclude Include="..\include\AudioDevice.h" />
@@ -284,6 +288,7 @@
     <ClInclude Include="..\lib\lodepng.h" />
     <ClInclude Include="..\lib\stdafx.h" />
     <ClInclude Include="..\lib\StringTokenizer.h" />
+    <ClInclude Include="..\lib\StringUtils.h" />
     <ClInclude Include="..\lib\targetver.h" />
   </ItemGroup>
   <ItemGroup>
