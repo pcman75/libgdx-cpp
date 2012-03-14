@@ -16,6 +16,8 @@ string& StringTokenizer::nextToken()
 
 void StringTokenizer::split(const string& str, const string& delimiters, std::vector<std::string>& tokens)
 {
+	tokens.clear();
+
 	// Skip delimiters at beginning.
 	string::size_type lastPos = str.find_first_not_of(delimiters, 0);
 	// Find first "non-delimiter".

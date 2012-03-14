@@ -90,11 +90,14 @@ void Simulation::updateShots(float delta)
 
 void Simulation::updateExplosions(float delta)
 {
-	for(Explosions::iterator explosion = explosions.begin(); explosion != explosions.end(); explosion++)
+	for(Explosions::iterator explosion = explosions.begin(); explosion != explosions.end(); )
 	{
 		explosion->update(delta);
 		if(explosion->aliveTime > Explosion::EXPLOSION_LIVE_TIME) 
-			explosions.erase(explosion);
+			explosion = explosions.erase(explosion);
+		else
+			explosion++;
+
 	}
 
 }
@@ -104,19 +107,22 @@ void Simulation::checkInvaderCollision()
 	if(shipShot == NULL) 
 		return;
 
-	for(Invaders::iterator invader = invaders.begin(); invader != invaders.end(); invader++)
+	for(Invaders::iterator invader = invaders.begin(); invader != invaders.end(); )
 	{
 		if(invader->position.dst(shipShot->position) < Invader::INVADER_RADIUS)
 		{
 			shots.remove(*shipShot);
 			shipShot = NULL;
-			invaders.erase(invader);
 			explosions.push_back(Explosion(invader->position));
+			invader = invaders.erase(invader);
+
 			if(listener != NULL) 
 				listener->explosion();
 			score += Invader::INVADER_POINTS;
 			break;
 		}
+		else
+			invader++;
 	}
 }
 
@@ -149,7 +155,7 @@ void Simulation::checkShipCollision()
 		}
 	}
 
-	for(Invaders::iterator invader = invaders.begin(); invader != invaders.end(); invader++)
+	for(Invaders::iterator invader = invaders.begin(); invader != invaders.end(); )
 	{
 		if(invader->position.dst(ship.position) < Ship::SHIP_RADIUS)
 		{
@@ -157,11 +163,13 @@ void Simulation::checkShipCollision()
 			ship.isExploding = true;
 			explosions.push_back(Explosion(invader->position));
 			explosions.push_back(Explosion(ship.position));
-			invaders.erase(invader);
+			invader = invaders.erase(invader);
 			if(listener != NULL) 
 				listener->explosion();
 			break;
 		}
+		else
+			invader++;
 	}
 }
 
@@ -171,15 +179,17 @@ void Simulation::checkBlockCollision()
 
 	for(Shots::iterator shot = shots.begin(); shot != shots.end(); shot++)
 	{
-		for(Blocks::iterator block = blocks.begin(); block != blocks.end(); block++)
+		for(Blocks::iterator block = blocks.begin(); block != blocks.end(); )
 		{
 			if(block->position.dst(shot->position) < Block::BLOCK_RADIUS)
 			{
 				removedShots.push_back(*shot);
 				shot->hasLeftField = true;
-				blocks.erase(block);
+				block = blocks.erase(block);
 				break;
 			}
+			else
+				block++;
 		}
 	}
 

@@ -84,7 +84,7 @@ Mesh* ObjLoader::loadObjFromString (const std::string& obj, bool flipV)
 		if (StringUtils::startsWith(*line, "v ")) 
 		{
 			Strings tokens;
-			StringTokenizer::split(*line, "[ ]+", tokens);
+			StringTokenizer::split(*line, tokens);
 			vertices[vertexIndex] = (float)atof(tokens[1].c_str());
 			vertices[vertexIndex + 1] = (float)atof(tokens[2].c_str());
 			vertices[vertexIndex + 2] = (float)atof(tokens[3].c_str());
@@ -95,7 +95,7 @@ Mesh* ObjLoader::loadObjFromString (const std::string& obj, bool flipV)
 		if (StringUtils::startsWith(*line, "vn ")) 
 		{
 			Strings tokens;
-			StringTokenizer::split(*line, "[ ]+", tokens);
+			StringTokenizer::split(*line, tokens);
 			normals[normalIndex] = (float)atof(tokens[1].c_str());
 			normals[normalIndex + 1] = (float)atof(tokens[2].c_str());
 			normals[normalIndex + 2] = (float)atof(tokens[3].c_str());
@@ -107,7 +107,7 @@ Mesh* ObjLoader::loadObjFromString (const std::string& obj, bool flipV)
 		if (StringUtils::startsWith(*line, "vt")) 
 		{
 			Strings tokens;
-			StringTokenizer::split(*line, "[ ]+", tokens);
+			StringTokenizer::split(*line, tokens);
 			uv[uvIndex] = (float)atof(tokens[1].c_str());
 			uv[uvIndex + 1] = flipV ? 1 - (float)atof(tokens[2].c_str()): (float)atof(tokens[2].c_str());
 			uvIndex += 2;
@@ -117,7 +117,7 @@ Mesh* ObjLoader::loadObjFromString (const std::string& obj, bool flipV)
 		if (StringUtils::startsWith(*line, "f ")) 
 		{
 			Strings tokens;
-			StringTokenizer::split(*line, "[ ]+", tokens);
+			StringTokenizer::split(*line, tokens);
 			
 			Strings parts;
 			StringTokenizer::split(tokens[1], "/", parts);
