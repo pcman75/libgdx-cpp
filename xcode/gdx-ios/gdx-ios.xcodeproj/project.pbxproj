@@ -9,15 +9,15 @@
 /* Begin PBXBuildFile section */
 		025E2866150530DE004955D2 /* gdx-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 025E2861150530DE004955D2 /* gdx-Prefix.pch */; };
 		025E2867150530DE004955D2 /* gdx.h in Headers */ = {isa = PBXBuildFile; fileRef = 025E2862150530DE004955D2 /* gdx.h */; };
-		025E2868150530DE004955D2 /* gdx.m in Sources */ = {isa = PBXBuildFile; fileRef = 025E2863150530DE004955D2 /* gdx.m */; };
-		025E286A150530DE004955D2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 025E2865150530DE004955D2 /* main.m */; };
+		025E2868150530DE004955D2 /* gdx.mm in Sources */ = {isa = PBXBuildFile; fileRef = 025E2863150530DE004955D2 /* gdx.mm */; };
+		025E286A150530DE004955D2 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 025E2865150530DE004955D2 /* main.mm */; };
 		025E29AF15064821004955D2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 029A06A915013DB600B82B73 /* Foundation.framework */; };
 		025E29B715064821004955D2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 025E29B515064821004955D2 /* InfoPlist.strings */; };
-		025E29B915064821004955D2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 025E29B815064821004955D2 /* main.m */; };
-		025E29BD15064821004955D2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 025E29BC15064821004955D2 /* AppDelegate.m */; };
+		025E29B915064821004955D2 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 025E29B815064821004955D2 /* main.mm */; };
+		025E29BD15064821004955D2 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 025E29BC15064821004955D2 /* AppDelegate.mm */; };
 		025E29C81506486A004955D2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 025E29C71506486A004955D2 /* UIKit.framework */; };
 		025E29CA1506487A004955D2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 025E29C91506487A004955D2 /* CoreGraphics.framework */; };
-		025E29D615064D3A004955D2 /* GLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 025E29D515064D3A004955D2 /* GLView.m */; };
+		025E29D615064D3A004955D2 /* GLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 025E29D515064D3A004955D2 /* GLView.mm */; };
 		029A06AA15013DB600B82B73 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 029A06A915013DB600B82B73 /* Foundation.framework */; };
 		02CE9EC41506537300A78D71 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02CE9EC31506537300A78D71 /* OpenGLES.framework */; };
 		02CE9EC61506538000A78D71 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02CE9EC51506538000A78D71 /* QuartzCore.framework */; };
@@ -227,19 +227,19 @@
 /* Begin PBXFileReference section */
 		025E2861150530DE004955D2 /* gdx-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "gdx-Prefix.pch"; sourceTree = "<group>"; };
 		025E2862150530DE004955D2 /* gdx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gdx.h; sourceTree = "<group>"; };
-		025E2863150530DE004955D2 /* gdx.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = gdx.m; sourceTree = "<group>"; };
-		025E2865150530DE004955D2 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		025E2863150530DE004955D2 /* gdx.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = gdx.mm; sourceTree = "<group>"; };
+		025E2865150530DE004955D2 /* main.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
 		025E29AB15064821004955D2 /* gdx-backend-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "gdx-backend-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		025E29B415064821004955D2 /* gdx-backend-ios-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "gdx-backend-ios-Info.plist"; sourceTree = "<group>"; };
 		025E29B615064821004955D2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		025E29B815064821004955D2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		025E29B815064821004955D2 /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
 		025E29BA15064821004955D2 /* gdx-backend-ios-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "gdx-backend-ios-Prefix.pch"; sourceTree = "<group>"; };
 		025E29BB15064821004955D2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		025E29BC15064821004955D2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		025E29BC15064821004955D2 /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
 		025E29C71506486A004955D2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		025E29C91506487A004955D2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.0.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
 		025E29D415064D3A004955D2 /* GLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLView.h; sourceTree = "<group>"; };
-		025E29D515064D3A004955D2 /* GLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLView.m; sourceTree = "<group>"; };
+		025E29D515064D3A004955D2 /* GLView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLView.mm; sourceTree = "<group>"; };
 		029A06A615013DB600B82B73 /* libgdx.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libgdx.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		029A06A915013DB600B82B73 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		02CE9EC31506537300A78D71 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.0.sdk/System/Library/Frameworks/OpenGLES.framework; sourceTree = DEVELOPER_DIR; };
@@ -480,8 +480,8 @@
 			children = (
 				025E2861150530DE004955D2 /* gdx-Prefix.pch */,
 				025E2862150530DE004955D2 /* gdx.h */,
-				025E2863150530DE004955D2 /* gdx.m */,
-				025E2865150530DE004955D2 /* main.m */,
+				025E2863150530DE004955D2 /* gdx.mm */,
+				025E2865150530DE004955D2 /* main.mm */,
 			);
 			path = "gdx-ios";
 			sourceTree = "<group>";
@@ -490,10 +490,10 @@
 			isa = PBXGroup;
 			children = (
 				025E29BB15064821004955D2 /* AppDelegate.h */,
-				025E29BC15064821004955D2 /* AppDelegate.m */,
+				025E29BC15064821004955D2 /* AppDelegate.mm */,
 				025E29B315064821004955D2 /* Supporting Files */,
 				025E29D415064D3A004955D2 /* GLView.h */,
-				025E29D515064D3A004955D2 /* GLView.m */,
+				025E29D515064D3A004955D2 /* GLView.mm */,
 				02CE9EC7150656B800A78D71 /* IOSGraphics.h */,
 				02CEA0EB150A33C800A78D71 /* IOSGraphics.cpp */,
 				02CEA0EF150A35D800A78D71 /* IOSApplication.h */,
@@ -509,7 +509,7 @@
 			children = (
 				025E29B415064821004955D2 /* gdx-backend-ios-Info.plist */,
 				025E29B515064821004955D2 /* InfoPlist.strings */,
-				025E29B815064821004955D2 /* main.m */,
+				025E29B815064821004955D2 /* main.mm */,
 				025E29BA15064821004955D2 /* gdx-backend-ios-Prefix.pch */,
 			);
 			name = "Supporting Files";
@@ -973,9 +973,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				025E29B915064821004955D2 /* main.m in Sources */,
-				025E29BD15064821004955D2 /* AppDelegate.m in Sources */,
-				025E29D615064D3A004955D2 /* GLView.m in Sources */,
+				025E29B915064821004955D2 /* main.mm in Sources */,
+				025E29BD15064821004955D2 /* AppDelegate.mm in Sources */,
+				025E29D615064D3A004955D2 /* GLView.mm in Sources */,
 				02CEA0EC150A33C900A78D71 /* IOSGraphics.cpp in Sources */,
 				02CEA0EE150A35C400A78D71 /* IOSApplication.cpp in Sources */,
 				02CEA0F2150A3AA200A78D71 /* IOSApplicationConfiguration.cpp in Sources */,
@@ -986,8 +986,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				025E2868150530DE004955D2 /* gdx.m in Sources */,
-				025E286A150530DE004955D2 /* main.m in Sources */,
+				025E2868150530DE004955D2 /* gdx.mm in Sources */,
+				025E286A150530DE004955D2 /* main.mm in Sources */,
 				02DF3FC8150F6C4400485E1E /* stb_image.c in Sources */,
 				02DF4029150F6C5400485E1E /* AccelerateDecelerateInterpolator.cpp in Sources */,
 				02DF402A150F6C5400485E1E /* AccelerateInterpolator.cpp in Sources */,
@@ -1113,6 +1113,7 @@
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_INPUT_FILETYPE = automatic;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "gdx-backend-ios/gdx-backend-ios-Prefix.pch";
@@ -1146,6 +1147,7 @@
 					"\"$(DEVELOPER_FRAMEWORKS_DIR)\"",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_INPUT_FILETYPE = automatic;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "gdx-backend-ios/gdx-backend-ios-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -1184,6 +1186,7 @@
 				DSTROOT = /tmp/gdx.dst;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_INPUT_FILETYPE = automatic;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "gdx-ios/gdx-Prefix.pch";
@@ -1213,6 +1216,7 @@
 				COPY_PHASE_STRIP = YES;
 				DSTROOT = /tmp/gdx.dst;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_INPUT_FILETYPE = automatic;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "gdx-ios/gdx-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
