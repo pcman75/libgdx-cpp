@@ -34,6 +34,18 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "superjumper", "..\demos\superjumper\proj\superjumper.vcxproj", "{65CB8279-2F18-427E-AB62-C263F0C3CE38}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GdxInvaders", "..\demos\GdxInvaders\proj\GdxInvaders.vcxproj", "{10804F9E-4D8A-493B-8160-9AAA1BAF2386}"
+	ProjectSection(ProjectDependencies) = postProject
+		{43E30B47-63FB-4009-9F8F-EBE856D844A3} = {43E30B47-63FB-4009-9F8F-EBE856D844A3}
+		{DBD14494-A5F4-4726-9E52-1635E8479C3A} = {DBD14494-A5F4-4726-9E52-1635E8479C3A}
+		{27EBB0C6-84CB-4FC2-8B0E-9F729966B979} = {27EBB0C6-84CB-4FC2-8B0E-9F729966B979}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Metagun", "..\demos\Metagun\proj\Metagun.vcxproj", "{3ADD35C1-8D55-4563-A5B2-0E1FEAA2DBBD}"
+	ProjectSection(ProjectDependencies) = postProject
+		{43E30B47-63FB-4009-9F8F-EBE856D844A3} = {43E30B47-63FB-4009-9F8F-EBE856D844A3}
+		{DBD14494-A5F4-4726-9E52-1635E8479C3A} = {DBD14494-A5F4-4726-9E52-1635E8479C3A}
+		{27EBB0C6-84CB-4FC2-8B0E-9F729966B979} = {27EBB0C6-84CB-4FC2-8B0E-9F729966B979}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -73,6 +85,10 @@ Global
 		{10804F9E-4D8A-493B-8160-9AAA1BAF2386}.Debug|Win32.Build.0 = Debug|Win32
 		{10804F9E-4D8A-493B-8160-9AAA1BAF2386}.Release|Win32.ActiveCfg = Release|Win32
 		{10804F9E-4D8A-493B-8160-9AAA1BAF2386}.Release|Win32.Build.0 = Release|Win32
+		{3ADD35C1-8D55-4563-A5B2-0E1FEAA2DBBD}.Debug|Win32.ActiveCfg = Debug|Win32
+		{3ADD35C1-8D55-4563-A5B2-0E1FEAA2DBBD}.Debug|Win32.Build.0 = Debug|Win32
+		{3ADD35C1-8D55-4563-A5B2-0E1FEAA2DBBD}.Release|Win32.ActiveCfg = Release|Win32
+		{3ADD35C1-8D55-4563-A5B2-0E1FEAA2DBBD}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
