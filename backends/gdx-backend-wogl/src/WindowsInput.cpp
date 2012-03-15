@@ -1,6 +1,11 @@
 #include "StdAfx.h"
 #include "WindowsInput.h"
 
+const int KeyEvent::KEY_DOWN = 0;
+const int KeyEvent::KEY_UP = 1;
+const int KeyEvent::KEY_TYPED = 2;
+
+
 
 WindowsInput::WindowsInput(void)
 {
@@ -8,6 +13,7 @@ WindowsInput::WindowsInput(void)
 	m_justTouched = false;
 	m_touchX = m_touchY = 0;
 
+  processor = NULL;
 }
 
 
@@ -262,6 +268,7 @@ void WindowsInput::setCatchMenuKey(bool catchMenu)
 void WindowsInput::setInputProcessor(InputProcessor* processor)
 {
 	//TODO:
+  this->processor = processor;
 }
 
 
@@ -269,7 +276,7 @@ void WindowsInput::setInputProcessor(InputProcessor* processor)
 InputProcessor* WindowsInput::getInputProcessor()
 {
 	//TODO:
-	return 0;
+	return processor;
 }
 
 /** Queries whether a {@link Peripheral} is currently available. In case of Android and the {@link Peripheral#HardwareKeyboard}
@@ -342,11 +349,13 @@ void WindowsInput::buttonUp(WPARAM state, int x, int y)
 void WindowsInput::keyDown(int key, LPARAM lParam)
 {
 	m_keys.insert(translateKey(key));
+  m_keysForProcessor.push_back( KeyEvent( translateKey(key), KeyEvent::KEY_DOWN));
 }
 
 void WindowsInput::keyUp(int key, LPARAM lParam)
 {
 	m_keys.erase(translateKey(key));
+  m_keysForProcessor.push_back( KeyEvent( translateKey(key), KeyEvent::KEY_UP));
 }
 
 int WindowsInput::translateKey(int keyCode)
@@ -441,4 +450,76 @@ int WindowsInput::translateKey(int keyCode)
 	if (keyCode == VK_NUMPAD9) return Input::Keys::NUM_9;
 
 	return Input::Keys::UNKNOWN;
+}
+
+
+void WindowsInput::processEvents()
+{
+	if (processor != NULL) 
+  {
+		int len = m_keysForProcessor.size();
+		for (int i = 0; i < len; i++) 
+    {
+			KeyEvent e = m_keysForProcessor[ i];
+			switch (e.type) 
+      {
+        case KeyEvent::KEY_DOWN:
+  				processor->keyDown(e.keyCode);
+	  			break;
+        case KeyEvent::KEY_UP:
+			  	processor->keyUp(e.keyCode);
+				  break;
+        /*case KeyEvent::KEY_TYPED:
+				  processor->keyTyped(e.keyChar);
+          break;
+          */
+			}
+		}
+
+    /*
+		len = touchEvents.size();
+		for (int i = 0; i < len; i++) 
+    {
+			TouchEvent e = touchEvents.get(i);
+			currentEventTimeStamp = e.timeStamp;
+			switch (e.type) {
+			case TouchEvent.TOUCH_DOWN:
+				processor.touchDown(e.x, e.y, e.pointer, e.button);
+				break;
+			case TouchEvent.TOUCH_UP:
+				processor.touchUp(e.x, e.y, e.pointer, e.button);
+				break;
+			case TouchEvent.TOUCH_DRAGGED:
+				processor.touchDragged(e.x, e.y, e.pointer);
+				break;
+			case TouchEvent.TOUCH_MOVED:
+				processor.touchMoved(e.x, e.y);
+				break;
+			case TouchEvent.TOUCH_SCROLLED:
+				processor.scrolled(e.scrollAmount);
+			}
+			usedTouchEvents.free(e);
+		}
+    */
+	} 
+  /*
+  else 
+  {
+		int len = touchEvents.size();
+		for (int i = 0; i < len; i++) 
+    {
+			usedTouchEvents.free(touchEvents.get(i));
+		}
+
+		len = keyEvents.size();
+		for (int i = 0; i < len; i++) 
+    {
+			usedKeyEvents.free(keyEvents.get(i));
+		}
+	}
+  */
+
+	m_keysForProcessor.clear();
+	//touchEvents.clear();
+	
 }

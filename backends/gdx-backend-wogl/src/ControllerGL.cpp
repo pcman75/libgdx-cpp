@@ -141,6 +141,8 @@ void ControllerGL::runThread()
 
         m_pGraphics->draw();
         viewGL->swapBuffers();
+
+        m_pInput->processEvents();
     }
 
 	m_pGraphics->dispose();
@@ -260,7 +262,6 @@ int ControllerGL::keyUp(int key, LPARAM lParam)
 	m_pInput->keyUp(key, lParam);
     return 0;
 }
-
 
 ///////////////////////////////////////////////////////////////////////////////
 // handle WM_SIZE notification

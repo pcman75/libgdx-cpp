@@ -824,7 +824,7 @@ void SpriteBatch::draw(TextureRegion* region, float x, float y, float width, flo
 	}
 	else if(m_idx == m_verticesSize)    //
 		renderMesh();
-
+  
 	float fx2 = x + width;
 	float fy2 = y + height;
 	float u = region->getU();
