@@ -12,6 +12,8 @@ ipch/
 !gdx-audio/extern/mpg123/ports/MSVC++/2008/Release/
 !gdx-audio/extern/vorbis/Debug/
 !gdx-audio/extern/vorbis/Release/
+!backends/backend-glfw/extern/glfw-2.7.3/support/msvc100/Debug/
+!backends/backend-glfw/extern/glfw-2.7.3/support/msvc100/Release/
 
 # Mac #
 ###################

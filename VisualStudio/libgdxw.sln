@@ -47,6 +47,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Metagun", "..\demos\Metagun
 		{27EBB0C6-84CB-4FC2-8B0E-9F729966B979} = {27EBB0C6-84CB-4FC2-8B0E-9F729966B979}
 	EndProjectSection
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "backend-glfw", "..\backends\backend-glfw\proj\backend-glfw.vcxproj", "{BA63C10D-D033-4C88-97D2-54063BA289FD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -89,6 +91,10 @@ Global
 		{3ADD35C1-8D55-4563-A5B2-0E1FEAA2DBBD}.Debug|Win32.Build.0 = Debug|Win32
 		{3ADD35C1-8D55-4563-A5B2-0E1FEAA2DBBD}.Release|Win32.ActiveCfg = Release|Win32
 		{3ADD35C1-8D55-4563-A5B2-0E1FEAA2DBBD}.Release|Win32.Build.0 = Release|Win32
+		{BA63C10D-D033-4C88-97D2-54063BA289FD}.Debug|Win32.ActiveCfg = Debug|Win32
+		{BA63C10D-D033-4C88-97D2-54063BA289FD}.Debug|Win32.Build.0 = Debug|Win32
+		{BA63C10D-D033-4C88-97D2-54063BA289FD}.Release|Win32.ActiveCfg = Release|Win32
+		{BA63C10D-D033-4C88-97D2-54063BA289FD}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

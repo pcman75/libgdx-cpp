@@ -6,14 +6,18 @@
 
 #include "WoglApplication.h"
 #include "HelloWorldApp.h"
+#include "GlfwApplication.h"
+
 
 int APIENTRY _tWinMain(HINSTANCE hInstance,
-                     HINSTANCE hPrevInstance,
-                     LPTSTR    lpCmdLine,
-                     int       nCmdShow)
+	HINSTANCE hPrevInstance,
+	LPTSTR    lpCmdLine,
+	int       nCmdShow)
 {
-	WoglApplication(HelloWorldApp(), "OpenGL Test", 400, 300, false);
-    return 0;
+	//WoglApplication(HelloWorldApp(), "OpenGL Test", 400, 300, false);
+	//testGlflw();
+	GlfwApplication(HelloWorldApp(), "OpenGL Test", 400, 300, false);
+	return 0;
 }
 
 
