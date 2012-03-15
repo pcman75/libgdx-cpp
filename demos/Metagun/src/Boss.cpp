@@ -68,7 +68,7 @@ void Boss::render (Screen* screen, Camera* camera)
 {
 	int xp = (int)x - 2;
 	int yp = (int)y - 2;
-	screen->draw(Art.gremlins[3][1], xp, yp);
+	screen->draw(Art::gremlins[3][1], xp, yp);
 	// FIXME
 // g.setColor(Color.BLACK);
 // yp += 2;
