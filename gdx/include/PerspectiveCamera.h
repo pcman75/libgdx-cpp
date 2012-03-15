@@ -14,14 +14,14 @@
  * limitations under the License.
  ******************************************************************************/
 #pragma once
-
+#include "GdxDefines.h"
 #include "Matrix4.h"
 #include "Vector3.h"
 #include "Camera.h"
 
 /** A Camera with perspective projection.*/
 
-class PerspectiveCamera :
+class GdxDllImportExport PerspectiveCamera :
 	public Camera
 {
 public:

@@ -191,7 +191,7 @@ BitmapFont::BitmapFontData::BitmapFontData(const FileHandle& fontFile, bool flip
 		Glyph* xGlyph = NULL;
 		for(int i = 0; i < 13; i++)
 		{
-			xGlyph = getGlyph(xChars[i]);
+			xGlyph = getGlyph(m_xChars[i]);
 			if(xGlyph != NULL) 
 				break;
 		}
@@ -202,7 +202,7 @@ BitmapFont::BitmapFontData::BitmapFontData(const FileHandle& fontFile, bool flip
 		Glyph* capGlyph = NULL;
 		for(int i = 0; i < 26; i++)
 		{
-			capGlyph = getGlyph(capChars[i]);
+			capGlyph = getGlyph(m_capChars[i]);
 			if(capGlyph != NULL) break;
 		}
 		if(capGlyph == NULL)

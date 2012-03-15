@@ -126,7 +126,7 @@ void ControllerGL::runThread()
     ::GetClientRect(handle, &rect);
     m_pGraphics->setViewport(rect.right, rect.bottom, false);
 
-	m_pGraphics->create();
+  	m_pGraphics->create();
 
     // rendering loop
     while(loopFlag)
@@ -141,7 +141,11 @@ void ControllerGL::runThread()
 
         m_pGraphics->draw();
         viewGL->swapBuffers();
+
+        m_pInput->processEvents();
     }
+
+  	m_pGraphics->dispose();
 
     // terminate rendering thread
     ::wglMakeCurrent(0, 0);             // unset RC
@@ -243,14 +247,21 @@ int ControllerGL::mouseMove(WPARAM state, int x, int y)
 ///////////////////////////////////////////////////////////////////////////////
 int ControllerGL::keyDown(int key, LPARAM lParam)
 {
+	/* TODO: need this?
     if(key == VK_ESCAPE)
     {
         ::PostMessage(handle, WM_CLOSE, 0, 0);
     }
-
+	*/
+	m_pInput->keyDown(key, lParam);
     return 0;
 }
 
+int ControllerGL::keyUp(int key, LPARAM lParam)
+{
+	m_pInput->keyUp(key, lParam);
+    return 0;
+}
 
 
 ///////////////////////////////////////////////////////////////////////////////

@@ -41,6 +41,7 @@ namespace Win
         int rButtonUp(WPARAM state, int x, int y);
         int mouseMove(WPARAM state, int x, int y);
         int keyDown(int key, LPARAM lParam);
+		int keyUp(int key, LPARAM lParam);
         int size(int width, int height, WPARAM type);
 
     private:

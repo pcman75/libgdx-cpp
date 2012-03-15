@@ -8,36 +8,36 @@ const int BitmapFont::LOG2_PAGE_SIZE = 9;
 const int BitmapFont::PAGE_SIZE = 1 << LOG2_PAGE_SIZE;
 const int BitmapFont::PAGES = 0x10000 / PAGE_SIZE;
 
-const char BitmapFont::xChars[] = {'x', 'e', 'a', 'o', 'n', 's', 'r', 'c', 'u', 'm', 'v', 'w', 'z'};
-const char BitmapFont::capChars[] = {'M', 'N', 'B', 'D', 'C', 'E', 'F', 'K', 'A', 'G', 'H', 'I', 'J', 'L', 'O', 'P', 'Q', 'R', 'S',
+const char BitmapFont::m_xChars[] = {'x', 'e', 'a', 'o', 'n', 's', 'r', 'c', 'u', 'm', 'v', 'w', 'z'};
+const char BitmapFont::m_capChars[] = {'M', 'N', 'B', 'D', 'C', 'E', 'F', 'K', 'A', 'G', 'H', 'I', 'J', 'L', 'O', 'P', 'Q', 'R', 'S',
 	'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
 };
 
 void BitmapFont::init()
 {
-	color = Color::WHITE.toFloatBits();
-	tempColor = Color(1, 1, 1, 1);
-	integer = true;
-	ownsBitmapFontData = false;
-	region = NULL;
+	m_color = Color::WHITE.toFloatBits();
+	m_tempColor = Color(1, 1, 1, 1);
+	m_integer = true;
+	m_ownsBitmapFontData = false;
+	m_region = NULL;
 }
 
 BitmapFont::~BitmapFont()
 {
-	if(ownsTexture)
+	if(m_ownsTexture)
 	{
-		Texture* texture = region->getTexture();
+		Texture* texture = m_region->getTexture();
 		texture->dispose();
 		delete texture;
 		texture = NULL;
 
-		delete region;
-		region = NULL;
+		delete m_region;
+		m_region = NULL;
 	}
-	if(ownsBitmapFontData)
+	if(m_ownsBitmapFontData)
 	{
-		delete data;
-		data = NULL;
+		delete m_data;
+		m_data = NULL;
 	}
 }
 
@@ -77,7 +77,7 @@ BitmapFont::BitmapFont(const FileHandle& fontFile, TextureRegion* region, bool f
 {
 	init();
 	init(new BitmapFontData(fontFile, flip), region, true);
-	ownsBitmapFontData = true;
+	m_ownsBitmapFontData = true;
 }
 
 /** Creates a BitmapFont from a BMFont file. The image file name is read from the BMFont file and the image is loaded from the
@@ -87,7 +87,7 @@ BitmapFont::BitmapFont(const FileHandle& fontFile, bool flip)
 {
 	init();
 	init(new BitmapFontData(fontFile, flip), NULL, true);
-	ownsBitmapFontData = true;
+	m_ownsBitmapFontData = true;
 }
 
 /** Creates a BitmapFont from a BMFont file, using the specified image for glyphs. Any image specified in the BMFont file is
@@ -125,29 +125,29 @@ BitmapFont::BitmapFont(BitmapFontData* data, TextureRegion* region, bool integer
 void BitmapFont::init(const FileHandle& fontFile, const FileHandle& imageFile, bool flip, bool integer)
 {
 	init(new BitmapFontData(fontFile, flip), new TextureRegion(new Texture(imageFile, false)), integer);
-	ownsTexture = true;
-	ownsBitmapFontData = true;
+	m_ownsTexture = true;
+	m_ownsBitmapFontData = true;
 }
 
 void BitmapFont::init(BitmapFontData* data, TextureRegion* region, bool integer)
 {
 	//TODO:
 	//this->region = region == NULL ? new TextureRegion(new Texture(Gdx.files->internalHandle(data->m_imagePath), false)) : region;
-	this->region = region == NULL ? new TextureRegion(new Texture(Gdx.files->absoluteHandle(data->m_imagePath), false)) : region;
+	m_region = region == NULL ? new TextureRegion(new Texture(Gdx.files->absoluteHandle(data->m_imagePath), false)) : region;
 
-	this->flipped = data->m_flipped;
-	this->integer = integer;
-	this->data = data;
+	m_flipped = data->m_flipped;
+	m_integer = integer;
+	m_data = data;
 	load(data);
-	ownsTexture = region == NULL;
+	m_ownsTexture = region == NULL;
 }
 
 void BitmapFont::load(BitmapFontData* data)
 {
-	float invTexWidth = 1.0f / region->getTexture()->getWidth();
-	float invTexHeight = 1.0f / region->getTexture()->getHeight();
-	float u = region->getU();
-	float v = region->getV();
+	float invTexWidth = 1.0f / m_region->getTexture()->getWidth();
+	float invTexHeight = 1.0f / m_region->getTexture()->getHeight();
+	float u = m_region->getU();
+	float v = m_region->getV();
 
 	for(int i = 0; i < PAGES; i++)
 	{
@@ -198,22 +198,22 @@ BitmapFont::TextBounds& BitmapFont::draw(SpriteBatch* spriteBatch, const std::st
 BitmapFont::TextBounds& BitmapFont::draw(SpriteBatch* spriteBatch, const std::string& str, float x, float y, int start, int end)
 {
 	float batchColor = spriteBatch->getColor().toFloatBits();
-	spriteBatch->setColor(color);
+	spriteBatch->setColor(m_color);
 
-	Texture* texture = region->getTexture();
-	y += data->ascent;
+	Texture* texture = m_region->getTexture();
+	y += m_data->ascent;
 	float startX = x;
 	Glyph* lastGlyph = NULL;
-	if(data->scaleX == 1 && data->scaleY == 1)
+	if(m_data->scaleX == 1 && m_data->scaleY == 1)
 	{
-		if(integer)
+		if(m_integer)
 		{
 			y = (int)y;
 			x = (int)x;
 		}
 		while(start < end)
 		{
-			lastGlyph = data->getGlyph(str.at(start++));
+			lastGlyph = m_data->getGlyph(str.at(start++));
 			if(lastGlyph != NULL)
 			{
 				spriteBatch->draw(texture, //
@@ -227,11 +227,11 @@ BitmapFont::TextBounds& BitmapFont::draw(SpriteBatch* spriteBatch, const std::st
 		while(start < end)
 		{
 			char ch = str.at(start++);
-			Glyph* g = data->getGlyph(ch);
+			Glyph* g = m_data->getGlyph(ch);
 			if(!g) 
 				continue;
 			x += lastGlyph->getKerning(ch);
-			if(integer) 
+			if(m_integer) 
 				x = (int)x;
 			lastGlyph = g;
 			spriteBatch->draw(texture, //
@@ -243,13 +243,13 @@ BitmapFont::TextBounds& BitmapFont::draw(SpriteBatch* spriteBatch, const std::st
 	}
 	else
 	{
-		float scaleX = this->data->scaleX, scaleY = this->data->scaleY;
+		float scaleX = m_data->scaleX, scaleY = m_data->scaleY;
 		while(start < end)
 		{
-			lastGlyph = data->getGlyph(str.at(start++));
+			lastGlyph = m_data->getGlyph(str.at(start++));
 			if(lastGlyph != NULL)
 			{
-				if(!integer)
+				if(!m_integer)
 				{
 					spriteBatch->draw(texture, //
 						x + lastGlyph->xoffset * scaleX, //
@@ -274,11 +274,11 @@ BitmapFont::TextBounds& BitmapFont::draw(SpriteBatch* spriteBatch, const std::st
 		while(start < end)
 		{
 			char ch = str.at(start++);
-			Glyph* g = data->getGlyph(ch);
+			Glyph* g = m_data->getGlyph(ch);
 			if(g == NULL) continue;
 			x += lastGlyph->getKerning(ch) * scaleX;
 			lastGlyph = g;
-			if(!integer)
+			if(!m_integer)
 			{
 				spriteBatch->draw(texture, //
 					x + lastGlyph->xoffset * scaleX, //
@@ -301,7 +301,7 @@ BitmapFont::TextBounds& BitmapFont::draw(SpriteBatch* spriteBatch, const std::st
 	}
 	spriteBatch->setColor(batchColor);
 	m_textBounds.width = x - startX;
-	m_textBounds.height = data->capHeight;
+	m_textBounds.height = m_data->capHeight;
 	return m_textBounds;
 }
 
@@ -325,7 +325,7 @@ BitmapFont::TextBounds& BitmapFont::drawMultiLine(SpriteBatch* spriteBatch, cons
 	HAlignment alignment)
 {
 	float batchColor = spriteBatch->getColor().toFloatBits();
-	float down = this->data->down;
+	float down = m_data->down;
 	int start = 0;
 	int numLines = 0;
 	int length = str.length();
@@ -349,7 +349,7 @@ BitmapFont::TextBounds& BitmapFont::drawMultiLine(SpriteBatch* spriteBatch, cons
 	spriteBatch->setColor(batchColor);
 
 	m_textBounds.width = maxWidth;
-	m_textBounds.height = data->capHeight + (numLines - 1) * data->m_lineHeight;
+	m_textBounds.height = m_data->capHeight + (numLines - 1) * m_data->m_lineHeight;
 	return m_textBounds;
 }
 
@@ -376,7 +376,7 @@ BitmapFont::TextBounds& BitmapFont::drawWrapped(SpriteBatch* spriteBatch, const 
 	if(wrapWidth <= 0) 
 		wrapWidth = INT_MAX;
 	float batchColor = spriteBatch->getColor().toFloatBits();
-	float down = this->data->down;
+	float down = m_data->down;
 	int start = 0;
 	int numLines = 0;
 	int length = str.length();
@@ -436,7 +436,7 @@ BitmapFont::TextBounds& BitmapFont::drawWrapped(SpriteBatch* spriteBatch, const 
 	}
 	spriteBatch->setColor(batchColor);
 	m_textBounds.width = maxWidth;
-	m_textBounds.height = data->capHeight + (numLines - 1) * data->m_lineHeight;
+	m_textBounds.height = m_data->capHeight + (numLines - 1) * m_data->m_lineHeight;
 	return m_textBounds;
 }
 
@@ -459,7 +459,7 @@ BitmapFont::TextBounds& BitmapFont::getBounds(const std::string& str, int start,
 	Glyph* lastGlyph = NULL;
 	while(start < end)
 	{
-		lastGlyph = data->getGlyph(str.at(start++));
+		lastGlyph = m_data->getGlyph(str.at(start++));
 		if(lastGlyph != NULL)
 		{
 			width = lastGlyph->xadvance;
@@ -469,7 +469,7 @@ BitmapFont::TextBounds& BitmapFont::getBounds(const std::string& str, int start,
 	while(start < end)
 	{
 		char ch = str.at(start++);
-		Glyph* g = data->getGlyph(ch);
+		Glyph* g = m_data->getGlyph(ch);
 		if(g != NULL)
 		{
 			width += lastGlyph->getKerning(ch);
@@ -477,8 +477,8 @@ BitmapFont::TextBounds& BitmapFont::getBounds(const std::string& str, int start,
 			width += g->xadvance;
 		}
 	}
-	m_textBounds.width = width * data->scaleX;
-	m_textBounds.height = data->capHeight;
+	m_textBounds.width = width * m_data->scaleX;
+	m_textBounds.height = m_data->capHeight;
 	return m_textBounds;
 }
 
@@ -500,7 +500,7 @@ BitmapFont::TextBounds& BitmapFont::getMultiLineBounds(const std::string& str)
 		numLines++;
 	}
 	m_textBounds.width = maxWidth;
-	m_textBounds.height = data->capHeight + (numLines - 1) * data->m_lineHeight;
+	m_textBounds.height = m_data->capHeight + (numLines - 1) * m_data->m_lineHeight;
 	return m_textBounds;
 }
 
@@ -511,7 +511,7 @@ BitmapFont::TextBounds& BitmapFont::getMultiLineBounds(const std::string& str)
 BitmapFont::TextBounds& BitmapFont::getWrappedBounds(const std::string& str, float wrapWidth)
 {
 	if(wrapWidth <= 0) wrapWidth = INT_MAX;
-	float down = this->data->down;
+	float down = m_data->down;
 	int start = 0;
 	int numLines = 0;
 	int length = str.length();
@@ -557,7 +557,7 @@ BitmapFont::TextBounds& BitmapFont::getWrappedBounds(const std::string& str, flo
 		numLines++;
 	}
 	m_textBounds.width = maxWidth;
-	m_textBounds.height = data->capHeight + (numLines - 1) * data->m_lineHeight;
+	m_textBounds.height = m_data->capHeight + (numLines - 1) * m_data->m_lineHeight;
 	return m_textBounds;
 }
 
@@ -574,12 +574,12 @@ void BitmapFont::computeGlyphAdvancesAndPositions(const std::string& str, std::v
 	int end = str.length();
 	int width = 0;
 	Glyph* lastGlyph = NULL;
-	if(data->scaleX == 1)
+	if(m_data->scaleX == 1)
 	{
 		for(; index < end; index++)
 		{
 			char ch = str.at(index);
-			Glyph* g = data->getGlyph(ch);
+			Glyph* g = m_data->getGlyph(ch);
 			if(g != NULL)
 			{
 				if(lastGlyph != NULL) width += lastGlyph->getKerning(ch);
@@ -594,11 +594,11 @@ void BitmapFont::computeGlyphAdvancesAndPositions(const std::string& str, std::v
 	}
 	else
 	{
-		float scaleX = this->data->scaleX;
+		float scaleX = m_data->scaleX;
 		for(; index < end; index++)
 		{
 			char ch = str.at(index);
-			Glyph* g = data->getGlyph(ch);
+			Glyph* g = m_data->getGlyph(ch);
 			if(g != NULL)
 			{
 				if(lastGlyph != NULL) width += lastGlyph->getKerning(ch) * scaleX;
@@ -621,12 +621,12 @@ int BitmapFont::computeVisibleGlyphs(const std::string& str, int start, int end,
 	int index = start;
 	int width = 0;
 	Glyph* lastGlyph = NULL;
-	if(data->scaleX == 1)
+	if(m_data->scaleX == 1)
 	{
 		for(; index < end; index++)
 		{
 			char ch = str.at(index);
-			Glyph* g = data->getGlyph(ch);
+			Glyph* g = m_data->getGlyph(ch);
 			if(g != NULL)
 			{
 				if(lastGlyph != NULL) width += lastGlyph->getKerning(ch);
@@ -638,11 +638,11 @@ int BitmapFont::computeVisibleGlyphs(const std::string& str, int start, int end,
 	}
 	else
 	{
-		float scaleX = this->data->scaleX;
+		float scaleX = m_data->scaleX;
 		for(; index < end; index++)
 		{
 			char ch = str.at(index);
-			Glyph* g = data->getGlyph(ch);
+			Glyph* g = m_data->getGlyph(ch);
 			if(g != NULL)
 			{
 				if(lastGlyph != NULL) width += lastGlyph->getKerning(ch) * scaleX;
@@ -657,26 +657,26 @@ int BitmapFont::computeVisibleGlyphs(const std::string& str, int start, int end,
 
 void BitmapFont::setColor(float color)
 {
-	this->color = color;
+	m_color = color;
 }
 
 void BitmapFont::setColor(const Color& tint)
 {
-	this->color = tint.toFloatBits();
+	m_color = tint.toFloatBits();
 }
 
 void BitmapFont::setColor(float r, float g, float b, float a)
 {
 	int intBits = (int)(255 * a) << 24 | (int)(255 * b) << 16 | (int)(255 * g) << 8 | (int)(255 * r);
-	color = NumberUtils::intToFloatColor(intBits);
+	m_color = NumberUtils::intToFloatColor(intBits);
 }
 
 /** Returns the color of this font. Changing the returned color will have no affect, {@link #setColor(Color)} or
 * {@link #setColor(float, float, float, float)} must be used. */
 Color& BitmapFont::getColor()
 {
-	int intBits = NumberUtils::floatToIntColor(color);
-	Color& color = this->tempColor;
+	int intBits = NumberUtils::floatToIntColor(m_color);
+	Color& color = m_tempColor;
 	color.r = (intBits & 0xff) / 255.f;
 	color.g = ((intBits >> 8) & 0xff) / 255.f;
 	color.b = ((intBits >> 16) & 0xff) / 255.f;
@@ -686,14 +686,14 @@ Color& BitmapFont::getColor()
 
 void BitmapFont::setScale(float scaleX, float scaleY)
 {
-	data->spaceWidth = data->spaceWidth / this->data->scaleX * scaleX;
-	data->xHeight = data->xHeight / this->data->scaleY * scaleY;
-	data->capHeight = data->capHeight / this->data->scaleY * scaleY;
-	data->ascent = data->ascent / this->data->scaleY * scaleY;
-	data->descent = data->descent / this->data->scaleY * scaleY;
-	data->down = data->down / this->data->scaleY * scaleY;
-	data->scaleX = scaleX;
-	data->scaleY = scaleY;
+	m_data->spaceWidth = m_data->spaceWidth / m_data->scaleX * scaleX;
+	m_data->xHeight = m_data->xHeight / m_data->scaleY * scaleY;
+	m_data->capHeight = m_data->capHeight / m_data->scaleY * scaleY;
+	m_data->ascent = m_data->ascent / m_data->scaleY * scaleY;
+	m_data->descent = m_data->descent / m_data->scaleY * scaleY;
+	m_data->down = m_data->down / m_data->scaleY * scaleY;
+	m_data->scaleX = scaleX;
+	m_data->scaleY = scaleY;
 }
 
 /** Scales the font by the specified amount in both directions.<br>
@@ -708,66 +708,66 @@ void BitmapFont::setScale(float scaleXY)
 /** Sets the font's scale relative to the current scale. */
 void BitmapFont::scale(float amount)
 {
-	setScale(data->scaleX + amount, data->scaleY + amount);
+	setScale(m_data->scaleX + amount, m_data->scaleY + amount);
 }
 
 float BitmapFont::getScaleX()
 {
-	return data->scaleX;
+	return m_data->scaleX;
 }
 
 float BitmapFont::getScaleY()
 {
-	return data->scaleY;
+	return m_data->scaleY;
 }
 
 TextureRegion* BitmapFont::getRegion()
 {
-	return region;
+	return m_region;
 }
 
 /** Returns the line height, which is the distance from one line of text to the next. */
 float BitmapFont::getLineHeight()
 {
-	return data->m_lineHeight;
+	return m_data->m_lineHeight;
 }
 
 /** Returns the width of the space character. */
 float BitmapFont::getSpaceWidth()
 {
-	return data->spaceWidth;
+	return m_data->spaceWidth;
 }
 
 /** Returns the x-height, which is the distance from the top of most lowercase characters to the baseline. */
 float BitmapFont::getXHeight()
 {
-	return data->xHeight;
+	return m_data->xHeight;
 }
 
 /** Returns the cap height, which is the distance from the top of most uppercase characters to the baseline. Since the drawing
 * position is the cap height of the first line, the cap height can be used to get the location of the baseline. */
 float BitmapFont::getCapHeight()
 {
-	return data->capHeight;
+	return m_data->capHeight;
 }
 
 /** Returns the ascent, which is the distance from the cap height to the top of the tallest glyph-> */
 float BitmapFont::getAscent()
 {
-	return data->ascent;
+	return m_data->ascent;
 }
 
 /** Returns the descent, which is the distance from the bottom of the glyph that extends the lowest to the baseline. This number
 * is negative. */
 float BitmapFont::getDescent()
 {
-	return data->descent;
+	return m_data->descent;
 }
 
 /** Returns true if this BitmapFont has been flipped for use with a y-down coordinate system. */
 bool BitmapFont::isFlipped()
 {
-	return flipped;
+	return m_flipped;
 }
 
 /** Disposes the texture used by this BitmapFont's region IF this BitmapFont created the texture. */
@@ -782,13 +782,13 @@ void BitmapFont::setFixedWidthGlyphs(const std::string& glyphs)
 	int maxAdvance = 0;
 	for(int index = 0, end = glyphs.length(); index < end; index++)
 	{
-		Glyph* g = data->getGlyph(glyphs.at(index));
+		Glyph* g = m_data->getGlyph(glyphs.at(index));
 		if(g != NULL && g->xadvance > maxAdvance) 
 			maxAdvance = g->xadvance;
 	}
 	for(int index = 0, end = glyphs.length(); index < end; index++)
 	{
-		Glyph* g = data->getGlyph(glyphs.at(index));
+		Glyph* g = m_data->getGlyph(glyphs.at(index));
 		if(g == NULL) 
 			continue;
 		g->xoffset += (maxAdvance - g->xadvance) / 2;
@@ -801,25 +801,25 @@ void BitmapFont::setFixedWidthGlyphs(const std::string& glyphs)
 * @return whether the given character is contained in this font. */
 bool BitmapFont::containsCharacter(char character)
 {
-	return data->getGlyph(character) != NULL;
+	return m_data->getGlyph(character) != NULL;
 }
 
 /** Specifies whether to use integer positions or not. Default is to use them so filtering doesn't kick in as badly.
 * @param use */
 void BitmapFont::setUseIntegerPositions(bool use)
 {
-	this->integer = use;
+	m_integer = use;
 }
 
 /** @return whether this font uses integer positions for drawing. */
 bool BitmapFont::usesIntegerPositions()
 {
-	return integer;
+	return m_integer;
 }
 
 BitmapFont::BitmapFontData* BitmapFont::getData()
 {
-	return data;
+	return m_data;
 }
 
 int BitmapFont::indexOf(const std::string& text, char ch, int start)

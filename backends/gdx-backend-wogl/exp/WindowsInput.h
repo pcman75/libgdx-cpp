@@ -1,13 +1,40 @@
 #pragma once
 #include "Input.h"
 
-class WindowsInput :
-	public Input
+
+class KeyEvent 
+{
+public:
+	static const int KEY_DOWN;
+	static const int KEY_UP;
+	static const int KEY_TYPED;
+
+  KeyEvent(int keyCode, int type)
+  {
+    this->keyCode = keyCode;
+    this->type = type;
+  }
+
+	//long timeStamp;
+	int type;
+	int keyCode;
+	//char keyChar;
+};
+
+
+
+class WindowsInput : public Input
 {
 private:
 	bool m_touchDown;
+	bool m_justTouched;
 	int m_touchX;
 	int m_touchY;
+
+	std::set<int> m_keys;
+  std::vector<KeyEvent> m_keysForProcessor;
+
+  InputProcessor* processor;
 
 public:
 	WindowsInput();
@@ -197,5 +224,12 @@ public:
 	void buttonDown(WPARAM state, int x, int y);
 	void buttonUp(WPARAM state, int x, int y);
 
+	void keyDown(int key, LPARAM lParam);
+	void keyUp(int key, LPARAM lParam);
+
+  void processEvents();
+
+private:
+	int translateKey(int keyCode);
 };
 

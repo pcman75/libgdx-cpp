@@ -17,6 +17,76 @@
 
 #include "InputProcessor.h"
 
+/** Enumeration of potentially available peripherals. Use with {@link Input#isPeripheralAvailable(Peripheral)}.*/
+class Peripheral
+{
+public:
+	enum PeripheralType
+	{
+		HardwareKeyboard, 
+		OnscreenKeyboard, 
+		MultitouchScreen, 
+		Accelerometer, 
+		Compass, 
+		Vibrator
+	};
+
+	Peripheral(PeripheralType peripheral)
+		: m_peripheral(peripheral)
+	{}
+	bool operator==(const Peripheral& other)
+	{
+		return m_peripheral == other.m_peripheral;
+	}
+private:
+	PeripheralType m_peripheral;
+};
+
+class Orientation
+{
+public:
+	enum OrientationType
+	{
+		Landscape, 
+		Portrait
+	};
+
+	Orientation(OrientationType orientation)
+		: m_orientation(orientation)
+	{}
+	bool operator==(const Orientation& other)
+	{
+		return m_orientation == other.m_orientation;
+	}
+private:
+	OrientationType m_orientation;
+};
+
+
+/** <p>
+* Interface to the input facilities. This allows to poll the state of the keyboard, touch screen and accelerometer. On the
+* desktop the touch screen is replaced by mouse input, the accelerometer is of course not available.
+* </p>
+*
+* <p>
+* Additionally one can process events with an {@link InputProcessor} with this module. You can set the InputProcessor via the
+* {@link #setInputProcessor(InputProcessor)} method. It will be called before the {@link ApplicationListener#render()} method in
+* each frame.
+* </p>
+*
+* <p>
+* Keyboard keys are translated to the constants in {@link Keys} transparantely on all systems. Do not use system specific key
+* constants.
+* </p>
+*
+* <p>
+* The class also offers methods to let the phone vibrate as well as getting compass readings.
+* </p>
+*/
+class Input
+{
+public:
+
 /** Mouse buttons.*/
 class Buttons
 {
@@ -203,75 +273,6 @@ public:
 	};
 };
 
-/** Enumeration of potentially available peripherals. Use with {@link Input#isPeripheralAvailable(Peripheral)}.*/
-class Peripheral
-{
-public:
-	enum PeripheralType
-	{
-		HardwareKeyboard, 
-		OnscreenKeyboard, 
-		MultitouchScreen, 
-		Accelerometer, 
-		Compass, 
-		Vibrator
-	};
-
-	Peripheral(PeripheralType peripheral)
-		: m_peripheral(peripheral)
-	{}
-	bool operator==(const Peripheral& other)
-	{
-		return m_peripheral == other.m_peripheral;
-	}
-private:
-	PeripheralType m_peripheral;
-};
-
-class Orientation
-{
-public:
-	enum OrientationType
-	{
-		Landscape, 
-		Portrait
-	};
-
-	Orientation(OrientationType orientation)
-		: m_orientation(orientation)
-	{}
-	bool operator==(const Orientation& other)
-	{
-		return m_orientation == other.m_orientation;
-	}
-private:
-	OrientationType m_orientation;
-};
-
-
-/** <p>
-* Interface to the input facilities. This allows to poll the state of the keyboard, touch screen and accelerometer. On the
-* desktop the touch screen is replaced by mouse input, the accelerometer is of course not available.
-* </p>
-*
-* <p>
-* Additionally one can process events with an {@link InputProcessor} with this module. You can set the InputProcessor via the
-* {@link #setInputProcessor(InputProcessor)} method. It will be called before the {@link ApplicationListener#render()} method in
-* each frame.
-* </p>
-*
-* <p>
-* Keyboard keys are translated to the constants in {@link Keys} transparantely on all systems. Do not use system specific key
-* constants.
-* </p>
-*
-* <p>
-* The class also offers methods to let the phone vibrate as well as getting compass readings.
-* </p>
-*/
-class Input
-{
-public:
 	/** Callback interface for {@link Input#getTextInput(TextInputListener, const std::string&, const std::string&)}*/
 	class TextInputListener
 	{

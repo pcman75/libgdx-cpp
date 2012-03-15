@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{3ADD35C1-8D55-4563-A5B2-0E1FEAA2DBBD}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>Metagun</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\res;..\incl;..\..\..\gdx\include;..\..\..\backends\gdx-backend-wogl\exp</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>gdx.lib;gdx-backend-wogl.lib;gdx-audio.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(OutDir);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\Art.cpp" />
+    <ClCompile Include="..\src\Boss.cpp" />
+    <ClCompile Include="..\src\BossNeck.cpp" />
+    <ClCompile Include="..\src\BossPart.cpp" />
+    <ClCompile Include="..\src\Bullet.cpp" />
+    <ClCompile Include="..\src\Camera.cpp" />
+    <ClCompile Include="..\src\Entity.cpp" />
+    <ClCompile Include="..\src\Explosion.cpp" />
+    <ClCompile Include="..\src\ExpositionScreen.cpp" />
+    <ClCompile Include="..\src\GameScreen.cpp" />
+    <ClCompile Include="..\src\Gore.cpp" />
+    <ClCompile Include="..\src\Gremlin.cpp" />
+    <ClCompile Include="..\src\Gunner.cpp" />
+    <ClCompile Include="..\src\Hat.cpp" />
+    <ClCompile Include="..\src\HeadGore.cpp" />
+    <ClCompile Include="..\src\Jabberwocky.cpp" />
+    <ClCompile Include="..\src\Level.cpp" />
+    <ClCompile Include="..\src\LevelTransitionScreen.cpp" />
+    <ClCompile Include="..\src\PauseScreen.cpp" />
+    <ClCompile Include="..\src\Player.cpp" />
+    <ClCompile Include="..\src\PlayerGore.cpp" />
+    <ClCompile Include="..\src\Screen.cpp" />
+    <ClCompile Include="..\src\Sign.cpp" />
+    <ClCompile Include="..\src\SignReadScreen.cpp" />
+    <ClCompile Include="..\src\Spark.cpp" />
+    <ClCompile Include="..\src\Stats.cpp" />
+    <ClCompile Include="..\src\TitleScreen.cpp" />
+    <ClCompile Include="..\src\WinScreen.cpp" />
+    <ClCompile Include="..\src\SoundMeta.cpp" />
+    <ClCompile Include="..\src\InputMeta.cpp" />
+    <ClCompile Include="..\src\Metagun.cpp" />
+    <ClCompile Include="..\src\stdafx.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\incl\Art.h" />
+    <ClInclude Include="..\incl\Boss.h" />
+    <ClInclude Include="..\incl\BossNeck.h" />
+    <ClInclude Include="..\incl\BossPart.h" />
+    <ClInclude Include="..\incl\Bullet.h" />
+    <ClInclude Include="..\incl\Camera.h" />
+    <ClInclude Include="..\incl\Entity.h" />
+    <ClInclude Include="..\incl\Explosion.h" />
+    <ClInclude Include="..\incl\ExpositionScreen.h" />
+    <ClInclude Include="..\incl\GameScreen.h" />
+    <ClInclude Include="..\incl\Gore.h" />
+    <ClInclude Include="..\incl\Gremlin.h" />
+    <ClInclude Include="..\incl\Gunner.h" />
+    <ClInclude Include="..\incl\Hat.h" />
+    <ClInclude Include="..\incl\HeadGore.h" />
+    <ClInclude Include="..\incl\Jabberwocky.h" />
+    <ClInclude Include="..\incl\Level.h" />
+    <ClInclude Include="..\incl\LevelTransitionScreen.h" />
+    <ClInclude Include="..\incl\PauseScreen.h" />
+    <ClInclude Include="..\incl\Player.h" />
+    <ClInclude Include="..\incl\PlayerGore.h" />
+    <ClInclude Include="..\incl\Screen.h" />
+    <ClInclude Include="..\incl\Sign.h" />
+    <ClInclude Include="..\incl\SignReadScreen.h" />
+    <ClInclude Include="..\incl\Spark.h" />
+    <ClInclude Include="..\incl\Stats.h" />
+    <ClInclude Include="..\incl\targetver.h" />
+    <ClInclude Include="..\incl\TitleScreen.h" />
+    <ClInclude Include="..\incl\WinScreen.h" />
+    <ClInclude Include="..\incl\SoundMeta.h" />
+    <ClInclude Include="..\incl\InputMeta.h" />
+    <ClInclude Include="..\incl\Metagun.h" />
+    <ClInclude Include="..\incl\stdafx.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

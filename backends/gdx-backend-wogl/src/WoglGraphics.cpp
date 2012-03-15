@@ -256,6 +256,11 @@ void WoglGraphics::create()
 	m_deltaTime = 0;
 }
 
+void WoglGraphics::dispose()
+{
+	m_listener.dispose();
+}
+
 void WoglGraphics::updateTimes() 
 {
 		m_deltaTime = (m_timer.systemNanoSeconds() - m_lastFrameTime) / 10.0E9f;
