@@ -60,7 +60,7 @@ void Screen::drawString ( std::string string, int x, int y)
 
 			if (xs >= 0) 
       {
-				draw(Art.guys[xs][ys + 9], x + i * 6, y);
+				draw(Art::guys[xs][ys + 9], x + i * 6, y);
 			}
 		}
 	}

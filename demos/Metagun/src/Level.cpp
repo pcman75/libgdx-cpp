@@ -122,7 +122,7 @@ Level::Level (GameScreen* screen, int w, int h, int xo, int yo, int xSpawn, int 
       else if (col == 0x00FFFF) 
       {
 				Gunner* e = new Gunner(x * 10 + 2, y * 10 + 10 - 6, 0, 0);
-				e->chargeTime = MathUtils::random(Gunner.CHARGE_DURATION / 2);
+				e->chargeTime = MathUtils::random(Gunner::CHARGE_DURATION / 2);
 				e->xa = e->ya = 0;
 
 				add(e);
