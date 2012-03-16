@@ -151,7 +151,9 @@ private:
 	void updateTimes();
 
 public:
-	int createWindow(const char* title, int width, int height);
+	void createWindow(const char* title, int width, int height);
+	void runOpenGLLoop();
+
 	void dispose();
 };
 

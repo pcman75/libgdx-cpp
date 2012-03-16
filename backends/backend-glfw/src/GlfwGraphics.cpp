@@ -205,7 +205,7 @@ bool GlfwGraphics::supportsExtension (std::string extension)
 }
 
 
-int GlfwGraphics::createWindow(const char* title, int width, int height)
+void GlfwGraphics::createWindow(const char* title, int width, int height)
 {
 	// Open a window and create its OpenGL context
 	if( !glfwOpenWindow( width, height, 0,0,0,0, 0,0, GLFW_WINDOW ) )
@@ -213,29 +213,18 @@ int GlfwGraphics::createWindow(const char* title, int width, int height)
 		glfwTerminate();
 		throw GdxRuntimeException("Failed to open GLFW window");
 	}
-
-	// Initialise GLEW
-	glewInit();
-
-	//setup input
-	GlfwInput* input = ((GlfwInput*)Gdx.input);
-	input->init();
-
 	glfwSetWindowTitle(title);
-
+	
 	initializeGLInstances();
 	m_listener.create();
 
 	m_frameStart = m_timer.systemNanoSeconds();
 	m_lastFrameTime = m_frameStart;
 	m_deltaTime = 0;
+}
 
-	// Ensure we can capture the escape key being pressed below
-	glfwEnable( GLFW_STICKY_KEYS );
-
-	// Enable vertical sync (on cards that support it)
-	glfwSwapInterval(1);
-
+void GlfwGraphics::runOpenGLLoop()
+{
 	do
 	{
 		// Get window size (may be different than the requested size)
@@ -253,12 +242,6 @@ int GlfwGraphics::createWindow(const char* title, int width, int height)
 	} // Check if the ESC key was pressed or the window was closed
 	while( glfwGetKey( GLFW_KEY_ESC ) != GLFW_PRESS &&
 		glfwGetWindowParam( GLFW_OPENED ) );
-
-	// Close OpenGL window and terminate GLFW
-	glfwTerminate();
-
-	return EXIT_SUCCESS;
-
 }
 
 void GlfwGraphics::dispose()

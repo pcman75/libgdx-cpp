@@ -103,8 +103,8 @@ public:
 	virtual void exit ();
 
 private:
-	int createWindow(const char* title, int width, int height);
-
+	void createWindow(const char* title, int width, int height);
+	void runOpenGLLoop();
 private:
 	Graphics* m_pGraphics;
 	Input* m_pInput;

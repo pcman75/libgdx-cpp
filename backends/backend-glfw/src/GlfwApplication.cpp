@@ -32,6 +32,7 @@ GlfwApplication::GlfwApplication (ApplicationListener& listener, const char* tit
 		throw GdxRuntimeException("Failed to initialize GLFW");
 	}
 	
+	/*
 	if(useGL20IfAvailable)
 		::glfwOpenWindowHint(GLFW_OPENGL_VERSION_MAJOR, 2);
 	else
@@ -39,11 +40,25 @@ GlfwApplication::GlfwApplication (ApplicationListener& listener, const char* tit
 		::glfwOpenWindowHint(GLFW_OPENGL_VERSION_MAJOR, 1);
 		//TODO: need to set OpenGL minor version???
 		//::glfwOpenWindowHint(GLFW_OPENGL_VERSION_MINOR, 3); 
-	}
-	
-	
+	}*/
 
 	createWindow(title, width, height);
+	
+	// Initialise GLEW
+	glewInit();
+
+	//setup input
+	GlfwInput* input = ((GlfwInput*)Gdx.input);
+	input->init();
+
+	// Enable vertical sync (on cards that support it)
+	//glfwSwapInterval(1);
+
+	
+	runOpenGLLoop();
+
+	// Close OpenGL window and terminate GLFW
+	glfwTerminate();
 }
 
 GlfwApplication::~GlfwApplication(void)
@@ -146,7 +161,12 @@ void GlfwApplication::exit()
 	exit();
 }
 
-int GlfwApplication::createWindow(const char* title, int width, int height)
+void GlfwApplication::createWindow(const char* title, int width, int height)
 {
-	return ((GlfwGraphics*)m_pGraphics)->createWindow(title, width, height);
+	((GlfwGraphics*)m_pGraphics)->createWindow(title, width, height);
+}
+
+void GlfwApplication::runOpenGLLoop()
+{
+	((GlfwGraphics*)m_pGraphics)->runOpenGLLoop();
 }
