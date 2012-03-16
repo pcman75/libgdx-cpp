@@ -80,6 +80,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalDependencies>gdx.lib;gdx-audio.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(OutDir);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <CustomBuildStep>
       <Command>xcopy /i /y ..\data $(OutDir)\data</Command>

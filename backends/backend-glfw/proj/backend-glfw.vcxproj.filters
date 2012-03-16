@@ -54,10 +54,10 @@
     <ClCompile Include="..\src\WoglGLCommon.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\WoglGraphics.cpp">
+    <ClCompile Include="..\src\GlfwApplication.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\GlfwApplication.cpp">
+    <ClCompile Include="..\src\GlfwGraphics.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -98,10 +98,10 @@
     <ClInclude Include="..\exp\WoglGLCommon.h">
       <Filter>Include</Filter>
     </ClInclude>
-    <ClInclude Include="..\exp\WoglGraphics.h">
+    <ClInclude Include="..\exp\GlfwApplication.h">
       <Filter>Include</Filter>
     </ClInclude>
-    <ClInclude Include="..\exp\GlfwApplication.h">
+    <ClInclude Include="..\exp\GlfwGraphics.h">
       <Filter>Include</Filter>
     </ClInclude>
   </ItemGroup>

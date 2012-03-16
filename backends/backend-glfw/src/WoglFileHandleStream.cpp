@@ -67,7 +67,16 @@ int WoglFileHandleStream::readBytes( unsigned char* pWhere, int nLen)
 
 char* WoglFileHandleStream::readLine( char* pWhere, int nLen)
 {
-  return fgets( pWhere, nLen, m_pFile);
+  	char* ret = fgets( pWhere, nLen, m_pFile);
+	
+	if(ret)
+	{
+		//remove the new line character
+		int len = strlen(ret);
+		ret[len-1] = 0;
+	}
+
+	return ret;
 }
 
 

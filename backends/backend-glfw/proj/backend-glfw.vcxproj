@@ -87,7 +87,7 @@
     <ClCompile Include="..\src\WoglGL11.cpp" />
     <ClCompile Include="..\src\WoglGL20.cpp" />
     <ClCompile Include="..\src\WoglGLCommon.cpp" />
-    <ClCompile Include="..\src\WoglGraphics.cpp" />
+    <ClCompile Include="..\src\GlfwGraphics.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\exp\WindowsAudio.h" />
@@ -101,7 +101,7 @@
     <ClInclude Include="..\exp\WoglGL11.h" />
     <ClInclude Include="..\exp\WoglGL20.h" />
     <ClInclude Include="..\exp\WoglGLCommon.h" />
-    <ClInclude Include="..\exp\WoglGraphics.h" />
+    <ClInclude Include="..\exp\GlfwGraphics.h" />
     <ClInclude Include="..\incl\stdafx.h" />
     <ClInclude Include="..\incl\targetver.h" />
   </ItemGroup>

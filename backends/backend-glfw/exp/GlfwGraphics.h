@@ -3,7 +3,7 @@
 #include "ApplicationListener.h"
 #include "WindowsTimer.h"
 
-class WoglGraphics : public Graphics
+class GlfwGraphics : public Graphics
 {
 private:
 	ApplicationListener& m_listener;
@@ -25,9 +25,19 @@ private:
 	int m_fps;
 	int m_frames;
 
+	private:
+	GLCommon* m_pGL;
+	GL10* m_pGL10;
+	GL11* m_pGL11;
+	GL20* m_pGL20;
+	GLU* m_pGLU;
+
+	int m_major;
+	int m_minor;
+
 public:
-	WoglGraphics(ApplicationListener& listener, bool useGL20/*, JoglApplicationConfiguration config*/);
-	virtual ~WoglGraphics(void);
+	GlfwGraphics(ApplicationListener& listener, bool useGL20/*, JoglApplicationConfiguration config*/);
+	virtual ~GlfwGraphics(void);
 
 	virtual bool isGL11Available();
 
@@ -138,51 +148,10 @@ public:
 
 private:
 	void initializeGLInstances();
-
-private:
-	GLCommon* m_pGL;
-	GL10* m_pGL10;
-	GL11* m_pGL11;
-	GL20* m_pGL20;
-	GLU* m_pGLU;
-
-	int m_major;
-	int m_minor;
-
-	///////////////////
-	//TODO: temporary
-	///////////////////
-public:
-	void init();                                    // initialize OpenGL states
-	void create();
-	void dispose();
-    void setCamera(float posX, float posY, float posZ, float targetX, float targetY, float targetZ);
-    void setViewport(int width, int height, bool graphicsCreated);
-    void draw();
-
-    void setMouseLeft(bool flag) { mouseLeftDown = flag; };
-    void setMouseRight(bool flag) { mouseRightDown = flag; };
-    void setMousePosition(int x, int y) { mouseX = x; mouseY = y; };
-
-    void rotateCamera(int x, int y);
-    void zoomCamera(int dist);
-
-
-protected:
-
-private:
-    // member functions
-    void initLights();                              // add a white light ti scene
-
-    // members
-    bool mouseLeftDown;
-    bool mouseRightDown;
-    int mouseX;
-    int mouseY;
-    float cameraAngleX;
-    float cameraAngleY;
-    float cameraDistance;
-
 	void updateTimes();
+
+public:
+	int createWindow(const char* title, int width, int height);
+	void dispose();
 };
 

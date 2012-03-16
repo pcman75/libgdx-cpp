@@ -1,11 +1,11 @@
 #include "StdAfx.h"
 #include "GlfwApplication.h"
-#include "WoglGraphics.h"
+#include "GlfwGraphics.h"
 #include "WindowsInput.h"
 #include "WoglFiles.h"
 #include "WindowsAudio.h"
 
-#include "WoglGraphics.h"
+#include "GlfwGraphics.h"
 #include "Gdx.h"
 
 #include "WindowsTimer.h"
@@ -13,7 +13,7 @@
 GlfwApplication::GlfwApplication (ApplicationListener& listener, const char* title, int width, int height, bool useGL20IfAvailable)
 {
 	logLevel = LOG_INFO;
-	m_pGraphics = new WoglGraphics(listener, useGL20IfAvailable);
+	m_pGraphics = new GlfwGraphics(listener, useGL20IfAvailable);
 	m_pInput = new WindowsInput();
 	m_pFiles = new WoglFiles();
 	m_pAudio = new WindowsAudio();
@@ -129,37 +129,5 @@ void GlfwApplication::exit()
 
 int GlfwApplication::createWindow(const char* title, int width, int height)
 {
-	int running = GL_TRUE;
-	
-	// Initialize GLFW
-	if( !glfwInit() )
-	{
-		return EXIT_FAILURE;
-	}
-	
-	// Open an OpenGL window
-	if( !glfwOpenWindow(width, height,0,0,0,0,0,0, GLFW_WINDOW) )
-	{
-		glfwTerminate();
-		return EXIT_FAILURE;
-	}
-
-	glfwSetWindowTitle(title);
-
-	// Main loop
-	while( running )
-	{
-		// OpenGL rendering goes here...
-		//glClear( GL_COLOR_BUFFER_BIT );
-		
-		// Swap front and back rendering buffers
-		glfwSwapBuffers();
-		// Check if ESC key was pressed or window was closed
-		running = !glfwGetKey( GLFW_KEY_ESC ) &&
-			glfwGetWindowParam( GLFW_OPENED );
-	}
-	// Close window and terminate GLFW
-	glfwTerminate();
-	
-	return EXIT_SUCCESS;
+	return ((GlfwGraphics*)m_pGraphics)->createWindow(title, width, height);
 }

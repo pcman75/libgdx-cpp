@@ -4,6 +4,7 @@
 
 #include "GdxTests.h"
 #include "WoglApplication.h"
+#include "GlfwApplication.h"
 
 HINSTANCE TheInstance = 0;
 
@@ -50,7 +51,7 @@ void Controller::Command (HWND hwnd, int controlID, int command)
 					test = GdxTests::newTest(textBuffer);
 					if(test)
 					{
-						WoglApplication(*test, textBuffer, 400, 300, test->needsGL20());
+						GlfwApplication(*test, textBuffer, 400, 300, test->needsGL20());
 						delete test;
 					}
 					delete[] textBuffer;

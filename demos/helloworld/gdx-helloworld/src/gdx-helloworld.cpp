@@ -15,7 +15,7 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 	int       nCmdShow)
 {
 	//WoglApplication(HelloWorldApp(), "OpenGL Test", 400, 300, false);
-	//testGlflw();
+	
 	GlfwApplication(HelloWorldApp(), "OpenGL Test", 400, 300, false);
 	return 0;
 }
