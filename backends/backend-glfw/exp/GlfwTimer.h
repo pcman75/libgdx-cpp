@@ -1,11 +1,11 @@
 #pragma once
 #include "Timer.h"
 
-class WindowsTimer :
+class GlfwTimer :
 	public Timer
 {
 public:
-	WindowsTimer();
+	GlfwTimer();
 
 	/** Start the timer**/
 	virtual void startTimer();
@@ -13,15 +13,11 @@ public:
 	/** Returns the nanoseconds passed since the timer was started**/
 	virtual long long stopTimer();
 
-	//TODO:
 	virtual long long systemNanoSeconds();
 
 private:
-	LONGLONG getFrequency();
-
-private:
-	LARGE_INTEGER start;
-	LARGE_INTEGER stop;
-	LONGLONG frequency;
+	double m_start;
+	double m_end;
 };
+
 

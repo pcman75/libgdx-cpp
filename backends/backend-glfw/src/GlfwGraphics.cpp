@@ -4,7 +4,6 @@
 #include "WoglGL11.h"
 #include "WoglGL20.h"
 #include "Gdx.h"
-#include "WindowsTimer.h"
 #include "GdxRuntimeException.h"
 #include "GlfwInput.h"
 

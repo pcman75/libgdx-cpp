@@ -1,7 +1,7 @@
 #pragma once
 #include "Graphics.h"
 #include "ApplicationListener.h"
-#include "WindowsTimer.h"
+#include "GlfwTimer.h"
 
 class GlfwGraphics : public Graphics
 {
@@ -18,7 +18,7 @@ private:
 	//final JoglApplicationConfiguration config;
 	//String extensions;
 
-	WindowsTimer m_timer;
+	GlfwTimer m_timer;
 	long long m_frameStart;
 	long long m_lastFrameTime;
 	float m_deltaTime;

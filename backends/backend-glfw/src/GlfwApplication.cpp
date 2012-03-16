@@ -8,7 +8,7 @@
 #include "GlfwGraphics.h"
 #include "Gdx.h"
 
-#include "WindowsTimer.h"
+#include "GlfwTimer.h"
 #include "GdxRuntimeException.h"
 
 GlfwApplication::GlfwApplication (ApplicationListener& listener, const char* title, int width, int height, bool useGL20IfAvailable)
@@ -95,7 +95,7 @@ Files* GlfwApplication::getFiles ()
 
 Timer* GlfwApplication::createTimer()
 {
-	return new WindowsTimer();
+	return new GlfwTimer();
 }
 
 void GlfwApplication::log(const char* tag, const char* message)

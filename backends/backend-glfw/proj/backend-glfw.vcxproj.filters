@@ -30,9 +30,6 @@
     <ClCompile Include="..\src\WindowsAudioDevice.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\WindowsTimer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\WoglFileHandleStream.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -60,6 +57,9 @@
     <ClCompile Include="..\src\GlfwInput.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\GlfwTimer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\incl\stdafx.h">
@@ -72,9 +72,6 @@
       <Filter>Include</Filter>
     </ClInclude>
     <ClInclude Include="..\exp\WindowsAudioDevice.h">
-      <Filter>Include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\exp\WindowsTimer.h">
       <Filter>Include</Filter>
     </ClInclude>
     <ClInclude Include="..\exp\WoglFileHandleStream.h">
@@ -102,6 +99,9 @@
       <Filter>Include</Filter>
     </ClInclude>
     <ClInclude Include="..\exp\GlfwInput.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\exp\GlfwTimer.h">
       <Filter>Include</Filter>
     </ClInclude>
   </ItemGroup>
