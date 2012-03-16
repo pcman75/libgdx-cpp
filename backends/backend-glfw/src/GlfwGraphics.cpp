@@ -214,6 +214,9 @@ int GlfwGraphics::createWindow(const char* title, int width, int height)
 		throw GdxRuntimeException("Failed to open GLFW window");
 	}
 
+	// Initialise GLEW
+	glewInit();
+
 	//setup input
 	GlfwInput* input = ((GlfwInput*)Gdx.input);
 	input->init();

@@ -32,9 +32,6 @@ GlfwApplication::GlfwApplication (ApplicationListener& listener, const char* tit
 		throw GdxRuntimeException("Failed to initialize GLFW");
 	}
 	
-	// Initialise GLEW
-	glewInit();
-
 	if(useGL20IfAvailable)
 		::glfwOpenWindowHint(GLFW_OPENGL_VERSION_MAJOR, 2);
 	else
@@ -44,6 +41,8 @@ GlfwApplication::GlfwApplication (ApplicationListener& listener, const char* tit
 		//::glfwOpenWindowHint(GLFW_OPENGL_VERSION_MINOR, 3); 
 	}
 	
+	
+
 	createWindow(title, width, height);
 }
 
