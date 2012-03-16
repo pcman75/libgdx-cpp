@@ -1,5 +1,6 @@
 #include "StdAfx.h"
-#include "WindowsInput.h"
+#include "GlfwInput.h"
+#include "Gdx.h"
 
 const int KeyEvent::KEY_DOWN = 0;
 const int KeyEvent::KEY_UP = 1;
@@ -7,41 +8,45 @@ const int KeyEvent::KEY_TYPED = 2;
 
 
 
-WindowsInput::WindowsInput(void)
+GlfwInput::GlfwInput(void)
 {
 	m_touchDown = false;
 	m_justTouched = false;
 	m_touchX = m_touchY = 0;
 
-  processor = NULL;
+	processor = NULL;
 }
 
+void GlfwInput::init()
+{
+	::glfwSetMouseButtonCallback(mouseButtonEvent);
+}
 
-WindowsInput::~WindowsInput(void)
+GlfwInput::~GlfwInput(void)
 {
 }
 
 
 /** @return The value of the accelerometer on its x-axis. ranges between [-10,10]. */
-float WindowsInput::getAccelerometerX()
+float GlfwInput::getAccelerometerX()
 {
 	return -1;
 }
 
 /** @return The value of the accelerometer on its y-axis. ranges between [-10,10]. */
-float WindowsInput::getAccelerometerY()
+float GlfwInput::getAccelerometerY()
 {
 	return -1;
 }
 
 /** @return The value of the accelerometer on its y-axis. ranges between [-10,10]. */
-float WindowsInput::getAccelerometerZ()
+float GlfwInput::getAccelerometerZ()
 {
 	return -1;
 }
 
 /** @return the last touch x coordinate in screen coordinates. The screen origin is the top left corner. */
-int WindowsInput::getX()
+int GlfwInput::getX()
 {
 	return m_touchX;
 }
@@ -53,28 +58,28 @@ int WindowsInput::getX()
 *
 * @param pointer the pointer id.
 * @return the x coordinate */
-int WindowsInput::getX(int pointer)
+int GlfwInput::getX(int pointer)
 {
 	//TODO:
 	return -1;
 }
 
 /** @return the different between the current pointer location and the last pointer location on the x-axis. */
-int WindowsInput::getDeltaX()
+int GlfwInput::getDeltaX()
 {
 	//TODO:
 	return -1;
 }
 
 /** @return the different between the current pointer location and the last pointer location on the x-axis. */
-int WindowsInput::getDeltaX(int pointer)
+int GlfwInput::getDeltaX(int pointer)
 {
 	//TODO:
 	return -1;
 }
 
 /** @return the last touch y coordinate in screen coordinates. The screen origin is the top left corner. */
-int WindowsInput::getY()
+int GlfwInput::getY()
 {
 	return m_touchY;
 }
@@ -87,7 +92,7 @@ int WindowsInput::getY()
 *
 * @param pointer the pointer id.
 * @return the y coordinate */
-int WindowsInput::getY(int pointer)
+int GlfwInput::getY(int pointer)
 {
 	//TODO:
 	return -1;
@@ -95,27 +100,27 @@ int WindowsInput::getY(int pointer)
 
 
 /** @return the different between the current pointer location and the last pointer location on the y-axis. */
-int WindowsInput::getDeltaY()
+int GlfwInput::getDeltaY()
 {
 	//TODO:
 	return -1;
 }
 
 /** @return the different between the current pointer location and the last pointer location on the y-axis. */
-int WindowsInput::getDeltaY(int pointer)
+int GlfwInput::getDeltaY(int pointer)
 {
 	//TODO:
 	return -1;
 }
 
 /** @return whether the screen is currently touched. */
-bool WindowsInput::isTouched()
+bool GlfwInput::isTouched()
 {
 	return m_touchDown;
 }
 
 /** @return whether a new touch down event just occured. */
-bool WindowsInput::justTouched()
+bool GlfwInput::justTouched()
 {
 	bool ret = m_justTouched;
 	m_justTouched = false;
@@ -129,7 +134,7 @@ bool WindowsInput::justTouched()
 *
 * @param pointer the pointer
 * @return whether the screen is touched by the pointer */
-bool WindowsInput::isTouched(int pointer)
+bool GlfwInput::isTouched(int pointer)
 {
 	//TODO:
 	return false;
@@ -139,7 +144,7 @@ bool WindowsInput::isTouched(int pointer)
 * constant is meaningful.
 * @param button the button to check.
 * @return whether the button is down or not. */
-bool WindowsInput::isButtonPressed(int button)
+bool GlfwInput::isButtonPressed(int button)
 {
 	//TODO:
 	return false;
@@ -149,7 +154,7 @@ bool WindowsInput::isButtonPressed(int button)
 *
 * @param key The key code as found in {@link Input.Keys}.
 * @return true or false. */
-bool WindowsInput::isKeyPressed(int key)
+bool GlfwInput::isKeyPressed(int key)
 {
 	std::set<int>::iterator it = m_keys.find(key);
 	return it != m_keys.end();
@@ -163,7 +168,7 @@ bool WindowsInput::isKeyPressed(int key)
 * @param listener The TextInputListener.
 * @param title The title of the text input dialog.
 * @param text The message presented to the user. */
-void WindowsInput::getTextInput(TextInputListener* listener, const std::string& title, const std::string& text)
+void GlfwInput::getTextInput(TextInputListener* listener, const std::string& title, const std::string& text)
 {
 	//TODO:
 }
@@ -171,7 +176,7 @@ void WindowsInput::getTextInput(TextInputListener* listener, const std::string& 
 /** Sets the on-screen keyboard visible if available.
 *
 * @param visible visible or not */
-void WindowsInput::setOnscreenKeyboardVisible(bool visible)
+void GlfwInput::setOnscreenKeyboardVisible(bool visible)
 {
 }
 
@@ -179,7 +184,7 @@ void WindowsInput::setOnscreenKeyboardVisible(bool visible)
 * <code> <uses-permission android:name="android.permission.VIBRATE" /></code> in your manifest file in order for this to work.
 *
 * @param milliseconds the number of milliseconds to vibrate. */
-void WindowsInput::vibrate(int milliseconds)
+void GlfwInput::vibrate(int milliseconds)
 {
 }
 
@@ -188,12 +193,12 @@ void WindowsInput::vibrate(int milliseconds)
 * the pattern at which to start the repeat.
 * @param pattern an array of longs of times to turn the vibrator on or off.
 * @param repeat the index into pattern at which to repeat, or -1 if you don't want to repeat. */
-void WindowsInput::vibrate(long pattern[], int patternLength, int repeat)
+void GlfwInput::vibrate(long pattern[], int patternLength, int repeat)
 {
 }
 
 /** Stops the vibrator */
-void WindowsInput::cancelVibrate()
+void GlfwInput::cancelVibrate()
 {
 }
 
@@ -203,7 +208,7 @@ void WindowsInput::cancelVibrate()
 * @see <a
 *      href="http://developer.android.com/reference/android/hardware/SensorManager.html#getRotationMatrix(float[], float[], float[], float[])">http://developer.android.com/reference/android/hardware/SensorManager.html#getRotationMatrix(float[], float[], float[], float[])</a>
 * @return the azimuth in degrees */
-float WindowsInput::getAzimuth()
+float GlfwInput::getAzimuth()
 {
 	return 0;	
 }
@@ -213,7 +218,7 @@ float WindowsInput::getAzimuth()
 * @see <a
 *      href="http://developer.android.com/reference/android/hardware/SensorManager.html#getRotationMatrix(float[], float[], float[], float[])">http://developer.android.com/reference/android/hardware/SensorManager.html#getRotationMatrix(float[], float[], float[], float[])</a>
 * @return the pitch in degrees */
-float WindowsInput::getPitch()
+float GlfwInput::getPitch()
 {
 	return 0;	
 }
@@ -223,7 +228,7 @@ float WindowsInput::getPitch()
 * @see <a
 *      href="http://developer.android.com/reference/android/hardware/SensorManager.html#getRotationMatrix(float[], float[], float[], float[])">http://developer.android.com/reference/android/hardware/SensorManager.html#getRotationMatrix(float[], float[], float[], float[])</a>
 * @return the roll in degrees */
-float WindowsInput::getRoll()
+float GlfwInput::getRoll()
 {
 	return 0;	
 }
@@ -232,12 +237,12 @@ float WindowsInput::getRoll()
 * Does not manipulate the matrix if the platform does not have an accelerometer.
 * @param matrix
 */
-void WindowsInput::getRotationMatrix(float matrix[16])
+void GlfwInput::getRotationMatrix(float matrix[16])
 {
 }
 
 /** @return the time of the event currently reported to the {@link InputProcessor}. */
-long WindowsInput::getCurrentEventTime()
+long GlfwInput::getCurrentEventTime()
 {
 	//TODO:
 	return -1;
@@ -247,7 +252,7 @@ long WindowsInput::getCurrentEventTime()
 * on the desktop.
 *
 * @param catchBack whether to catch the back button */
-void WindowsInput::setCatchBackKey(bool catchBack)
+void GlfwInput::setCatchBackKey(bool catchBack)
 {
 }
 
@@ -255,7 +260,7 @@ void WindowsInput::setCatchBackKey(bool catchBack)
 * effect on the desktop.
 *
 * @param catchMenu whether to catch the menu button */
-void WindowsInput::setCatchMenuKey(bool catchMenu)
+void GlfwInput::setCatchMenuKey(bool catchMenu)
 {
 	//TODO:
 }
@@ -265,15 +270,15 @@ void WindowsInput::setCatchMenuKey(bool catchMenu)
 * {@link ApplicationListener#render()} method each frame.
 *
 * @param processor the InputProcessor */
-void WindowsInput::setInputProcessor(InputProcessor* processor)
+void GlfwInput::setInputProcessor(InputProcessor* processor)
 {
 	//TODO:
-  this->processor = processor;
+	this->processor = processor;
 }
 
 
 /** @return the currently set {@link InputProcessor} or null. */
-InputProcessor* WindowsInput::getInputProcessor()
+InputProcessor* GlfwInput::getInputProcessor()
 {
 	//TODO:
 	return processor;
@@ -284,7 +289,7 @@ InputProcessor* WindowsInput::getInputProcessor()
 *
 * @param peripheral the {@link Peripheral}
 * @return whether the peripheral is available or not. */
-bool WindowsInput::isPeripheralAvailable(Peripheral peripheral)
+bool GlfwInput::isPeripheralAvailable(Peripheral peripheral)
 {
 	if (peripheral == Peripheral::HardwareKeyboard) 
 		return true;
@@ -292,27 +297,27 @@ bool WindowsInput::isPeripheralAvailable(Peripheral peripheral)
 }
 
 /** @return the rotation of the device with respect to its native orientation. */
-int WindowsInput::getRotation()
+int GlfwInput::getRotation()
 {
 	return 0;
 }
 
 /** @return the native orientation of the device. */
-Orientation WindowsInput::getNativeOrientation()
+Orientation GlfwInput::getNativeOrientation()
 {
 	return Orientation::Landscape;
 }
 
 /** Only viable on the desktop. Will confine the mouse cursor location to the window and hide the mouse cursor.
 * @param catched whether to catch or not to catch the mouse cursor */
-void WindowsInput::setCursorCatched(bool catched)
+void GlfwInput::setCursorCatched(bool catched)
 {
 	//TODO:
 }
 
 
 /** @return whether the mouse cursor is catched. */
-bool WindowsInput::isCursorCatched()
+bool GlfwInput::isCursorCatched()
 {
 	//TODO:
 	return false;
@@ -322,43 +327,49 @@ bool WindowsInput::isCursorCatched()
 /** Only viable on the desktop. Will set the mouse cursor location to the given window coordinates(origin top-left corner).
 * @param x the x-position
 * @param y the y-position */
-void WindowsInput::setCursorPosition(int x, int y)
+void GlfwInput::setCursorPosition(int x, int y)
 {
 	//TODO:
 }
 
-
-void WindowsInput::buttonDown(WPARAM state, int x, int y)
+void GlfwInput::mouseButtonEvent(int button, int state)
 {
-	if(state == MK_LBUTTON)
+	GlfwInput* input = ((GlfwInput*)Gdx.input);
+
+	if(button == GLFW_MOUSE_BUTTON_LEFT)
 	{
-		m_touchDown = true;
-		m_justTouched = true;
+		if(state == GLFW_PRESS)
+		{
+			input->m_touchDown = true;
+			input->m_justTouched = true;
+
+			::glfwGetMousePos(&input->m_touchX, &input->m_touchY);
+		}
+		else if(state == GLFW_RELEASE)
+		{
+			input->m_touchDown = false;
+		}
 	}
-	m_touchX = x;
-	m_touchY = y;
-}
-
-void WindowsInput::buttonUp(WPARAM state, int x, int y)
-{
-	if(m_touchDown)
-		m_touchDown = false;
 }
 
 
-void WindowsInput::keyDown(int key, LPARAM lParam)
+
+
+
+
+void GlfwInput::keyDown(int key, LPARAM lParam)
 {
 	m_keys.insert(translateKey(key));
-  m_keysForProcessor.push_back( KeyEvent( translateKey(key), KeyEvent::KEY_DOWN));
+	m_keysForProcessor.push_back( KeyEvent( translateKey(key), KeyEvent::KEY_DOWN));
 }
 
-void WindowsInput::keyUp(int key, LPARAM lParam)
+void GlfwInput::keyUp(int key, LPARAM lParam)
 {
 	m_keys.erase(translateKey(key));
-  m_keysForProcessor.push_back( KeyEvent( translateKey(key), KeyEvent::KEY_UP));
+	m_keysForProcessor.push_back( KeyEvent( translateKey(key), KeyEvent::KEY_UP));
 }
 
-int WindowsInput::translateKey(int keyCode)
+int GlfwInput::translateKey(int keyCode)
 {
 	if (keyCode == VK_ADD) return Input::Keys::PLUS;
 	if (keyCode == VK_SUBTRACT) return Input::Keys::MINUS;
@@ -453,73 +464,74 @@ int WindowsInput::translateKey(int keyCode)
 }
 
 
-void WindowsInput::processEvents()
+void GlfwInput::processEvents()
 {
 	if (processor != NULL) 
-  {
+	{
 		int len = m_keysForProcessor.size();
 		for (int i = 0; i < len; i++) 
-    {
+		{
 			KeyEvent e = m_keysForProcessor[ i];
 			switch (e.type) 
-      {
-        case KeyEvent::KEY_DOWN:
-  				processor->keyDown(e.keyCode);
-	  			break;
-        case KeyEvent::KEY_UP:
-			  	processor->keyUp(e.keyCode);
-				  break;
-        /*case KeyEvent::KEY_TYPED:
-				  processor->keyTyped(e.keyChar);
-          break;
-          */
+			{
+			case KeyEvent::KEY_DOWN:
+				processor->keyDown(e.keyCode);
+				break;
+			case KeyEvent::KEY_UP:
+				processor->keyUp(e.keyCode);
+				break;
+				/*case KeyEvent::KEY_TYPED:
+				processor->keyTyped(e.keyChar);
+				break;
+				*/
 			}
 		}
 
-    /*
+		/*
 		len = touchEvents.size();
 		for (int i = 0; i < len; i++) 
-    {
-			TouchEvent e = touchEvents.get(i);
-			currentEventTimeStamp = e.timeStamp;
-			switch (e.type) {
-			case TouchEvent.TOUCH_DOWN:
-				processor.touchDown(e.x, e.y, e.pointer, e.button);
-				break;
-			case TouchEvent.TOUCH_UP:
-				processor.touchUp(e.x, e.y, e.pointer, e.button);
-				break;
-			case TouchEvent.TOUCH_DRAGGED:
-				processor.touchDragged(e.x, e.y, e.pointer);
-				break;
-			case TouchEvent.TOUCH_MOVED:
-				processor.touchMoved(e.x, e.y);
-				break;
-			case TouchEvent.TOUCH_SCROLLED:
-				processor.scrolled(e.scrollAmount);
-			}
-			usedTouchEvents.free(e);
+		{
+		TouchEvent e = touchEvents.get(i);
+		currentEventTimeStamp = e.timeStamp;
+		switch (e.type) {
+		case TouchEvent.TOUCH_DOWN:
+		processor.touchDown(e.x, e.y, e.pointer, e.button);
+		break;
+		case TouchEvent.TOUCH_UP:
+		processor.touchUp(e.x, e.y, e.pointer, e.button);
+		break;
+		case TouchEvent.TOUCH_DRAGGED:
+		processor.touchDragged(e.x, e.y, e.pointer);
+		break;
+		case TouchEvent.TOUCH_MOVED:
+		processor.touchMoved(e.x, e.y);
+		break;
+		case TouchEvent.TOUCH_SCROLLED:
+		processor.scrolled(e.scrollAmount);
 		}
-    */
+		usedTouchEvents.free(e);
+		}
+		*/
 	} 
-  /*
-  else 
-  {
-		int len = touchEvents.size();
-		for (int i = 0; i < len; i++) 
-    {
-			usedTouchEvents.free(touchEvents.get(i));
-		}
-
-		len = keyEvents.size();
-		for (int i = 0; i < len; i++) 
-    {
-			usedKeyEvents.free(keyEvents.get(i));
-		}
+	/*
+	else 
+	{
+	int len = touchEvents.size();
+	for (int i = 0; i < len; i++) 
+	{
+	usedTouchEvents.free(touchEvents.get(i));
 	}
-  */
+
+	len = keyEvents.size();
+	for (int i = 0; i < len; i++) 
+	{
+	usedKeyEvents.free(keyEvents.get(i));
+	}
+	}
+	*/
 
 	m_keysForProcessor.clear();
 	//touchEvents.clear();
-	
+
 }
+

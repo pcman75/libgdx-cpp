@@ -23,22 +23,26 @@ public:
 
 
 
-class WindowsInput : public Input
+class GlfwInput : public Input
 {
-private:
+public:
 	bool m_touchDown;
 	bool m_justTouched;
 	int m_touchX;
 	int m_touchY;
 
+private:
+	
 	std::set<int> m_keys;
   std::vector<KeyEvent> m_keysForProcessor;
 
   InputProcessor* processor;
 
 public:
-	WindowsInput();
-	virtual ~WindowsInput();
+	GlfwInput();
+	virtual ~GlfwInput();
+
+	void init();
 
 	/** @return The value of the accelerometer on its x-axis. ranges between [-10,10]. */
 	virtual float getAccelerometerX();
@@ -223,6 +227,8 @@ public:
 
 	void buttonDown(WPARAM state, int x, int y);
 	void buttonUp(WPARAM state, int x, int y);
+
+	static void mouseButtonEvent(int button, int state);
 
 	void keyDown(int key, LPARAM lParam);
 	void keyUp(int key, LPARAM lParam);

@@ -1,7 +1,7 @@
 #include "StdAfx.h"
 #include "GlfwApplication.h"
 #include "GlfwGraphics.h"
-#include "WindowsInput.h"
+#include "GlfwInput.h"
 #include "WoglFiles.h"
 #include "WindowsAudio.h"
 
@@ -9,21 +9,41 @@
 #include "Gdx.h"
 
 #include "WindowsTimer.h"
+#include "GdxRuntimeException.h"
 
 GlfwApplication::GlfwApplication (ApplicationListener& listener, const char* title, int width, int height, bool useGL20IfAvailable)
 {
 	logLevel = LOG_INFO;
 	m_pGraphics = new GlfwGraphics(listener, useGL20IfAvailable);
-	m_pInput = new WindowsInput();
+	m_pInput = new GlfwInput();
 	m_pFiles = new WoglFiles();
 	m_pAudio = new WindowsAudio();
 	
-
 	Gdx.app = this;
 	Gdx.graphics = m_pGraphics;
-	Gdx.audio = m_pAudio;
 	Gdx.input = m_pInput;
+	Gdx.audio = m_pAudio;
 	Gdx.files = m_pFiles;
+
+
+	// Initialise GLFW
+	if( !glfwInit() )
+	{
+		throw GdxRuntimeException("Failed to initialize GLFW");
+	}
+	
+	// Initialise GLEW
+	glewInit();
+
+	if(useGL20IfAvailable)
+		::glfwOpenWindowHint(GLFW_OPENGL_VERSION_MAJOR, 2);
+	else
+	{
+		::glfwOpenWindowHint(GLFW_OPENGL_VERSION_MAJOR, 1);
+		//TODO: need to set OpenGL minor version???
+		//::glfwOpenWindowHint(GLFW_OPENGL_VERSION_MINOR, 3); 
+	}
+	
 	createWindow(title, width, height);
 }
 

@@ -78,7 +78,7 @@
     </ClCompile>
     <ClCompile Include="..\src\WindowsAudio.cpp" />
     <ClCompile Include="..\src\WindowsAudioDevice.cpp" />
-    <ClCompile Include="..\src\WindowsInput.cpp" />
+    <ClCompile Include="..\src\GlfwInput.cpp" />
     <ClCompile Include="..\src\WindowsTimer.cpp" />
     <ClCompile Include="..\src\GlfwApplication.cpp" />
     <ClCompile Include="..\src\WoglFileHandleStream.cpp" />
@@ -92,7 +92,7 @@
   <ItemGroup>
     <ClInclude Include="..\exp\WindowsAudio.h" />
     <ClInclude Include="..\exp\WindowsAudioDevice.h" />
-    <ClInclude Include="..\exp\WindowsInput.h" />
+    <ClInclude Include="..\exp\GlfwInput.h" />
     <ClInclude Include="..\exp\WindowsTimer.h" />
     <ClInclude Include="..\exp\GlfwApplication.h" />
     <ClInclude Include="..\exp\WoglFileHandleStream.h" />

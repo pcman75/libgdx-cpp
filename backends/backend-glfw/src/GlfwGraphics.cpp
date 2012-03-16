@@ -6,6 +6,7 @@
 #include "Gdx.h"
 #include "WindowsTimer.h"
 #include "GdxRuntimeException.h"
+#include "GlfwInput.h"
 
 GlfwGraphics::GlfwGraphics(ApplicationListener& listener, bool useGL20)
 	:m_listener(listener), m_useGL20(useGL20),
@@ -206,21 +207,16 @@ bool GlfwGraphics::supportsExtension (std::string extension)
 
 int GlfwGraphics::createWindow(const char* title, int width, int height)
 {
-	// Initialise GLFW
-	if( !glfwInit() )
-	{
-		throw GdxRuntimeException("Failed to initialize GLFW");
-	}
-
-	//glfwOpenWindowHint(GLFW_OPENGL_VERSION_MAJOR, 1);
-	//glfwOpenWindowHint(GLFW_OPENGL_VERSION_MINOR, 3); 
-
 	// Open a window and create its OpenGL context
 	if( !glfwOpenWindow( width, height, 0,0,0,0, 0,0, GLFW_WINDOW ) )
 	{
 		glfwTerminate();
 		throw GdxRuntimeException("Failed to open GLFW window");
 	}
+
+	//setup input
+	GlfwInput* input = ((GlfwInput*)Gdx.input);
+	input->init();
 
 	glfwSetWindowTitle(title);
 
@@ -245,6 +241,7 @@ int GlfwGraphics::createWindow(const char* title, int width, int height)
 		// Special case: avoid division by zero below
 		m_height = m_height > 0 ? m_height : 1;
 
+		updateTimes();
 		m_listener.render();
 
 		// Swap buffers
