@@ -14,6 +14,8 @@
 * limitations under the License.
 ******************************************************************************/
 #pragma once
+#include <string>
+#include <vector>
 #include "GdxDefines.h"
 #include "FileHandleStream.h"
 

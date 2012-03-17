@@ -66,6 +66,10 @@
      Save data if appropriate.
      See also applicationDidEnterBackground:.
      */
+//    if (m_view) {
+//        [m_view dealloc];
+//    }
+
 }
 
 @end

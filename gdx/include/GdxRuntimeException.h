@@ -1,5 +1,7 @@
 #pragma once
 #include "GdxDefines.h"
+#include <string>
+#include <vector>
 
 class GdxRuntimeException : public std::exception
 {
