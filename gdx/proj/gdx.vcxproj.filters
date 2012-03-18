@@ -617,6 +617,18 @@
     <ClInclude Include="..\lib\StringUtils.h">
       <Filter>lib</Filter>
     </ClInclude>
+    <ClInclude Include="..\include\Threading.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Thread.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Mutex.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\WaitCondition.h">
+      <Filter>include</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\ReadMe.txt" />

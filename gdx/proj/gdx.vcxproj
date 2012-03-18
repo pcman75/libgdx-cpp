@@ -192,6 +192,7 @@
     <ClInclude Include="..\include\DecelerateInterpolator.h" />
     <ClInclude Include="..\include\LinearInterpolator.h" />
     <ClInclude Include="..\include\ModelLoaderOld.h" />
+    <ClInclude Include="..\include\Mutex.h" />
     <ClInclude Include="..\include\OvershootInterpolator.h" />
     <ClInclude Include="..\include\Audio.h" />
     <ClInclude Include="..\include\AudioDevice.h" />
@@ -275,6 +276,8 @@
     <ClInclude Include="..\include\Texture.h" />
     <ClInclude Include="..\include\TextureData.h" />
     <ClInclude Include="..\include\TextureRegion.h" />
+    <ClInclude Include="..\include\Thread.h" />
+    <ClInclude Include="..\include\Threading.h" />
     <ClInclude Include="..\include\Timer.h" />
     <ClInclude Include="..\include\Vector2.h" />
     <ClInclude Include="..\include\Vector3.h" />
@@ -283,6 +286,7 @@
     <ClInclude Include="..\include\VertexAttributes.h" />
     <ClInclude Include="..\include\VertexBufferObject.h" />
     <ClInclude Include="..\include\VertexData.h" />
+    <ClInclude Include="..\include\WaitCondition.h" />
     <ClInclude Include="..\lib\etc1_utils.h" />
     <ClInclude Include="..\lib\gdx2d.h" />
     <ClInclude Include="..\lib\lodepng.h" />
