@@ -43,9 +43,6 @@ GlfwApplication::GlfwApplication (ApplicationListener& listener, const char* tit
 	}*/
 
 	createWindow(title, width, height);
-	
-	// Initialise GLEW
-	glewInit();
 
 	//setup input
 	GlfwInput* input = ((GlfwInput*)Gdx.input);
@@ -54,7 +51,6 @@ GlfwApplication::GlfwApplication (ApplicationListener& listener, const char* tit
 	// Enable vertical sync (on cards that support it)
 	//glfwSwapInterval(1);
 
-	
 	runOpenGLLoop();
 
 	// Close OpenGL window and terminate GLFW

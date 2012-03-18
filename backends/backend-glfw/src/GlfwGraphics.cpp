@@ -214,6 +214,9 @@ void GlfwGraphics::createWindow(const char* title, int width, int height)
 	}
 	glfwSetWindowTitle(title);
 	
+	//initializa glew
+	glewInit();
+
 	initializeGLInstances();
 	m_listener.create();
 
