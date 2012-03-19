@@ -25,6 +25,7 @@ class Input;
 class Files;
 class Preferences;
 class Timer;
+class Threading;
 
 class GdxDllImportExport Application 
 {
@@ -118,6 +119,9 @@ public:
 
 	/** @return the {@link Files} instance */
 	virtual Files* getFiles () = 0;
+
+	/** @return the {@link Threading} instance */
+	virtual Threading* getThreading() = 0;
 
 	/** @create a Timer. caller must delete it after use*/
 	virtual Timer* createTimer() = 0;
