@@ -10,7 +10,7 @@
 #import "GLView.h"
 #import "IOSApplication.h"
 
-@class ViewController;
+@class RootViewController;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 {
@@ -21,6 +21,7 @@
 }
 
 @property (strong, nonatomic) UIWindow *m_window;
+@property (nonatomic, retain) RootViewController *rootViewController;
 
 -(AppDelegate*) initWithApplication:(IOSApplication*)application;
 

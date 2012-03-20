@@ -18,11 +18,16 @@
 
 @implementation GLView
 
++ (Class) layerClass
+{
+    return [CAEAGLLayer class];
+}
+
 - (id)initWithFrame:(CGRect)frame
 {
     if ((self = [super initWithFrame:frame])) {
-        CAEAGLLayer* eaglLayer = (CAEAGLLayer*) super.layer;
-        eaglLayer.opaque = YES;
+//        CAEAGLLayer* eaglLayer = (CAEAGLLayer*) super.layer;
+//        eaglLayer.opaque = YES;
         
         EAGLRenderingAPI api = kEAGLRenderingAPIOpenGLES2;
         context = [[EAGLContext alloc] initWithAPI:api];

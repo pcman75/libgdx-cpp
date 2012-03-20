@@ -19,6 +19,7 @@
 		025E29CA1506487A004955D2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 025E29C91506487A004955D2 /* CoreGraphics.framework */; };
 		025E29D615064D3A004955D2 /* GLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 025E29D515064D3A004955D2 /* GLView.mm */; };
 		029A06AA15013DB600B82B73 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 029A06A915013DB600B82B73 /* Foundation.framework */; };
+		02C185851518DCAB00295402 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C185841518DCAA00295402 /* RootViewController.m */; };
 		02CE9EC41506537300A78D71 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02CE9EC31506537300A78D71 /* OpenGLES.framework */; };
 		02CE9EC61506538000A78D71 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02CE9EC51506538000A78D71 /* QuartzCore.framework */; };
 		02CEA0EC150A33C900A78D71 /* IOSGraphics.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 02CEA0EB150A33C800A78D71 /* IOSGraphics.cpp */; };
@@ -252,6 +253,8 @@
 		025E29D515064D3A004955D2 /* GLView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLView.mm; sourceTree = "<group>"; };
 		029A06A615013DB600B82B73 /* libgdx.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libgdx.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		029A06A915013DB600B82B73 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		02C185831518DCAA00295402 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		02C185841518DCAA00295402 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		02CE9EC31506537300A78D71 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.0.sdk/System/Library/Frameworks/OpenGLES.framework; sourceTree = DEVELOPER_DIR; };
 		02CE9EC51506538000A78D71 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.0.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
 		02CE9EC7150656B800A78D71 /* IOSGraphics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IOSGraphics.h; path = include/IOSGraphics.h; sourceTree = "<group>"; };
@@ -511,6 +514,8 @@
 				02CEA0ED150A35C400A78D71 /* IOSApplication.cpp */,
 				02CEA0F0150A39B700A78D71 /* IOSApplicationConfiguration.h */,
 				02CEA0F1150A3AA200A78D71 /* IOSApplicationConfiguration.cpp */,
+				02C185831518DCAA00295402 /* RootViewController.h */,
+				02C185841518DCAA00295402 /* RootViewController.m */,
 			);
 			path = "gdx-backend-ios";
 			sourceTree = "<group>";
@@ -1015,6 +1020,7 @@
 				02CEA0EC150A33C900A78D71 /* IOSGraphics.cpp in Sources */,
 				02CEA0EE150A35C400A78D71 /* IOSApplication.cpp in Sources */,
 				02CEA0F2150A3AA200A78D71 /* IOSApplicationConfiguration.cpp in Sources */,
+				02C185851518DCAB00295402 /* RootViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

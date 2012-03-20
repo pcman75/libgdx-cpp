@@ -7,10 +7,14 @@
 //
 
 #import "AppDelegate.h"
+#import "RootViewController.h"
+
 
 @implementation AppDelegate
 
 @synthesize m_window = _window;
+@synthesize rootViewController = _rootViewController;
+
 
 -(AppDelegate*) initWithApplication:(IOSApplication*)application
 {
@@ -30,6 +34,8 @@
     CGRect screenBounds = [[UIScreen mainScreen] bounds];
     
     self.m_window = [[UIWindow alloc] initWithFrame:screenBounds];
+    _rootViewController = [[RootViewController alloc] init];
+    self.m_window.rootViewController = self.rootViewController;
     
     m_view = [[GLView alloc] initWithFrame:screenBounds];
     // create the tests
