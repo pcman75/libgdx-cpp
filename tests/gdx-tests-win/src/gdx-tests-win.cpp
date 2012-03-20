@@ -35,11 +35,11 @@ void Controller::Command (HWND hwnd, int controlID, int command)
 				GdxTest* test = NULL;
 				HWND hList = ::GetDlgItem(hwnd, IDC_TESTS_LIST);
 
-					// Get current selection index in listbox
+				// Get current selection index in listbox
 				int itemIndex = (int) ::SendMessage(hList, LB_GETCURSEL, (WPARAM)0, (LPARAM) 0);
 				if (itemIndex != LB_ERR)
 				{
-						// Get length of text in listbox
+					// Get length of text in listbox
 					int textLen = (int) SendMessage(hList, LB_GETTEXTLEN, (WPARAM) itemIndex, 0);
 		
 					// Allocate buffer to store text (consider +1 for end of string)
@@ -51,8 +51,14 @@ void Controller::Command (HWND hwnd, int controlID, int command)
 					test = GdxTests::newTest(textBuffer);
 					if(test)
 					{
-						GlfwApplication(*test, textBuffer, 400, 300, test->needsGL20());
-						//WoglApplication(*test, textBuffer, 400, 300, test->needsGL20());
+						//use glfw or wogl?
+						HWND hCheckBox = ::GetDlgItem(hwnd, IDC_WOGL);
+						bool wogl = ::SendMessage(hCheckBox, BM_GETCHECK, 0, 0) == BST_CHECKED;
+
+						if(wogl)
+							WoglApplication(*test, textBuffer, 400, 300, test->needsGL20());
+						else
+							GlfwApplication(*test, textBuffer, 400, 300, test->needsGL20());
 						delete test;
 					}
 					delete[] textBuffer;
