@@ -10,6 +10,7 @@
 #include "ControllerGL.h"
 #include "Window.h"
 #include "Gdx.h"
+#include "GdxRuntimeException.h"
 
 #include "WindowsTimer.h"
 
@@ -177,4 +178,9 @@ void WoglApplication::exit()
 {
 	//TODO: send WM_CLOSE
 	exit();
+}
+
+Threading* WoglApplication::getThreading()
+{
+	throw GdxRuntimeException("not implemented");
 }

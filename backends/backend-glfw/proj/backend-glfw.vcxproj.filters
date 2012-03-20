@@ -60,6 +60,18 @@
     <ClCompile Include="..\src\GlfwTimer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\GlfwWaitCondition.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\GlfwThreading.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\GlfwThread.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\GlfwMutex.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\incl\stdafx.h">
@@ -102,6 +114,18 @@
       <Filter>Include</Filter>
     </ClInclude>
     <ClInclude Include="..\exp\GlfwTimer.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\exp\GlfwWaitCondition.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\exp\GlfwMutex.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\exp\GlfwThread.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\exp\GlfwThreading.h">
       <Filter>Include</Filter>
     </ClInclude>
   </ItemGroup>

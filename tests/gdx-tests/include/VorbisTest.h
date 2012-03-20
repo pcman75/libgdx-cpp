@@ -26,6 +26,7 @@
 #include "VorbisDecoder.h"
 #include "AudioDevice.h"
 #include "Gdx.h"
+#include "Threading.h"
 
 class VorbisTest :
 	public GdxTest 
@@ -35,7 +36,8 @@ class VorbisTest :
 	VorbisDecoder* decoder;
 	/** an AudioDevice for playing back the PCM data **/
 	AudioDevice* device;
-	
+	/** playing back thread**/
+	Thread* playbackThread;
 public:
 	
 	void create () 
@@ -60,15 +62,22 @@ public:
 		device = Gdx.audio->newAudioDevice(decoder->getRate(), decoder->getChannels() == 1? true: false);
 		
 		// start a thread for playback
+		playbackThread = Gdx.threading->createThread(play, this);
+	}
+
+	static void play(void* arg)
+	{
+		VorbisTest* testData = (VorbisTest*)arg;
+
 		int readSamples = 0;
 		// we need a short[] to pass the data to the AudioDevice
 		short samples[2048];
 				
 		// read until we reach the end of the file
-		while((readSamples = decoder->readSamples(samples, sizeof(samples)/sizeof(samples[0]))) > 0)
+		while((readSamples = testData->decoder->readSamples(samples, sizeof(samples)/sizeof(samples[0]))) > 0)
 		{
 			// write the samples to the AudioDevice
-			device->writeSamples(samples, readSamples);
+			testData->device->writeSamples(samples, readSamples);
 		}
 	}
 
@@ -76,6 +85,9 @@ public:
 	{
 		// we should synchronize with the thread here
 		// left as an excercise to the reader :)
+		playbackThread->destroy();
+		delete playbackThread;
+
 		device->dispose();
 		decoder->dispose();
 		delete device;

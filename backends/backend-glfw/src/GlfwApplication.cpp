@@ -3,6 +3,8 @@
 #include "GlfwGraphics.h"
 #include "GlfwInput.h"
 #include "WoglFiles.h"
+#include "GlfwThreading.h"
+
 #include "WindowsAudio.h"
 
 #include "GlfwGraphics.h"
@@ -17,6 +19,7 @@ GlfwApplication::GlfwApplication (ApplicationListener& listener, const char* tit
 	m_pGraphics = new GlfwGraphics(listener, useGL20IfAvailable);
 	m_pInput = new GlfwInput();
 	m_pFiles = new WoglFiles();
+	m_pThreading = new GlfwThreading();
 	m_pAudio = new WindowsAudio();
 	
 	Gdx.app = this;
@@ -24,6 +27,7 @@ GlfwApplication::GlfwApplication (ApplicationListener& listener, const char* tit
 	Gdx.input = m_pInput;
 	Gdx.audio = m_pAudio;
 	Gdx.files = m_pFiles;
+	Gdx.threading = m_pThreading;
 
 
 	// Initialise GLFW
@@ -53,6 +57,8 @@ GlfwApplication::GlfwApplication (ApplicationListener& listener, const char* tit
 
 	runOpenGLLoop();
 
+	((GlfwGraphics*)m_pGraphics)->dispose();
+
 	// Close OpenGL window and terminate GLFW
 	glfwTerminate();
 }
@@ -62,6 +68,7 @@ GlfwApplication::~GlfwApplication(void)
 	delete m_pGraphics;
 	delete m_pInput;
 	delete m_pFiles;
+	delete m_pThreading;
 	delete m_pAudio;
 }
 
@@ -165,4 +172,10 @@ void GlfwApplication::createWindow(const char* title, int width, int height)
 void GlfwApplication::runOpenGLLoop()
 {
 	((GlfwGraphics*)m_pGraphics)->runOpenGLLoop();
+}
+
+/** @return the {@link Threading} instance */
+Threading* GlfwApplication::getThreading()
+{
+	return m_pThreading;
 }

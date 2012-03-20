@@ -50,6 +50,9 @@ public:
 	/** @return the {@link Files} instance */
 	virtual Files* getFiles ();
 	
+	/** @return the {@link Threading} instance */
+	virtual Threading* getThreading();
+
 	/** @create a Timer. caller must delete it after use*/
 	virtual Timer* createTimer();
 

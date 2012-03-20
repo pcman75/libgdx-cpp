@@ -1,22 +1,23 @@
 #pragma once
 
-#include "Mutex.h"
+#include "WaitCondition.h"
 
 /*
 Condition variables are used to synchronize threads. A thread can wait for a condition variable to be
 signaled by another thread.
 */
-class WaitCondition
+class GlfwWaitCondition :
+	public WaitCondition
 {
-public:
-	static const int infinity = 0;
-	virtual ~WaitCondition() {}
+private:
+	GLFWcond m_cond;
 
+public:
 	/*
 	* This function destroys a condition variable object. After a condition variable object has been destroyed,
 	* it may no longer be used by any thread.
 	*/
-	virtual void destroy() = 0;
+	virtual void destroy();
 
 	/*
 	* This function atomically unlocks the mutex specified by mutex, and waits for the condition variable
@@ -31,7 +32,7 @@ public:
 	* The mutex specified by mutex must be locked by the calling thread before entrance to wait.
 	* A condition variable must always
 	*/
-	virtual void wait(Mutex* mutex, long long timeout) = 0;
+	virtual void wait(Mutex* mutex, long long timeout);
 
 
 	/*
@@ -42,7 +43,7 @@ public:
 	* When several threads are waiting for the condition variable, which thread is started depends on
 	* operating system scheduling rules, and may vary from system to system and from time to time.
 	*/
-	virtual void signal() = 0;
+	virtual void signal();
 
 	/*
 	* This function restarts all the threads that are waiting on the condition variable cond. If no threads are
@@ -52,5 +53,5 @@ public:
 	* depends on operating system scheduling rules, and may vary from system to system and from time to
 	* time.
 	*/
-	virtual void broadcast() = 0;
+	virtual void broadcast();
 };

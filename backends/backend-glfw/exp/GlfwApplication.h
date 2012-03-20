@@ -49,6 +49,9 @@ public:
 	/** @return the {@link Files} instance */
 	virtual Files* getFiles ();
 	
+	/** @return the {@link Threading} instance */
+	virtual Threading* getThreading();
+
 	/** @create a Timer. caller must delete it after use*/
 	virtual Timer* createTimer();
 
@@ -109,6 +112,7 @@ private:
 	Graphics* m_pGraphics;
 	Input* m_pInput;
 	Files* m_pFiles;
+	Threading* m_pThreading;
 	Audio* m_pAudio;
 	int logLevel;
 	

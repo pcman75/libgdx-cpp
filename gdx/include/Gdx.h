@@ -47,13 +47,13 @@
 class GdxDllImportExport GdxClass 
 {
 public:
-	//TODO: store pointer and make accesor returning refference 
 	Application* app;
 	Graphics* graphics;
 	Audio* audio;
 	Input* input;
-
 	Files* files;
+	Threading* threading;
+
 	GLCommon* gl;
 	GL10* gl10;
 	GL11* gl11;

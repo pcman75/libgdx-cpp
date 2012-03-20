@@ -1,17 +1,16 @@
 #pragma once
 
-typedef void (*ThreadFunc)(void*);
+#include "Thread.h"
 
-class Thread
+class GlfwThread :
+	public Thread
 {
-public:
-	enum WaitMode
-	{
-		Wait,
-		NoWait
-	};
+private:
+	GLFWthread m_thread;
 
-	virtual ~Thread() {}
+public:
+	GlfwThread(ThreadFunc fun, void* arg);
+	virtual ~GlfwThread() {}
 
 	/* If waitmode is Wait, the function waits for a thread to die. If waitmode is NoWait,
 	* the function checks if a thread exists and returns immediately.
@@ -22,7 +21,7 @@ public:
 	* The function returns false if waitmode is NoWait, and the specified thread exists and is still
 	* running
 	*/
-	virtual bool wait(WaitMode mode) = 0;
+	virtual bool wait(WaitMode mode);
 
 
 	/*
@@ -32,5 +31,5 @@ public:
 	* operation, and its use is discouraged. You should always try to end a thread in a graceful way using
 	* thread communication, and use glfwWaitThread in order to wait for the thread to die.
 	*/
-	virtual void destroy() = 0;
+	virtual void destroy();
 };
