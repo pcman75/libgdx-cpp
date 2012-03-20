@@ -21,7 +21,7 @@
 }
 
 @property (strong, nonatomic) UIWindow *m_window;
-@property (nonatomic, retain) RootViewController *rootViewController;
+//@property (nonatomic, retain) RootViewController *rootViewController;
 
 -(AppDelegate*) initWithApplication:(IOSApplication*)application;
 
