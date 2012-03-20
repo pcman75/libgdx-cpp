@@ -224,16 +224,6 @@
 		02DF4085150F6C5400485E1E /* WidgetGroup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 02DF4028150F6C5400485E1E /* WidgetGroup.cpp */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		02F051FA15120AA50074FDEA /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 02F051F615120AA50074FDEA /* opengl-test.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 02F051CD15120AA40074FDEA;
-			remoteInfo = "opengl-test";
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		025E2861150530DE004955D2 /* gdx-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "gdx-Prefix.pch"; sourceTree = "<group>"; };
 		025E2862150530DE004955D2 /* gdx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gdx.h; sourceTree = "<group>"; };
@@ -459,7 +449,6 @@
 		02DF4026150F6C5400485E1E /* VertexBufferObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VertexBufferObject.cpp; sourceTree = "<group>"; };
 		02DF4027150F6C5400485E1E /* Widget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Widget.cpp; sourceTree = "<group>"; };
 		02DF4028150F6C5400485E1E /* WidgetGroup.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WidgetGroup.cpp; sourceTree = "<group>"; };
-		02F051F615120AA50074FDEA /* opengl-test.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "opengl-test.xcodeproj"; path = "../../../opengl-test/opengl-test.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -534,7 +523,6 @@
 				025E29B215064821004955D2 /* gdx-backend-ios */,
 				029A06A815013DB600B82B73 /* Frameworks */,
 				029A06A715013DB600B82B73 /* Products */,
-				02F051F615120AA50074FDEA /* opengl-test.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -790,14 +778,6 @@
 			path = src;
 			sourceTree = "<group>";
 		};
-		02F051F715120AA50074FDEA /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				02F051FB15120AA50074FDEA /* opengl-test.app */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -969,12 +949,6 @@
 			mainGroup = 029A069615013D6F00B82B73;
 			productRefGroup = 029A06A715013DB600B82B73 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 02F051F715120AA50074FDEA /* Products */;
-					ProjectRef = 02F051F615120AA50074FDEA /* opengl-test.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				029A06A515013DB600B82B73 /* gdx */,
@@ -982,16 +956,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		02F051FB15120AA50074FDEA /* opengl-test.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = "opengl-test.app";
-			remoteRef = 02F051FA15120AA50074FDEA /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		025E29A915064821004955D2 /* Resources */ = {
