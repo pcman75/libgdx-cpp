@@ -12,8 +12,19 @@
 
 @synthesize m_window = _window;
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+-(AppDelegate*) initWithApplication:(IOSApplication*)application
 {
+    if (self = [super init]) 
+    {
+        m_app = application;
+    };
+    
+    return self;
+    
+};
+
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{    
     [application setStatusBarHidden:YES];
     
     CGRect screenBounds = [[UIScreen mainScreen] bounds];
@@ -57,6 +68,8 @@
     /*
      Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
      */
+    [m_view startRenderLoop];
+
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
@@ -66,6 +79,8 @@
      Save data if appropriate.
      See also applicationDidEnterBackground:.
      */
+    [m_view stopRenderLoop];
+
 //    if (m_view) {
 //        [m_view dealloc];
 //    }

@@ -22,5 +22,6 @@
 
 @property (strong, nonatomic) UIWindow *m_window;
 
+-(AppDelegate*) initWithApplication:(IOSApplication*)application;
 
 @end

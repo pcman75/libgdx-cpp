@@ -13,16 +13,15 @@
 IOSApplication::IOSApplication(ApplicationListener* listener, bool useGL20)
 {
     IOSApplicationConfiguration config = IOSApplicationConfiguration();
-    initialize(listener, &config);
+    initialize(&config);
 };
 
-void IOSApplication::initialize(ApplicationListener* listener, IOSApplicationConfiguration* config) 
+void IOSApplication::initialize(IOSApplicationConfiguration* config) 
 {
-    // TODO set up input, audio and files
-    createGLView();
 };
 
-void IOSApplication::createGLView()
+
+IOSApplication::~IOSApplication()
 {
-    
+    // cleanup
 };

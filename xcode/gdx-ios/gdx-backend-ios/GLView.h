@@ -11,16 +11,36 @@
 #import <QuartzCore/QuartzCore.h>
 #import <OpenGLES/ES1/gl.h>
 #import <OpenGLES/ES1/glext.h>
+#include "ApplicationListener.h"
+#include "IOSApplication.h"
 
 @interface GLView : UIView {
 @private
     EAGLContext*    context;
     float           timestamp;
+
+    IOSApplication* app;
+    ApplicationListener* listener;
+    BOOL listenerInitialised;
+    BOOL useDepthBuffer;
+
+    CADisplayLink* displayLink;
+
+    // The pixel dimensions of the CAEAGLLayer.
+    GLint framebufferWidth;
+    GLint framebufferHeight;
+
+    GLuint defaultFramebuffer, colorRenderbuffer, depthRenderbuffer;
 }
 
 - (id)initWithFrame:(CGRect)frame;
 - (void) drawView: (CADisplayLink*)displayLink;
+- (void) startRenderLoop;
+- (void) stopRenderLoop;
+- (void) drawFrame;
 - (void) pause;
 - (void) resume;
+//- (void) setListener:(ApplicationListener*)listener;
+- (void) setApplication:(IOSApplication*) application;
 
 @end

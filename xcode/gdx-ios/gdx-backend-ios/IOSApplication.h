@@ -16,14 +16,13 @@
 
 class IOSApplication : public Application {
 
+public:
     ApplicationListener* listener;
     IOSGraphics* graphics;
-    
-public:
     IOSApplication(ApplicationListener* listener, bool useGL20);
+    virtual ~IOSApplication();
 private:
-    void initialize(ApplicationListener* listener, IOSApplicationConfiguration* config);
-    void createGLView();
+    void initialize(IOSApplicationConfiguration* config);
 };
 
 #endif
