@@ -76,6 +76,7 @@ public:
 	void renderInvaders(GL10* gl, const Simulation::Invaders& invaders);
 	void renderBlocks(GL10* gl, const Simulation::Blocks& blocks);
 	void renderShots(GL10* gl, const Simulation::Shots& shots);
+	void renderShot(GL10* gl, const Shot& shot);
 	void renderExplosions(GL10* gl, const Simulation::Explosions& explosions);
 	void dispose();
 };

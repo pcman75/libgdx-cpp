@@ -101,6 +101,8 @@ void Renderer::render(Application* app, Simulation* simulation)
 
 	gl->glDisable(GL10::GDX_GL_LIGHTING);
 	renderShots(gl, simulation->shots);
+	if(simulation->shipShot)
+		renderShot(gl, *simulation->shipShot);
 
 	gl->glEnable(GL10::GDX_GL_TEXTURE_2D);
 	renderExplosions(gl, simulation->explosions);
@@ -212,12 +214,17 @@ void Renderer::renderShots(GL10* gl, const Simulation::Shots& shots)
 	gl->glColor4f(1, 1, 0, 1);
 	for(Simulation::Shots::const_iterator shot = shots.begin(); shot != shots.end(); shot++)
 	{
-		gl->glPushMatrix();
-		gl->glTranslatef(shot->position.x, shot->position.y, shot->position.z);
-		m_shotMesh->render(GL10::GDX_GL_TRIANGLES);
-		gl->glPopMatrix();
+		renderShot(gl, *shot);
 	}
 	gl->glColor4f(1, 1, 1, 1);
+}
+
+void Renderer::renderShot(GL10* gl, const Shot& shot) 
+{
+	gl->glPushMatrix();
+	gl->glTranslatef(shot.position.x, shot.position.y, shot.position.z);
+	m_shotMesh->render(GL10::GDX_GL_TRIANGLES);
+	gl->glPopMatrix();
 }
 
 void Renderer::renderExplosions(GL10* gl, const Simulation::Explosions& explosions) 

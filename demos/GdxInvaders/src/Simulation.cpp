@@ -58,10 +58,14 @@ void Simulation::updateShots(float delta)
 {
 	removedShots.clear();
 
-	if(shipShot != NULL && shipShot->hasLeftField)
+	if(shipShot)
 	{
-		delete shipShot;
-		shipShot = NULL;
+		shipShot->update(delta);
+		if(shipShot->hasLeftField)
+		{
+			delete shipShot;
+			shipShot = NULL;
+		}
 	}
 
 	for(Shots::iterator shot = shots.begin(); shot != shots.end(); shot++)
@@ -114,7 +118,6 @@ void Simulation::checkInvaderCollision()
 	{
 		if(invader->position.dst(shipShot->position) < Invader::INVADER_RADIUS)
 		{
-			shots.remove(*shipShot);
 			delete shipShot;
 			shipShot = NULL;
 			explosions.push_back(Explosion(invader->position));
@@ -138,9 +141,6 @@ void Simulation::checkShipCollision()
 	{
 		for(Shots::iterator shot = shots.begin(); shot != shots.end(); shot++)
 		{
-			if(!shot->isInvaderShot) 
-				continue;
-
 			if(ship.position.dst(shot->position) < Ship::SHIP_RADIUS)
 			{
 				removedShots.push_back(*shot);
@@ -197,6 +197,22 @@ void Simulation::checkBlockCollision()
 		}
 	}
 
+	//check also with ship shot:
+	if(shipShot)
+	{
+		for(Blocks::iterator block = blocks.begin(); block != blocks.end(); )
+		{
+			if(block->position.dst(shipShot->position) < Block::BLOCK_RADIUS)
+			{
+				shipShot->hasLeftField = true;
+				block = blocks.erase(block);
+				break;
+			}
+			else
+				block++;
+		}
+	}
+
 	for(Shots::iterator shot = removedShots.begin(); shot != removedShots.end(); shot++)
 		shots.remove(*shot);
 }
@@ -243,7 +259,6 @@ void Simulation::shot()
 	if(shipShot == NULL && !ship.isExploding)
 	{
 		shipShot = new Shot(ship.position, false);
-		shots.push_back(*shipShot);
 		if(listener != NULL) 
 			listener->shot();
 	}
