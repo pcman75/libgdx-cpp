@@ -32,7 +32,6 @@ public:
 	int m_touchY;
 
 	std::set<int> m_keys;
-	std::vector<KeyEvent> m_keysForProcessor;
 
 private:
 	InputProcessor* processor;

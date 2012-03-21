@@ -354,16 +354,22 @@ void GlfwInput::mouseButtonEvent(int button, int state)
 void GlfwInput::keyboardEvent(int key, int state)
 {
 	GlfwInput* input = ((GlfwInput*)Gdx.input);
-
+	InputProcessor* inputProcessor = input->getInputProcessor();
 	if(state == GLFW_PRESS)
 	{
 		input->m_keys.insert(input->translateKey(key));
-		input->m_keysForProcessor.push_back( KeyEvent( input->translateKey(key), KeyEvent::KEY_DOWN));
+		if(inputProcessor)
+		{
+			inputProcessor->keyDown(input->translateKey(key));
+		}
 	}
 	else if(state == GLFW_RELEASE)
 	{
 		input->m_keys.erase(input->translateKey(key));
-		input->m_keysForProcessor.push_back( KeyEvent( input->translateKey(key), KeyEvent::KEY_UP));
+		if(inputProcessor)
+		{
+			inputProcessor->keyUp(input->translateKey(key));
+		}
 	}
 }
 
@@ -463,76 +469,3 @@ int GlfwInput::translateKey(int keyCode)
 
 	return Input::Keys::UNKNOWN;
 }
-
-
-void GlfwInput::processEvents()
-{
-	if (processor != NULL) 
-	{
-		int len = m_keysForProcessor.size();
-		for (int i = 0; i < len; i++) 
-		{
-			KeyEvent e = m_keysForProcessor[ i];
-			switch (e.type) 
-			{
-			case KeyEvent::KEY_DOWN:
-				processor->keyDown(e.keyCode);
-				break;
-			case KeyEvent::KEY_UP:
-				processor->keyUp(e.keyCode);
-				break;
-				/*case KeyEvent::KEY_TYPED:
-				processor->keyTyped(e.keyChar);
-				break;
-				*/
-			}
-		}
-
-		/*
-		len = touchEvents.size();
-		for (int i = 0; i < len; i++) 
-		{
-		TouchEvent e = touchEvents.get(i);
-		currentEventTimeStamp = e.timeStamp;
-		switch (e.type) {
-		case TouchEvent.TOUCH_DOWN:
-		processor.touchDown(e.x, e.y, e.pointer, e.button);
-		break;
-		case TouchEvent.TOUCH_UP:
-		processor.touchUp(e.x, e.y, e.pointer, e.button);
-		break;
-		case TouchEvent.TOUCH_DRAGGED:
-		processor.touchDragged(e.x, e.y, e.pointer);
-		break;
-		case TouchEvent.TOUCH_MOVED:
-		processor.touchMoved(e.x, e.y);
-		break;
-		case TouchEvent.TOUCH_SCROLLED:
-		processor.scrolled(e.scrollAmount);
-		}
-		usedTouchEvents.free(e);
-		}
-		*/
-	} 
-	/*
-	else 
-	{
-	int len = touchEvents.size();
-	for (int i = 0; i < len; i++) 
-	{
-	usedTouchEvents.free(touchEvents.get(i));
-	}
-
-	len = keyEvents.size();
-	for (int i = 0; i < len; i++) 
-	{
-	usedKeyEvents.free(keyEvents.get(i));
-	}
-	}
-	*/
-
-	m_keysForProcessor.clear();
-	//touchEvents.clear();
-
-}
-
