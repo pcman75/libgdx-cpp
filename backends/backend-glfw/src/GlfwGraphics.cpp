@@ -207,17 +207,22 @@ bool GlfwGraphics::supportsExtension (std::string extension)
 void GlfwGraphics::createWindow(const char* title, int width, int height)
 {
 	// Open a window and create its OpenGL context
-	if( !glfwOpenWindow( width, height, 0,0,0,0, 0,0, GLFW_WINDOW ) )
+	if( !glfwOpenWindow( width, height, 0, 0, 0, 0, 0, 0, GLFW_WINDOW ) )
 	{
-		glfwTerminate();
+		::glfwTerminate();
 		throw GdxRuntimeException("Failed to open GLFW window");
 	}
-	glfwSetWindowTitle(title);
+	::glfwSetWindowTitle(title);
 	
 	//initializa glew
 	glewInit();
 
 	initializeGLInstances();
+	updateSize();
+
+	//TODO: implement also window resize
+	//setup a callback?
+
 	m_listener.create();
 
 	m_frameStart = m_timer.systemNanoSeconds();
@@ -229,21 +234,23 @@ void GlfwGraphics::runOpenGLLoop()
 {
 	do
 	{
-		// Get window size (may be different than the requested size)
-		glfwGetWindowSize( &m_width, &m_height );
-		
-		// Special case: avoid division by zero below
-		m_height = m_height > 0 ? m_height : 1;
-
+		updateSize();
 		updateTimes();
+
 		m_listener.render();
 
 		// Swap buffers
-		glfwSwapBuffers();
+		::glfwSwapBuffers();
 
 	} // Check if the ESC key was pressed or the window was closed
 	while( glfwGetKey( GLFW_KEY_ESC ) != GLFW_PRESS &&
-		glfwGetWindowParam( GLFW_OPENED ) );
+		::glfwGetWindowParam( GLFW_OPENED ) );
+}
+
+void GlfwGraphics::updateSize()
+{
+	::glfwGetWindowSize( &m_width, &m_height );
+	m_height = m_height > 0 ? m_height : 1;
 }
 
 void GlfwGraphics::dispose()

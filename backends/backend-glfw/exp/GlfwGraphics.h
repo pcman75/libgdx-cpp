@@ -149,6 +149,7 @@ public:
 private:
 	void initializeGLInstances();
 	void updateTimes();
+	void updateSize();
 
 public:
 	void createWindow(const char* title, int width, int height);

@@ -4,6 +4,8 @@
 #include "stdafx.h"
 #include "SuperJumper.h"
 #include "WoglApplication.h"
+#include "GlfwApplication.h"
+
 #include "MainMenuScreen.h"
 #include "Settings.h"
 #include "Assets.h"
@@ -28,7 +30,8 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
                      LPTSTR    lpCmdLine,
                      int       nCmdShow)
 {
-    WoglApplication(SuperJumper(), "Super Jumper", 320, 480, false);
+    //WoglApplication(SuperJumper(), "Super Jumper", 320, 480, false);
+	GlfwApplication(SuperJumper(), "Super Jumper", 320, 480, false);
 
     return 0;
 }
