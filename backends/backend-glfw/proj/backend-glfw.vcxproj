@@ -50,6 +50,11 @@
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <ProjectReference />
+    <Lib>
+      <AdditionalDependencies>GLFW.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\extern\glfw-2.7.3\support\msvc100\Debug</AdditionalLibraryDirectories>
+    </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -67,6 +72,10 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
+    <Lib>
+      <AdditionalLibraryDirectories>..\extern\glfw-2.7.3\support\msvc100\Debug</AdditionalLibraryDirectories>
+      <AdditionalDependencies>GLFW.lib</AdditionalDependencies>
+    </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
     <None Include="ReadMe.txt" />
