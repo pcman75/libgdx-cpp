@@ -9,11 +9,11 @@ public:
 	static const int KEY_UP;
 	static const int KEY_TYPED;
 
-  KeyEvent(int keyCode, int type)
-  {
-    this->keyCode = keyCode;
-    this->type = type;
-  }
+	KeyEvent(int keyCode, int type)
+	{
+		this->keyCode = keyCode;
+		this->type = type;
+	}
 
 	//long timeStamp;
 	int type;
@@ -31,12 +31,11 @@ public:
 	int m_touchX;
 	int m_touchY;
 
-private:
-	
 	std::set<int> m_keys;
-  std::vector<KeyEvent> m_keysForProcessor;
+	std::vector<KeyEvent> m_keysForProcessor;
 
-  InputProcessor* processor;
+private:
+	InputProcessor* processor;
 
 public:
 	GlfwInput();
@@ -225,15 +224,13 @@ public:
 	* @param y the y-position */
 	virtual void setCursorPosition(int x, int y);
 
-	void buttonDown(WPARAM state, int x, int y);
-	void buttonUp(WPARAM state, int x, int y);
-
 	static void mouseButtonEvent(int button, int state);
+	static void keyboardEvent(int key, int state);
 
 	void keyDown(int key, LPARAM lParam);
 	void keyUp(int key, LPARAM lParam);
 
-  void processEvents();
+	void processEvents();
 
 private:
 	int translateKey(int keyCode);

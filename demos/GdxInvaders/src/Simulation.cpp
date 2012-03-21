@@ -58,6 +58,12 @@ void Simulation::updateShots(float delta)
 {
 	removedShots.clear();
 
+	if(shipShot != NULL && shipShot->hasLeftField)
+	{
+		delete shipShot;
+		shipShot = NULL;
+	}
+
 	for(Shots::iterator shot = shots.begin(); shot != shots.end(); shot++)
 	{
 		shot->update(delta);
@@ -70,9 +76,6 @@ void Simulation::updateShots(float delta)
 	{
 		shots.remove(*shot);
 	}
-
-	if(shipShot != NULL && shipShot->hasLeftField) 
-		shipShot = NULL;
 
 	if(MathUtils::randomFloat() < 0.01 * multiplier && invaders.size() > 0)
 	{
@@ -112,6 +115,7 @@ void Simulation::checkInvaderCollision()
 		if(invader->position.dst(shipShot->position) < Invader::INVADER_RADIUS)
 		{
 			shots.remove(*shipShot);
+			delete shipShot;
 			shipShot = NULL;
 			explosions.push_back(Explosion(invader->position));
 			invader = invaders.erase(invader);
@@ -140,7 +144,7 @@ void Simulation::checkShipCollision()
 			if(ship.position.dst(shot->position) < Ship::SHIP_RADIUS)
 			{
 				removedShots.push_back(*shot);
-				shot->hasLeftField = true;
+ 				shot->hasLeftField = true;
 				ship.lives--;
 				ship.isExploding = true;
 				explosions.push_back(Explosion(ship.position));
@@ -203,6 +207,7 @@ void Simulation::checkNextLevel()
 	{
 		blocks.clear();
 		shots.clear();
+		delete shipShot;
 		shipShot = NULL;
 		Vector3 shipPosition = ship.position;
 		int lives = ship.lives;

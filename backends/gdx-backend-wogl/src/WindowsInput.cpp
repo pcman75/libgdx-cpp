@@ -25,19 +25,19 @@ WindowsInput::~WindowsInput(void)
 /** @return The value of the accelerometer on its x-axis. ranges between [-10,10]. */
 float WindowsInput::getAccelerometerX()
 {
-	return -1;
+	return 0.f;
 }
 
 /** @return The value of the accelerometer on its y-axis. ranges between [-10,10]. */
 float WindowsInput::getAccelerometerY()
 {
-	return -1;
+	return 0.f;
 }
 
 /** @return The value of the accelerometer on its y-axis. ranges between [-10,10]. */
 float WindowsInput::getAccelerometerZ()
 {
-	return -1;
+	return 0.f;
 }
 
 /** @return the last touch x coordinate in screen coordinates. The screen origin is the top left corner. */

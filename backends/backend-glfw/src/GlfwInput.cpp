@@ -20,6 +20,7 @@ GlfwInput::GlfwInput(void)
 void GlfwInput::init()
 {
 	::glfwSetMouseButtonCallback(mouseButtonEvent);
+	::glfwSetKeyCallback(keyboardEvent);
 }
 
 GlfwInput::~GlfwInput(void)
@@ -30,19 +31,19 @@ GlfwInput::~GlfwInput(void)
 /** @return The value of the accelerometer on its x-axis. ranges between [-10,10]. */
 float GlfwInput::getAccelerometerX()
 {
-	return -1;
+	return 0.f;
 }
 
 /** @return The value of the accelerometer on its y-axis. ranges between [-10,10]. */
 float GlfwInput::getAccelerometerY()
 {
-	return -1;
+	return 0.f;
 }
 
 /** @return The value of the accelerometer on its y-axis. ranges between [-10,10]. */
 float GlfwInput::getAccelerometerZ()
 {
-	return -1;
+	return 0.f;
 }
 
 /** @return the last touch x coordinate in screen coordinates. The screen origin is the top left corner. */
@@ -140,7 +141,7 @@ bool GlfwInput::isTouched(int pointer)
 	return false;
 }
 
-/** Whether a given button is pressed or not. Button constants can be found in {@link Buttons}. On Android only the Button#LEFT
+/** Whether a given button is pressed or not. Button constants can be found in {@link Buttons}. On Mobile only the Button#LEFT
 * constant is meaningful.
 * @param button the button to check.
 * @return whether the button is down or not. */
@@ -272,7 +273,6 @@ void GlfwInput::setCatchMenuKey(bool catchMenu)
 * @param processor the InputProcessor */
 void GlfwInput::setInputProcessor(InputProcessor* processor)
 {
-	//TODO:
 	this->processor = processor;
 }
 
@@ -280,7 +280,6 @@ void GlfwInput::setInputProcessor(InputProcessor* processor)
 /** @return the currently set {@link InputProcessor} or null. */
 InputProcessor* GlfwInput::getInputProcessor()
 {
-	//TODO:
 	return processor;
 }
 
@@ -352,27 +351,26 @@ void GlfwInput::mouseButtonEvent(int button, int state)
 	}
 }
 
-
-
-
-
-
-void GlfwInput::keyDown(int key, LPARAM lParam)
+void GlfwInput::keyboardEvent(int key, int state)
 {
-	m_keys.insert(translateKey(key));
-	m_keysForProcessor.push_back( KeyEvent( translateKey(key), KeyEvent::KEY_DOWN));
-}
+	GlfwInput* input = ((GlfwInput*)Gdx.input);
 
-void GlfwInput::keyUp(int key, LPARAM lParam)
-{
-	m_keys.erase(translateKey(key));
-	m_keysForProcessor.push_back( KeyEvent( translateKey(key), KeyEvent::KEY_UP));
+	if(state == GLFW_PRESS)
+	{
+		input->m_keys.insert(input->translateKey(key));
+		input->m_keysForProcessor.push_back( KeyEvent( input->translateKey(key), KeyEvent::KEY_DOWN));
+	}
+	else if(state == GLFW_RELEASE)
+	{
+		input->m_keys.erase(input->translateKey(key));
+		input->m_keysForProcessor.push_back( KeyEvent( input->translateKey(key), KeyEvent::KEY_UP));
+	}
 }
 
 int GlfwInput::translateKey(int keyCode)
 {
-	if (keyCode == VK_ADD) return Input::Keys::PLUS;
-	if (keyCode == VK_SUBTRACT) return Input::Keys::MINUS;
+	if (keyCode == GLFW_KEY_KP_ADD) return Input::Keys::PLUS;
+	if (keyCode == GLFW_KEY_KP_SUBTRACT) return Input::Keys::MINUS;
 	if (keyCode == 0x30) return Input::Keys::NUM_0;
 	if (keyCode == 0x31) return Input::Keys::NUM_1;
 	if (keyCode == 0x32) return Input::Keys::NUM_2;
@@ -409,56 +407,59 @@ int GlfwInput::translateKey(int keyCode)
 	if (keyCode == 0x58) return Input::Keys::X;
 	if (keyCode == 0x59) return Input::Keys::Y;
 	if (keyCode == 0x5A) return Input::Keys::Z;
-	if (keyCode == VK_LMENU) return Input::Keys::ALT_LEFT;
-	if (keyCode == VK_RMENU) return Input::Keys::ALT_RIGHT;
-	if (keyCode == VK_OEM_102) return Input::Keys::BACKSLASH;
-	if (keyCode == VK_OEM_COMMA) return Input::Keys::COMMA;
-	if (keyCode == VK_DELETE) return Input::Keys::DEL;
-	if (keyCode == VK_LEFT) return Input::Keys::DPAD_LEFT;
-	if (keyCode == VK_RIGHT) return Input::Keys::DPAD_RIGHT;
-	if (keyCode == VK_UP) return Input::Keys::DPAD_UP;
-	if (keyCode == VK_DOWN) return Input::Keys::DPAD_DOWN;
-	if (keyCode == VK_RETURN) return Input::Keys::ENTER;
-	if (keyCode == VK_HOME) return Input::Keys::HOME;
-	if (keyCode == VK_OEM_MINUS) return Input::Keys::MINUS;
-	if (keyCode == VK_OEM_PERIOD) return Input::Keys::PERIOD;
-	if (keyCode == VK_OEM_PLUS) return Input::Keys::PLUS;
-	if (keyCode == VK_OEM_1) return Input::Keys::SEMICOLON;
-	if (keyCode == VK_SHIFT) return Input::Keys::SHIFT_LEFT;
-	if (keyCode == VK_DIVIDE) return Input::Keys::SLASH;
-	if (keyCode == VK_SPACE) return Input::Keys::SPACE;
-	if (keyCode == VK_TAB) return Input::Keys::TAB;
-	if (keyCode == VK_BACK) return Input::Keys::DEL;
-	if (keyCode == VK_CONTROL) return Input::Keys::CONTROL_LEFT;
-	if (keyCode == VK_ESCAPE) return Input::Keys::ESCAPE;
-	if (keyCode == VK_END) return Input::Keys::END;
-	if (keyCode == VK_INSERT) return Input::Keys::INSERT;
-	if (keyCode == VK_NUMPAD5) return Input::Keys::DPAD_CENTER;
-	if (keyCode == VK_PRIOR) return Input::Keys::PAGE_UP;
-	if (keyCode == VK_NEXT) return Input::Keys::PAGE_DOWN;
-	if (keyCode == VK_F1) return Input::Keys::F1;
-	if (keyCode == VK_F2) return Input::Keys::F2;
-	if (keyCode == VK_F3) return Input::Keys::F3;
-	if (keyCode == VK_F4) return Input::Keys::F4;
-	if (keyCode == VK_F5) return Input::Keys::F5;
-	if (keyCode == VK_F6) return Input::Keys::F6;
-	if (keyCode == VK_F7) return Input::Keys::F7;
-	if (keyCode == VK_F8) return Input::Keys::F8;
-	if (keyCode == VK_F9) return Input::Keys::F9;
-	if (keyCode == VK_F10) return Input::Keys::F10;
-	if (keyCode == VK_F11) return Input::Keys::F11;
-	if (keyCode == VK_F12) return Input::Keys::F12;
-	//if (keyCode == VK_COLON) return Input::Keys::COLON;
-	if (keyCode == VK_NUMPAD0) return Input::Keys::NUM_0;
-	if (keyCode == VK_NUMPAD1) return Input::Keys::NUM_1;
-	if (keyCode == VK_NUMPAD2) return Input::Keys::NUM_2;
-	if (keyCode == VK_NUMPAD3) return Input::Keys::NUM_3;
-	if (keyCode == VK_NUMPAD4) return Input::Keys::NUM_4;
-	if (keyCode == VK_NUMPAD5) return Input::Keys::NUM_5;
-	if (keyCode == VK_NUMPAD6) return Input::Keys::NUM_6;
-	if (keyCode == VK_NUMPAD7) return Input::Keys::NUM_7;
-	if (keyCode == VK_NUMPAD8) return Input::Keys::NUM_8;
-	if (keyCode == VK_NUMPAD9) return Input::Keys::NUM_9;
+	if (keyCode == GLFW_KEY_LALT) return Input::Keys::ALT_LEFT;
+	if (keyCode == GLFW_KEY_RALT) return Input::Keys::ALT_RIGHT;
+	if (keyCode == '\\') return Input::Keys::BACKSLASH;
+	if (keyCode == ',') return Input::Keys::COMMA;
+	if (keyCode == GLFW_KEY_DEL) return Input::Keys::DEL;
+	if (keyCode == GLFW_KEY_LEFT) return Input::Keys::DPAD_LEFT;
+	if (keyCode == GLFW_KEY_RIGHT) return Input::Keys::DPAD_RIGHT;
+	if (keyCode == GLFW_KEY_UP) return Input::Keys::DPAD_UP;
+	if (keyCode == GLFW_KEY_DOWN) return Input::Keys::DPAD_DOWN;
+	if (keyCode == GLFW_KEY_ENTER) return Input::Keys::ENTER;
+	if (keyCode == GLFW_KEY_HOME) return Input::Keys::HOME;
+	if (keyCode == '-') return Input::Keys::MINUS;
+	if (keyCode == '.') return Input::Keys::PERIOD;
+	if (keyCode == '+') return Input::Keys::PLUS;
+	if (keyCode == ';') return Input::Keys::SEMICOLON;
+	if (keyCode == GLFW_KEY_LSHIFT) return Input::Keys::SHIFT_LEFT;
+	if (keyCode == GLFW_KEY_RSHIFT) return Input::Keys::SHIFT_RIGHT;
+	if (keyCode == '/') return Input::Keys::SLASH;
+	if (keyCode == GLFW_KEY_SPACE) return Input::Keys::SPACE;
+	if (keyCode == GLFW_KEY_TAB) return Input::Keys::TAB;
+	if (keyCode == GLFW_KEY_DEL) return Input::Keys::DEL;
+	if (keyCode == GLFW_KEY_LCTRL) return Input::Keys::CONTROL_LEFT;
+	if (keyCode == GLFW_KEY_RCTRL) return Input::Keys::CONTROL_RIGHT;
+	if (keyCode == GLFW_KEY_ESC) return Input::Keys::ESCAPE;
+	if (keyCode == GLFW_KEY_END) return Input::Keys::END;
+	if (keyCode == GLFW_KEY_INSERT) return Input::Keys::INSERT;
+	//TODO DPAD_CENTER or NUM_5???
+	if (keyCode == GLFW_KEY_KP_5) return Input::Keys::DPAD_CENTER;
+	if (keyCode == GLFW_KEY_PAGEUP) return Input::Keys::PAGE_UP;
+	if (keyCode == GLFW_KEY_PAGEDOWN) return Input::Keys::PAGE_DOWN;
+	if (keyCode == GLFW_KEY_F1) return Input::Keys::F1;
+	if (keyCode == GLFW_KEY_F2) return Input::Keys::F2;
+	if (keyCode == GLFW_KEY_F3) return Input::Keys::F3;
+	if (keyCode == GLFW_KEY_F4) return Input::Keys::F4;
+	if (keyCode == GLFW_KEY_F5) return Input::Keys::F5;
+	if (keyCode == GLFW_KEY_F6) return Input::Keys::F6;
+	if (keyCode == GLFW_KEY_F7) return Input::Keys::F7;
+	if (keyCode == GLFW_KEY_F8) return Input::Keys::F8;
+	if (keyCode == GLFW_KEY_F9) return Input::Keys::F9;
+	if (keyCode == GLFW_KEY_F10) return Input::Keys::F10;
+	if (keyCode == GLFW_KEY_F11) return Input::Keys::F11;
+	if (keyCode == GLFW_KEY_F12) return Input::Keys::F12;
+	if (keyCode == ':') return Input::Keys::COLON;
+	if (keyCode == GLFW_KEY_KP_0) return Input::Keys::NUM_0;
+	if (keyCode == GLFW_KEY_KP_1) return Input::Keys::NUM_1;
+	if (keyCode == GLFW_KEY_KP_2) return Input::Keys::NUM_2;
+	if (keyCode == GLFW_KEY_KP_3) return Input::Keys::NUM_3;
+	if (keyCode == GLFW_KEY_KP_4) return Input::Keys::NUM_4;
+	if (keyCode == GLFW_KEY_KP_5) return Input::Keys::NUM_5;
+	if (keyCode == GLFW_KEY_KP_6) return Input::Keys::NUM_6;
+	if (keyCode == GLFW_KEY_KP_7) return Input::Keys::NUM_7;
+	if (keyCode == GLFW_KEY_KP_8) return Input::Keys::NUM_8;
+	if (keyCode == GLFW_KEY_KP_9) return Input::Keys::NUM_9;
 
 	return Input::Keys::UNKNOWN;
 }
