@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'gdx-tests-osx' target in the 'gdx-tests-osx' project
+//
+
+#ifdef __OBJC__
+    #import <Cocoa/Cocoa.h>
+#endif
