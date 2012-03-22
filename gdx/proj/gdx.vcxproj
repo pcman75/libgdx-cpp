@@ -85,6 +85,7 @@
     <ClCompile Include="..\src\DecelerateInterpolator.cpp" />
     <ClCompile Include="..\src\Glyph.cpp" />
     <ClCompile Include="..\src\ImmediateModeRenderer10.cpp" />
+    <ClCompile Include="..\src\ImmediateModeRenderer20.cpp" />
     <ClCompile Include="..\src\LinearInterpolator.cpp" />
     <ClCompile Include="..\src\ModelLoaderOld.cpp" />
     <ClCompile Include="..\src\ObjLoader.cpp" />
@@ -195,6 +196,7 @@
     <ClInclude Include="..\include\DecelerateInterpolator.h" />
     <ClInclude Include="..\include\ImmediateModeRenderer.h" />
     <ClInclude Include="..\include\ImmediateModeRenderer10.h" />
+    <ClInclude Include="..\include\ImmediateModeRenderer20.h" />
     <ClInclude Include="..\include\LinearInterpolator.h" />
     <ClInclude Include="..\include\ModelLoaderOld.h" />
     <ClInclude Include="..\include\Mutex.h" />

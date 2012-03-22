@@ -44,9 +44,6 @@ public:
 	* @param numComponents the number of components of this attribute, must be between 1 and 4.
 	* @param alias the alias used in a shader for this attribute. Can be changed after construction. */
 	VertexAttribute (int usage, int numComponents, std::string alias);
-	
-	virtual ~VertexAttribute();
-
-protected:
 	VertexAttribute();
+	virtual ~VertexAttribute();
 };

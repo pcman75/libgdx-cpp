@@ -300,6 +300,9 @@
     <ClCompile Include="..\src\ImmediateModeRenderer10.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\ImmediateModeRenderer20.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\lib\etc1_utils.h">
@@ -636,6 +639,9 @@
       <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="..\include\ImmediateModeRenderer10.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\ImmediateModeRenderer20.h">
       <Filter>include</Filter>
     </ClInclude>
   </ItemGroup>
