@@ -11,7 +11,7 @@ GlfwMutex::GlfwMutex()
 * This function destroys a mutex object. 
 * After a mutex object has been destroyed, it may no longer be used by any thread.
 */
-void GlfwMutex::destroy()
+GlfwMutex::~GlfwMutex()
 {
 	::glfwDestroyMutex(m_mutex);
 }

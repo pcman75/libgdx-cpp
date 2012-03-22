@@ -18,12 +18,7 @@ private:
 public:
 
 	GlfwMutex();
-
-	/*
-	* This function destroys a mutex object. 
-	* After a mutex object has been destroyed, it may no longer be used by any thread.
-	*/
-	virtual void destroy();
+	virtual ~GlfwMutex();
 
 	/* This function will acquire a lock on the selected mutex object. 
 	* If the mutex is already locked by another thread, 

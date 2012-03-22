@@ -11,13 +11,7 @@ class WaitCondition
 public:
 	static const int infinity = 0;
 	virtual ~WaitCondition() {}
-
-	/*
-	* This function destroys a condition variable object. After a condition variable object has been destroyed,
-	* it may no longer be used by any thread.
-	*/
-	virtual void destroy() = 0;
-
+	
 	/*
 	* This function atomically unlocks the mutex specified by mutex, and waits for the condition variable
 	* cond to be signaled. The thread execution is suspended and does not consume any CPU time until the

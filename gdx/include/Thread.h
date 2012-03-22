@@ -30,7 +30,7 @@ public:
 	*
 	* Notes: This function is a very dangerous operation, which may interrupt a thread in the middle of an important
 	* operation, and its use is discouraged. You should always try to end a thread in a graceful way using
-	* thread communication, and use glfwWaitThread in order to wait for the thread to die.
+	* thread communication, and use wait() in order to wait for the thread to die.
 	*/
 	virtual void destroy() = 0;
 };

@@ -11,12 +11,6 @@ class Mutex
 public:
 	virtual ~Mutex() {}
 
-	/*
-	* This function destroys a mutex object. 
-	* After a mutex object has been destroyed, it may no longer be used by any thread.
-	*/
-	virtual void destroy() = 0;
-
 	/* This function will acquire a lock on the selected mutex object. 
 	* If the mutex is already locked by another thread, 
 	* the function will block the calling thread until it is released by the locking thread. 

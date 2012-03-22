@@ -2,12 +2,12 @@
 #include "GlfwWaitCondition.h"
 #include "GlfwMutex.h"
 
+GlfwWaitCondition::GlfwWaitCondition()
+{
+	m_cond = ::glfwCreateCond();
+}
 
-/*
-* This function destroys a condition variable object. After a condition variable object has been destroyed,
-* it may no longer be used by any thread.
-*/
-void GlfwWaitCondition::destroy()
+GlfwWaitCondition::~GlfwWaitCondition()
 {
 	::glfwDestroyCond(m_cond);
 }
@@ -27,7 +27,13 @@ void GlfwWaitCondition::destroy()
 */
 void GlfwWaitCondition::wait(Mutex* mutex, long long timeout)
 {
-	::glfwWaitCond(m_cond, ((GlfwMutex*)mutex)->m_mutex, timeout * 10E6);
+	double timeOutSeconds = timeout * 10E9;
+	if(timeout == infinity)
+	{
+		timeOutSeconds = GLFW_INFINITY;
+	}
+
+	::glfwWaitCond(m_cond, ((GlfwMutex*)mutex)->m_mutex, timeOutSeconds);
 }
 
 

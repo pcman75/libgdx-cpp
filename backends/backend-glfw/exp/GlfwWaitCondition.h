@@ -13,11 +13,8 @@ private:
 	GLFWcond m_cond;
 
 public:
-	/*
-	* This function destroys a condition variable object. After a condition variable object has been destroyed,
-	* it may no longer be used by any thread.
-	*/
-	virtual void destroy();
+	GlfwWaitCondition();
+	virtual ~GlfwWaitCondition();
 
 	/*
 	* This function atomically unlocks the mutex specified by mutex, and waits for the condition variable

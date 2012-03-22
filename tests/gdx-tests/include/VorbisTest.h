@@ -38,10 +38,16 @@ class VorbisTest :
 	AudioDevice* device;
 	/** playing back thread**/
 	Thread* playbackThread;
+
+	Mutex* m_stopMutex;
+	WaitCondition* m_waitCondition;
+	bool m_mustStopSound;
 public:
 	
 	void create () 
 	{
+		m_mustStopSound = false;
+
 		/** the file to playback **/
 		static const char* FILE = "c:/cloudconnected.ogg";
 
@@ -61,8 +67,35 @@ public:
 		// Create an audio device for playback
 		device = Gdx.audio->newAudioDevice(decoder->getRate(), decoder->getChannels() == 1? true: false);
 		
+		//create a mutex to sinchronize threads on the stop audio condition
+		m_stopMutex = Gdx.threading->createMutex();
+
+		m_waitCondition = Gdx.threading->createWaitCondition();
+
 		// start a thread for playback
 		playbackThread = Gdx.threading->createThread(play, this);
+	}
+
+	bool mustStopSound()
+	{
+		bool mustStop;
+		m_stopMutex->lock();
+		mustStop = m_mustStopSound;
+		m_stopMutex->unlock();
+		return mustStop;
+	}
+
+	void stopSound()
+	{
+		m_stopMutex->lock();
+		m_mustStopSound = true;
+		m_waitCondition->wait(m_stopMutex, WaitCondition::infinity);
+		m_stopMutex->unlock();
+	}
+
+	void soundStopped()
+	{
+		m_waitCondition->signal();
 	}
 
 	static void play(void* arg)
@@ -71,22 +104,24 @@ public:
 
 		int readSamples = 0;
 		// we need a short[] to pass the data to the AudioDevice
-		short samples[2048];
+		short samples[512];
 				
 		// read until we reach the end of the file
-		while((readSamples = testData->decoder->readSamples(samples, sizeof(samples)/sizeof(samples[0]))) > 0)
+		while(!testData->mustStopSound() && (readSamples = testData->decoder->readSamples(samples, sizeof(samples)/sizeof(samples[0]))) > 0)
 		{
 			// write the samples to the AudioDevice
 			testData->device->writeSamples(samples, readSamples);
 		}
+		testData->soundStopped();
 	}
 
 	void dispose() 
 	{
-		// we should synchronize with the thread here
-		// left as an excercise to the reader :)
-		playbackThread->destroy();
+		stopSound();
+
 		delete playbackThread;
+		delete m_stopMutex;
+		delete m_waitCondition;
 
 		device->dispose();
 		decoder->dispose();
