@@ -31,9 +31,13 @@ void ImmediateModeRenderer10::init(int maxVertices)
 		throw GdxRuntimeException("ImmediateModeRenderer10 can only be used with OpenGL ES 1.0/1.1");
 
 	m_positions = new float[3 * maxVertices];
+	memset(m_positions, 0, 3 * maxVertices * sizeof(float));
 	m_colors = new float[4 * maxVertices];
+	memset(m_colors, 0, 4 * maxVertices * sizeof(float));
 	m_normals = new float[3 * maxVertices];
+	memset(m_normals, 0, 3 * maxVertices * sizeof(float));
 	m_texCoords = new float[2 * maxVertices];
+	memset(m_texCoords, 0, 2 * maxVertices * sizeof(float));
 }
 
 void ImmediateModeRenderer10::begin(const Matrix4& projModelView, int primitiveType)

@@ -75,8 +75,8 @@ public:
 		if(true)
 		{
 			alignmentWidth = 280;
-			font->drawMultiLine(spriteBatch, text, x, viewHeight - y, alignmentWidth, BitmapFont::RIGHT);
-			//font->drawWrapped(spriteBatch, text, x, viewHeight - y, alignmentWidth, BitmapFont::LEFT);
+			//font->drawMultiLine(spriteBatch, text, x, viewHeight - y, alignmentWidth, BitmapFont::RIGHT);
+			font->drawWrapped(spriteBatch, text, x, viewHeight - y, alignmentWidth, BitmapFont::LEFT);
 		}
 
 		spriteBatch->end();

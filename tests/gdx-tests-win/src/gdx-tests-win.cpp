@@ -56,9 +56,9 @@ void Controller::Command (HWND hwnd, int controlID, int command)
 						bool wogl = ::SendMessage(hCheckBox, BM_GETCHECK, 0, 0) == BST_CHECKED;
 
 						if(wogl)
-							WoglApplication(*test, textBuffer, 400, 300, test->needsGL20());
+							WoglApplication(*test, textBuffer, 640, 480, test->needsGL20());
 						else
-							GlfwApplication(*test, textBuffer, 400, 300, test->needsGL20());
+							GlfwApplication(*test, textBuffer, 640, 480, test->needsGL20());
 						delete test;
 					}
 					delete[] textBuffer;
