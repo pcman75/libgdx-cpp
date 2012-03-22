@@ -54,6 +54,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>opengl32.lib;glu32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -71,6 +72,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>opengl32.lib;glu32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -82,6 +84,7 @@
     <ClCompile Include="..\src\BitmapFontData.cpp" />
     <ClCompile Include="..\src\DecelerateInterpolator.cpp" />
     <ClCompile Include="..\src\Glyph.cpp" />
+    <ClCompile Include="..\src\ImmediateModeRenderer10.cpp" />
     <ClCompile Include="..\src\LinearInterpolator.cpp" />
     <ClCompile Include="..\src\ModelLoaderOld.cpp" />
     <ClCompile Include="..\src\ObjLoader.cpp" />
@@ -190,6 +193,8 @@
     <ClInclude Include="..\include\AnticipateInterpolator.h" />
     <ClInclude Include="..\include\BitmapFont.h" />
     <ClInclude Include="..\include\DecelerateInterpolator.h" />
+    <ClInclude Include="..\include\ImmediateModeRenderer.h" />
+    <ClInclude Include="..\include\ImmediateModeRenderer10.h" />
     <ClInclude Include="..\include\LinearInterpolator.h" />
     <ClInclude Include="..\include\ModelLoaderOld.h" />
     <ClInclude Include="..\include\Mutex.h" />

@@ -16,6 +16,8 @@
 #include <windows.h>
 #endif
 
+#include <GL\gl.h>
+
 #include <iostream>
 #include <sstream>
 #include <string>

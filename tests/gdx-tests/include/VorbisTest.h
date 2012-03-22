@@ -33,15 +33,16 @@ class VorbisTest :
 {
 	
 	/** a VorbisDecoder to read PCM data from the ogg file **/
-	VorbisDecoder* decoder;
+	VorbisDecoder* m_decoder;
 	/** an AudioDevice for playing back the PCM data **/
-	AudioDevice* device;
+	AudioDevice* m_device;
+	
 	/** playing back thread**/
-	Thread* playbackThread;
-
+	Thread* m_playbackThread;
 	Mutex* m_stopMutex;
 	WaitCondition* m_waitCondition;
 	bool m_mustStopSound;
+
 public:
 	
 	void create () 
@@ -55,17 +56,17 @@ public:
 		FileHandle externalFile = Gdx.files->externalHandle(FILE);
 		//Gdx.files.internal(FILE).copyTo(externalFile);
 		
-		// Create the decoder and log some properties. Note that we need
+		// Create the m_decoder and log some properties. Note that we need
 		// an external or absolute file
-		decoder = new VorbisDecoder(externalFile);
+		m_decoder = new VorbisDecoder(externalFile);
 
 
 		std::stringstream logMsg;
-		logMsg << "channels: " << decoder->getChannels() << ", rate: " << decoder->getRate() << ", length: " << decoder->getLength();
+		logMsg << "channels: " << m_decoder->getChannels() << ", rate: " << m_decoder->getRate() << ", length: " << m_decoder->getLength();
 		Gdx.app->log("Vorbis", logMsg.str());
 
-		// Create an audio device for playback
-		device = Gdx.audio->newAudioDevice(decoder->getRate(), decoder->getChannels() == 1? true: false);
+		// Create an audio m_device for playback
+		m_device = Gdx.audio->newAudioDevice(m_decoder->getRate(), m_decoder->getChannels() == 1? true: false);
 		
 		//create a mutex to sinchronize threads on the stop audio condition
 		m_stopMutex = Gdx.threading->createMutex();
@@ -73,7 +74,7 @@ public:
 		m_waitCondition = Gdx.threading->createWaitCondition();
 
 		// start a thread for playback
-		playbackThread = Gdx.threading->createThread(play, this);
+		m_playbackThread = Gdx.threading->createThread(play, this);
 	}
 
 	bool mustStopSound()
@@ -107,10 +108,10 @@ public:
 		short samples[512];
 				
 		// read until we reach the end of the file
-		while(!testData->mustStopSound() && (readSamples = testData->decoder->readSamples(samples, sizeof(samples)/sizeof(samples[0]))) > 0)
+		while(!testData->mustStopSound() && (readSamples = testData->m_decoder->readSamples(samples, sizeof(samples)/sizeof(samples[0]))) > 0)
 		{
 			// write the samples to the AudioDevice
-			testData->device->writeSamples(samples, readSamples);
+			testData->m_device->writeSamples(samples, readSamples);
 		}
 		testData->soundStopped();
 	}
@@ -119,14 +120,14 @@ public:
 	{
 		stopSound();
 
-		delete playbackThread;
+		delete m_playbackThread;
 		delete m_stopMutex;
 		delete m_waitCondition;
 
-		device->dispose();
-		decoder->dispose();
-		delete device;
-		delete decoder;
+		m_device->dispose();
+		m_decoder->dispose();
+		delete m_device;
+		delete m_decoder;
 	}
 
 	GDX_DEFINE_CREATOR(VorbisTest);

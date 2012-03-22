@@ -18,6 +18,7 @@
 #include "SpriteBatch.h"
 #include "GdxTest.h"
 #include "BitmapFont.h"
+#include "ImmediateModeRenderer10.h"
 
 class BitmapFontTest :
 	public GdxTest
@@ -26,7 +27,7 @@ private:
 	SpriteBatch* spriteBatch;
 	
 	BitmapFont* font;
-	//ImmediateModeRenderer10* renderer;
+	ImmediateModeRenderer10* renderer;
 
 	
 public:
@@ -37,7 +38,7 @@ public:
 		//TextureAtlas textureAtlas = new TextureAtlas("data/pack");
 		//font = new BitmapFont(Gdx.files.internal("data/verdana39.fnt"), textureAtlas.findRegion("verdana39"), false);
 		//font = new BitmapFont(Gdx.files->internalHandle("data/verdana39.fnt"), textureAtlas->findRegion("verdana39"), false);
-		//renderer = new ImmediateModeRenderer10();
+		renderer = new ImmediateModeRenderer10();
 		font = new BitmapFont(Gdx.files->internalHandle("data/default.fnt"), false);
 	}
 
@@ -48,7 +49,7 @@ public:
 		int viewHeight = Gdx.graphics->getHeight();
 
 		GL10* gl = Gdx.graphics->getGL10();
-		gl->glClearColor(1, 1, 1, 1);
+		gl->glClearColor(0, 1, 1, 1);
 		gl->glClear(GL10::GDX_GL_COLOR_BUFFER_BIT);
 		spriteBatch->begin();
 
@@ -85,7 +86,6 @@ public:
 
 	void drawRect(float x1, float y1, float x2, float y2)
 	{
-		/*
 		renderer->begin(GL10::GDX_GL_LINE_STRIP);
 		renderer->vertex(x1, y1, 0);
 		renderer->vertex(x1, y2, 0);
@@ -93,14 +93,13 @@ public:
 		renderer->vertex(x2, y1, 0);
 		renderer->vertex(x1, y1, 0);
 		renderer->end();
-		*/
 	}
 
 	~BitmapFontTest()
 	{
 		delete font;
 		delete spriteBatch;
-		
+		delete renderer;
 	}
 
 	GDX_DEFINE_CREATOR(BitmapFontTest);
