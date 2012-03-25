@@ -1,20 +1,14 @@
 #pragma once
 
-/*
+
 #include "GLCommon.h"
 #include "GL10.h"
 #include "GL11.h"
 #include "GL20.h"
-*/
 
-class GLCommon;
-class GL10;
-class GL11;
-class GL20;
 
-class GLU;
-
-class Pixmap;
+//class GLU;
+//class Pixmap;
 
 /** <p>
 * This interface encapsulates the communication with the graphics processor. It allows to retrieve {@link GL10}, {@link GL11} and
@@ -138,7 +132,7 @@ public:
 	virtual GL20* getGL20 () = 0;
 
 	/** @return the {@link GLU} instance */
-	virtual const GLU* getGLU () = 0;
+	//virtual const GLU* getGLU () = 0;
 
 	/** @return the width in pixels of the display surface */
 	virtual int getWidth () = 0;

@@ -58,7 +58,7 @@ public:
 	GL10* gl10;
 	GL11* gl11;
 	GL20* gl20;
-	GLU* glu;
+	//GLU* glu;
 
 	public:
         static GdxClass& getInstance()

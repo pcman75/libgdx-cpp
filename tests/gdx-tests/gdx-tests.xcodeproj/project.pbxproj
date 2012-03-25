@@ -1,0 +1,429 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		17D05CDD151F8832002CBB67 /* Shapes.h in Headers */ = {isa = PBXBuildFile; fileRef = 17D05CA4151F8832002CBB67 /* Shapes.h */; };
+		17D05CDE151F8832002CBB67 /* stdafx.h in Headers */ = {isa = PBXBuildFile; fileRef = 17D05CA5151F8832002CBB67 /* stdafx.h */; };
+		17D05CDF151F8832002CBB67 /* targetver.h in Headers */ = {isa = PBXBuildFile; fileRef = 17D05CA6151F8832002CBB67 /* targetver.h */; };
+		17D05CE0151F8832002CBB67 /* AlphaTest.h in Headers */ = {isa = PBXBuildFile; fileRef = 17D05CA8151F8832002CBB67 /* AlphaTest.h */; };
+		17D05CE1151F8832002CBB67 /* AudioDeviceTest.h in Headers */ = {isa = PBXBuildFile; fileRef = 17D05CA9151F8832002CBB67 /* AudioDeviceTest.h */; };
+		17D05CE2151F8832002CBB67 /* BitmapFontTest.h in Headers */ = {isa = PBXBuildFile; fileRef = 17D05CAA151F8832002CBB67 /* BitmapFontTest.h */; };
+		17D05CE3151F8832002CBB67 /* BlitTest.h in Headers */ = {isa = PBXBuildFile; fileRef = 17D05CAB151F8832002CBB67 /* BlitTest.h */; };
+		17D05CE4151F8832002CBB67 /* BobTest.h in Headers */ = {isa = PBXBuildFile; fileRef = 17D05CAC151F8832002CBB67 /* BobTest.h */; };
+		17D05CE5151F8832002CBB67 /* FloatTest.h in Headers */ = {isa = PBXBuildFile; fileRef = 17D05CAD151F8832002CBB67 /* FloatTest.h */; };
+		17D05CE7151F8832002CBB67 /* Gdx2DTest.h in Headers */ = {isa = PBXBuildFile; fileRef = 17D05CAF151F8832002CBB67 /* Gdx2DTest.h */; };
+		17D05CE8151F8832002CBB67 /* GdxTest.h in Headers */ = {isa = PBXBuildFile; fileRef = 17D05CB0151F8832002CBB67 /* GdxTest.h */; };
+		17D05CE9151F8832002CBB67 /* GdxTests.h in Headers */ = {isa = PBXBuildFile; fileRef = 17D05CB1151F8832002CBB67 /* GdxTests.h */; };
+		17D05CEA151F8832002CBB67 /* GdxTestsDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = 17D05CB2151F8832002CBB67 /* GdxTestsDefines.h */; };
+		17D05CEB151F8832002CBB67 /* GroupTest.h in Headers */ = {isa = PBXBuildFile; fileRef = 17D05CB3151F8832002CBB67 /* GroupTest.h */; };
+		17D05CEC151F8832002CBB67 /* IndexBufferObjectClassTest.h in Headers */ = {isa = PBXBuildFile; fileRef = 17D05CB4151F8832002CBB67 /* IndexBufferObjectClassTest.h */; };
+		17D05CED151F8832002CBB67 /* IndexBufferObjectShaderTest.h in Headers */ = {isa = PBXBuildFile; fileRef = 17D05CB5151F8832002CBB67 /* IndexBufferObjectShaderTest.h */; };
+		17D05CF0151F8832002CBB67 /* MatrixJNITest.h in Headers */ = {isa = PBXBuildFile; fileRef = 17D05CB8151F8832002CBB67 /* MatrixJNITest.h */; };
+		17D05CF1151F8832002CBB67 /* MeshMultitextureTest.h in Headers */ = {isa = PBXBuildFile; fileRef = 17D05CB9151F8832002CBB67 /* MeshMultitextureTest.h */; };
+		17D05CF2151F8832002CBB67 /* MeshShaderTest.h in Headers */ = {isa = PBXBuildFile; fileRef = 17D05CBA151F8832002CBB67 /* MeshShaderTest.h */; };
+		17D05CF3151F8832002CBB67 /* MeshTest.h in Headers */ = {isa = PBXBuildFile; fileRef = 17D05CBB151F8832002CBB67 /* MeshTest.h */; };
+		17D05CF4151F8832002CBB67 /* MipMap2D.h in Headers */ = {isa = PBXBuildFile; fileRef = 17D05CBC151F8832002CBB67 /* MipMap2D.h */; };
+		17D05CF5151F8832002CBB67 /* MipMapTest.h in Headers */ = {isa = PBXBuildFile; fileRef = 17D05CBD151F8832002CBB67 /* MipMapTest.h */; };
+		17D05CF6151F8832002CBB67 /* MoveSpriteExample.h in Headers */ = {isa = PBXBuildFile; fileRef = 17D05CBE151F8832002CBB67 /* MoveSpriteExample.h */; };
+		17D05CF7151F8832002CBB67 /* Mpg123Test.h in Headers */ = {isa = PBXBuildFile; fileRef = 17D05CBF151F8832002CBB67 /* Mpg123Test.h */; };
+		17D05CF8151F8832002CBB67 /* OrthoCamBorderTest.h in Headers */ = {isa = PBXBuildFile; fileRef = 17D05CC0151F8832002CBB67 /* OrthoCamBorderTest.h */; };
+		17D05CF9151F8832002CBB67 /* PixmapBlendingTest.h in Headers */ = {isa = PBXBuildFile; fileRef = 17D05CC1151F8832002CBB67 /* PixmapBlendingTest.h */; };
+		17D05CFA151F8832002CBB67 /* PixmapTest.h in Headers */ = {isa = PBXBuildFile; fileRef = 17D05CC2151F8832002CBB67 /* PixmapTest.h */; };
+		17D05CFB151F8832002CBB67 /* Pong.h in Headers */ = {isa = PBXBuildFile; fileRef = 17D05CC3151F8832002CBB67 /* Pong.h */; };
+		17D05CFC151F8832002CBB67 /* RotationTest.h in Headers */ = {isa = PBXBuildFile; fileRef = 17D05CC4151F8832002CBB67 /* RotationTest.h */; };
+		17D05CFD151F8832002CBB67 /* ShaderMultitextureTest.h in Headers */ = {isa = PBXBuildFile; fileRef = 17D05CC5151F8832002CBB67 /* ShaderMultitextureTest.h */; };
+		17D05CFE151F8832002CBB67 /* SimpleVertexShader.h in Headers */ = {isa = PBXBuildFile; fileRef = 17D05CC6151F8832002CBB67 /* SimpleVertexShader.h */; };
+		17D05D00151F8832002CBB67 /* SpriteBatchRotationTest.h in Headers */ = {isa = PBXBuildFile; fileRef = 17D05CC8151F8832002CBB67 /* SpriteBatchRotationTest.h */; };
+		17D05D01151F8832002CBB67 /* SpriteBatchShaderTest.h in Headers */ = {isa = PBXBuildFile; fileRef = 17D05CC9151F8832002CBB67 /* SpriteBatchShaderTest.h */; };
+		17D05D02151F8832002CBB67 /* SpriteBatchTest.h in Headers */ = {isa = PBXBuildFile; fileRef = 17D05CCA151F8832002CBB67 /* SpriteBatchTest.h */; };
+		17D05D03151F8832002CBB67 /* TextureDataTest.h in Headers */ = {isa = PBXBuildFile; fileRef = 17D05CCB151F8832002CBB67 /* TextureDataTest.h */; };
+		17D05D04151F8832002CBB67 /* VertexArrayClassTest.h in Headers */ = {isa = PBXBuildFile; fileRef = 17D05CCC151F8832002CBB67 /* VertexArrayClassTest.h */; };
+		17D05D05151F8832002CBB67 /* VertexArrayTest.h in Headers */ = {isa = PBXBuildFile; fileRef = 17D05CCD151F8832002CBB67 /* VertexArrayTest.h */; };
+		17D05D06151F8832002CBB67 /* VertexBufferObjectShaderTest.h in Headers */ = {isa = PBXBuildFile; fileRef = 17D05CCE151F8832002CBB67 /* VertexBufferObjectShaderTest.h */; };
+		17D05D07151F8832002CBB67 /* VorbisTest.h in Headers */ = {isa = PBXBuildFile; fileRef = 17D05CCF151F8832002CBB67 /* VorbisTest.h */; };
+		17D05D08151F8832002CBB67 /* WavTest.h in Headers */ = {isa = PBXBuildFile; fileRef = 17D05CD0151F8832002CBB67 /* WavTest.h */; };
+		17D05D0A151F8832002CBB67 /* GdxTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17D05CD3151F8832002CBB67 /* GdxTests.cpp */; };
+		17D05D0B151F8832002CBB67 /* MatrixJNITest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17D05CD4151F8832002CBB67 /* MatrixJNITest.cpp */; };
+		17D05D0C151F8832002CBB67 /* MeshShaderTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17D05CD5151F8832002CBB67 /* MeshShaderTest.cpp */; };
+		17D05D0D151F8832002CBB67 /* PixmapBlendingTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17D05CD6151F8832002CBB67 /* PixmapBlendingTest.cpp */; };
+		17D05D0E151F8832002CBB67 /* PixmapTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17D05CD7151F8832002CBB67 /* PixmapTest.cpp */; };
+		17D05D0F151F8832002CBB67 /* Pong.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17D05CD8151F8832002CBB67 /* Pong.cpp */; };
+		17D05D10151F8832002CBB67 /* SpriteBatchRotationTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17D05CD9151F8832002CBB67 /* SpriteBatchRotationTest.cpp */; };
+		17D05D11151F8832002CBB67 /* SpriteBatchTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17D05CDA151F8832002CBB67 /* SpriteBatchTest.cpp */; };
+		17D05D12151F8832002CBB67 /* stdafx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17D05CDB151F8832002CBB67 /* stdafx.cpp */; };
+		17D05D13151F8832002CBB67 /* VertexBufferObjectShaderTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17D05CDC151F8832002CBB67 /* VertexBufferObjectShaderTest.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		17D05C9C151F87E6002CBB67 /* libgdx-tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libgdx-tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		17D05CA4151F8832002CBB67 /* Shapes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shapes.h; sourceTree = "<group>"; };
+		17D05CA5151F8832002CBB67 /* stdafx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stdafx.h; sourceTree = "<group>"; };
+		17D05CA6151F8832002CBB67 /* targetver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = targetver.h; sourceTree = "<group>"; };
+		17D05CA8151F8832002CBB67 /* AlphaTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlphaTest.h; sourceTree = "<group>"; };
+		17D05CA9151F8832002CBB67 /* AudioDeviceTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioDeviceTest.h; sourceTree = "<group>"; };
+		17D05CAA151F8832002CBB67 /* BitmapFontTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BitmapFontTest.h; sourceTree = "<group>"; };
+		17D05CAB151F8832002CBB67 /* BlitTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlitTest.h; sourceTree = "<group>"; };
+		17D05CAC151F8832002CBB67 /* BobTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BobTest.h; sourceTree = "<group>"; };
+		17D05CAD151F8832002CBB67 /* FloatTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FloatTest.h; sourceTree = "<group>"; };
+		17D05CAF151F8832002CBB67 /* Gdx2DTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gdx2DTest.h; sourceTree = "<group>"; };
+		17D05CB0151F8832002CBB67 /* GdxTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GdxTest.h; sourceTree = "<group>"; };
+		17D05CB1151F8832002CBB67 /* GdxTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GdxTests.h; sourceTree = "<group>"; };
+		17D05CB2151F8832002CBB67 /* GdxTestsDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GdxTestsDefines.h; sourceTree = "<group>"; };
+		17D05CB3151F8832002CBB67 /* GroupTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupTest.h; sourceTree = "<group>"; };
+		17D05CB4151F8832002CBB67 /* IndexBufferObjectClassTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndexBufferObjectClassTest.h; sourceTree = "<group>"; };
+		17D05CB5151F8832002CBB67 /* IndexBufferObjectShaderTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndexBufferObjectShaderTest.h; sourceTree = "<group>"; };
+		17D05CB8151F8832002CBB67 /* MatrixJNITest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatrixJNITest.h; sourceTree = "<group>"; };
+		17D05CB9151F8832002CBB67 /* MeshMultitextureTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeshMultitextureTest.h; sourceTree = "<group>"; };
+		17D05CBA151F8832002CBB67 /* MeshShaderTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeshShaderTest.h; sourceTree = "<group>"; };
+		17D05CBB151F8832002CBB67 /* MeshTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeshTest.h; sourceTree = "<group>"; };
+		17D05CBC151F8832002CBB67 /* MipMap2D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MipMap2D.h; sourceTree = "<group>"; };
+		17D05CBD151F8832002CBB67 /* MipMapTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MipMapTest.h; sourceTree = "<group>"; };
+		17D05CBE151F8832002CBB67 /* MoveSpriteExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoveSpriteExample.h; sourceTree = "<group>"; };
+		17D05CBF151F8832002CBB67 /* Mpg123Test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mpg123Test.h; sourceTree = "<group>"; };
+		17D05CC0151F8832002CBB67 /* OrthoCamBorderTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrthoCamBorderTest.h; sourceTree = "<group>"; };
+		17D05CC1151F8832002CBB67 /* PixmapBlendingTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PixmapBlendingTest.h; sourceTree = "<group>"; };
+		17D05CC2151F8832002CBB67 /* PixmapTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PixmapTest.h; sourceTree = "<group>"; };
+		17D05CC3151F8832002CBB67 /* Pong.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pong.h; sourceTree = "<group>"; };
+		17D05CC4151F8832002CBB67 /* RotationTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RotationTest.h; sourceTree = "<group>"; };
+		17D05CC5151F8832002CBB67 /* ShaderMultitextureTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShaderMultitextureTest.h; sourceTree = "<group>"; };
+		17D05CC6151F8832002CBB67 /* SimpleVertexShader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleVertexShader.h; sourceTree = "<group>"; };
+		17D05CC8151F8832002CBB67 /* SpriteBatchRotationTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpriteBatchRotationTest.h; sourceTree = "<group>"; };
+		17D05CC9151F8832002CBB67 /* SpriteBatchShaderTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpriteBatchShaderTest.h; sourceTree = "<group>"; };
+		17D05CCA151F8832002CBB67 /* SpriteBatchTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpriteBatchTest.h; sourceTree = "<group>"; };
+		17D05CCB151F8832002CBB67 /* TextureDataTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextureDataTest.h; sourceTree = "<group>"; };
+		17D05CCC151F8832002CBB67 /* VertexArrayClassTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VertexArrayClassTest.h; sourceTree = "<group>"; };
+		17D05CCD151F8832002CBB67 /* VertexArrayTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VertexArrayTest.h; sourceTree = "<group>"; };
+		17D05CCE151F8832002CBB67 /* VertexBufferObjectShaderTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VertexBufferObjectShaderTest.h; sourceTree = "<group>"; };
+		17D05CCF151F8832002CBB67 /* VorbisTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VorbisTest.h; sourceTree = "<group>"; };
+		17D05CD0151F8832002CBB67 /* WavTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WavTest.h; sourceTree = "<group>"; };
+		17D05CD3151F8832002CBB67 /* GdxTests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GdxTests.cpp; sourceTree = "<group>"; };
+		17D05CD4151F8832002CBB67 /* MatrixJNITest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MatrixJNITest.cpp; sourceTree = "<group>"; };
+		17D05CD5151F8832002CBB67 /* MeshShaderTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MeshShaderTest.cpp; sourceTree = "<group>"; };
+		17D05CD6151F8832002CBB67 /* PixmapBlendingTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PixmapBlendingTest.cpp; sourceTree = "<group>"; };
+		17D05CD7151F8832002CBB67 /* PixmapTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PixmapTest.cpp; sourceTree = "<group>"; };
+		17D05CD8151F8832002CBB67 /* Pong.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Pong.cpp; sourceTree = "<group>"; };
+		17D05CD9151F8832002CBB67 /* SpriteBatchRotationTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SpriteBatchRotationTest.cpp; sourceTree = "<group>"; };
+		17D05CDA151F8832002CBB67 /* SpriteBatchTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SpriteBatchTest.cpp; sourceTree = "<group>"; };
+		17D05CDB151F8832002CBB67 /* stdafx.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = stdafx.cpp; sourceTree = "<group>"; };
+		17D05CDC151F8832002CBB67 /* VertexBufferObjectShaderTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VertexBufferObjectShaderTest.cpp; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		17D05C99151F87E6002CBB67 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		17D05C91151F87E6002CBB67 = {
+			isa = PBXGroup;
+			children = (
+				17D05CA3151F8832002CBB67 /* incl */,
+				17D05CA7151F8832002CBB67 /* include */,
+				17D05CD1151F8832002CBB67 /* src */,
+				17D05C9D151F87E6002CBB67 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		17D05C9D151F87E6002CBB67 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				17D05C9C151F87E6002CBB67 /* libgdx-tests.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		17D05CA3151F8832002CBB67 /* incl */ = {
+			isa = PBXGroup;
+			children = (
+				17D05CA4151F8832002CBB67 /* Shapes.h */,
+				17D05CA5151F8832002CBB67 /* stdafx.h */,
+				17D05CA6151F8832002CBB67 /* targetver.h */,
+			);
+			path = incl;
+			sourceTree = "<group>";
+		};
+		17D05CA7151F8832002CBB67 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				17D05CA8151F8832002CBB67 /* AlphaTest.h */,
+				17D05CA9151F8832002CBB67 /* AudioDeviceTest.h */,
+				17D05CAA151F8832002CBB67 /* BitmapFontTest.h */,
+				17D05CAB151F8832002CBB67 /* BlitTest.h */,
+				17D05CAC151F8832002CBB67 /* BobTest.h */,
+				17D05CAD151F8832002CBB67 /* FloatTest.h */,
+				17D05CAF151F8832002CBB67 /* Gdx2DTest.h */,
+				17D05CB0151F8832002CBB67 /* GdxTest.h */,
+				17D05CB1151F8832002CBB67 /* GdxTests.h */,
+				17D05CB2151F8832002CBB67 /* GdxTestsDefines.h */,
+				17D05CB3151F8832002CBB67 /* GroupTest.h */,
+				17D05CB4151F8832002CBB67 /* IndexBufferObjectClassTest.h */,
+				17D05CB5151F8832002CBB67 /* IndexBufferObjectShaderTest.h */,
+				17D05CB8151F8832002CBB67 /* MatrixJNITest.h */,
+				17D05CB9151F8832002CBB67 /* MeshMultitextureTest.h */,
+				17D05CBA151F8832002CBB67 /* MeshShaderTest.h */,
+				17D05CBB151F8832002CBB67 /* MeshTest.h */,
+				17D05CBC151F8832002CBB67 /* MipMap2D.h */,
+				17D05CBD151F8832002CBB67 /* MipMapTest.h */,
+				17D05CBE151F8832002CBB67 /* MoveSpriteExample.h */,
+				17D05CBF151F8832002CBB67 /* Mpg123Test.h */,
+				17D05CC0151F8832002CBB67 /* OrthoCamBorderTest.h */,
+				17D05CC1151F8832002CBB67 /* PixmapBlendingTest.h */,
+				17D05CC2151F8832002CBB67 /* PixmapTest.h */,
+				17D05CC3151F8832002CBB67 /* Pong.h */,
+				17D05CC4151F8832002CBB67 /* RotationTest.h */,
+				17D05CC5151F8832002CBB67 /* ShaderMultitextureTest.h */,
+				17D05CC6151F8832002CBB67 /* SimpleVertexShader.h */,
+				17D05CC8151F8832002CBB67 /* SpriteBatchRotationTest.h */,
+				17D05CC9151F8832002CBB67 /* SpriteBatchShaderTest.h */,
+				17D05CCA151F8832002CBB67 /* SpriteBatchTest.h */,
+				17D05CCB151F8832002CBB67 /* TextureDataTest.h */,
+				17D05CCC151F8832002CBB67 /* VertexArrayClassTest.h */,
+				17D05CCD151F8832002CBB67 /* VertexArrayTest.h */,
+				17D05CCE151F8832002CBB67 /* VertexBufferObjectShaderTest.h */,
+				17D05CCF151F8832002CBB67 /* VorbisTest.h */,
+				17D05CD0151F8832002CBB67 /* WavTest.h */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		17D05CD1151F8832002CBB67 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				17D05CD3151F8832002CBB67 /* GdxTests.cpp */,
+				17D05CD4151F8832002CBB67 /* MatrixJNITest.cpp */,
+				17D05CD5151F8832002CBB67 /* MeshShaderTest.cpp */,
+				17D05CD6151F8832002CBB67 /* PixmapBlendingTest.cpp */,
+				17D05CD7151F8832002CBB67 /* PixmapTest.cpp */,
+				17D05CD8151F8832002CBB67 /* Pong.cpp */,
+				17D05CD9151F8832002CBB67 /* SpriteBatchRotationTest.cpp */,
+				17D05CDA151F8832002CBB67 /* SpriteBatchTest.cpp */,
+				17D05CDB151F8832002CBB67 /* stdafx.cpp */,
+				17D05CDC151F8832002CBB67 /* VertexBufferObjectShaderTest.cpp */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		17D05C9A151F87E6002CBB67 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				17D05CDD151F8832002CBB67 /* Shapes.h in Headers */,
+				17D05CDE151F8832002CBB67 /* stdafx.h in Headers */,
+				17D05CDF151F8832002CBB67 /* targetver.h in Headers */,
+				17D05CE0151F8832002CBB67 /* AlphaTest.h in Headers */,
+				17D05CE1151F8832002CBB67 /* AudioDeviceTest.h in Headers */,
+				17D05CE2151F8832002CBB67 /* BitmapFontTest.h in Headers */,
+				17D05CE3151F8832002CBB67 /* BlitTest.h in Headers */,
+				17D05CE4151F8832002CBB67 /* BobTest.h in Headers */,
+				17D05CE5151F8832002CBB67 /* FloatTest.h in Headers */,
+				17D05CE7151F8832002CBB67 /* Gdx2DTest.h in Headers */,
+				17D05CE8151F8832002CBB67 /* GdxTest.h in Headers */,
+				17D05CE9151F8832002CBB67 /* GdxTests.h in Headers */,
+				17D05CEA151F8832002CBB67 /* GdxTestsDefines.h in Headers */,
+				17D05CEB151F8832002CBB67 /* GroupTest.h in Headers */,
+				17D05CEC151F8832002CBB67 /* IndexBufferObjectClassTest.h in Headers */,
+				17D05CED151F8832002CBB67 /* IndexBufferObjectShaderTest.h in Headers */,
+				17D05CF0151F8832002CBB67 /* MatrixJNITest.h in Headers */,
+				17D05CF1151F8832002CBB67 /* MeshMultitextureTest.h in Headers */,
+				17D05CF2151F8832002CBB67 /* MeshShaderTest.h in Headers */,
+				17D05CF3151F8832002CBB67 /* MeshTest.h in Headers */,
+				17D05CF4151F8832002CBB67 /* MipMap2D.h in Headers */,
+				17D05CF5151F8832002CBB67 /* MipMapTest.h in Headers */,
+				17D05CF6151F8832002CBB67 /* MoveSpriteExample.h in Headers */,
+				17D05CF7151F8832002CBB67 /* Mpg123Test.h in Headers */,
+				17D05CF8151F8832002CBB67 /* OrthoCamBorderTest.h in Headers */,
+				17D05CF9151F8832002CBB67 /* PixmapBlendingTest.h in Headers */,
+				17D05CFA151F8832002CBB67 /* PixmapTest.h in Headers */,
+				17D05CFB151F8832002CBB67 /* Pong.h in Headers */,
+				17D05CFC151F8832002CBB67 /* RotationTest.h in Headers */,
+				17D05CFD151F8832002CBB67 /* ShaderMultitextureTest.h in Headers */,
+				17D05CFE151F8832002CBB67 /* SimpleVertexShader.h in Headers */,
+				17D05D00151F8832002CBB67 /* SpriteBatchRotationTest.h in Headers */,
+				17D05D01151F8832002CBB67 /* SpriteBatchShaderTest.h in Headers */,
+				17D05D02151F8832002CBB67 /* SpriteBatchTest.h in Headers */,
+				17D05D03151F8832002CBB67 /* TextureDataTest.h in Headers */,
+				17D05D04151F8832002CBB67 /* VertexArrayClassTest.h in Headers */,
+				17D05D05151F8832002CBB67 /* VertexArrayTest.h in Headers */,
+				17D05D06151F8832002CBB67 /* VertexBufferObjectShaderTest.h in Headers */,
+				17D05D07151F8832002CBB67 /* VorbisTest.h in Headers */,
+				17D05D08151F8832002CBB67 /* WavTest.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		17D05C9B151F87E6002CBB67 /* gdx-tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 17D05CA0151F87E6002CBB67 /* Build configuration list for PBXNativeTarget "gdx-tests" */;
+			buildPhases = (
+				17D05C98151F87E6002CBB67 /* Sources */,
+				17D05C99151F87E6002CBB67 /* Frameworks */,
+				17D05C9A151F87E6002CBB67 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "gdx-tests";
+			productName = "gdx-tests";
+			productReference = 17D05C9C151F87E6002CBB67 /* libgdx-tests.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		17D05C93151F87E6002CBB67 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = Home;
+			};
+			buildConfigurationList = 17D05C96151F87E6002CBB67 /* Build configuration list for PBXProject "gdx-tests" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 17D05C91151F87E6002CBB67;
+			productRefGroup = 17D05C9D151F87E6002CBB67 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				17D05C9B151F87E6002CBB67 /* gdx-tests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		17D05C98151F87E6002CBB67 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				17D05D0A151F8832002CBB67 /* GdxTests.cpp in Sources */,
+				17D05D0B151F8832002CBB67 /* MatrixJNITest.cpp in Sources */,
+				17D05D0C151F8832002CBB67 /* MeshShaderTest.cpp in Sources */,
+				17D05D0D151F8832002CBB67 /* PixmapBlendingTest.cpp in Sources */,
+				17D05D0E151F8832002CBB67 /* PixmapTest.cpp in Sources */,
+				17D05D0F151F8832002CBB67 /* Pong.cpp in Sources */,
+				17D05D10151F8832002CBB67 /* SpriteBatchRotationTest.cpp in Sources */,
+				17D05D11151F8832002CBB67 /* SpriteBatchTest.cpp in Sources */,
+				17D05D12151F8832002CBB67 /* stdafx.cpp in Sources */,
+				17D05D13151F8832002CBB67 /* VertexBufferObjectShaderTest.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		17D05C9E151F87E6002CBB67 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		17D05C9F151F87E6002CBB67 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		17D05CA1151F87E6002CBB67 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				EXECUTABLE_PREFIX = lib;
+				HEADER_SEARCH_PATHS = (
+					../../gdx/include,
+					"../../gdx-audio/include",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "";
+			};
+			name = Debug;
+		};
+		17D05CA2151F87E6002CBB67 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				EXECUTABLE_PREFIX = lib;
+				HEADER_SEARCH_PATHS = (
+					../../gdx/include,
+					"../../gdx-audio/include",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		17D05C96151F87E6002CBB67 /* Build configuration list for PBXProject "gdx-tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				17D05C9E151F87E6002CBB67 /* Debug */,
+				17D05C9F151F87E6002CBB67 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		17D05CA0151F87E6002CBB67 /* Build configuration list for PBXNativeTarget "gdx-tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				17D05CA1151F87E6002CBB67 /* Debug */,
+				17D05CA2151F87E6002CBB67 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 17D05C93151F87E6002CBB67 /* Project object */;
+}

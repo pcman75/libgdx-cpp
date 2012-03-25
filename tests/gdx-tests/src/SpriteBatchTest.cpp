@@ -9,15 +9,6 @@ long nanoTime()
 	return nTime;
 }
 
-float random()
-{
-	float fRandMax = RAND_MAX;
-	float fRand = rand();
-	float ret = fRand / fRandMax;
-	return ret;
-}
-
-
 SpriteBatchTest::SpriteBatchTest()
 {
 	// init random numbers
@@ -223,14 +214,14 @@ void SpriteBatchTest::create ()
 	// font = Gdx.graphics->newFont("Arial", 32, FontStyle.Plain);
 
 	for (int i = 0; i < sprites.size(); i += 6) {
-		sprites[i] = (int)(random() * (Gdx.graphics->getWidth() - 32));
-		sprites[i + 1] = (int)(random() * (Gdx.graphics->getHeight() - 32));
+		sprites[i] = (int)(MathUtils::randomFloat() * (Gdx.graphics->getWidth() - 32));
+		sprites[i + 1] = (int)(MathUtils::randomFloat() * (Gdx.graphics->getHeight() - 32));
 		sprites[i + 2] = 0;
 		sprites[i + 3] = 0;
 		sprites[i + 4] = 32;
 		sprites[i + 5] = 32;
-		sprites2[i] = (int)(random() * (Gdx.graphics->getWidth() - 32));
-		sprites2[i + 1] = (int)(random() * (Gdx.graphics->getHeight() - 32));
+		sprites2[i] = (int)(MathUtils::randomFloat() * (Gdx.graphics->getWidth() - 32));
+		sprites2[i + 1] = (int)(MathUtils::randomFloat() * (Gdx.graphics->getHeight() - 32));
 		sprites2[i + 2] = 0;
 		sprites2[i + 3] = 0;
 		sprites2[i + 4] = 32;
@@ -238,8 +229,8 @@ void SpriteBatchTest::create ()
 	}
 
 	for (int i = 0; i < SPRITES * 2; i++) {
-		int x = (int)(random() * (Gdx.graphics->getWidth() - 32));
-		int y = (int)(random() * (Gdx.graphics->getHeight() - 32));
+		int x = (int)(MathUtils::randomFloat() * (Gdx.graphics->getWidth() - 32));
+		int y = (int)(MathUtils::randomFloat() * (Gdx.graphics->getHeight() - 32));
 
 		if (i >= SPRITES)
 			sprites3[i] = new Sprite( texture2, 32, 32);

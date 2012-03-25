@@ -10,9 +10,8 @@
 
 @implementation AppDelegate
 
-@synthesize textField = _textField;
-@synthesize slider = _slider;
 @synthesize window = _window;
+@synthesize popUpButton = _popUpButton;
 
 - (void)dealloc
 {
@@ -21,28 +20,11 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    
+    [_popUpButton addItemWithTitle:@"Test"];
 }
 
-- (IBAction)takeFloatValueForVolumeFrom:(id)sender 
+- (IBAction)startTest:(id)sender 
 {
-    NSString *senderName = nil;
-    if (sender == self.textField) 
-    {
-        senderName = @"textField";
-    }
-    else 
-    {
-        senderName = @"slider";
-    }
-    float val = [sender floatValue];
-    NSLog(@"%@ sent takeFloatValueForVolumeFrom: with value %1.2f", senderName, val);
-    [_textField setFloatValue:(val)];
-    [_slider setFloatValue:(val)];
-}
-
-- (IBAction)mute:(id)sender 
-{
-    NSLog(@"received a mute: message");
+    NSLog(@"Startiung test");
 }
 @end

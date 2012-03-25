@@ -11,8 +11,8 @@ GdxClass::GdxClass()
 	gl(NULL),
 	gl10(NULL),
 	gl11(NULL),
-	gl20(NULL),
-	glu(NULL)
+	gl20(NULL)
+	//glu(NULL)
 {
 	
 }
@@ -40,7 +40,7 @@ GdxClass::~GdxClass()
 	gl10 = NULL;
 	gl11 = NULL;
 	gl20 = NULL;
-	glu = NULL;
+	//glu = NULL;
 }
 
 GdxClass Gdx = GdxClass::getInstance();

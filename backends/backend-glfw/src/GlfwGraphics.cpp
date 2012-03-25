@@ -56,7 +56,7 @@ void GlfwGraphics::initializeGLInstances()
 	} 
 	else 
 	{
-		if (m_major == 1 && m_minor < 5 || renderer == "Mirage Graphics3") 
+		if ((m_major == 1 && m_minor < 5) || renderer == "Mirage Graphics3") 
 		{
 			m_pGL10 = new WoglGL10();
 		} 
@@ -107,10 +107,14 @@ GL20* GlfwGraphics::getGL20()
 {
 	return m_pGL20;
 }
+
+/*
 GLU* GlfwGraphics::getGLU()
 {
 	return m_pGLU;
 }
+*/
+
 int GlfwGraphics::getWidth ()
 {
 	return m_width;

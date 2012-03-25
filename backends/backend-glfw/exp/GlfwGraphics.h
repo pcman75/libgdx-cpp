@@ -30,7 +30,7 @@ private:
 	GL10* m_pGL10;
 	GL11* m_pGL11;
 	GL20* m_pGL20;
-	GLU* m_pGLU;
+	//GLU* m_pGLU;
 
 	int m_major;
 	int m_minor;
@@ -61,7 +61,7 @@ public:
 	virtual GL20* getGL20();
 
 	/** @return the {@link GLU} instance */
-	virtual GLU* getGLU();
+	//virtual GLU* getGLU();
 
 	/** @return the width in pixels of the display surface */
 	virtual int getWidth();

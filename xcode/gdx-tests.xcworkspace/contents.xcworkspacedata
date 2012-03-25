@@ -2,6 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:../backends/backend-glfw/backend-glfw.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:../tests/gdx-tests-osx/gdx-tests-osx.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../tests/gdx-tests/gdx-tests.xcodeproj">
    </FileRef>
 </Workspace>

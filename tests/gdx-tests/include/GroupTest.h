@@ -26,12 +26,12 @@ public:
 
 	Stage* stage;
 
-	GroupTest::GroupTest()
+	GroupTest()
 	{
 		stage = NULL;
 	}
 
-	virtual GroupTest::~GroupTest()
+	virtual ~GroupTest()
 	{
 		if( NULL != stage)
 		{

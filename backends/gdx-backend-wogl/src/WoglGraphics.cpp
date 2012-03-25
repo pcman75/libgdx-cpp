@@ -109,10 +109,12 @@ GL20* WoglGraphics::getGL20()
 {
 	return m_pGL20;
 }
+/*
 GLU* WoglGraphics::getGLU()
 {
 	return m_pGLU;
 }
+*/
 int WoglGraphics::getWidth ()
 {
 	return m_width;

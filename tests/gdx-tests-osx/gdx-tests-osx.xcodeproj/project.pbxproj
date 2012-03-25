@@ -13,6 +13,8 @@
 		1786101E151A76030091BA8D /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 1786101C151A76030091BA8D /* Credits.rtf */; };
 		17861021151A76030091BA8D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 17861020151A76030091BA8D /* AppDelegate.m */; };
 		17861024151A76030091BA8D /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17861022151A76030091BA8D /* MainMenu.xib */; };
+		17D05D19151F9326002CBB67 /* libgdx-tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 17D05D18151F9326002CBB67 /* libgdx-tests.a */; };
+		17D05D7D151F94D2002CBB67 /* libbackend-glfw.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 17D05D7C151F94D2002CBB67 /* libbackend-glfw.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +31,8 @@
 		1786101F151A76030091BA8D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		17861020151A76030091BA8D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		17861023151A76030091BA8D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		17D05D18151F9326002CBB67 /* libgdx-tests.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgdx-tests.a"; path = "../../../../Library/Developer/Xcode/DerivedData/gdx-tests-bvufqwdkchmelmhhkbvwazgaikrk/Build/Products/Debug/libgdx-tests.a"; sourceTree = "<group>"; };
+		17D05D7C151F94D2002CBB67 /* libbackend-glfw.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = "libbackend-glfw.a"; path = "../../backends/backend-glfw/build/Release/libbackend-glfw.a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +40,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17D05D7D151F94D2002CBB67 /* libbackend-glfw.a in Frameworks */,
+				17D05D19151F9326002CBB67 /* libgdx-tests.a in Frameworks */,
 				1786100E151A76030091BA8D /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -46,6 +52,8 @@
 		17860FFE151A76030091BA8D = {
 			isa = PBXGroup;
 			children = (
+				17D05D7C151F94D2002CBB67 /* libbackend-glfw.a */,
+				17D05D18151F9326002CBB67 /* libgdx-tests.a */,
 				17861013151A76030091BA8D /* gdx-tests-osx */,
 				1786100C151A76030091BA8D /* Frameworks */,
 				1786100A151A76030091BA8D /* Products */,
@@ -252,6 +260,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "gdx-tests-osx/gdx-tests-osx-Prefix.pch";
 				INFOPLIST_FILE = "gdx-tests-osx/gdx-tests-osx-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/gdx-tests-bvufqwdkchmelmhhkbvwazgaikrk/Build/Products/Debug\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -263,6 +275,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "gdx-tests-osx/gdx-tests-osx-Prefix.pch";
 				INFOPLIST_FILE = "gdx-tests-osx/gdx-tests-osx-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/gdx-tests-bvufqwdkchmelmhhkbvwazgaikrk/Build/Products/Debug\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -287,6 +303,7 @@
 				17861029151A76030091BA8D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

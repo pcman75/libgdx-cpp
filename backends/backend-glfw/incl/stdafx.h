@@ -5,30 +5,26 @@
 
 #pragma once
 
+#if defined (WIN32)
 #include "targetver.h"
-
 #define WIN32_LEAN_AND_MEAN             // Exclude rarely-used stuff from Windows headers
-
 #define NOMINMAX
-
 // Windows Header Files:
 #include <windows.h>
 #include <mmsystem.h>
+#endif
 
 #define GL_GLEXT_PROTOTYPES
-#include <glew.h>
 
+#include <glew.h>
 #include <GL/glfw.h>
 
 #include <string>
 #include <vector>
 #include <set>
-
 #include <sstream>
 #include <iostream>
 #include <cstring>
-
-#include <process.h>                                // for _beginthreadex()
 
 #include <io.h>
 #include <fcntl.h>

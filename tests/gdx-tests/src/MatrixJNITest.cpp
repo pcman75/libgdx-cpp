@@ -133,7 +133,6 @@ void MatrixJNITest::check(const Vector3& vec, const float* fvec)
 
 void MatrixJNITest::check(const Vector3& vec, const float* fvec, int numVecs, int stride) 
 {
-	int offset = 0;
 	for (int i = 0; i < numVecs; i++) 
 	{
 		if (vec.x != fvec[0] || vec.y != fvec[1] || vec.z != fvec[2]) 

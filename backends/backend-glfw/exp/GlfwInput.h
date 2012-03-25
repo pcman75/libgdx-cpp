@@ -226,9 +226,6 @@ public:
 	static void mouseButtonEvent(int button, int state);
 	static void keyboardEvent(int key, int state);
 
-	void keyDown(int key, LPARAM lParam);
-	void keyUp(int key, LPARAM lParam);
-
 	void processEvents();
 
 private:
