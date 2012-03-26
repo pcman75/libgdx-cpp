@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeLite_Project Name="backend_glfw" InternalType="Library">
+  <Plugins>
+    <Plugin Name="qmake">
+      <![CDATA[00010001N0005Debug000000000000]]>
+    </Plugin>
+  </Plugins>
+  <Description/>
+  <Dependencies/>
+  <VirtualDirectory Name="src">
+    <File Name="../src/GlfwApplication.cpp"/>
+    <File Name="../src/GlfwGraphics.cpp"/>
+    <File Name="../src/GlfwInput.cpp"/>
+    <File Name="../src/GlfwMutex.cpp"/>
+    <File Name="../src/GlfwThread.cpp"/>
+    <File Name="../src/GlfwThreading.cpp"/>
+    <File Name="../src/GlfwTimer.cpp"/>
+    <File Name="../src/GlfwWaitCondition.cpp"/>
+    <File Name="../src/stdafx.cpp"/>
+    <File Name="../src/WindowsAudio.cpp"/>
+    <File Name="../src/WindowsAudioDevice.cpp"/>
+    <File Name="../src/WoglFileHandleStream.cpp"/>
+    <File Name="../src/WoglFiles.cpp"/>
+    <File Name="../src/WoglGL10.cpp"/>
+    <File Name="../src/WoglGL11.cpp"/>
+    <File Name="../src/WoglGL20.cpp"/>
+    <File Name="../src/WoglGLCommon.cpp"/>
+  </VirtualDirectory>
+  <VirtualDirectory Name="incl">
+    <File Name="../incl/GdxMusic.h"/>
+    <File Name="../incl/GdxSound.h"/>
+    <File Name="../incl/stdafx.h"/>
+    <File Name="../incl/targetver.h"/>
+    <File Name="../incl/Utilities.h"/>
+    <File Name="../exp/GlfwApplication.h"/>
+    <File Name="../exp/GlfwGraphics.h"/>
+    <File Name="../exp/GlfwInput.h"/>
+    <File Name="../exp/GlfwMutex.h"/>
+    <File Name="../exp/GlfwThread.h"/>
+    <File Name="../exp/GlfwThreading.h"/>
+    <File Name="../exp/GlfwTimer.h"/>
+    <File Name="../exp/GlfwWaitCondition.h"/>
+    <File Name="../exp/WindowsAudio.h"/>
+    <File Name="../exp/WindowsAudioDevice.h"/>
+    <File Name="../exp/WoglFileHandleStream.h"/>
+    <File Name="../exp/WoglFiles.h"/>
+    <File Name="../exp/WoglGL10.h"/>
+    <File Name="../exp/WoglGL11.h"/>
+    <File Name="../exp/WoglGL20.h"/>
+    <File Name="../exp/WoglGLCommon.h"/>
+  </VirtualDirectory>
+  <Settings Type="Static Library">
+    <GlobalSettings>
+      <Compiler Options="" C_Options="">
+        <IncludePath Value="."/>
+      </Compiler>
+      <Linker Options="">
+        <LibraryPath Value="."/>
+      </Linker>
+      <ResourceCompiler Options=""/>
+    </GlobalSettings>
+    <Configuration Name="Debug" CompilerType="gnu g++" DebuggerType="GNU gdb debugger" Type="Static Library" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <Compiler Options="-g" C_Options="-g" Required="yes" PreCompiledHeader="..\incl\stdafx.h" PCHInCommandLine="no" UseDifferentPCHFlags="no" PCHFlags="">
+        <IncludePath Value="."/>
+        <IncludePath Value="../incl/"/>
+        <IncludePath Value="../exp/"/>
+        <IncludePath Value="../extern"/>
+        <IncludePath Value="../extern/glfw-2.7.3/include"/>
+        <IncludePath Value="../../../gdx/include"/>
+      </Compiler>
+      <Linker Options="" Required="yes"/>
+      <ResourceCompiler Options="" Required="no"/>
+      <General OutputFile="$(IntermediateDirectory)/lib$(ProjectName).a" IntermediateDirectory="./Debug" Command="" CommandArguments="" UseSeparateDebugArgs="no" DebugArguments="" WorkingDirectory="$(IntermediateDirectory)" PauseExecWhenProcTerminates="yes"/>
+      <Environment EnvVarSetName="&lt;Use Defaults&gt;" DbgSetName="&lt;Use Defaults&gt;">
+        <![CDATA[]]>
+      </Environment>
+      <Debugger IsRemote="no" RemoteHostName="" RemoteHostPort="" DebuggerPath="">
+        <PostConnectCommands/>
+        <StartupCommands/>
+      </Debugger>
+      <PreBuild/>
+      <PostBuild/>
+      <CustomBuild Enabled="no">
+        <RebuildCommand/>
+        <CleanCommand/>
+        <BuildCommand/>
+        <PreprocessFileCommand/>
+        <SingleFileCommand/>
+        <MakefileGenerationCommand/>
+        <ThirdPartyToolName/>
+        <WorkingDirectory/>
+      </CustomBuild>
+      <AdditionalRules>
+        <CustomPostBuild/>
+        <CustomPreBuild/>
+      </AdditionalRules>
+      <Completion>
+        <ClangCmpFlags/>
+        <ClangPP/>
+        <SearchPaths/>
+      </Completion>
+    </Configuration>
+    <Configuration Name="Release" CompilerType="gnu g++" DebuggerType="GNU gdb debugger" Type="" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <Compiler Options="" C_Options="" Required="yes" PreCompiledHeader="" PCHInCommandLine="no" UseDifferentPCHFlags="no" PCHFlags="">
+        <IncludePath Value="."/>
+      </Compiler>
+      <Linker Options="" Required="yes"/>
+      <ResourceCompiler Options="" Required="no"/>
+      <General OutputFile="$(IntermediateDirectory)/lib$(ProjectName).a" IntermediateDirectory="./Release" Command="" CommandArguments="" UseSeparateDebugArgs="no" DebugArguments="" WorkingDirectory="$(IntermediateDirectory)" PauseExecWhenProcTerminates="yes"/>
+      <Environment EnvVarSetName="&lt;Use Defaults&gt;" DbgSetName="&lt;Use Defaults&gt;">
+        <![CDATA[]]>
+      </Environment>
+      <Debugger IsRemote="no" RemoteHostName="" RemoteHostPort="" DebuggerPath="">
+        <PostConnectCommands/>
+        <StartupCommands/>
+      </Debugger>
+      <PreBuild/>
+      <PostBuild/>
+      <CustomBuild Enabled="no">
+        <RebuildCommand/>
+        <CleanCommand/>
+        <BuildCommand/>
+        <PreprocessFileCommand/>
+        <SingleFileCommand/>
+        <MakefileGenerationCommand/>
+        <ThirdPartyToolName/>
+        <WorkingDirectory/>
+      </CustomBuild>
+      <AdditionalRules>
+        <CustomPostBuild/>
+        <CustomPreBuild/>
+      </AdditionalRules>
+      <Completion>
+        <ClangCmpFlags/>
+        <ClangPP/>
+        <SearchPaths/>
+      </Completion>
+    </Configuration>
+  </Settings>
+</CodeLite_Project>

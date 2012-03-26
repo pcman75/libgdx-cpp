@@ -225,7 +225,7 @@ get_pixel_func get_pixel_func_ptr(uint32_t format) {
 
 gdx2d_pixmap* gdx2d_load(const unsigned char *buffer, uint32_t len, uint32_t req_format) {
 	int32_t width, height, format;
-	const unsigned char* pixels;
+	unsigned char* pixels;
 	gdx2d_pixmap* pixmap;
 
 	// TODO fix this! Add conversion to requested format

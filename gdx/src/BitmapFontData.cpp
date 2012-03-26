@@ -42,7 +42,7 @@ BitmapFont::BitmapFontData::BitmapFontData(const FileHandle& fontFile, bool flip
 	m_fontFile(fontFile), m_flipped(flip)
 {
 	glyphs = new Glyph**[PAGES];
-	memset(glyphs, NULL, PAGES * sizeof(void*));
+	memset(glyphs, 0, PAGES * sizeof(void*));
 
 	//TODO: this is ugly
 	//do something else after implementing proper "File" abstraction
@@ -233,7 +233,7 @@ void BitmapFont::BitmapFontData::setGlyph(int ch, Glyph* glyph)
 	if(!page)
 	{
 		glyphs[ch / PAGE_SIZE] = page = new Glyph*[PAGE_SIZE];
-		memset(page, NULL, PAGE_SIZE * sizeof(void*));
+		memset(page, 0, PAGE_SIZE * sizeof(void*));
 	}
 	page[ch & PAGE_SIZE - 1] = glyph;
 }

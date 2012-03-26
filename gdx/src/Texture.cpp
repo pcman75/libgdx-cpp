@@ -12,13 +12,13 @@ bool m_useHWMipMap = true;
 //AssetManager assetManager;
 Texture::TextureMap Texture::m_managedTextures;
 
-const Texture::TextureFilter Texture::TextureFilter::Nearest = Texture::TextureFilter::TextureFilter(GL10::GDX_GL_NEAREST);
-const Texture::TextureFilter Texture::TextureFilter::Linear = Texture::TextureFilter::TextureFilter(GL10::GDX_GL_LINEAR);
-const Texture::TextureFilter Texture::TextureFilter::MipMap = Texture::TextureFilter::TextureFilter(GL10::GDX_GL_LINEAR_MIPMAP_LINEAR);
-const Texture::TextureFilter Texture::TextureFilter::MipMapNearestNearest = Texture::TextureFilter::TextureFilter(GL10::GDX_GL_NEAREST_MIPMAP_NEAREST);
-const Texture::TextureFilter Texture::TextureFilter::MipMapLinearNearest = Texture::TextureFilter::TextureFilter(GL10::GDX_GL_LINEAR_MIPMAP_NEAREST);
-const Texture::TextureFilter Texture::TextureFilter::MipMapNearestLinear = Texture::TextureFilter::TextureFilter(GL10::GDX_GL_NEAREST_MIPMAP_LINEAR);
-const Texture::TextureFilter Texture::TextureFilter::MipMapLinearLinear = Texture::TextureFilter::TextureFilter(GL10::GDX_GL_LINEAR_MIPMAP_LINEAR);
+const Texture::TextureFilter Texture::TextureFilter::Nearest(GL10::GDX_GL_NEAREST);
+const Texture::TextureFilter Texture::TextureFilter::Linear(GL10::GDX_GL_LINEAR);
+const Texture::TextureFilter Texture::TextureFilter::MipMap(GL10::GDX_GL_LINEAR_MIPMAP_LINEAR);
+const Texture::TextureFilter Texture::TextureFilter::MipMapNearestNearest(GL10::GDX_GL_NEAREST_MIPMAP_NEAREST);
+const Texture::TextureFilter Texture::TextureFilter::MipMapLinearNearest(GL10::GDX_GL_LINEAR_MIPMAP_NEAREST);
+const Texture::TextureFilter Texture::TextureFilter::MipMapNearestLinear(GL10::GDX_GL_NEAREST_MIPMAP_LINEAR);
+const Texture::TextureFilter Texture::TextureFilter::MipMapLinearLinear(GL10::GDX_GL_LINEAR_MIPMAP_LINEAR);
 
 unsigned int Texture::m_buffer = -1;
 
@@ -42,8 +42,8 @@ int Texture::TextureFilter::getGLEnum()
 	return m_glEnum;
 }
 
-const Texture::TextureWrap Texture::TextureWrap::ClampToEdge = Texture::TextureWrap::TextureWrap(GL10::GDX_GL_CLAMP_TO_EDGE);
-const Texture::TextureWrap Texture::TextureWrap::Repeat = Texture::TextureWrap::TextureWrap(GL10::GDX_GL_REPEAT);
+const Texture::TextureWrap Texture::TextureWrap::ClampToEdge(GL10::GDX_GL_CLAMP_TO_EDGE);
+const Texture::TextureWrap Texture::TextureWrap::Repeat(GL10::GDX_GL_REPEAT);
 
 Texture::TextureWrap::TextureWrap()
 {

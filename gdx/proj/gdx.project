@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeLite_Project Name="gdx" InternalType="Library">
+  <Plugins>
+    <Plugin Name="qmake">
+      <![CDATA[00010001N0005Debug000000000000]]>
+    </Plugin>
+  </Plugins>
+  <Description/>
+  <Dependencies/>
+  <VirtualDirectory Name="src">
+    <File Name="../src/AccelerateDecelerateInterpolator.cpp"/>
+    <File Name="../src/AccelerateInterpolator.cpp"/>
+    <File Name="../src/Action.cpp"/>
+    <File Name="../src/Actor.cpp"/>
+    <File Name="../src/Align.cpp"/>
+    <File Name="../src/Animation.cpp"/>
+    <File Name="../src/AnimationAction.cpp"/>
+    <File Name="../src/AnticipateInterpolator.cpp"/>
+    <File Name="../src/Application.cpp"/>
+    <File Name="../src/BitmapFont.cpp"/>
+    <File Name="../src/BitmapFontData.cpp"/>
+    <File Name="../src/BoundingBox.cpp"/>
+    <File Name="../src/Camera.cpp"/>
+    <File Name="../src/Circle.cpp"/>
+    <File Name="../src/Color.cpp"/>
+    <File Name="../src/CompositeAction.cpp"/>
+    <File Name="../src/Cullable.cpp"/>
+    <File Name="../src/DecelerateInterpolator.cpp"/>
+    <File Name="../src/Delay.cpp"/>
+    <File Name="../src/ETC1.cpp"/>
+    <File Name="../src/etc1_utils.cpp"/>
+    <File Name="../src/ETC1Data.cpp"/>
+    <File Name="../src/ETC1TextureData.cpp"/>
+    <File Name="../src/FadeIn.cpp"/>
+    <File Name="../src/FadeOut.cpp"/>
+    <File Name="../src/FadeTo.cpp"/>
+    <File Name="../src/FileHandle.cpp"/>
+    <File Name="../src/FileHandleStream.cpp"/>
+    <File Name="../src/Files.cpp"/>
+    <File Name="../src/FileTextureData.cpp"/>
+    <File Name="../src/Forever.cpp"/>
+    <File Name="../src/Frustum.cpp"/>
+    <File Name="../src/Gdx.cpp"/>
+    <File Name="../src/gdx2d.c"/>
+    <File Name="../src/Gdx2DPixmap.cpp"/>
+    <File Name="../src/GdxRuntimeException.cpp"/>
+    <File Name="../src/Glyph.cpp"/>
+    <File Name="../src/Group.cpp"/>
+    <File Name="../src/ImmediateModeRenderer10.cpp"/>
+    <File Name="../src/ImmediateModeRenderer20.cpp"/>
+    <File Name="../src/IndexBufferObject.cpp"/>
+    <File Name="../src/InputAdapter.cpp"/>
+    <File Name="../src/InputMultiplexer.cpp"/>
+    <File Name="../src/Interpolator.cpp"/>
+    <File Name="../src/Layout.cpp"/>
+    <File Name="../src/LinearInterpolator.cpp"/>
+    <File Name="../src/lodepng.cpp"/>
+    <File Name="../src/MathUtils.cpp"/>
+    <File Name="../src/Matrix3.cpp"/>
+    <File Name="../src/Matrix4.cpp"/>
+    <File Name="../src/Mesh.cpp"/>
+    <File Name="../src/MipMapGenerator.cpp"/>
+    <File Name="../src/ModelLoaderOld.cpp"/>
+    <File Name="../src/MoveBy.cpp"/>
+    <File Name="../src/MoveTo.cpp"/>
+    <File Name="../src/NumberUtils.cpp"/>
+    <File Name="../src/ObjLoader.cpp"/>
+    <File Name="../src/OnActionCompleted.cpp"/>
+    <File Name="../src/OrthographicCamera.cpp"/>
+    <File Name="../src/OvershootInterpolator.cpp"/>
+    <File Name="../src/Parallel.cpp"/>
+    <File Name="../src/PerspectiveCamController.cpp"/>
+    <File Name="../src/PerspectiveCamera.cpp"/>
+    <File Name="../src/Pixmap.cpp"/>
+    <File Name="../src/PixmapIO.cpp"/>
+    <File Name="../src/PixmapTextureData.cpp"/>
+    <File Name="../src/Plane.cpp"/>
+    <File Name="../src/Polygon.cpp"/>
+    <File Name="../src/Quaternion.cpp"/>
+    <File Name="../src/Ray.cpp"/>
+    <File Name="../src/Rectang.cpp"/>
+    <File Name="../src/Remove.cpp"/>
+    <File Name="../src/Repeat.cpp"/>
+    <File Name="../src/RotateBy.cpp"/>
+    <File Name="../src/RotateTo.cpp"/>
+    <File Name="../src/ScaleTo.cpp"/>
+    <File Name="../src/ScissorStack.cpp"/>
+    <File Name="../src/Sequence.cpp"/>
+    <File Name="../src/ShaderProgram.cpp"/>
+    <File Name="../src/Sprite.cpp"/>
+    <File Name="../src/SpriteBatch.cpp"/>
+    <File Name="../src/Stage.cpp"/>
+    <File Name="../src/stdafx.cpp"/>
+    <File Name="../src/StringTokenizer.cpp"/>
+    <File Name="../src/StringUtils.cpp"/>
+    <File Name="../src/TemporalAction.cpp"/>
+    <File Name="../src/TextBounds.cpp"/>
+    <File Name="../src/Texture.cpp"/>
+    <File Name="../src/TextureRegion.cpp"/>
+    <File Name="../src/Vector2.cpp"/>
+    <File Name="../src/Vector3.cpp"/>
+    <File Name="../src/VertexArray.cpp"/>
+    <File Name="../src/VertexAttribute.cpp"/>
+    <File Name="../src/VertexAttributes.cpp"/>
+    <File Name="../src/VertexBufferObject.cpp"/>
+  </VirtualDirectory>
+  <VirtualDirectory Name="include">
+    <File Name="../include/AccelerateDecelerateInterpolator.h"/>
+    <File Name="../include/AccelerateInterpolator.h"/>
+    <File Name="../include/Action.h"/>
+    <File Name="../include/Actor.h"/>
+    <File Name="../include/Align.h"/>
+    <File Name="../include/Animation.h"/>
+    <File Name="../include/AnimationAction.h"/>
+    <File Name="../include/AnticipateInterpolator.h"/>
+    <File Name="../include/Application.h"/>
+    <File Name="../include/ApplicationListener.h"/>
+    <File Name="../include/Audio.h"/>
+    <File Name="../include/AudioDevice.h"/>
+    <File Name="../include/AudioRecorder.h"/>
+    <File Name="../include/BitmapFont.h"/>
+    <File Name="../include/BoundingBox.h"/>
+    <File Name="../include/Camera.h"/>
+    <File Name="../include/Circle.h"/>
+    <File Name="../include/Color.h"/>
+    <File Name="../include/CompositeAction.h"/>
+    <File Name="../include/Cullable.h"/>
+    <File Name="../include/DecelerateInterpolator.h"/>
+    <File Name="../include/Delay.h"/>
+    <File Name="../include/ETC1.h"/>
+    <File Name="../include/ETC1Data.h"/>
+    <File Name="../include/ETC1TextureData.h"/>
+    <File Name="../include/FadeIn.h"/>
+    <File Name="../include/FadeOut.h"/>
+    <File Name="../include/FadeTo.h"/>
+    <File Name="../include/FileHandle.h"/>
+    <File Name="../include/FileHandleStream.h"/>
+    <File Name="../include/Files.h"/>
+    <File Name="../include/FileTextureData.h"/>
+    <File Name="../include/Forever.h"/>
+    <File Name="../include/Frustum.h"/>
+    <File Name="../include/Gdx.h"/>
+    <File Name="../include/Gdx2DPixmap.h"/>
+    <File Name="../include/GdxDefines.h"/>
+    <File Name="../include/GdxRuntimeException.h"/>
+    <File Name="../include/GL10.h"/>
+    <File Name="../include/GL11.h"/>
+    <File Name="../include/GL20.h"/>
+    <File Name="../include/GLCommon.h"/>
+    <File Name="../include/Graphics.h"/>
+    <File Name="../include/Group.h"/>
+    <File Name="../include/ImmediateModeRenderer.h"/>
+    <File Name="../include/ImmediateModeRenderer10.h"/>
+    <File Name="../include/ImmediateModeRenderer20.h"/>
+    <File Name="../include/IndexBufferObject.h"/>
+    <File Name="../include/IndexData.h"/>
+    <File Name="../include/Input.h"/>
+    <File Name="../include/InputAdapter.h"/>
+    <File Name="../include/InputMultiplexer.h"/>
+    <File Name="../include/InputProcessor.h"/>
+    <File Name="../include/Interpolator.h"/>
+    <File Name="../include/Layout.h"/>
+    <File Name="../include/LinearInterpolator.h"/>
+    <File Name="../include/MathUtils.h"/>
+    <File Name="../include/Matrix3.h"/>
+    <File Name="../include/Matrix4.h"/>
+    <File Name="../include/Mesh.h"/>
+    <File Name="../include/MipMapGenerator.h"/>
+    <File Name="../include/ModelLoaderOld.h"/>
+    <File Name="../include/MoveBy.h"/>
+    <File Name="../include/MoveTo.h"/>
+    <File Name="../include/Music.h"/>
+    <File Name="../include/Mutex.h"/>
+    <File Name="../include/NumberUtils.h"/>
+    <File Name="../include/ObjLoader.h"/>
+    <File Name="../include/OnActionCompleted.h"/>
+    <File Name="../include/OrthographicCamera.h"/>
+    <File Name="../include/OvershootInterpolator.h"/>
+    <File Name="../include/Parallel.h"/>
+    <File Name="../include/PerspectiveCamController.h"/>
+    <File Name="../include/PerspectiveCamera.h"/>
+    <File Name="../include/Pixmap.h"/>
+    <File Name="../include/PixmapIO.h"/>
+    <File Name="../include/PixmapTextureData.h"/>
+    <File Name="../include/Plane.h"/>
+    <File Name="../include/Polygon.h"/>
+    <File Name="../include/Quaternion.h"/>
+    <File Name="../include/Ray.h"/>
+    <File Name="../include/Rectang.h"/>
+    <File Name="../include/Remove.h"/>
+    <File Name="../include/Repeat.h"/>
+    <File Name="../include/RotateBy.h"/>
+    <File Name="../include/RotateTo.h"/>
+    <File Name="../include/ScaleTo.h"/>
+    <File Name="../include/ScissorStack.h"/>
+    <File Name="../include/Sequence.h"/>
+    <File Name="../include/ShaderProgram.h"/>
+    <File Name="../include/Sound.h"/>
+    <File Name="../include/Sprite.h"/>
+    <File Name="../include/SpriteBatch.h"/>
+    <File Name="../include/Stage.h"/>
+    <File Name="../include/TemporalAction.h"/>
+    <File Name="../include/Texture.h"/>
+    <File Name="../include/TextureData.h"/>
+    <File Name="../include/TextureRegion.h"/>
+    <File Name="../include/Thread.h"/>
+    <File Name="../include/Threading.h"/>
+    <File Name="../include/Timer.h"/>
+    <File Name="../include/Vector2.h"/>
+    <File Name="../include/Vector3.h"/>
+    <File Name="../include/VertexArray.h"/>
+    <File Name="../include/VertexAttribute.h"/>
+    <File Name="../include/VertexAttributes.h"/>
+    <File Name="../include/VertexBufferObject.h"/>
+    <File Name="../include/VertexData.h"/>
+    <File Name="../include/WaitCondition.h"/>
+    <File Name="../include/Widget.h"/>
+    <File Name="../include/WidgetGroup.h"/>
+  </VirtualDirectory>
+  <VirtualDirectory Name="incl">
+    <File Name="../lib/etc1_utils.h"/>
+    <File Name="../lib/gdx2d.h"/>
+    <File Name="../lib/lodepng.h"/>
+    <File Name="../lib/stb_image.c"/>
+    <File Name="../lib/stdafx.h"/>
+    <File Name="../lib/StringTokenizer.h"/>
+    <File Name="../lib/StringUtils.h"/>
+    <File Name="../lib/targetver.h"/>
+  </VirtualDirectory>
+  <Settings Type="Static Library">
+    <GlobalSettings>
+      <Compiler Options="" C_Options="">
+        <IncludePath Value="."/>
+      </Compiler>
+      <Linker Options="">
+        <LibraryPath Value="."/>
+      </Linker>
+      <ResourceCompiler Options=""/>
+    </GlobalSettings>
+    <Configuration Name="Debug" CompilerType="gnu g++" DebuggerType="GNU gdb debugger" Type="Static Library" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <Compiler Options="-g" C_Options="-g" Required="yes" PreCompiledHeader="..\lib\stdafx.h" PCHInCommandLine="no" UseDifferentPCHFlags="no" PCHFlags="">
+        <IncludePath Value="."/>
+        <IncludePath Value="..\lib\"/>
+        <IncludePath Value="..\include"/>
+      </Compiler>
+      <Linker Options="" Required="yes"/>
+      <ResourceCompiler Options="" Required="no"/>
+      <General OutputFile="$(IntermediateDirectory)/lib$(ProjectName).a" IntermediateDirectory="./Debug" Command="" CommandArguments="" UseSeparateDebugArgs="no" DebugArguments="" WorkingDirectory="$(IntermediateDirectory)" PauseExecWhenProcTerminates="yes"/>
+      <Environment EnvVarSetName="&lt;Use Defaults&gt;" DbgSetName="&lt;Use Defaults&gt;">
+        <![CDATA[]]>
+      </Environment>
+      <Debugger IsRemote="no" RemoteHostName="" RemoteHostPort="" DebuggerPath="">
+        <PostConnectCommands/>
+        <StartupCommands/>
+      </Debugger>
+      <PreBuild/>
+      <PostBuild/>
+      <CustomBuild Enabled="no">
+        <RebuildCommand/>
+        <CleanCommand/>
+        <BuildCommand/>
+        <PreprocessFileCommand/>
+        <SingleFileCommand/>
+        <MakefileGenerationCommand/>
+        <ThirdPartyToolName/>
+        <WorkingDirectory/>
+      </CustomBuild>
+      <AdditionalRules>
+        <CustomPostBuild/>
+        <CustomPreBuild/>
+      </AdditionalRules>
+      <Completion>
+        <ClangCmpFlags/>
+        <ClangPP/>
+        <SearchPaths/>
+      </Completion>
+    </Configuration>
+    <Configuration Name="Release" CompilerType="gnu g++" DebuggerType="GNU gdb debugger" Type="" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <Compiler Options="" C_Options="" Required="yes" PreCompiledHeader="" PCHInCommandLine="no" UseDifferentPCHFlags="no" PCHFlags="">
+        <IncludePath Value="."/>
+      </Compiler>
+      <Linker Options="" Required="yes"/>
+      <ResourceCompiler Options="" Required="no"/>
+      <General OutputFile="$(IntermediateDirectory)/lib$(ProjectName).a" IntermediateDirectory="./Release" Command="" CommandArguments="" UseSeparateDebugArgs="no" DebugArguments="" WorkingDirectory="$(IntermediateDirectory)" PauseExecWhenProcTerminates="yes"/>
+      <Environment EnvVarSetName="&lt;Use Defaults&gt;" DbgSetName="&lt;Use Defaults&gt;">
+        <![CDATA[]]>
+      </Environment>
+      <Debugger IsRemote="no" RemoteHostName="" RemoteHostPort="" DebuggerPath="">
+        <PostConnectCommands/>
+        <StartupCommands/>
+      </Debugger>
+      <PreBuild/>
+      <PostBuild/>
+      <CustomBuild Enabled="no">
+        <RebuildCommand/>
+        <CleanCommand/>
+        <BuildCommand/>
+        <PreprocessFileCommand/>
+        <SingleFileCommand/>
+        <MakefileGenerationCommand/>
+        <ThirdPartyToolName/>
+        <WorkingDirectory/>
+      </CustomBuild>
+      <AdditionalRules>
+        <CustomPostBuild/>
+        <CustomPreBuild/>
+      </AdditionalRules>
+      <Completion>
+        <ClangCmpFlags/>
+        <ClangPP/>
+        <SearchPaths/>
+      </Completion>
+    </Configuration>
+  </Settings>
+</CodeLite_Project>

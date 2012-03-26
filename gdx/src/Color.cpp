@@ -18,20 +18,20 @@
 #include "Color.h"
 #include "NumberUtils.h"
 
-const Color Color::CLEAR = Color(0, 0, 0, 0);
-const Color Color::WHITE = Color(1, 1, 1, 1);
-const Color Color::BLACK = Color(0, 0, 0, 1);
-const Color Color::RED = Color(1, 0, 0, 1);
-const Color Color::GREEN = Color(0, 1, 0, 1);
-const Color Color::BLUE = Color(0, 0, 1, 1);
-const Color Color::LIGHT_GRAY = Color(0.75f, 0.75f, 0.75f, 1);
-const Color Color::GRAY = Color(0.5f, 0.5f, 0.5f, 1);
-const Color Color::DARK_GRAY = Color(0.25f, 0.25f, 0.25f, 1);
-const Color Color::PINK = Color(1, 0.68f, 0.68f, 1);
-const Color Color::ORANGE = Color(1, 0.78f, 0, 1);
-const Color Color::YELLOW = Color(1, 1, 0, 1);
-const Color Color::MAGENTA = Color(1, 0, 1, 1);
-const Color Color::CYAN = Color(0, 1, 1, 1);
+const Color Color::CLEAR(0, 0, 0, 0);
+const Color Color::WHITE(1, 1, 1, 1);
+const Color Color::BLACK(0, 0, 0, 1);
+const Color Color::RED(1, 0, 0, 1);
+const Color Color::GREEN(0, 1, 0, 1);
+const Color Color::BLUE(0, 0, 1, 1);
+const Color Color::LIGHT_GRAY(0.75f, 0.75f, 0.75f, 1);
+const Color Color::GRAY(0.5f, 0.5f, 0.5f, 1);
+const Color Color::DARK_GRAY(0.25f, 0.25f, 0.25f, 1);
+const Color Color::PINK(1, 0.68f, 0.68f, 1);
+const Color Color::ORANGE(1, 0.78f, 0, 1);
+const Color Color::YELLOW(1, 1, 0, 1);
+const Color Color::MAGENTA(1, 0, 1, 1);
+const Color Color::CYAN(0, 1, 1, 1);
 
 /** Constructs a new Color with all components set to 0. */
 Color::Color ()

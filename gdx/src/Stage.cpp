@@ -480,8 +480,7 @@ void Stage::unfocus( Actor* actor, int pointer)
 
 void Stage::setKeyboardFocus( Actor* actor) 
 {
-  if( NULL != keyboardFocus)
-    delete keyboardFocus;
+  delete keyboardFocus;
   keyboardFocus = actor;
 }
 
@@ -492,7 +491,6 @@ Actor* Stage::getKeyboardFocus()
 
 void Stage::setScrollFocus( Actor* actor) 
 {
-  if( NULL != scrollFocus)
     delete scrollFocus;
 	scrollFocus = actor;
 }

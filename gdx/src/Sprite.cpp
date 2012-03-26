@@ -542,7 +542,6 @@ float Sprite::getScaleY()
 * {@link #setColor(float, float, float, float)} must be used. */
 Color& Sprite::getColor()
 {
-	float floatBits = m_vertices[C1];
 	int intBits = NumberUtils::floatToIntColor(m_vertices[C1]);
 	Color& color = m_color;
 	color.r = (intBits & 0xff) / 255.f;

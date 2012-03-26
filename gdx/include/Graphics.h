@@ -65,9 +65,9 @@ public:
 	public:
 		std::string toString () 
 		{
-			char buf[100];
-			sprintf( buf, "%dx%d, bpp: %d, hz: %d", width, height, bitsPerPixel, refreshRate);
-			return buf;
+			std::stringstream buf;
+			buf << width << 'x' << height << " bpp: " << bitsPerPixel << ", hz: " << refreshRate;
+			return buf.str();
 		}
 	};
 
@@ -99,10 +99,10 @@ public:
 
 		std::string toString () 
 		{
-			char buf[200];
-			sprintf( buf, "r: %d, g: %d, b: %d, a: %d, depth: %d, stencil: %d, num samples: %d, coverage sampling:", r, g, b, a, depth, stencil, samples);
-
-			return std::string(buf) + (coverageSampling? "true": "false");
+			std::stringstream buf;
+			buf << "r: " << r << ", g: " << g << ", b: " << b << ", a: " << a << ", depth: " << depth << ", stencil: " << stencil << ", num samples: " << samples;
+			buf << (coverageSampling? "true": "false");
+			return buf.str();
 		}
 	};
 

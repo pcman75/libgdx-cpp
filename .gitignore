@@ -15,6 +15,14 @@ ipch/
 !backends/backend-glfw/extern/glfw-2.7.3/support/msvc100/Debug/
 !backends/backend-glfw/extern/glfw-2.7.3/support/msvc100/Release/
 
+# CodeLite #
+###################
+.build*
+*.tags
+*.session
+*.mk
+*.gch
+
 # Mac #
 ###################
 ._*

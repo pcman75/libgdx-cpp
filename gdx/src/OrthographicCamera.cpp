@@ -86,7 +86,6 @@ void OrthographicCamera::calculateDirection(float angle, Vector3& dir)
 {
 	Matrix4 transform;
 	dir = Vector3(-1, 0, 1).nor();
-	float rotAngle = MathUtils::radiansToDegrees * asin(tan(MathUtils::degreesToRadians * angle));
 	transform.setToRotation(Vector3(1, 0, 1).nor(), angle);
 	dir.mul(transform).nor();
 }

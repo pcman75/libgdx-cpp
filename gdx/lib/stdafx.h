@@ -4,16 +4,14 @@
 //
 
 #pragma once
-#define _USE_MATH_DEFINES //for M_PI
 
-#include "targetver.h"
-
-#define NOMINMAX
-
-#define WIN32_LEAN_AND_MEAN             // Exclude rarely-used stuff from Windows headers
-// Windows Header Files:
-#ifdef WIN32
-#include <windows.h>
+#if defined (WIN32)
+	#define _USE_MATH_DEFINES //for M_PI
+	#include "targetver.h"
+	#define NOMINMAX
+	#define WIN32_LEAN_AND_MEAN             // Exclude rarely-used stuff from Windows headers
+	// Windows Header Files:
+	#include <windows.h>
 #endif
 
 #include <GL\gl.h>
@@ -37,6 +35,7 @@
 #include <float.h>
 
 #include <math.h>
+#include <limits.h>
 
 #pragma warning( disable : 4251 )
 #pragma warning( disable : 4996 )
