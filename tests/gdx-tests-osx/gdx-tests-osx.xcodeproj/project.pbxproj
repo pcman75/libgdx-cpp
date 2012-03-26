@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1772CA961520F56400330DB0 /* libgdx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1772CA951520F56400330DB0 /* libgdx.a */; };
 		1786100E151A76030091BA8D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1786100D151A76030091BA8D /* Cocoa.framework */; };
 		17861018151A76030091BA8D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 17861016151A76030091BA8D /* InfoPlist.strings */; };
 		1786101A151A76030091BA8D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 17861019151A76030091BA8D /* main.m */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1772CA951520F56400330DB0 /* libgdx.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libgdx.a; path = ../../gdx/build/Release/libgdx.a; sourceTree = "<group>"; };
 		17861009151A76030091BA8D /* gdx-tests-osx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "gdx-tests-osx.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1786100D151A76030091BA8D /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		17861010151A76030091BA8D /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -32,7 +34,7 @@
 		17861020151A76030091BA8D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		17861023151A76030091BA8D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		17D05D18151F9326002CBB67 /* libgdx-tests.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgdx-tests.a"; path = "../../../../Library/Developer/Xcode/DerivedData/gdx-tests-bvufqwdkchmelmhhkbvwazgaikrk/Build/Products/Debug/libgdx-tests.a"; sourceTree = "<group>"; };
-		17D05D7C151F94D2002CBB67 /* libbackend-glfw.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = "libbackend-glfw.a"; path = "../../backends/backend-glfw/build/Release/libbackend-glfw.a"; sourceTree = "<group>"; };
+		17D05D7C151F94D2002CBB67 /* libbackend-glfw.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libbackend-glfw.a"; path = "../../backends/backend-glfw/build/Release/libbackend-glfw.a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +42,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1772CA961520F56400330DB0 /* libgdx.a in Frameworks */,
 				17D05D7D151F94D2002CBB67 /* libbackend-glfw.a in Frameworks */,
 				17D05D19151F9326002CBB67 /* libgdx-tests.a in Frameworks */,
 				1786100E151A76030091BA8D /* Cocoa.framework in Frameworks */,
@@ -52,6 +55,7 @@
 		17860FFE151A76030091BA8D = {
 			isa = PBXGroup;
 			children = (
+				1772CA951520F56400330DB0 /* libgdx.a */,
 				17D05D7C151F94D2002CBB67 /* libbackend-glfw.a */,
 				17D05D18151F9326002CBB67 /* libgdx-tests.a */,
 				17861013151A76030091BA8D /* gdx-tests-osx */,

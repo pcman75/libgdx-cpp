@@ -103,11 +103,21 @@ Timer* GlfwApplication::createTimer()
 
 void GlfwApplication::log(const char* tag, const char* message)
 {
-	::OutputDebugString(tag);
-	::OutputDebugString("\t");
-	::OutputDebugString(message);
-	::OutputDebugString("\n");
+	printDebugString(tag);
+	printDebugString("\t");
+	printDebugString(message);
+	printDebugString("\n");
 }
+
+void GlfwApplication::printDebugString(const char* str)
+{
+#ifdef WIN32
+    ::OutputDebugString(str);
+#else
+    printf(str);
+#endif
+}
+
 
 /* TODO imlement it only if it's the case i.e u used C++ throw exceptions or gdx throws exceptions
 void GlfwApplication::log (const char* tag, const char* message, std::exception ex)

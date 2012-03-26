@@ -7,6 +7,7 @@ using namespace std;
 
 void makeSamePathAs(const char* sibling, const char* filename, string& result)
 {
+#ifdef WIN32
 	char drive[_MAX_DRIVE];
 	char dir[_MAX_DIR];
 	char fname[_MAX_FNAME];
@@ -16,6 +17,13 @@ void makeSamePathAs(const char* sibling, const char* filename, string& result)
 	char resbuf[MAX_PATH];
 	_makepath(resbuf, drive, dir, filename, NULL);
 	result = resbuf;
+#else
+    result.clear();
+    char* path = strdup(sibling);
+    result += basename(path);
+    result += filename;
+    free(path);
+#endif
 }
 
 BitmapFont::BitmapFontData::~BitmapFontData()
@@ -113,7 +121,7 @@ BitmapFont::BitmapFontData::BitmapFontData(const FileHandle& fontFile, bool flip
 			tokens.nextToken();
 			tokens.nextToken();
 			int ch = atoi(tokens.nextToken().c_str());
-			if(ch <= MAXCHAR)
+			if(ch <= CHAR_MAX)
 				setGlyph(ch, glyph);
 			else
 				continue;
@@ -152,7 +160,7 @@ BitmapFont::BitmapFontData::BitmapFontData(const FileHandle& fontFile, bool flip
 			int first = atoi(tokens.nextToken().c_str());
 			tokens.nextToken();
 			int second = atoi(tokens.nextToken().c_str());
-			if(first < 0 || first > MAXCHAR || second < 0 || second > MAXCHAR) 
+			if(first < 0 || first > CHAR_MAX || second < 0 || second > CHAR_MAX) 
 				continue;
 			Glyph* glyph = getGlyph((char)first);
 			tokens.nextToken();

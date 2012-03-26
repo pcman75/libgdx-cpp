@@ -108,6 +108,7 @@ public:
 private:
 	void createWindow(const char* title, int width, int height);
 	void runOpenGLLoop();
+    void printDebugString(const char* str);
 private:
 	Graphics* m_pGraphics;
 	Input* m_pInput;

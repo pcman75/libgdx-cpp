@@ -12,6 +12,10 @@
 // Windows Header Files:
 #include <windows.h>
 #include <mmsystem.h>
+
+#include <io.h>
+#include <fcntl.h>
+
 #endif
 
 #define GL_GLEXT_PROTOTYPES
@@ -26,8 +30,6 @@
 #include <iostream>
 #include <cstring>
 
-#include <io.h>
-#include <fcntl.h>
 
 #include <stdlib.h>
 #include <stdio.h>

@@ -14,7 +14,13 @@
 	#include <windows.h>
 #endif
 
-#include <GL\gl.h>
+#if defined(__APPLE_CC__)
+    #include <OpenGL/gl.h>
+    #include <OpenGL/glext.h>
+    #include <libgen.h>
+#else
+    #include <GL/gl.h>
+#endif
 
 #include <iostream>
 #include <sstream>
