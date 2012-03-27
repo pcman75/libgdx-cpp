@@ -3,7 +3,7 @@
 #include "resource.h"
 
 #include "GdxTests.h"
-#include "WoglApplication.h"
+//#include "WoglApplication.h"
 #include "GlfwApplication.h"
 
 HINSTANCE TheInstance = 0;
@@ -56,7 +56,7 @@ void Controller::Command (HWND hwnd, int controlID, int command)
 						bool wogl = ::SendMessage(hCheckBox, BM_GETCHECK, 0, 0) == BST_CHECKED;
 
 						if(wogl)
-							WoglApplication(*test, textBuffer, 640, 480, test->needsGL20());
+							;//WoglApplication(*test, textBuffer, 640, 480, test->needsGL20());
 						else
 							GlfwApplication(*test, textBuffer, 640, 480, test->needsGL20());
 						delete test;

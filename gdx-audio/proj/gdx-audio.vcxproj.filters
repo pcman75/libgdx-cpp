@@ -19,9 +19,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="ReadMe.txt" />
-    <None Include="..\include\Decoder.h">
-      <Filter>Include</Filter>
-    </None>
     <None Include="..\incl\OggFile.h">
       <Filter>incl</Filter>
     </None>
@@ -59,25 +56,25 @@
     <ClInclude Include="..\incl\targetver.h">
       <Filter>incl</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\Mpg123Decoder.h">
-      <Filter>Include</Filter>
-    </ClInclude>
     <ClInclude Include="..\incl\Mp3File.h">
       <Filter>incl</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\WavDecoder.h">
+    <ClInclude Include="..\incl\WavInputStream.h">
+      <Filter>incl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Decoder.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\GdxAudioDefines.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Mpg123Decoder.h">
       <Filter>Include</Filter>
     </ClInclude>
     <ClInclude Include="..\include\VorbisDecoder.h">
       <Filter>Include</Filter>
     </ClInclude>
-    <ClInclude Include="..\incl\WavInputStream.h">
-      <Filter>incl</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\GdxMusic.h">
-      <Filter>Include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\GdxSound.h">
+    <ClInclude Include="..\include\WavDecoder.h">
       <Filter>Include</Filter>
     </ClInclude>
   </ItemGroup>

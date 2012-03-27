@@ -145,6 +145,9 @@
     <ClInclude Include="..\include\BitmapFontTest.h">
       <Filter>include</Filter>
     </ClInclude>
+    <ClInclude Include="..\include\FilesTest.h">
+      <Filter>include</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\dllmain.cpp">
@@ -178,6 +181,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\src\Pong.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\FilesTest.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

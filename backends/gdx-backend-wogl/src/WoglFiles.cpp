@@ -11,17 +11,17 @@ WoglFiles::~WoglFiles(void)
 {
 }
 
-FileHandle WoglFiles::getFileHandle( std::string path, FileType type) const
+FileHandle WoglFiles::getFileHandle(const std::string& path, FileType type) const
 {
 	return FileHandle( path);
 }
 
-FileHandle WoglFiles::classpathHandle( std::string path) const
+FileHandle WoglFiles::classpathHandle(const std::string& path) const
 {
 	return FileHandle();
 }
 
-FileHandle WoglFiles::internalHandle( std::string path) const
+FileHandle WoglFiles::internalHandle(const std::string& path) const
 {
 	TCHAR modulePath[MAX_PATH] = {0};
 	TCHAR drive[_MAX_DRIVE] = {0};
@@ -33,12 +33,12 @@ FileHandle WoglFiles::internalHandle( std::string path) const
 	return FileHandle(fullPath);
 }
 
-FileHandle WoglFiles::externalHandle( std::string path) const
+FileHandle WoglFiles::externalHandle(const std::string& path) const
 {
 	return FileHandle( path);
 }
 
-FileHandle WoglFiles::absoluteHandle( std::string path) const
+FileHandle WoglFiles::absoluteHandle(const std::string& path) const
 {
 	return FileHandle( path);
 }
@@ -53,7 +53,7 @@ bool WoglFiles::isExternalStorageAvailable() const
 	return false;
 }
 
-FileType WoglFiles::getFileType( std::string path) const
+FileType WoglFiles::getFileType(const std::string& path) const
 {
 	if( isDirectory( path))
 		return Internal;
@@ -63,7 +63,7 @@ FileType WoglFiles::getFileType( std::string path) const
 	return Absolute;
 }
 
-bool WoglFiles::isDirectory( std::string path) const
+bool WoglFiles::isDirectory(const std::string& path) const
 {
 	DWORD dwFileType = GetFileAttributesA( path.c_str());
 	if( FILE_ATTRIBUTE_DIRECTORY & dwFileType)
@@ -74,7 +74,7 @@ bool WoglFiles::isDirectory( std::string path) const
 	return false;
 }
 
-void WoglFiles::list( std::string path, std::vector< FileHandle>& handles) const
+void WoglFiles::list(const std::string& path, std::vector< FileHandle>& handles) const
 {
 	if( isDirectory( path))
 	{
@@ -99,7 +99,7 @@ void WoglFiles::list( std::string path, std::vector< FileHandle>& handles) const
 	}
 }
 
-FileHandleStream* WoglFiles::getStream( std::string path, FileAccess nFileAccess, StreamType nStreamType) const
+FileHandleStream* WoglFiles::getStream(const std::string& path, FileAccess nFileAccess, StreamType nStreamType) const
 {
 	FileHandleStream* pRet = new WoglFileHandleStream( path, nFileAccess, nStreamType);
 	return pRet;

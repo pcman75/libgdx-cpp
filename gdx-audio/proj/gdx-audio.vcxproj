@@ -17,12 +17,12 @@
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
@@ -37,26 +37,23 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <LinkIncremental>true</LinkIncremental>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <LinkIncremental>false</LinkIncremental>
-  </PropertyGroup>
+  <PropertyGroup />
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;GDXAUDIO_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>..\include;..\incl;..\..\gdx\include;..\extern\mpg123\ports\MSVC++\;..\extern\mpg123\src\libmpg123\;..\extern\vorbis</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>..\extern\mpg123\ports\MSVC++\2008\Debug\;..\extern\vorbis\Debug;$(OutDir)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>libmpg123.lib;gdx.lib;vorbis.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <Lib>
+      <AdditionalDependencies>libmpg123.lib;vorbis.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\extern\mpg123\ports\MSVC++\2008\Debug\;..\extern\vorbis\Debug</AdditionalLibraryDirectories>
+    </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -65,7 +62,7 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;GDXAUDIO_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>..\include;..\incl;..\..\gdx\include;..\extern\mpg123\ports\MSVC++\;..\extern\mpg123\src\libmpg123\;..\extern\vorbis</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
@@ -73,12 +70,13 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>..\extern\mpg123\ports\MSVC++\2008\Release;..\extern\vorbis\Release;$(OutDir)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>libmpg123.lib;gdx.lib;vorbis.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <Lib>
+      <AdditionalDependencies>libmpg123.lib;vorbis.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\extern\mpg123\ports\MSVC++\2008\Release;..\extern\vorbis\Release</AdditionalLibraryDirectories>
+    </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <None Include="..\include\Decoder.h" />
     <None Include="..\incl\OggFile.h" />
     <None Include="ReadMe.txt" />
   </ItemGroup>
@@ -96,8 +94,8 @@
     <ClCompile Include="..\src\WavInputStream.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\include\GdxMusic.h" />
-    <ClInclude Include="..\include\GdxSound.h" />
+    <ClInclude Include="..\include\Decoder.h" />
+    <ClInclude Include="..\include\GdxAudioDefines.h" />
     <ClInclude Include="..\include\Mpg123Decoder.h" />
     <ClInclude Include="..\include\VorbisDecoder.h" />
     <ClInclude Include="..\include\WavDecoder.h" />

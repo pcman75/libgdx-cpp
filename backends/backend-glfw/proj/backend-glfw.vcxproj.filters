@@ -16,6 +16,9 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
+    <Filter Include="extern">
+      <UniqueIdentifier>{c3abb096-f736-4141-9c9d-b2f6e8ca490d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="ReadMe.txt" />
@@ -71,6 +74,9 @@
     </ClCompile>
     <ClCompile Include="..\src\GlfwMutex.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\extern\glew.c">
+      <Filter>extern</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
