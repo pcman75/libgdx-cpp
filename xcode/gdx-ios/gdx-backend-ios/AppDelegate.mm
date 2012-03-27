@@ -34,7 +34,11 @@
     self.m_window = [[UIWindow alloc] initWithFrame:screenBounds];
     
     m_view = [[GLView alloc] initWithFrame:screenBounds];
-    // create the tests
+
+    // Instantiate the listener
+    ApplicationListener *listener;
+    // create the application
+    m_app = new IOSApplication(*listener, true);
     
     [self.m_window addSubview:m_view];
     [self.m_window makeKeyAndVisible];

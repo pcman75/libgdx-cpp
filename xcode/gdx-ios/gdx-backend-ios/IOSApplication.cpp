@@ -10,6 +10,7 @@
 #include "IOSApplication.h"
 #include "IOSApplicationConfiguration.h"
 #include "IOSGraphics.h"
+#include "IOSTimer.h"
 
 IOSApplication::IOSApplication(ApplicationListener& listener, bool useGL20)
 {
@@ -92,4 +93,9 @@ void IOSApplication::exit()
 IOSApplication::~IOSApplication()
 {
     // cleanup
+};
+
+Timer* IOSApplication::createTimer()
+{
+    return new IOSTimer();
 };

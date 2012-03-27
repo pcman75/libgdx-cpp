@@ -10,7 +10,7 @@
 #import "GLView.h"
 #import "IOSApplication.h"
 
-@class RootViewController;
+//@class RootViewController;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 {

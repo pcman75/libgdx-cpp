@@ -34,7 +34,7 @@
 }
 
 - (id)initWithFrame:(CGRect)frame;
-- (void) drawView: (CADisplayLink*)displayLink;
+//- (void) drawView: (CADisplayLink*)displayLink;
 - (void) startRenderLoop;
 - (void) stopRenderLoop;
 - (void) drawFrame;

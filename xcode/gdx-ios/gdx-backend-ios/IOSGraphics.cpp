@@ -13,6 +13,8 @@ IOSGraphics::IOSGraphics(bool useGL20): m_useGL20(useGL20)
 {
     glVersion = GL_VERSION_0;
     
+    m_frameStart = m_timer.systemNanoSeconds();
+	m_lastFrameTime = m_frameStart;
 	m_deltaTime = 0;
 }
 
@@ -122,6 +124,21 @@ bool IOSGraphics::supportsExtension (std::string extension)
 {
     return false;
 };
+
+void IOSGraphics::updateTimes() 
+{
+	m_deltaTime = (m_timer.systemNanoSeconds() - m_lastFrameTime) / 10.0E9f;
+	m_lastFrameTime = m_timer.systemNanoSeconds();
+    
+	if(m_timer.systemNanoSeconds() - m_frameStart > 10E9) 
+	{
+		m_fps = m_frames;
+		m_frames = 0;
+		m_frameStart = m_timer.systemNanoSeconds();
+	}
+	m_frames++;
+}
+
 
 void IOSGraphics::updateTimes(float elapsedTime,  float timestamp)
 {

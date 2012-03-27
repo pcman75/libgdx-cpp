@@ -12,6 +12,7 @@
 #include "Graphics.h"
 #include "ApplicationListener.h"
 #include "Gdx.h"
+#include "IOSTimer.h"
 
 class IOSGraphics : public Graphics
 {
@@ -25,7 +26,7 @@ private:
     
     GLversion glVersion;
     
-//	IOSTimer m_timer;
+	IOSTimer    m_timer;
 	long long   m_frameStart;
 	long long   m_lastFrameTime;
 	float       m_deltaTime;
@@ -56,6 +57,7 @@ public:
 	virtual void setVSync (bool vsync);
 	virtual BufferFormat getBufferFormat ();
 	virtual bool supportsExtension (std::string extension);
+    virtual void updateTimes();
     virtual void updateTimes(float elapsedTime,  float timestamp);
 };
 

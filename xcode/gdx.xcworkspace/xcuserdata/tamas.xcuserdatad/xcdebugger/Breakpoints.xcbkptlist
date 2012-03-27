@@ -108,20 +108,6 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          isPathRelative = "1"
-         filePath = "gdx-ios/gdx-backend-ios/GLView.mm"
-         timestampString = "353951587.662323"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "59"
-         endingLineNumber = "59"
-         landmarkName = "-initWithFrame:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
          filePath = "gdx-ios/gdx-backend-ios/AppDelegate.mm"
          timestampString = "353953592.143792"
          startingColumnNumber = "9223372036854775807"
@@ -137,11 +123,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "gdx-ios/gdx-backend-ios/AppDelegate.mm"
-         timestampString = "353953592.143792"
+         timestampString = "354558807.820796"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "41"
-         endingLineNumber = "41"
+         startingLineNumber = "45"
+         endingLineNumber = "45"
          landmarkName = "-application:didFinishLaunchingWithOptions:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -165,11 +151,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "gdx-ios/gdx-backend-ios/GLView.mm"
-         timestampString = "354214914.2552"
+         timestampString = "354559562.091937"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "95"
-         endingLineNumber = "95"
+         startingLineNumber = "82"
+         endingLineNumber = "82"
          landmarkName = "-createFramebuffer"
          landmarkType = "5">
       </FileBreakpoint>
@@ -179,11 +165,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "gdx-ios/gdx-backend-ios/GLView.mm"
-         timestampString = "354214914.2552"
+         timestampString = "354559562.091937"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "106"
-         endingLineNumber = "106"
+         startingLineNumber = "93"
+         endingLineNumber = "93"
          landmarkName = "-createFramebuffer"
          landmarkType = "5">
       </FileBreakpoint>
@@ -197,7 +183,9 @@
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "60"
-         endingLineNumber = "60">
+         endingLineNumber = "60"
+         landmarkName = "IOSGraphics::getPpiY()"
+         landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -205,11 +193,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "gdx-ios/gdx-backend-ios/GLView.mm"
-         timestampString = "354215016.251912"
+         timestampString = "354559562.091937"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "225"
-         endingLineNumber = "225"
+         startingLineNumber = "212"
+         endingLineNumber = "212"
          landmarkName = "-drawFrame"
          landmarkType = "5">
       </FileBreakpoint>
@@ -219,11 +207,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "gdx-ios/gdx-backend-ios/IOSApplication.cpp"
-         timestampString = "354219874.704173"
+         timestampString = "354558807.820796"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "16"
-         endingLineNumber = "16"
+         startingLineNumber = "17"
+         endingLineNumber = "17"
          landmarkName = "IOSApplication::IOSApplication(ApplicationListener&amp; listener, bool useGL20)"
          landmarkType = "5">
       </FileBreakpoint>
@@ -233,12 +221,40 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "gdx-ios/gdx-backend-ios/IOSApplication.cpp"
-         timestampString = "354551837.237116"
+         timestampString = "354558807.820796"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "22"
-         endingLineNumber = "22"
+         startingLineNumber = "23"
+         endingLineNumber = "23"
          landmarkName = "IOSApplication::initialize(IOSApplicationConfiguration&amp; config)"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "gdx-ios/gdx-backend-ios/GLView.mm"
+         timestampString = "354559562.091937"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "218"
+         endingLineNumber = "218"
+         landmarkName = "-drawFrame"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "gdx-ios/gdx-backend-ios/IOSGraphics.cpp"
+         timestampString = "354559555.448318"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "128"
+         endingLineNumber = "128"
+         landmarkName = "IOSGraphics::updateTimes(float elapsedTime, float timestamp)"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

@@ -54,19 +54,6 @@
         colorRenderbuffer = 0;
         depthRenderbuffer = 0;
 
-
-        // goes into draw
-//        [context renderbufferStorage:GL_RENDERBUFFER fromDrawable:eaglLayer];
-        
-//        [self drawView:nil];
-        
-//        timestamp = CACurrentMediaTime();
-        
-//        CADisplayLink* displayLink;
-//        displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(drawView:)];
-//        
-//        [displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
-        
     }
     return self;
 }
@@ -223,7 +210,8 @@
         float elapsedSeconds = displayLink.timestamp - timestamp;
         timestamp = displayLink.timestamp;
 //        NSLog(@"elapsedSeconds=%f  timestamp=%f", elapsedSeconds, timestamp);
-        // TODO update deltaTime
+        // update deltaTime
+        ((IOSGraphics*)Gdx.graphics)->updateTimes(elapsedSeconds, timestamp);
 
         //finally, get the color buffer we rendered to, and pass it to iOS
         //so it can display our awesome results!

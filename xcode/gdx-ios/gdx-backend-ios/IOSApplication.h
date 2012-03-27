@@ -38,10 +38,13 @@ public:
 	virtual void setLogLevel (int logLevel);
     
 	virtual ApplicationType getType ();
+
+    virtual Timer* createTimer();
     
 	virtual int getVersion ();
     
 	virtual void exit ();
+
 private:
     void initialize(IOSApplicationConfiguration& config);
 
