@@ -17,12 +17,39 @@
 class IOSApplication : public Application {
 
 public:
-    ApplicationListener* listener;
-    IOSGraphics* graphics;
-    IOSApplication(ApplicationListener* listener, bool useGL20);
+    IOSApplication(ApplicationListener& listener, bool useGL20);
+
     virtual ~IOSApplication();
+
+	virtual Graphics* getGraphics ();
+    
+	virtual Audio* getAudio ();
+    
+	virtual Input* getInput ();
+    
+	virtual Files* getFiles ();
+	
+	virtual void log(const char* tag, const char* message);
+    
+	virtual void error (const char* tag, const char* message);
+    
+	virtual void debug (const char* tag, const char* message);
+
+	virtual void setLogLevel (int logLevel);
+    
+	virtual ApplicationType getType ();
+    
+	virtual int getVersion ();
+    
+	virtual void exit ();
 private:
-    void initialize(IOSApplicationConfiguration* config);
+    void initialize(IOSApplicationConfiguration& config);
+
+	Graphics* m_pGraphics;
+	Input* m_pInput;
+	Files* m_pFiles;
+	Audio* m_pAudio;
+	int logLevel;
 };
 
 #endif

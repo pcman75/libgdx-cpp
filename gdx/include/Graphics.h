@@ -114,21 +114,6 @@ public:
 	* @return whether OpenGL ES 2.0 is available */
 	virtual bool isGL20Available () = 0;
 
-	/** @return a {@link GLCommon} instance */
-//	virtual const GLCommon* getGLCommon () = 0;
-
-	/** @return the {@link GL10} instance or null if not supported */
-//	virtual GL10* getGL10 () = 0;
-
-	/** @return the {@link GL11} instance or null if not supported */
-//	virtual GL11* getGL11 () = 0;
-
-	/** @return the {@link GL20} instance or null if not supported */
-//	virtual GL20* getGL20 () = 0;
-
-	/** @return the {@link GLU} instance */
-//	virtual const GLU* getGLU () = 0;
-
 	/** @return the width in pixels of the display surface */
 	virtual int getWidth () = 0;
 

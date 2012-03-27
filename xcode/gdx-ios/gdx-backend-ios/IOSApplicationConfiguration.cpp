@@ -8,3 +8,11 @@
 
 #include <iostream>
 #include "IOSApplicationConfiguration.h"
+
+IOSApplicationConfiguration::IOSApplicationConfiguration()
+{
+};
+
+IOSApplicationConfiguration::~IOSApplicationConfiguration()
+{
+};

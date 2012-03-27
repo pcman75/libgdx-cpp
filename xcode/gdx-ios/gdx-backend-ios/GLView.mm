@@ -71,19 +71,20 @@
     return self;
 }
 
-- (void) drawView: (CADisplayLink*) displayLink
-{
-    if (displayLink != nil) {
-        // TODO - need to do something with this to inject it into the Graphics instance
-        float elapsedSeconds = displayLink.timestamp - timestamp;
-        timestamp = displayLink.timestamp;
-    }
-    
-    // delegating rendering to the application listener
-    // appListener->render(elapsedSeconds);
-    
-    [context presentRenderbuffer:GL_RENDERBUFFER];
-}
+//- (void) drawView: (CADisplayLink*) displayLink
+//{
+//    if (displayLink != nil) {
+//        // TODO - need to do something with this to inject it into the Graphics instance
+//        float elapsedSeconds = displayLink.timestamp - timestamp;
+//        timestamp = displayLink.timestamp;
+//        NSLog(@"elapsedSeconds=%f  timestamp=%f", elapsedSeconds, timestamp);
+//    }
+//    
+//    // delegating rendering to the application listener
+//    // appListener->render(elapsedSeconds);
+//    
+//    [context presentRenderbuffer:GL_RENDERBUFFER];
+//}
 
 - (void)createFramebuffer
 {
@@ -221,6 +222,7 @@
         
         float elapsedSeconds = displayLink.timestamp - timestamp;
         timestamp = displayLink.timestamp;
+//        NSLog(@"elapsedSeconds=%f  timestamp=%f", elapsedSeconds, timestamp);
         // TODO update deltaTime
 
         //finally, get the color buffer we rendered to, and pass it to iOS
@@ -256,7 +258,7 @@
 - (void) setApplication:(IOSApplication*)application
 {
     app = application;
-    listener = app->listener;
+//    listener = app->get
     listenerInitialised = FALSE;
 }
 @end
