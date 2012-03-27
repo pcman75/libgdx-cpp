@@ -15,7 +15,6 @@
  ******************************************************************************/
 
 #pragma once
-#include "GdxDefines.h"
 #include "Rectang.h"
 #include "Gdx.h"
 #include "Vector2.h"
@@ -27,7 +26,7 @@
  * When a new Rectang is pushed onto the stack, it will be merged with the current top of stack. The minimum area of overlap is
  * then set as the real top of the stack.
  * @author mzechner */
-class GdxDllImportExport ScissorStack 
+class ScissorStack 
 {
 private:
   static std::vector<Rectang> scissors;

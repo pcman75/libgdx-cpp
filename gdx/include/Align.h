@@ -1,9 +1,7 @@
 #pragma once
-#include "GdxDefines.h"
-
 
 /** @author Nathan Sweet */
-class GdxDllImportExport Align 
+class Align 
 {
 public:
 	static int CENTER;

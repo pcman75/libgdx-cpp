@@ -141,7 +141,6 @@
     <File Name="../include/Frustum.h"/>
     <File Name="../include/Gdx.h"/>
     <File Name="../include/Gdx2DPixmap.h"/>
-    <File Name="../include/GdxDefines.h"/>
     <File Name="../include/GdxRuntimeException.h"/>
     <File Name="../include/GL10.h"/>
     <File Name="../include/GL11.h"/>
