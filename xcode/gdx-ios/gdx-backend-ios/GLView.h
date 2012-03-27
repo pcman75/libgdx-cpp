@@ -33,7 +33,7 @@
     GLuint defaultFramebuffer, colorRenderbuffer, depthRenderbuffer;
 }
 
-- (id)initWithFrame:(CGRect)frame;
+- (id)initWithFrame:(CGRect)frame andListener:(ApplicationListener*)listener;
 //- (void) drawView: (CADisplayLink*)displayLink;
 - (void) startRenderLoop;
 - (void) stopRenderLoop;

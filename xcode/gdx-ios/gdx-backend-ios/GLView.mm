@@ -23,9 +23,12 @@
     return [CAEAGLLayer class];
 }
 
-- (id)initWithFrame:(CGRect)frame
+- (id)initWithFrame:(CGRect)frame andListener:(ApplicationListener*)appListener
 {
     if ((self = [super initWithFrame:frame])) {
+        
+        listener = appListener;
+        
 //        CAEAGLLayer* eaglLayer = (CAEAGLLayer*) super.layer;
 //        eaglLayer.opaque = YES;
         

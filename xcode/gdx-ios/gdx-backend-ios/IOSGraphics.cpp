@@ -11,7 +11,7 @@
 
 IOSGraphics::IOSGraphics(bool useGL20): m_useGL20(useGL20)
 {
-    glVersion = GL_VERSION_0;
+    glVersion = GL_VERSION_20;
     
     m_frameStart = m_timer.systemNanoSeconds();
 	m_lastFrameTime = m_frameStart;

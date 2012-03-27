@@ -240,6 +240,8 @@
 		025E29D515064D3A004955D2 /* GLView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLView.mm; sourceTree = "<group>"; };
 		026AD3E51522199F000D55E6 /* IOSTimer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IOSTimer.cpp; sourceTree = "<group>"; };
 		026AD3E7152219D6000D55E6 /* IOSTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IOSTimer.h; sourceTree = "<group>"; };
+		026AD3F115222F8C000D55E6 /* AlphaTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlphaTest.h; sourceTree = "<group>"; };
+		026AD3F215222F8C000D55E6 /* GdxTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GdxTest.h; sourceTree = "<group>"; };
 		029A06A615013DB600B82B73 /* libgdx.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libgdx.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		029A06A915013DB600B82B73 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		02CE9EC31506537300A78D71 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.0.sdk/System/Library/Frameworks/OpenGLES.framework; sourceTree = DEVELOPER_DIR; };
@@ -516,9 +518,19 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		026AD3F015222F8C000D55E6 /* gdx-tests */ = {
+			isa = PBXGroup;
+			children = (
+				026AD3F115222F8C000D55E6 /* AlphaTest.h */,
+				026AD3F215222F8C000D55E6 /* GdxTest.h */,
+			);
+			path = "gdx-tests";
+			sourceTree = "<group>";
+		};
 		029A069615013D6F00B82B73 = {
 			isa = PBXGroup;
 			children = (
+				026AD3F015222F8C000D55E6 /* gdx-tests */,
 				02CE9F4F150A2E2800A78D71 /* gdx */,
 				025E2860150530DE004955D2 /* gdx-ios */,
 				025E29B215064821004955D2 /* gdx-backend-ios */,

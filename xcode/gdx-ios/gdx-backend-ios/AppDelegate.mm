@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "../gdx-tests/AlphaTest.h"
 
 @implementation AppDelegate
 
@@ -27,19 +28,19 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {    
+    // Instantiate the listener
+    ApplicationListener *listener = new AlphaTest();
+    // create the application
+    m_app = new IOSApplication(*listener, true);
+    
     [application setStatusBarHidden:YES];
     
     CGRect screenBounds = [[UIScreen mainScreen] bounds];
     
     self.m_window = [[UIWindow alloc] initWithFrame:screenBounds];
     
-    m_view = [[GLView alloc] initWithFrame:screenBounds];
+    m_view = [[GLView alloc] initWithFrame:screenBounds andListener:listener];
 
-    // Instantiate the listener
-    ApplicationListener *listener;
-    // create the application
-    m_app = new IOSApplication(*listener, true);
-    
     [self.m_window addSubview:m_view];
     [self.m_window makeKeyAndVisible];
     
