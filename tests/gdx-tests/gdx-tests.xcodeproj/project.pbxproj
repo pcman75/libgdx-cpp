@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		175147901522677800915FB2 /* FilesTest.h in Headers */ = {isa = PBXBuildFile; fileRef = 1751478F1522677800915FB2 /* FilesTest.h */; };
+		175147921522679400915FB2 /* FilesTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 175147911522679400915FB2 /* FilesTest.cpp */; };
 		17D05CDD151F8832002CBB67 /* Shapes.h in Headers */ = {isa = PBXBuildFile; fileRef = 17D05CA4151F8832002CBB67 /* Shapes.h */; };
 		17D05CDE151F8832002CBB67 /* stdafx.h in Headers */ = {isa = PBXBuildFile; fileRef = 17D05CA5151F8832002CBB67 /* stdafx.h */; };
 		17D05CDF151F8832002CBB67 /* targetver.h in Headers */ = {isa = PBXBuildFile; fileRef = 17D05CA6151F8832002CBB67 /* targetver.h */; };
@@ -19,7 +21,6 @@
 		17D05CE7151F8832002CBB67 /* Gdx2DTest.h in Headers */ = {isa = PBXBuildFile; fileRef = 17D05CAF151F8832002CBB67 /* Gdx2DTest.h */; };
 		17D05CE8151F8832002CBB67 /* GdxTest.h in Headers */ = {isa = PBXBuildFile; fileRef = 17D05CB0151F8832002CBB67 /* GdxTest.h */; };
 		17D05CE9151F8832002CBB67 /* GdxTests.h in Headers */ = {isa = PBXBuildFile; fileRef = 17D05CB1151F8832002CBB67 /* GdxTests.h */; };
-		17D05CEA151F8832002CBB67 /* GdxTestsDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = 17D05CB2151F8832002CBB67 /* GdxTestsDefines.h */; };
 		17D05CEB151F8832002CBB67 /* GroupTest.h in Headers */ = {isa = PBXBuildFile; fileRef = 17D05CB3151F8832002CBB67 /* GroupTest.h */; };
 		17D05CEC151F8832002CBB67 /* IndexBufferObjectClassTest.h in Headers */ = {isa = PBXBuildFile; fileRef = 17D05CB4151F8832002CBB67 /* IndexBufferObjectClassTest.h */; };
 		17D05CED151F8832002CBB67 /* IndexBufferObjectShaderTest.h in Headers */ = {isa = PBXBuildFile; fileRef = 17D05CB5151F8832002CBB67 /* IndexBufferObjectShaderTest.h */; };
@@ -60,6 +61,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1751478F1522677800915FB2 /* FilesTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilesTest.h; sourceTree = "<group>"; };
+		175147911522679400915FB2 /* FilesTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FilesTest.cpp; sourceTree = "<group>"; };
 		17D05C9C151F87E6002CBB67 /* libgdx-tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libgdx-tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		17D05CA4151F8832002CBB67 /* Shapes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shapes.h; sourceTree = "<group>"; };
 		17D05CA5151F8832002CBB67 /* stdafx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stdafx.h; sourceTree = "<group>"; };
@@ -73,7 +76,6 @@
 		17D05CAF151F8832002CBB67 /* Gdx2DTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gdx2DTest.h; sourceTree = "<group>"; };
 		17D05CB0151F8832002CBB67 /* GdxTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GdxTest.h; sourceTree = "<group>"; };
 		17D05CB1151F8832002CBB67 /* GdxTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GdxTests.h; sourceTree = "<group>"; };
-		17D05CB2151F8832002CBB67 /* GdxTestsDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GdxTestsDefines.h; sourceTree = "<group>"; };
 		17D05CB3151F8832002CBB67 /* GroupTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupTest.h; sourceTree = "<group>"; };
 		17D05CB4151F8832002CBB67 /* IndexBufferObjectClassTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndexBufferObjectClassTest.h; sourceTree = "<group>"; };
 		17D05CB5151F8832002CBB67 /* IndexBufferObjectShaderTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndexBufferObjectShaderTest.h; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 		17D05CA7151F8832002CBB67 /* include */ = {
 			isa = PBXGroup;
 			children = (
+				1751478F1522677800915FB2 /* FilesTest.h */,
 				17D05CA8151F8832002CBB67 /* AlphaTest.h */,
 				17D05CA9151F8832002CBB67 /* AudioDeviceTest.h */,
 				17D05CAA151F8832002CBB67 /* BitmapFontTest.h */,
@@ -164,7 +167,6 @@
 				17D05CAF151F8832002CBB67 /* Gdx2DTest.h */,
 				17D05CB0151F8832002CBB67 /* GdxTest.h */,
 				17D05CB1151F8832002CBB67 /* GdxTests.h */,
-				17D05CB2151F8832002CBB67 /* GdxTestsDefines.h */,
 				17D05CB3151F8832002CBB67 /* GroupTest.h */,
 				17D05CB4151F8832002CBB67 /* IndexBufferObjectClassTest.h */,
 				17D05CB5151F8832002CBB67 /* IndexBufferObjectShaderTest.h */,
@@ -199,6 +201,7 @@
 		17D05CD1151F8832002CBB67 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				175147911522679400915FB2 /* FilesTest.cpp */,
 				17D05CD3151F8832002CBB67 /* GdxTests.cpp */,
 				17D05CD4151F8832002CBB67 /* MatrixJNITest.cpp */,
 				17D05CD5151F8832002CBB67 /* MeshShaderTest.cpp */,
@@ -232,7 +235,6 @@
 				17D05CE7151F8832002CBB67 /* Gdx2DTest.h in Headers */,
 				17D05CE8151F8832002CBB67 /* GdxTest.h in Headers */,
 				17D05CE9151F8832002CBB67 /* GdxTests.h in Headers */,
-				17D05CEA151F8832002CBB67 /* GdxTestsDefines.h in Headers */,
 				17D05CEB151F8832002CBB67 /* GroupTest.h in Headers */,
 				17D05CEC151F8832002CBB67 /* IndexBufferObjectClassTest.h in Headers */,
 				17D05CED151F8832002CBB67 /* IndexBufferObjectShaderTest.h in Headers */,
@@ -260,6 +262,7 @@
 				17D05D06151F8832002CBB67 /* VertexBufferObjectShaderTest.h in Headers */,
 				17D05D07151F8832002CBB67 /* VorbisTest.h in Headers */,
 				17D05D08151F8832002CBB67 /* WavTest.h in Headers */,
+				175147901522677800915FB2 /* FilesTest.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,6 +327,7 @@
 				17D05D11151F8832002CBB67 /* SpriteBatchTest.cpp in Sources */,
 				17D05D12151F8832002CBB67 /* stdafx.cpp in Sources */,
 				17D05D13151F8832002CBB67 /* VertexBufferObjectShaderTest.cpp in Sources */,
+				175147921522679400915FB2 /* FilesTest.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,6 +426,7 @@
 				17D05CA2151F87E6002CBB67 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

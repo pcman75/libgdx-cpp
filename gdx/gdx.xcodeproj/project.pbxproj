@@ -259,7 +259,6 @@
 		1772CB291520F5C700330DB0 /* Frustum.h in Headers */ = {isa = PBXBuildFile; fileRef = 1772CABA1520F5C700330DB0 /* Frustum.h */; };
 		1772CB2A1520F5C700330DB0 /* Gdx.h in Headers */ = {isa = PBXBuildFile; fileRef = 1772CABB1520F5C700330DB0 /* Gdx.h */; };
 		1772CB2B1520F5C700330DB0 /* Gdx2DPixmap.h in Headers */ = {isa = PBXBuildFile; fileRef = 1772CABC1520F5C700330DB0 /* Gdx2DPixmap.h */; };
-		1772CB2C1520F5C700330DB0 /* GdxDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = 1772CABD1520F5C700330DB0 /* GdxDefines.h */; };
 		1772CB2D1520F5C700330DB0 /* GdxRuntimeException.h in Headers */ = {isa = PBXBuildFile; fileRef = 1772CABE1520F5C700330DB0 /* GdxRuntimeException.h */; };
 		1772CB2E1520F5C700330DB0 /* GL10.h in Headers */ = {isa = PBXBuildFile; fileRef = 1772CABF1520F5C700330DB0 /* GL10.h */; };
 		1772CB2F1520F5C700330DB0 /* GL11.h in Headers */ = {isa = PBXBuildFile; fileRef = 1772CAC01520F5C700330DB0 /* GL11.h */; };
@@ -480,7 +479,6 @@
 		1772CABA1520F5C700330DB0 /* Frustum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Frustum.h; sourceTree = "<group>"; };
 		1772CABB1520F5C700330DB0 /* Gdx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gdx.h; sourceTree = "<group>"; };
 		1772CABC1520F5C700330DB0 /* Gdx2DPixmap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gdx2DPixmap.h; sourceTree = "<group>"; };
-		1772CABD1520F5C700330DB0 /* GdxDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GdxDefines.h; sourceTree = "<group>"; };
 		1772CABE1520F5C700330DB0 /* GdxRuntimeException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GdxRuntimeException.h; sourceTree = "<group>"; };
 		1772CABF1520F5C700330DB0 /* GL10.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GL10.h; sourceTree = "<group>"; };
 		1772CAC01520F5C700330DB0 /* GL11.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GL11.h; sourceTree = "<group>"; };
@@ -748,7 +746,6 @@
 				1772CABA1520F5C700330DB0 /* Frustum.h */,
 				1772CABB1520F5C700330DB0 /* Gdx.h */,
 				1772CABC1520F5C700330DB0 /* Gdx2DPixmap.h */,
-				1772CABD1520F5C700330DB0 /* GdxDefines.h */,
 				1772CABE1520F5C700330DB0 /* GdxRuntimeException.h */,
 				1772CABF1520F5C700330DB0 /* GL10.h */,
 				1772CAC01520F5C700330DB0 /* GL11.h */,
@@ -1112,7 +1109,6 @@
 				1772CB291520F5C700330DB0 /* Frustum.h in Headers */,
 				1772CB2A1520F5C700330DB0 /* Gdx.h in Headers */,
 				1772CB2B1520F5C700330DB0 /* Gdx2DPixmap.h in Headers */,
-				1772CB2C1520F5C700330DB0 /* GdxDefines.h in Headers */,
 				1772CB2D1520F5C700330DB0 /* GdxRuntimeException.h in Headers */,
 				1772CB2E1520F5C700330DB0 /* GL10.h in Headers */,
 				1772CB2F1520F5C700330DB0 /* GL11.h in Headers */,
