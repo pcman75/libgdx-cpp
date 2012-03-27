@@ -15,10 +15,10 @@
  ******************************************************************************/
 
 #pragma once
-#include "GdxDefines.h"
+
 #include "CompositeAction.h"
 
-class GdxDllImportExport Sequence : public CompositeAction 
+class Sequence : public CompositeAction 
 {
 protected:
   Actor* target;

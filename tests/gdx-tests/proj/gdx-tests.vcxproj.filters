@@ -37,9 +37,6 @@
     <ClInclude Include="..\include\AlphaTest.h">
       <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\GdxTestsDefines.h">
-      <Filter>include</Filter>
-    </ClInclude>
     <ClInclude Include="..\include\MatrixJNITest.h">
       <Filter>include</Filter>
     </ClInclude>

@@ -15,12 +15,12 @@
  ******************************************************************************/
 
 #pragma once
-#include "GdxDefines.h"
+
 #include "TemporalAction.h"
 
 /** Base class for {@link OrthographicCamera} and {@link PerspectiveCamera}.*/
 
-class GdxDllImportExport Forever : public TemporalAction 
+class Forever : public TemporalAction 
 {
 public:
 	Forever( Action* action);

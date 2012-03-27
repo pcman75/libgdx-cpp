@@ -15,7 +15,7 @@
  ******************************************************************************/
 
 #pragma once
-#include "GdxDefines.h"
+
 #include "TextureRegion.h"
 
 /** <p>
@@ -23,7 +23,7 @@
  * region of an Animation is called a key frame, multiple key frames make up the animation.
  * <p>
  */
-class GdxDllImportExport Animation
+class Animation
 {
 private:
 	TextureRegion** m_keyFrames;

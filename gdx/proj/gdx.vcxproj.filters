@@ -359,9 +359,6 @@
     <ClInclude Include="..\include\Gdx2DPixmap.h">
       <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\GdxDefines.h">
-      <Filter>include</Filter>
-    </ClInclude>
     <ClInclude Include="..\include\GdxRuntimeException.h">
       <Filter>include</Filter>
     </ClInclude>
@@ -639,6 +636,9 @@
       <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="..\include\ImmediateModeRenderer20.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\ObjLoader.h">
       <Filter>include</Filter>
     </ClInclude>
   </ItemGroup>

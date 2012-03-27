@@ -43,7 +43,5 @@
 #include <math.h>
 #include <limits.h>
 
-#pragma warning( disable : 4251 )
-#pragma warning( disable : 4996 )
-#pragma warning( disable : 4275 )
+
 

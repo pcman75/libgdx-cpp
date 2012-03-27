@@ -15,13 +15,13 @@
 ******************************************************************************/
 
 #pragma once
-#include "GdxAudioDefines.h"
+
 #include "Decoder.h"
 #include "FileHandle.h"
 
 /** A {@link Decoder} implementation that decodes OGG Vorbis files using tremor*/
 
-class GdxAudioDllImportExport VorbisDecoder :
+class VorbisDecoder :
 	public Decoder
 {
 private:

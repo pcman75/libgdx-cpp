@@ -95,7 +95,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\Decoder.h" />
-    <ClInclude Include="..\include\GdxAudioDefines.h" />
     <ClInclude Include="..\include\Mpg123Decoder.h" />
     <ClInclude Include="..\include\VorbisDecoder.h" />
     <ClInclude Include="..\include\WavDecoder.h" />

@@ -49,7 +49,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-     </Link>
+    </Link>
     <CustomBuildStep>
       <Command>xcopy /i /y ..\data $(OutDir)\data</Command>
       <Outputs>$(OutDir)\data</Outputs>
@@ -106,7 +106,6 @@
     <ClInclude Include="..\include\FrustumTest.h" />
     <ClInclude Include="..\include\GdxTest.h" />
     <ClInclude Include="..\include\GdxTests.h" />
-    <ClInclude Include="..\include\GdxTestsDefines.h" />
     <ClInclude Include="..\include\MatrixJNITest.h" />
     <ClInclude Include="..\include\MeshShaderTest.h" />
     <ClInclude Include="..\include\MeshTest.h" />

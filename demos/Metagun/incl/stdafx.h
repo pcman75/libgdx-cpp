@@ -26,13 +26,4 @@
 #include <sstream>
 #include <math.h>
 
-
-
-
-#pragma warning( disable : 4251 )
-#pragma warning( disable : 4996 )
-#pragma warning( disable : 4275 )
-
-// TODO: reference additional headers your program requires here
-
 #include "MathUtils.h"

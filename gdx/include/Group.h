@@ -15,7 +15,7 @@
  ******************************************************************************/
 
 #pragma once 
-#include "GdxDefines.h"
+
 #include "Actor.h"
 #include "Cullable.h"
 #include "Texture.h"
@@ -30,7 +30,7 @@
 /** A group is an Actor that contains other Actors (also other Groups which are Actors).
  * @author mzechner
  * @author Nathan Sweet */
-class GdxDllImportExport Group : public Actor , Cullable 
+class Group : public Actor , Cullable 
 {
 public:
   static Texture* debugTexture;

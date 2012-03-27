@@ -16,12 +16,12 @@
 
 #pragma once
 
-#include "GdxDefines.h"
+
 
 /** A color class, holding the r, g, b and alpha component as floats in the range [0,1]. All methods perform clamping on the
  * internal values after execution.
  */
-class GdxDllImportExport Color
+class Color
 {
 public:
 	static const Color CLEAR;

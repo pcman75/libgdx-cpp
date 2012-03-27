@@ -15,13 +15,13 @@
  ******************************************************************************/
 
 #pragma once
-#include "GdxDefines.h"
+
 #include "Interpolator.h"
 
 /** An interpolator where the rate of change starts out slowly and then accelerates over time.
  * 
  * @author Moritz Post <moritzpost@gmail.com> */
-class GdxDllImportExport AccelerateInterpolator : public Interpolator 
+class AccelerateInterpolator : public Interpolator 
 {
 private:
   static float DEFAULT_FACTOR;

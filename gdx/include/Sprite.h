@@ -23,13 +23,13 @@
  */
 #pragma once
 
-#include "GdxDefines.h"
+
 
 #include "TextureRegion.h"
 #include "Rectang.h"
 class SpriteBatch;
 
-class GdxDllImportExport Sprite: public TextureRegion
+class Sprite: public TextureRegion
 {
 public:
 	static const int VERTEX_SIZE = 2 + 1 + 2;

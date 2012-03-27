@@ -16,13 +16,13 @@
 
 #pragma once
 
-#include "GdxDefines.h"
+
 #include "Vector2.h"
 
 /** A convenient 2D circle class.
 */
 
-class GdxDllImportExport Circle
+class Circle
 {
 public:
 	Circle( float x, float y, float radius);

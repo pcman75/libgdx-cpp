@@ -15,10 +15,10 @@
  ******************************************************************************/
 
 #pragma once
-#include "GdxDefines.h"
+
 #include "AnimationAction.h"
 
-class GdxDllImportExport RotateTo : public AnimationAction 
+class RotateTo : public AnimationAction 
 {
 protected:
   float rotation;

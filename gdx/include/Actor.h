@@ -15,7 +15,7 @@
  ******************************************************************************/
 
 #pragma once 
-#include "GdxDefines.h"
+
 #include "Vector2.h"
 #include "Color.h"
 #include "Action.h"
@@ -77,7 +77,7 @@ enum ObjectType
  * <p>
  * 
  * @author mzechner */
-class GdxDllImportExport Actor 
+class Actor 
 {
 public:
 	Group* parent;

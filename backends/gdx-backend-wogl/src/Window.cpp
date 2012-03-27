@@ -10,8 +10,6 @@
 // UPDATED: 2006-09-20
 ///////////////////////////////////////////////////////////////////////////////
 
-#pragma warning(disable : 4996)
-
 #include "stdafx.h"
 
 #include "Window.h"

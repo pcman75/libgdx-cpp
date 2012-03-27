@@ -16,10 +16,9 @@
 #pragma once
 
 #include "Mesh.h"
-#include "GdxDefines.h"
 
 /** Loads Wavefront OBJ files, ignores material files. */
-class GdxDllImportExport ObjLoader 
+class ObjLoader 
 {
 public:
 	/** Loads a Wavefront OBJ file from the given input stream.

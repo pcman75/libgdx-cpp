@@ -51,10 +51,10 @@
  * A Texture must be disposed when it is no longer used
  * </p>
  */
-class GdxDllImportExport Texture
+class Texture
 {
 public:
-	class GdxDllImportExport TextureFilter
+	class TextureFilter
 	{
 	public:
 	    static const TextureFilter Nearest;
@@ -73,7 +73,7 @@ public:
 		bool isMipMap();
 		int getGLEnum();
 	};
-	class GdxDllImportExport TextureWrap
+	class TextureWrap
 	{
 	public:
 		static const TextureWrap ClampToEdge;

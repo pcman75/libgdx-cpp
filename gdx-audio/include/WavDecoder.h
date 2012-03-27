@@ -1,13 +1,13 @@
 #pragma once
 
-#include "GdxAudioDefines.h"
+
 #include "Decoder.h"
 #include "FileHandle.h"
 
 /**
 * {@link Decoder} implementation for WAV files
 */
-class GdxAudioDllImportExport WavDecoder :
+class WavDecoder :
 	public Decoder
 {
 private:

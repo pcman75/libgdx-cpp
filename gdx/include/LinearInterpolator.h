@@ -15,13 +15,13 @@
  ******************************************************************************/
 
 #pragma once
-#include "GdxDefines.h"
+
 #include "Interpolator.h"
 
 /** A very simple {@link Interpolator} which provides a linear progression by just returning the current input.
  * 
  * @author Moritz Post <moritzpost@gmail.com> */
-class GdxDllImportExport LinearInterpolator : public Interpolator 
+class LinearInterpolator : public Interpolator 
 {
 public:
 	/** Gets a new {@link LinearInterpolator} from a maintained pool of {@link Interpolator}s.

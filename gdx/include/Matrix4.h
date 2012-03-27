@@ -17,13 +17,13 @@
 #include "Quaternion.h"
 #include "Vector3.h"
 #include "Matrix3.h"
-#include "GdxDefines.h"
+
 
 
 /** Encapsulates a column major 4 by 4 matrix. You can access the linear array for use with OpenGL via the public
  * {@link Matrix4#val} member. Like the {@link Vector3} class it allows to chain methods by returning a reference to itself.*/
 
-class GdxDllImportExport Matrix4
+class Matrix4
 {
 public:
 	float val[16];

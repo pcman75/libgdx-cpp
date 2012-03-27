@@ -22,9 +22,8 @@
 #pragma once
 
 #include "GdxTest.h"
-#include "GdxTestsDefines.h"
 
-class GdxTestsDllImportExport GdxTests
+class GdxTests
 {
 private:
 	static GdxTests self;

@@ -14,7 +14,7 @@
  * limitations under the License.
  ******************************************************************************/
 #pragma once
-#include "GdxDefines.h"
+
 
 #include "Camera.h"
 #include "Vector3.h"
@@ -22,7 +22,7 @@
 #include "MathUtils.h"
 
 /** A camera with orthographic projection.*/
-class GdxDllImportExport OrthographicCamera : public Camera
+class OrthographicCamera : public Camera
 {
 public:
 	/** the zoom of the camera **/

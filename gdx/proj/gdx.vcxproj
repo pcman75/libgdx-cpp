@@ -192,6 +192,7 @@
     <ClInclude Include="..\include\LinearInterpolator.h" />
     <ClInclude Include="..\include\ModelLoaderOld.h" />
     <ClInclude Include="..\include\Mutex.h" />
+    <ClInclude Include="..\include\ObjLoader.h" />
     <ClInclude Include="..\include\OvershootInterpolator.h" />
     <ClInclude Include="..\include\Audio.h" />
     <ClInclude Include="..\include\AudioDevice.h" />
@@ -240,7 +241,6 @@
     <ClInclude Include="..\include\Frustum.h" />
     <ClInclude Include="..\include\Gdx.h" />
     <ClInclude Include="..\include\Gdx2DPixmap.h" />
-    <ClInclude Include="..\include\GdxDefines.h" />
     <ClInclude Include="..\include\GdxRuntimeException.h" />
     <ClInclude Include="..\include\GL10.h" />
     <ClInclude Include="..\include\GL11.h" />

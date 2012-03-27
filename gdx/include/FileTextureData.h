@@ -18,9 +18,9 @@
 
 #include "TextureData.h"
 #include "Pixmap.h"
-#include "GdxDefines.h"
 
-class GdxDllImportExport FileTextureData :
+
+class FileTextureData :
 	public TextureData
 {
 public:

@@ -15,14 +15,14 @@
  ******************************************************************************/
 
 #pragma once
-#include "GdxDefines.h"
+
 #include "OnActionCompleted.h"
 class Actor;
 
 /** An Action is used with an {@link Actor} and modifes the Actor's attributes over time.
  * 
  * @author mzechner */
-class GdxDllImportExport Action 
+class Action 
 {
 protected:
   OnActionCompleted* listener;

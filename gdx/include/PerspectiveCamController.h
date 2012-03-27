@@ -14,12 +14,12 @@
  * limitations under the License.
  ******************************************************************************/
 
-#include "GdxDefines.h"
+
 #include "InputAdapter.h"
 #include "PerspectiveCamera.h"
 #include "Vector2.h"
 
-class GdxDllImportExport PerspectiveCamController : public InputAdapter 
+class PerspectiveCamController : public InputAdapter 
 {
 public:
   enum TransformMode 

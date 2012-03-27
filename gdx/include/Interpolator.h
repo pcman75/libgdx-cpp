@@ -15,13 +15,13 @@
  ******************************************************************************/
 
 #pragma once
-#include "GdxDefines.h"
+
 
 /** An interpolator defines the rate of change of an animation. This allows the basic animation effects (alpha, scale, translate,
  * rotate) to be accelerated, decelerated etc.
  * 
  * @author Moritz Post <moritzpost@gmail.com> */
-class GdxDllImportExport Interpolator 
+class Interpolator 
 {
 public:
 	/** Maps a point in the animation duration to a multiplier to be applied to the transformations of an animation. The Input is a

@@ -19,7 +19,7 @@
 #include "GdxRuntimeException.h"
 
 #include "Matrix4.h"
-#include "GdxDefines.h"
+
 
 /** <p>
  * A shader program encapsulates a vertex and fragment shader pair linked to form a shader program useable with OpenGL ES 2.0.
@@ -49,7 +49,7 @@
  * </p>
  */
 
-class GdxDllImportExport ShaderProgram
+class ShaderProgram
 {
 public:
 	/** default name for position attributes **/

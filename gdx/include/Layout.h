@@ -15,11 +15,11 @@
  ******************************************************************************/
 
 #pragma once
-#include "GdxDefines.h"
+
 
 /** Provides methods for an actor to participate in layout and to provide a minimum, preferred, and maximum size.
  * @author Nathan Sweet */
-class GdxDllImportExport Layout 
+class Layout 
 {
 public:
 

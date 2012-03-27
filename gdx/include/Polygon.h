@@ -16,10 +16,10 @@
 
 #pragma once
 
-#include "GdxDefines.h"
+
 #include "Rectang.h"
 
-class GdxDllImportExport Polygon 
+class Polygon 
 {
 public:
 	Polygon();

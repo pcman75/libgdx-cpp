@@ -14,7 +14,7 @@
  * limitations under the License.
  ******************************************************************************/
 #pragma once
-#include "GdxDefines.h"
+
 #include "FileHandle.h"
 
 /* 
@@ -53,7 +53,7 @@ delete pStream2;
 
 
 /** Provides standard access to the filesystem, classpath, Android SD card, and Android assets directory.*/
-class GdxDllImportExport Files
+class Files
 {
 public:
   Files();

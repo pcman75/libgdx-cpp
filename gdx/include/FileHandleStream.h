@@ -1,5 +1,5 @@
 #pragma once
-#include "GdxDefines.h"
+
 
 enum FileAccess
 {
@@ -15,7 +15,7 @@ enum StreamType
 
 // generic interface for FileStream 
 //
-class GdxDllImportExport FileHandleStream
+class FileHandleStream
 {
 public:
   FileHandleStream( std::string strFileName, FileAccess nFileAccess, StreamType nStreamType);

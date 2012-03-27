@@ -15,13 +15,13 @@
  ******************************************************************************/
 
 #pragma once
-#include "GdxDefines.h"
+
 #include "Action.h"
 
 /** A base class for composite actions which deals with multiple child {@link Action}.
  * 
  * @author Moritz Post <moritzpost@gmail.com> */
-class GdxDllImportExport CompositeAction : public Action 
+class CompositeAction : public Action 
 {
 protected:
   std::vector<Action*> actions;

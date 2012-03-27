@@ -65,9 +65,6 @@
     <ClInclude Include="..\include\Decoder.h">
       <Filter>Include</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\GdxAudioDefines.h">
-      <Filter>Include</Filter>
-    </ClInclude>
     <ClInclude Include="..\include\Mpg123Decoder.h">
       <Filter>Include</Filter>
     </ClInclude>

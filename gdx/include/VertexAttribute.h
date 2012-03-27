@@ -15,14 +15,14 @@
 ******************************************************************************/
 
 #pragma once
-#include "GdxDefines.h"
+
 
 /** A single vertex attribute defined by its {@link Usage}, its number of components and its shader alias. The Usage is needed for
 * the fixed function pipeline of OpenGL ES 1.x. Generic attributes are not supported in the fixed function pipeline. The number
 * of components defines how many components the attribute has. The alias defines to which shader attribute this attribute should
 * bind. The alias is used by a {@link Mesh} when drawing with a {@link ShaderProgram}. The alias can be changed at any time.
 */
-class GdxDllImportExport VertexAttribute
+class VertexAttribute
 {
 	friend class VertexAttributes;
 

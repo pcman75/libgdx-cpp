@@ -15,10 +15,10 @@
  ******************************************************************************/
 
 #pragma once
-#include "GdxDefines.h"
+
 #include "TemporalAction.h"
 
-class GdxDllImportExport Repeat : public TemporalAction 
+class Repeat : public TemporalAction 
 {
 protected:
   int times;

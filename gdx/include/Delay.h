@@ -15,10 +15,10 @@
  ******************************************************************************/
 
 #pragma once
-#include "GdxDefines.h"
+
 #include "Action.h"
 
-class GdxDllImportExport Delay : public Action 
+class Delay : public Action 
 {
 protected:
   float taken;

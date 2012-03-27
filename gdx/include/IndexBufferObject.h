@@ -41,7 +41,7 @@
 * </p>
 */
 
-class GdxDllImportExport IndexBufferObject : public IndexData 
+class IndexBufferObject : public IndexData 
 {
 private:
 	short* m_buffer;

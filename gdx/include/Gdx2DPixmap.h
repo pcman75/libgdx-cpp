@@ -15,10 +15,10 @@
  ******************************************************************************/
 #pragma once
 
-#include "GdxDefines.h"
+
 //#include "gdx2d.h"
 
-class GdxDllImportExport Gdx2DPixmap
+class Gdx2DPixmap
 {
 public:
 	enum GDX2D_FORMAT

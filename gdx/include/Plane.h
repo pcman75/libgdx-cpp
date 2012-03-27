@@ -16,13 +16,13 @@
 
 #pragma once
 
-#include "GdxDefines.h"
+
 #include "Vector3.h"
 
 
 /** A plane defined via a unit length normal and the distance from the origin, as you learned in your math class.
 */
-class GdxDllImportExport Plane
+class Plane
 {
 public:
 	/** Enum specifying on which side a point lies respective to the plane and it's normal. {@link PlaneSide#Front} is the side to

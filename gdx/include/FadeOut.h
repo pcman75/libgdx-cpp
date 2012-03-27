@@ -15,11 +15,11 @@
  ******************************************************************************/
 
 #pragma once
-#include "GdxDefines.h"
+
 #include "AnimationAction.h"
 class Actor;
 
-class GdxDllImportExport FadeOut : public AnimationAction 
+class FadeOut : public AnimationAction 
 {
 protected: 
   float startAlpha;

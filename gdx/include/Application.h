@@ -16,7 +16,7 @@
 
 #pragma once
 
-#include "GdxDefines.h"
+
 
 //forward declarations
 class Graphics;
@@ -27,7 +27,7 @@ class Preferences;
 class Timer;
 class Threading;
 
-class GdxDllImportExport Application 
+class Application 
 {
 public:
 	virtual ~Application() {}

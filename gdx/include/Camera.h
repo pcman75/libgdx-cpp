@@ -22,11 +22,11 @@
 #include "Ray.h"
 #include "Gdx.h"
 
-#include "GdxDefines.h"
+
 
 /** Base class for {@link OrthographicCamera} and {@link PerspectiveCamera}.*/
 
-class GdxDllImportExport Camera
+class Camera
 {
 public:
 

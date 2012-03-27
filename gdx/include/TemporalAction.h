@@ -15,14 +15,14 @@
  ******************************************************************************/
 
 #pragma once
-#include "GdxDefines.h"
+
 #include "Action.h"
 class Actor;
 
 /** A {@link TemporalAction} controls an {@link Action} by repeating, delaying etc. the effect of an {@link Action}.
  * 
  * @author Moritz Post <moritzpost@gmail.com> */
-class GdxDllImportExport TemporalAction : public Action 
+class TemporalAction : public Action 
 {
 protected:
 	Action* action;

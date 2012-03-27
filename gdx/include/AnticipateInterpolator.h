@@ -15,13 +15,13 @@
  ******************************************************************************/
 
 #pragma once
-#include "GdxDefines.h"
+
 #include "Interpolator.h"
 
 /** An {@link Interpolator} where the changes start backwards and than spring forward as the time progresses.
  * 
  * @author Moritz Post <moritzpost@gmail.com> */
-class GdxDllImportExport AnticipateInterpolator : public Interpolator 
+class AnticipateInterpolator : public Interpolator 
 {
 private:
   static float DEFAULT_TENSION;

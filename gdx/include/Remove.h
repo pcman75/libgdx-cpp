@@ -15,10 +15,10 @@
  ******************************************************************************/
 
 #pragma once
-#include "GdxDefines.h"
+
 #include "Action.h"
 
-class GdxDllImportExport Remove : public Action 
+class Remove : public Action 
 {
 protected:
   Actor* target;

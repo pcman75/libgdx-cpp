@@ -17,11 +17,10 @@
 #pragma once
 #include "Application.h"
 #include "ApplicationListener.h"
-#include "WoglDefines.h"
 
 /** An implemenation of the {@link Application} interface based on OpenGL for Windows. Instantiate this class with
  * apropriate parameters and then register {@link ApplicationListener} or {@link InputProcessor} instances. */
-class WOGLDllImportExport WoglApplication :
+class WoglApplication :
 	public Application
 {
 public:

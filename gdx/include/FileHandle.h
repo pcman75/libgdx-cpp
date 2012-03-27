@@ -14,7 +14,7 @@
 * limitations under the License.
 ******************************************************************************/
 #pragma once
-#include "GdxDefines.h"
+
 #include "FileHandleStream.h"
 
 enum FileType 
@@ -42,7 +42,7 @@ enum FileType
 * created via a {@link Files} instance.
 * @author mzechner
 * @author Nathan Sweet */
-class GdxDllImportExport FileHandle 
+class FileHandle 
 {
 public:
   FileHandle();

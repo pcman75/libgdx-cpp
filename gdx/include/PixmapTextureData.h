@@ -15,9 +15,9 @@
  ******************************************************************************/
 #pragma once
 #include "TextureData.h"
-#include "GdxDefines.h"
 
-class GdxDllImportExport PixmapTextureData : 
+
+class PixmapTextureData : 
 	public TextureData
 {
 	Pixmap* m_pixmap;

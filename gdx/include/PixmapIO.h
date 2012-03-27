@@ -1,8 +1,8 @@
 #pragma once
 #include "Pixmap.h"
-#include "GdxDefines.h"
 
-class GdxDllImportExport PixmapIO
+
+class PixmapIO
 {
 public:
 	/** Writes the {@link Pixmap} to the given file using a custom compression scheme. To be able to load the Pixmap to a Texture,

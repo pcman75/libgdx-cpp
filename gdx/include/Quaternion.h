@@ -15,11 +15,11 @@
  ******************************************************************************/
 
 #pragma once
-#include "GdxDefines.h"
+
 
 /** A simple quaternion class. See http://en.wikipedia.org/wiki/Quaternion for more information.
 */
-class GdxDllImportExport Quaternion
+class Quaternion
 {
 private:
 	static const float NORMALIZATION_TOLERANCE;

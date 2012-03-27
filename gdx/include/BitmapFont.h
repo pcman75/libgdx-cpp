@@ -23,7 +23,7 @@
 
 #include "TextureRegion.h"
 #include "SpriteBatch.h"
-#include "GdxDefines.h"
+
 
 /** Renders bitmap fonts. The font consists of 2 files: an image file or {@link TextureRegion} containing the glyphs and a file in
  * the AngleCode BMFont text format that describes where each glyph is on the image. Currently only a single image of glyphs is
@@ -38,7 +38,7 @@
  */
 
 
-class GdxDllImportExport BitmapFont
+class BitmapFont
 {
 public:
 	enum HAlignment
@@ -63,7 +63,7 @@ public:
 		void setKerning(int ch, int value);
 	};
 
-	class GdxDllImportExport TextBounds
+	class TextBounds
 	{
 	public:
 		float width;
@@ -77,7 +77,7 @@ public:
 		void set(const TextBounds& bounds);
 	};
 
-	class GdxDllImportExport BitmapFontData
+	class BitmapFontData
 	{
 	public:
 		std::string m_imagePath;

@@ -15,11 +15,11 @@
  ******************************************************************************/
 
 #pragma once
-#include "GdxDefines.h"
+
 #include "CompositeAction.h"
 class Actor;
 
-class GdxDllImportExport Parallel : public CompositeAction 
+class Parallel : public CompositeAction 
 {
 protected:
   std::vector<bool> finished;

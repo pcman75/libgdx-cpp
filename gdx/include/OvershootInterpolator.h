@@ -15,7 +15,7 @@
  ******************************************************************************/
 
 #pragma once
-#include "GdxDefines.h"
+
 #include "Interpolator.h"
 
 /** An interpolator where the change overshoots the target and springs back to the target position.
@@ -23,7 +23,7 @@
  * The factor defines the rate of overshoot.
  * 
  * @author Moritz Post <moritzpost@gmail.com> */
-class GdxDllImportExport OvershootInterpolator : public Interpolator 
+class OvershootInterpolator : public Interpolator 
 {
 private:
   static float DEFAULT_FACTOR;

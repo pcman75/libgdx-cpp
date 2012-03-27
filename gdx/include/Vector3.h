@@ -14,11 +14,11 @@
  * limitations under the License.
  ******************************************************************************/
 #pragma once
-#include "GdxDefines.h"
+
 
 /** Encapsulates a 3D vector. Allows chaining operations by returning a reference to it self in all modification methods.*/
 
-class GdxDllImportExport Vector3
+class Vector3
 {
 public:
 	/** the x-component of this vector **/

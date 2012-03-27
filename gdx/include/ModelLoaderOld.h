@@ -15,14 +15,14 @@
  ******************************************************************************/
 #pragma once
 
-#include "GdxDefines.h"
+
 #include "FileHandleStream.h"
 #include "Mesh.h"
 
 
 /** A class for loading various model formats such as Wavefront OBJ. Ties in all the loaders from the loaders package.*/
 
-class GdxDllImportExport ModelLoaderOld 
+class ModelLoaderOld 
 {
 public:
 	/** Loads a Wavefront OBJ file from the given InputStream. The OBJ file must only contain triangulated meshes. Materials are

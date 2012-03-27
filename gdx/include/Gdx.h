@@ -44,7 +44,7 @@
 * </p>
 * 
 * */
-class GdxDllImportExport GdxClass 
+class GdxClass 
 {
 public:
 	Application* app;
@@ -76,4 +76,4 @@ public:
         //void operator=(const GdxClass&);
 };
 
-extern GdxDllImportExport GdxClass Gdx;
+extern GdxClass Gdx;

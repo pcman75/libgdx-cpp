@@ -36,9 +36,6 @@
     <ClInclude Include="..\exp\WoglGraphics.h">
       <Filter>Exported Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\exp\WoglDefines.h">
-      <Filter>Exported Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\incl\Controller.h">
       <Filter>Header Files</Filter>
     </ClInclude>

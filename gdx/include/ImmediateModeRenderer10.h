@@ -17,7 +17,7 @@
 
 #include "ImmediateModeRenderer.h"
 #include "GdxRuntimeException.h"
-#include "GdxDefines.h"
+
 
 /** An ImmediateModeRenderer allows you to perform immediate mode rendering as you were accustomed to in your desktop OpenGL
  * environment. In order to draw something you first have to call {@link ImmediateModeRenderer10#begin(int)} with the primitive
@@ -29,7 +29,7 @@
  *
  * Note that this class of course only works with OpenGL ES 1.x.
  */
-class GdxDllImportExport ImmediateModeRenderer10 :
+class ImmediateModeRenderer10 :
 	public ImmediateModeRenderer
 {
 private:

@@ -47,7 +47,7 @@
  * Meshes can be used with either OpenGL ES 1.x or OpenGL ES 2.0.
  * </p>
  */
-class GdxDllImportExport Mesh
+class Mesh
 {
 public:
 	//TODO: changed the enums, otherwise they clash with classes name

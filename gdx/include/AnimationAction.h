@@ -15,7 +15,7 @@
  ******************************************************************************/
 
 #pragma once
-#include "GdxDefines.h"
+
 #include "Action.h"
 class Actor;
 class Interpolator;
@@ -24,7 +24,7 @@ class Interpolator;
  * Actor itself.
  * 
  * @author Moritz Post <moritzpost@gmail.com> */
-class GdxDllImportExport AnimationAction : public Action 
+class AnimationAction : public Action 
 {
 protected:
 	float duration;

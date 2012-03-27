@@ -2,9 +2,9 @@
 #include "vertexdata.h"
 #include "VertexAttributes.h"
 #include "ShaderProgram.h"
-#include "GdxDefines.h"
 
-class GdxDllImportExport VertexBufferObject
+
+class VertexBufferObject
 	:	public VertexData
 {
 private:

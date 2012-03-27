@@ -74,7 +74,6 @@
     <ClInclude Include="..\exp\WindowsTimer.h" />
     <ClInclude Include="..\exp\WoglFileHandleStream.h" />
     <ClInclude Include="..\exp\WoglApplication.h" />
-    <ClInclude Include="..\exp\WoglDefines.h" />
     <ClInclude Include="..\exp\WoglFiles.h" />
     <ClInclude Include="..\exp\WoglGL10.h" />
     <ClInclude Include="..\exp\WoglGL11.h" />
