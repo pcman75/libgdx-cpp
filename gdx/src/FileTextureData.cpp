@@ -54,7 +54,7 @@ void FileTextureData::prepare()
 
 Pixmap* FileTextureData::ensurePot(Pixmap* pixmap)
 {
-	if(Gdx.gl20 == NULL && copyToPOT)
+	if(!Gdx.isGL20Available() && copyToPOT)
 	{
 		int pixmapWidth = pixmap->getWidth();
 		int pixmapHeight = pixmap->getHeight();

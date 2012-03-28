@@ -7,22 +7,40 @@
 //
 
 #import "AppDelegate.h"
+#import "../gdx-tests/AlphaTest.h"
 
 @implementation AppDelegate
 
 @synthesize m_window = _window;
+//@synthesize rootViewController = _rootViewController;
+
+
+-(AppDelegate*) initWithApplication:(IOSApplication*)application
+{
+    if (self = [super init]) 
+    {
+        m_app = application;
+    };
+    
+    return self;
+    
+};
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
+{    
+    // Instantiate the listener
+    ApplicationListener *listener = new AlphaTest();
+    // create the application
+    m_app = new IOSApplication(*listener, true);
+    
     [application setStatusBarHidden:YES];
     
     CGRect screenBounds = [[UIScreen mainScreen] bounds];
     
     self.m_window = [[UIWindow alloc] initWithFrame:screenBounds];
     
-    m_view = [[GLView alloc] initWithFrame:screenBounds];
-    // create the tests
-    
+    m_view = [[GLView alloc] initWithFrame:screenBounds andListener:listener];
+
     [self.m_window addSubview:m_view];
     [self.m_window makeKeyAndVisible];
     
@@ -57,6 +75,8 @@
     /*
      Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
      */
+    [m_view startRenderLoop];
+
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
@@ -66,6 +86,12 @@
      Save data if appropriate.
      See also applicationDidEnterBackground:.
      */
+    [m_view stopRenderLoop];
+
+//    if (m_view) {
+//        [m_view dealloc];
+//    }
+
 }
 
 @end

@@ -212,7 +212,11 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "17"
          endingLineNumber = "17"
+<<<<<<< HEAD
          landmarkName = "IOSApplication::IOSApplication(ApplicationListener* listener, bool useGL20)"
+=======
+         landmarkName = "IOSApplication::IOSApplication(ApplicationListener&amp; listener, bool useGL20)"
+>>>>>>> opengl-refactoring
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -226,7 +230,11 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "23"
          endingLineNumber = "23"
+<<<<<<< HEAD
          landmarkName = "IOSApplication::initialize(ApplicationListener* listener, IOSApplicationConfiguration* config)"
+=======
+         landmarkName = "IOSApplication::initialize(IOSApplicationConfiguration&amp; config)"
+>>>>>>> opengl-refactoring
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint

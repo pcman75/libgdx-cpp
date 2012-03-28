@@ -4,7 +4,7 @@
 IndexBufferObject::IndexBufferObject(bool isStatic) 
 {
 	init();
-	m_usage = isStatic ? GL11::GDX_GL_STATIC_DRAW : GL11::GDX_GL_DYNAMIC_DRAW;
+	m_usage = isStatic ? GL_STATIC_DRAW : GL_DYNAMIC_DRAW;
 }
 
 void IndexBufferObject::init()
@@ -16,7 +16,7 @@ void IndexBufferObject::init()
 	m_isDirect = true;
 
 	m_bufferHandle = createBufferObject();
-	m_usage = GL11::GDX_GL_STATIC_DRAW;
+	m_usage = GL_STATIC_DRAW;
 }
 
 IndexBufferObject::~IndexBufferObject(void)
@@ -30,16 +30,7 @@ IndexBufferObject::~IndexBufferObject(void)
 
 int IndexBufferObject::createBufferObject () 
 {
-	if (Gdx.isGL20Available()) 
-	{
-		Gdx.gl20->glGenBuffers(1, &m_bufferHandle);
-	} 
-	else if (Gdx.isGL11Available()) 
-	{
-		Gdx.gl11->glGenBuffers(1, &m_bufferHandle);
-	}
-	else
-		m_bufferHandle = 0;
+    glGenBuffers(1, &m_bufferHandle);
 
 	return m_bufferHandle;
 }
@@ -59,16 +50,7 @@ void IndexBufferObject::setIndices (const short* indices, int count)
 
 	if(m_isBound)
 	{
-		if (Gdx.isGL11Available()) 
-		{
-			GL11& gl = *Gdx.gl11;
-			gl.glBufferData(GL11::GDX_GL_ELEMENT_ARRAY_BUFFER, m_numIndices, m_buffer, m_usage);
-		} 
-		else if (Gdx.isGL20Available())
-		{
-			GL20& gl = *Gdx.gl20;
-			gl.glBufferData(GL20::GDX_GL_ELEMENT_ARRAY_BUFFER, m_numIndices, m_buffer, m_usage);
-		}
+        glBufferData(GL_ELEMENT_ARRAY_BUFFER, m_numIndices, m_buffer, m_usage);
 		m_isDirty = false;
 	}
 }
@@ -82,42 +64,18 @@ void IndexBufferObject::bind ()
 {
 	if (m_bufferHandle == 0) throw new GdxRuntimeException("buuh");
 
-	//TODO: Why I don't call always GL11::glBindBuffer?
-	//maybe in Java it matters but here I don't think so.
-	//I only have same pure C calls underneath in both classes
-	if (Gdx.isGL11Available()) 
-	{
-		GL11& gl = *Gdx.gl11;
-		gl.glBindBuffer(GL11::GDX_GL_ELEMENT_ARRAY_BUFFER, m_bufferHandle);
-		if (m_isDirty) 
-		{
-			gl.glBufferData(GL11::GDX_GL_ELEMENT_ARRAY_BUFFER, m_numIndices * sizeof(short), m_buffer, m_usage);
-			m_isDirty = false;
-		}
-	} 
-	else 
-	{
-		GL20& gl = *Gdx.gl20;
-		gl.glBindBuffer(GL20::GDX_GL_ELEMENT_ARRAY_BUFFER, m_bufferHandle);
-		if (m_isDirty) 
-		{
-			gl.glBufferData(GL20::GDX_GL_ELEMENT_ARRAY_BUFFER, m_numIndices * sizeof(short), m_buffer, m_usage);
-			m_isDirty = false;
-		}
-	}
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_bufferHandle);
+    if (m_isDirty) 
+    {
+        glBufferData(GL_ELEMENT_ARRAY_BUFFER, m_numIndices * sizeof(GLshort), m_buffer, m_usage);
+        m_isDirty = false;
+    }
 	m_isBound = true;
 }
 
 void IndexBufferObject::unbind () 
 {
-	if (Gdx.isGL11Available()) 
-	{
-		Gdx.gl11->glBindBuffer(GL11::GDX_GL_ELEMENT_ARRAY_BUFFER, 0);
-	} 
-	else if (Gdx.isGL20Available()) 
-	{
-		Gdx.gl20->glBindBuffer(GL20::GDX_GL_ELEMENT_ARRAY_BUFFER, 0);
-	}
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 	m_isBound = false;
 }
 
@@ -129,18 +87,7 @@ void IndexBufferObject::invalidate ()
 
 void IndexBufferObject::dispose () 
 {
-	if (Gdx.gl20) 
-	{
-		GL20& gl = *Gdx.gl20;
-		gl.glBindBuffer(GL20::GDX_GL_ELEMENT_ARRAY_BUFFER, 0);
-		gl.glDeleteBuffers(1, &m_bufferHandle);
-		m_bufferHandle = 0;
-	} 
-	else if (Gdx.gl11) 
-	{
-		GL11& gl = *Gdx.gl11;
-		gl.glBindBuffer(GL11::GDX_GL_ELEMENT_ARRAY_BUFFER, 0);
-		gl.glDeleteBuffers(1, &m_bufferHandle);
-		m_bufferHandle = 0;
-	}
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+    glDeleteBuffers(1, &m_bufferHandle);
+    m_bufferHandle = 0;
 }

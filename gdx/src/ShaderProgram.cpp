@@ -41,8 +41,8 @@ ShaderProgram::ShaderProgram (const std::string& vertexShader, const std::string
 
 void ShaderProgram::compileShaders (const std::string& vertexShader, const std::string& fragmentShader)
 {
-	m_vertexShaderHandle = loadShader(GL20::GDX_GL_VERTEX_SHADER, vertexShader);
-	m_fragmentShaderHandle = loadShader(GL20::GDX_GL_FRAGMENT_SHADER, fragmentShader);
+	m_vertexShaderHandle = loadShader(GL_VERTEX_SHADER, vertexShader);
+	m_fragmentShaderHandle = loadShader(GL_FRAGMENT_SHADER, fragmentShader);
 
 	if (m_vertexShaderHandle == -1 || m_fragmentShaderHandle == -1)
 	{
@@ -62,23 +62,24 @@ void ShaderProgram::compileShaders (const std::string& vertexShader, const std::
 
 int ShaderProgram::loadShader (int type, const std::string& source)
 {
-	GL20* gl = Gdx.gl20;
-	int params = -1;
+	GLint params = -1;
 
-	int shader = gl->glCreateShader(type);
+	GLuint shader = glCreateShader(type);
 	if (shader == 0) 
 		return -1;
 
-	gl->glShaderSource(shader, source);
-	gl->glCompileShader(shader);
-	gl->glGetShaderiv(shader, GL20::GDX_GL_COMPILE_STATUS, &params);
+    const char *src = source.c_str();
+    glShaderSource(shader, 1, &src, 0);
+	glCompileShader(shader);
+	glGetShaderiv(shader, GL_COMPILE_STATUS, &params);
 
 	if (params == 0)
 	{
-		gl->glGetShaderiv(shader, GL20::GDX_GL_INFO_LOG_LENGTH, &params);
+		glGetShaderiv(shader, GL_INFO_LOG_LENGTH, &params);
 		if (params > 1)
 		{
-			std::string infoLog = gl->glGetShaderInfoLog(shader);
+            GLchar infoLog[256];
+            glGetShaderInfoLog(shader, sizeof(infoLog), 0, &infoLog[0]);
 			m_log += infoLog;
 		}
 		return -1;
@@ -89,18 +90,17 @@ int ShaderProgram::loadShader (int type, const std::string& source)
 
 int ShaderProgram::linkProgram ()
 {
-	GL20* gl = Gdx.gl20;
-	int m_program = gl->glCreateProgram();
+	GLuint m_program = glCreateProgram();
 	if (m_program == 0) 
 		return -1;
 
-	gl->glAttachShader(m_program, m_vertexShaderHandle);
-	gl->glAttachShader(m_program, m_fragmentShaderHandle);
-	gl->glLinkProgram(m_program);
+	glAttachShader(m_program, m_vertexShaderHandle);
+	glAttachShader(m_program, m_fragmentShaderHandle);
+	glLinkProgram(m_program);
 
-	int params = -1;
+	GLint params = -1;
 
-	gl->glGetProgramiv(m_program, GL20::GDX_GL_LINK_STATUS, &params);
+	glGetProgramiv(m_program, GL_LINK_STATUS, &params);
 	if (params == 0)
 	{
 		return -1;
@@ -117,10 +117,16 @@ std::string ShaderProgram::getLog ()
 {
 	if (isCompiled())
 	{
-		int params = -1;
-		Gdx.gl20->glGetProgramiv(m_program, GL20::GDX_GL_INFO_LOG_LENGTH, &params);
+		GLint params = -1;
+		glGetProgramiv(m_program, GL_INFO_LOG_LENGTH, &params);
 		if (params > 1) 
-			m_log = Gdx.gl20->glGetProgramInfoLog(m_program);
+        {
+            GLchar message_log[256];
+            glGetProgramInfoLog(m_program, sizeof(message_log), 0, &message_log[0]);
+
+            m_log += message_log;
+        }
+			
 		return m_log;
 	}
 	else
@@ -137,13 +143,11 @@ bool ShaderProgram::isCompiled ()
 
 int ShaderProgram::fetchAttributeLocation (const std::string& name)
 {
-	GL20* gl = Gdx.gl20;
-
-	int location = -1;
+	GLint location = -1;
 	ObjectIntMapIterator it = m_attributes.find(name);
 	if(it == m_attributes.end())
 	{
-		location = gl->glGetAttribLocation(m_program, name);
+		location = glGetAttribLocation(m_program, name.c_str());
 		if (location != -1) 
 			m_attributes[name] = location;
 	}
@@ -154,12 +158,11 @@ int ShaderProgram::fetchAttributeLocation (const std::string& name)
 
 int ShaderProgram::fetchUniformLocation (const std::string& name)
 {
-	GL20* gl = Gdx.gl20;
-	int location = 0;
+	GLint location = 0;
 	ObjectIntMapIterator it = m_uniforms.find(name);
 	if(it == m_uniforms.end())
 	{
-		location = gl->glGetUniformLocation(m_program, name);
+		location = glGetUniformLocation(m_program, name.c_str());
 		if (location == -1 && pedantic) 
 			throw new GdxRuntimeException(std::string( "no uniform with name '") + name + "' in shader");
 		m_attributes[name] = location;
@@ -176,10 +179,9 @@ int ShaderProgram::fetchUniformLocation (const std::string& name)
 * @param value the value */
 void ShaderProgram::setUniformi (const std::string& name, int value)
 {
-	GL20* gl = Gdx.gl20;
 	checkManaged();
-	int location = fetchUniformLocation(name);
-	gl->glUniform1i(location, value);
+	GLint location = fetchUniformLocation(name);
+	glUniform1i(location, value);
 }
 
 /** Sets the uniform with the given name. Throws an IllegalArgumentException in case it is not called in between a
@@ -190,10 +192,9 @@ void ShaderProgram::setUniformi (const std::string& name, int value)
 * @param value2 the second value */
 void ShaderProgram::setUniformi (const std::string& name, int value1, int value2)
 {
-	GL20* gl = Gdx.gl20;
 	checkManaged();
-	int location = fetchUniformLocation(name);
-	gl->glUniform2i(location, value1, value2);
+	GLint location = fetchUniformLocation(name);
+	glUniform2i(location, value1, value2);
 }
 
 /** Sets the uniform with the given name. Throws an IllegalArgumentException in case it is not called in between a
@@ -205,10 +206,9 @@ void ShaderProgram::setUniformi (const std::string& name, int value1, int value2
 * @param value3 the third value */
 void ShaderProgram::setUniformi (const std::string& name, int value1, int value2, int value3)
 {
-	GL20* gl = Gdx.gl20;
 	checkManaged();
-	int location = fetchUniformLocation(name);
-	gl->glUniform3i(location, value1, value2, value3);
+	GLint location = fetchUniformLocation(name);
+	glUniform3i(location, value1, value2, value3);
 }
 
 /** Sets the uniform with the given name. Throws an IllegalArgumentException in case it is not called in between a
@@ -221,10 +221,9 @@ void ShaderProgram::setUniformi (const std::string& name, int value1, int value2
 * @param value4 the fourth value */
 void ShaderProgram::setUniformi (const std::string& name, int value1, int value2, int value3, int value4)
 {
-	GL20* gl = Gdx.gl20;
 	checkManaged();
-	int location = fetchUniformLocation(name);
-	gl->glUniform4i(location, value1, value2, value3, value4);
+	GLint location = fetchUniformLocation(name);
+	glUniform4i(location, value1, value2, value3, value4);
 }
 
 /** Sets the uniform with the given name. Throws an IllegalArgumentException in case it is not called in between a
@@ -234,10 +233,9 @@ void ShaderProgram::setUniformi (const std::string& name, int value1, int value2
 * @param value the value */
 void ShaderProgram::setUniformf (const std::string& name, float value)
 {
-	GL20* gl = Gdx.gl20;
 	checkManaged();
-	int location = fetchUniformLocation(name);
-	gl->glUniform1f(location, value);
+	GLint location = fetchUniformLocation(name);
+    glUniform1f(location, value);
 }
 
 /** Sets the uniform with the given name. Throws an IllegalArgumentException in case it is not called in between a
@@ -248,10 +246,9 @@ void ShaderProgram::setUniformf (const std::string& name, float value)
 * @param value2 the second value */
 void ShaderProgram::setUniformf (const std::string& name, float value1, float value2)
 {
-	GL20* gl = Gdx.gl20;
 	checkManaged();
-	int location = fetchUniformLocation(name);
-	gl->glUniform2f(location, value1, value2);
+	GLint location = fetchUniformLocation(name);
+	glUniform2f(location, value1, value2);
 }
 
 /** Sets the uniform with the given name. Throws an IllegalArgumentException in case it is not called in between a
@@ -263,10 +260,9 @@ void ShaderProgram::setUniformf (const std::string& name, float value1, float va
 * @param value3 the third value */
 void ShaderProgram::setUniformf (const std::string& name, float value1, float value2, float value3)
 {
-	GL20* gl = Gdx.gl20;
 	checkManaged();
-	int location = fetchUniformLocation(name);
-	gl->glUniform3f(location, value1, value2, value3);
+	GLint location = fetchUniformLocation(name);
+	glUniform3f(location, value1, value2, value3);
 }
 
 /** Sets the uniform with the given name. Throws an IllegalArgumentException in case it is not called in between a
@@ -279,56 +275,37 @@ void ShaderProgram::setUniformf (const std::string& name, float value1, float va
 * @param value4 the fourth value */
 void ShaderProgram::setUniformf (const std::string& name, float value1, float value2, float value3, float value4)
 {
-	GL20* gl = Gdx.gl20;
 	checkManaged();
-	int location = fetchUniformLocation(name);
-	gl->glUniform4f(location, value1, value2, value3, value4);
+	GLint location = fetchUniformLocation(name);
+    glUniform4f(location, value1, value2, value3, value4);
 }
 
 void ShaderProgram::setUniform1fv (const std::string& name, const float* values, int offset, int length)
 {
-	//TODO: need to copy values into an internal buffer like in Java???
-	//for now I pass it directly
-	GL20* gl = Gdx.gl20;
 	checkManaged();
-	int location = fetchUniformLocation(name);
-	//ensureBufferCapacity(length << 2);
-	//floatBuffer.clear();
-	//BufferUtils.copy(values, floatBuffer, length, offset);
-	gl->glUniform1fv(location, length, values + offset);
+	GLint location = fetchUniformLocation(name);
+	glUniform1fv(location, length, values + offset);
 }
 
 void ShaderProgram::setUniform2fv (const std::string& name, const float* values, int offset, int length)
 {
-	GL20* gl = Gdx.gl20;
 	checkManaged();
-	int location = fetchUniformLocation(name);
-	//ensureBufferCapacity(length << 2);
-	//floatBuffer.clear();
-	//BufferUtils.copy(values, floatBuffer, length, offset);
-	gl->glUniform2fv(location, length / 2, values + offset);
+	GLint location = fetchUniformLocation(name);
+	glUniform2fv(location, length / 2, values + offset);
 }
 
 void ShaderProgram::setUniform3fv (const std::string& name, const float* values, int offset, int length)
 {
-	GL20* gl = Gdx.gl20;
 	checkManaged();
-	int location = fetchUniformLocation(name);
-	//ensureBufferCapacity(length << 2);
-	//floatBuffer.clear();
-	//BufferUtils.copy(values, floatBuffer, length, offset);
-	gl->glUniform3fv(location, length / 3, values + offset);
+	GLint location = fetchUniformLocation(name);
+	glUniform3fv(location, length / 3, values + offset);
 }
 
 void ShaderProgram::setUniform4fv (const std::string& name, const float* values, int offset, int length)
 {
-	GL20* gl = Gdx.gl20;
 	checkManaged();
-	int location = fetchUniformLocation(name);
-	//ensureBufferCapacity(length << 2);
-	//floatBuffer.clear();
-	//BufferUtils.copy(values, floatBuffer, length, offset);
-	gl->glUniform4fv(location, length / 4, values + offset);
+	GLint location = fetchUniformLocation(name);
+	glUniform4fv(location, length / 4, values + offset);
 }
 
 /** Sets the uniform matrix with the given name. Throws an IllegalArgumentException in case it is not called in between a
@@ -349,11 +326,10 @@ void ShaderProgram::setUniformMatrix (const std::string& name, const Matrix4& ma
 * @param transpose whether the matrix shouls be transposed */
 void ShaderProgram::setUniformMatrix (const std::string& name, const Matrix4& matrix, bool transpose)
 {
-	GL20* gl = Gdx.gl20;
 	checkManaged();
-	int location = fetchUniformLocation(name);
-	memcpy(m_matrix, matrix.val, 16 * sizeof(float));
-	gl->glUniformMatrix4fv(location, 1, transpose, matrix.getValues());
+	GLint location = fetchUniformLocation(name);
+	memcpy(m_matrix, matrix.val, 16 * sizeof(GLfloat));
+	glUniformMatrix4fv(location, 1, transpose, matrix.getValues());
 }
 
 /** Sets the uniform matrix with the given name. Throws an IllegalArgumentException in case it is not called in between a
@@ -374,13 +350,12 @@ void ShaderProgram::setUniformMatrix (const std::string& name, const Matrix3& ma
 * @param transpose whether the uniform matrix should be transposed */
 void ShaderProgram::setUniformMatrix (const std::string& name, const Matrix3& matrix, bool transpose)
 {
-	GL20* gl = Gdx.gl20;
 	checkManaged();
-	int location = fetchUniformLocation(name);
+	GLint location = fetchUniformLocation(name);
 	//float[] vals = matrix.getValues();
 	//m_matrix.clear();
 	//BufferUtils.copy(vals, m_matrix, vals.length, 0);
-	gl->glUniformMatrix3fv(location, 1, transpose, matrix.getValues());
+	glUniformMatrix3fv(location, 1, transpose, matrix.getValues());
 }
 
 /** Sets the vertex attribute with the given name. Throws an IllegalArgumentException in case it is not called in between a
@@ -395,10 +370,9 @@ void ShaderProgram::setUniformMatrix (const std::string& name, const Matrix3& ma
 * @param buffer the buffer containing the vertex attributes. */
 void ShaderProgram::setVertexAttribute (const std::string& name, int size, int type, bool normalize, int stride, const float* buffer)
 {
-	GL20* gl = Gdx.gl20;
 	checkManaged();
-	int location = fetchAttributeLocation(name);
-	gl->glVertexAttribPointer(location, size, type, normalize, stride, buffer);
+	GLint location = fetchAttributeLocation(name);
+	glVertexAttribPointer(location, size, type, normalize, stride, buffer);
 }
 
 /** Sets the vertex attribute with the given name. Throws an IllegalArgumentException in case it is not called in between a
@@ -413,38 +387,34 @@ void ShaderProgram::setVertexAttribute (const std::string& name, int size, int t
 * @param offset byte offset into the vertex buffer object bound to GL20::GDX_GL_ARRAY_BUFFER. */
 void ShaderProgram::setVertexAttribute (const std::string& name, int size, int type, bool normalize, int stride, int offset)
 {
-	GL20* gl = Gdx.gl20;
 	checkManaged();
-	int location = fetchAttributeLocation(name);
+	GLint location = fetchAttributeLocation(name);
 	if (location == -1) return;
-	gl->glVertexAttribPointer(location, size, type, normalize, stride, offset);
+	glVertexAttribPointer(location, size, type, normalize, stride, (void *)offset);
 }
 
 /** Makes OpenGL ES 2.0 use this vertex and fragment shader pair. When you are done with this shader you have to call
 * {@link ShaderProgram#end()}. */
 void ShaderProgram::begin ()
 {
-	GL20* gl = Gdx.gl20;
 	checkManaged();
-	gl->glUseProgram(m_program);
+	glUseProgram(m_program);
 }
 
 /** Disables this shader. Must be called when one is done with the shader. Don't mix it with dispose, that will release the
 * shader resources. */
 void ShaderProgram::end ()
 {
-	GL20* gl = Gdx.gl20;
-	gl->glUseProgram(0);
+	glUseProgram(0);
 }
 
 /** Disposes all resources associated with this shader. Must be called when the shader is no longer used. */
 void ShaderProgram::dispose ()
 {
-	GL20* gl = Gdx.gl20;
-	gl->glUseProgram(0);
-	gl->glDeleteShader(m_vertexShaderHandle);
-	gl->glDeleteShader(m_fragmentShaderHandle);
-	gl->glDeleteProgram(m_program);
+	glUseProgram(0);
+	glDeleteShader(m_vertexShaderHandle);
+	glDeleteShader(m_fragmentShaderHandle);
+	glDeleteProgram(m_program);
 	//if (shaders.get(Gdx.app) != null) shaders.get(Gdx.app).remove(this);
 	m_shaders.clear();
 }
@@ -454,11 +424,10 @@ void ShaderProgram::dispose ()
 * @param name the vertex attribute name */
 void ShaderProgram::disableVertexAttribute (const std::string& name)
 {
-	GL20* gl = Gdx.gl20;
 	checkManaged();
-	int location = fetchAttributeLocation(name);
+	GLint location = fetchAttributeLocation(name);
 	if (location != -1)
-		gl->glDisableVertexAttribArray(location);
+		glDisableVertexAttribArray(location);
 }
 
 /** Enables the vertex attribute with the given name
@@ -466,11 +435,10 @@ void ShaderProgram::disableVertexAttribute (const std::string& name)
 * @param name the vertex attribute name */
 void ShaderProgram::enableVertexAttribute (const std::string& name)
 {
-	GL20* gl = Gdx.gl20;
 	checkManaged();
-	int location = fetchAttributeLocation(name);
+	GLint location = fetchAttributeLocation(name);
 	if (location != -1)
-		gl->glEnableVertexAttribArray(location);
+		glEnableVertexAttribArray(location);
 }
 
 void ShaderProgram::checkManaged ()
@@ -515,24 +483,27 @@ void ShaderProgram::clearAllShaderPrograms()
 * @param value4 the fourth value */
 void ShaderProgram::setAttributef (const std::string& name, float value1, float value2, float value3, float value4)
 {
-	GL20* gl = Gdx.gl20;
-	int location = fetchAttributeLocation(name);
-	gl->glVertexAttrib4f(location, value1, value2, value3, value4);
+	GLint location = fetchAttributeLocation(name);
+	glVertexAttrib4f(location, value1, value2, value3, value4);
 }
 
 void ShaderProgram::fetchUniforms ()
 {
-	int numUniforms = -1;
-	Gdx.gl20->glGetProgramiv(m_program, GL20::GDX_GL_ACTIVE_UNIFORMS, &numUniforms);
+	GLint numUniforms = -1;
+	glGetProgramiv(m_program, GL_ACTIVE_UNIFORMS, &numUniforms);
 
 	m_uniformNames.resize(numUniforms);
 
 	for (int i = 0; i < numUniforms; i++)
 	{
-		int size = -1;
-		unsigned int type = -1;
-		std::string name = Gdx.gl20->glGetActiveUniform(m_program, i, &size, &type);
-		int location = Gdx.gl20->glGetUniformLocation(m_program, name);
+        GLint   size = -1;
+        GLsizei length = 0;
+        GLenum  type = 0;
+        GLchar* uniformName = new GLchar[numUniforms];
+        glGetActiveUniform( m_program, i, numUniforms, &length, &size, &type, uniformName);
+        GLint location = glGetUniformLocation(m_program, uniformName);
+
+        std::string name = std::string(uniformName);
 		m_uniforms[name] = location;
 		m_uniformTypes[name] = type;
 		m_uniformNames[i] = name;
@@ -542,17 +513,22 @@ void ShaderProgram::fetchUniforms ()
 void ShaderProgram::fetchAttributes ()
 {
 	int numAttributes = -1;
-	Gdx.gl20->glGetProgramiv(m_program, GL20::GDX_GL_ACTIVE_ATTRIBUTES, &numAttributes);
+	glGetProgramiv(m_program, GL_ACTIVE_ATTRIBUTES, &numAttributes);
 
 	m_attributeNames.resize(numAttributes);
 
 	for (int i = 0; i < numAttributes; i++)
 	{
 		//params.clear();
-		int size = 256;
-		unsigned int type = -1;
-		std::string name = Gdx.gl20->glGetActiveAttrib(m_program, i, &size, &type);
-		int location = Gdx.gl20->glGetAttribLocation(m_program, name);
+		GLsizei size = 256;
+		GLenum type = -1;
+        GLsizei length = 0;
+        GLchar* attribName = new GLchar[numAttributes];
+        
+        glGetActiveAttrib(m_program, i, size, NULL, &length, &type, attribName); 
+        GLint location = glGetUniformLocation(m_program, attribName);
+        
+		std::string name = std::string(attribName);
 		m_attributes[name] = location;
 		m_attributeTypes[name] = type;
 		m_attributeNames[i] = name;

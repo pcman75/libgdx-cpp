@@ -1,12 +1,5 @@
 #pragma once
 
-
-#include "GLCommon.h"
-#include "GL10.h"
-#include "GL11.h"
-#include "GL20.h"
-
-
 //class GLU;
 //class Pixmap;
 
@@ -119,21 +112,6 @@ public:
 	* @return whether OpenGL ES 2.0 is available */
 	virtual bool isGL20Available () = 0;
 
-	/** @return a {@link GLCommon} instance */
-	virtual const GLCommon* getGLCommon () = 0;
-
-	/** @return the {@link GL10} instance or null if not supported */
-	virtual GL10* getGL10 () = 0;
-
-	/** @return the {@link GL11} instance or null if not supported */
-	virtual GL11* getGL11 () = 0;
-
-	/** @return the {@link GL20} instance or null if not supported */
-	virtual GL20* getGL20 () = 0;
-
-	/** @return the {@link GLU} instance */
-	//virtual const GLU* getGLU () = 0;
-
 	/** @return the width in pixels of the display surface */
 	virtual int getWidth () = 0;
 
@@ -174,7 +152,7 @@ public:
 	virtual bool supportsDisplayModeChange () = 0;
 
 	/** @return the supported fullscreen {@link DisplayMode}. */
-	virtual std::vector<DisplayMode> getDisplayModes () = 0;
+	virtual std::vector< DisplayMode> getDisplayModes () = 0;
 
 	/** @return the display mode of the primary graphics adapter. */
 	virtual DisplayMode getDesktopDisplayMode () = 0;

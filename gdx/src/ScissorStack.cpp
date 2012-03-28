@@ -10,12 +10,12 @@ bool ScissorStack::pushScissors( Rectang scissor)
 	fix(scissor);
 
 	if( scissors.size() == 0) 
-  {
+    {
 		if( scissor.width < 1 || scissor.height < 1) return false;
-    Gdx.graphics->getGL10()->glEnable( GL10::GDX_GL_SCISSOR_TEST);
+      glEnable(GL_SCISSOR_TEST);
 	} 
-  else 
-  {
+    else 
+    {
 		// merge scissors
 		Rectang parent = scissors[ scissors.size() - 1];
 		float minX = parent.x > scissor.x ? parent.x : scissor.x;
@@ -32,7 +32,7 @@ bool ScissorStack::pushScissors( Rectang scissor)
 		scissor.height = 1 > maxY - minY ? 1 : maxY - minY;
 	}
 	scissors.push_back( scissor);
-	Gdx.graphics->getGL10()->glScissor((int)scissor.x, (int)scissor.y, (int)scissor.width, (int)scissor.height);
+	glScissor((GLint)scissor.x, (GLint)scissor.y, (GLint)scissor.width, (GLint)scissor.height);
 	return true;
 }
 
@@ -42,11 +42,11 @@ void ScissorStack::popScissors ()
 {
 	scissors.pop_back();
 	if( scissors.size() == 0)
-		Gdx.graphics->getGL10()->glDisable(GL10::GDX_GL_SCISSOR_TEST);
+		glDisable(GL_SCISSOR_TEST);
 	else 
   {
 		Rectang scissor = scissors[ scissors.size() - 1];
-		Gdx.graphics->getGL10()->glScissor((int)scissor.x, (int)scissor.y, (int)scissor.width, (int)scissor.height);
+		glScissor((GLint)scissor.x, (GLint)scissor.y, (GLint)scissor.width, (GLint)scissor.height);
 	}
 }
 

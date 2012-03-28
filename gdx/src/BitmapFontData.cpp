@@ -26,6 +26,40 @@ void makeSamePathAs(const char* sibling, const char* filename, string& result)
 #endif
 }
 
+void split(const char* line, vector<string>& tokens)
+{
+	istringstream iss(line);
+    copy(istream_iterator<string>(iss),
+             istream_iterator<string>(),
+             back_inserter<vector<string> >(tokens));
+}
+
+bool startsWith(const string& str, const char* with)
+{
+	return str.compare(0, strlen(with), with) == 0;
+}
+
+bool endsWith(const string& str, const char* with)
+{
+	int lenWidth = strlen(with);
+	int lenStr = str.size();
+	return str.compare(lenStr - lenWidth, strlen(with), with) == 0;
+}
+
+// TODO need to check this for mac/linux too @tamas
+//void makeSamePathAs(const char* sibling, const char* filename, string& result)
+//{
+//	char drive[_MAX_DRIVE];
+//	char dir[_MAX_DIR];
+//	char fname[_MAX_FNAME];
+//	char ext[_MAX_EXT];
+//	_splitpath(sibling, drive, dir, fname, ext);
+//
+//	char resbuf[MAX_PATH];
+//	_makepath(resbuf, drive, dir, filename, NULL);
+//	result = resbuf;
+//}
+
 BitmapFont::BitmapFontData::~BitmapFontData()
 {
 	for(int i = 0; i < PAGES; i++)
@@ -102,7 +136,7 @@ BitmapFont::BitmapFontData::BitmapFontData(const FileHandle& fontFile, bool flip
 		//imagePath = m_fontFile.parent().child(imgFilename).path().replaceAll("\\\\", "/");
 		//I don't think this works on something else except Windows but right now 
 		//FileHandle parent and child are not implemented
-		makeSamePathAs(m_fontFile.getFullPathName().c_str(), imgFilename.c_str(), m_imagePath);
+//		makeSamePathAs(m_fontFile.getFullPathName().c_str(), imgFilename.c_str(), m_imagePath);
 		descent = 0;
 
 		while(true)

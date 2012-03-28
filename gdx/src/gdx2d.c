@@ -13,14 +13,14 @@
 #include "gdx2d.h"
 #include <stdlib.h>
 #include <memory.h>
-
-#define STBI_HEADER_FILE_ONLY
-#define STBI_NO_FAILURE_STRINGS
 #ifdef WIN32
 #include "stb_image.c"
 #else
 #include "../../gdx/lib/stb_image.c"
 #endif
+
+#define STBI_HEADER_FILE_ONLY
+#define STBI_NO_FAILURE_STRINGS
 
 static uint32_t gdx2d_blend = GDX2D_C_BLEND_NONE;
 static uint32_t gdx2d_scale = GDX2D_C_SCALE_NEAREST;
@@ -31,6 +31,16 @@ static uint32_t* lu6 = 0;
 
 typedef void(*set_pixel_func)(unsigned char* pixel_addr, uint32_t color);
 typedef uint32_t(*get_pixel_func)(unsigned char* pixel_addr);
+
+#ifdef __APPLE__
+//#ifndef max
+#define max( a, b ) ( ((a) > (b)) ? (a) : (b) )
+//#endif
+
+//#ifnef min
+#define min( a, b ) ( ((a) < (b)) ? (a) : (b) )
+//#endif
+#endif
 
 void generate_look_ups() {
 	uint32_t i = 0;

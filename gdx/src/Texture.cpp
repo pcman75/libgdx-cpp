@@ -1,6 +1,5 @@
 #include "stdafx.h"
 #include "Texture.h"
-#include "GL10.h"
 #include "MipMapGenerator.h"
 
 bool Texture::m_enforcePotImages = true;
@@ -12,19 +11,19 @@ bool m_useHWMipMap = true;
 //AssetManager assetManager;
 Texture::TextureMap Texture::m_managedTextures;
 
-const Texture::TextureFilter Texture::TextureFilter::Nearest(GL10::GDX_GL_NEAREST);
-const Texture::TextureFilter Texture::TextureFilter::Linear(GL10::GDX_GL_LINEAR);
-const Texture::TextureFilter Texture::TextureFilter::MipMap(GL10::GDX_GL_LINEAR_MIPMAP_LINEAR);
-const Texture::TextureFilter Texture::TextureFilter::MipMapNearestNearest(GL10::GDX_GL_NEAREST_MIPMAP_NEAREST);
-const Texture::TextureFilter Texture::TextureFilter::MipMapLinearNearest(GL10::GDX_GL_LINEAR_MIPMAP_NEAREST);
-const Texture::TextureFilter Texture::TextureFilter::MipMapNearestLinear(GL10::GDX_GL_NEAREST_MIPMAP_LINEAR);
-const Texture::TextureFilter Texture::TextureFilter::MipMapLinearLinear(GL10::GDX_GL_LINEAR_MIPMAP_LINEAR);
+const Texture::TextureFilter Texture::TextureFilter::Nearest(GL_NEAREST);
+const Texture::TextureFilter Texture::TextureFilter::Linear(GL_LINEAR);
+const Texture::TextureFilter Texture::TextureFilter::MipMap(GL_LINEAR_MIPMAP_LINEAR);
+const Texture::TextureFilter Texture::TextureFilter::MipMapNearestNearest(GL_NEAREST_MIPMAP_NEAREST);
+const Texture::TextureFilter Texture::TextureFilter::MipMapLinearNearest(GL_LINEAR_MIPMAP_NEAREST);
+const Texture::TextureFilter Texture::TextureFilter::MipMapNearestLinear(GL_NEAREST_MIPMAP_LINEAR);
+const Texture::TextureFilter Texture::TextureFilter::MipMapLinearLinear(GL_LINEAR_MIPMAP_LINEAR);
 
 unsigned int Texture::m_buffer = -1;
 
 Texture::TextureFilter::TextureFilter()
 {
-	m_glEnum = GL10::GDX_GL_NEAREST;
+	m_glEnum = GL_NEAREST;
 }
 
 Texture::TextureFilter::TextureFilter(int glEnum)
@@ -34,7 +33,7 @@ Texture::TextureFilter::TextureFilter(int glEnum)
 
 bool Texture::TextureFilter::isMipMap()
 {
-	return m_glEnum != GL10::GDX_GL_NEAREST && m_glEnum != GL10::GDX_GL_LINEAR;
+	return m_glEnum != GL_NEAREST && m_glEnum != GL_LINEAR;
 }
 
 int Texture::TextureFilter::getGLEnum()
@@ -42,12 +41,12 @@ int Texture::TextureFilter::getGLEnum()
 	return m_glEnum;
 }
 
-const Texture::TextureWrap Texture::TextureWrap::ClampToEdge(GL10::GDX_GL_CLAMP_TO_EDGE);
-const Texture::TextureWrap Texture::TextureWrap::Repeat(GL10::GDX_GL_REPEAT);
+const Texture::TextureWrap Texture::TextureWrap::ClampToEdge(GL_CLAMP_TO_EDGE);
+const Texture::TextureWrap Texture::TextureWrap::Repeat(GL_REPEAT);
 
 Texture::TextureWrap::TextureWrap()
 {
-	m_glEnum = GL10::GDX_GL_CLAMP_TO_EDGE;
+	m_glEnum = GL_CLAMP_TO_EDGE;
 }
 
 Texture::TextureWrap::TextureWrap(int glEnum)
@@ -166,7 +165,7 @@ void Texture::create(TextureData* data)
 
 int Texture::createGLHandle()
 {
-	Gdx.gl->glGenTextures(1, &m_buffer);
+	glGenTextures(1, &m_buffer);
 	return m_buffer;
 }
 
@@ -198,18 +197,18 @@ void Texture::load(TextureData* data)
 
 	if(data->getType() == TextureData::CompressedTexture)
 	{
-		Gdx.gl->glBindTexture(GL10::GDX_GL_TEXTURE_2D, m_glHandle);
+		glBindTexture(GL_TEXTURE_2D, m_glHandle);
 		data->consumeCompressedData();
 		setFilter(m_minFilter, m_magFilter);
 		setWrap(m_uWrap, m_vWrap);
 	}
-	Gdx.gl->glBindTexture(GL10::GDX_GL_TEXTURE_2D, 0);
+	glBindTexture(GL_TEXTURE_2D, 0);
 }
 
 
 void Texture::uploadImageData(Pixmap* pixmap)
 {
-	if(m_enforcePotImages && Gdx.gl20 == NULL
+	if(m_enforcePotImages && Gdx.getGLVersion() != GL_VERSION_20
 		&& (!MathUtils::isPowerOfTwo(m_data->getWidth()) || !MathUtils::isPowerOfTwo(m_data->getHeight())))
 	{
 		throw new GdxRuntimeException("Texture width and height must be powers of two");
@@ -227,16 +226,15 @@ void Texture::uploadImageData(Pixmap* pixmap)
 		disposePixmap = true;
 	}
 
-	Gdx.gl->glBindTexture(GL10::GDX_GL_TEXTURE_2D, m_glHandle);
-	Gdx.gl->glPixelStorei(GL10::GDX_GL_UNPACK_ALIGNMENT, 1);
+	glBindTexture(GL_TEXTURE_2D, m_glHandle);
+	glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
 	if(m_data->useMipMaps())
 	{
 		MipMapGenerator::generateMipMap(pixmap, pixmap->getWidth(), pixmap->getHeight(), disposePixmap);
 	}
 	else
 	{
-		Gdx.gl->glTexImage2D(GL10::GDX_GL_TEXTURE_2D, 0, pixmap->getGLInternalFormat(), pixmap->getWidth(), pixmap->getHeight(), 0,
-			pixmap->getGLFormat(), pixmap->getGLType(), pixmap->getPixels());
+		glTexImage2D(GL_TEXTURE_2D, 0, pixmap->getGLInternalFormat(), pixmap->getWidth(), pixmap->getHeight(), 0, pixmap->getGLFormat(), pixmap->getGLType(), pixmap->getPixels());
 		if(disposePixmap)
 		{
 			pixmap->dispose();
@@ -257,7 +255,7 @@ void Texture::reload()
 * {@link GLCommon#glActiveTexture(int)}. */
 void Texture::bind()
 {
-	Gdx.gl->glBindTexture(GL10::GDX_GL_TEXTURE_2D, m_glHandle);
+	glBindTexture(GL_TEXTURE_2D, m_glHandle);
 }
 
 /** Binds the texture to the given texture unit. Sets the currently active texture unit via
@@ -265,8 +263,8 @@ void Texture::bind()
 * @param unit the unit (0 to MAX_TEXTURE_UNITS). */
 void Texture::bind(int unit)
 {
-	Gdx.gl->glActiveTexture(GL10::GDX_GL_TEXTURE0 + unit);
-	Gdx.gl->glBindTexture(GL10::GDX_GL_TEXTURE_2D, m_glHandle);
+	glActiveTexture(GL_TEXTURE0 + unit);
+	glBindTexture(GL_TEXTURE_2D, m_glHandle);
 }
 
 /** Draws the given {@link Pixmap} to the texture at position x, y. No clipping is performed so you have to make sure that you
@@ -280,8 +278,8 @@ void Texture::draw(Pixmap* pixmap, int x, int y)
 	if(m_data->isManaged()) 
 		throw new GdxRuntimeException("can't draw to a managed texture");
 
-	Gdx.gl->glBindTexture(GL10::GDX_GL_TEXTURE_2D, m_glHandle);
-	Gdx.gl->glTexSubImage2D(GL10::GDX_GL_TEXTURE_2D, 0, x, y, pixmap->getWidth(), pixmap->getHeight(), pixmap->getGLFormat(),
+	glBindTexture(GL_TEXTURE_2D, m_glHandle);
+	glTexSubImage2D(GL_TEXTURE_2D, 0, x, y, pixmap->getWidth(), pixmap->getHeight(), pixmap->getGLFormat(),
 		pixmap->getGLType(), pixmap->getPixels());
 }
 
@@ -342,8 +340,8 @@ void Texture::setWrap(TextureWrap u, TextureWrap v)
 	m_uWrap = u;
 	m_vWrap = v;
 	bind();
-	Gdx.gl->glTexParameterf(GL10::GDX_GL_TEXTURE_2D, GL10::GDX_GL_TEXTURE_WRAP_S, u.getGLEnum());
-	Gdx.gl->glTexParameterf(GL10::GDX_GL_TEXTURE_2D, GL10::GDX_GL_TEXTURE_WRAP_T, v.getGLEnum());
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, u.getGLEnum());
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, v.getGLEnum());
 }
 
 void Texture::setFilter(TextureFilter minFilter, TextureFilter magFilter)
@@ -351,8 +349,8 @@ void Texture::setFilter(TextureFilter minFilter, TextureFilter magFilter)
 	m_minFilter = minFilter;
 	m_magFilter = magFilter;
 	bind();
-	Gdx.gl->glTexParameterf(GL10::GDX_GL_TEXTURE_2D, GL10::GDX_GL_TEXTURE_MIN_FILTER, minFilter.getGLEnum());
-	Gdx.gl->glTexParameterf(GL10::GDX_GL_TEXTURE_2D, GL10::GDX_GL_TEXTURE_MAG_FILTER, magFilter.getGLEnum());
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, minFilter.getGLEnum());
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, magFilter.getGLEnum());
 }
 
 /** Disposes all resources associated with the texture */
@@ -364,9 +362,8 @@ void Texture::dispose()
 	// removal from the asset manager.
 	if(m_glHandle == 0) 
 		return;
-	GLCommon* gl = Gdx.gl;
-	if(gl)
-		gl->glDeleteTextures(1, &m_glHandle);
+	if(Gdx.isGLInitialised())
+		glDeleteTextures(1, &m_glHandle);
 	if(m_data->isManaged())
 	{
 		TextureMapIterator it = m_managedTextures.find(Gdx.app);

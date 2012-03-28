@@ -11,6 +11,7 @@ Camera::Camera()
 * this method so all matrices are up to date.
 *
 * @param gl the GL10 or GL11 instance. */
+/*
 void Camera::apply(GL10* gl)
 {
 	gl->glMatrixMode(GL10::GDX_GL_PROJECTION);
@@ -18,6 +19,7 @@ void Camera::apply(GL10* gl)
 	gl->glMatrixMode(GL10::GDX_GL_MODELVIEW);
 	gl->glLoadMatrixf(view.val, 0);
 }
+*/
 
 /** Recalculates the direction of the camera to look at the point (x, y, z).
 * @param x the x-coordinate of the point to look at

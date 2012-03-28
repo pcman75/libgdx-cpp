@@ -8,16 +8,21 @@
 
 #import <UIKit/UIKit.h>
 #import "GLView.h"
+#import "IOSApplication.h"
 
-@class ViewController;
+//@class RootViewController;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 {
     UIWindow*                   m_window;
     GLView*                     m_view;
+    IOSApplication*             m_app;
+    
 }
 
 @property (strong, nonatomic) UIWindow *m_window;
+//@property (nonatomic, retain) RootViewController *rootViewController;
 
+-(AppDelegate*) initWithApplication:(IOSApplication*)application;
 
 @end

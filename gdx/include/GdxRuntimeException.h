@@ -1,6 +1,5 @@
 #pragma once
 
-
 class GdxRuntimeException : public std::exception
 {
 public:

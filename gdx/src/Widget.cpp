@@ -123,7 +123,7 @@ void Widget::toScreenCoordinates (Actor* actor, Vector2 point)
 	Actor* parent = ( Actor*) actor->parent;
 	while (parent != NULL) 
   {
-    if ( ObjectType::ObjectGroup == parent->type()) 
+    if ( ObjectGroup == parent->type()) 
     {
 			point.x += parent->x;
 			point.y += parent->y;
