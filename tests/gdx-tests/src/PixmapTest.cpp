@@ -70,8 +70,8 @@ void PixmapTest::create ()
 
 void PixmapTest::render ()
 {
-		Gdx.gl->glClearColor(0.6f, 0.6f, 0.6f, 1);
-		Gdx.gl->glClear(GL10::GDX_GL_COLOR_BUFFER_BIT);
+		glClearColor(0.6f, 0.6f, 0.6f, 1);
+		glClear(GL_COLOR_BUFFER_BIT);
 		m_batch->begin();
 		m_batch->draw(m_region, 0, 0);
 		m_batch->end();

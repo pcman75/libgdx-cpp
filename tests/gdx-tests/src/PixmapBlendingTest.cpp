@@ -56,10 +56,10 @@ void PixmapBlendingTest::create()
 
 void PixmapBlendingTest::render()
 {
-	GL10* gl = Gdx.graphics->getGL10();
-	gl->glClearColor(0, 1, 0, 1);
-	//Gdx.gl->glClearColor(0.6f, 0.6f, 0.6f, 1);
-	gl->glClear(GL10::GDX_GL_COLOR_BUFFER_BIT);
+	
+	glClearColor(0, 1, 0, 1);
+	//glClearColor(0.6f, 0.6f, 0.6f, 1);
+	glClear(GL_COLOR_BUFFER_BIT);
 
 	m_spriteBatch->begin();
 	m_logoSprite->draw(m_spriteBatch);

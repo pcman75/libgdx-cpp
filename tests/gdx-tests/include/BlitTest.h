@@ -45,8 +45,8 @@ public:
 
 	void render()
 	{
-		Gdx.gl->glClearColor(0.4f, 0.4f, 0.4f, 1);
-		Gdx.gl->glClear(GL10::GDX_GL_COLOR_BUFFER_BIT);
+		glClearColor(0.4f, 0.4f, 0.4f, 1);
+		glClear(GL_COLOR_BUFFER_BIT);
 
 		batch->begin();
 		batch->draw(rgb888, 0, 0);

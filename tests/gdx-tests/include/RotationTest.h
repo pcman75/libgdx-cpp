@@ -39,7 +39,7 @@ public:
 
 	void render ()
 	{
-		Gdx.gl->glClear(GL10::GDX_GL_COLOR_BUFFER_BIT);
+		glClear(GL_COLOR_BUFFER_BIT);
 		batch->begin();
 		batch->draw(texture, 0, 0);
 		batch->draw(region, 128, 0, 64, 64, 128, 128, 1, 1, 90);

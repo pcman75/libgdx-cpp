@@ -26,7 +26,7 @@ void HelloWorldApp::render ()
 		int centerX = Gdx.graphics->getWidth() / 2;
 		int centerY = Gdx.graphics->getHeight() / 2;
 
-		Gdx.graphics->getGL10()->glClear(GL10::GDX_GL_COLOR_BUFFER_BIT);
+		glClear(GL_COLOR_BUFFER_BIT);
 
 		// more fun but confusing :)
 		// textPosition.add(textDirection.tmp().mul(Gdx.graphics.getDeltaTime()).mul(60));

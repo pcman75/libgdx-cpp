@@ -51,9 +51,9 @@ void SpriteBatchTest::render()
 
 void SpriteBatchTest::renderNormal() 
 {
-	GL10* gl = Gdx.gl10;
-	gl->glClearColor(0.7f, 0.7f, 0.7f, 1);
-	gl->glClear( GL10::GDX_GL_COLOR_BUFFER_BIT);
+
+	glClearColor(0.7f, 0.7f, 0.7f, 1);
+	glClear( GL_COLOR_BUFFER_BIT);
 
 	float begin = 0;
 	float end = 0;
@@ -128,9 +128,9 @@ void SpriteBatchTest::renderNormal()
 
 void SpriteBatchTest::renderSprites () 
 {
-	GL10* gl = Gdx.gl10;
-	gl->glClearColor(0.7f, 0.7f, 0.7f, 1);
-	gl->glClear(GL10::GDX_GL_COLOR_BUFFER_BIT);
+
+	glClearColor(0.7f, 0.7f, 0.7f, 1);
+	glClear(GL_COLOR_BUFFER_BIT);
 
 	float begin = 0;
 	float end = 0;

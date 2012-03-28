@@ -26,12 +26,6 @@ private:
 	int m_frames;
 
 	private:
-	GLCommon* m_pGL;
-	GL10* m_pGL10;
-	GL11* m_pGL11;
-	GL20* m_pGL20;
-	//GLU* m_pGLU;
-
 	int m_major;
 	int m_minor;
 
@@ -47,21 +41,6 @@ public:
 	* 
 	* @return whether OpenGL ES 2.0 is available */
 	virtual bool isGL20Available();
-
-	/** @return a {@link GLCommon} instance */
-	virtual GLCommon* getGLCommon();
-
-	/** @return the {@link GL10} instance or null if not supported */
-	virtual GL10* getGL10();
-
-	/** @return the {@link GL11} instance or null if not supported */
-	virtual GL11* getGL11();
-
-	/** @return the {@link GL20} instance or null if not supported */
-	virtual GL20* getGL20();
-
-	/** @return the {@link GLU} instance */
-	//virtual GLU* getGLU();
 
 	/** @return the width in pixels of the display surface */
 	virtual int getWidth();
@@ -147,7 +126,6 @@ public:
 	virtual bool supportsExtension (std::string extension);
 
 private:
-	void initializeGLInstances();
 	void updateTimes();
 	void updateSize();
 

@@ -85,8 +85,8 @@ public:
 
 	void render () 
 	{
-		Gdx.graphics->getGL10()->glClearColor(0, 0, 0, 1);
-		Gdx.graphics->getGL10()->glClear(GL10::GDX_GL_COLOR_BUFFER_BIT);
+		glClearColor(0, 0, 0, 1);
+		glClear(GL_COLOR_BUFFER_BIT);
 		stage->draw();
 	}
 

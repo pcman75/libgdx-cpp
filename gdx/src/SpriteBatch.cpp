@@ -1197,8 +1197,8 @@ void SpriteBatch::enableBlending()
 
 /** Sets the blending function to be used when rendering sprites.
 *
-* @param srcFunc the source function, e.g. GL11::GDX_GL_SRC_ALPHA
-* @param dstFunc the destination function, e.g. GL11::GDX_GL_ONE_MINUS_SRC_ALPHA */
+* @param srcFunc the source function, e.g. GL_SRC_ALPHA
+* @param dstFunc the destination function, e.g. GL_ONE_MINUS_SRC_ALPHA */
 void SpriteBatch::setBlendFunction(int srcFunc, int dstFunc)
 {
 	renderMesh();

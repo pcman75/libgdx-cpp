@@ -37,7 +37,7 @@ void SpriteBatchRotationTest::create ()
 
 void SpriteBatchRotationTest::render() 
 {
-	Gdx.graphics->getGL10()->glClear(GL10::GDX_GL_COLOR_BUFFER_BIT);
+	glClear(GL_COLOR_BUFFER_BIT);
 	spriteBatch->begin();
 	spriteBatch->draw(texture, 16, 10, 16, 16, 32, 32, 1, 1, 0, 0, 0, texture->getWidth(), texture->getHeight(), false, false);
 	spriteBatch->draw(texture, 64, 10, 32, 32, 0, 0, texture->getWidth(), texture->getHeight(), false, false);
@@ -53,7 +53,7 @@ void SpriteBatchRotationTest::render()
 
 	// spriteBatch->drawText(font, "Test", 208, 10, Color.WHITE);
 	spriteBatch->end();
-	Gdx.graphics->getGL10()->glFlush();
+	glFlush();
 
 	// if( false )
 	// {

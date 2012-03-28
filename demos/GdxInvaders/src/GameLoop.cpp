@@ -23,7 +23,7 @@ bool GameLoop::isDone ()
 
 void GameLoop::render(Application* app)
 {
-	app->getGraphics()->getGL10()->glClear(GL10::GDX_GL_COLOR_BUFFER_BIT | GL10::GDX_GL_DEPTH_BUFFER_BIT);
+	app->getGraphics()->getGL10()->glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	m_renderer.render(app, &m_simulation);
 }
 

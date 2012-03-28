@@ -72,34 +72,34 @@ void Pong::render()
 	updateGame();
 
 	// First we clear the screen
-	GL10* gl = Gdx.graphics->getGL10();
-	gl->glViewport(0, 0, Gdx.graphics->getWidth(), Gdx.graphics->getHeight());
-	gl->glClear(GL10::GDX_GL_COLOR_BUFFER_BIT);
+	
+	glViewport(0, 0, Gdx.graphics->getWidth(), Gdx.graphics->getHeight());
+	glClear(GL_COLOR_BUFFER_BIT);
 
 	// Next we update the camera and set the camera matrix
 	camera->update();
-	camera->apply(Gdx.gl10);
+	camera->apply();
 
 	// Now we render the ball, we remember that we
 	// Defined 4 vertices so we use a triangle fan
 	// We also push and pop the matrix. This is not really
 	// necessary as the model view matrix doesn't contain
 	// anything at this point.
-	gl->glPushMatrix();
-	gl->glTranslatef(ball.x, ball.y, 0);
-	ballMesh->render(GL10::GDX_GL_TRIANGLE_FAN);
-	gl->glPopMatrix();
+	glPushMatrix();
+	glTranslatef(ball.x, ball.y, 0);
+	ballMesh->render(GL_TRIANGLE_FAN);
+	glPopMatrix();
 
 	// Rendering the two paddles works analogous
-	gl->glPushMatrix();
-	gl->glTranslatef(leftPaddle.x, leftPaddle.y, 0);
-	paddleMesh->render(GL10::GDX_GL_TRIANGLE_FAN);
-	gl->glPopMatrix();
+	glPushMatrix();
+	glTranslatef(leftPaddle.x, leftPaddle.y, 0);
+	paddleMesh->render(GL_TRIANGLE_FAN);
+	glPopMatrix();
 
-	gl->glPushMatrix();
-	gl->glTranslatef(rightPaddle.x, rightPaddle.y, 0);
-	paddleMesh->render(GL10::GDX_GL_TRIANGLE_FAN);
-	gl->glPopMatrix();
+	glPushMatrix();
+	glTranslatef(rightPaddle.x, rightPaddle.y, 0);
+	paddleMesh->render(GL_TRIANGLE_FAN);
+	glPopMatrix();
 
 	// Finally we render the text centered at the top
 	// of the screen. We use the text bounds for this.

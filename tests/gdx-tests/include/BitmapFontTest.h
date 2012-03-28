@@ -48,9 +48,9 @@ public:
 
 		int viewHeight = Gdx.graphics->getHeight();
 
-		GL10* gl = Gdx.graphics->getGL10();
-		gl->glClearColor(0, 1, 1, 1);
-		gl->glClear(GL10::GDX_GL_COLOR_BUFFER_BIT);
+		
+		glClearColor(0, 1, 1, 1);
+		glClear(GL_COLOR_BUFFER_BIT);
 		spriteBatch->begin();
 
 		std::string text = "Sphinx of black quartz, judge my vow.";
@@ -86,7 +86,7 @@ public:
 
 	void drawRect(float x1, float y1, float x2, float y2)
 	{
-		renderer->begin(GL10::GDX_GL_LINE_STRIP);
+		renderer->begin(GL_LINE_STRIP);
 		renderer->vertex(x1, y1, 0);
 		renderer->vertex(x1, y2, 0);
 		renderer->vertex(x2, y2, 0);

@@ -70,7 +70,7 @@ void ETC1TextureData::consumeCompressedData()
 	{
 		Pixmap pixmap;
 		ETC1.decodeImage(m_data, Pixmap::Format::RGB565, pixmap);
-		Gdx.gl->glTexImage2D(GL10::GDX_GL_TEXTURE_2D, 0, pixmap.getGLInternalFormat(), pixmap.getWidth(), pixmap.getHeight(), 0,
+		Gdx.glTexImage2D(GL_TEXTURE_2D, 0, pixmap.getGLInternalFormat(), pixmap.getWidth(), pixmap.getHeight(), 0,
 			pixmap.getGLFormat(), pixmap.getGLType(), pixmap.getPixels());
 		if(m_useMipMaps) 
 			MipMapGenerator.generateMipMap(pixmap, pixmap.getWidth(), pixmap.getHeight(), false);
@@ -79,10 +79,10 @@ void ETC1TextureData::consumeCompressedData()
 	}
 	else
 	{
-		Gdx.gl->glCompressedTexImage2D(GL10::GDX_GL_TEXTURE_2D, 0, ETC1::ETC1_RGB8_OES, m_width, m_height, 0,
+		Gdx.glCompressedTexImage2D(GL_TEXTURE_2D, 0, ETC1::ETC1_RGB8_OES, m_width, m_height, 0,
 			m_data.compressedData.capacity() - m_data.dataOffset, m_data.compressedData);
 		if(useMipMaps()) 
-			Gdx.gl20->glGenerateMipmap(GL20::GDX_GL_TEXTURE_2D);
+			glGenerateMipmap(GL_TEXTURE_2D);
 	}
 	m_data.dispose();
 	m_data = null;

@@ -1,8 +1,5 @@
 #include "StdAfx.h"
 #include "GlfwGraphics.h"
-#include "WoglGL10.h"
-#include "WoglGL11.h"
-#include "WoglGL20.h"
 #include "Gdx.h"
 #include "GdxRuntimeException.h"
 #include "GlfwInput.h"
@@ -11,109 +8,25 @@ GlfwGraphics::GlfwGraphics(ApplicationListener& listener, bool useGL20)
 	:m_listener(listener), m_useGL20(useGL20),
 	m_major(-1), m_minor(0)
 {
-	m_pGL = NULL; 
-	m_pGL10 = NULL;
-	m_pGL11 = NULL;
-	m_pGL20 = NULL;
-
 	m_deltaTime = 0;
 }
 
 
 GlfwGraphics::~GlfwGraphics(void)
 {
-	//delete only m_pGL the other GL pointers are casts of pointers of the same object
-	if(m_pGL)
-	{
-		delete m_pGL;
-		m_pGL = NULL; 
-		m_pGL10 = NULL;
-		m_pGL11 = NULL;
-		m_pGL20 = NULL;
-		Gdx.gl = NULL;
-		Gdx.gl10 = NULL;
-		Gdx.gl11 = NULL;
-		Gdx.gl20 = NULL;
-	}
-}
-
-
-void GlfwGraphics::initializeGLInstances() 
-{
-	WoglGLCommon ogl;
-
-	std::string version = ogl.glGetString(GL10::GDX_GL_VERSION);
-	std::string renderer = ogl.glGetString(GL10::GDX_GL_RENDERER);
-
-	const char* szVersion = version.c_str();
-	m_major = atoi(szVersion);
-	m_minor = atoi(szVersion + 2);
-
-	if (m_useGL20 && m_major >= 2)
-	{
-		m_pGL20 = new WoglGL20();
-		m_pGL = m_pGL20;	
-	} 
-	else 
-	{
-		if ((m_major == 1 && m_minor < 5) || renderer == "Mirage Graphics3") 
-		{
-			m_pGL10 = new WoglGL10();
-		} 
-		else 
-		{
-			m_pGL11 = new WoglGL11();
-			m_pGL10 = m_pGL11;
-		}
-		m_pGL = m_pGL10;
-	}
-
-	Gdx.gl = m_pGL;
-	Gdx.gl10 = m_pGL10;
-	Gdx.gl11 = m_pGL11;
-	Gdx.gl20 = m_pGL20;
 }
 
 
 bool GlfwGraphics::isGL11Available ()
 {
-	return (m_pGL11 != NULL);
+	return Gdx.isGL11Available();
 }
 
 
 bool GlfwGraphics::isGL20Available()
 {
-	return (m_pGL20 != NULL);
+	return Gdx.isGL20Available();
 }
-
-
-GLCommon* GlfwGraphics::getGLCommon ()
-{
-	return m_pGL;
-}
-
-GL10* GlfwGraphics::getGL10()
-{
-	return m_pGL10;
-}
-
-GL11* GlfwGraphics::getGL11 ()
-{
-	return m_pGL11;
-}	
-
-
-GL20* GlfwGraphics::getGL20()
-{
-	return m_pGL20;
-}
-
-/*
-GLU* GlfwGraphics::getGLU()
-{
-	return m_pGLU;
-}
-*/
 
 int GlfwGraphics::getWidth ()
 {
@@ -221,7 +134,6 @@ void GlfwGraphics::createWindow(const char* title, int width, int height)
 	//initializa glew
 	glewInit();
 
-	initializeGLInstances();
 	updateSize();
 
 	//TODO: implement also window resize

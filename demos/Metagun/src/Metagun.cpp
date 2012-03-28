@@ -66,7 +66,7 @@ void Metagun::setScreen(Screen* newScreen)
 
 void Metagun::render () 
 {
-	Gdx.graphics->getGL10()->glClear(GL10::GDX_GL_COLOR_BUFFER_BIT);
+	glClear(GL_COLOR_BUFFER_BIT);
 	accum += Gdx.graphics->getDeltaTime();
 	while (accum > 1.0f / 60.0f) 
   {

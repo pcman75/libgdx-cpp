@@ -81,7 +81,6 @@
     <None Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\src\dllmain.cpp" />
     <ClCompile Include="..\src\gdx-audio.cpp" />
     <ClCompile Include="..\src\Mp3File.cpp" />
     <ClCompile Include="..\src\Mpg123Decoder.cpp" />

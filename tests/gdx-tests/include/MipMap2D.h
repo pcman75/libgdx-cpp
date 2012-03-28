@@ -93,21 +93,21 @@ public:
 
 	void render()
 	{
-		Gdx.gl20->glViewport(0, 0, Gdx.graphics->getWidth(), Gdx.graphics->getHeight());
-		Gdx.gl20->glClear(GL20::GDX_GL_COLOR_BUFFER_BIT);
+		glViewport(0, 0, Gdx.graphics->getWidth(), Gdx.graphics->getHeight());
+		glClear(GL_COLOR_BUFFER_BIT);
 
-		Gdx.gl20->glActiveTexture(GL20::GDX_GL_TEXTURE0);
+		glActiveTexture(GL_TEXTURE0);
 		texture->bind();
 		shader->begin();
 		shader->setUniformf("s_texture", 0);
 
-		Gdx.gl20->glTexParameteri(GL20::GDX_GL_TEXTURE_2D, GL20::GDX_GL_TEXTURE_MIN_FILTER, GL20::GDX_GL_NEAREST);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 		shader->setUniformf("u_offset", -0.6f);
-		mesh->render(shader, GL20::GDX_GL_TRIANGLES);
+		mesh->render(shader, GL_TRIANGLES);
 
-		Gdx.gl20->glTexParameteri(GL20::GDX_GL_TEXTURE_2D, GL20::GDX_GL_TEXTURE_MIN_FILTER, GL20::GDX_GL_LINEAR_MIPMAP_LINEAR);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
 		shader->setUniformf("u_offset", 0.6f);
-		mesh->render(shader, GL20::GDX_GL_TRIANGLES);
+		mesh->render(shader, GL_TRIANGLES);
 
 		shader->end();
 	}

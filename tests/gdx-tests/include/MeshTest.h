@@ -28,11 +28,11 @@ class MeshTest :
 public:
 	void render()
 	{
-		Gdx.graphics->getGL10()->glClear(GL10::GDX_GL_COLOR_BUFFER_BIT);
-		Gdx.graphics->getGL10()->glViewport(0, 0, Gdx.graphics->getWidth(), Gdx.graphics->getHeight());
-		Gdx.graphics->getGL10()->glEnable(GL10::GDX_GL_TEXTURE_2D);
+		glClear(GL_COLOR_BUFFER_BIT);
+		glViewport(0, 0, Gdx.graphics->getWidth(), Gdx.graphics->getHeight());
+		glEnable(GL_TEXTURE_2D);
 		m_texture->bind();
-		m_mesh->render(GL10::GDX_GL_TRIANGLES);//, 0, 6);
+		m_mesh->render(GL_TRIANGLES);//, 0, 6);
 	}
 
 	void create()

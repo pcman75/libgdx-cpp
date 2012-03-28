@@ -47,7 +47,7 @@ public:
 
 	void render ()
 	{
-		Gdx.graphics->getGL10()->glClear(GL10::GDX_GL_COLOR_BUFFER_BIT);
+		glClear(GL_COLOR_BUFFER_BIT);
 
 		m_batch->begin();
 		m_batch->draw(m_texture, 0, 0, 256, 256, 0, 0, 256, 256, false, false);

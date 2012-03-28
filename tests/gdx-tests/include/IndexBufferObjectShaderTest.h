@@ -50,17 +50,16 @@ public:
 
 	void render()
 	{
-		GL20* gl = Gdx.gl20;
-		gl->glViewport(0, 0, Gdx.graphics->getWidth(), Gdx.graphics->getHeight());
-		gl->glClear(GL20::GDX_GL_COLOR_BUFFER_BIT);
+		glViewport(0, 0, Gdx.graphics->getWidth(), Gdx.graphics->getHeight());
+		glClear(GL_COLOR_BUFFER_BIT);
 
-		gl->glEnable(GL20::GDX_GL_TEXTURE_2D);
+		glEnable(GL_TEXTURE_2D);
 		shader->begin();
 		shader->setUniformi("u_texture", 0);
 		texture->bind();
 		vbo->bind(shader);
 		ibo->bind();
-		gl->glDrawElements(GL20::GDX_GL_TRIANGLES, 3, GL20::GDX_GL_UNSIGNED_SHORT, 0);
+		glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_SHORT, 0);
 		ibo->unbind();
 		vbo->unbind(shader);
 		shader->end();

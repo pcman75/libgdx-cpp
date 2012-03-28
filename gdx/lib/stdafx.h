@@ -26,7 +26,8 @@
     #endif
     #include <libgen.h>
 #else
-    #include <GL/gl.h>
+    #define GL_GLEXT_PROTOTYPES
+	#include <glew.h>
 #endif
 
 #include <iostream>
