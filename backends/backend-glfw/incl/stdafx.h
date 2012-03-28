@@ -16,6 +16,8 @@
 #include <io.h>
 #include <fcntl.h>
 
+#include <Shlobj.h> //special folders location
+
 #endif
 
 #define GL_GLEXT_PROTOTYPES

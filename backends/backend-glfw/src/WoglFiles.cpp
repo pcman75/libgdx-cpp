@@ -16,11 +16,6 @@ FileHandle WoglFiles::getFileHandle(const std::string& path, FileType type) cons
 	return FileHandle( path);
 }
 
-FileHandle WoglFiles::classpathHandle(const std::string& path) const
-{
-	return FileHandle();
-}
-
 FileHandle WoglFiles::internalHandle(const std::string& path) const
 {
 	char modulePath[MAX_PATH] = {0};
@@ -45,12 +40,31 @@ FileHandle WoglFiles::absoluteHandle(const std::string& path) const
 
 std::string WoglFiles::getExternalStoragePath() const
 {
-	return std::string();
+	std::string externalPath;
+
+#ifdef WIN32
+	char path[MAX_PATH] = "";
+	HRESULT hr = ::SHGetFolderPathA(NULL, CSIDL_PROFILE, NULL, SHGFP_TYPE_CURRENT, path);
+	externalPath = path;
+#else
+	throw GdxRuntimeException("method not implemented");
+	/*
+	#include <unistd.h>
+	#include <sys/types.h>
+	#include <pwd.h>
+
+	struct passwd *pw = getpwuid(getuid());
+
+	const char *homedir = pw->pw_dir;
+	externalPath = homedir;
+	*/
+#endif
+	return externalPath;
 }
 
 bool WoglFiles::isExternalStorageAvailable() const
 {
-	return false;
+	return true;
 }
 
 FileType WoglFiles::getFileType(const std::string& path) const

@@ -15,9 +15,6 @@ public:
   * @see FileType */
   virtual FileHandle getFileHandle(const std::string& path, FileType type) const;
 
-  /** Convenience method that returns a {@link FileType#Classpath} file handle. */
-  virtual FileHandle classpathHandle(const std::string& path) const;
-
   /** Convenience method that returns a {@link FileType#Internal} file handle. */
   virtual FileHandle internalHandle(const std::string& path) const;
 
