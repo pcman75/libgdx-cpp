@@ -58,8 +58,8 @@ public:
 	void render()
 	{
 		// set the clear color and clear the screen.
-		Gdx.gl->glClearColor(1, 1, 1, 1);
-		Gdx.gl->glClear(GL10::GDX_GL_COLOR_BUFFER_BIT);
+		glClearColor(1, 1, 1, 1);
+		glClear(GL_COLOR_BUFFER_BIT);
 
 		// draw the sprite
 		batch->begin();

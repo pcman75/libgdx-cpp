@@ -2,7 +2,7 @@
 #include "Gdx2DPixmap.h"
 #include "gdx2d.h"
 #include "GdxRuntimeException.h"
-#include "GL10.h"
+#include "Gdx.h"
 
 void Gdx2DPixmap::init()
 {
@@ -158,15 +158,15 @@ int Gdx2DPixmap::getGLInternalFormat ()
 	switch( m_pixmap->format)
 	{
 	case GDX2D_FORMAT_ALPHA:
-		return GL10::GDX_GL_ALPHA;
+		return GL_ALPHA;
 	case GDX2D_FORMAT_LUMINANCE_ALPHA:
-		return GL10::GDX_GL_LUMINANCE_ALPHA;
+		return GL_LUMINANCE_ALPHA;
 	case GDX2D_FORMAT_RGB888:
 	case GDX2D_FORMAT_RGB565:
-		return GL10::GDX_GL_RGB;
+		return GL_RGB;
 	case GDX2D_FORMAT_RGBA8888:
 	case GDX2D_FORMAT_RGBA4444:
-		return GL10::GDX_GL_RGBA;
+		return GL_RGBA;
 	default:
 		throw new GdxRuntimeException("unknown format: " + m_pixmap->format);
 	}
@@ -185,11 +185,11 @@ int Gdx2DPixmap::getGLType ()
 	case GDX2D_FORMAT_LUMINANCE_ALPHA:
 	case GDX2D_FORMAT_RGB888:
 	case GDX2D_FORMAT_RGBA8888:
-		return GL10::GDX_GL_UNSIGNED_BYTE;
+		return GL_UNSIGNED_BYTE;
 	case GDX2D_FORMAT_RGB565:
-		return GL10::GDX_GL_UNSIGNED_SHORT_5_6_5;
+		return GL_UNSIGNED_SHORT_5_6_5;
 	case GDX2D_FORMAT_RGBA4444:
-		return GL10::GDX_GL_UNSIGNED_SHORT_4_4_4_4;
+		return GL_UNSIGNED_SHORT_4_4_4_4;
 	default:
 		throw new GdxRuntimeException("unknown format: " + m_pixmap->format);
 	}

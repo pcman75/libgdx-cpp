@@ -41,20 +41,20 @@ public:
 
 	void render ()
 	{
-		GL10* gl = Gdx.gl10;
-		gl->glViewport(0, 0, Gdx.graphics->getWidth(), Gdx.graphics->getHeight());
-		gl->glClear(GL10::GDX_GL_COLOR_BUFFER_BIT);
+	
+		glViewport(0, 0, Gdx.graphics->getWidth(), Gdx.graphics->getHeight());
+		glClear(GL_COLOR_BUFFER_BIT);
 
-		gl->glEnable(GL10::GDX_GL_TEXTURE_2D);
+		glEnable(GL_TEXTURE_2D);
 		m_texture->bind();
 		m_va->bind();
-		gl->glDrawArrays(GL10::GDX_GL_TRIANGLES, 0, 3);
+		glDrawArrays(GL_TRIANGLES, 0, 3);
 
-		gl->glMatrixMode(GL10::GDX_GL_MODELVIEW);
-		gl->glPushMatrix();
-		gl->glTranslatef(0.5f, 0.5f, 0);
-		gl->glDrawElements(GL10::GDX_GL_TRIANGLES, 3, GL10::GDX_GL_UNSIGNED_SHORT, m_indices);
-		gl->glPopMatrix();
+		glMatrixMode(GL_MODELVIEW);
+		glPushMatrix();
+		glTranslatef(0.5f, 0.5f, 0);
+		glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_SHORT, m_indices);
+		glPopMatrix();
 		m_va->unbind();
 	}
 

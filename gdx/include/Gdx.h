@@ -21,11 +21,6 @@
 #include "Audio.h"
 #include "Input.h"
 #include "Files.h"
-#include "GLCommon.h"
-#include "GL10.h"
-#include "GL11.h"
-#include "GL20.h"
-//#include "GLU.h"
 
 /** <p>
 * Environment class holding references to the {@link Application}, {@link Graphics}, {@link Audio}, {@link Files} and
@@ -44,9 +39,19 @@
 * </p>
 * 
 * */
+
+enum GLversion
+{
+    GL_VERSION_0,
+    GL_VERSION_10,
+    GL_VERSION_11,
+    GL_VERSION_20
+};
+
 class GdxClass 
 {
 public:
+	//TODO: store pointer and make accesor returning reference 
 	Application* app;
 	Graphics* graphics;
 	Audio* audio;
@@ -54,11 +59,7 @@ public:
 	Files* files;
 	Threading* threading;
 
-	GLCommon* gl;
-	GL10* gl10;
-	GL11* gl11;
-	GL20* gl20;
-	//GLU* glu;
+    GLversion glVersion;
 
 	public:
         static GdxClass& getInstance()
@@ -68,6 +69,8 @@ public:
         }
 		bool isGL20Available();
 		bool isGL11Available();
+        bool isGLInitialised();
+        GLversion getGLVersion();
 		~GdxClass();
     private:
         GdxClass();

@@ -16,7 +16,6 @@
 
 #pragma once
 #include "indexdata.h"
-#include "GL11.h"
 #include "Gdx.h"
 
 #include "GdxRuntimeException.h"
@@ -44,9 +43,9 @@
 class IndexBufferObject : public IndexData 
 {
 private:
-	short* m_buffer;
-	int m_numIndices;
-	unsigned int m_bufferHandle;
+	GLshort* m_buffer;
+	GLuint m_numIndices;
+	GLuint m_bufferHandle;
 	bool m_isDirect;
 	bool m_isDirty;
 	bool m_isBound;

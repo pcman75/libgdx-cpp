@@ -69,14 +69,14 @@ public:
 	Renderer(Application* app);
 
 	void render(Application* app, Simulation* simulation);
-	void renderBackground(GL10* gl);
+	void renderBackground();
 	void setProjectionAndCamera(Graphics* graphics, const Ship& ship, Application* app);
-	void setLighting (GL10* gl);
-	void renderShip(GL10* gl, const Ship& ship, Application* app);
-	void renderInvaders(GL10* gl, const Simulation::Invaders& invaders);
-	void renderBlocks(GL10* gl, const Simulation::Blocks& blocks);
-	void renderShots(GL10* gl, const Simulation::Shots& shots);
-	void renderShot(GL10* gl, const Shot& shot);
-	void renderExplosions(GL10* gl, const Simulation::Explosions& explosions);
+	void setLighting ();
+	void renderShip(const Ship& ship, Application* app);
+	void renderInvaders(const Simulation::Invaders& invaders);
+	void renderBlocks(const Simulation::Blocks& blocks);
+	void renderShots(const Simulation::Shots& shots);
+	void renderShot(const Shot& shot);
+	void renderExplosions(const Simulation::Explosions& explosions);
 	void dispose();
 };

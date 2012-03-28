@@ -12,16 +12,15 @@ void VertexBufferObjectShaderTest::dispose()
 void VertexBufferObjectShaderTest::render()
 {
 	static unsigned short indices[] = {0,1,2};
-	GL20* gl = Gdx.gl20;
-	gl->glViewport(0, 0, Gdx.graphics->getWidth(), Gdx.graphics->getHeight());	
-	gl->glClear(GL20::GDX_GL_COLOR_BUFFER_BIT);
+	glViewport(0, 0, Gdx.graphics->getWidth(), Gdx.graphics->getHeight());	
+	glClear(GL_COLOR_BUFFER_BIT);
 
-	gl->glEnable(GL20::GDX_GL_TEXTURE_2D);
+	glEnable(GL_TEXTURE_2D);
 	m_shader->begin();
 	m_shader->setUniformi( "u_texture", 0);
 	m_texture->bind();
 	m_vbo->bind(m_shader);
-	gl->glDrawElements(GL20::GDX_GL_TRIANGLES, 3, GL20::GDX_GL_UNSIGNED_SHORT, indices);
+	glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_SHORT, indices);
 	m_vbo->unbind(m_shader);
 	m_shader->end();
 }

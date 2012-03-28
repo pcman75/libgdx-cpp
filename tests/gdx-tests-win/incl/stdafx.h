@@ -17,5 +17,9 @@
 #include <memory.h>
 #include <tchar.h>
 
+#include <iostream>
+#include <sstream>
+#include <string>
+#include <vector>
+#include <list>
 #include <map>
-

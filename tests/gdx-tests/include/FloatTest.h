@@ -51,34 +51,34 @@ public:
 
 	void render()
 	{
-		GL10* gl = Gdx.graphics->getGL10();
-		gl->glViewport(0, 0, Gdx.graphics->getWidth(), Gdx.graphics->getHeight());
-		gl->glClearColor(0.7f, 0.7f, 0.7f, 1);
-		gl->glClear(GL10::GDX_GL_COLOR_BUFFER_BIT);
-		gl->glMatrixMode(GL10::GDX_GL_MODELVIEW);
-		gl->glLoadIdentity();	
-		gl->glRotatef(angle, 0, 0, 1);
+		
+		glViewport(0, 0, Gdx.graphics->getWidth(), Gdx.graphics->getHeight());
+		glClearColor(0.7f, 0.7f, 0.7f, 1);
+		glClear(GL_COLOR_BUFFER_BIT);
+		glMatrixMode(GL_MODELVIEW);
+		glLoadIdentity();	
+		glRotatef(angle, 0, 0, 1);
 		angle += angleIncrement;
-		gl->glEnable(GL10::GDX_GL_TEXTURE_2D);
+		glEnable(GL_TEXTURE_2D);
 
-		gl->glEnableClientState(GL10::GDX_GL_COLOR_ARRAY);
-		gl->glColorPointer(4, GL10::GDX_GL_FLOAT, BYTES_PER_VERTEX, vertices);
+		glEnableClientState(GL_COLOR_ARRAY);
+		glColorPointer(4, GL_FLOAT, BYTES_PER_VERTEX, vertices);
 
-		gl->glEnableClientState(GL10::GDX_GL_TEXTURE_COORD_ARRAY);
-		gl->glClientActiveTexture(GL10::GDX_GL_TEXTURE0);
-		gl->glActiveTexture(GL10::GDX_GL_TEXTURE0);
+		glEnableClientState(GL_TEXTURE_COORD_ARRAY);
+		glClientActiveTexture(GL_TEXTURE0);
+		glActiveTexture(GL_TEXTURE0);
 		tex->bind();
-		gl->glTexCoordPointer(2, GL10::GDX_GL_FLOAT, BYTES_PER_VERTEX, vertices + 4);
+		glTexCoordPointer(2, GL_FLOAT, BYTES_PER_VERTEX, vertices + 4);
 
-		gl->glClientActiveTexture(GL10::GDX_GL_TEXTURE1);
-		gl->glActiveTexture(GL10::GDX_GL_TEXTURE1);
+		glClientActiveTexture(GL_TEXTURE1);
+		glActiveTexture(GL_TEXTURE1);
 		tex2->bind();
-		gl->glTexCoordPointer(2, GL10::GDX_GL_FLOAT, BYTES_PER_VERTEX, vertices + 6);
+		glTexCoordPointer(2, GL_FLOAT, BYTES_PER_VERTEX, vertices + 6);
 
-		gl->glEnableClientState(GL10::GDX_GL_VERTEX_ARRAY);
-		gl->glVertexPointer(3, GL10::GDX_GL_FLOAT, BYTES_PER_VERTEX, vertices + 8);
+		glEnableClientState(GL_VERTEX_ARRAY);
+		glVertexPointer(3, GL_FLOAT, BYTES_PER_VERTEX, vertices + 8);
 
-		gl->glDrawArrays(GL10::GDX_GL_TRIANGLES, 0, 3);
+		glDrawArrays(GL_TRIANGLES, 0, 3);
 	}
 
 private:

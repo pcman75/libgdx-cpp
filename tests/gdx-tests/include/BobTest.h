@@ -94,28 +94,27 @@ public:
 			bobs[i].update(deltaTime);
 		}
 
-		GL10* gl = Gdx.gl10;
-		gl->glViewport(0, 0, Gdx.graphics->getWidth(), Gdx.graphics->getHeight());
-		gl->glClearColor(1, 0, 0, 1);
-		gl->glClear(GL10::GDX_GL_COLOR_BUFFER_BIT);
-		gl->glMatrixMode(GL10::GDX_GL_PROJECTION);
-		gl->glLoadIdentity();
-		gl->glOrthof(0, 320, 0, 480, 1, -1);
+		glViewport(0, 0, Gdx.graphics->getWidth(), Gdx.graphics->getHeight());
+		glClearColor(1, 0, 0, 1);
+		glClear(GL_COLOR_BUFFER_BIT);
+		glMatrixMode(GL_PROJECTION);
+		glLoadIdentity();
+		glOrtho(0, 320, 0, 480, 1, -1);
 
-		gl->glMatrixMode(GL10::GDX_GL_MODELVIEW);
+		glMatrixMode(GL_MODELVIEW);
 
-		gl->glEnable(GL10::GDX_GL_BLEND);
-		gl->glBlendFunc(GL10::GDX_GL_SRC_ALPHA, GL10::GDX_GL_ONE_MINUS_SRC_ALPHA);
+		glEnable(GL_BLEND);
+		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
-		gl->glEnable(GL10::GDX_GL_TEXTURE_2D);
+		glEnable(GL_TEXTURE_2D);
 		bobTexture->bind();
 
 		bobModel->bind();
 		for(int i = 0; i < NUM_BOBS; i++)
 		{
-			gl->glLoadIdentity();
-			gl->glTranslatef((int)(bobs[i].x + 0.5), (int)(bobs[i].y + 0.5), 0);		
-			bobModel->render(GL10::GDX_GL_TRIANGLES, 0, 6);
+			glLoadIdentity();
+			glTranslatef((int)(bobs[i].x + 0.5), (int)(bobs[i].y + 0.5), 0);		
+			bobModel->render(GL_TRIANGLES, 0, 6);
 		}
 		bobModel->unbind();
 	}

@@ -51,20 +51,8 @@
     <ClInclude Include="..\incl\Window.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\exp\WoglGLCommon.h">
-      <Filter>Exported Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\exp\WoglGL10.h">
-      <Filter>Exported Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\incl\Utilities.h">
       <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\exp\WoglGL11.h">
-      <Filter>Exported Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\exp\WoglGL20.h">
-      <Filter>Exported Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\exp\WindowsTimer.h">
       <Filter>Exported Header Files</Filter>
@@ -83,9 +71,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\src\dllmain.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\gdx-backend-wogl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -116,19 +101,7 @@
     <ClCompile Include="..\src\Window.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\WoglGL10.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\Utilities.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\WoglGLCommon.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\WoglGL11.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\WoglGL20.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\extern\glew.c">

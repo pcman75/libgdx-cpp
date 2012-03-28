@@ -85,20 +85,17 @@ void MeshShaderTest::render()
 	m_angle += 1234578/*TODO: Gdx.graphics->getDeltaTime()*/ * 45;
 	m_matrix.setToRotation(m_axis, m_angle);
 
-	
-	GL20* gl = Gdx.graphics->getGL20();
-	
-	gl->glViewport(0, 0, Gdx.graphics->getWidth(), Gdx.graphics->getHeight());
-	gl->glClearColor(0.2f, 0.2f, 0.2f, 1);
-	gl->glClear(GL20::GDX_GL_COLOR_BUFFER_BIT);
-	gl->glEnable(GL20::GDX_GL_TEXTURE_2D);
-	gl->glEnable(GL10::GDX_GL_BLEND);
-	gl->glBlendFunc(GL10::GDX_GL_SRC_ALPHA, GL10::GDX_GL_ONE_MINUS_SRC_ALPHA);
+	glViewport(0, 0, Gdx.graphics->getWidth(), Gdx.graphics->getHeight());
+	glClearColor(0.2f, 0.2f, 0.2f, 1);
+	glClear(GL_COLOR_BUFFER_BIT);
+	glEnable(GL_TEXTURE_2D);
+	glEnable(GL_BLEND);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	m_texture->bind();
 	m_shader->begin();
 	m_shader->setUniformMatrix(std::string("u_worldView"), m_matrix);
 	m_shader->setUniformi("u_texture", 0);
-	m_mesh->render(m_shader, GL10::GDX_GL_TRIANGLES);
+	m_mesh->render(m_shader, GL_TRIANGLES);
 	m_shader->end();
 
 	m_spriteBatch->begin();

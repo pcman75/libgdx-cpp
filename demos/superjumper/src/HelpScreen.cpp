@@ -55,12 +55,11 @@ void HelpScreen::update(float deltaTime)
 
 void HelpScreen::present(float deltaTime) 
 {
-	GLCommon* gl = Gdx.gl;
-	gl->glClear(GL10::GDX_GL_COLOR_BUFFER_BIT);
+	glClear(GL_COLOR_BUFFER_BIT);
 	m_guiCam.update();
-	m_guiCam.apply(Gdx.gl10);
+	m_guiCam.apply();
 
-	gl->glEnable(GL10::GDX_GL_TEXTURE_2D);
+	glEnable(GL_TEXTURE_2D);
 
 	m_batcher->disableBlending();
 	m_batcher->begin();
@@ -72,7 +71,7 @@ void HelpScreen::present(float deltaTime)
 	m_batcher->draw(Assets::arrow, 320, 0, -64, 64);
 	m_batcher->end();
 
-	gl->glDisable(GL10::GDX_GL_BLEND);
+	glDisable(GL_BLEND);
 }
 
 const char* HelpScreen::getPictureName()

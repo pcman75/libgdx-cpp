@@ -70,9 +70,8 @@ void MainMenuScreen::update(float deltaTime)
 
 void MainMenuScreen::present(float deltaTime)
 {
-	GLCommon* gl = Gdx.gl;
-	gl->glClearColor(1, 0, 0, 1);
-	gl->glClear(GL10::GDX_GL_COLOR_BUFFER_BIT);
+	glClearColor(1, 0, 0, 1);
+	glClear(GL_COLOR_BUFFER_BIT);
 	m_guiCam->update();
 	m_batcher->setProjectionMatrix(m_guiCam->combined);
 

@@ -30,7 +30,7 @@ class Gdx2DTest :
 	{
 		Texture* texture = new Texture(pixmap->getWidth(), pixmap->getHeight(), Pixmap::Format::RGB565);
 		texture->bind();
-		Gdx.gl->glTexImage2D(GL10::GDX_GL_TEXTURE_2D, 0, pixmap->getGLInternalFormat(), pixmap->getWidth(), pixmap->getHeight(), 0,
+		glTexImage2D(GL_TEXTURE_2D, 0, pixmap->getGLInternalFormat(), pixmap->getWidth(), pixmap->getHeight(), 0,
 		                    pixmap->getGLFormat(), pixmap->getGLType(), pixmap->getPixels());
 		return texture;
 	}
@@ -147,8 +147,8 @@ public:
 
 	void render()
 	{
-		Gdx.gl->glClearColor(0.2f, 0.2f, 0.2f, 1.0f);
-		Gdx.gl->glClear(GL10::GDX_GL_COLOR_BUFFER_BIT);
+		glClearColor(0.2f, 0.2f, 0.2f, 1.0f);
+		glClear(GL_COLOR_BUFFER_BIT);
 		batch->begin();
 
 		for(std::list<Sprite*>::iterator it = sprites.begin(); it != sprites.end(); it++)

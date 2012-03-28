@@ -43,12 +43,11 @@ void HighscoresScreen::update(float deltaTime)
 
 void HighscoresScreen::present (float deltaTime) 
 {
-	GLCommon* gl = Gdx.gl;
-	gl->glClear(GL10::GDX_GL_COLOR_BUFFER_BIT);
+	glClear(GL_COLOR_BUFFER_BIT);
 	guiCam.update();
-	guiCam.apply(Gdx.gl10);
+	guiCam.apply();
 
-	gl->glEnable(GL10::GDX_GL_TEXTURE_2D);
+	glEnable(GL_TEXTURE_2D);
 
 	batcher->disableBlending();
 	batcher->begin();

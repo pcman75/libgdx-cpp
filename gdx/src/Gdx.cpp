@@ -6,26 +6,32 @@ GdxClass::GdxClass()
 	graphics(NULL),
 	audio(NULL),
 	input(NULL),
-
 	files(NULL),
-	gl(NULL),
-	gl10(NULL),
-	gl11(NULL),
-	gl20(NULL)
-	//glu(NULL)
+    glVersion(GL_VERSION_0)
 {
 	
-}
+};
 
 
 bool GdxClass::isGL20Available()
 {
-	return gl20 != NULL;
+//	return gl20 != NULL;
+	return true;
 }
 
 bool GdxClass::isGL11Available()
 {
-	return gl11 != NULL;
+//	return gl11 != NULL;
+	return false;
+}
+bool GdxClass::isGLInitialised()
+{
+    return graphics != NULL;
+}
+
+GLversion GdxClass::getGLVersion()
+{
+    return glVersion;
 }
 
 GdxClass::~GdxClass()
@@ -36,11 +42,6 @@ GdxClass::~GdxClass()
 	input = NULL;
 
 	files = NULL;
-	gl = NULL;
-	gl10 = NULL;
-	gl11 = NULL;
-	gl20 = NULL;
-	//glu = NULL;
 }
 
 GdxClass Gdx = GdxClass::getInstance();

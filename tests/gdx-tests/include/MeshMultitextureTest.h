@@ -30,21 +30,21 @@ public:
 	
 	void render()
 	{
-		GL10* gl = Gdx.graphics->getGL10();
-		gl->glViewport(0, 0, Gdx.graphics->getWidth(), Gdx.graphics->getHeight());
-		gl->glClear(GL10::GDX_GL_COLOR_BUFFER_BIT);
+		
+		glViewport(0, 0, Gdx.graphics->getWidth(), Gdx.graphics->getHeight());
+		glClear(GL_COLOR_BUFFER_BIT);
 
-		gl->glActiveTexture(GL10::GDX_GL_TEXTURE0);
-		gl->glEnable(GL10::GDX_GL_TEXTURE_2D);
+		glActiveTexture(GL_TEXTURE0);
+		glEnable(GL_TEXTURE_2D);
 		tex1->bind();
 
-		gl->glActiveTexture(GL10::GDX_GL_TEXTURE1);
-		gl->glEnable(GL10::GDX_GL_TEXTURE_2D);
+		glActiveTexture(GL_TEXTURE1);
+		glEnable(GL_TEXTURE_2D);
 		tex2->bind();
-		Gdx.gl11->glTexEnvi(GL10::GDX_GL_TEXTURE_ENV, GL10::GDX_GL_TEXTURE_ENV_MODE, GL11::GDX_GL_COMBINE);
-		Gdx.gl11->glTexEnvi(GL10::GDX_GL_TEXTURE_ENV, GL11::GDX_GL_COMBINE_RGB, GL11::GDX_GL_ADD);
+		glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_COMBINE);
+		glTexEnvi(GL_TEXTURE_ENV, GL_COMBINE_RGB, GL_ADD);
 
-		mesh->render(GL10::GDX_GL_TRIANGLES);
+		mesh->render(GL_TRIANGLES);
 	}
 
 	void create()

@@ -270,8 +270,8 @@ public:
 	 *
 	 * @param name the attribute name
 	 * @param size the number of components, must be >= 1 and <= 4
-	 * @param type the type, must be one of GL20::GDX_GL_BYTE, GL20::GDX_GL_UNSIGNED_BYTE, GL20::GDX_GL_SHORT,
-	 *           GL20::GDX_GL_UNSIGNED_SHORT,GL20::GDX_GL_FIXED, or GL20::GDX_GL_FLOAT. GL_FIXED will not work on the desktop
+	 * @param type the type, must be one of GL_BYTE, GL_UNSIGNED_BYTE, GL_SHORT,
+	 *           GL_UNSIGNED_SHORT,GL_FIXED, or GL_FLOAT. GL_FIXED will not work on the desktop
 	 * @param normalize whether fixed point data should be normalized. Will not work on the desktop
 	 * @param stride the stride in bytes between successive attributes
 	 * @param buffer the buffer containing the vertex attributes. */
@@ -282,11 +282,11 @@ public:
 	 *
 	 * @param name the attribute name
 	 * @param size the number of components, must be >= 1 and <= 4
-	 * @param type the type, must be one of GL20::GDX_GL_BYTE, GL20::GDX_GL_UNSIGNED_BYTE, GL20::GDX_GL_SHORT,
-	 *           GL20::GDX_GL_UNSIGNED_SHORT,GL20::GDX_GL_FIXED, or GL20::GDX_GL_FLOAT. GL_FIXED will not work on the desktop
+	 * @param type the type, must be one of GL_BYTE, GL_UNSIGNED_BYTE, GL_SHORT,
+	 *           GL_UNSIGNED_SHORT,GL_FIXED, or GL_FLOAT. GL_FIXED will not work on the desktop
 	 * @param normalize whether fixed point data should be normalized. Will not work on the desktop
 	 * @param stride the stride in bytes between successive attributes
-	 * @param offset byte offset into the vertex buffer object bound to GL20::GDX_GL_ARRAY_BUFFER. */
+	 * @param offset byte offset into the vertex buffer object bound to GL_ARRAY_BUFFER. */
 	void setVertexAttribute (const std::string& name, int size, int type, bool normalize, int stride, int offset);
 
 	/** Makes OpenGL ES 2.0 use this vertex and fragment shader pair. When you are done with this shader you have to call

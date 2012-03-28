@@ -128,7 +128,7 @@ void FilesTest::create()
 }
 void FilesTest::render()
 {
-	Gdx.gl->glClear(GL10::GDX_GL_COLOR_BUFFER_BIT);
+	glClear(GL_COLOR_BUFFER_BIT);
 	batch->begin();
 	font->drawMultiLine(batch, message, 20, Gdx.graphics->getHeight() - 20);
 	batch->end();

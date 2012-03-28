@@ -100,10 +100,6 @@
     <ClCompile Include="..\src\GlfwApplication.cpp" />
     <ClCompile Include="..\src\WoglFileHandleStream.cpp" />
     <ClCompile Include="..\src\WoglFiles.cpp" />
-    <ClCompile Include="..\src\WoglGL10.cpp" />
-    <ClCompile Include="..\src\WoglGL11.cpp" />
-    <ClCompile Include="..\src\WoglGL20.cpp" />
-    <ClCompile Include="..\src\WoglGLCommon.cpp" />
     <ClCompile Include="..\src\GlfwGraphics.cpp" />
   </ItemGroup>
   <ItemGroup>

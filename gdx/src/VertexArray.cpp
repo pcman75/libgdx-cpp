@@ -64,10 +64,11 @@ void VertexArray::setVertices(const float* vertices, int count)
 
 void VertexArray::bind () 
 {
-	GL10* gl = Gdx.gl10;
+    throw new GdxRuntimeException("OpenGL 1.x not yet supported");
+/*
 	int textureUnit = 0;
 	char* byteBuffer = (char*)m_buffer;
-	int colorType = GL10::GDX_GL_FLOAT;
+	int colorType = GL_FLOAT;
 
 	for (int i = 0; i < m_attributes.size(); i++) 
 	{
@@ -77,27 +78,27 @@ void VertexArray::bind ()
 		switch (attribute.usage) 
 		{
 		case VertexAttributes::Position:
-			gl->glEnableClientState(GL11::GDX_GL_VERTEX_ARRAY);
-			gl->glVertexPointer(attribute.numComponents, GL10::GDX_GL_FLOAT, m_attributes.vertexSize(), byteBuffer);
+			glEnableClientState(GL_VERTEX_ARRAY);
+			glVertexPointer(attribute.numComponents, GL_FLOAT, m_attributes.vertexSize(), byteBuffer);
 			break;
 
 		case VertexAttributes::ColorPacked:
 		case VertexAttributes::Color:
 			if (attribute.usage == VertexAttributes::ColorPacked) 
-				colorType = GL11::GDX_GL_UNSIGNED_BYTE;
-			gl->glEnableClientState(GL10::GDX_GL_COLOR_ARRAY);
-			gl->glColorPointer(attribute.numComponents, colorType, m_attributes.vertexSize(), byteBuffer);
+				colorType = GL_UNSIGNED_BYTE;
+			glEnableClientState(GL_COLOR_ARRAY);
+			glColorPointer(attribute.numComponents, colorType, m_attributes.vertexSize(), byteBuffer);
 			break;
 
 		case VertexAttributes::Normal:
-			gl->glEnableClientState(GL10::GDX_GL_NORMAL_ARRAY);
-			gl->glNormalPointer(GL10::GDX_GL_FLOAT, m_attributes.size(), byteBuffer);
+			glEnableClientState(GL_NORMAL_ARRAY);
+			glNormalPointer(GL_FLOAT, m_attributes.size(), byteBuffer);
 			break;
 
 		case VertexAttributes::TextureCoordinates:
-			gl->glClientActiveTexture(GL10::GDX_GL_TEXTURE0 + textureUnit);
-			gl->glEnableClientState(GL10::GDX_GL_TEXTURE_COORD_ARRAY);
-			gl->glTexCoordPointer(attribute.numComponents, GL10::GDX_GL_FLOAT, m_attributes.vertexSize(), byteBuffer);
+			glClientActiveTexture(GL_TEXTURE0 + textureUnit);
+			glEnableClientState(GL_TEXTURE_COORD_ARRAY);
+			glTexCoordPointer(attribute.numComponents, GL_FLOAT, m_attributes.vertexSize(), byteBuffer);
 			textureUnit++;
 			break;
 
@@ -107,12 +108,14 @@ void VertexArray::bind ()
 	}
 
 	m_isBound = true;
+ */
 }
 
 
 void VertexArray::unbind () 
 {
-	GL10* gl = Gdx.gl10;
+    throw new GdxRuntimeException("OpenGL 1.x not yet supported");
+/*
 	int textureUnit = 0;
 	int numAttributes = m_attributes.size();
 
@@ -124,14 +127,14 @@ void VertexArray::unbind ()
 			break; // no-op, we also need a position bound in gles
 		case VertexAttributes::Color:
 		case VertexAttributes::ColorPacked:
-			gl->glDisableClientState(GL11::GDX_GL_COLOR_ARRAY);
+			glDisableClientState(GL_COLOR_ARRAY);
 			break;
 		case VertexAttributes::Normal:
-			gl->glDisableClientState(GL11::GDX_GL_NORMAL_ARRAY);
+			glDisableClientState(GL_NORMAL_ARRAY);
 			break;
 		case VertexAttributes::TextureCoordinates:
-			gl->glClientActiveTexture(GL11::GDX_GL_TEXTURE0 + textureUnit);
-			gl->glDisableClientState(GL11::GDX_GL_TEXTURE_COORD_ARRAY);
+			glClientActiveTexture(GL_TEXTURE0 + textureUnit);
+			glDisableClientState(GL_TEXTURE_COORD_ARRAY);
 			textureUnit++;
 			break;
 		default:
@@ -139,6 +142,7 @@ void VertexArray::unbind ()
 		}
 	}
 	m_isBound = false;
+ */
 }
 
 const VertexAttributes& VertexArray::getAttributes() 

@@ -86,12 +86,11 @@ public:
 
 	void render()
 	{
-		GL10* gl = Gdx.gl10;
-		gl->glClear(GL10::GDX_GL_COLOR_BUFFER_BIT);
-		gl->glViewport((int)m_glViewport.x, (int)m_glViewport.y, (int)m_glViewport.width, (int)m_glViewport.height);
+		glClear(GL_COLOR_BUFFER_BIT);
+		glViewport((int)m_glViewport.x, (int)m_glViewport.y, (int)m_glViewport.width, (int)m_glViewport.height);
 
 		m_cam.update();
-		m_cam.apply(gl);
-		m_mesh->render(GL10::GDX_GL_TRIANGLES);
+		m_cam.apply();
+		m_mesh->render(GL_TRIANGLES);
 	}
 };

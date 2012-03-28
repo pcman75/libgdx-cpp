@@ -29,8 +29,6 @@ bool GameOver::isDone()
 
 void GameOver::render(Application* app)
 {
-	app->getGraphics()->getGL10()->glClear(GL10::GDX_GL_COLOR_BUFFER_BIT);
-
 	m_viewMatrix.setToOrtho2D(0, 0, 480, 320);
 	m_spriteBatch->setProjectionMatrix(m_viewMatrix);
 	m_spriteBatch->setTransformMatrix(m_transformMatrix);
@@ -42,7 +40,7 @@ void GameOver::render(Application* app)
 	m_spriteBatch->draw(m_logo, 0, 320 - 128, 480, 128, 0, 256, 512, 256, false, false);
 	std::string text = "It is the end my friend.\nTouch to continue!";
 	BitmapFont::TextBounds bounds = m_font->getMultiLineBounds(text);
-	m_spriteBatch->setBlendFunction(GL10::GDX_GL_ONE, GL10::GDX_GL_ONE_MINUS_SRC_ALPHA);
+	m_spriteBatch->setBlendFunction(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
 	m_font->drawMultiLine(m_spriteBatch, text, 0, 160 + bounds.height / 2, 480, BitmapFont::CENTER);
 	m_spriteBatch->end();
 }

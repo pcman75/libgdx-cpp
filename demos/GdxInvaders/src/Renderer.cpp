@@ -78,37 +78,36 @@ Renderer::Renderer(Application* app)
 
 void Renderer::render(Application* app, Simulation* simulation) 
 {
-	GL10* gl = app->getGraphics()->getGL10();
-	gl->glClear(GL10::GDX_GL_COLOR_BUFFER_BIT | GL10::GDX_GL_DEPTH_BUFFER_BIT);
-	gl->glViewport(0, 0, app->getGraphics()->getWidth(), app->getGraphics()->getHeight());
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	glViewport(0, 0, app->getGraphics()->getWidth(), app->getGraphics()->getHeight());
 
-	renderBackground(gl);
+	renderBackground();
 
-	gl->glDisable(GL10::GDX_GL_DITHER);
-	gl->glEnable(GL10::GDX_GL_DEPTH_TEST);
-	gl->glEnable(GL10::GDX_GL_CULL_FACE);
+	glDisable(GL_DITHER);
+	glEnable(GL_DEPTH_TEST);
+	glEnable(GL_CULL_FACE);
 
 	setProjectionAndCamera(app->getGraphics(), simulation->ship, app);
-	setLighting(gl);
+	setLighting();
 
-	gl->glEnable(GL10::GDX_GL_TEXTURE_2D);
+	glEnable(GL_TEXTURE_2D);
 
-	renderShip(gl, simulation->ship, app);
-	renderInvaders(gl, simulation->invaders);
+	renderShip(simulation->ship, app);
+	renderInvaders(simulation->invaders);
 
-	gl->glDisable(GL10::GDX_GL_TEXTURE_2D);
-	renderBlocks(gl, simulation->blocks);
+	glDisable(GL_TEXTURE_2D);
+	renderBlocks(simulation->blocks);
 
-	gl->glDisable(GL10::GDX_GL_LIGHTING);
-	renderShots(gl, simulation->shots);
+	glDisable(GL_LIGHTING);
+	renderShots(simulation->shots);
 	if(simulation->shipShot)
-		renderShot(gl, *simulation->shipShot);
+		renderShot(*simulation->shipShot);
 
-	gl->glEnable(GL10::GDX_GL_TEXTURE_2D);
-	renderExplosions(gl, simulation->explosions);
+	glEnable(GL_TEXTURE_2D);
+	renderExplosions(simulation->explosions);
 
-	gl->glDisable(GL10::GDX_GL_CULL_FACE);
-	gl->glDisable(GL10::GDX_GL_DEPTH_TEST);
+	glDisable(GL_CULL_FACE);
+	glDisable(GL_DEPTH_TEST);
 
 	m_spriteBatch->setProjectionMatrix(m_viewMatrix);
 	m_spriteBatch->setTransformMatrix(m_transformMatrix);
@@ -124,7 +123,7 @@ void Renderer::render(Application* app, Simulation* simulation)
 		m_lastWave = simulation->wave;
 	}
 	m_spriteBatch->enableBlending();
-	m_spriteBatch->setBlendFunction(GL10::GDX_GL_ONE, GL10::GDX_GL_ONE_MINUS_SRC_ALPHA);
+	m_spriteBatch->setBlendFunction(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
 	m_font->draw(m_spriteBatch, m_status, 0, 320);
 	m_spriteBatch->end();
 
@@ -133,7 +132,7 @@ void Renderer::render(Application* app, Simulation* simulation)
 		m_invaderAngle -= 360;
 }
 
-void Renderer::renderBackground(GL10* gl) 
+void Renderer::renderBackground() 
 {
 	m_viewMatrix.setToOrtho2D(0, 0, 400, 320);
 	m_spriteBatch->setProjectionMatrix(m_viewMatrix);
@@ -152,94 +151,94 @@ void Renderer::setProjectionAndCamera(Graphics* graphics, const Ship& ship, Appl
 	m_camera->position.set(ship.position.x, 6, 2);
 	m_camera->direction.set(ship.position.x, 0, -4).sub(m_camera->position).nor();
 	m_camera->update();
-	m_camera->apply(Gdx.gl10);
+	m_camera->apply();
 }
 
 
 
-void Renderer::setLighting (GL10* gl) 
+void Renderer::setLighting() 
 {
 	static float direction[] = {1, 0.5f, 0, 0};
-	gl->glEnable(GL10::GDX_GL_LIGHTING);
-	gl->glEnable(GL10::GDX_GL_LIGHT0);
-	gl->glLightfv(GL10::GDX_GL_LIGHT0, GL10::GDX_GL_POSITION, direction, 0);
-	gl->glEnable(GL10::GDX_GL_COLOR_MATERIAL);
+	glEnable(GL_LIGHTING);
+	glEnable(GL_LIGHT0);
+	glLightfv(GL_LIGHT0, GL_POSITION, direction);
+	glEnable(GL_COLOR_MATERIAL);
 }
 
-void Renderer::renderShip(GL10* gl, const Ship& ship, Application* app) 
+void Renderer::renderShip(const Ship& ship, Application* app) 
 {
 	if (ship.isExploding) 
 		return;
 
 	m_shipTexture->bind();
-	gl->glPushMatrix();
-	gl->glTranslatef(ship.position.x, ship.position.y, ship.position.z);
-	gl->glRotatef(45 * (-app->getInput()->getAccelerometerY() / 5), 0, 0, 1);
-	gl->glRotatef(180, 0, 1, 0);
-	m_shipMesh->render(GL10::GDX_GL_TRIANGLES);
-	gl->glPopMatrix();
+	glPushMatrix();
+	glTranslatef(ship.position.x, ship.position.y, ship.position.z);
+	glRotatef(45 * (-app->getInput()->getAccelerometerY() / 5), 0, 0, 1);
+	glRotatef(180, 0, 1, 0);
+	m_shipMesh->render(GL_TRIANGLES);
+	glPopMatrix();
 }
 
-void Renderer::renderInvaders(GL10* gl, const Simulation::Invaders& invaders) 
+void Renderer::renderInvaders(const Simulation::Invaders& invaders) 
 {
 	m_invaderTexture->bind();
 	for(Simulation::Invaders::const_iterator invader = invaders.begin(); invader != invaders.end(); invader++)
 	{
-		gl->glPushMatrix();
-		gl->glTranslatef(invader->position.x, invader->position.y, invader->position.z);
-		gl->glRotatef(m_invaderAngle, 0, 1, 0);
-		m_invaderMesh->render(GL10::GDX_GL_TRIANGLES);
-		gl->glPopMatrix();
+		glPushMatrix();
+		glTranslatef(invader->position.x, invader->position.y, invader->position.z);
+		glRotatef(m_invaderAngle, 0, 1, 0);
+		m_invaderMesh->render(GL_TRIANGLES);
+		glPopMatrix();
 	}
 }
 
-void Renderer::renderBlocks(GL10* gl, const Simulation::Blocks& blocks) 
+void Renderer::renderBlocks(const Simulation::Blocks& blocks) 
 {
-	gl->glEnable(GL10::GDX_GL_BLEND);
-	gl->glBlendFunc(GL10::GDX_GL_SRC_ALPHA, GL10::GDX_GL_ONE_MINUS_SRC_ALPHA);
-	gl->glColor4f(0.2f, 0.2f, 1, 0.7f);
+	glEnable(GL_BLEND);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+	glColor4f(0.2f, 0.2f, 1, 0.7f);
 	for(Simulation::Blocks::const_iterator block = blocks.begin(); block != blocks.end(); block++)
 	{
-		gl->glPushMatrix();
-		gl->glTranslatef(block->position.x, block->position.y, block->position.z);
-		m_blockMesh->render(GL10::GDX_GL_TRIANGLES);
-		gl->glPopMatrix();
+		glPushMatrix();
+		glTranslatef(block->position.x, block->position.y, block->position.z);
+		m_blockMesh->render(GL_TRIANGLES);
+		glPopMatrix();
 	}
-	gl->glColor4f(1, 1, 1, 1);
-	gl->glDisable(GL10::GDX_GL_BLEND);
+	glColor4f(1, 1, 1, 1);
+	glDisable(GL_BLEND);
 }
 
-void Renderer::renderShots(GL10* gl, const Simulation::Shots& shots) 
+void Renderer::renderShots(const Simulation::Shots& shots) 
 {
-	gl->glColor4f(1, 1, 0, 1);
+	glColor4f(1, 1, 0, 1);
 	for(Simulation::Shots::const_iterator shot = shots.begin(); shot != shots.end(); shot++)
 	{
-		renderShot(gl, *shot);
+		renderShot(*shot);
 	}
-	gl->glColor4f(1, 1, 1, 1);
+	glColor4f(1, 1, 1, 1);
 }
 
-void Renderer::renderShot(GL10* gl, const Shot& shot) 
+void Renderer::renderShot(const Shot& shot) 
 {
-	gl->glPushMatrix();
-	gl->glTranslatef(shot.position.x, shot.position.y, shot.position.z);
-	m_shotMesh->render(GL10::GDX_GL_TRIANGLES);
-	gl->glPopMatrix();
+	glPushMatrix();
+	glTranslatef(shot.position.x, shot.position.y, shot.position.z);
+	m_shotMesh->render(GL_TRIANGLES);
+	glPopMatrix();
 }
 
-void Renderer::renderExplosions(GL10* gl, const Simulation::Explosions& explosions) 
+void Renderer::renderExplosions(const Simulation::Explosions& explosions) 
 {
-	gl->glEnable(GL10::GDX_GL_BLEND);
-	gl->glBlendFunc(GL10::GDX_GL_SRC_ALPHA, GL10::GDX_GL_ONE_MINUS_SRC_ALPHA);
+	glEnable(GL_BLEND);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	m_explosionTexture->bind();
 	for(Simulation::Explosions::const_iterator explosion = explosions.begin(); explosion != explosions.end(); explosion++)
 	{
-		gl->glPushMatrix();
-		gl->glTranslatef(explosion->position.x, explosion->position.y, explosion->position.z);
-		m_explosionMesh->render(GL10::GDX_GL_TRIANGLE_FAN, (int)((explosion->aliveTime / Explosion::EXPLOSION_LIVE_TIME) * 15) * 4, 4);
-		gl->glPopMatrix();
+		glPushMatrix();
+		glTranslatef(explosion->position.x, explosion->position.y, explosion->position.z);
+		m_explosionMesh->render(GL_TRIANGLE_FAN, (int)((explosion->aliveTime / Explosion::EXPLOSION_LIVE_TIME) * 15) * 4, 4);
+		glPopMatrix();
 	}
-	gl->glDisable(GL10::GDX_GL_BLEND);
+	glDisable(GL_BLEND);
 }
 
 void Renderer::dispose () 

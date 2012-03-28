@@ -30,20 +30,20 @@ public:
 	{
 		const int BYTES_PER_VERTEX = (3 + 4) * 4;
 
-		GL10* gl = Gdx.graphics->getGL10();
-		gl->glViewport(0, 0, Gdx.graphics->getWidth(), Gdx.graphics->getHeight());
-		gl->glClearColor(0.7f, 0.7f, 0.7f, 1);
-		gl->glClear(GL10::GDX_GL_COLOR_BUFFER_BIT);
+		
+		glViewport(0, 0, Gdx.graphics->getWidth(), Gdx.graphics->getHeight());
+		glClearColor(0.7f, 0.7f, 0.7f, 1);
+		glClear(GL_COLOR_BUFFER_BIT);
 
-		gl->glEnableClientState(GL10::GDX_GL_COLOR_ARRAY);
+		glEnableClientState(GL_COLOR_ARRAY);
 		//m_vertices.position(3);
-		gl->glColorPointer(4, GL10::GDX_GL_FLOAT, BYTES_PER_VERTEX, m_vertices + 3);
+		glColorPointer(4, GL_FLOAT, BYTES_PER_VERTEX, m_vertices + 3);
 
-		gl->glEnableClientState(GL10::GDX_GL_VERTEX_ARRAY);
+		glEnableClientState(GL_VERTEX_ARRAY);
 		//vertices.position(0);
-		gl->glVertexPointer(3, GL10::GDX_GL_FLOAT, BYTES_PER_VERTEX, m_vertices);
+		glVertexPointer(3, GL_FLOAT, BYTES_PER_VERTEX, m_vertices);
 
-		gl->glDrawElements(GL10::GDX_GL_TRIANGLES, 3, GL10::GDX_GL_UNSIGNED_SHORT, m_indices);
+		glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_SHORT, m_indices);
 	}
 
 	

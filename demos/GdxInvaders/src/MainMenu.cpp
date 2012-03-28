@@ -16,8 +16,6 @@ MainMenu::MainMenu(Application* app)
 
 void MainMenu::render(Application* app)
 {
-	app->getGraphics()->getGL10()->glClear(GL10::GDX_GL_COLOR_BUFFER_BIT);
-
 	m_viewMatrix.setToOrtho2D(0, 0, 480, 320);
 	m_spriteBatch->setProjectionMatrix(m_viewMatrix);
 	m_spriteBatch->setTransformMatrix(m_transformMatrix);
@@ -27,7 +25,7 @@ void MainMenu::render(Application* app)
 	m_spriteBatch->draw(m_background, 0, 0, 480, 320, 0, 0, 512, 512, false, false);
 	m_spriteBatch->enableBlending();
 	m_spriteBatch->draw(m_logo, 0, 320 - 128, 480, 128, 0, 0, 512, 256, false, false);
-	m_spriteBatch->setBlendFunction(GL10::GDX_GL_ONE, GL10::GDX_GL_ONE_MINUS_SRC_ALPHA);
+	m_spriteBatch->setBlendFunction(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
 	std::string text = "Touch screen to start!";
 	float width = m_font->getBounds(text).width;
 	m_font->draw(m_spriteBatch, text, 240 - width / 2, 128);

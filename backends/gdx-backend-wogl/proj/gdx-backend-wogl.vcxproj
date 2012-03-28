@@ -75,10 +75,6 @@
     <ClInclude Include="..\exp\WoglFileHandleStream.h" />
     <ClInclude Include="..\exp\WoglApplication.h" />
     <ClInclude Include="..\exp\WoglFiles.h" />
-    <ClInclude Include="..\exp\WoglGL10.h" />
-    <ClInclude Include="..\exp\WoglGL11.h" />
-    <ClInclude Include="..\exp\WoglGL20.h" />
-    <ClInclude Include="..\exp\WoglGLCommon.h" />
     <ClInclude Include="..\exp\WoglGraphics.h" />
     <ClInclude Include="..\exp\WindowsInput.h" />
     <ClInclude Include="..\incl\Controller.h" />
@@ -101,7 +97,6 @@
     </ClCompile>
     <ClCompile Include="..\src\Controller.cpp" />
     <ClCompile Include="..\src\ControllerGL.cpp" />
-    <ClCompile Include="..\src\dllmain.cpp" />
     <ClCompile Include="..\src\gdx-backend-wogl.cpp" />
     <ClCompile Include="..\src\procedure.cpp" />
     <ClCompile Include="..\src\stdafx.cpp">
@@ -113,10 +108,6 @@
     <ClCompile Include="..\src\Window.cpp" />
     <ClCompile Include="..\src\WoglApplication.cpp" />
     <ClCompile Include="..\src\WoglFiles.cpp" />
-    <ClCompile Include="..\src\WoglGL10.cpp" />
-    <ClCompile Include="..\src\WoglGL11.cpp" />
-    <ClCompile Include="..\src\WoglGL20.cpp" />
-    <ClCompile Include="..\src\WoglGLCommon.cpp" />
     <ClCompile Include="..\src\WoglGraphics.cpp" />
     <ClCompile Include="..\src\WindowsInput.cpp" />
   </ItemGroup>
