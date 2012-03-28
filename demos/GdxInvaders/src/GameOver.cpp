@@ -29,8 +29,6 @@ bool GameOver::isDone()
 
 void GameOver::render(Application* app)
 {
-	app->getGraphics()->getGL10()->glClear(GL_COLOR_BUFFER_BIT);
-
 	m_viewMatrix.setToOrtho2D(0, 0, 480, 320);
 	m_spriteBatch->setProjectionMatrix(m_viewMatrix);
 	m_spriteBatch->setTransformMatrix(m_transformMatrix);

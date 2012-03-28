@@ -55,10 +55,9 @@ void HelpScreen::update(float deltaTime)
 
 void HelpScreen::present(float deltaTime) 
 {
-	GLCommon* gl = Gdx.gl;
 	glClear(GL_COLOR_BUFFER_BIT);
 	m_guiCam.update();
-	m_guiCam.apply(Gdx.gl10);
+	m_guiCam.apply();
 
 	glEnable(GL_TEXTURE_2D);
 

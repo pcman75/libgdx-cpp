@@ -70,7 +70,6 @@ void MainMenuScreen::update(float deltaTime)
 
 void MainMenuScreen::present(float deltaTime)
 {
-	GLCommon* gl = Gdx.gl;
 	glClearColor(1, 0, 0, 1);
 	glClear(GL_COLOR_BUFFER_BIT);
 	m_guiCam->update();

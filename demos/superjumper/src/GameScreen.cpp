@@ -158,7 +158,6 @@ void GameScreen::updateGameOver()
 
 void GameScreen::present(float deltaTime)
 {
-	GLCommon* gl = Gdx.gl;
 	glClear(GL_COLOR_BUFFER_BIT);
 	glEnable(GL_TEXTURE_2D);
 
