@@ -27,7 +27,7 @@ public:
 	static bool copyToPOT;
 
 private:
-	FileHandle m_file;
+	const FileHandle* m_file;
 	int m_width;
 	int m_height;
 	Pixmap::Format m_format;
@@ -38,7 +38,7 @@ private:
 public:
 	//preloaded Pixmap can be NULL
 	//TODO: implement Pixmap::Empty
-	FileTextureData(const FileHandle& file, Pixmap* preloadedPixmap, Pixmap::Format format, bool useMipMaps);
+	FileTextureData(const FileHandle* file, Pixmap* preloadedPixmap, Pixmap::Format format, bool useMipMaps);
 	bool isPrepared();
 	void prepare();
 
@@ -54,7 +54,7 @@ public:
 	Pixmap::Format getFormat();
 	bool useMipMaps();
 	bool isManaged();
-	FileHandle getFileHandle();
+	const FileHandle* getFileHandle();
 	TextureDataType getType();
 	void consumeCompressedData();
 

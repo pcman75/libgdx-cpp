@@ -19,7 +19,7 @@ public:
 	* Creates a new WAV decoder. The file can be of any type.
 	* @param file the {@link FileHandle}
 	*/
-	WavDecoder(const FileHandle& file);
+	WavDecoder(const FileHandle* file);
 
 	~WavDecoder();
 

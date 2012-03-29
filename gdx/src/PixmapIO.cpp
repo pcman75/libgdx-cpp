@@ -3,9 +3,9 @@
 
 #include "lodepng.h"
 
-void PixmapIO::writePNG(const FileHandle& file, Pixmap* pixmap)
+void PixmapIO::writePNG(const FileHandle* file, Pixmap* pixmap)
 {
-	std::string filePath = file.path() + "\\" + file.name();
+	std::string filePath = file->path() + "\\" + file->name();
 	int fileNameLength = filePath.length();
 	char* buf = new char[fileNameLength+1];
 	strcpy( buf, filePath.c_str());

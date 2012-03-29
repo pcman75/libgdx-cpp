@@ -3,9 +3,9 @@
 #include "Gdx.h"
 #include "WavInputStream.h"
 
-WavDecoder::WavDecoder(const FileHandle& file)
+WavDecoder::WavDecoder(const FileHandle* file)
 {
-	m_fileHandleStream = file.getStream(Read, Binary);
+	m_fileHandleStream = file->getStream(Read, Binary);
 	m_in = new WavInputStream(m_fileHandleStream);
 }
 

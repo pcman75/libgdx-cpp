@@ -93,10 +93,10 @@ Pixmap::Pixmap(const unsigned char* encodedData, int len)
 * supported.
 *
 * @param file the {@link FileHandle} */
-Pixmap::Pixmap (const FileHandle& file)
+Pixmap::Pixmap (const FileHandle* file)
 	: m_color(0)
 {
-  FileHandleStream* pStream = file.getStream( Read, Binary);
+  FileHandleStream* pStream = file->getStream( Read, Binary);
   int nSize = pStream->size();
   unsigned char* pBuff = new unsigned char [ nSize];
   int nRead = pStream->readBytes( pBuff, nSize);

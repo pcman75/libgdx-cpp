@@ -33,7 +33,7 @@ private:
 	* @param file external or absolute {@link FileHandle}
 	*/
 public:
-	VorbisDecoder(const FileHandle& file);
+	VorbisDecoder(const FileHandle* file);
 	void dispose();
 	float getLength();
 	int getChannels();

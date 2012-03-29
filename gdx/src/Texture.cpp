@@ -77,9 +77,9 @@ void Texture::init()
 	m_vWrap = TextureWrap::ClampToEdge;
 }
 
-void Texture::init(const FileHandle& file, Pixmap::Format format, bool useMipMaps)
+void Texture::init(const FileHandle* file, Pixmap::Format format, bool useMipMaps)
 {
-	if(file.name().find( ".etc1") != std::string::npos)
+	if(file->name().find( ".etc1") != std::string::npos)
 	{
 		create(new ETC1TextureData(file, useMipMaps));
 	}
@@ -97,24 +97,25 @@ Texture::Texture()
 Texture::Texture(const std::string& internalPath)
 {
 	init();
-	FileHandle hFile = Gdx.files->internalHandle( internalPath);
+	FileHandle* hFile = Gdx.files->internalHandle( internalPath);
 	init( hFile, Pixmap::Format::Unknown, false);
+	delete hFile;
 }
 
-Texture::Texture(const FileHandle& file)
+Texture::Texture(const FileHandle* file)
 {
 	init();
 	init(file, Pixmap::Format::Unknown, false);
 }
 
-Texture::Texture(const FileHandle& file, bool useMipMaps)
+Texture::Texture(const FileHandle* file, bool useMipMaps)
 {
 	init();
 	init(file, Pixmap::Format::Unknown, useMipMaps);
 }
 
 
-Texture::Texture(const FileHandle& file, Pixmap::Format format, bool useMipMaps)
+Texture::Texture(const FileHandle* file, Pixmap::Format format, bool useMipMaps)
 {
 	init();
 	init(file, format, useMipMaps);

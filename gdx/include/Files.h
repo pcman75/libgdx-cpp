@@ -17,41 +17,6 @@
 
 #include "FileHandle.h"
 
-/* 
-//usage
-FileHandle  hFile = Gdx.app->getFiles()->internalHandle( "c:\\jucarii.txt"); //"c:"
-bool        bDir = hFile.isDirectory();
-std::string path = hFile.path();
-std::string name = hFile.name();
-std::string ext = hFile.extension();
-std::string nameWithoutExt = hFile.nameWithoutExtension();
-FileType    nFileType = hFile.type();
-
-std::vector< FileHandle> subHandles;
-hFile.list( subHandles);
-
-
-// read test
-//
-FileHandleStream* pStream = hFile.getStream( Read, Binary);
-int nSize = pStream->size();
-unsigned char* pBuff = new unsigned char [ nSize];
-int nRead = pStream->readBytes( pBuff, nSize);
-delete pStream;
-pStream = NULL;
-
-
-// write test ..
-//
-FileHandle  hFile2 = Gdx.app->getFiles()->internalHandle( "c:\\jucarii2.txt"); //"c:"
-FileHandleStream* pStream2 = hFile2.getStream( Write, Binary);
-pStream2->writeBytes( pBuff, nSize);
-delete pStream2;
-*/
-
-
-
-
 /** Provides standard access to the filesystem, classpath, Android SD card, and Android assets directory.*/
 class Files
 {
@@ -63,20 +28,20 @@ public:
 	* @param type Determines how the path is resolved.
 	* @throws GdxRuntimeException if the type is classpath or internal and the file does not exist.
 	* @see FileType */
-	virtual FileHandle getFileHandle (const std::string& path, FileType type) const = 0;
+	virtual FileHandle* getFileHandle (const std::string& path, FileType type) const = 0;
 
 	/** Convenience method that returns a {@link FileType#Internal} file handle. */
-	virtual FileHandle internalHandle (const std::string& path) const = 0;
+	virtual FileHandle* internalHandle (const std::string& path) const = 0;
 
 	/** Convenience method that returns a {@link FileType#External} file handle. */
-	virtual FileHandle externalHandle (const std::string& path) const = 0;
+	virtual FileHandle* externalHandle (const std::string& path) const = 0;
 
 	/** Convenience method that returns a {@link FileType#Absolute} file handle. */
-	virtual FileHandle absoluteHandle (const std::string& path) const = 0;
+	virtual FileHandle* absoluteHandle (const std::string& path) const = 0;
 
 	/** Returns the external storage path directory. This is the SD card on Android and the home directory of the current user on
 	* the desktop. */
-	virtual std::string getExternalStoragePath() const = 0;
+	virtual void getExternalStoragePath(std::string& str) const = 0;
 
 	/** Returns true if the external storage is ready for file IO. Eg, on Android, the SD card is not available when mounted for use
 	* with a PC. */

@@ -113,16 +113,16 @@ private:
 
 private:
 	void init();
-	void init(const FileHandle& file, Pixmap::Format format, bool useMipMaps);
+	void init(const FileHandle* file, Pixmap::Format format, bool useMipMaps);
 	void init(TextureData* data);
 	void create(TextureData* data);
 
 public:
 	Texture();
 	Texture(const std::string& internalPath);
-	Texture(const FileHandle& file);
-	Texture(const FileHandle& file, bool useMipMaps);
-	Texture(const FileHandle& file, Pixmap::Format format, bool useMipMaps);
+	Texture(const FileHandle* file);
+	Texture(const FileHandle* file, bool useMipMaps);
+	Texture(const FileHandle* file, Pixmap::Format format, bool useMipMaps);
 	Texture(Pixmap* pixmap);
 	Texture(Pixmap* pixmap, bool useMipMaps);
 	Texture(Pixmap* pixmap, Pixmap::Format format, bool useMipMaps);

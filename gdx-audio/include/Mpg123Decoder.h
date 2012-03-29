@@ -32,7 +32,7 @@ public:
 	/** Opens the given file for mp3 decoding. Throws an GdxRuntimeException in case the file could not be opened.
 	 *
 	 * @param filename the filename */
-	Mpg123Decoder(const FileHandle& file);
+	Mpg123Decoder(const FileHandle* file);
 	int readSamples(short samples[], int numSamples);
 	int skipSamples(int numSamples);
 	int getChannels();
