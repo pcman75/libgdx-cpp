@@ -16,7 +16,7 @@
                BlueprintIdentifier = "025E29AA15064821004955D2"
                BuildableName = "gdx-backend-ios.app"
                BlueprintName = "gdx-backend-ios"
-               ReferencedContainer = "container:gdx-ios.xcodeproj">
+               ReferencedContainer = "container:gdx.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -34,7 +34,7 @@
             BlueprintIdentifier = "025E29AA15064821004955D2"
             BuildableName = "gdx-backend-ios.app"
             BlueprintName = "gdx-backend-ios"
-            ReferencedContainer = "container:gdx-ios.xcodeproj">
+            ReferencedContainer = "container:gdx.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -52,7 +52,7 @@
             BlueprintIdentifier = "025E29AA15064821004955D2"
             BuildableName = "gdx-backend-ios.app"
             BlueprintName = "gdx-backend-ios"
-            ReferencedContainer = "container:gdx-ios.xcodeproj">
+            ReferencedContainer = "container:gdx.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -70,7 +70,7 @@
             BlueprintIdentifier = "025E29AA15064821004955D2"
             BuildableName = "gdx-backend-ios.app"
             BlueprintName = "gdx-backend-ios"
-            ReferencedContainer = "container:gdx-ios.xcodeproj">
+            ReferencedContainer = "container:gdx.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

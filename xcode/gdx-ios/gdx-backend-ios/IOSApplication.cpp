@@ -54,6 +54,10 @@ Files* IOSApplication::getFiles()
     return m_pFiles;
 };
 
+Threading* IOSApplication::getThreading()
+{
+    return m_pThreading;
+};
 void IOSApplication::log(const char* tag, const char* message)
 {
     
@@ -79,6 +83,11 @@ IOSApplication::ApplicationType IOSApplication::getType()
     return iOS;
 };
 
+Timer* IOSApplication::createTimer()
+{
+    return new IOSTimer();
+};
+
 int IOSApplication::getVersion()
 {
     return 0;
@@ -95,7 +104,3 @@ IOSApplication::~IOSApplication()
     // cleanup
 };
 
-Timer* IOSApplication::createTimer()
-{
-    return new IOSTimer();
-};

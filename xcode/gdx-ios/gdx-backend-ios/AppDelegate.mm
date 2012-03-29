@@ -14,6 +14,11 @@
 @synthesize m_window = _window;
 //@synthesize rootViewController = _rootViewController;
 
+static void uncaughtExceptionHandler(NSException *exception) {
+    NSLog(@"CRASH: %@", exception);
+    NSLog(@"Stack Trace: %@", [exception callStackSymbols]);
+    // Internal error reporting
+}
 
 -(AppDelegate*) initWithApplication:(IOSApplication*)application
 {
@@ -28,6 +33,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {    
+    // set up exception handler
+    NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
+    
     // Instantiate the listener
     ApplicationListener *listener = new AlphaTest();
     // create the application

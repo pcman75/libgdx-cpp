@@ -140,7 +140,7 @@
 		026AD4831523694B000D55E6 /* Frustum.h in Headers */ = {isa = PBXBuildFile; fileRef = 1772CABA1520F5C700330DB0 /* Frustum.h */; };
 		026AD4841523694B000D55E6 /* Gdx.h in Headers */ = {isa = PBXBuildFile; fileRef = 1772CABB1520F5C700330DB0 /* Gdx.h */; };
 		026AD4851523694B000D55E6 /* Gdx2DPixmap.h in Headers */ = {isa = PBXBuildFile; fileRef = 1772CABC1520F5C700330DB0 /* Gdx2DPixmap.h */; };
-		026AD4861523694B000D55E6 /* GdxDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = 1772CABD1520F5C700330DB0 /* GdxDefines.h */; };
+		026AD4861523694B000D55E6 /* (null) in Headers */ = {isa = PBXBuildFile; };
 		026AD4871523694B000D55E6 /* GdxRuntimeException.h in Headers */ = {isa = PBXBuildFile; fileRef = 1772CABE1520F5C700330DB0 /* GdxRuntimeException.h */; };
 		026AD4881523694B000D55E6 /* GL10.h in Headers */ = {isa = PBXBuildFile; fileRef = 1772CABF1520F5C700330DB0 /* GL10.h */; };
 		026AD4891523694B000D55E6 /* GL11.h in Headers */ = {isa = PBXBuildFile; fileRef = 1772CAC01520F5C700330DB0 /* GL11.h */; };
@@ -984,7 +984,7 @@
 				026AD4831523694B000D55E6 /* Frustum.h in Headers */,
 				026AD4841523694B000D55E6 /* Gdx.h in Headers */,
 				026AD4851523694B000D55E6 /* Gdx2DPixmap.h in Headers */,
-				026AD4861523694B000D55E6 /* GdxDefines.h in Headers */,
+				026AD4861523694B000D55E6 /* (null) in Headers */,
 				026AD4871523694B000D55E6 /* GdxRuntimeException.h in Headers */,
 				026AD4881523694B000D55E6 /* GL10.h in Headers */,
 				026AD4891523694B000D55E6 /* GL11.h in Headers */,
@@ -1474,7 +1474,6 @@
 				EXECUTABLE_PREFIX = lib;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
-					"$(inherited)",
 					TARGET_IOS,
 				);
 				PRODUCT_NAME = "gdx-ios";
@@ -1487,6 +1486,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				EXECUTABLE_PREFIX = lib;
+				GCC_PREPROCESSOR_DEFINITIONS = TARGET_IOS;
 				PRODUCT_NAME = "gdx-ios";
 				SDKROOT = iphoneos;
 			};
@@ -1544,7 +1544,6 @@
 				EXECUTABLE_PREFIX = lib;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
-					"$(inherited)",
 					TARGET_DESKTOP,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1557,6 +1556,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				EXECUTABLE_PREFIX = lib;
+				GCC_PREPROCESSOR_DEFINITIONS = TARGET_DESKTOP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 			};

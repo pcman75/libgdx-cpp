@@ -27,6 +27,7 @@
 * </p>
 * 
 * @author mzechner */
+
 class Graphics 
 {
 public:
@@ -58,9 +59,11 @@ public:
 	public:
 		std::string toString () 
 		{
-			std::stringstream buf;
-			buf << width << 'x' << height << " bpp: " << bitsPerPixel << ", hz: " << refreshRate;
-			return buf.str();
+            // TODO - check error for initialisation of stringstream
+//			std::stringstream buf;
+//			buf << width << 'x' << height << " bpp: " << bitsPerPixel << ", hz: " << refreshRate;
+//			return buf.str();
+            return "Not implemented";
 		}
 	};
 
@@ -92,10 +95,12 @@ public:
 
 		std::string toString () 
 		{
-			std::stringstream buf;
-			buf << "r: " << r << ", g: " << g << ", b: " << b << ", a: " << a << ", depth: " << depth << ", stencil: " << stencil << ", num samples: " << samples;
-			buf << (coverageSampling? "true": "false");
-			return buf.str();
+            // TODO - check error for initialisation
+//			std::stringstream buf;
+//			buf << "r: " << r << ", g: " << g << ", b: " << b << ", a: " << a << ", depth: " << depth << ", stencil: " << stencil << ", num samples: " << samples;
+//			buf << (coverageSampling? "true": "false");
+//			return buf.str();
+            return "Not implemented";
 		}
 	};
 

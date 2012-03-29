@@ -14,9 +14,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "029A06A515013DB600B82B73"
-               BuildableName = "libgdx.a"
-               BlueprintName = "gdx"
-               ReferencedContainer = "container:gdx-ios.xcodeproj">
+               BuildableName = "libgdx-ios.a"
+               BlueprintName = "gdx-ios"
+               ReferencedContainer = "container:gdx.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
