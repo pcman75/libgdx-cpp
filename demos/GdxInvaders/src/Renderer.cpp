@@ -8,20 +8,20 @@ Renderer::Renderer(Application* app)
 	m_spriteBatch = new SpriteBatch();
 
 
-	FileHandleStream* in = Gdx.files->internalHandle("data/ship.obj").getStream(Read, Binary);
+	FileHandleStream* in = Gdx.files->internalHandle("data/ship.obj")->getStream(Read, Binary);
 	m_shipMesh = ModelLoaderOld::loadObj(in);
 	delete in;
 
-	in = Gdx.files->internalHandle("data/invader.obj").getStream(Read, Binary);
+	in = Gdx.files->internalHandle("data/invader.obj")->getStream(Read, Binary);
 	m_invaderMesh = ModelLoaderOld::loadObj(in);
 	delete in;
 
 	//FileHandleStream* in;
-	in = Gdx.files->internalHandle("data/block.obj").getStream(Read, Binary);
+	in = Gdx.files->internalHandle("data/block.obj")->getStream(Read, Binary);
 	m_blockMesh = ModelLoaderOld::loadObj(in);
 	delete in;
 
-	in = Gdx.files->internalHandle("data/shot.obj").getStream(Read, Binary);
+	in = Gdx.files->internalHandle("data/shot.obj")->getStream(Read, Binary);
 	m_shotMesh = ModelLoaderOld::loadObj(in);
 	delete in;
 

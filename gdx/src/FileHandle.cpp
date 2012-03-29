@@ -7,7 +7,7 @@ FileHandle::FileHandle()
 {
 }
 
-FileHandle::FileHandle( std::string strFullPath) 
+FileHandle::FileHandle(const std::string& strFullPath) 
 {
   m_strFullPath = strFullPath;
 }
@@ -55,7 +55,7 @@ FileType FileHandle::type()  const
   return nType;
 }
 
-void FileHandle::list( std::vector< FileHandle> &handles)
+void FileHandle::list(std::vector<FileHandle> &handles) const
 {
   Gdx.app->getFiles()->list( m_strFullPath, handles);
   /*
@@ -70,19 +70,19 @@ void FileHandle::list( std::vector< FileHandle> &handles)
   return;
 }
 
-bool FileHandle::isDirectory () 
+bool FileHandle::isDirectory() const
 {
   return Gdx.app->getFiles()->isDirectory( m_strFullPath); 
 }
 
-FileHandle FileHandle::child( std::string name) 
+FileHandle* FileHandle::child(const std::string& name) const
 {
   /*
   if( m_pFile->getPath().length() == 0) 
     return FileHandle( File( name), type);
   return FileHandle( File( file, name), type);
   */
-  return FileHandle();
+  return new FileHandle();
 
 }
 

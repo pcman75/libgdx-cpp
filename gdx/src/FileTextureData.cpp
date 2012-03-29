@@ -6,9 +6,11 @@
 
 bool FileTextureData::copyToPOT = false;
 
-FileTextureData::FileTextureData(const FileHandle& file, Pixmap* preloadedPixmap, Pixmap::Format format, bool useMipMaps)
-	:m_pixmap(preloadedPixmap), m_format(format), m_file(file)
+FileTextureData::FileTextureData(const FileHandle* file, Pixmap* preloadedPixmap, Pixmap::Format format, bool useMipMaps)
+	:m_pixmap(preloadedPixmap), m_format(format)
 {
+	//TODO: review this. who delete the m_file?
+	m_file = file;
 	m_width = 0;
 	m_height = 0;
 	m_isPrepared = false;
@@ -34,6 +36,9 @@ bool FileTextureData::isPrepared()
 
 void FileTextureData::prepare()
 {
+	//TODO: review FileHandle* lifecycle consume also m_file????
+	//and delete it????
+
 	if(m_isPrepared) 
 		throw new GdxRuntimeException("Already prepared");
 	if(m_pixmap == NULL)
@@ -119,7 +124,7 @@ bool FileTextureData::isManaged()
 	return true;
 }
 
-FileHandle FileTextureData::getFileHandle()
+const FileHandle* FileTextureData::getFileHandle()
 {
 	return m_file;
 }

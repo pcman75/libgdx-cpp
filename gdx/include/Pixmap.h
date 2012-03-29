@@ -117,7 +117,7 @@ public:
 	* supported.
 	*
 	* @param file the {@link FileHandle} */
-	Pixmap(const FileHandle& file);
+	Pixmap(const FileHandle* file);
 
 	/** Constructs a new Pixmap from a {@link Gdx2DPixmap}.
 	* @param pixmap */

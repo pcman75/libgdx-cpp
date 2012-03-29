@@ -31,6 +31,8 @@
 #include <io.h>
 #include <fcntl.h>
 
+#include <Shlobj.h> //special folders location
+
 #pragma warning( disable : 4251 )
 #pragma warning( disable : 4996 )
 #pragma warning( disable : 4275 )

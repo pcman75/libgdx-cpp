@@ -74,7 +74,7 @@ BitmapFont::BitmapFont(bool flip)
 * @param region The texture region containing the glyphs. The glyphs must be relative to the lower left corner (ie, the region
 *           should not be flipped). If the region is NULL the glyph images are loaded from the image path in the font file.
 * @param flip If true, the glyphs will be flipped for use with a perspective where 0,0 is the upper left corner. */
-BitmapFont::BitmapFont(const FileHandle& fontFile, TextureRegion* region, bool flip)
+BitmapFont::BitmapFont(const FileHandle* fontFile, TextureRegion* region, bool flip)
 {
 	init();
 	init(new BitmapFontData(fontFile, flip), region, true);
@@ -84,7 +84,7 @@ BitmapFont::BitmapFont(const FileHandle& fontFile, TextureRegion* region, bool f
 /** Creates a BitmapFont from a BMFont file. The image file name is read from the BMFont file and the image is loaded from the
 * same directory.
 * @param flip If true, the glyphs will be flipped for use with a perspective where 0,0 is the upper left corner. */
-BitmapFont::BitmapFont(const FileHandle& fontFile, bool flip)
+BitmapFont::BitmapFont(const FileHandle* fontFile, bool flip)
 {
 	init();
 	init(new BitmapFontData(fontFile, flip), NULL, true);
@@ -94,7 +94,7 @@ BitmapFont::BitmapFont(const FileHandle& fontFile, bool flip)
 /** Creates a BitmapFont from a BMFont file, using the specified image for glyphs. Any image specified in the BMFont file is
 * ignored.
 * @param flip If true, the glyphs will be flipped for use with a perspective where 0,0 is the upper left corner. */
-BitmapFont::BitmapFont(const FileHandle& fontFile, const FileHandle& imageFile, bool flip)
+BitmapFont::BitmapFont(const FileHandle* fontFile, const FileHandle* imageFile, bool flip)
 {
 	init();
 	init(fontFile, imageFile, flip, true);
@@ -104,7 +104,7 @@ BitmapFont::BitmapFont(const FileHandle& fontFile, const FileHandle& imageFile, 
 * ignored.
 * @param flip If true, the glyphs will be flipped for use with a perspective where 0,0 is the upper left corner.
 * @param integer If true, rendering positions will be at integer values to avoid filtering artifacts.s */
-BitmapFont::BitmapFont(const FileHandle& fontFile, const FileHandle& imageFile, bool flip, bool integer)
+BitmapFont::BitmapFont(const FileHandle* fontFile, const FileHandle* imageFile, bool flip, bool integer)
 {
 	init();
 	init(fontFile, imageFile, flip, integer);
@@ -123,7 +123,7 @@ BitmapFont::BitmapFont(BitmapFontData* data, TextureRegion* region, bool integer
 }
 
 
-void BitmapFont::init(const FileHandle& fontFile, const FileHandle& imageFile, bool flip, bool integer)
+void BitmapFont::init(const FileHandle* fontFile, const FileHandle* imageFile, bool flip, bool integer)
 {
 	init(new BitmapFontData(fontFile, flip), new TextureRegion(new Texture(imageFile, false)), integer);
 	m_ownsTexture = true;

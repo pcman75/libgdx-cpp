@@ -22,10 +22,10 @@ public:
 		static const char* FILE = "data/sell_buy_item.wav";
 
 		// Create the decoder and log some properties. 
-		//FileHandleStream* file = Gdx.files->internalHandle(FILE).getStream(Read, Binary);
-		
-		decoder = new WavDecoder(Gdx.files->internalHandle(FILE));
-		
+		FileHandle* file = Gdx.files->internalHandle(FILE);
+		decoder = new WavDecoder(file);
+		delete file;
+
 		std::stringstream msg;
 		msg << "channels: " << decoder->getChannels() << ", rate: " << decoder->getRate() << ", length: " << decoder->getLength() << "\n";
 		Gdx.app->log("WavTest", msg.str());

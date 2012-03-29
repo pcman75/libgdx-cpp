@@ -10,7 +10,9 @@ void FilesTest::create()
 	if(Gdx.files->isExternalStorageAvailable())
 	{
 		message += "External storage available\n";
-		message += "External storage path: " + Gdx.files->getExternalStoragePath() + "\n";
+		std::string externalStoragePath;
+		Gdx.files->getExternalStoragePath(externalStoragePath);
+		message += "External storage path: " + externalStoragePath + "\n";
 		/*
 		try
 		{

@@ -11,46 +11,57 @@ WoglFiles::~WoglFiles(void)
 {
 }
 
-FileHandle WoglFiles::getFileHandle(const std::string& path, FileType type) const
+FileHandle* WoglFiles::getFileHandle(const std::string& path, FileType type) const
 {
-	return FileHandle( path);
+	return new FileHandle(path);
 }
 
-FileHandle WoglFiles::classpathHandle(const std::string& path) const
+FileHandle* WoglFiles::internalHandle(const std::string& path) const
 {
-	return FileHandle();
-}
-
-FileHandle WoglFiles::internalHandle(const std::string& path) const
-{
-	TCHAR modulePath[MAX_PATH] = {0};
-	TCHAR drive[_MAX_DRIVE] = {0};
-	TCHAR dir[_MAX_DIR] = {0};
+	char modulePath[MAX_PATH] = {0};
+	char drive[_MAX_DRIVE] = {0};
+	char dir[_MAX_DIR] = {0};
 
 	::GetModuleFileName(NULL, modulePath, MAX_PATH);
 	_splitpath(modulePath, drive, dir, NULL, NULL);
 	std::string fullPath = std::string(drive) + dir + path;
-	return FileHandle(fullPath);
+	return new FileHandle(fullPath);
 }
 
-FileHandle WoglFiles::externalHandle(const std::string& path) const
+FileHandle* WoglFiles::externalHandle(const std::string& path) const
 {
-	return FileHandle( path);
+	return new FileHandle(path);
 }
 
-FileHandle WoglFiles::absoluteHandle(const std::string& path) const
+FileHandle* WoglFiles::absoluteHandle(const std::string& path) const
 {
-	return FileHandle( path);
+	return new FileHandle(path);
 }
 
-std::string WoglFiles::getExternalStoragePath() const
+void WoglFiles::getExternalStoragePath(std::string& externalPath) const
 {
-	return std::string();
+#ifdef WIN32
+	char path[MAX_PATH] = "";
+	HRESULT hr = ::SHGetFolderPathA(NULL, CSIDL_PROFILE, NULL, SHGFP_TYPE_CURRENT, path);
+	externalPath = path;
+#else
+	throw GdxRuntimeException("method not implemented");
+	/*
+	#include <unistd.h>
+	#include <sys/types.h>
+	#include <pwd.h>
+
+	struct passwd *pw = getpwuid(getuid());
+
+	const char *homedir = pw->pw_dir;
+	externalPath = homedir;
+	*/
+#endif
 }
 
 bool WoglFiles::isExternalStorageAvailable() const
 {
-	return false;
+	return true;
 }
 
 FileType WoglFiles::getFileType(const std::string& path) const

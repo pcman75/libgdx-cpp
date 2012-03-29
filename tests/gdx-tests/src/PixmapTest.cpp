@@ -22,7 +22,9 @@ void PixmapTest::create ()
 	m_pixmap->setColor(1, 0, 0, 1);
 	m_pixmap->fill();
 	
-	PixmapIO::writePNG(Gdx.files->internalHandle("test.png"), m_pixmap);
+	FileHandle* testPNG = Gdx.files->internalHandle("test.png");
+	PixmapIO::writePNG(testPNG, m_pixmap);
+	delete testPNG;
 
 	m_pixmap->dispose();
 	delete m_pixmap;
