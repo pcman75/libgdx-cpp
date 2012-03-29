@@ -28,6 +28,8 @@ public:
 	virtual Input* getInput ();
     
 	virtual Files* getFiles ();
+    
+    virtual Threading* getThreading();
 	
 	virtual void log(const char* tag, const char* message);
     
@@ -52,6 +54,7 @@ private:
 	Input* m_pInput;
 	Files* m_pFiles;
 	Audio* m_pAudio;
+    Threading* m_pThreading;
 	int logLevel;
 };
 

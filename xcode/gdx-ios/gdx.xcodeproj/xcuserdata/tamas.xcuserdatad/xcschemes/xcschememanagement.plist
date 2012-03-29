@@ -9,7 +9,12 @@
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
-		<key>gdx.xcscheme</key>
+		<key>gdx-ios.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
+		<key>gdx-macos.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
@@ -23,6 +28,11 @@
 			<true/>
 		</dict>
 		<key>029A06A515013DB600B82B73</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>02A428B815247D3100DC5D47</key>
 		<dict>
 			<key>primary</key>
 			<true/>

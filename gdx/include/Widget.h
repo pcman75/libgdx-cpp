@@ -15,7 +15,6 @@
  ******************************************************************************/
 
 #pragma once
-#include "GdxDefines.h"
 #include "Actor.h"
 #include "Layout.h"
 
@@ -29,7 +28,7 @@
  * {@link #invalidate()} or {@link #invalidateHierarchy()} as needed.
  * @author mzechner
  * @author Nathan Sweet */
-class GdxDllImportExport Widget :public Actor , Layout 
+class Widget :public Actor , Layout 
 {
 private:
   bool bNeedsLayout;

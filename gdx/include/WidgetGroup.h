@@ -1,6 +1,5 @@
 
 #pragma once
-#include "GdxDefines.h"
 #include "Group.h"
 #include "Layout.h"
 
@@ -15,7 +14,7 @@
  * {@link #invalidate()} or {@link #invalidateHierarchy()} as needed. By default, invalidateHierarchy is called when child widgets
  * are added and removed.
  * @author Nathan Sweet */
-class GdxDllImportExport WidgetGroup : public Group , Layout 
+class WidgetGroup : public Group , Layout 
 {
 private:
   bool bNeedsLayout;
