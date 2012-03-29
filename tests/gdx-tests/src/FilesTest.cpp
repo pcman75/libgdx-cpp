@@ -4,8 +4,8 @@
 
 void FilesTest::create()
 {
-	font = new BitmapFont();
-	batch = new SpriteBatch();
+	//font = new BitmapFont();
+	//batch = new SpriteBatch();
 
 	if(Gdx.files->isExternalStorageAvailable())
 	{
@@ -13,53 +13,51 @@ void FilesTest::create()
 		std::string externalStoragePath;
 		Gdx.files->getExternalStoragePath(externalStoragePath);
 		message += "External storage path: " + externalStoragePath + "\n";
-		/*
 		try
 		{
-			InputStream in = Gdx.files.internal("data/cube.obj").read();
+			FileHandle* cube = Gdx.files->internalHandle("data/cube.obj");
+			std::ifstream in = cube->read();
+			delete cube;
 			try
 			{
 				in.close();
 			}
-			catch(IOException e)
+			catch(std::exception e)
 			{
 			}
 			message += "Open internal success\n";
 		}
-		catch(Throwable e)
+		catch(std::exception e)
 		{
-			message += "Couldn't open internal data/cube.obj\n" + e.getMessage() + "\n";
+			message += "Couldn't open internal data/cube.obj\n";
+			message += e.what();
+			message += "\n";
 		}
 
-		BufferedWriter out = null;
+
+		
+
+		/*
 		try
 		{
-			out = new BufferedWriter(new OutputStreamWriter(Gdx.files.external("test.txt").write(false)));
-			out.write("test");
+			FileHandle* testFile = Gdx.files->externalHandle("test.txt");
+			std::ofstream testStream = testFile->write(false);
+			delete testFile;
+			testStream << "test";
+			testStream.close();
+			
 			message += "Write external success\n";
 		}
 		catch(GdxRuntimeException ex)
 		{
 			message += "Couldn't open externalstorage/test.txt\n";
 		}
-		catch(IOException e)
+		catch(std::exception e)
 		{
 			message += "Couldn't write externalstorage/test.txt\n";
 		}
-		finally
-		{
-			if(out != null)
-			{
-				try
-				{
-					out.close();
-				}
-				catch(IOException e)
-				{
-				}
-			}
-		}
-
+		*/
+/*
 		try
 		{
 			InputStream in = Gdx.files.external("test.txt").read();
@@ -132,7 +130,7 @@ void FilesTest::render()
 {
 	glClear(GL_COLOR_BUFFER_BIT);
 	batch->begin();
-	font->drawMultiLine(batch, message, 20, Gdx.graphics->getHeight() - 20);
+	font->drawMultiLine(batch, message, 20, Gdx.graphics->getHeight() - 20.f);
 	batch->end();
 }
 

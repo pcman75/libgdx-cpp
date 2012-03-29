@@ -68,18 +68,18 @@ public:
 
   /** Reads the entire file into a std::string using the platform's default charset.
   * @throw GdxRuntimeException if the file handle represents a directory, doesn't exist, or could not be read. */
-  std::string readstring() const;
+  void readstring(std::string& str) const;
   
 
   /** Reads the entire file into a std::string using the specified charset.
   * @throw GdxRuntimeException if the file handle represents a directory, doesn't exist, or could not be read. */
-  std::string readstring(const std::string& charset) const;
+  void readstring(const std::string& charset, std::string& str) const;
 
   /** Reads the entire file into a byte array.
   * read nLen bytes in pWhere ( allocated by the caller)
   * @throw GdxRuntimeException if the file handle represents a directory, doesn't exist, or could not be read. 
   */
-  int readBytes(unsigned char* pWhere, size_t size) const;
+  size_t readBytes(unsigned char* pWhere, size_t size) const;
 
 
   /** Returns a stream for writing to this file. Parent directories will be created if necessary.
