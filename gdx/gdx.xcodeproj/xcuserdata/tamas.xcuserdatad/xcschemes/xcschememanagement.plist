@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>gdx-backend-ios.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
 		<key>gdx-desktop.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -17,6 +22,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>026292EB1524D82800D7583F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>026AD3FD1523694B000D55E6</key>
 		<dict>
 			<key>primary</key>

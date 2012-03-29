@@ -2,7 +2,7 @@
 //  AppDelegate.h
 //  gdx-backend-ios
 //
-//  Created by Tamas Jano on 06/03/2012.
+//  Created by Tamas Jano on 29/03/2012.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 

@@ -2,12 +2,12 @@
 //  AppDelegate.m
 //  gdx-backend-ios
 //
-//  Created by Tamas Jano on 06/03/2012.
+//  Created by Tamas Jano on 29/03/2012.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
 #import "AppDelegate.h"
-#import "../gdx-tests/AlphaTest.h"
+#import "AlphaTest.h"
 
 @implementation AppDelegate
 
@@ -48,7 +48,7 @@ static void uncaughtExceptionHandler(NSException *exception) {
     self.m_window = [[UIWindow alloc] initWithFrame:screenBounds];
     
     m_view = [[GLView alloc] initWithFrame:screenBounds andListener:listener];
-
+    
     [self.m_window addSubview:m_view];
     [self.m_window makeKeyAndVisible];
     
@@ -84,7 +84,7 @@ static void uncaughtExceptionHandler(NSException *exception) {
      Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
      */
     [m_view startRenderLoop];
-
+    
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
@@ -95,11 +95,11 @@ static void uncaughtExceptionHandler(NSException *exception) {
      See also applicationDidEnterBackground:.
      */
     [m_view stopRenderLoop];
-
-//    if (m_view) {
-//        [m_view dealloc];
-//    }
-
+    
+    //    if (m_view) {
+    //        [m_view dealloc];
+    //    }
+    
 }
 
 @end
