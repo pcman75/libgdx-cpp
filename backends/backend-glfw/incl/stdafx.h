@@ -12,6 +12,7 @@
 // Windows Header Files:
 #include <windows.h>
 #include <mmsystem.h>
+#include <direct.h> //_mkdir
 
 #include <io.h>
 #include <fcntl.h>

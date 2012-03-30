@@ -74,7 +74,7 @@
     <ClInclude Include="..\exp\WindowsTimer.h" />
     <ClInclude Include="..\exp\WoglFileHandleStream.h" />
     <ClInclude Include="..\exp\WoglApplication.h" />
-    <ClInclude Include="..\exp\WoglFiles.h" />
+    <ClInclude Include="..\exp\WindowsFiles.h" />
     <ClInclude Include="..\exp\WoglGraphics.h" />
     <ClInclude Include="..\exp\WindowsInput.h" />
     <ClInclude Include="..\incl\Controller.h" />
@@ -107,7 +107,7 @@
     <ClCompile Include="..\src\ViewGL.cpp" />
     <ClCompile Include="..\src\Window.cpp" />
     <ClCompile Include="..\src\WoglApplication.cpp" />
-    <ClCompile Include="..\src\WoglFiles.cpp" />
+    <ClCompile Include="..\src\WindowsFiles.cpp" />
     <ClCompile Include="..\src\WoglGraphics.cpp" />
     <ClCompile Include="..\src\WindowsInput.cpp" />
   </ItemGroup>

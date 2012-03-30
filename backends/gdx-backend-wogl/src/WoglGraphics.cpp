@@ -307,3 +307,12 @@ void WoglGraphics::zoomCamera(int delta)
 
 
 
+GlVersion WoglGraphics::getGlVersion()
+{
+    return m_glVersion;
+};
+
+void WoglGraphics::setGlVersion(GlVersion version)
+{
+    m_glVersion = version;
+};

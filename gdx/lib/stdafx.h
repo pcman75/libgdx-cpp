@@ -25,6 +25,7 @@
         #include <OpenGL/glext.h>
     #endif
     #include <libgen.h>
+    #include <sys/stat.h> //mkdir
 #else
     #define GL_GLEXT_PROTOTYPES
 	#include <glew.h>
@@ -51,6 +52,6 @@
 #include <math.h>
 #include <limits.h>
 
-#include <direct.h>
+
 
 

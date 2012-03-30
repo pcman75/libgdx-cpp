@@ -57,7 +57,7 @@ string FileHandle::nameWithoutExtension()  const
 
 FileType FileHandle::type()  const
 {
-	FileType nType = Gdx.app->getFiles()->getFileType( m_strFullPath);
+	FileType nType = Gdx.app->getFiles()->getFileType(m_strFullPath);
 	return nType;
 }
 
@@ -68,18 +68,13 @@ void FileHandle::list(vector<FileHandle> &handles) const
 
 bool FileHandle::isDirectory() const
 {
-	return Gdx.app->getFiles()->isDirectory( m_strFullPath); 
+	return Gdx.app->getFiles()->isDirectory(m_strFullPath); 
 }
 
 FileHandle* FileHandle::child(const string& name) const
 {
-	/*
-	if( m_pFile->getPath().length() == 0) 
-	return FileHandle( File( name), type);
-	return FileHandle( File( file, name), type);
-	*/
-	return new FileHandle();
-
+	//TODO: implement this
+	throw GdxRuntimeException("not implemented");
 }
 
 FileHandleStream* FileHandle::getStream( FileAccess nFileAccess, StreamType nStreamType) const
@@ -173,122 +168,206 @@ void FileHandle::write(bool append, ofstream& stream) const
 	}
 }
 
-///** Reads the remaining bytes from the specified stream and writes them to this file. The stream is closed. Parent directories
-//* will be created if necessary.
-//* @param append If false, this file will be overwritten if it exists, otherwise it will be appended.
-//* @throw GdxRuntimeException if this file handle represents a directory, if it is a {@link FileType#Classpath} or
-//*        {@link FileType#Internal} file, or if it could not be written. */
-//void write(ifstream& input, bool append) const;
+/** Reads the remaining bytes from the specified stream and writes them to this file. The stream is closed. Parent directories
+* will be created if necessary.
+* @param append If false, this file will be overwritten if it exists, otherwise it will be appended.
+* @throw GdxRuntimeException if this file handle represents a directory, if it is a {@link FileType#Classpath} or
+*        {@link FileType#Internal} file, or if it could not be written. */
+void FileHandle::write(ifstream& input, bool append) const
+{
+	//TODO: implement this
+	throw GdxRuntimeException("not implemented");
+}
 
-///** Returns a writer for writing to this file using the default charset. Parent directories will be created if necessary.
-//* @param append If false, this file will be overwritten if it exists, otherwise it will be appended.
-//* @throw GdxRuntimeException if this file handle represents a directory, if it is a {@link FileType#Classpath} or
-//*        {@link FileType#Internal} file, or if it could not be written. */
-//ofstream writer(bool append) const;
 
-///** Returns a writer for writing to this file. Parent directories will be created if necessary.
-//* @param append If false, this file will be overwritten if it exists, otherwise it will be appended.
-//* @param charset May be null to use the default charset.
-//* @throw GdxRuntimeException if this file handle represents a directory, if it is a {@link FileType#Classpath} or
-//*        {@link FileType#Internal} file, or if it could not be written. */
-//ofstream writer(bool append, const string& charset) const;
+/** Returns a writer for writing to this file using the default charset. Parent directories will be created if necessary.
+* @param append If false, this file will be overwritten if it exists, otherwise it will be appended.
+* @throw GdxRuntimeException if this file handle represents a directory, if it is a {@link FileType#Classpath} or
+*        {@link FileType#Internal} file, or if it could not be written. */
+void FileHandle::writer(bool append, ofstream& stream) const
+{
+	//TODO: implement this
+	throw GdxRuntimeException("not implemented");
+}
 
-///** Writes the specified string to the file using the default charset. Parent directories will be created if necessary.
-//* @param append If false, this file will be overwritten if it exists, otherwise it will be appended.
-//* @throw GdxRuntimeException if this file handle represents a directory, if it is a {@link FileType#Classpath} or
-//*        {@link FileType#Internal} file, or if it could not be written. */
-//void writestring(const string& str, bool append) const;
+/** Returns a writer for writing to this file. Parent directories will be created if necessary.
+* @param append If false, this file will be overwritten if it exists, otherwise it will be appended.
+* @param charset May be null to use the default charset.
+* @throw GdxRuntimeException if this file handle represents a directory, if it is a {@link FileType#Classpath} or
+*        {@link FileType#Internal} file, or if it could not be written. */
+void FileHandle::writer(bool append, const string& charset, ofstream& stream) const
+{
+	//TODO: implement this
+	throw GdxRuntimeException("not implemented");
+}
 
-///** Writes the specified string to the file as UTF-8. Parent directories will be created if necessary.
-//* @param append If false, this file will be overwritten if it exists, otherwise it will be appended.
-//* @param charset May be null to use the default charset.
-//* @throw GdxRuntimeException if this file handle represents a directory, if it is a {@link FileType#Classpath} or
-//*        {@link FileType#Internal} file, or if it could not be written. */
-//void writestring(const string& str, bool append, const string& charset) const;
 
-///** Writes the specified bytes to the file. Parent directories will be created if necessary.
-//* @param append If false, this file will be overwritten if it exists, otherwise it will be appended.
-//* @throw GdxRuntimeException if this file handle represents a directory, if it is a {@link FileType#Classpath} or
-//*        {@link FileType#Internal} file, or if it could not be written. */
-//void writeBytes(const unsigned char*, size_t size, bool append) const;
+/** Writes the specified string to the file using the default charset. Parent directories will be created if necessary.
+* @param append If false, this file will be overwritten if it exists, otherwise it will be appended.
+* @throw GdxRuntimeException if this file handle represents a directory, if it is a {@link FileType#Classpath} or
+*        {@link FileType#Internal} file, or if it could not be written. */
+void FileHandle::writestring(const string& str, bool append) const
+{
+	//TODO: implement this
+	throw GdxRuntimeException("not implemented");
+}
 
-///** Returns the paths to the children of this directory. Returns an empty list if this file handle represents a file and not a
-//  * directory. On the desktop, an {@link FileType#Internal} handle to a directory on the classpath will return a zero length
-//  * array.
-//  * @throw GdxRuntimeException if this file is an {@link FileType#Classpath} file. */
-//  void list(std::vector<FileHandle> &handles) const;
-//  
-//  /** Returns the paths to the children of this directory with the specified suffix. Returns an empty list if this file handle
-//  * represents a file and not a directory. On the desktop, an {@link FileType#Internal} handle to a directory on the classpath
-//  * will return a zero length array.
-//  * @throw GdxRuntimeException if this file is an {@link FileType#Classpath} file. */
-//  //void list( std::string suffix, std::vector< FileHandle> &handles) const;
-//  
-//  /** Returns true if this file is a directory. Always returns false for classpath files. On Android, an {@link FileType#Internal}
-//  * handle to an empty directory will return false. On the desktop, an {@link FileType#Internal} handle to a directory on the
-//  * classpath will return false. */
-//  bool isDirectory() const;
-//
-//  /** Returns a handle to the child with the specified name.
-//  * @throw GdxRuntimeException if this file handle is a {@link FileType#Classpath} or {@link FileType#Internal} and the child
-//  *        doesn't exist. */
-//  FileHandle* child(const std::string& name) const;
-//
+
+/** Writes the specified string to the file as UTF-8. Parent directories will be created if necessary.
+* @param append If false, this file will be overwritten if it exists, otherwise it will be appended.
+* @param charset May be null to use the default charset.
+* @throw GdxRuntimeException if this file handle represents a directory, if it is a {@link FileType#Classpath} or
+*        {@link FileType#Internal} file, or if it could not be written. */
+void FileHandle::writestring(const string& str, bool append, const string& charset) const
+{
+	//TODO: implement this
+	throw GdxRuntimeException("not implemented");
+}
+
+
+/** Writes the specified bytes to the file. Parent directories will be created if necessary.
+* @param append If false, this file will be overwritten if it exists, otherwise it will be appended.
+* @throw GdxRuntimeException if this file handle represents a directory, if it is a {@link FileType#Classpath} or
+*        {@link FileType#Internal} file, or if it could not be written. */
+void FileHandle::writeBytes(const unsigned char*, size_t size, bool append) const
+{
+	//TODO: implement this
+	throw GdxRuntimeException("not implemented");
+}
+
+
+/** Returns the paths to the children of this directory with the specified suffix. Returns an empty list if this file handle
+* represents a file and not a directory. On the desktop, an {@link FileType#Internal} handle to a directory on the classpath
+* will return a zero length array.
+* @throw GdxRuntimeException if this file is an {@link FileType#Classpath} file. */
+//void list( std::string suffix, std::vector< FileHandle> &handles) const;
+
+
 FileHandle* FileHandle::parent() const
 {
-	throw GdxRuntimeException("not yet implemented");
+	int nIndex = m_strFullPath.rfind('/');
+	if( string::npos == nIndex) 
+		return new FileHandle(m_strFullPath);
+
+	return new FileHandle(m_strFullPath.substr( 0, nIndex));
 }
 
 //
 /** @throw GdxRuntimeException if this file handle is a {@link FileType#Classpath} or {@link FileType#Internal} file. */
 void FileHandle::mkdirs() const
 {
-	throw GdxRuntimeException("not yet implemented");
-	_mkdir(m_strFullPath.c_str());
-	//http://nion.modprobe.de/blog/archives/357-Recursive-directory-creation.html
+	char* path = strdup(m_strFullPath.c_str());
+	char *p; 
+	size_t len; 
+	len = strlen(path); 
+	if(path[len - 1] == '/') 
+		path[len - 1] = 0; 
+
+	for(p = path; *p; p++) 
+	{
+		if(*p == '/') 
+		{ 
+			*p = 0; 
+			if(!Gdx.files->isDirectory(path)) 
+				Gdx.files->mkdir(path);
+			*p = '/';
+		}
+	}
+	if(!Gdx.files->isDirectory(path)) 
+		Gdx.files->mkdir(path);
+
+	free(path);
 }
 
-//
-//  /** Returns true if the file exists. On Android, a {@link FileType#Classpath} or {@link FileType#Internal} handle to a directory
-//  * will always return false. */
-//  bool exists() const; 
-//
+
+/** Returns true if the file exists. On Android, a {@link FileType#Classpath} or {@link FileType#Internal} handle to a directory
+* will always return false. */
+bool FileHandle::exists() const
+{
+	//TODO: implement this
+	throw GdxRuntimeException("not implemented");
+}
+
 //  /** Deletes this file or empty directory and returns success. Will not delete a directory that has children.
 //  * @throw GdxRuntimeException if this file handle is a {@link FileType#Classpath} or {@link FileType#Internal} file. */
-//  bool erase() const;
-//
-//  /** Deletes this file or directory and all children, recursively.
-//  * @throw GdxRuntimeException if this file handle is a {@link FileType#Classpath} or {@link FileType#Internal} file. */
-//  bool eraseDirectory() const;
-//
-//  /** Copies this file or directory to the specified file or directory. If this handle is a file, then 1) if the destination is a
-//  * file, it is overwritten, or 2) if the destination is a directory, this file is copied into it, or 3) if the destination
-//  * doesn't exist, {@link #mkdirs()} is called on the destination's parent and this file is copied into it with a new name. If
-//  * this handle is a directory, then 1) if the destination is a file, GdxRuntimeException is thrown, or 2) if the destination is
-//  * a directory, this directory is copied recursively into it as a subdirectory, overwriting existing files, or 3) if the
-//  * destination doesn't exist, {@link #mkdirs()} is called on the destination and this directory is copied recursively into it
-//  * as a subdirectory.
-//  * @throw GdxRuntimeException if the destination file handle is a {@link FileType#Classpath} or {@link FileType#Internal} file,
-//  *        or copying failed. */
-//  void copyTo(const FileHandle* dest) const;
-//
-//  /** Moves this file to the specified file, overwriting the file if it already exists.
-//  * @throw GdxRuntimeException if the source or destination file handle is a {@link FileType#Classpath} or
-//  *        {@link FileType#Internal} file. */
-//  void moveTo(const FileHandle* dest) const;
-//
-//  /** Returns the length in bytes of this file, or 0 if this file is a directory, does not exist, or the size cannot otherwise be
-//  * determined. */
-//  long long length() const;
-//
-//  /** Returns the last modified time in milliseconds for this file. Zero is returned if the file doesn't exist. Zero is returned
-//  * for {@link FileType#Classpath} files. On Android, zero is returned for {@link FileType#Internal} files. On the desktop, zero
-//  * is returned for {@link FileType#Internal} files on the classpath. */
-//  //TODO: long it's enough?
-//  long long lastModified() const;
-//
-//  std::string toString () const;
-//
-//  static FileHandle* tempFile(const std::string prefix);
-//  
-//  static FileHandle* tempDirectory(std::string prefix);
+bool FileHandle::erase() const
+{
+	//TODO: implement this
+	throw GdxRuntimeException("not implemented");
+}
+
+
+/** Deletes this file or directory and all children, recursively.
+* @throw GdxRuntimeException if this file handle is a {@link FileType#Classpath} or {@link FileType#Internal} file. */
+bool FileHandle::eraseDirectory() const
+{
+	//TODO: implement this
+	throw GdxRuntimeException("not implemented");
+}
+
+
+/** Copies this file or directory to the specified file or directory. If this handle is a file, then 1) if the destination is a
+* file, it is overwritten, or 2) if the destination is a directory, this file is copied into it, or 3) if the destination
+* doesn't exist, {@link #mkdirs()} is called on the destination's parent and this file is copied into it with a new name. If
+* this handle is a directory, then 1) if the destination is a file, GdxRuntimeException is thrown, or 2) if the destination is
+* a directory, this directory is copied recursively into it as a subdirectory, overwriting existing files, or 3) if the
+* destination doesn't exist, {@link #mkdirs()} is called on the destination and this directory is copied recursively into it
+* as a subdirectory.
+* @throw GdxRuntimeException if the destination file handle is a {@link FileType#Classpath} or {@link FileType#Internal} file,
+*        or copying failed. */
+void FileHandle::copyTo(const FileHandle* dest) const
+{
+	//TODO: implement this
+	throw GdxRuntimeException("not implemented");
+}
+
+
+/** Moves this file to the specified file, overwriting the file if it already exists.
+* @throw GdxRuntimeException if the source or destination file handle is a {@link FileType#Classpath} or
+*        {@link FileType#Internal} file. */
+void FileHandle::moveTo(const FileHandle* dest) const
+{
+	//TODO: implement this
+	throw GdxRuntimeException("not implemented");
+}
+
+
+/** Returns the length in bytes of this file, or 0 if this file is a directory, does not exist, or the size cannot otherwise be
+* determined. */
+long long FileHandle::length() const
+{
+	//TODO: implement this
+	throw GdxRuntimeException("not implemented");
+}
+
+
+/** Returns the last modified time in milliseconds for this file. Zero is returned if the file doesn't exist. Zero is returned
+* for {@link FileType#Classpath} files. On Android, zero is returned for {@link FileType#Internal} files. On the desktop, zero
+* is returned for {@link FileType#Internal} files on the classpath. */
+//TODO: long it's enough?
+long long FileHandle::lastModified() const
+{
+	//TODO: implement this
+	throw GdxRuntimeException("not implemented");
+}
+
+
+std::string FileHandle::toString() const
+{
+	//TODO: implement this
+	throw GdxRuntimeException("not implemented");
+}
+
+
+FileHandle* FileHandle::tempFile(const std::string prefix)
+{
+	//TODO: implement this
+	throw GdxRuntimeException("not implemented");
+}
+
+
+FileHandle* FileHandle::tempDirectory(std::string prefix)
+{
+	//TODO: implement this
+	throw GdxRuntimeException("not implemented");
+}

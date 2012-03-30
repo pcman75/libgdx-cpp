@@ -37,7 +37,7 @@ void FilesTest::create()
 
 		try
 		{
-			FileHandle* testFile = Gdx.files->externalHandle("test.txt");
+			FileHandle* testFile = Gdx.files->externalHandle("GdxTests/test.txt");
 			std::ofstream testStream;
 			testFile->write(false, testStream);
 			delete testFile;

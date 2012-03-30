@@ -1,22 +1,22 @@
 #include "StdAfx.h"
-#include "WoglFiles.h"
+#include "WindowsFiles.h"
 #include "WoglFileHandleStream.h"
 
 
-WoglFiles::WoglFiles(void)
+WindowsFiles::WindowsFiles(void)
 {
 }
 
-WoglFiles::~WoglFiles(void)
+WindowsFiles::~WindowsFiles(void)
 {
 }
 
-FileHandle* WoglFiles::getFileHandle(const std::string& path, FileType type) const
+FileHandle* WindowsFiles::getFileHandle(const std::string& path, FileType type) const
 {
 	return new FileHandle(path);
 }
 
-FileHandle* WoglFiles::internalHandle(const std::string& path) const
+FileHandle* WindowsFiles::internalHandle(const std::string& path) const
 {
 	char modulePath[MAX_PATH] = {0};
 	char drive[_MAX_DRIVE] = {0};
@@ -28,17 +28,17 @@ FileHandle* WoglFiles::internalHandle(const std::string& path) const
 	return new FileHandle(fullPath);
 }
 
-FileHandle* WoglFiles::externalHandle(const std::string& path) const
+FileHandle* WindowsFiles::externalHandle(const std::string& path) const
 {
 	return new FileHandle(path);
 }
 
-FileHandle* WoglFiles::absoluteHandle(const std::string& path) const
+FileHandle* WindowsFiles::absoluteHandle(const std::string& path) const
 {
 	return new FileHandle(path);
 }
 
-void WoglFiles::getExternalStoragePath(std::string& externalPath) const
+void WindowsFiles::getExternalStoragePath(std::string& externalPath) const
 {
 #ifdef WIN32
 	char path[MAX_PATH] = "";
@@ -59,12 +59,12 @@ void WoglFiles::getExternalStoragePath(std::string& externalPath) const
 #endif
 }
 
-bool WoglFiles::isExternalStorageAvailable() const
+bool WindowsFiles::isExternalStorageAvailable() const
 {
 	return true;
 }
 
-FileType WoglFiles::getFileType(const std::string& path) const
+FileType WindowsFiles::getFileType(const std::string& path) const
 {
 	if( isDirectory( path))
 		return Internal;
@@ -74,7 +74,7 @@ FileType WoglFiles::getFileType(const std::string& path) const
 	return Absolute;
 }
 
-bool WoglFiles::isDirectory(const std::string& path) const
+bool WindowsFiles::isDirectory(const std::string& path) const
 {
 	DWORD dwFileType = GetFileAttributesA( path.c_str());
 	if( FILE_ATTRIBUTE_DIRECTORY & dwFileType)
@@ -85,7 +85,7 @@ bool WoglFiles::isDirectory(const std::string& path) const
 	return false;
 }
 
-void WoglFiles::list(const std::string& path, std::vector< FileHandle>& handles) const
+void WindowsFiles::list(const std::string& path, std::vector< FileHandle>& handles) const
 {
 	if( isDirectory( path))
 	{
@@ -110,7 +110,12 @@ void WoglFiles::list(const std::string& path, std::vector< FileHandle>& handles)
 	}
 }
 
-FileHandleStream* WoglFiles::getStream(const std::string& path, FileAccess nFileAccess, StreamType nStreamType) const
+void  WindowsFiles::mkdir( const std::string& path) const
+{
+	_mkdir(path.c_str());
+}
+
+FileHandleStream* WindowsFiles::getStream(const std::string& path, FileAccess nFileAccess, StreamType nStreamType) const
 {
 	FileHandleStream* pRet = new WoglFileHandleStream( path, nFileAccess, nStreamType);
 	return pRet;

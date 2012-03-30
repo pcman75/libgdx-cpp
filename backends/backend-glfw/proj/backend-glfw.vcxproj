@@ -99,7 +99,7 @@
     <ClCompile Include="..\src\GlfwTimer.cpp" />
     <ClCompile Include="..\src\GlfwApplication.cpp" />
     <ClCompile Include="..\src\WoglFileHandleStream.cpp" />
-    <ClCompile Include="..\src\WoglFiles.cpp" />
+    <ClCompile Include="..\src\WindowsFiles.cpp" />
     <ClCompile Include="..\src\GlfwGraphics.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -113,10 +113,7 @@
     <ClInclude Include="..\exp\GlfwTimer.h" />
     <ClInclude Include="..\exp\GlfwApplication.h" />
     <ClInclude Include="..\exp\WoglFileHandleStream.h" />
-    <ClInclude Include="..\exp\WoglFiles.h" />
-    <ClInclude Include="..\exp\WoglGL10.h" />
-    <ClInclude Include="..\exp\WoglGL11.h" />
-    <ClInclude Include="..\exp\WoglGL20.h" />
+    <ClInclude Include="..\exp\WindowsFiles.h" />
     <ClInclude Include="..\exp\WoglGLCommon.h" />
     <ClInclude Include="..\exp\GlfwGraphics.h" />
     <ClInclude Include="..\incl\stdafx.h" />

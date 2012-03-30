@@ -17,8 +17,9 @@ private:
 	//final JoglDisplayMode desktopMode;
 	//final JoglApplicationConfiguration config;
 	//String extensions;
-
+		
 	WindowsTimer m_timer;
+	GlVersion m_glVersion;
 	long long m_frameStart;
 	long long m_lastFrameTime;
 	float m_deltaTime;
@@ -120,6 +121,9 @@ public:
 	/** @param extension the extension name
 	* @return whether the extension is supported */
 	virtual bool supportsExtension (std::string extension);
+
+	virtual GlVersion getGlVersion();
+	virtual void setGlVersion(GlVersion version);
 
 private:
 	int m_major;

@@ -2,7 +2,7 @@
 #include "WoglApplication.h"
 #include "WoglGraphics.h"
 #include "WindowsInput.h"
-#include "WoglFiles.h"
+#include "WindowsFiles.h"
 #include "WindowsAudio.h"
 
 #include "WoglGraphics.h"
@@ -37,7 +37,7 @@ WoglApplication::WoglApplication (ApplicationListener& listener, const char* tit
 	logLevel = LOG_INFO;
 	m_pGraphics = new WoglGraphics(listener, useGL20IfAvailable);
 	m_pInput = new WindowsInput();
-	m_pFiles = new WoglFiles();
+	m_pFiles = new WindowsFiles();
 	m_pAudio = new WindowsAudio();
 	
 

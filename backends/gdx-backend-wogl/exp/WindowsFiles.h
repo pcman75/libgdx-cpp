@@ -3,11 +3,11 @@
 
 // Win implementation of Files class
 //
-class WoglFiles :	public Files
+class WindowsFiles :	public Files
 {
 public:
-	WoglFiles(void);
-	virtual ~WoglFiles(void);
+	WindowsFiles(void);
+	virtual ~WindowsFiles(void);
 
   /** Returns a handle representing a file or directory.
   * @param type Determines how the path is resolved.
@@ -34,8 +34,9 @@ public:
 
   virtual FileType  getFileType(const std::string& path) const;
   virtual bool      isDirectory(const std::string& path) const;
-
   virtual void      list(const std::string& path, std::vector<FileHandle>& handles) const;
+  virtual void      mkdir( const std::string& path) const;
+
   virtual FileHandleStream* getStream(const std::string& path, FileAccess nFileAccess, StreamType nStreamType) const;
 };
 
