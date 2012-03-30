@@ -51,5 +51,6 @@
 #include <math.h>
 #include <limits.h>
 
+#include <direct.h>
 
 

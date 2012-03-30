@@ -35,14 +35,11 @@ void FilesTest::create()
 			message += "\n";
 		}
 
-
-		
-
-		/*
 		try
 		{
 			FileHandle* testFile = Gdx.files->externalHandle("test.txt");
-			std::ofstream testStream = testFile->write(false);
+			std::ofstream testStream;
+			testFile->write(false, testStream);
 			delete testFile;
 			testStream << "test";
 			testStream.close();
@@ -57,7 +54,7 @@ void FilesTest::create()
 		{
 			message += "Couldn't write externalstorage/test.txt\n";
 		}
-		*/
+		
 /*
 		try
 		{

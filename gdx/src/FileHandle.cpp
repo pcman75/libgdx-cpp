@@ -64,16 +64,6 @@ FileType FileHandle::type()  const
 void FileHandle::list(vector<FileHandle> &handles) const
 {
 	Gdx.app->getFiles()->list( m_strFullPath, handles);
-	/*
-	vector< string> relativePaths;
-	getFile()->list( relativePaths);
-	handles.resize( relativePaths.size());
-	for( int nIdx = 0; nIdx < relativePaths.size(); nIdx++) 
-	{
-	handles[ nIdx] = child( relativePaths[ nIdx]);
-	}
-	*/
-	return;
 }
 
 bool FileHandle::isDirectory() const
@@ -103,6 +93,10 @@ FileHandleStream* FileHandle::getStream( FileAccess nFileAccess, StreamType nStr
 void FileHandle::read(ifstream& stream) const
 {
 	stream.open(m_strFullPath.c_str());
+	if(stream.fail())
+	{
+		throw GdxRuntimeException("Error reading file: " + m_strFullPath);
+	}
 }
 
 /** open the stream for reading this file as characters.
@@ -110,81 +104,191 @@ void FileHandle::read(ifstream& stream) const
 void FileHandle::reader(ifstream& stream) const
 {
 	stream.open(m_strFullPath.c_str(), ios_base::binary);
+	if(stream.fail())
+	{
+		throw GdxRuntimeException("Error reading file: " + m_strFullPath);
+	}
 }
 
-  /** Reads the entire file into the string using the platform's default charset.
-  * @throw GdxRuntimeException if the file handle represents a directory, doesn't exist, or could not be read. */
-  void FileHandle::readstring(string& str) const
-  {
-	  ifstream stream(m_strFullPath.c_str());
-	  stream >> str;
-	  stream.close();
-  }
-  
-
-  /** Reads the entire file into a string using the specified charset.
-  * @throw GdxRuntimeException if the file handle represents a directory, doesn't exist, or could not be read. */
-  void FileHandle::readstring(const string& charset, std::string& str) const
-  {
-	  throw GdxRuntimeException("not yet implemented");
-  	  ifstream stream(m_strFullPath.c_str());
-	  stream >> str;
-	  stream.close();
-  }
-
-  ///** Reads the entire file into a byte array.
-  //* read nLen bytes in pWhere ( allocated by the caller)
-  //* @throw GdxRuntimeException if the file handle represents a directory, doesn't exist, or could not be read. 
-  //*/
-  //size_t FileHandle::readBytes(unsigned char* pWhere, size_t size) const
-  //{
-	 // ifstream stream = reader();
-	 // stream.read((char*)pWhere, size);
-	 // stream.close();
-  //}
+/** Reads the entire file into the string using the platform's default charset.
+* @throw GdxRuntimeException if the file handle represents a directory, doesn't exist, or could not be read. */
+void FileHandle::readstring(string& str) const
+{
+	ifstream stream;
+	read(stream);
+	stream >> str;
+	stream.close();
+	if(stream.fail())
+	{
+		throw GdxRuntimeException("Error reading file: " + m_strFullPath);
+	}
+}
 
 
-  ///** Returns a stream for writing to this file. Parent directories will be created if necessary.
-  //* @param append If false, this file will be overwritten if it exists, otherwise it will be appended.
-  //* @throw GdxRuntimeException if this file handle represents a directory, if it is a {@link FileType#Classpath} or
-  //*        {@link FileType#Internal} file, or if it could not be written. */
-  //ofstream write(bool append) const;
+/** Reads the entire file into a string using the specified charset.
+* @throw GdxRuntimeException if the file handle represents a directory, doesn't exist, or could not be read. */
+void FileHandle::readstring(const string& charset, std::string& str) const
+{
+	throw GdxRuntimeException("not yet implemented");
+	ifstream stream(m_strFullPath.c_str());
+	stream >> str;
+	stream.close();
+}
 
-  ///** Reads the remaining bytes from the specified stream and writes them to this file. The stream is closed. Parent directories
-  //* will be created if necessary.
-  //* @param append If false, this file will be overwritten if it exists, otherwise it will be appended.
-  //* @throw GdxRuntimeException if this file handle represents a directory, if it is a {@link FileType#Classpath} or
-  //*        {@link FileType#Internal} file, or if it could not be written. */
-  //void write(ifstream& input, bool append) const;
+/** Reads the entire file into a byte array.
+* read nLen bytes in pWhere ( allocated by the caller)
+* @throw GdxRuntimeException if the file handle represents a directory, doesn't exist, or could not be read. 
+*/
+void FileHandle::readBytes(unsigned char* pWhere, size_t size) const
+{
+	ifstream stream;
+	reader(stream);
+	stream.read((char*)pWhere, size);
+	stream.close();
+	if(!stream.eof())
+	{
+		throw GdxRuntimeException("buffer not big enough to read the entire file");
+	}
+	if(stream.fail())
+	{
+		throw GdxRuntimeException("Error reading file: " + m_strFullPath);
+	}
+}
 
-  ///** Returns a writer for writing to this file using the default charset. Parent directories will be created if necessary.
-  //* @param append If false, this file will be overwritten if it exists, otherwise it will be appended.
-  //* @throw GdxRuntimeException if this file handle represents a directory, if it is a {@link FileType#Classpath} or
-  //*        {@link FileType#Internal} file, or if it could not be written. */
-  //ofstream writer(bool append) const;
 
-  ///** Returns a writer for writing to this file. Parent directories will be created if necessary.
-  //* @param append If false, this file will be overwritten if it exists, otherwise it will be appended.
-  //* @param charset May be null to use the default charset.
-  //* @throw GdxRuntimeException if this file handle represents a directory, if it is a {@link FileType#Classpath} or
-  //*        {@link FileType#Internal} file, or if it could not be written. */
-  //ofstream writer(bool append, const string& charset) const;
+/** Returns a stream for writing to this file. Parent directories will be created if necessary.
+* @param append If false, this file will be overwritten if it exists, otherwise it will be appended.
+* @throw GdxRuntimeException if this file handle represents a directory, if it is a {@link FileType#Classpath} or
+*        {@link FileType#Internal} file, or if it could not be written. */
+void FileHandle::write(bool append, ofstream& stream) const
+{
+	FileHandle* parentHandle = parent();
+	parentHandle->mkdirs();
+	delete parentHandle;
 
-  ///** Writes the specified string to the file using the default charset. Parent directories will be created if necessary.
-  //* @param append If false, this file will be overwritten if it exists, otherwise it will be appended.
-  //* @throw GdxRuntimeException if this file handle represents a directory, if it is a {@link FileType#Classpath} or
-  //*        {@link FileType#Internal} file, or if it could not be written. */
-  //void writestring(const string& str, bool append) const;
+	stream.open(m_strFullPath.c_str());
+	if(stream.fail())
+	{
+		throw GdxRuntimeException("Error writing file: " + m_strFullPath);
+	}
+}
 
-  ///** Writes the specified string to the file as UTF-8. Parent directories will be created if necessary.
-  //* @param append If false, this file will be overwritten if it exists, otherwise it will be appended.
-  //* @param charset May be null to use the default charset.
-  //* @throw GdxRuntimeException if this file handle represents a directory, if it is a {@link FileType#Classpath} or
-  //*        {@link FileType#Internal} file, or if it could not be written. */
-  //void writestring(const string& str, bool append, const string& charset) const;
+///** Reads the remaining bytes from the specified stream and writes them to this file. The stream is closed. Parent directories
+//* will be created if necessary.
+//* @param append If false, this file will be overwritten if it exists, otherwise it will be appended.
+//* @throw GdxRuntimeException if this file handle represents a directory, if it is a {@link FileType#Classpath} or
+//*        {@link FileType#Internal} file, or if it could not be written. */
+//void write(ifstream& input, bool append) const;
 
-  ///** Writes the specified bytes to the file. Parent directories will be created if necessary.
-  //* @param append If false, this file will be overwritten if it exists, otherwise it will be appended.
-  //* @throw GdxRuntimeException if this file handle represents a directory, if it is a {@link FileType#Classpath} or
-  //*        {@link FileType#Internal} file, or if it could not be written. */
-  //void writeBytes(const unsigned char*, size_t size, bool append) const;
+///** Returns a writer for writing to this file using the default charset. Parent directories will be created if necessary.
+//* @param append If false, this file will be overwritten if it exists, otherwise it will be appended.
+//* @throw GdxRuntimeException if this file handle represents a directory, if it is a {@link FileType#Classpath} or
+//*        {@link FileType#Internal} file, or if it could not be written. */
+//ofstream writer(bool append) const;
+
+///** Returns a writer for writing to this file. Parent directories will be created if necessary.
+//* @param append If false, this file will be overwritten if it exists, otherwise it will be appended.
+//* @param charset May be null to use the default charset.
+//* @throw GdxRuntimeException if this file handle represents a directory, if it is a {@link FileType#Classpath} or
+//*        {@link FileType#Internal} file, or if it could not be written. */
+//ofstream writer(bool append, const string& charset) const;
+
+///** Writes the specified string to the file using the default charset. Parent directories will be created if necessary.
+//* @param append If false, this file will be overwritten if it exists, otherwise it will be appended.
+//* @throw GdxRuntimeException if this file handle represents a directory, if it is a {@link FileType#Classpath} or
+//*        {@link FileType#Internal} file, or if it could not be written. */
+//void writestring(const string& str, bool append) const;
+
+///** Writes the specified string to the file as UTF-8. Parent directories will be created if necessary.
+//* @param append If false, this file will be overwritten if it exists, otherwise it will be appended.
+//* @param charset May be null to use the default charset.
+//* @throw GdxRuntimeException if this file handle represents a directory, if it is a {@link FileType#Classpath} or
+//*        {@link FileType#Internal} file, or if it could not be written. */
+//void writestring(const string& str, bool append, const string& charset) const;
+
+///** Writes the specified bytes to the file. Parent directories will be created if necessary.
+//* @param append If false, this file will be overwritten if it exists, otherwise it will be appended.
+//* @throw GdxRuntimeException if this file handle represents a directory, if it is a {@link FileType#Classpath} or
+//*        {@link FileType#Internal} file, or if it could not be written. */
+//void writeBytes(const unsigned char*, size_t size, bool append) const;
+
+///** Returns the paths to the children of this directory. Returns an empty list if this file handle represents a file and not a
+//  * directory. On the desktop, an {@link FileType#Internal} handle to a directory on the classpath will return a zero length
+//  * array.
+//  * @throw GdxRuntimeException if this file is an {@link FileType#Classpath} file. */
+//  void list(std::vector<FileHandle> &handles) const;
+//  
+//  /** Returns the paths to the children of this directory with the specified suffix. Returns an empty list if this file handle
+//  * represents a file and not a directory. On the desktop, an {@link FileType#Internal} handle to a directory on the classpath
+//  * will return a zero length array.
+//  * @throw GdxRuntimeException if this file is an {@link FileType#Classpath} file. */
+//  //void list( std::string suffix, std::vector< FileHandle> &handles) const;
+//  
+//  /** Returns true if this file is a directory. Always returns false for classpath files. On Android, an {@link FileType#Internal}
+//  * handle to an empty directory will return false. On the desktop, an {@link FileType#Internal} handle to a directory on the
+//  * classpath will return false. */
+//  bool isDirectory() const;
+//
+//  /** Returns a handle to the child with the specified name.
+//  * @throw GdxRuntimeException if this file handle is a {@link FileType#Classpath} or {@link FileType#Internal} and the child
+//  *        doesn't exist. */
+//  FileHandle* child(const std::string& name) const;
+//
+FileHandle* FileHandle::parent() const
+{
+	throw GdxRuntimeException("not yet implemented");
+}
+
+//
+/** @throw GdxRuntimeException if this file handle is a {@link FileType#Classpath} or {@link FileType#Internal} file. */
+void FileHandle::mkdirs() const
+{
+	throw GdxRuntimeException("not yet implemented");
+	_mkdir(m_strFullPath.c_str());
+	//http://nion.modprobe.de/blog/archives/357-Recursive-directory-creation.html
+}
+
+//
+//  /** Returns true if the file exists. On Android, a {@link FileType#Classpath} or {@link FileType#Internal} handle to a directory
+//  * will always return false. */
+//  bool exists() const; 
+//
+//  /** Deletes this file or empty directory and returns success. Will not delete a directory that has children.
+//  * @throw GdxRuntimeException if this file handle is a {@link FileType#Classpath} or {@link FileType#Internal} file. */
+//  bool erase() const;
+//
+//  /** Deletes this file or directory and all children, recursively.
+//  * @throw GdxRuntimeException if this file handle is a {@link FileType#Classpath} or {@link FileType#Internal} file. */
+//  bool eraseDirectory() const;
+//
+//  /** Copies this file or directory to the specified file or directory. If this handle is a file, then 1) if the destination is a
+//  * file, it is overwritten, or 2) if the destination is a directory, this file is copied into it, or 3) if the destination
+//  * doesn't exist, {@link #mkdirs()} is called on the destination's parent and this file is copied into it with a new name. If
+//  * this handle is a directory, then 1) if the destination is a file, GdxRuntimeException is thrown, or 2) if the destination is
+//  * a directory, this directory is copied recursively into it as a subdirectory, overwriting existing files, or 3) if the
+//  * destination doesn't exist, {@link #mkdirs()} is called on the destination and this directory is copied recursively into it
+//  * as a subdirectory.
+//  * @throw GdxRuntimeException if the destination file handle is a {@link FileType#Classpath} or {@link FileType#Internal} file,
+//  *        or copying failed. */
+//  void copyTo(const FileHandle* dest) const;
+//
+//  /** Moves this file to the specified file, overwriting the file if it already exists.
+//  * @throw GdxRuntimeException if the source or destination file handle is a {@link FileType#Classpath} or
+//  *        {@link FileType#Internal} file. */
+//  void moveTo(const FileHandle* dest) const;
+//
+//  /** Returns the length in bytes of this file, or 0 if this file is a directory, does not exist, or the size cannot otherwise be
+//  * determined. */
+//  long long length() const;
+//
+//  /** Returns the last modified time in milliseconds for this file. Zero is returned if the file doesn't exist. Zero is returned
+//  * for {@link FileType#Classpath} files. On Android, zero is returned for {@link FileType#Internal} files. On the desktop, zero
+//  * is returned for {@link FileType#Internal} files on the classpath. */
+//  //TODO: long it's enough?
+//  long long lastModified() const;
+//
+//  std::string toString () const;
+//
+//  static FileHandle* tempFile(const std::string prefix);
+//  
+//  static FileHandle* tempDirectory(std::string prefix);

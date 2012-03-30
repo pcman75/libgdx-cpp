@@ -30,7 +30,9 @@ FileHandle* WoglFiles::internalHandle(const std::string& path) const
 
 FileHandle* WoglFiles::externalHandle(const std::string& path) const
 {
-	return new FileHandle(path);
+	std::string externalStoragePath;
+	getExternalStoragePath(externalStoragePath);
+	return new FileHandle(externalStoragePath + "/" + path);
 }
 
 FileHandle* WoglFiles::absoluteHandle(const std::string& path) const
