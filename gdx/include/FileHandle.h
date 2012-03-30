@@ -56,15 +56,15 @@ public:
   /** Returns a std::fstream that represents this file handle. Note the returned file will only be usable for
 	 * {@link FileType#Absolute} and {@link FileType#External} file handles. */
   //TODO: why???
-  std::fstream file() const;
+  void file(std::fstream& stream) const;
 
-  /** Returns a stream for reading this file as bytes.
+  /** open the stream for reading this file as bytes.
   * @throw GdxRuntimeException if the file handle represents a directory, doesn't exist, or could not be read. */
-  std::ifstream read() const;
+  void read(std::ifstream& stream) const;
 
-  /** Returns a reader for reading this file as characters.
+  /** open the stream for reading this file as characters.
   * @throw GdxRuntimeException if the file handle represents a directory, doesn't exist, or could not be read. */
-  std::ifstream reader() const;
+  void reader(std::ifstream& stream) const;
 
   /** Reads the entire file into a std::string using the platform's default charset.
   * @throw GdxRuntimeException if the file handle represents a directory, doesn't exist, or could not be read. */
@@ -86,7 +86,7 @@ public:
   * @param append If false, this file will be overwritten if it exists, otherwise it will be appended.
   * @throw GdxRuntimeException if this file handle represents a directory, if it is a {@link FileType#Classpath} or
   *        {@link FileType#Internal} file, or if it could not be written. */
-  std::ofstream write(bool append) const;
+  void write(bool append, std::ofstream& stream) const;
 
   /** Reads the remaining bytes from the specified stream and writes them to this file. The stream is closed. Parent directories
   * will be created if necessary.
@@ -99,14 +99,14 @@ public:
   * @param append If false, this file will be overwritten if it exists, otherwise it will be appended.
   * @throw GdxRuntimeException if this file handle represents a directory, if it is a {@link FileType#Classpath} or
   *        {@link FileType#Internal} file, or if it could not be written. */
-  std::ofstream writer(bool append) const;
+  void writer(bool append, std::ofstream& stream) const;
 
   /** Returns a writer for writing to this file. Parent directories will be created if necessary.
   * @param append If false, this file will be overwritten if it exists, otherwise it will be appended.
   * @param charset May be null to use the default charset.
   * @throw GdxRuntimeException if this file handle represents a directory, if it is a {@link FileType#Classpath} or
   *        {@link FileType#Internal} file, or if it could not be written. */
-  std::ofstream writer(bool append, const std::string& charset) const;
+  void writer(bool append, const std::string& charset, std::ofstream& stream) const;
 
   /** Writes the specified std::string to the file using the default charset. Parent directories will be created if necessary.
   * @param append If false, this file will be overwritten if it exists, otherwise it will be appended.

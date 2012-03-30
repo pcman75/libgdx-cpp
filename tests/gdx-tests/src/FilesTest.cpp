@@ -16,7 +16,8 @@ void FilesTest::create()
 		try
 		{
 			FileHandle* cube = Gdx.files->internalHandle("data/cube.obj");
-			std::ifstream in = cube->read();
+			std::ifstream in;
+			cube->read(in);
 			delete cube;
 			try
 			{

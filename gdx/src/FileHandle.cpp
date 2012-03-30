@@ -98,27 +98,25 @@ FileHandleStream* FileHandle::getStream( FileAccess nFileAccess, StreamType nStr
 }
 
 
-/** Returns a stream for reading this file as bytes.
+/** open the stream for reading this file as bytes.
 * @throw GdxRuntimeException if the file handle represents a directory, doesn't exist, or could not be read. */
-ifstream FileHandle::read() const
+void FileHandle::read(ifstream& stream) const
 {
-	return ifstream(m_strFullPath);
+	stream.open(m_strFullPath.c_str());
 }
 
-/** Returns a reader for reading this file as characters.
+/** open the stream for reading this file as characters.
 * @throw GdxRuntimeException if the file handle represents a directory, doesn't exist, or could not be read. */
-ifstream FileHandle::reader() const
+void FileHandle::reader(ifstream& stream) const
 {
-	ifstream stream;
-	stream.open(m_strFullPath, ios_base::binary);
-	return stream;
+	stream.open(m_strFullPath.c_str(), ios_base::binary);
 }
 
-  /** Reads the entire file into a string using the platform's default charset.
+  /** Reads the entire file into the string using the platform's default charset.
   * @throw GdxRuntimeException if the file handle represents a directory, doesn't exist, or could not be read. */
   void FileHandle::readstring(string& str) const
   {
-	  ifstream stream = read();
+	  ifstream stream(m_strFullPath.c_str());
 	  stream >> str;
 	  stream.close();
   }
@@ -129,7 +127,7 @@ ifstream FileHandle::reader() const
   void FileHandle::readstring(const string& charset, std::string& str) const
   {
 	  throw GdxRuntimeException("not yet implemented");
-  	  ifstream stream = read();
+  	  ifstream stream(m_strFullPath.c_str());
 	  stream >> str;
 	  stream.close();
   }

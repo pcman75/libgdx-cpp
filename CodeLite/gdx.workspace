@@ -1,17 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CodeLite_Workspace Name="gdx" Database="./gdx.tags">
-  <Project Name="gdx" Path="/libgdx-cpp/gdx/proj/gdx.project" Active="Yes"/>
-  <Project Name="backend_glfw" Path="/libgdx-cpp/backends/backend-glfw/proj/backend_glfw.project" Active="No"/>
+  <Project Name="gdx" Path="../gdx/proj/gdx.project" Active="Yes"/>
+  <Project Name="backend_glfw" Path="../backends/backend-glfw/proj/backend_glfw.project" Active="No"/>
   <BuildMatrix>
     <WorkspaceConfiguration Name="Debug" Selected="yes">
       <Project Name="gdx" ConfigName="Debug"/>
       <Project Name="backend_glfw" ConfigName="Debug"/>
-      <Project Name="gdx" ConfigName="Debug"/>
-      <Project Name="backend_glfw" ConfigName="Debug"/>
     </WorkspaceConfiguration>
     <WorkspaceConfiguration Name="Release" Selected="yes">
-      <Project Name="gdx" ConfigName="Release"/>
-      <Project Name="backend_glfw" ConfigName="Release"/>
       <Project Name="gdx" ConfigName="Release"/>
       <Project Name="backend_glfw" ConfigName="Release"/>
     </WorkspaceConfiguration>
