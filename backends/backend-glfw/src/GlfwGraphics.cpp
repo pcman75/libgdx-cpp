@@ -9,6 +9,7 @@ GlfwGraphics::GlfwGraphics(ApplicationListener& listener, bool useGL20)
 	m_major(-1), m_minor(0)
 {
 	m_deltaTime = 0;
+    m_glVersion = GL_VERSION_0;
 }
 
 
@@ -19,13 +20,13 @@ GlfwGraphics::~GlfwGraphics(void)
 
 bool GlfwGraphics::isGL11Available ()
 {
-	return Gdx.isGL11Available();
+	return m_glVersion == GL_VERSION_11;
 }
 
 
 bool GlfwGraphics::isGL20Available()
 {
-	return Gdx.isGL20Available();
+	return m_glVersion == GL_VERSION_20;
 }
 
 int GlfwGraphics::getWidth ()
@@ -119,6 +120,16 @@ bool GlfwGraphics::supportsExtension (std::string extension)
 {
 	return false;
 }
+
+GlVersion GlfwGraphics::getGlVersion()
+{
+    return m_glVersion;
+};
+
+void GlfwGraphics::setGlVersion(GlVersion version)
+{
+    m_glVersion = version;
+};
 
 
 void GlfwGraphics::createWindow(const char* title, int width, int height)

@@ -209,7 +209,7 @@ void Texture::load(TextureData* data)
 
 void Texture::uploadImageData(Pixmap* pixmap)
 {
-	if(m_enforcePotImages && Gdx.getGLVersion() != GL_VERSION_20
+	if(m_enforcePotImages && Gdx.getGlVersion() != GL_VERSION_20
 		&& (!MathUtils::isPowerOfTwo(m_data->getWidth()) || !MathUtils::isPowerOfTwo(m_data->getHeight())))
 	{
 		throw new GdxRuntimeException("Texture width and height must be powers of two");

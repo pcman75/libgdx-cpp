@@ -11,8 +11,7 @@
 
 IOSGraphics::IOSGraphics(bool useGL20): m_useGL20(useGL20)
 {
-    glVersion = GL_VERSION_20;
-    
+    m_glVersion = GL_VERSION_0;
     m_frameStart = m_timer.systemNanoSeconds();
 	m_lastFrameTime = m_frameStart;
 	m_deltaTime = 0;
@@ -20,12 +19,12 @@ IOSGraphics::IOSGraphics(bool useGL20): m_useGL20(useGL20)
 
 bool IOSGraphics::isGL11Available()
 {
-    return glVersion == GL_VERSION_11;
+    return m_glVersion == GL_VERSION_11;
 };
 
 bool IOSGraphics::isGL20Available()
 {
-    return glVersion == GL_VERSION_20;
+    return m_glVersion == GL_VERSION_20;
 };
 
 int IOSGraphics::getWidth()
@@ -123,6 +122,16 @@ Graphics::BufferFormat IOSGraphics::getBufferFormat()
 bool IOSGraphics::supportsExtension (std::string extension)
 {
     return false;
+};
+
+GlVersion IOSGraphics::getGlVersion()
+{
+    return m_glVersion;
+};
+
+void IOSGraphics::setGlVersion(GlVersion version)
+{
+    m_glVersion = version;
 };
 
 void IOSGraphics::updateTimes() 

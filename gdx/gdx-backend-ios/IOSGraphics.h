@@ -24,8 +24,7 @@ private:
 	int m_width;
 	int m_height;
     
-    GLversion glVersion;
-    
+    GlVersion   m_glVersion;
 	IOSTimer    m_timer;
 	long long   m_frameStart;
 	long long   m_lastFrameTime;
@@ -57,6 +56,9 @@ public:
 	virtual void setVSync (bool vsync);
 	virtual BufferFormat getBufferFormat ();
 	virtual bool supportsExtension (std::string extension);
+    virtual GlVersion getGlVersion();
+    virtual void setGlVersion(GlVersion version);
+
     virtual void updateTimes();
     virtual void updateTimes(float elapsedTime,  float timestamp);
 };

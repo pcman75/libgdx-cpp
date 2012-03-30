@@ -469,10 +469,10 @@
 		026293131524DA6F00D7583F /* IOSApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IOSApplication.h; sourceTree = "<group>"; };
 		026293141524DA6F00D7583F /* IOSApplicationConfiguration.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IOSApplicationConfiguration.cpp; sourceTree = "<group>"; };
 		026293151524DA6F00D7583F /* IOSApplicationConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IOSApplicationConfiguration.h; sourceTree = "<group>"; };
-		026293161524DA6F00D7583F /* IOSGraphics.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IOSGraphics.cpp; sourceTree = "<group>"; };
+		026293161524DA6F00D7583F /* IOSGraphics.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = IOSGraphics.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
 		026293171524DA6F00D7583F /* IOSTimer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IOSTimer.cpp; sourceTree = "<group>"; };
 		026293181524DA6F00D7583F /* IOSTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IOSTimer.h; sourceTree = "<group>"; };
-		0262931E1524DA7D00D7583F /* IOSGraphics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IOSGraphics.h; sourceTree = "<group>"; };
+		0262931E1524DA7D00D7583F /* IOSGraphics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = IOSGraphics.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		0262931F1524DD2200D7583F /* AlphaTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlphaTest.h; sourceTree = "<group>"; };
 		026293201524DD2200D7583F /* GdxTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GdxTest.h; sourceTree = "<group>"; };
 		026293221524DDA700D7583F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.0.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
@@ -514,14 +514,14 @@
 		1772CAB81520F5C700330DB0 /* FileTextureData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileTextureData.h; sourceTree = "<group>"; };
 		1772CAB91520F5C700330DB0 /* Forever.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Forever.h; sourceTree = "<group>"; };
 		1772CABA1520F5C700330DB0 /* Frustum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Frustum.h; sourceTree = "<group>"; };
-		1772CABB1520F5C700330DB0 /* Gdx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gdx.h; sourceTree = "<group>"; };
+		1772CABB1520F5C700330DB0 /* Gdx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = Gdx.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		1772CABC1520F5C700330DB0 /* Gdx2DPixmap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gdx2DPixmap.h; sourceTree = "<group>"; };
 		1772CABE1520F5C700330DB0 /* GdxRuntimeException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GdxRuntimeException.h; sourceTree = "<group>"; };
 		1772CABF1520F5C700330DB0 /* GL10.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GL10.h; sourceTree = "<group>"; };
 		1772CAC01520F5C700330DB0 /* GL11.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GL11.h; sourceTree = "<group>"; };
 		1772CAC11520F5C700330DB0 /* GL20.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GL20.h; sourceTree = "<group>"; };
 		1772CAC21520F5C700330DB0 /* GLCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLCommon.h; sourceTree = "<group>"; };
-		1772CAC31520F5C700330DB0 /* Graphics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Graphics.h; sourceTree = "<group>"; };
+		1772CAC31520F5C700330DB0 /* Graphics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = Graphics.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		1772CAC41520F5C700330DB0 /* Group.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Group.h; sourceTree = "<group>"; };
 		1772CAC51520F5C700330DB0 /* ImmediateModeRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImmediateModeRenderer.h; sourceTree = "<group>"; };
 		1772CAC61520F5C700330DB0 /* ImmediateModeRenderer10.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImmediateModeRenderer10.h; sourceTree = "<group>"; };
@@ -630,7 +630,7 @@
 		1772CBA71520F5E600330DB0 /* FileTextureData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FileTextureData.cpp; sourceTree = "<group>"; };
 		1772CBA81520F5E600330DB0 /* Forever.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Forever.cpp; sourceTree = "<group>"; };
 		1772CBA91520F5E600330DB0 /* Frustum.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Frustum.cpp; sourceTree = "<group>"; };
-		1772CBAA1520F5E600330DB0 /* Gdx.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gdx.cpp; sourceTree = "<group>"; };
+		1772CBAA1520F5E600330DB0 /* Gdx.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = Gdx.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
 		1772CBAB1520F5E600330DB0 /* gdx2d.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gdx2d.c; sourceTree = "<group>"; };
 		1772CBAC1520F5E600330DB0 /* Gdx2DPixmap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gdx2DPixmap.cpp; sourceTree = "<group>"; };
 		1772CBAD1520F5E600330DB0 /* GdxRuntimeException.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GdxRuntimeException.cpp; sourceTree = "<group>"; };
@@ -649,7 +649,7 @@
 		1772CBBA1520F5E600330DB0 /* Matrix3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Matrix3.cpp; sourceTree = "<group>"; };
 		1772CBBB1520F5E600330DB0 /* Matrix4.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Matrix4.cpp; sourceTree = "<group>"; };
 		1772CBBC1520F5E600330DB0 /* Mesh.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Mesh.cpp; sourceTree = "<group>"; };
-		1772CBBD1520F5E600330DB0 /* MipMapGenerator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MipMapGenerator.cpp; sourceTree = "<group>"; };
+		1772CBBD1520F5E600330DB0 /* MipMapGenerator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = MipMapGenerator.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
 		1772CBBE1520F5E600330DB0 /* ModelLoaderOld.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ModelLoaderOld.cpp; sourceTree = "<group>"; };
 		1772CBBF1520F5E600330DB0 /* MoveBy.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MoveBy.cpp; sourceTree = "<group>"; };
 		1772CBC01520F5E600330DB0 /* MoveTo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MoveTo.cpp; sourceTree = "<group>"; };
@@ -685,14 +685,14 @@
 		1772CBDE1520F5E600330DB0 /* StringUtils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StringUtils.cpp; sourceTree = "<group>"; };
 		1772CBDF1520F5E600330DB0 /* TemporalAction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TemporalAction.cpp; sourceTree = "<group>"; };
 		1772CBE01520F5E600330DB0 /* TextBounds.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TextBounds.cpp; sourceTree = "<group>"; };
-		1772CBE11520F5E600330DB0 /* Texture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Texture.cpp; sourceTree = "<group>"; };
+		1772CBE11520F5E600330DB0 /* Texture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = Texture.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
 		1772CBE21520F5E600330DB0 /* TextureRegion.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TextureRegion.cpp; sourceTree = "<group>"; };
 		1772CBE31520F5E600330DB0 /* Vector2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Vector2.cpp; sourceTree = "<group>"; };
 		1772CBE41520F5E600330DB0 /* Vector3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Vector3.cpp; sourceTree = "<group>"; };
 		1772CBE51520F5E600330DB0 /* VertexArray.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VertexArray.cpp; sourceTree = "<group>"; };
 		1772CBE61520F5E600330DB0 /* VertexAttribute.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VertexAttribute.cpp; sourceTree = "<group>"; };
 		1772CBE71520F5E600330DB0 /* VertexAttributes.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VertexAttributes.cpp; sourceTree = "<group>"; };
-		1772CBE81520F5E600330DB0 /* VertexBufferObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VertexBufferObject.cpp; sourceTree = "<group>"; };
+		1772CBE81520F5E600330DB0 /* VertexBufferObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = VertexBufferObject.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1765,6 +1765,7 @@
 				026293071524D82900D7583F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		026AD4D81523694B000D55E6 /* Build configuration list for PBXNativeTarget "gdx-ios" */ = {
 			isa = XCConfigurationList;

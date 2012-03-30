@@ -100,7 +100,7 @@ private:
 	Color m_tempColor;
 
 private:
-	void init();
+	void setup();
 	void init(int size);
 	void init(int size, ShaderProgram* defaultShader);
 	void init(int size, int buffers);

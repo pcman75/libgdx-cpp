@@ -24,10 +24,6 @@
 		17D05D5E151F94A4002CBB67 /* WindowsAudio.h in Headers */ = {isa = PBXBuildFile; fileRef = 17D05D36151F94A4002CBB67 /* WindowsAudio.h */; };
 		17D05D60151F94A4002CBB67 /* WoglFileHandleStream.h in Headers */ = {isa = PBXBuildFile; fileRef = 17D05D38151F94A4002CBB67 /* WoglFileHandleStream.h */; };
 		17D05D61151F94A4002CBB67 /* WoglFiles.h in Headers */ = {isa = PBXBuildFile; fileRef = 17D05D39151F94A4002CBB67 /* WoglFiles.h */; };
-		17D05D62151F94A4002CBB67 /* WoglGL10.h in Headers */ = {isa = PBXBuildFile; fileRef = 17D05D3A151F94A4002CBB67 /* WoglGL10.h */; };
-		17D05D63151F94A4002CBB67 /* WoglGL11.h in Headers */ = {isa = PBXBuildFile; fileRef = 17D05D3B151F94A4002CBB67 /* WoglGL11.h */; };
-		17D05D64151F94A4002CBB67 /* WoglGL20.h in Headers */ = {isa = PBXBuildFile; fileRef = 17D05D3C151F94A4002CBB67 /* WoglGL20.h */; };
-		17D05D65151F94A4002CBB67 /* WoglGLCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = 17D05D3D151F94A4002CBB67 /* WoglGLCommon.h */; };
 		17D05D66151F94A4002CBB67 /* GdxMusic.h in Headers */ = {isa = PBXBuildFile; fileRef = 17D05D3F151F94A4002CBB67 /* GdxMusic.h */; };
 		17D05D67151F94A4002CBB67 /* GdxSound.h in Headers */ = {isa = PBXBuildFile; fileRef = 17D05D40151F94A4002CBB67 /* GdxSound.h */; };
 		17D05D68151F94A4002CBB67 /* stdafx.h in Headers */ = {isa = PBXBuildFile; fileRef = 17D05D41151F94A4002CBB67 /* stdafx.h */; };
@@ -42,13 +38,6 @@
 		17D05D71151F94A4002CBB67 /* GlfwTimer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17D05D4B151F94A4002CBB67 /* GlfwTimer.cpp */; };
 		17D05D72151F94A4002CBB67 /* GlfwWaitCondition.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17D05D4C151F94A4002CBB67 /* GlfwWaitCondition.cpp */; };
 		17D05D73151F94A4002CBB67 /* stdafx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17D05D4D151F94A4002CBB67 /* stdafx.cpp */; };
-		17D05D74151F94A4002CBB67 /* WindowsAudio.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17D05D4E151F94A4002CBB67 /* WindowsAudio.cpp */; };
-		17D05D76151F94A4002CBB67 /* WoglFileHandleStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17D05D50151F94A4002CBB67 /* WoglFileHandleStream.cpp */; };
-		17D05D77151F94A4002CBB67 /* WoglFiles.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17D05D51151F94A4002CBB67 /* WoglFiles.cpp */; };
-		17D05D78151F94A4002CBB67 /* WoglGL10.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17D05D52151F94A4002CBB67 /* WoglGL10.cpp */; };
-		17D05D79151F94A4002CBB67 /* WoglGL11.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17D05D53151F94A4002CBB67 /* WoglGL11.cpp */; };
-		17D05D7A151F94A4002CBB67 /* WoglGL20.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17D05D54151F94A4002CBB67 /* WoglGL20.cpp */; };
-		17D05D7B151F94A4002CBB67 /* WoglGLCommon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17D05D55151F94A4002CBB67 /* WoglGLCommon.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,10 +59,6 @@
 		17D05D36151F94A4002CBB67 /* WindowsAudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WindowsAudio.h; sourceTree = "<group>"; };
 		17D05D38151F94A4002CBB67 /* WoglFileHandleStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WoglFileHandleStream.h; sourceTree = "<group>"; };
 		17D05D39151F94A4002CBB67 /* WoglFiles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WoglFiles.h; sourceTree = "<group>"; };
-		17D05D3A151F94A4002CBB67 /* WoglGL10.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WoglGL10.h; sourceTree = "<group>"; };
-		17D05D3B151F94A4002CBB67 /* WoglGL11.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WoglGL11.h; sourceTree = "<group>"; };
-		17D05D3C151F94A4002CBB67 /* WoglGL20.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WoglGL20.h; sourceTree = "<group>"; };
-		17D05D3D151F94A4002CBB67 /* WoglGLCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WoglGLCommon.h; sourceTree = "<group>"; };
 		17D05D3F151F94A4002CBB67 /* GdxMusic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GdxMusic.h; sourceTree = "<group>"; };
 		17D05D40151F94A4002CBB67 /* GdxSound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GdxSound.h; sourceTree = "<group>"; };
 		17D05D41151F94A4002CBB67 /* stdafx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stdafx.h; sourceTree = "<group>"; };
@@ -91,10 +76,6 @@
 		17D05D4E151F94A4002CBB67 /* WindowsAudio.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WindowsAudio.cpp; sourceTree = "<group>"; };
 		17D05D50151F94A4002CBB67 /* WoglFileHandleStream.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WoglFileHandleStream.cpp; sourceTree = "<group>"; };
 		17D05D51151F94A4002CBB67 /* WoglFiles.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WoglFiles.cpp; sourceTree = "<group>"; };
-		17D05D52151F94A4002CBB67 /* WoglGL10.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WoglGL10.cpp; sourceTree = "<group>"; };
-		17D05D53151F94A4002CBB67 /* WoglGL11.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WoglGL11.cpp; sourceTree = "<group>"; };
-		17D05D54151F94A4002CBB67 /* WoglGL20.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WoglGL20.cpp; sourceTree = "<group>"; };
-		17D05D55151F94A4002CBB67 /* WoglGLCommon.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WoglGLCommon.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,10 +135,6 @@
 				17D05D36151F94A4002CBB67 /* WindowsAudio.h */,
 				17D05D38151F94A4002CBB67 /* WoglFileHandleStream.h */,
 				17D05D39151F94A4002CBB67 /* WoglFiles.h */,
-				17D05D3A151F94A4002CBB67 /* WoglGL10.h */,
-				17D05D3B151F94A4002CBB67 /* WoglGL11.h */,
-				17D05D3C151F94A4002CBB67 /* WoglGL20.h */,
-				17D05D3D151F94A4002CBB67 /* WoglGLCommon.h */,
 			);
 			path = exp;
 			sourceTree = "<group>";
@@ -189,10 +166,6 @@
 				17D05D4E151F94A4002CBB67 /* WindowsAudio.cpp */,
 				17D05D50151F94A4002CBB67 /* WoglFileHandleStream.cpp */,
 				17D05D51151F94A4002CBB67 /* WoglFiles.cpp */,
-				17D05D52151F94A4002CBB67 /* WoglGL10.cpp */,
-				17D05D53151F94A4002CBB67 /* WoglGL11.cpp */,
-				17D05D54151F94A4002CBB67 /* WoglGL20.cpp */,
-				17D05D55151F94A4002CBB67 /* WoglGLCommon.cpp */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -215,10 +188,6 @@
 				17D05D5E151F94A4002CBB67 /* WindowsAudio.h in Headers */,
 				17D05D60151F94A4002CBB67 /* WoglFileHandleStream.h in Headers */,
 				17D05D61151F94A4002CBB67 /* WoglFiles.h in Headers */,
-				17D05D62151F94A4002CBB67 /* WoglGL10.h in Headers */,
-				17D05D63151F94A4002CBB67 /* WoglGL11.h in Headers */,
-				17D05D64151F94A4002CBB67 /* WoglGL20.h in Headers */,
-				17D05D65151F94A4002CBB67 /* WoglGLCommon.h in Headers */,
 				17D05D66151F94A4002CBB67 /* GdxMusic.h in Headers */,
 				17D05D67151F94A4002CBB67 /* GdxSound.h in Headers */,
 				17D05D68151F94A4002CBB67 /* stdafx.h in Headers */,
@@ -292,13 +261,6 @@
 				17D05D71151F94A4002CBB67 /* GlfwTimer.cpp in Sources */,
 				17D05D72151F94A4002CBB67 /* GlfwWaitCondition.cpp in Sources */,
 				17D05D73151F94A4002CBB67 /* stdafx.cpp in Sources */,
-				17D05D74151F94A4002CBB67 /* WindowsAudio.cpp in Sources */,
-				17D05D76151F94A4002CBB67 /* WoglFileHandleStream.cpp in Sources */,
-				17D05D77151F94A4002CBB67 /* WoglFiles.cpp in Sources */,
-				17D05D78151F94A4002CBB67 /* WoglGL10.cpp in Sources */,
-				17D05D79151F94A4002CBB67 /* WoglGL11.cpp in Sources */,
-				17D05D7A151F94A4002CBB67 /* WoglGL20.cpp in Sources */,
-				17D05D7B151F94A4002CBB67 /* WoglGLCommon.cpp in Sources */,
 				1772CA05151F963500330DB0 /* glew.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

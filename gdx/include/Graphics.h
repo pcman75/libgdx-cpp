@@ -28,6 +28,14 @@
 * 
 * @author mzechner */
 
+enum GlVersion
+{
+    GL_VERSION_0,
+    GL_VERSION_10,
+    GL_VERSION_11,
+    GL_VERSION_20
+};
+
 class Graphics 
 {
 public:
@@ -199,5 +207,11 @@ public:
 	/** @param extension the extension name
 	* @return whether the extension is supported */
 	virtual bool supportsExtension (std::string extension) = 0;
+    
+    /** Returns the GL version with which the context is instantiated **/
+    virtual GlVersion getGlVersion() = 0;
+
+    virtual void setGlVersion(GlVersion version) = 0;
+
 };
 

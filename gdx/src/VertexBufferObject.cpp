@@ -23,10 +23,7 @@ VertexBufferObject::VertexBufferObject(bool isStatic, const VertexAttribute attr
 
 void VertexBufferObject::createBufferObject()
 {
-	if(Gdx.getGLVersion() == GL_VERSION_20)
-		glGenBuffers(1, &m_bufferHandle);
-	else
-        throw new GdxRuntimeException("OpenGL 1.x not yet supported");
+    glGenBuffers(1, &m_bufferHandle);
 }
 
 VertexBufferObject::~VertexBufferObject()
@@ -66,13 +63,13 @@ void VertexBufferObject::setVertices(const float* vertices, int count)
 	
 	if(m_isBound)
 	{
-		if(Gdx.getGLVersion() == GL_VERSION_20)
+		if(Gdx.getGlVersion() == GL_VERSION_20)
 		{
 			glBufferData(GL_ARRAY_BUFFER, bufferSizeInBytes, m_buffer, m_usage);
 		}
 		else
 		{
-            throw new GdxRuntimeException("OpenGL 1.x not yet supported");
+			glBufferData(GL_ARRAY_BUFFER, bufferSizeInBytes, m_buffer, m_usage);
 		}
 		m_isDirty = false;
 	}
@@ -82,8 +79,9 @@ void VertexBufferObject::setVertices(const float* vertices, int count)
 
 void VertexBufferObject::bind()
 {
-    throw new GdxRuntimeException("OpenGL 1.x not yet supported");
-/*
+    if(Gdx.getGlVersion() == GL_VERSION_20)
+        throw new GdxRuntimeException("Only OpenGL version 1.x is supported for VertexBufferObject.bind()");
+
 	int bufferSizeInBytes = m_attributes.vertexSize() * m_numVertices;
 
 	glBindBuffer(GL_ARRAY_BUFFER, m_bufferHandle);
@@ -134,7 +132,6 @@ void VertexBufferObject::bind()
 	}
 
 	m_isBound = true;
- */
 }
 
 /** Binds this VertexBufferObject for rendering via glDrawArrays or glDrawElements
@@ -172,8 +169,6 @@ void VertexBufferObject::bind(ShaderProgram* shader)
 
 void VertexBufferObject::unbind()
 {
-    throw new GdxRuntimeException("OpenGL 1.x not yet supported");
-/*
 	int textureUnit = 0;
 	int numAttributes = m_attributes.size();
 
@@ -202,7 +197,6 @@ void VertexBufferObject::unbind()
 	}
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 	m_isBound = false;
-*/
 }
 
 /** Unbinds this VertexBufferObject.
@@ -233,15 +227,14 @@ void VertexBufferObject::invalidate()
 void VertexBufferObject::dispose()
 {
 	//TODO: check for multiple dispose
-	if(Gdx.getGLVersion() == GL_VERSION_20)
+	if(Gdx.getGlVersion() == GL_VERSION_20)
 	{
 		glBindBuffer(GL_ARRAY_BUFFER, 0);
 		glDeleteBuffers(1, &m_bufferHandle);
 		m_bufferHandle = 0;
 	}
-	else if(Gdx.getGLVersion() == GL_VERSION_11)
+	else if(Gdx.getGlVersion() == GL_VERSION_11)
 	{
-        throw new GdxRuntimeException("OpenGL 1.x not yet supported");
 		glBindBuffer(GL_ARRAY_BUFFER, 0);
 		glDeleteBuffers(1, &m_bufferHandle);
 		m_bufferHandle = 0;

@@ -26,24 +26,29 @@
 - (id)initWithFrame:(CGRect)frame andListener:(ApplicationListener*)appListener
 {
     if ((self = [super initWithFrame:frame])) {
-        
+        GlVersion glVersion = GL_VERSION_0;
         listener = appListener;
-        
-//        CAEAGLLayer* eaglLayer = (CAEAGLLayer*) super.layer;
-//        eaglLayer.opaque = YES;
         
         EAGLRenderingAPI api = kEAGLRenderingAPIOpenGLES2;
         context = [[EAGLContext alloc] initWithAPI:api];
         
-//        if (!context || forceES1) {
-//            api = kEAGLRenderingAPIOpenGLES1;
-//            context = [[EAGLContext alloc] initWithAPI:api];
-//        }
+        if (!context) {
+            NSLog(@"OpenGLES20 failed, trying GLES1");
+            api = kEAGLRenderingAPIOpenGLES1;
+            context = [[EAGLContext alloc] initWithAPI:api];
+            glVersion = GL_VERSION_11;
+        } else {
+            glVersion = GL_VERSION_20;
+        }
         
         if (!context || ![EAGLContext setCurrentContext:context]) {
 //            [self release];   // compiler setting
+            glVersion = GL_VERSION_0;
             return nil;
         }
+
+        // updating gl version
+        Gdx.graphics->setGlVersion(glVersion);
 
         // Context has been created...it should be good to go from here
         NSLog(@"Context created");
@@ -60,21 +65,6 @@
     }
     return self;
 }
-
-//- (void) drawView: (CADisplayLink*) displayLink
-//{
-//    if (displayLink != nil) {
-//        // TODO - need to do something with this to inject it into the Graphics instance
-//        float elapsedSeconds = displayLink.timestamp - timestamp;
-//        timestamp = displayLink.timestamp;
-//        NSLog(@"elapsedSeconds=%f  timestamp=%f", elapsedSeconds, timestamp);
-//    }
-//    
-//    // delegating rendering to the application listener
-//    // appListener->render(elapsedSeconds);
-//    
-//    [context presentRenderbuffer:GL_RENDERBUFFER];
-//}
 
 - (void)createFramebuffer
 {

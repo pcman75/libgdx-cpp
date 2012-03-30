@@ -23,7 +23,7 @@ int SpriteBatch::C4 = 17;
 int SpriteBatch::U4 = 18;
 int SpriteBatch::V4 = 19;
 
-void SpriteBatch::init()
+void SpriteBatch::setup()
 {
 	renderCalls = 0;
 	totalRenderCalls = 0;
@@ -143,7 +143,7 @@ void SpriteBatch::init(int size, int buffers, ShaderProgram* defaultShader)
 * respect to the screen resolution. */
 SpriteBatch::SpriteBatch()
 {
-	init();
+	setup();
 	init(1000);
 }
 
@@ -151,7 +151,7 @@ SpriteBatch::SpriteBatch()
 * {@link #SpriteBatch(int, ShaderProgram)}. */
 SpriteBatch::SpriteBatch(int size)
 {
-	init();
+	setup();
 	init(size);
 }
 
@@ -169,7 +169,7 @@ SpriteBatch::SpriteBatch(int size)
 * @param defaultShader the default shader to use */
 SpriteBatch::SpriteBatch(int size, ShaderProgram* defaultShader)
 {
-	init();
+	setup();
 	init(size, defaultShader);
 }
 
@@ -177,7 +177,7 @@ SpriteBatch::SpriteBatch(int size, ShaderProgram* defaultShader)
 * {@link #SpriteBatch(int, int, ShaderProgram)}. */
 SpriteBatch::SpriteBatch(int size, int buffers)
 {
-	init();
+	setup();
 	init(size, buffers);
 }
 
@@ -196,7 +196,7 @@ SpriteBatch::SpriteBatch(int size, int buffers)
 * @param defaultShader the default shader to use */
 SpriteBatch::SpriteBatch(int size, int buffers, ShaderProgram* defaultShader)
 {
-	init();
+	setup();
 	init(size, buffers, defaultShader);
 }
 
@@ -1261,11 +1261,10 @@ void SpriteBatch::setupMatrices()
 {
 	if(!Gdx.graphics->isGL20Available())
 	{
-        // TODO add OpenGL10 support
-//		glMatrixMode(GL_PROJECTION);
-//		glLoadMatrixf(m_projectionMatrix.val, 0);
-//		glMatrixMode(GL_MODELVIEW);
-//		glLoadMatrixf(m_transformMatrix.val, 0);
+		glMatrixMode(GL_PROJECTION);
+		glLoadMatrixf(m_projectionMatrix.val);
+		glMatrixMode(GL_MODELVIEW);
+		glLoadMatrixf(m_transformMatrix.val);
 	}
 	else
 	{

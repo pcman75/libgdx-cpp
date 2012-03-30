@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "VertexAttributes::VertexAttributes(VertexAttribute const*, int):VertexAttributes.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "attributes[1]">
+            </PersistentString>
+            <PersistentString
+               value = "attributes[0]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "SpriteBatch::init(int, int, ShaderProgram*):SpriteBatch.cpp">
+      </ContextState>
+      <ContextState
+         contextName = "-[GLView initWithFrame:andListener:]:GLView.mm">
+         <PersistentStrings>
+            <PersistentString
+               value = "Gdx">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "VertexBufferObject::createBufferObject():VertexBufferObject.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "Gdx.getGLVersion()">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

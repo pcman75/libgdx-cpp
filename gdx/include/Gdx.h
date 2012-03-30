@@ -40,14 +40,6 @@
 * 
 * */
 
-enum GLversion
-{
-    GL_VERSION_0,
-    GL_VERSION_10,
-    GL_VERSION_11,
-    GL_VERSION_20
-};
-
 class GdxClass 
 {
 public:
@@ -59,7 +51,7 @@ public:
 	Files* files;
 	Threading* threading;
 
-    GLversion glVersion;
+    GlVersion GlVersion;
 
 	public:
         static GdxClass& getInstance()
@@ -70,7 +62,7 @@ public:
 		bool isGL20Available();
 		bool isGL11Available();
         bool isGLInitialised();
-        GLversion getGLVersion();
+        enum GlVersion getGlVersion();
 		~GdxClass();
     private:
         GdxClass();
