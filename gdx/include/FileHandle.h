@@ -79,7 +79,7 @@ public:
   * read nLen bytes in pWhere ( allocated by the caller)
   * @throw GdxRuntimeException if the file handle represents a directory, doesn't exist, or could not be read. 
   */
-  size_t readBytes(unsigned char* pWhere, size_t size) const;
+  void readBytes(unsigned char* pWhere, size_t size) const;
 
 
   /** Returns a stream for writing to this file. Parent directories will be created if necessary.
