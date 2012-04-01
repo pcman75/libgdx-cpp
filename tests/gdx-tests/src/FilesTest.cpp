@@ -37,7 +37,7 @@ void FilesTest::create()
 
 		try
 		{
-			FileHandle* testFile = Gdx.files->externalHandle("GdxTests/test.txt");
+			FileHandle* testFile = Gdx.files->externalHandle("test.txt");
 			std::ofstream testStream;
 			testFile->write(false, testStream);
 			delete testFile;
@@ -55,57 +55,40 @@ void FilesTest::create()
 			message += "Couldn't write externalstorage/test.txt\n";
 		}
 		
-/*
 		try
 		{
-			InputStream in = Gdx.files.external("test.txt").read();
-			try
-			{
-				in.close();
-			}
-			catch(IOException e)
-			{
-			}
+			FileHandle* testFile = Gdx.files->externalHandle("test.txt");
+			std::ifstream in;
+			testFile->read(in);
+			in.close();
+			delete testFile;
 			message += "Open external success\n";
 		}
-		catch(Throwable e)
+		catch(GdxRuntimeException e)
 		{
-			message += "Couldn't open internal externalstorage/test.txt\n" + e.getMessage() + "\n";
+			message += "Couldn't open internal externalstorage/test.txt\n";
 		}
 
-		BufferedReader in = null;
-		try
+		FileHandle* file = Gdx.files->externalHandle("test.txt");
+		if(!file->remove())
 		{
-			in = new BufferedReader(new InputStreamReader(Gdx.files.external("test.txt").read()));
-			if(!in.readLine().equals("test"))
-				message += "Read result wrong\n";
-			else
-				message += "Read external success\n";
+			message += "Couldn't delete externalstorage/test.txt";
 		}
-		catch(GdxRuntimeException ex)
-		{
-			message += "Couldn't open externalstorage/test.txt\n";
-		}
-		catch(IOException e)
-		{
-			message += "Couldn't read externalstorage/test.txt\n";
-		}
-		finally
-		{
-			if(in != null)
-			{
-				try
-				{
-					in.close();
-				}
-				catch(IOException e)
-				{
-				}
-			}
-		}
+		delete file;
 
-		if(!Gdx.files.external("test.txt").delete()) message += "Couldn't delete externalstorage/test.txt";
-		*/
+		file = Gdx.files->externalHandle("this/is/a/test");
+		file->mkdirs();
+		file->remove();
+
+		//memory leak here
+		if(!file->parent()->remove())
+			message += "failed to remove this/is/a/ directory";
+		//bigger leak here
+		if(!file->parent()->parent()->parent()->removeRecursive())
+			message += "failed to remove this directory";
+
+		delete file;
+		
 	}
 	else
 	{
@@ -234,31 +217,56 @@ void FilesTest::testInternal()
 
 void FilesTest::testExternal()
 {
-	/*
-	String path = "meow";
-	FileHandle handle = Gdx.files.external(path);
-	handle.delete();
-	if(handle.exists()) fail();
-	if(handle.isDirectory()) fail();
-	if(handle.delete()) fail();
-	if(handle.list().length != 0) fail();
-	if(handle.child("meow").exists()) fail();
-	if(!handle.parent().exists()) fail();
-	try {
-		handle.read().close();
+	std::string path = "meow";
+	FileHandle* handle = Gdx.files->externalHandle(path);
+	handle->remove();
+	if(handle->exists()) 
+		fail();
+	if(handle->isDirectory()) 
+		fail();
+	if(handle->remove()) 
+		fail();
+
+	std::vector<FileHandle> handles;
+	handle->list(handles);
+	if(handles.size() != 0)
+		fail();
+
+	if(handle->child("meow")->exists()) 
+		fail();
+
+	if(!handle->parent()->exists()) 
+		fail();
+	try 
+	{
+		std::ifstream in;
+		handle->read(in);
+		in.close();
 		fail();
 	}
-	catch(Exception ignored)
+	catch(GdxRuntimeException ignored)
 	{
 	}
-	handle.mkdirs();
-	if(!handle.exists()) fail();
-	if(!handle.isDirectory()) fail();
-	if(handle.list().length != 0) fail();
-	handle.child("meow").mkdirs();
-	if(handle.list().length != 1) fail();
-	FileHandle child = handle.list()[0];
-	if(!child.name().equals("meow")) fail();
+	handle->mkdirs();
+	if(!handle->exists()) 
+		fail();
+	if(!handle->isDirectory()) 
+		fail();
+	handle->list(handles);
+	if(handles.size() != 0)
+		fail();
+
+	handle->child("meow")->mkdirs();
+
+	handle->list(handles);
+	if(handles.size() != 1) 
+		fail();
+	
+	FileHandle child = handles[0];
+	if(child.name() != "meow")
+		fail();
+	
+	/*
 	if(!child.parent().exists()) fail();
 	if(!handle.deleteDirectory()) fail();
 	if(handle.exists()) fail();

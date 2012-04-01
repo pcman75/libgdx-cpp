@@ -284,25 +284,36 @@ void FileHandle::mkdirs() const
 * will always return false. */
 bool FileHandle::exists() const
 {
-	//TODO: implement this
-	throw GdxRuntimeException("not implemented");
+	return access(m_strFullPath.c_str(), 0) == 0;
 }
 
 //  /** Deletes this file or empty directory and returns success. Will not delete a directory that has children.
 //  * @throw GdxRuntimeException if this file handle is a {@link FileType#Classpath} or {@link FileType#Internal} file. */
-bool FileHandle::erase() const
+bool FileHandle::remove() const
 {
-	//TODO: implement this
-	throw GdxRuntimeException("not implemented");
+	int result = ::remove(m_strFullPath.c_str());
+	if(result)
+	{
+		//maybe it's a directory
+		if(isDirectory())
+		{
+			result = rmdir(m_strFullPath.c_str());
+		}
+	}
+	return result == 0;
 }
 
 
 /** Deletes this file or directory and all children, recursively.
 * @throw GdxRuntimeException if this file handle is a {@link FileType#Classpath} or {@link FileType#Internal} file. */
-bool FileHandle::eraseDirectory() const
+bool FileHandle::removeRecursive() const
 {
-	//TODO: implement this
-	throw GdxRuntimeException("not implemented");
+	int result = ::remove(m_strFullPath.c_str());
+	if(result)
+	{
+		Gdx.files->recursiveDeleteDirectory(m_strFullPath.c_str());
+	}
+	return result == 0;
 }
 
 

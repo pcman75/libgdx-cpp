@@ -52,5 +52,6 @@ public:
 	virtual void      list( const std::string& path, std::vector< FileHandle>& handles) const = 0;
 	virtual void      mkdir( const std::string& path) const = 0;
 
+	virtual bool recursiveDeleteDirectory(const std::string& path) const = 0;
 	virtual FileHandleStream* getStream( const std::string& path, FileAccess nFileAccess, StreamType nStreamType) const = 0;
 };

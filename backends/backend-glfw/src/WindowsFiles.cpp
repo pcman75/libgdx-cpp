@@ -114,6 +114,72 @@ void  WindowsFiles::mkdir( const std::string& path) const
 	_mkdir(path.c_str());
 }
 
+bool WindowsFiles::isDots(const TCHAR* str) const
+{
+   if(_tcscmp(str,".") && _tcscmp(str,"..")) 
+	   return false;
+   return true;
+}
+
+bool WindowsFiles::recursiveDeleteDirectory(const std::string& path) const
+{
+   HANDLE hFind;
+   WIN32_FIND_DATA FindFileData;
+ 
+   TCHAR dirPath[MAX_PATH];
+   TCHAR fileName[MAX_PATH];
+ 
+   _tcscpy(dirPath,path.c_str());
+   _tcscat(dirPath, "\\*");
+   _tcscpy(fileName, path.c_str());
+   _tcscat(fileName,"\\");
+ 
+   // find the first file
+   hFind = FindFirstFile(dirPath, &FindFileData);
+   if(hFind == INVALID_HANDLE_VALUE) 
+	   return false;
+   
+   _tcscpy(dirPath, fileName);
+ 
+   bool bSearch = true;
+   while(bSearch) 
+   {    
+	   // until we find an entry
+      if(FindNextFile(hFind,&FindFileData)) 
+	  {
+         if(isDots(FindFileData.cFileName)) 
+			 continue;
+         _tcscat(fileName,FindFileData.cFileName);
+         if((FindFileData.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY)) 
+		 {
+             // we have found a directory, recurse
+            if(!recursiveDeleteDirectory(fileName)) 
+			{
+                FindClose(hFind);
+                return false;    // directory couldn't be deleted
+            }
+            // remove the empty directory
+            RemoveDirectory(fileName);
+             _tcscpy(fileName, dirPath);
+         }
+      }
+      else 
+	  {
+         // no more files there
+         if(GetLastError() == ERROR_NO_MORE_FILES)
+         bSearch = false;
+         else 
+		 {
+            // some error occurred; close the handle and return FALSE
+               FindClose(hFind);
+               return false;
+         }
+       }
+    }
+   FindClose(hFind);                  // close the file handle
+   return RemoveDirectory(path.c_str());     // remove the empty directory
+}
+
 FileHandleStream* WindowsFiles::getStream(const std::string& path, FileAccess nFileAccess, StreamType nStreamType) const
 {
 	FileHandleStream* pRet = new WoglFileHandleStream( path, nFileAccess, nStreamType);

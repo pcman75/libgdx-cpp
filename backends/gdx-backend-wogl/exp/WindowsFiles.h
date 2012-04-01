@@ -36,7 +36,11 @@ public:
   virtual bool      isDirectory(const std::string& path) const;
   virtual void      list(const std::string& path, std::vector<FileHandle>& handles) const;
   virtual void      mkdir( const std::string& path) const;
+  virtual bool recursiveDeleteDirectory(const std::string& path) const;
 
   virtual FileHandleStream* getStream(const std::string& path, FileAccess nFileAccess, StreamType nStreamType) const;
+
+private:
+	bool isDots(const TCHAR* str) const;
 };
 

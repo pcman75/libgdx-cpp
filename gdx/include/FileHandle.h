@@ -160,11 +160,11 @@ public:
 
   /** Deletes this file or empty directory and returns success. Will not delete a directory that has children.
   * @throw GdxRuntimeException if this file handle is a {@link FileType#Classpath} or {@link FileType#Internal} file. */
-  bool erase() const;
+  bool remove() const;
 
   /** Deletes this file or directory and all children, recursively.
   * @throw GdxRuntimeException if this file handle is a {@link FileType#Classpath} or {@link FileType#Internal} file. */
-  bool eraseDirectory() const;
+  bool removeRecursive() const;
 
   /** Copies this file or directory to the specified file or directory. If this handle is a file, then 1) if the destination is a
   * file, it is overwritten, or 2) if the destination is a directory, this file is copied into it, or 3) if the destination
@@ -200,4 +200,5 @@ public:
 
 protected:
   std::string m_strFullPath;
+
 };
