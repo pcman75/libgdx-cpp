@@ -13,6 +13,7 @@
 	// Windows Header Files:
 	#include <windows.h>
 	#include <direct.h> //rmdir
+    #include <io.h> //access
 #endif
 
 #if defined(__APPLE_CC__)
@@ -54,5 +55,5 @@
 #include <limits.h>
 #include <stdio.h>
 
-#include <io.h> //access
+
 
