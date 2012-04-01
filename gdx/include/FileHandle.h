@@ -41,6 +41,7 @@ class FileHandle
 public:
   FileHandle();
   FileHandle(const std::string& fileName);
+  FileHandle(const std::string& fileName, FileType type);
 
   std::string path() const;
   std::string name() const;
@@ -198,7 +199,11 @@ public:
   
   static FileHandle* tempDirectory(std::string prefix);
 
+private:
+	void init(const std::string& strFullPath, FileType type);
+
 protected:
   std::string m_strFullPath;
+  FileType m_type;
 
 };

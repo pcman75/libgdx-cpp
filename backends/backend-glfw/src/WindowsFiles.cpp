@@ -13,7 +13,7 @@ WindowsFiles::~WindowsFiles(void)
 
 FileHandle* WindowsFiles::getFileHandle(const std::string& path, FileType type) const
 {
-	return new FileHandle(path);
+	return new FileHandle(path, type);
 }
 
 FileHandle* WindowsFiles::internalHandle(const std::string& path) const
@@ -25,19 +25,19 @@ FileHandle* WindowsFiles::internalHandle(const std::string& path) const
 	::GetModuleFileName(NULL, modulePath, MAX_PATH);
 	_splitpath(modulePath, drive, dir, NULL, NULL);
 	std::string fullPath = std::string(drive) + dir + path;
-	return new FileHandle(fullPath);
+	return new FileHandle(fullPath, Internal);
 }
 
 FileHandle* WindowsFiles::externalHandle(const std::string& path) const
 {
 	std::string externalStoragePath;
 	getExternalStoragePath(externalStoragePath);
-	return new FileHandle(externalStoragePath + "/" + path);
+	return new FileHandle(externalStoragePath + "/" + path, External);
 }
 
 FileHandle* WindowsFiles::absoluteHandle(const std::string& path) const
 {
-	return new FileHandle(path);
+	return new FileHandle(path, Absolute);
 }
 
 void WindowsFiles::getExternalStoragePath(std::string& externalPath) const
@@ -87,23 +87,21 @@ void WindowsFiles::list(const std::string& path, std::vector< FileHandle>& handl
 {
 	if( isDirectory( path))
 	{
-		WIN32_FIND_DATAA FileData; 
+		WIN32_FIND_DATA FileData; 
 		HANDLE hSearch; 
 
 		std::string strSearchText = path;
-		if( '\\' != strSearchText[ strSearchText.length() - 1])
-		{
-			strSearchText +=  "\\";
-		}
-		strSearchText +=  "*.*";
+		strSearchText +=  "\\*";
+		
 
-		hSearch = FindFirstFileA( strSearchText.c_str(), &FileData); 
+		hSearch = FindFirstFile( strSearchText.c_str(), &FileData); 
 
 		do 
 		{
-			handles.push_back( FileHandle( path + FileData.cFileName));
-		} while ( FindNextFileA( hSearch, &FileData));
-
+			if(!isDots(FileData.cFileName))
+				handles.push_back( FileHandle( path + "/" + FileData.cFileName));
+		} 
+		while (FindNextFile(hSearch, &FileData));
 		FindClose( hSearch);
 	}
 }
@@ -116,7 +114,7 @@ void  WindowsFiles::mkdir( const std::string& path) const
 
 bool WindowsFiles::isDots(const TCHAR* str) const
 {
-   if(_tcscmp(str,".") && _tcscmp(str,"..")) 
+   if(strcmp(str,".") && strcmp(str,"..")) 
 	   return false;
    return true;
 }
@@ -129,17 +127,17 @@ bool WindowsFiles::recursiveDeleteDirectory(const std::string& path) const
    TCHAR dirPath[MAX_PATH];
    TCHAR fileName[MAX_PATH];
  
-   _tcscpy(dirPath,path.c_str());
-   _tcscat(dirPath, "\\*");
-   _tcscpy(fileName, path.c_str());
-   _tcscat(fileName,"\\");
+   strcpy(dirPath,path.c_str());
+   strcat(dirPath, "\\*");
+   strcpy(fileName, path.c_str());
+   strcat(fileName,"\\");
  
    // find the first file
    hFind = FindFirstFile(dirPath, &FindFileData);
    if(hFind == INVALID_HANDLE_VALUE) 
 	   return false;
    
-   _tcscpy(dirPath, fileName);
+   strcpy(dirPath, fileName);
  
    bool bSearch = true;
    while(bSearch) 
@@ -149,7 +147,7 @@ bool WindowsFiles::recursiveDeleteDirectory(const std::string& path) const
 	  {
          if(isDots(FindFileData.cFileName)) 
 			 continue;
-         _tcscat(fileName,FindFileData.cFileName);
+         strcat(fileName,FindFileData.cFileName);
          if((FindFileData.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY)) 
 		 {
              // we have found a directory, recurse
@@ -160,7 +158,7 @@ bool WindowsFiles::recursiveDeleteDirectory(const std::string& path) const
             }
             // remove the empty directory
             RemoveDirectory(fileName);
-             _tcscpy(fileName, dirPath);
+             strcpy(fileName, dirPath);
          }
       }
       else 

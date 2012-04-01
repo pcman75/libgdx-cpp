@@ -156,10 +156,6 @@
 		026AD4851523694B000D55E6 /* Gdx2DPixmap.h in Headers */ = {isa = PBXBuildFile; fileRef = 1772CABC1520F5C700330DB0 /* Gdx2DPixmap.h */; };
 		026AD4861523694B000D55E6 /* (null) in Headers */ = {isa = PBXBuildFile; };
 		026AD4871523694B000D55E6 /* GdxRuntimeException.h in Headers */ = {isa = PBXBuildFile; fileRef = 1772CABE1520F5C700330DB0 /* GdxRuntimeException.h */; };
-		026AD4881523694B000D55E6 /* GL10.h in Headers */ = {isa = PBXBuildFile; fileRef = 1772CABF1520F5C700330DB0 /* GL10.h */; };
-		026AD4891523694B000D55E6 /* GL11.h in Headers */ = {isa = PBXBuildFile; fileRef = 1772CAC01520F5C700330DB0 /* GL11.h */; };
-		026AD48A1523694B000D55E6 /* GL20.h in Headers */ = {isa = PBXBuildFile; fileRef = 1772CAC11520F5C700330DB0 /* GL20.h */; };
-		026AD48B1523694B000D55E6 /* GLCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = 1772CAC21520F5C700330DB0 /* GLCommon.h */; };
 		026AD48C1523694B000D55E6 /* Graphics.h in Headers */ = {isa = PBXBuildFile; fileRef = 1772CAC31520F5C700330DB0 /* Graphics.h */; };
 		026AD48D1523694B000D55E6 /* Group.h in Headers */ = {isa = PBXBuildFile; fileRef = 1772CAC41520F5C700330DB0 /* Group.h */; };
 		026AD48E1523694B000D55E6 /* ImmediateModeRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 1772CAC51520F5C700330DB0 /* ImmediateModeRenderer.h */; };
@@ -274,10 +270,6 @@
 		1772CB2A1520F5C700330DB0 /* Gdx.h in Headers */ = {isa = PBXBuildFile; fileRef = 1772CABB1520F5C700330DB0 /* Gdx.h */; };
 		1772CB2B1520F5C700330DB0 /* Gdx2DPixmap.h in Headers */ = {isa = PBXBuildFile; fileRef = 1772CABC1520F5C700330DB0 /* Gdx2DPixmap.h */; };
 		1772CB2D1520F5C700330DB0 /* GdxRuntimeException.h in Headers */ = {isa = PBXBuildFile; fileRef = 1772CABE1520F5C700330DB0 /* GdxRuntimeException.h */; };
-		1772CB2E1520F5C700330DB0 /* GL10.h in Headers */ = {isa = PBXBuildFile; fileRef = 1772CABF1520F5C700330DB0 /* GL10.h */; };
-		1772CB2F1520F5C700330DB0 /* GL11.h in Headers */ = {isa = PBXBuildFile; fileRef = 1772CAC01520F5C700330DB0 /* GL11.h */; };
-		1772CB301520F5C700330DB0 /* GL20.h in Headers */ = {isa = PBXBuildFile; fileRef = 1772CAC11520F5C700330DB0 /* GL20.h */; };
-		1772CB311520F5C700330DB0 /* GLCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = 1772CAC21520F5C700330DB0 /* GLCommon.h */; };
 		1772CB321520F5C700330DB0 /* Graphics.h in Headers */ = {isa = PBXBuildFile; fileRef = 1772CAC31520F5C700330DB0 /* Graphics.h */; };
 		1772CB331520F5C700330DB0 /* Group.h in Headers */ = {isa = PBXBuildFile; fileRef = 1772CAC41520F5C700330DB0 /* Group.h */; };
 		1772CB341520F5C700330DB0 /* ImmediateModeRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 1772CAC51520F5C700330DB0 /* ImmediateModeRenderer.h */; };
@@ -517,10 +509,6 @@
 		1772CABB1520F5C700330DB0 /* Gdx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = Gdx.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		1772CABC1520F5C700330DB0 /* Gdx2DPixmap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gdx2DPixmap.h; sourceTree = "<group>"; };
 		1772CABE1520F5C700330DB0 /* GdxRuntimeException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GdxRuntimeException.h; sourceTree = "<group>"; };
-		1772CABF1520F5C700330DB0 /* GL10.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GL10.h; sourceTree = "<group>"; };
-		1772CAC01520F5C700330DB0 /* GL11.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GL11.h; sourceTree = "<group>"; };
-		1772CAC11520F5C700330DB0 /* GL20.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GL20.h; sourceTree = "<group>"; };
-		1772CAC21520F5C700330DB0 /* GLCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLCommon.h; sourceTree = "<group>"; };
 		1772CAC31520F5C700330DB0 /* Graphics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = Graphics.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		1772CAC41520F5C700330DB0 /* Group.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Group.h; sourceTree = "<group>"; };
 		1772CAC51520F5C700330DB0 /* ImmediateModeRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImmediateModeRenderer.h; sourceTree = "<group>"; };
@@ -844,10 +832,6 @@
 				1772CABB1520F5C700330DB0 /* Gdx.h */,
 				1772CABC1520F5C700330DB0 /* Gdx2DPixmap.h */,
 				1772CABE1520F5C700330DB0 /* GdxRuntimeException.h */,
-				1772CABF1520F5C700330DB0 /* GL10.h */,
-				1772CAC01520F5C700330DB0 /* GL11.h */,
-				1772CAC11520F5C700330DB0 /* GL20.h */,
-				1772CAC21520F5C700330DB0 /* GLCommon.h */,
 				1772CAC31520F5C700330DB0 /* Graphics.h */,
 				1772CAC41520F5C700330DB0 /* Group.h */,
 				1772CAC51520F5C700330DB0 /* ImmediateModeRenderer.h */,
@@ -1083,10 +1067,6 @@
 				026AD4851523694B000D55E6 /* Gdx2DPixmap.h in Headers */,
 				026AD4861523694B000D55E6 /* (null) in Headers */,
 				026AD4871523694B000D55E6 /* GdxRuntimeException.h in Headers */,
-				026AD4881523694B000D55E6 /* GL10.h in Headers */,
-				026AD4891523694B000D55E6 /* GL11.h in Headers */,
-				026AD48A1523694B000D55E6 /* GL20.h in Headers */,
-				026AD48B1523694B000D55E6 /* GLCommon.h in Headers */,
 				026AD48C1523694B000D55E6 /* Graphics.h in Headers */,
 				026AD48D1523694B000D55E6 /* Group.h in Headers */,
 				026AD48E1523694B000D55E6 /* ImmediateModeRenderer.h in Headers */,
@@ -1207,10 +1187,6 @@
 				1772CB2A1520F5C700330DB0 /* Gdx.h in Headers */,
 				1772CB2B1520F5C700330DB0 /* Gdx2DPixmap.h in Headers */,
 				1772CB2D1520F5C700330DB0 /* GdxRuntimeException.h in Headers */,
-				1772CB2E1520F5C700330DB0 /* GL10.h in Headers */,
-				1772CB2F1520F5C700330DB0 /* GL11.h in Headers */,
-				1772CB301520F5C700330DB0 /* GL20.h in Headers */,
-				1772CB311520F5C700330DB0 /* GLCommon.h in Headers */,
 				1772CB321520F5C700330DB0 /* Graphics.h in Headers */,
 				1772CB331520F5C700330DB0 /* Group.h in Headers */,
 				1772CB341520F5C700330DB0 /* ImmediateModeRenderer.h in Headers */,

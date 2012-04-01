@@ -7,11 +7,23 @@ using namespace std;
 
 FileHandle::FileHandle()
 {
+	init("", Absolute);
 }
 
 FileHandle::FileHandle(const string& strFullPath) 
 {
+	init(strFullPath, Absolute);
+}
+
+FileHandle::FileHandle(const string& strFullPath, FileType type) 
+{
+	init(strFullPath, type);
+}
+
+void FileHandle::init(const string& strFullPath, FileType type) 
+{
 	m_strFullPath = strFullPath;
+	m_type = type;
 	replace(m_strFullPath.begin(), m_strFullPath.end(), '\\', '/');
 }
 
@@ -57,13 +69,16 @@ string FileHandle::nameWithoutExtension()  const
 
 FileType FileHandle::type()  const
 {
-	FileType nType = Gdx.app->getFiles()->getFileType(m_strFullPath);
-	return nType;
+	return m_type;
 }
 
 void FileHandle::list(vector<FileHandle> &handles) const
 {
 	Gdx.app->getFiles()->list( m_strFullPath, handles);
+	for(vector<FileHandle>::iterator it = handles.begin(); it != handles.end(); it++)
+	{
+		it->m_type = m_type;
+	}
 }
 
 bool FileHandle::isDirectory() const
@@ -71,10 +86,22 @@ bool FileHandle::isDirectory() const
 	return Gdx.app->getFiles()->isDirectory(m_strFullPath); 
 }
 
+
+/** Returns a handle to the child with the specified name.
+* @throw GdxRuntimeException if this file handle is a {@link FileType#Classpath} or {@link FileType#Internal} and the child
+* doesn't exist. */
 FileHandle* FileHandle::child(const string& name) const
 {
-	//TODO: implement this
-	throw GdxRuntimeException("not implemented");
+	/*
+	public FileHandle child (String name) {
+		if (file.getPath().length() == 0) return new FileHandle(new File(name), type);
+		return new FileHandle(new File(file, name), type);
+	}
+	*/
+	//TODO: review this
+	if(m_type == Internal)
+		return new FileHandle(name, Internal);
+	return new FileHandle(m_strFullPath + "/" + name, m_type);
 }
 
 FileHandleStream* FileHandle::getStream( FileAccess nFileAccess, StreamType nStreamType) const
@@ -247,9 +274,9 @@ FileHandle* FileHandle::parent() const
 {
 	int nIndex = m_strFullPath.rfind('/');
 	if( string::npos == nIndex) 
-		return new FileHandle(m_strFullPath);
+		return new FileHandle(m_strFullPath, m_type);
 
-	return new FileHandle(m_strFullPath.substr( 0, nIndex));
+	return new FileHandle(m_strFullPath.substr( 0, nIndex), m_type);
 }
 
 //
@@ -308,12 +335,12 @@ bool FileHandle::remove() const
 * @throw GdxRuntimeException if this file handle is a {@link FileType#Classpath} or {@link FileType#Internal} file. */
 bool FileHandle::removeRecursive() const
 {
-	int result = ::remove(m_strFullPath.c_str());
-	if(result)
+	bool result = ::remove(m_strFullPath.c_str()) == 0;
+	if(!result)
 	{
-		Gdx.files->recursiveDeleteDirectory(m_strFullPath.c_str());
+		result = Gdx.files->recursiveDeleteDirectory(m_strFullPath.c_str());
 	}
-	return result == 0;
+	return result;
 }
 
 

@@ -6,13 +6,23 @@
 #pragma once
 
 #if defined (WIN32)
-#include "targetver.h"
-#define NOMINMAX
-#define WIN32_LEAN_AND_MEAN             // Exclude rarely-used stuff from Windows headers
-// Windows Header Files:
-#include <windows.h>
-#define GL_GLEXT_PROTOTYPES
-#include <glew.h>
+    #include "targetver.h"
+    #define NOMINMAX
+    #define WIN32_LEAN_AND_MEAN             // Exclude rarely-used stuff from Windows headers
+    // Windows Header Files:
+    #include <windows.h>
+    #define GL_GLEXT_PROTOTYPES
+    #include <glew.h>
+    
+    #define GL_GLEXT_PROTOTYPES
+    #include <glew.h>
+#endif
+
+#if defined(__APPLE_CC__)
+    #include <OpenGL/gl.h>
+    #include <OpenGL/glext.h>
+    #include <libgen.h>
+    #include <sys/stat.h> //mkdir
 #endif
 
 #include <iostream>

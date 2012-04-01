@@ -6,19 +6,18 @@
 #pragma once
 
 #if defined (WIN32)
-#include "targetver.h"
-#define WIN32_LEAN_AND_MEAN             // Exclude rarely-used stuff from Windows headers
-#define NOMINMAX
-// Windows Header Files:
-#include <windows.h>
-#include <mmsystem.h>
-#include <direct.h> //_mkdir
+    #include "targetver.h"
+    #define WIN32_LEAN_AND_MEAN             // Exclude rarely-used stuff from Windows headers
+    #define NOMINMAX
+    // Windows Header Files:
+    #include <windows.h>
+    #include <mmsystem.h>
+    #include <direct.h> //_mkdir
 
-#include <io.h>
-#include <fcntl.h>
+    #include <io.h>
+    #include <fcntl.h>
 
-#include <Shlobj.h> //special folders location
-
+    #include <Shlobj.h> //special folders location
 #endif
 
 #define GL_GLEXT_PROTOTYPES
@@ -37,4 +36,3 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#include <tchar.h>

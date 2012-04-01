@@ -266,10 +266,16 @@ void FilesTest::testExternal()
 	if(child.name() != "meow")
 		fail();
 	
+	if(!child.parent()->exists()) 
+		fail();
+	
+	if(!handle->removeRecursive()) 
+		fail();
+	
+	
+	if(handle->exists()) 
+		fail();
 	/*
-	if(!child.parent().exists()) fail();
-	if(!handle.deleteDirectory()) fail();
-	if(handle.exists()) fail();
 	OutputStream output = handle.write(false);
 	output.write("moo".getBytes());
 	output.close();

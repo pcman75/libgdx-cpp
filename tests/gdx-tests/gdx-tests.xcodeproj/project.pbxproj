@@ -31,7 +31,6 @@
 		17D05CF4151F8832002CBB67 /* MipMap2D.h in Headers */ = {isa = PBXBuildFile; fileRef = 17D05CBC151F8832002CBB67 /* MipMap2D.h */; };
 		17D05CF5151F8832002CBB67 /* MipMapTest.h in Headers */ = {isa = PBXBuildFile; fileRef = 17D05CBD151F8832002CBB67 /* MipMapTest.h */; };
 		17D05CF6151F8832002CBB67 /* MoveSpriteExample.h in Headers */ = {isa = PBXBuildFile; fileRef = 17D05CBE151F8832002CBB67 /* MoveSpriteExample.h */; };
-		17D05CF7151F8832002CBB67 /* Mpg123Test.h in Headers */ = {isa = PBXBuildFile; fileRef = 17D05CBF151F8832002CBB67 /* Mpg123Test.h */; };
 		17D05CF8151F8832002CBB67 /* OrthoCamBorderTest.h in Headers */ = {isa = PBXBuildFile; fileRef = 17D05CC0151F8832002CBB67 /* OrthoCamBorderTest.h */; };
 		17D05CF9151F8832002CBB67 /* PixmapBlendingTest.h in Headers */ = {isa = PBXBuildFile; fileRef = 17D05CC1151F8832002CBB67 /* PixmapBlendingTest.h */; };
 		17D05CFA151F8832002CBB67 /* PixmapTest.h in Headers */ = {isa = PBXBuildFile; fileRef = 17D05CC2151F8832002CBB67 /* PixmapTest.h */; };
@@ -46,8 +45,6 @@
 		17D05D04151F8832002CBB67 /* VertexArrayClassTest.h in Headers */ = {isa = PBXBuildFile; fileRef = 17D05CCC151F8832002CBB67 /* VertexArrayClassTest.h */; };
 		17D05D05151F8832002CBB67 /* VertexArrayTest.h in Headers */ = {isa = PBXBuildFile; fileRef = 17D05CCD151F8832002CBB67 /* VertexArrayTest.h */; };
 		17D05D06151F8832002CBB67 /* VertexBufferObjectShaderTest.h in Headers */ = {isa = PBXBuildFile; fileRef = 17D05CCE151F8832002CBB67 /* VertexBufferObjectShaderTest.h */; };
-		17D05D07151F8832002CBB67 /* VorbisTest.h in Headers */ = {isa = PBXBuildFile; fileRef = 17D05CCF151F8832002CBB67 /* VorbisTest.h */; };
-		17D05D08151F8832002CBB67 /* WavTest.h in Headers */ = {isa = PBXBuildFile; fileRef = 17D05CD0151F8832002CBB67 /* WavTest.h */; };
 		17D05D0A151F8832002CBB67 /* GdxTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17D05CD3151F8832002CBB67 /* GdxTests.cpp */; };
 		17D05D0B151F8832002CBB67 /* MatrixJNITest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17D05CD4151F8832002CBB67 /* MatrixJNITest.cpp */; };
 		17D05D0C151F8832002CBB67 /* MeshShaderTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17D05CD5151F8832002CBB67 /* MeshShaderTest.cpp */; };
@@ -86,7 +83,6 @@
 		17D05CBC151F8832002CBB67 /* MipMap2D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MipMap2D.h; sourceTree = "<group>"; };
 		17D05CBD151F8832002CBB67 /* MipMapTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MipMapTest.h; sourceTree = "<group>"; };
 		17D05CBE151F8832002CBB67 /* MoveSpriteExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoveSpriteExample.h; sourceTree = "<group>"; };
-		17D05CBF151F8832002CBB67 /* Mpg123Test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mpg123Test.h; sourceTree = "<group>"; };
 		17D05CC0151F8832002CBB67 /* OrthoCamBorderTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrthoCamBorderTest.h; sourceTree = "<group>"; };
 		17D05CC1151F8832002CBB67 /* PixmapBlendingTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PixmapBlendingTest.h; sourceTree = "<group>"; };
 		17D05CC2151F8832002CBB67 /* PixmapTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PixmapTest.h; sourceTree = "<group>"; };
@@ -101,8 +97,6 @@
 		17D05CCC151F8832002CBB67 /* VertexArrayClassTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VertexArrayClassTest.h; sourceTree = "<group>"; };
 		17D05CCD151F8832002CBB67 /* VertexArrayTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VertexArrayTest.h; sourceTree = "<group>"; };
 		17D05CCE151F8832002CBB67 /* VertexBufferObjectShaderTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VertexBufferObjectShaderTest.h; sourceTree = "<group>"; };
-		17D05CCF151F8832002CBB67 /* VorbisTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VorbisTest.h; sourceTree = "<group>"; };
-		17D05CD0151F8832002CBB67 /* WavTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WavTest.h; sourceTree = "<group>"; };
 		17D05CD3151F8832002CBB67 /* GdxTests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GdxTests.cpp; sourceTree = "<group>"; };
 		17D05CD4151F8832002CBB67 /* MatrixJNITest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MatrixJNITest.cpp; sourceTree = "<group>"; };
 		17D05CD5151F8832002CBB67 /* MeshShaderTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MeshShaderTest.cpp; sourceTree = "<group>"; };
@@ -177,7 +171,6 @@
 				17D05CBC151F8832002CBB67 /* MipMap2D.h */,
 				17D05CBD151F8832002CBB67 /* MipMapTest.h */,
 				17D05CBE151F8832002CBB67 /* MoveSpriteExample.h */,
-				17D05CBF151F8832002CBB67 /* Mpg123Test.h */,
 				17D05CC0151F8832002CBB67 /* OrthoCamBorderTest.h */,
 				17D05CC1151F8832002CBB67 /* PixmapBlendingTest.h */,
 				17D05CC2151F8832002CBB67 /* PixmapTest.h */,
@@ -192,8 +185,6 @@
 				17D05CCC151F8832002CBB67 /* VertexArrayClassTest.h */,
 				17D05CCD151F8832002CBB67 /* VertexArrayTest.h */,
 				17D05CCE151F8832002CBB67 /* VertexBufferObjectShaderTest.h */,
-				17D05CCF151F8832002CBB67 /* VorbisTest.h */,
-				17D05CD0151F8832002CBB67 /* WavTest.h */,
 			);
 			path = include;
 			sourceTree = "<group>";
@@ -245,7 +236,6 @@
 				17D05CF4151F8832002CBB67 /* MipMap2D.h in Headers */,
 				17D05CF5151F8832002CBB67 /* MipMapTest.h in Headers */,
 				17D05CF6151F8832002CBB67 /* MoveSpriteExample.h in Headers */,
-				17D05CF7151F8832002CBB67 /* Mpg123Test.h in Headers */,
 				17D05CF8151F8832002CBB67 /* OrthoCamBorderTest.h in Headers */,
 				17D05CF9151F8832002CBB67 /* PixmapBlendingTest.h in Headers */,
 				17D05CFA151F8832002CBB67 /* PixmapTest.h in Headers */,
@@ -260,8 +250,6 @@
 				17D05D04151F8832002CBB67 /* VertexArrayClassTest.h in Headers */,
 				17D05D05151F8832002CBB67 /* VertexArrayTest.h in Headers */,
 				17D05D06151F8832002CBB67 /* VertexBufferObjectShaderTest.h in Headers */,
-				17D05D07151F8832002CBB67 /* VorbisTest.h in Headers */,
-				17D05D08151F8832002CBB67 /* WavTest.h in Headers */,
 				175147901522677800915FB2 /* FilesTest.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

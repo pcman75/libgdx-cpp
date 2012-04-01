@@ -6,4 +6,4 @@
 //  Copyright (c) 2012 Home. All rights reserved.
 //
 
-#include <iostream>
+#include <stdafx.h>

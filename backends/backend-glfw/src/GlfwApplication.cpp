@@ -2,7 +2,11 @@
 #include "GlfwApplication.h"
 #include "GlfwGraphics.h"
 #include "GlfwInput.h"
-#include "WindowsFiles.h"
+
+#ifdef WIN32
+    #include "WindowsFiles.h"
+#endif
+
 #include "GlfwThreading.h"
 
 #include "WindowsAudio.h"
@@ -18,7 +22,9 @@ GlfwApplication::GlfwApplication (ApplicationListener& listener, const char* tit
 	logLevel = LOG_INFO;
 	m_pGraphics = new GlfwGraphics(listener, useGL20IfAvailable);
 	m_pInput = new GlfwInput();
-	m_pFiles = new WindowsFiles();
+    #ifdef WIN32
+        m_pFiles = new WindowsFiles();
+    #endif
 	m_pThreading = new GlfwThreading();
 	m_pAudio = new WindowsAudio();
 	

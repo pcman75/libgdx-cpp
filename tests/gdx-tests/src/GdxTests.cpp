@@ -118,7 +118,12 @@
 //#include "VertexBufferObjectClassTest.h"
 #include "VertexBufferObjectShaderTest.h"
 //#include "VibratorTest.h"
+
+//TODO: 
+#ifdef WIN32
 #include "VorbisTest.h"
+#endif
+
 //#include "WaterRipples.h"
 //#include "HelloTriangle.h"
 #include "SimpleVertexShader.h"
@@ -126,8 +131,11 @@
 #include "MoveSpriteExample.h"
 //#include "StbTrueTypeTest.h"
 //#include "SoundTouchTest.h"
+//TODO: 
+#ifdef WIN32
 #include "Mpg123Test.h"
 #include "WavTest.h"
+#endif
 //#include "TextButtonTest.h"
 //#include "TextureBindTest.h"
 
@@ -256,7 +264,10 @@ GdxTests::GdxTests()
 	//GDX_DEFINE_TEST(VertexBufferObjectClassTest
 	GDX_DEFINE_TEST(VertexBufferObjectShaderTest);
 	//GDX_DEFINE_TEST(VibratorTest
+//TODO: 
+#ifdef WIN32
 	GDX_DEFINE_TEST(VorbisTest);
+#endif
 	//GDX_DEFINE_TEST(WaterRipples
 	//GDX_DEFINE_TEST(HelloTriangle
 	GDX_DEFINE_TEST(SimpleVertexShader);
@@ -264,8 +275,11 @@ GdxTests::GdxTests()
 	GDX_DEFINE_TEST(MoveSpriteExample);
 	//GDX_DEFINE_TEST(StbTrueTypeTest
 	//GDX_DEFINE_TEST(SoundTouchTest
+//TODO: 
+#ifdef WIN32
 	GDX_DEFINE_TEST(Mpg123Test);
 	GDX_DEFINE_TEST(WavTest);
+#endif
 	//GDX_DEFINE_TEST(TextButtonTest
 	//GDX_DEFINE_TEST(TextureBindTest
 }

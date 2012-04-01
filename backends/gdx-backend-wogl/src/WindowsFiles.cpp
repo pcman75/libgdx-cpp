@@ -66,16 +66,6 @@ bool WindowsFiles::isExternalStorageAvailable() const
 	return true;
 }
 
-FileType WindowsFiles::getFileType(const std::string& path) const
-{
-	if( isDirectory( path))
-		return Internal;
-
-	// ??
-	//
-	return Absolute;
-}
-
 bool WindowsFiles::isDirectory(const std::string& path) const
 {
 	DWORD dwFileType = GetFileAttributesA( path.c_str());
