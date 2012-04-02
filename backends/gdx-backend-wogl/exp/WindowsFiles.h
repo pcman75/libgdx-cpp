@@ -32,6 +32,7 @@ public:
   * with a PC. */
   virtual bool isExternalStorageAvailable() const;
 
+  virtual FileType  getFileType(const std::string& path) const;
   virtual bool      isDirectory(const std::string& path) const;
   virtual void      list(const std::string& path, std::vector<FileHandle>& handles) const;
   virtual void      mkdir( const std::string& path) const;

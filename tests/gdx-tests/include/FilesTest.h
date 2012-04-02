@@ -31,7 +31,6 @@ public:
 	GDX_DEFINE_CREATOR(FilesTest);
 
 private:
-	void testClasspath();
 	void testInternal();
 	void testExternal();
 	void testAbsolute();

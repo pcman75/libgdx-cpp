@@ -97,7 +97,6 @@ void FilesTest::create()
 
 	try
 	{
-		testClasspath();
 		testInternal();
 		testExternal();
 		testAbsolute();
@@ -120,48 +119,6 @@ bool FilesTest::needsGL20()
 	return false;
 }
 
-void FilesTest::testClasspath()
-{
-	/*
-	FileHandle handle = Gdx.files.classpath("com/badlogic/gdx/utils/arial-15.png");
-	if(!handle.exists()) 
-		fail();
-	if(handle.isDirectory())
-		fail();
-	try 
-	{
-		handle.delete();
-		fail();
-	}
-	catch(Exception expected)
-	{
-	}
-	try 
-	{
-		handle.list();
-		fail();
-	}
-	catch(Exception expected)
-	{
-	}
-	try 
-	{
-		handle.read().close();
-		fail();
-	}
-	catch(Exception ignored)
-	{
-	}
-	FileHandle dir = Gdx.files.classpath("com/badlogic/gdx/utils");
-	if(dir.isDirectory()) fail();
-	FileHandle child = dir.child("arial-15.fnt");
-	if(!child.name().equals("arial-15.fnt")) fail();
-	if(!child.nameWithoutExtension().equals("arial-15")) fail();
-	if(!child.extension().equals("fnt")) fail();
-	handle.read().close();
-	if(handle.readBytes().length != handle.length()) fail();
-	*/
-}
 void FilesTest::testInternal()
 {
 	/*
@@ -275,8 +232,10 @@ void FilesTest::testExternal()
 	
 	if(handle->exists()) 
 		fail();
-	/*
-	OutputStream output = handle.write(false);
+	
+	std::ofstream output;
+	handle->write(false, output);
+	
 	output.write("moo".getBytes());
 	output.close();
 	if(!handle.exists()) fail();
