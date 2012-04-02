@@ -87,7 +87,11 @@ void IndexBufferObject::invalidate ()
 
 void IndexBufferObject::dispose () 
 {
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+	if(m_isBound)
+	{
+		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+		m_isBound = false;
+	}
     glDeleteBuffers(1, &m_bufferHandle);
     m_bufferHandle = 0;
 }

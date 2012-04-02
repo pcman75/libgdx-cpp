@@ -411,7 +411,8 @@ void ShaderProgram::end ()
 /** Disposes all resources associated with this shader. Must be called when the shader is no longer used. */
 void ShaderProgram::dispose ()
 {
-	glUseProgram(0);
+	//TODO: need this?
+	//glUseProgram(0);
 	glDeleteShader(m_vertexShaderHandle);
 	glDeleteShader(m_fragmentShaderHandle);
 	glDeleteProgram(m_program);

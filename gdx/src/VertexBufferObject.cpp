@@ -227,16 +227,11 @@ void VertexBufferObject::invalidate()
 void VertexBufferObject::dispose()
 {
 	//TODO: check for multiple dispose
-	if(Gdx.getGlVersion() == GL_VERSION_20)
+	if(m_isBound)
 	{
 		glBindBuffer(GL_ARRAY_BUFFER, 0);
-		glDeleteBuffers(1, &m_bufferHandle);
-		m_bufferHandle = 0;
+		m_isBound = false;
 	}
-	else if(Gdx.getGlVersion() == GL_VERSION_11)
-	{
-		glBindBuffer(GL_ARRAY_BUFFER, 0);
-		glDeleteBuffers(1, &m_bufferHandle);
-		m_bufferHandle = 0;
-	}
+	glDeleteBuffers(1, &m_bufferHandle);
+	m_bufferHandle = 0;
 };
