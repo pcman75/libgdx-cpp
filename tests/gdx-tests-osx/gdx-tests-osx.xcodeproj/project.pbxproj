@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		17821FE71529036200E213C9 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17821FE61529036200E213C9 /* OpenGL.framework */; };
+		17821FF8152A5DC100E213C9 /* libglfw.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 17821FF7152A5DC100E213C9 /* libglfw.a */; };
 		1783F0011528F1A90005F670 /* libgdx-macos.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1783F0001528F1A90005F670 /* libgdx-macos.a */; };
 		1786100E151A76030091BA8D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1786100D151A76030091BA8D /* Cocoa.framework */; };
 		17861018151A76030091BA8D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 17861016151A76030091BA8D /* InfoPlist.strings */; };
@@ -21,6 +22,7 @@
 
 /* Begin PBXFileReference section */
 		17821FE61529036200E213C9 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		17821FF7152A5DC100E213C9 /* libglfw.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libglfw.a; path = "../../backends/backend-glfw/extern/glfw-2.7.3/lib/cocoa/libglfw.a"; sourceTree = "<group>"; };
 		1783F0001528F1A90005F670 /* libgdx-macos.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgdx-macos.a"; path = "../../gdx/build/Release/libgdx-macos.a"; sourceTree = "<group>"; };
 		17861009151A76030091BA8D /* gdx-tests-osx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "gdx-tests-osx.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1786100D151A76030091BA8D /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
@@ -44,6 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17821FF8152A5DC100E213C9 /* libglfw.a in Frameworks */,
 				1783F0011528F1A90005F670 /* libgdx-macos.a in Frameworks */,
 				17D05D7D151F94D2002CBB67 /* libbackend-glfw.a in Frameworks */,
 				17D05D19151F9326002CBB67 /* libgdx-tests.a in Frameworks */,
@@ -58,6 +61,7 @@
 		17860FFE151A76030091BA8D = {
 			isa = PBXGroup;
 			children = (
+				17821FF7152A5DC100E213C9 /* libglfw.a */,
 				1783F0001528F1A90005F670 /* libgdx-macos.a */,
 				17D05D7C151F94D2002CBB67 /* libbackend-glfw.a */,
 				17D05D18151F9326002CBB67 /* libgdx-tests.a */,
@@ -276,6 +280,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/gdx-tests-bvufqwdkchmelmhhkbvwazgaikrk/Build/Products/Debug\"",
+					"\"$(SRCROOT)/../../backends/backend-glfw/extern/glfw-2.7.3/lib/cocoa\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -296,6 +301,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/gdx-tests-bvufqwdkchmelmhhkbvwazgaikrk/Build/Products/Debug\"",
+					"\"$(SRCROOT)/../../backends/backend-glfw/extern/glfw-2.7.3/lib/cocoa\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
