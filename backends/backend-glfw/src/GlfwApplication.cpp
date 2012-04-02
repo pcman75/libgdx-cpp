@@ -42,15 +42,19 @@ GlfwApplication::GlfwApplication (ApplicationListener& listener, const char* tit
 		throw GdxRuntimeException("Failed to initialize GLFW");
 	}
 	
-	/*
 	if(useGL20IfAvailable)
+	{
 		::glfwOpenWindowHint(GLFW_OPENGL_VERSION_MAJOR, 2);
+		m_pGraphics->setGlVersion(GL_VERSION_20);
+	}
 	else
 	{
 		::glfwOpenWindowHint(GLFW_OPENGL_VERSION_MAJOR, 1);
 		//TODO: need to set OpenGL minor version???
 		//::glfwOpenWindowHint(GLFW_OPENGL_VERSION_MINOR, 3); 
-	}*/
+
+		m_pGraphics->setGlVersion(GL_VERSION_11);
+	}
 
 	createWindow(title, width, height);
 
