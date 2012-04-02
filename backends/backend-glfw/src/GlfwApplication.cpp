@@ -24,9 +24,9 @@ GlfwApplication::GlfwApplication (ApplicationListener& listener, const char* tit
 	m_pInput = new GlfwInput();
     #ifdef WIN32
         m_pFiles = new WindowsFiles();
+		m_pAudio = new WindowsAudio();
     #endif
 	m_pThreading = new GlfwThreading();
-	m_pAudio = new WindowsAudio();
 	
 	Gdx.app = this;
 	Gdx.graphics = m_pGraphics;
