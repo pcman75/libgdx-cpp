@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "AlphaTest.h"
+#import "RendererTest.cpp"
 
 @implementation AppDelegate
 
@@ -37,7 +37,7 @@ static void uncaughtExceptionHandler(NSException *exception) {
     NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
     
     // Instantiate the listener
-    ApplicationListener *listener = new AlphaTest();
+    ApplicationListener *listener = new RendererTest();
     // create the application
     m_app = new IOSApplication(*listener, true);
     
