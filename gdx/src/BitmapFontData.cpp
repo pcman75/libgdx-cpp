@@ -136,7 +136,7 @@ BitmapFont::BitmapFontData::BitmapFontData(const FileHandle* fontFile, bool flip
 		//imagePath = fontFile->parent().child(imgFilename).path().replaceAll("\\\\", "/");
 		//I don't think this works on something else except Windows but right now 
 		//FileHandle parent and child are not implemented
-//		makeSamePathAs(fontFile->getFullPathName().c_str(), imgFilename.c_str(), m_imagePath);
+		makeSamePathAs(fontFile->getFullPathName().c_str(), imgFilename.c_str(), m_imagePath);
 		descent = 0;
 
 		while(true)

@@ -28,6 +28,12 @@ class AlphaTest  :
 public:
 	
 	GDX_DEFINE_CREATOR(AlphaTest);
+	
+	virtual bool needsGL20()
+	{
+		return true;
+	}
+	
 	void create () 
 	{
 		Pixmap* pixmap = new Pixmap(256, 256, Pixmap::Format::RGBA8888);
