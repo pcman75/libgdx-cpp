@@ -233,6 +233,10 @@
 		026AD4D61523694B000D55E6 /* StringUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 1772CB7F1520F5D900330DB0 /* StringUtils.h */; };
 		026AD4D71523694B000D55E6 /* targetver.h in Headers */ = {isa = PBXBuildFile; fileRef = 1772CB801520F5D900330DB0 /* targetver.h */; };
 		026AD4DD15236982000D55E6 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 026AD4DC15236982000D55E6 /* OpenGL.framework */; };
+		0299B1C2152A1B08005737BF /* GL2Renderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0299B1C1152A1B08005737BF /* GL2Renderer.cpp */; };
+		0299B1C4152A1CCE005737BF /* Simple.frag in Resources */ = {isa = PBXBuildFile; fileRef = 0299B1C3152A1CCE005737BF /* Simple.frag */; };
+		0299B1C8152A1D56005737BF /* Simple.vert in Resources */ = {isa = PBXBuildFile; fileRef = 0299B1C6152A1D0F005737BF /* Simple.vert */; };
+		0299B1CA152A1E3A005737BF /* RendererTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0299B1C9152A1E3A005737BF /* RendererTest.cpp */; };
 		1772CB081520F5C700330DB0 /* AccelerateDecelerateInterpolator.h in Headers */ = {isa = PBXBuildFile; fileRef = 1772CA991520F5C700330DB0 /* AccelerateDecelerateInterpolator.h */; };
 		1772CB091520F5C700330DB0 /* AccelerateInterpolator.h in Headers */ = {isa = PBXBuildFile; fileRef = 1772CA9A1520F5C700330DB0 /* AccelerateInterpolator.h */; };
 		1772CB0A1520F5C700330DB0 /* Action.h in Headers */ = {isa = PBXBuildFile; fileRef = 1772CA9B1520F5C700330DB0 /* Action.h */; };
@@ -471,6 +475,11 @@
 		026AD3FB15236934000D55E6 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.0.sdk/System/Library/Frameworks/OpenGLES.framework; sourceTree = DEVELOPER_DIR; };
 		026AD4DB1523694B000D55E6 /* libgdx-ios.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libgdx-ios.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		026AD4DC15236982000D55E6 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		0299B1BF152A1AB2005737BF /* Renderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Renderer.h; sourceTree = "<group>"; };
+		0299B1C1152A1B08005737BF /* GL2Renderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GL2Renderer.cpp; sourceTree = "<group>"; };
+		0299B1C3152A1CCE005737BF /* Simple.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = Simple.frag; path = shaders/Simple.frag; sourceTree = "<group>"; };
+		0299B1C6152A1D0F005737BF /* Simple.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = Simple.vert; path = shaders/Simple.vert; sourceTree = "<group>"; };
+		0299B1C9152A1E3A005737BF /* RendererTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RendererTest.cpp; sourceTree = "<group>"; };
 		1772CA8B1520F4A300330DB0 /* libgdx-macos.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libgdx-macos.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1772CA991520F5C700330DB0 /* AccelerateDecelerateInterpolator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccelerateDecelerateInterpolator.h; sourceTree = "<group>"; };
 		1772CA9A1520F5C700330DB0 /* AccelerateInterpolator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccelerateInterpolator.h; sourceTree = "<group>"; };
@@ -733,6 +742,9 @@
 				026292FD1524D82900D7583F /* AppDelegate.h */,
 				026292FE1524D82900D7583F /* AppDelegate.mm */,
 				026292F51524D82800D7583F /* Supporting Files */,
+				0299B1BF152A1AB2005737BF /* Renderer.h */,
+				0299B1C1152A1B08005737BF /* GL2Renderer.cpp */,
+				0299B1C5152A1CF3005737BF /* shaders */,
 			);
 			path = "gdx-backend-ios";
 			sourceTree = "<group>";
@@ -753,6 +765,7 @@
 			children = (
 				0262931F1524DD2200D7583F /* AlphaTest.h */,
 				026293201524DD2200D7583F /* GdxTest.h */,
+				0299B1C9152A1E3A005737BF /* RendererTest.cpp */,
 			);
 			name = tests;
 			sourceTree = "<group>";
@@ -767,6 +780,15 @@
 				026292F21524D82800D7583F /* CoreGraphics.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		0299B1C5152A1CF3005737BF /* shaders */ = {
+			isa = PBXGroup;
+			children = (
+				0299B1C3152A1CCE005737BF /* Simple.frag */,
+				0299B1C6152A1D0F005737BF /* Simple.vert */,
+			);
+			name = shaders;
 			sourceTree = "<group>";
 		};
 		1772CA801520F4A300330DB0 = {
@@ -1353,7 +1375,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0299B1C8152A1D56005737BF /* Simple.vert in Resources */,
 				026292F91524D82900D7583F /* InfoPlist.strings in Resources */,
+				0299B1C4152A1CCE005737BF /* Simple.frag in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1371,6 +1395,8 @@
 				0262931B1524DA7000D7583F /* IOSApplicationConfiguration.cpp in Sources */,
 				0262931C1524DA7000D7583F /* IOSGraphics.cpp in Sources */,
 				0262931D1524DA7000D7583F /* IOSTimer.cpp in Sources */,
+				0299B1C2152A1B08005737BF /* GL2Renderer.cpp in Sources */,
+				0299B1CA152A1E3A005737BF /* RendererTest.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
