@@ -64,8 +64,6 @@ void VertexArray::setVertices(const float* vertices, int count)
 
 void VertexArray::bind () 
 {
-    throw new GdxRuntimeException("OpenGL 1.x not yet supported");
-/*
 	int textureUnit = 0;
 	char* byteBuffer = (char*)m_buffer;
 	int colorType = GL_FLOAT;
@@ -108,14 +106,11 @@ void VertexArray::bind ()
 	}
 
 	m_isBound = true;
- */
 }
 
 
 void VertexArray::unbind () 
 {
-    throw new GdxRuntimeException("OpenGL 1.x not yet supported");
-/*
 	int textureUnit = 0;
 	int numAttributes = m_attributes.size();
 
@@ -142,7 +137,6 @@ void VertexArray::unbind ()
 		}
 	}
 	m_isBound = false;
- */
 }
 
 const VertexAttributes& VertexArray::getAttributes() 
