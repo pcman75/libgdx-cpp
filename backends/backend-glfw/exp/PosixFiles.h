@@ -9,7 +9,8 @@
 #pragma once
 #include "Files.h"
 
-class PosixFiles : Files
+class PosixFiles : 
+    public Files
 {
   
     /** Returns a handle representing a file or directory.
@@ -39,7 +40,12 @@ class PosixFiles : Files
 	virtual void      list( const std::string& path, std::vector< FileHandle>& handles);
 	virtual void      mkdir( const std::string& path) const;
     
-	virtual bool recursiveDeleteDirectory(const std::string& path);
+	virtual bool recursiveDeleteDirectory(const std::string& path) const;
     
+    virtual bool isExternalStorageAvailable() const;
+    
+	virtual bool      isDirectory( const std::string& path) const;
+	virtual void      list( const std::string& path, std::vector<FileHandle>& handles) const;
+      
 	virtual FileHandleStream* getStream( const std::string& path, FileAccess nFileAccess, StreamType nStreamType) const;
 };

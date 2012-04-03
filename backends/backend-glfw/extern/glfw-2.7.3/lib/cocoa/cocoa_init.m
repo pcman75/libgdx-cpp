@@ -259,7 +259,7 @@ int _glfwPlatformInit( void )
     }
 
     // Setting up menu bar must go exactly here else weirdness ensues
-    setUpMenuBar();
+    //setUpMenuBar();
 
     [NSApp finishLaunching];
 

@@ -1,10 +1,12 @@
-#include "StdAfx.h"
+	#include "StdAfx.h"
 #include "GlfwApplication.h"
 #include "GlfwGraphics.h"
 #include "GlfwInput.h"
 
 #ifdef WIN32
     #include "WindowsFiles.h"
+#else
+    #include "PosixFiles.h"
 #endif
 
 #include "GlfwThreading.h"
@@ -25,6 +27,9 @@ GlfwApplication::GlfwApplication (ApplicationListener& listener, const char* tit
     #ifdef WIN32
         m_pFiles = new WindowsFiles();
 		m_pAudio = new WindowsAudio();
+    #else
+        m_pFiles = new PosixFiles();
+        m_pAudio = NULL;
     #endif
 	m_pThreading = new GlfwThreading();
 	
