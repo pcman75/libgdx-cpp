@@ -28,7 +28,6 @@ void VertexBufferObject::createBufferObject()
 
 VertexBufferObject::~VertexBufferObject()
 {
-    dispose();
 	if(m_buffer)
 	{
 		delete[] m_buffer;
@@ -63,14 +62,7 @@ void VertexBufferObject::setVertices(const float* vertices, int count)
 	
 	if(m_isBound)
 	{
-		if(Gdx.getGlVersion() == GL_VERSION_20)
-		{
-			glBufferData(GL_ARRAY_BUFFER, bufferSizeInBytes, m_buffer, m_usage);
-		}
-		else
-		{
-			glBufferData(GL_ARRAY_BUFFER, bufferSizeInBytes, m_buffer, m_usage);
-		}
+		glBufferData(GL_ARRAY_BUFFER, bufferSizeInBytes, m_buffer, m_usage);
 		m_isDirty = false;
 	}
 }
@@ -227,11 +219,8 @@ void VertexBufferObject::invalidate()
 void VertexBufferObject::dispose()
 {
 	//TODO: check for multiple dispose
-	if(m_isBound)
-	{
-		glBindBuffer(GL_ARRAY_BUFFER, 0);
-		m_isBound = false;
-	}
+	
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
 	glDeleteBuffers(1, &m_bufferHandle);
 	m_bufferHandle = 0;
 };

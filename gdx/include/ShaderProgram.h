@@ -382,4 +382,7 @@ private:
 
 	/** @return the uniforms */
 	const std::vector<std::string>&  getUniforms();
+
+	void getActiveAttrib(int program, int index, GLsizei* size, GLenum* type, std::string& attrib);
+	void getActiveUniform(int program, int index, GLsizei* size, GLenum* type, std::string& uniform);
 };

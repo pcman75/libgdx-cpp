@@ -412,7 +412,7 @@ void ShaderProgram::end ()
 void ShaderProgram::dispose ()
 {
 	//TODO: need this?
-	//glUseProgram(0);
+	glUseProgram(0);
 	glDeleteShader(m_vertexShaderHandle);
 	glDeleteShader(m_fragmentShaderHandle);
 	glDeleteProgram(m_program);
@@ -497,14 +497,13 @@ void ShaderProgram::fetchUniforms ()
 
 	for (int i = 0; i < numUniforms; i++)
 	{
-        GLint   size = -1;
-        GLsizei length = 0;
+        GLsizei   size = -1;
         GLenum  type = 0;
-        GLchar* uniformName = new GLchar[numUniforms];
-        glGetActiveUniform( m_program, i, numUniforms, &length, &size, &type, uniformName);
-        GLint location = glGetUniformLocation(m_program, uniformName);
+		std::string name;
+        
+        getActiveUniform( m_program, i, &size, &type, name);
+        GLint location = glGetUniformLocation(m_program, name.c_str());
 
-        std::string name = std::string(uniformName);
 		m_uniforms[name] = location;
 		m_uniformTypes[name] = type;
 		m_uniformNames[i] = name;
@@ -520,16 +519,14 @@ void ShaderProgram::fetchAttributes ()
 
 	for (int i = 0; i < numAttributes; i++)
 	{
-		//params.clear();
-		GLsizei size = 256;
+		GLsizei size = 0;
 		GLenum type = -1;
         GLsizei length = 0;
-        GLchar* attribName = new GLchar[numAttributes];
         
-        glGetActiveAttrib(m_program, i, size, NULL, &length, &type, attribName); 
-        GLint location = glGetUniformLocation(m_program, attribName);
+        std::string name;
+        getActiveAttrib(m_program, i, &size, &type, name); 
+        GLint location = glGetUniformLocation(m_program, name.c_str());
         
-		std::string name = std::string(attribName);
 		m_attributes[name] = location;
 		m_attributeTypes[name] = type;
 		m_attributeNames[i] = name;
@@ -592,4 +589,30 @@ const std::vector<std::string>& ShaderProgram::getAttributes()
 const std::vector<std::string>&  ShaderProgram::getUniforms()
 {
 	return m_uniformNames;
+}
+
+void ShaderProgram::getActiveAttrib(int program, int index, GLsizei* size, GLenum* type, std::string& attrib)
+{
+	GLint len;
+	::glGetProgramiv(program, GL_ACTIVE_ATTRIBUTE_MAX_LENGTH, &len);
+	if(len)
+	{
+		GLchar* buffer = new GLchar[len];
+		::glGetActiveAttrib(program, index, len, NULL, size, type, buffer);
+		attrib = buffer;
+		delete buffer;
+	}
+}
+
+void ShaderProgram::getActiveUniform(int program, int index, GLsizei* size, GLenum* type, std::string& uniform)
+{
+	GLint len;
+	::glGetProgramiv(program, GL_ACTIVE_UNIFORM_MAX_LENGTH, &len);
+	if(len)
+	{
+		GLchar* buffer = new GLchar[len];
+		::glGetActiveUniform(program, index, len, NULL, size, type, buffer);
+		uniform = buffer;
+		delete buffer;
+	}
 }
