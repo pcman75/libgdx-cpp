@@ -525,7 +525,7 @@ void ShaderProgram::fetchAttributes ()
         
         std::string name;
         getActiveAttrib(m_program, i, &size, &type, name); 
-        GLint location = glGetUniformLocation(m_program, name.c_str());
+        GLint location = ::glGetUniformLocation(m_program, name.c_str());
         
 		m_attributes[name] = location;
 		m_attributeTypes[name] = type;
@@ -600,7 +600,7 @@ void ShaderProgram::getActiveAttrib(int program, int index, GLsizei* size, GLenu
 		GLchar* buffer = new GLchar[len];
 		::glGetActiveAttrib(program, index, len, NULL, size, type, buffer);
 		attrib = buffer;
-		delete buffer;
+		delete[] buffer;
 	}
 }
 
@@ -613,6 +613,6 @@ void ShaderProgram::getActiveUniform(int program, int index, GLsizei* size, GLen
 		GLchar* buffer = new GLchar[len];
 		::glGetActiveUniform(program, index, len, NULL, size, type, buffer);
 		uniform = buffer;
-		delete buffer;
+		delete[] buffer;
 	}
 }
