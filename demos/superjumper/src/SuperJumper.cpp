@@ -3,7 +3,6 @@
 
 #include "stdafx.h"
 #include "SuperJumper.h"
-#include "WoglApplication.h"
 #include "GlfwApplication.h"
 
 #include "MainMenuScreen.h"

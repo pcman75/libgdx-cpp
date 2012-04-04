@@ -69,7 +69,8 @@ int ShaderProgram::loadShader (int type, const std::string& source)
 		return -1;
 
     const char *src = source.c_str();
-    glShaderSource(shader, 1, &src, 0);
+	GLint length =  source.length();
+    glShaderSource(shader, 1, &src, &length);
 	glCompileShader(shader);
 	glGetShaderiv(shader, GL_COMPILE_STATUS, &params);
 
@@ -525,7 +526,7 @@ void ShaderProgram::fetchAttributes ()
         
         std::string name;
         getActiveAttrib(m_program, i, &size, &type, name); 
-        GLint location = ::glGetUniformLocation(m_program, name.c_str());
+        GLint location = glGetAttribLocation(m_program, name.c_str());
         
 		m_attributes[name] = location;
 		m_attributeTypes[name] = type;

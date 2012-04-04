@@ -1,6 +1,5 @@
 #include "stdafx.h"
 #include "Metagun.h"
-#include "WoglApplication.h"
 #include "GlfwApplication.h"
 #include "InputMeta.h"
 #include "Gdx.h"
@@ -17,9 +16,8 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
                      LPTSTR    lpCmdLine,
                      int       nCmdShow)
 {
-	//WoglApplication( Metagun(), "Metagun", 400, 300, false);
 	GlfwApplication( Metagun(), "Metagun", 400, 300, false);
-  return 0;
+	return 0;
 }
 
 
