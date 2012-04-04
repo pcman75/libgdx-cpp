@@ -15,6 +15,7 @@
 		1772CA74151F963500330DB0 /* wglext.h in Headers */ = {isa = PBXBuildFile; fileRef = 1772CA04151F963500330DB0 /* wglext.h */; };
 		17821FE11528F72100E213C9 /* PosixFiles.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17821FE01528F72100E213C9 /* PosixFiles.cpp */; };
 		17821FE41528F78D00E213C9 /* PosixFiles.h in Headers */ = {isa = PBXBuildFile; fileRef = 17821FE31528F78D00E213C9 /* PosixFiles.h */; };
+		17822023152CEF1200E213C9 /* WoglFileHandleStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17822022152CEF1200E213C9 /* WoglFileHandleStream.cpp */; };
 		17D05D56151F94A4002CBB67 /* GlfwApplication.h in Headers */ = {isa = PBXBuildFile; fileRef = 17D05D2E151F94A4002CBB67 /* GlfwApplication.h */; };
 		17D05D57151F94A4002CBB67 /* GlfwGraphics.h in Headers */ = {isa = PBXBuildFile; fileRef = 17D05D2F151F94A4002CBB67 /* GlfwGraphics.h */; };
 		17D05D58151F94A4002CBB67 /* GlfwInput.h in Headers */ = {isa = PBXBuildFile; fileRef = 17D05D30151F94A4002CBB67 /* GlfwInput.h */; };
@@ -50,6 +51,7 @@
 		1772CA04151F963500330DB0 /* wglext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = wglext.h; sourceTree = "<group>"; };
 		17821FE01528F72100E213C9 /* PosixFiles.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PosixFiles.cpp; path = ../exp/PosixFiles.cpp; sourceTree = "<group>"; };
 		17821FE31528F78D00E213C9 /* PosixFiles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PosixFiles.h; sourceTree = "<group>"; };
+		17822022152CEF1200E213C9 /* WoglFileHandleStream.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WoglFileHandleStream.cpp; sourceTree = "<group>"; };
 		17D05D26151F9453002CBB67 /* libbackend-glfw.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libbackend-glfw.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		17D05D2E151F94A4002CBB67 /* GlfwApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlfwApplication.h; sourceTree = "<group>"; };
 		17D05D2F151F94A4002CBB67 /* GlfwGraphics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlfwGraphics.h; sourceTree = "<group>"; };
@@ -76,7 +78,6 @@
 		17D05D4C151F94A4002CBB67 /* GlfwWaitCondition.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GlfwWaitCondition.cpp; sourceTree = "<group>"; };
 		17D05D4D151F94A4002CBB67 /* stdafx.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = stdafx.cpp; sourceTree = "<group>"; };
 		17D05D4E151F94A4002CBB67 /* WindowsAudio.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WindowsAudio.cpp; sourceTree = "<group>"; };
-		17D05D50151F94A4002CBB67 /* WoglFileHandleStream.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WoglFileHandleStream.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +156,7 @@
 		17D05D44151F94A4002CBB67 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				17822022152CEF1200E213C9 /* WoglFileHandleStream.cpp */,
 				17D05D45151F94A4002CBB67 /* GlfwApplication.cpp */,
 				17D05D46151F94A4002CBB67 /* GlfwGraphics.cpp */,
 				17D05D47151F94A4002CBB67 /* GlfwInput.cpp */,
@@ -166,7 +168,6 @@
 				17821FE01528F72100E213C9 /* PosixFiles.cpp */,
 				17D05D4D151F94A4002CBB67 /* stdafx.cpp */,
 				17D05D4E151F94A4002CBB67 /* WindowsAudio.cpp */,
-				17D05D50151F94A4002CBB67 /* WoglFileHandleStream.cpp */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -264,6 +265,7 @@
 				17D05D73151F94A4002CBB67 /* stdafx.cpp in Sources */,
 				1772CA05151F963500330DB0 /* glew.c in Sources */,
 				17821FE11528F72100E213C9 /* PosixFiles.cpp in Sources */,
+				17822023152CEF1200E213C9 /* WoglFileHandleStream.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

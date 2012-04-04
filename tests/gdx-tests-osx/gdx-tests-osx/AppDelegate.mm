@@ -42,7 +42,6 @@
     NSLog([@"Starting test " stringByAppendingString: testName]);
     const char* szTestName = [testName UTF8String];
     
-    
     GdxTest* test = GdxTests::newTest(szTestName);
     if(test)
     {

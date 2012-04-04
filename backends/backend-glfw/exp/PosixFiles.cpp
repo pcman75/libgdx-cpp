@@ -6,8 +6,13 @@
 //  Copyright (c) 2012 Home. All rights reserved.
 //
 
-#include <stdafx.h>
+#include "stdafx.h"
 #include "PosixFiles.h"
+#include "WoglFileHandleStream.h"
+
+#include <CoreFoundation/CFBundle.h>
+#include <CoreFoundation/CFURL.h>
+
 
 PosixFiles::PosixFiles()
 {
@@ -26,7 +31,18 @@ FileHandle* PosixFiles::getFileHandle (const std::string& path, FileType type) c
 /** Convenience method that returns a {@link FileType#Internal} file handle. */
 FileHandle* PosixFiles::internalHandle (const std::string& path) const
 {
-    return NULL; 
+    unsigned char pathBuf[PATH_MAX];
+    CFBundleRef mainBundle;
+    
+    // Get the main bundle for the app
+    mainBundle = CFBundleGetMainBundle();
+    CFURLRef url = CFBundleCopyResourcesDirectoryURL(mainBundle);
+    CFURLGetFileSystemRepresentation(url, true, pathBuf, PATH_MAX);
+         
+    std::string fullPath((char*)pathBuf);
+    fullPath += "/";
+    fullPath += path;
+    return new FileHandle(fullPath, Internal); 
 }
 
 /** Convenience method that returns a {@link FileType#External} file handle. */
@@ -79,5 +95,6 @@ bool PosixFiles::recursiveDeleteDirectory(const std::string& path) const
 
 FileHandleStream* PosixFiles::getStream( const std::string& path, FileAccess nFileAccess, StreamType nStreamType) const
 {
-    return NULL;
+    FileHandleStream* pRet = new WoglFileHandleStream(path, nFileAccess, nStreamType);
+	return pRet;
 }

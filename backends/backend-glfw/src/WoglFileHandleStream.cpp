@@ -1,12 +1,14 @@
 #include "stdAfx.h"
 #include "WoglFileHandleStream.h"
 
-WoglFileHandleStream::WoglFileHandleStream( std::string strFileName, FileAccess nFileAccess, StreamType nStreamType)
+
+WoglFileHandleStream::WoglFileHandleStream( const std::string& strFileName, FileAccess nFileAccess, StreamType nStreamType)
 : FileHandleStream( strFileName, nFileAccess, nStreamType)
 {
   m_pFile = NULL;
   open();
 }
+
 WoglFileHandleStream::~WoglFileHandleStream()
 {
   close();
@@ -39,7 +41,11 @@ void WoglFileHandleStream::open()
     else
     {
       m_pFile = fopen( fileName().c_str(), "r+t");
-      _setmode( _fileno( m_pFile), _O_TEXT);
+      
+//TODO:
+#ifdef WIN32
+        _setmode( fileno( m_pFile), _O_TEXT);
+#endif
     }
   }
   
@@ -57,7 +63,12 @@ void WoglFileHandleStream::close()
 
 int WoglFileHandleStream::size()
 {
-  return _filelength( _fileno( m_pFile));
+//TODO:    
+#ifdef WIN32
+  return _filelength( fileno( m_pFile));
+#else
+    return 0;
+#endif
 }
 
 int WoglFileHandleStream::readBytes( unsigned char* pWhere, int nLen)

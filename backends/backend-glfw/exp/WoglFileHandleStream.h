@@ -6,7 +6,7 @@ class fstream;
 class WoglFileHandleStream : public FileHandleStream
 {
 public:
-  WoglFileHandleStream( std::string strFileName, FileAccess nFileAccess, StreamType nStreamType);
+  WoglFileHandleStream( const std::string& strFileName, FileAccess nFileAccess, StreamType nStreamType);
   virtual ~WoglFileHandleStream();
 
 
