@@ -12,6 +12,9 @@
 class PosixFiles : 
     public Files
 {
+public:
+    
+    PosixFiles();
   
     /** Returns a handle representing a file or directory.
      * @param type Determines how the path is resolved.
@@ -34,18 +37,13 @@ class PosixFiles :
     
 	/** Returns true if the external storage is ready for file IO. Eg, on Android, the SD card is not available when mounted for use
      * with a PC. */
-	virtual bool isExternalStorageAvailable();
+	virtual bool isExternalStorageAvailable() const;
     
-	virtual bool      isDirectory( const std::string& path);
-	virtual void      list( const std::string& path, std::vector< FileHandle>& handles);
+	virtual bool      isDirectory( const std::string& path) const;
+	virtual void      list( const std::string& path, std::vector< FileHandle>& handles) const;
 	virtual void      mkdir( const std::string& path) const;
     
 	virtual bool recursiveDeleteDirectory(const std::string& path) const;
     
-    virtual bool isExternalStorageAvailable() const;
-    
-	virtual bool      isDirectory( const std::string& path) const;
-	virtual void      list( const std::string& path, std::vector<FileHandle>& handles) const;
-      
 	virtual FileHandleStream* getStream( const std::string& path, FileAccess nFileAccess, StreamType nStreamType) const;
 };
