@@ -20,6 +20,11 @@
     #include <Shlobj.h> //special folders location
 #endif
 
+#ifdef __APPLE__
+    #include <CoreFoundation/CFBundle.h>
+    #include <CoreFoundation/CFURL.h>
+#endif
+
 #define GL_GLEXT_PROTOTYPES
 
 #include <glew.h>

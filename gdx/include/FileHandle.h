@@ -185,7 +185,7 @@ public:
 
   /** Returns the length in bytes of this file, or 0 if this file is a directory, does not exist, or the size cannot otherwise be
   * determined. */
-  long long length() const;
+  size_t length() const;
 
   /** Returns the last modified time in milliseconds for this file. Zero is returned if the file doesn't exist. Zero is returned
   * for {@link FileType#Classpath} files. On Android, zero is returned for {@link FileType#Internal} files. On the desktop, zero

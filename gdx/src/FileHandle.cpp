@@ -99,8 +99,6 @@ FileHandle* FileHandle::child(const string& name) const
 	}
 	*/
 	//TODO: review this
-	if(m_type == Internal)
-		return new FileHandle(name, Internal);
 	return new FileHandle(m_strFullPath + "/" + name, m_type);
 }
 
@@ -166,15 +164,17 @@ void FileHandle::readBytes(unsigned char* pWhere, size_t size) const
 	ifstream stream;
 	reader(stream);
 	stream.read((char*)pWhere, size);
-	stream.close();
+
+	//try to read one more byte
+	//just to check that we read everything
+	char dummy = 0;
+	stream >> dummy;
 	if(!stream.eof())
 	{
+		stream.close();
 		throw GdxRuntimeException("buffer not big enough to read the entire file");
 	}
-	if(stream.fail())
-	{
-		throw GdxRuntimeException("Error reading file: " + m_strFullPath);
-	}
+	stream.close();
 }
 
 
@@ -372,7 +372,7 @@ void FileHandle::moveTo(const FileHandle* dest) const
 
 /** Returns the length in bytes of this file, or 0 if this file is a directory, does not exist, or the size cannot otherwise be
 * determined. */
-long long FileHandle::length() const
+size_t FileHandle::length() const
 {
 	struct stat filestatus;
 	stat( m_strFullPath.c_str(), &filestatus);

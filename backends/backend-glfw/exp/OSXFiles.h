@@ -1,5 +1,5 @@
 //
-//  PosixFile.h
+//  OSXFiles.h
 //  backend-glfw
 //
 //  Created by Cosmin Manoliu on 4/1/12.
@@ -9,12 +9,12 @@
 #pragma once
 #include "Files.h"
 
-class PosixFiles : 
+class OSXFiles : 
     public Files
 {
 public:
     
-    PosixFiles();
+    OSXFiles();
   
     /** Returns a handle representing a file or directory.
      * @param type Determines how the path is resolved.

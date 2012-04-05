@@ -5,61 +5,6 @@
 
 using namespace std;
 
-void makeSamePathAs(const char* sibling, const char* filename, string& result)
-{
-#ifdef WIN32
-	char drive[_MAX_DRIVE];
-	char dir[_MAX_DIR];
-	char fname[_MAX_FNAME];
-	char ext[_MAX_EXT];
-	_splitpath(sibling, drive, dir, fname, ext);
-
-	char resbuf[MAX_PATH];
-	_makepath(resbuf, drive, dir, filename, NULL);
-	result = resbuf;
-#else
-    result.clear();
-    char* path = strdup(sibling);
-    result += basename(path);
-    result += filename;
-    free(path);
-#endif
-}
-
-void split(const char* line, vector<string>& tokens)
-{
-	istringstream iss(line);
-    copy(istream_iterator<string>(iss),
-             istream_iterator<string>(),
-             back_inserter<vector<string> >(tokens));
-}
-
-bool startsWith(const string& str, const char* with)
-{
-	return str.compare(0, strlen(with), with) == 0;
-}
-
-bool endsWith(const string& str, const char* with)
-{
-	int lenWidth = strlen(with);
-	int lenStr = str.size();
-	return str.compare(lenStr - lenWidth, strlen(with), with) == 0;
-}
-
-// TODO need to check this for mac/linux too @tamas
-//void makeSamePathAs(const char* sibling, const char* filename, string& result)
-//{
-//	char drive[_MAX_DRIVE];
-//	char dir[_MAX_DIR];
-//	char fname[_MAX_FNAME];
-//	char ext[_MAX_EXT];
-//	_splitpath(sibling, drive, dir, fname, ext);
-//
-//	char resbuf[MAX_PATH];
-//	_makepath(resbuf, drive, dir, filename, NULL);
-//	result = resbuf;
-//}
-
 BitmapFont::BitmapFontData::~BitmapFontData()
 {
 	for(int i = 0; i < PAGES; i++)
@@ -86,18 +31,17 @@ BitmapFont::BitmapFontData::BitmapFontData(const FileHandle* fontFile, bool flip
 	glyphs = new Glyph**[PAGES];
 	memset(glyphs, 0, PAGES * sizeof(void*));
 
-	//TODO: this is ugly
-	//do something else after implementing proper "File" abstraction
-	int maxBuf = 1024;
-	char* line = new char[maxBuf];
+	const int lineMax = 2048;
+	char* line = new char[lineMax];
 
-	FileHandleStream* reader =  fontFile->getStream(Read, String);
+    std::ifstream reader;
+    fontFile->read(reader); 
 	try
 	{
-		line = reader->readLine(line, maxBuf); // info
+        reader.getline(	line, lineMax);// info 
 	
-		line = reader->readLine(line, maxBuf);
-		if(!line)
+		reader.getline(	line, lineMax);
+		if(reader.fail())
 			throw new GdxRuntimeException("Invalid font file: " + fontFile->getFullPathName());
 		
 		vector<string> common;
@@ -113,8 +57,8 @@ BitmapFont::BitmapFontData::BitmapFontData(const FileHandle* fontFile, bool flip
 			throw new GdxRuntimeException("Invalid font file: " + fontFile->getFullPathName());
 		int baseLine = atoi(common[2].substr(5).c_str());
 
-		line = reader->readLine(line, maxBuf);
-		if(!line) 
+		reader.getline(	line, lineMax);
+		if(reader.fail()) 
 			throw new GdxRuntimeException("Invalid font file: " + fontFile->getFullPathName());
 
 		vector<string> pageLine;
@@ -132,17 +76,19 @@ BitmapFont::BitmapFontData::BitmapFontData(const FileHandle* fontFile, bool flip
 			imgFilename = pageLine[2].substr(5, pageLine[2].length() - 6);
 		}
 
-		//TODO:
-		//imagePath = fontFile->parent().child(imgFilename).path().replaceAll("\\\\", "/");
-		//I don't think this works on something else except Windows but right now 
-		//FileHandle parent and child are not implemented
-		makeSamePathAs(fontFile->getFullPathName().c_str(), imgFilename.c_str(), m_imagePath);
+		FileHandle* parent = fontFile->parent();
+     FileHandle* child = parent->child(imgFilename.c_str());
+     m_imagePath = child->getFullPathName();
+     delete child;
+     delete parent;
+        
+        
 		descent = 0;
 
 		while(true)
 		{
-			line = reader->readLine(line, maxBuf);
-			if(line == NULL) 
+			reader.getline(	line, lineMax);
+			if(reader.eof() || reader.fail()) 
 				break;
 			if(StringUtils::startsWith(line, "kernings ")) 
 				break;
@@ -182,9 +128,10 @@ BitmapFont::BitmapFontData::BitmapFontData(const FileHandle* fontFile, bool flip
 
 		while(true)
 		{
-			line = reader->readLine(line, maxBuf);
-			if(line == NULL) 
+        reader.getline(	line, lineMax);
+			if(reader.eof() || reader.fail()) 
 				break;
+            
 			if(!StringUtils::startsWith(line, "kerning ")) 
 				break;
 
@@ -261,7 +208,6 @@ BitmapFont::BitmapFontData::BitmapFontData(const FileHandle* fontFile, bool flip
 	}
 	catch(GdxRuntimeException& ex)
 	{
-		delete reader;
 		delete[] line;
 
 		throw new GdxRuntimeException("Error loading font file: " + fontFile->getFullPathName());
