@@ -96,22 +96,26 @@ void Assets::load()
 
 	font = new BitmapFont(Gdx.files->internalHandle("data/font.fnt"), Gdx.files->internalHandle("data/font.png"), false);
 
+    /*
 	music = Gdx.audio->newMusic(Gdx.files->internalHandle("data/music.mp3"));
 	music->setLooping(true);
 	music->setVolume(0.5f);
 	if(Settings::soundEnabled) 
 		music->play();
-
+     
 	jumpSound = Gdx.audio->newSound(Gdx.files->internalHandle("data/jump.ogg"));
 	highJumpSound = Gdx.audio->newSound(Gdx.files->internalHandle("data/highjump.ogg"));
 	hitSound = Gdx.audio->newSound(Gdx.files->internalHandle("data/hit.ogg"));
 	coinSound = Gdx.audio->newSound(Gdx.files->internalHandle("data/coin.ogg"));
 	clickSound = Gdx.audio->newSound(Gdx.files->internalHandle("data/click.ogg"));
+     */
 }
 
 void Assets::playSound(Sound* sound)
 {
+    /*
 	if(Settings::soundEnabled) 
 		sound->play(1);
+     */
 }
 

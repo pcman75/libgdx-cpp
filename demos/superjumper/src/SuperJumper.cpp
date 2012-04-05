@@ -23,7 +23,7 @@ void SuperJumper::create()
 	Game::create();
 }
 
-
+#ifdef WIN32
 int APIENTRY _tWinMain(HINSTANCE hInstance,
                      HINSTANCE hPrevInstance,
                      LPTSTR    lpCmdLine,
@@ -34,4 +34,4 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 
     return 0;
 }
-
+#endif
