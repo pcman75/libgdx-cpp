@@ -374,8 +374,9 @@ void FileHandle::moveTo(const FileHandle* dest) const
 * determined. */
 long long FileHandle::length() const
 {
-	//TODO: implement this
-	throw GdxRuntimeException("not implemented");
+	struct stat filestatus;
+	stat( m_strFullPath.c_str(), &filestatus);
+	return filestatus.st_size;
 }
 
 

@@ -4,8 +4,8 @@
 
 void FilesTest::create()
 {
-	//font = new BitmapFont();
-	//batch = new SpriteBatch();
+	font = new BitmapFont();
+	batch = new SpriteBatch();
 
 	if(Gdx.files->isExternalStorageAvailable())
 	{
@@ -235,11 +235,14 @@ void FilesTest::testExternal()
 	
 	std::ofstream output;
 	handle->write(false, output);
-	/*
-	output.write("moo".getBytes());
+	output << "moo";
 	output.close();
-	if(!handle.exists()) fail();
-	if(handle.length() != 3) fail();
+	if(!handle->exists()) 
+		fail();
+
+	if(handle->length() != 3) 
+		fail();
+	/*
 	FileHandle copy = Gdx.files.external(path + "-copy");
 	copy.delete();
 	if(copy.exists()) fail();

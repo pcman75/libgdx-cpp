@@ -55,5 +55,8 @@
 #include <limits.h>
 #include <stdio.h>
 
+#include <sys/types.h> //stat() (get the file size)
+#include <sys/stat.h>
+
 
 
