@@ -319,7 +319,7 @@ void Mesh::render(ShaderProgram* shader, int primitiveType, int offset, int coun
 		bind(shader);
 
 	if (m_indices->getNumIndices() > 0)
-		glDrawElements(primitiveType, count, GL_UNSIGNED_SHORT, m_indices);
+		glDrawElements(primitiveType, count, GL_UNSIGNED_SHORT, /*TODO: OK???*/(void*)(offset * 2));
 	else
 		glDrawArrays(primitiveType, offset, count);
 
