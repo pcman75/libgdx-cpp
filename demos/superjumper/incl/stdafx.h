@@ -14,6 +14,7 @@
     // Windows Header Files:
     #include <windows.h>
     #include <GL/GL.h>
+	#include <tchar.h>
 #endif
 
 #if defined(__APPLE_CC__)
