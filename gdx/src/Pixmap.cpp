@@ -95,14 +95,13 @@ Pixmap::Pixmap(const unsigned char* encodedData, int len)
 * @param file the {@link FileHandle} */
 Pixmap::Pixmap (const FileHandle* file)
 	: m_color(0)
-{
-  FileHandleStream* pStream = file->getStream( Read, Binary);
-  int nSize = pStream->size();
-  unsigned char* pBuff = new unsigned char [ nSize];
-  int nRead = pStream->readBytes( pBuff, nSize);
+{   
+  size_t nSize = file->length();
+  unsigned char* pBuff = new unsigned char [nSize];
+    file->readBytes(pBuff, nSize);
+
 	m_pixmap.createFrom( pBuff, nSize, 0);
   delete [] pBuff;
-  delete pStream;
 }
 
 /** Constructs a new Pixmap from a {@link Gdx2DPixmap}.

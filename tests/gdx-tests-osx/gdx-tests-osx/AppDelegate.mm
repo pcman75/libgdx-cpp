@@ -39,7 +39,7 @@
 - (IBAction)startTest:(id)sender 
 {
     NSString* testName = [_popUpButton titleOfSelectedItem];
-    NSLog([@"Starting test " stringByAppendingString: testName]);
+    NSLog(@"Starting test %@", testName);
     const char* szTestName = [testName UTF8String];
     
     GdxTest* test = GdxTests::newTest(szTestName);

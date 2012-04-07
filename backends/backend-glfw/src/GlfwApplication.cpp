@@ -6,7 +6,7 @@
 #ifdef WIN32
     #include "WindowsFiles.h"
 #else
-    #include "PosixFiles.h"
+    #include "OSXFiles.h"
 #endif
 
 #include "GlfwThreading.h"
@@ -28,7 +28,7 @@ GlfwApplication::GlfwApplication (ApplicationListener& listener, const char* tit
         m_pFiles = new WindowsFiles();
 		m_pAudio = new WindowsAudio();
     #else
-        m_pFiles = new PosixFiles();
+        m_pFiles = new OSXFiles();
         m_pAudio = NULL;
     #endif
 	m_pThreading = new GlfwThreading();

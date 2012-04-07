@@ -5,20 +5,26 @@
 
 #pragma once
 
-#include "targetver.h"
+#if defined (WIN32)
+    #include "targetver.h"
 
-#define NOMINMAX
+    #define NOMINMAX
 
-#define WIN32_LEAN_AND_MEAN             // Exclude rarely-used stuff from Windows headers
-// Windows Header Files:
-#include <windows.h>
-#include <GL/GL.h>
+    #define WIN32_LEAN_AND_MEAN             // Exclude rarely-used stuff from Windows headers
+    // Windows Header Files:
+    #include <windows.h>
+    #include <GL/GL.h>
+	#include <tchar.h>
+#endif
+
+#if defined(__APPLE_CC__)
+    #include <OpenGL/gl.h>
+    #include <OpenGL/glext.h>
+#endif
 
 // C RunTime Header Files
 #include <stdlib.h>
-#include <malloc.h>
 #include <memory.h>
-#include <tchar.h>
 
 #include <string>
 #include <vector>

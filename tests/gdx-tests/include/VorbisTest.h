@@ -50,7 +50,7 @@ public:
 		m_mustStopSound = false;
 
 		/** the file to playback **/
-		static const char* FILE = "c:/cloudconnected.ogg";
+		static const char* FILE = "cloudconnected.ogg";
 
 		// copy ogg file to SD card, can't playback from assets
 		FileHandle* externalFile = Gdx.files->externalHandle(FILE);

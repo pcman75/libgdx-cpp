@@ -22,16 +22,3 @@ void SuperJumper::create()
 	Assets::load();
 	Game::create();
 }
-
-
-int APIENTRY _tWinMain(HINSTANCE hInstance,
-                     HINSTANCE hPrevInstance,
-                     LPTSTR    lpCmdLine,
-                     int       nCmdShow)
-{
-    //WoglApplication(SuperJumper(), "Super Jumper", 320, 480, false);
-	GlfwApplication(SuperJumper(), "Super Jumper", 320, 480, false);
-
-    return 0;
-}
-

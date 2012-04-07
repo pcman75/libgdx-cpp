@@ -1,0 +1,494 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		17822043152E3C8D00E213C9 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17822042152E3C8D00E213C9 /* Cocoa.framework */; };
+		1782204D152E3C8D00E213C9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1782204B152E3C8D00E213C9 /* InfoPlist.strings */; };
+		1782204F152E3C8D00E213C9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1782204E152E3C8D00E213C9 /* main.m */; };
+		17822053152E3C8D00E213C9 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 17822051152E3C8D00E213C9 /* Credits.rtf */; };
+		17822056152E3C8D00E213C9 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 17822055152E3C8D00E213C9 /* AppDelegate.mm */; };
+		17822059152E3C8D00E213C9 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17822057152E3C8D00E213C9 /* MainMenu.xib */; };
+		17822093152E3DE600E213C9 /* Assets.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1782207D152E3DE600E213C9 /* Assets.cpp */; };
+		17822094152E3DE600E213C9 /* Bob.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1782207E152E3DE600E213C9 /* Bob.cpp */; };
+		17822095152E3DE600E213C9 /* Castle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1782207F152E3DE600E213C9 /* Castle.cpp */; };
+		17822096152E3DE600E213C9 /* Coin.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17822080152E3DE600E213C9 /* Coin.cpp */; };
+		17822097152E3DE600E213C9 /* DynamicGameObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17822081152E3DE600E213C9 /* DynamicGameObject.cpp */; };
+		17822098152E3DE600E213C9 /* Game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17822082152E3DE600E213C9 /* Game.cpp */; };
+		17822099152E3DE600E213C9 /* GameObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17822083152E3DE600E213C9 /* GameObject.cpp */; };
+		1782209A152E3DE600E213C9 /* GameScreen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17822084152E3DE600E213C9 /* GameScreen.cpp */; };
+		1782209B152E3DE600E213C9 /* HelpScreen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17822085152E3DE600E213C9 /* HelpScreen.cpp */; };
+		1782209C152E3DE600E213C9 /* HighscoresScreen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17822086152E3DE600E213C9 /* HighscoresScreen.cpp */; };
+		1782209D152E3DE600E213C9 /* MainMenuScreen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17822087152E3DE600E213C9 /* MainMenuScreen.cpp */; };
+		1782209E152E3DE600E213C9 /* OverlapTester.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17822088152E3DE600E213C9 /* OverlapTester.cpp */; };
+		1782209F152E3DE600E213C9 /* Platform.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17822089152E3DE600E213C9 /* Platform.cpp */; };
+		178220A0152E3DE600E213C9 /* Screen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1782208A152E3DE600E213C9 /* Screen.cpp */; };
+		178220A1152E3DE600E213C9 /* Settings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1782208B152E3DE600E213C9 /* Settings.cpp */; };
+		178220A2152E3DE600E213C9 /* SoundController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1782208C152E3DE600E213C9 /* SoundController.cpp */; };
+		178220A3152E3DE600E213C9 /* Spring.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1782208D152E3DE600E213C9 /* Spring.cpp */; };
+		178220A4152E3DE600E213C9 /* Squirrel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1782208E152E3DE600E213C9 /* Squirrel.cpp */; };
+		178220A5152E3DE600E213C9 /* stdafx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1782208F152E3DE600E213C9 /* stdafx.cpp */; };
+		178220A6152E3DE600E213C9 /* SuperJumper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17822090152E3DE600E213C9 /* SuperJumper.cpp */; };
+		178220A7152E3DE600E213C9 /* World.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17822091152E3DE600E213C9 /* World.cpp */; };
+		178220A8152E3DE600E213C9 /* WorldRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17822092152E3DE600E213C9 /* WorldRenderer.cpp */; };
+		178220CB152E449200E213C9 /* libgdx-macos.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 178220CA152E449200E213C9 /* libgdx-macos.a */; };
+		178220CD152E449900E213C9 /* libbackend-glfw.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 178220CC152E449900E213C9 /* libbackend-glfw.a */; };
+		178220CF152E44C200E213C9 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 178220CE152E44C200E213C9 /* OpenGL.framework */; };
+		178220D1152E492C00E213C9 /* libglfw.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 178220D0152E492C00E213C9 /* libglfw.a */; };
+		178220F4152E4A1000E213C9 /* data in Resources */ = {isa = PBXBuildFile; fileRef = 178220F3152E4A1000E213C9 /* data */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1782203E152E3C8D00E213C9 /* superjumper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = superjumper.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		17822042152E3C8D00E213C9 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		17822045152E3C8D00E213C9 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		17822046152E3C8D00E213C9 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		17822047152E3C8D00E213C9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		1782204A152E3C8D00E213C9 /* superjumper-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "superjumper-Info.plist"; sourceTree = "<group>"; };
+		1782204C152E3C8D00E213C9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1782204E152E3C8D00E213C9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		17822050152E3C8D00E213C9 /* superjumper-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "superjumper-Prefix.pch"; sourceTree = "<group>"; };
+		17822052152E3C8D00E213C9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		17822054152E3C8D00E213C9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		17822055152E3C8D00E213C9 /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
+		17822058152E3C8D00E213C9 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		17822060152E3DC400E213C9 /* Assets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Assets.h; sourceTree = "<group>"; };
+		17822061152E3DC400E213C9 /* Bob.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bob.h; sourceTree = "<group>"; };
+		17822062152E3DC400E213C9 /* Castle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Castle.h; sourceTree = "<group>"; };
+		17822063152E3DC400E213C9 /* Coin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Coin.h; sourceTree = "<group>"; };
+		17822064152E3DC400E213C9 /* DynamicGameObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DynamicGameObject.h; sourceTree = "<group>"; };
+		17822065152E3DC400E213C9 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
+		17822066152E3DC400E213C9 /* GameObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameObject.h; sourceTree = "<group>"; };
+		17822067152E3DC400E213C9 /* GameScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScreen.h; sourceTree = "<group>"; };
+		17822068152E3DC400E213C9 /* HelpScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpScreen.h; sourceTree = "<group>"; };
+		17822069152E3DC400E213C9 /* HelpScreen2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpScreen2.h; sourceTree = "<group>"; };
+		1782206A152E3DC400E213C9 /* HelpScreen3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpScreen3.h; sourceTree = "<group>"; };
+		1782206B152E3DC400E213C9 /* HelpScreen4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpScreen4.h; sourceTree = "<group>"; };
+		1782206C152E3DC400E213C9 /* HelpScreen5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpScreen5.h; sourceTree = "<group>"; };
+		1782206D152E3DC400E213C9 /* HighscoresScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighscoresScreen.h; sourceTree = "<group>"; };
+		1782206E152E3DC400E213C9 /* MainMenuScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuScreen.h; sourceTree = "<group>"; };
+		1782206F152E3DC400E213C9 /* OverlapTester.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OverlapTester.h; sourceTree = "<group>"; };
+		17822070152E3DC400E213C9 /* Platform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Platform.h; sourceTree = "<group>"; };
+		17822071152E3DC400E213C9 /* Screen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Screen.h; sourceTree = "<group>"; };
+		17822072152E3DC400E213C9 /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
+		17822073152E3DC400E213C9 /* SoundController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundController.h; sourceTree = "<group>"; };
+		17822074152E3DC400E213C9 /* Spring.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Spring.h; sourceTree = "<group>"; };
+		17822075152E3DC400E213C9 /* Squirrel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Squirrel.h; sourceTree = "<group>"; };
+		17822076152E3DC400E213C9 /* stdafx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stdafx.h; sourceTree = "<group>"; };
+		17822077152E3DC400E213C9 /* SuperJumper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuperJumper.h; sourceTree = "<group>"; };
+		17822078152E3DC400E213C9 /* targetver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = targetver.h; sourceTree = "<group>"; };
+		17822079152E3DC400E213C9 /* World.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = World.h; sourceTree = "<group>"; };
+		1782207A152E3DC400E213C9 /* WorldListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldListener.h; sourceTree = "<group>"; };
+		1782207B152E3DC400E213C9 /* WorldRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldRenderer.h; sourceTree = "<group>"; };
+		1782207D152E3DE600E213C9 /* Assets.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Assets.cpp; sourceTree = "<group>"; };
+		1782207E152E3DE600E213C9 /* Bob.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Bob.cpp; sourceTree = "<group>"; };
+		1782207F152E3DE600E213C9 /* Castle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Castle.cpp; sourceTree = "<group>"; };
+		17822080152E3DE600E213C9 /* Coin.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Coin.cpp; sourceTree = "<group>"; };
+		17822081152E3DE600E213C9 /* DynamicGameObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DynamicGameObject.cpp; sourceTree = "<group>"; };
+		17822082152E3DE600E213C9 /* Game.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Game.cpp; sourceTree = "<group>"; };
+		17822083152E3DE600E213C9 /* GameObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameObject.cpp; sourceTree = "<group>"; };
+		17822084152E3DE600E213C9 /* GameScreen.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameScreen.cpp; sourceTree = "<group>"; };
+		17822085152E3DE600E213C9 /* HelpScreen.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HelpScreen.cpp; sourceTree = "<group>"; };
+		17822086152E3DE600E213C9 /* HighscoresScreen.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HighscoresScreen.cpp; sourceTree = "<group>"; };
+		17822087152E3DE600E213C9 /* MainMenuScreen.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MainMenuScreen.cpp; sourceTree = "<group>"; };
+		17822088152E3DE600E213C9 /* OverlapTester.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OverlapTester.cpp; sourceTree = "<group>"; };
+		17822089152E3DE600E213C9 /* Platform.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Platform.cpp; sourceTree = "<group>"; };
+		1782208A152E3DE600E213C9 /* Screen.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Screen.cpp; sourceTree = "<group>"; };
+		1782208B152E3DE600E213C9 /* Settings.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Settings.cpp; sourceTree = "<group>"; };
+		1782208C152E3DE600E213C9 /* SoundController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SoundController.cpp; sourceTree = "<group>"; };
+		1782208D152E3DE600E213C9 /* Spring.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Spring.cpp; sourceTree = "<group>"; };
+		1782208E152E3DE600E213C9 /* Squirrel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Squirrel.cpp; sourceTree = "<group>"; };
+		1782208F152E3DE600E213C9 /* stdafx.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = stdafx.cpp; sourceTree = "<group>"; };
+		17822090152E3DE600E213C9 /* SuperJumper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SuperJumper.cpp; sourceTree = "<group>"; };
+		17822091152E3DE600E213C9 /* World.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = World.cpp; sourceTree = "<group>"; };
+		17822092152E3DE600E213C9 /* WorldRenderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WorldRenderer.cpp; sourceTree = "<group>"; };
+		178220CA152E449200E213C9 /* libgdx-macos.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgdx-macos.a"; path = "../../../../../../Library/Developer/Xcode/DerivedData/gdx-testing-osx-gixlikwjboncinfzefiysvwhyepd/Build/Products/Debug/libgdx-macos.a"; sourceTree = "<group>"; };
+		178220CC152E449900E213C9 /* libbackend-glfw.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libbackend-glfw.a"; path = "../../../../../../Library/Developer/Xcode/DerivedData/gdx-testing-osx-gixlikwjboncinfzefiysvwhyepd/Build/Products/Debug/libbackend-glfw.a"; sourceTree = "<group>"; };
+		178220CE152E44C200E213C9 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		178220D0152E492C00E213C9 /* libglfw.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libglfw.a; path = "../../../../backends/backend-glfw/extern/glfw-2.7.3/lib/cocoa/libglfw.a"; sourceTree = "<group>"; };
+		178220F3152E4A1000E213C9 /* data */ = {isa = PBXFileReference; lastKnownFileType = folder; name = data; path = ../../../data; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1782203B152E3C8D00E213C9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				178220D1152E492C00E213C9 /* libglfw.a in Frameworks */,
+				178220CF152E44C200E213C9 /* OpenGL.framework in Frameworks */,
+				178220CD152E449900E213C9 /* libbackend-glfw.a in Frameworks */,
+				178220CB152E449200E213C9 /* libgdx-macos.a in Frameworks */,
+				17822043152E3C8D00E213C9 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		17822033152E3C8D00E213C9 = {
+			isa = PBXGroup;
+			children = (
+				178220D0152E492C00E213C9 /* libglfw.a */,
+				178220CE152E44C200E213C9 /* OpenGL.framework */,
+				178220CC152E449900E213C9 /* libbackend-glfw.a */,
+				178220CA152E449200E213C9 /* libgdx-macos.a */,
+				17822048152E3C8D00E213C9 /* superjumper */,
+				17822041152E3C8D00E213C9 /* Frameworks */,
+				1782203F152E3C8D00E213C9 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1782203F152E3C8D00E213C9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1782203E152E3C8D00E213C9 /* superjumper.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		17822041152E3C8D00E213C9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				17822042152E3C8D00E213C9 /* Cocoa.framework */,
+				17822044152E3C8D00E213C9 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		17822044152E3C8D00E213C9 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				17822045152E3C8D00E213C9 /* AppKit.framework */,
+				17822046152E3C8D00E213C9 /* CoreData.framework */,
+				17822047152E3C8D00E213C9 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		17822048152E3C8D00E213C9 /* superjumper */ = {
+			isa = PBXGroup;
+			children = (
+				178220F3152E4A1000E213C9 /* data */,
+				1782207C152E3DE600E213C9 /* src */,
+				1782205F152E3DC400E213C9 /* incl */,
+				17822054152E3C8D00E213C9 /* AppDelegate.h */,
+				17822055152E3C8D00E213C9 /* AppDelegate.mm */,
+				17822057152E3C8D00E213C9 /* MainMenu.xib */,
+				17822049152E3C8D00E213C9 /* Supporting Files */,
+			);
+			path = superjumper;
+			sourceTree = "<group>";
+		};
+		17822049152E3C8D00E213C9 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1782204A152E3C8D00E213C9 /* superjumper-Info.plist */,
+				1782204B152E3C8D00E213C9 /* InfoPlist.strings */,
+				1782204E152E3C8D00E213C9 /* main.m */,
+				17822050152E3C8D00E213C9 /* superjumper-Prefix.pch */,
+				17822051152E3C8D00E213C9 /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1782205F152E3DC400E213C9 /* incl */ = {
+			isa = PBXGroup;
+			children = (
+				17822060152E3DC400E213C9 /* Assets.h */,
+				17822061152E3DC400E213C9 /* Bob.h */,
+				17822062152E3DC400E213C9 /* Castle.h */,
+				17822063152E3DC400E213C9 /* Coin.h */,
+				17822064152E3DC400E213C9 /* DynamicGameObject.h */,
+				17822065152E3DC400E213C9 /* Game.h */,
+				17822066152E3DC400E213C9 /* GameObject.h */,
+				17822067152E3DC400E213C9 /* GameScreen.h */,
+				17822068152E3DC400E213C9 /* HelpScreen.h */,
+				17822069152E3DC400E213C9 /* HelpScreen2.h */,
+				1782206A152E3DC400E213C9 /* HelpScreen3.h */,
+				1782206B152E3DC400E213C9 /* HelpScreen4.h */,
+				1782206C152E3DC400E213C9 /* HelpScreen5.h */,
+				1782206D152E3DC400E213C9 /* HighscoresScreen.h */,
+				1782206E152E3DC400E213C9 /* MainMenuScreen.h */,
+				1782206F152E3DC400E213C9 /* OverlapTester.h */,
+				17822070152E3DC400E213C9 /* Platform.h */,
+				17822071152E3DC400E213C9 /* Screen.h */,
+				17822072152E3DC400E213C9 /* Settings.h */,
+				17822073152E3DC400E213C9 /* SoundController.h */,
+				17822074152E3DC400E213C9 /* Spring.h */,
+				17822075152E3DC400E213C9 /* Squirrel.h */,
+				17822076152E3DC400E213C9 /* stdafx.h */,
+				17822077152E3DC400E213C9 /* SuperJumper.h */,
+				17822078152E3DC400E213C9 /* targetver.h */,
+				17822079152E3DC400E213C9 /* World.h */,
+				1782207A152E3DC400E213C9 /* WorldListener.h */,
+				1782207B152E3DC400E213C9 /* WorldRenderer.h */,
+			);
+			name = incl;
+			path = ../../../incl;
+			sourceTree = "<group>";
+		};
+		1782207C152E3DE600E213C9 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				1782207D152E3DE600E213C9 /* Assets.cpp */,
+				1782207E152E3DE600E213C9 /* Bob.cpp */,
+				1782207F152E3DE600E213C9 /* Castle.cpp */,
+				17822080152E3DE600E213C9 /* Coin.cpp */,
+				17822081152E3DE600E213C9 /* DynamicGameObject.cpp */,
+				17822082152E3DE600E213C9 /* Game.cpp */,
+				17822083152E3DE600E213C9 /* GameObject.cpp */,
+				17822084152E3DE600E213C9 /* GameScreen.cpp */,
+				17822085152E3DE600E213C9 /* HelpScreen.cpp */,
+				17822086152E3DE600E213C9 /* HighscoresScreen.cpp */,
+				17822087152E3DE600E213C9 /* MainMenuScreen.cpp */,
+				17822088152E3DE600E213C9 /* OverlapTester.cpp */,
+				17822089152E3DE600E213C9 /* Platform.cpp */,
+				1782208A152E3DE600E213C9 /* Screen.cpp */,
+				1782208B152E3DE600E213C9 /* Settings.cpp */,
+				1782208C152E3DE600E213C9 /* SoundController.cpp */,
+				1782208D152E3DE600E213C9 /* Spring.cpp */,
+				1782208E152E3DE600E213C9 /* Squirrel.cpp */,
+				1782208F152E3DE600E213C9 /* stdafx.cpp */,
+				17822090152E3DE600E213C9 /* SuperJumper.cpp */,
+				17822091152E3DE600E213C9 /* World.cpp */,
+				17822092152E3DE600E213C9 /* WorldRenderer.cpp */,
+			);
+			name = src;
+			path = ../../../src;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1782203D152E3C8D00E213C9 /* superjumper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1782205C152E3C8D00E213C9 /* Build configuration list for PBXNativeTarget "superjumper" */;
+			buildPhases = (
+				1782203A152E3C8D00E213C9 /* Sources */,
+				1782203B152E3C8D00E213C9 /* Frameworks */,
+				1782203C152E3C8D00E213C9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = superjumper;
+			productName = superjumper;
+			productReference = 1782203E152E3C8D00E213C9 /* superjumper.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		17822035152E3C8D00E213C9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = Home;
+			};
+			buildConfigurationList = 17822038152E3C8D00E213C9 /* Build configuration list for PBXProject "superjumper" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 17822033152E3C8D00E213C9;
+			productRefGroup = 1782203F152E3C8D00E213C9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1782203D152E3C8D00E213C9 /* superjumper */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1782203C152E3C8D00E213C9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1782204D152E3C8D00E213C9 /* InfoPlist.strings in Resources */,
+				17822053152E3C8D00E213C9 /* Credits.rtf in Resources */,
+				17822059152E3C8D00E213C9 /* MainMenu.xib in Resources */,
+				178220F4152E4A1000E213C9 /* data in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1782203A152E3C8D00E213C9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1782204F152E3C8D00E213C9 /* main.m in Sources */,
+				17822056152E3C8D00E213C9 /* AppDelegate.mm in Sources */,
+				17822093152E3DE600E213C9 /* Assets.cpp in Sources */,
+				17822094152E3DE600E213C9 /* Bob.cpp in Sources */,
+				17822095152E3DE600E213C9 /* Castle.cpp in Sources */,
+				17822096152E3DE600E213C9 /* Coin.cpp in Sources */,
+				17822097152E3DE600E213C9 /* DynamicGameObject.cpp in Sources */,
+				17822098152E3DE600E213C9 /* Game.cpp in Sources */,
+				17822099152E3DE600E213C9 /* GameObject.cpp in Sources */,
+				1782209A152E3DE600E213C9 /* GameScreen.cpp in Sources */,
+				1782209B152E3DE600E213C9 /* HelpScreen.cpp in Sources */,
+				1782209C152E3DE600E213C9 /* HighscoresScreen.cpp in Sources */,
+				1782209D152E3DE600E213C9 /* MainMenuScreen.cpp in Sources */,
+				1782209E152E3DE600E213C9 /* OverlapTester.cpp in Sources */,
+				1782209F152E3DE600E213C9 /* Platform.cpp in Sources */,
+				178220A0152E3DE600E213C9 /* Screen.cpp in Sources */,
+				178220A1152E3DE600E213C9 /* Settings.cpp in Sources */,
+				178220A2152E3DE600E213C9 /* SoundController.cpp in Sources */,
+				178220A3152E3DE600E213C9 /* Spring.cpp in Sources */,
+				178220A4152E3DE600E213C9 /* Squirrel.cpp in Sources */,
+				178220A5152E3DE600E213C9 /* stdafx.cpp in Sources */,
+				178220A6152E3DE600E213C9 /* SuperJumper.cpp in Sources */,
+				178220A7152E3DE600E213C9 /* World.cpp in Sources */,
+				178220A8152E3DE600E213C9 /* WorldRenderer.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		1782204B152E3C8D00E213C9 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1782204C152E3C8D00E213C9 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		17822051152E3C8D00E213C9 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				17822052152E3C8D00E213C9 /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		17822057152E3C8D00E213C9 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				17822058152E3C8D00E213C9 /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1782205A152E3C8D00E213C9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		1782205B152E3C8D00E213C9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		1782205D152E3C8D00E213C9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "superjumper/superjumper-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					../../../../gdx/include,
+					"../../../../backends/backend-glfw/exp",
+				);
+				INFOPLIST_FILE = "superjumper/superjumper-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../../../../Library/Developer/Xcode/DerivedData/gdx-testing-osx-gixlikwjboncinfzefiysvwhyepd/Build/Products/Debug\"",
+					"\"$(SRCROOT)/../../../../backends/backend-glfw/extern/glfw-2.7.3/lib/cocoa\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		1782205E152E3C8D00E213C9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "superjumper/superjumper-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					../../../../gdx/include,
+					"../../../../backends/backend-glfw/exp",
+				);
+				INFOPLIST_FILE = "superjumper/superjumper-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../../../../Library/Developer/Xcode/DerivedData/gdx-testing-osx-gixlikwjboncinfzefiysvwhyepd/Build/Products/Debug\"",
+					"\"$(SRCROOT)/../../../../backends/backend-glfw/extern/glfw-2.7.3/lib/cocoa\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		17822038152E3C8D00E213C9 /* Build configuration list for PBXProject "superjumper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1782205A152E3C8D00E213C9 /* Debug */,
+				1782205B152E3C8D00E213C9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1782205C152E3C8D00E213C9 /* Build configuration list for PBXNativeTarget "superjumper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1782205D152E3C8D00E213C9 /* Debug */,
+				1782205E152E3C8D00E213C9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 17822035152E3C8D00E213C9 /* Project object */;
+}

@@ -102,4 +102,6 @@ static void uncaughtExceptionHandler(NSException *exception) {
     
 }
 
+- (IBAction)startGame:(id)sender {
+}
 @end
