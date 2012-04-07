@@ -51,7 +51,7 @@ public:
 	Files* files;
 	Threading* threading;
 
-    GlVersion GlVersion;
+    enum GlVersion GlVersion;
 
 	public:
         static GdxClass& getInstance()

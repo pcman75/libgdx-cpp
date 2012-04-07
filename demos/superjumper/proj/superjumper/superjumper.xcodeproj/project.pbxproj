@@ -7,12 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		17822043152E3C8D00E213C9 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17822042152E3C8D00E213C9 /* Cocoa.framework */; };
+		0252C1E8153100980005B129 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17822042152E3C8D00E213C9 /* Cocoa.framework */; };
 		1782204D152E3C8D00E213C9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1782204B152E3C8D00E213C9 /* InfoPlist.strings */; };
-		1782204F152E3C8D00E213C9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1782204E152E3C8D00E213C9 /* main.m */; };
+		1782204F152E3C8D00E213C9 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1782204E152E3C8D00E213C9 /* main.cpp */; };
 		17822053152E3C8D00E213C9 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 17822051152E3C8D00E213C9 /* Credits.rtf */; };
-		17822056152E3C8D00E213C9 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 17822055152E3C8D00E213C9 /* AppDelegate.mm */; };
-		17822059152E3C8D00E213C9 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17822057152E3C8D00E213C9 /* MainMenu.xib */; };
 		17822093152E3DE600E213C9 /* Assets.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1782207D152E3DE600E213C9 /* Assets.cpp */; };
 		17822094152E3DE600E213C9 /* Bob.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1782207E152E3DE600E213C9 /* Bob.cpp */; };
 		17822095152E3DE600E213C9 /* Castle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1782207F152E3DE600E213C9 /* Castle.cpp */; };
@@ -50,12 +48,9 @@
 		17822047152E3C8D00E213C9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1782204A152E3C8D00E213C9 /* superjumper-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "superjumper-Info.plist"; sourceTree = "<group>"; };
 		1782204C152E3C8D00E213C9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		1782204E152E3C8D00E213C9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		1782204E152E3C8D00E213C9 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		17822050152E3C8D00E213C9 /* superjumper-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "superjumper-Prefix.pch"; sourceTree = "<group>"; };
 		17822052152E3C8D00E213C9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
-		17822054152E3C8D00E213C9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		17822055152E3C8D00E213C9 /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
-		17822058152E3C8D00E213C9 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		17822060152E3DC400E213C9 /* Assets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Assets.h; sourceTree = "<group>"; };
 		17822061152E3DC400E213C9 /* Bob.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bob.h; sourceTree = "<group>"; };
 		17822062152E3DC400E213C9 /* Castle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Castle.h; sourceTree = "<group>"; };
@@ -118,11 +113,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0252C1E8153100980005B129 /* Cocoa.framework in Frameworks */,
 				178220D1152E492C00E213C9 /* libglfw.a in Frameworks */,
 				178220CF152E44C200E213C9 /* OpenGL.framework in Frameworks */,
 				178220CD152E449900E213C9 /* libbackend-glfw.a in Frameworks */,
 				178220CB152E449200E213C9 /* libgdx-macos.a in Frameworks */,
-				17822043152E3C8D00E213C9 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -175,9 +170,6 @@
 				178220F3152E4A1000E213C9 /* data */,
 				1782207C152E3DE600E213C9 /* src */,
 				1782205F152E3DC400E213C9 /* incl */,
-				17822054152E3C8D00E213C9 /* AppDelegate.h */,
-				17822055152E3C8D00E213C9 /* AppDelegate.mm */,
-				17822057152E3C8D00E213C9 /* MainMenu.xib */,
 				17822049152E3C8D00E213C9 /* Supporting Files */,
 			);
 			path = superjumper;
@@ -188,7 +180,7 @@
 			children = (
 				1782204A152E3C8D00E213C9 /* superjumper-Info.plist */,
 				1782204B152E3C8D00E213C9 /* InfoPlist.strings */,
-				1782204E152E3C8D00E213C9 /* main.m */,
+				1782204E152E3C8D00E213C9 /* main.cpp */,
 				17822050152E3C8D00E213C9 /* superjumper-Prefix.pch */,
 				17822051152E3C8D00E213C9 /* Credits.rtf */,
 			);
@@ -314,7 +306,6 @@
 			files = (
 				1782204D152E3C8D00E213C9 /* InfoPlist.strings in Resources */,
 				17822053152E3C8D00E213C9 /* Credits.rtf in Resources */,
-				17822059152E3C8D00E213C9 /* MainMenu.xib in Resources */,
 				178220F4152E4A1000E213C9 /* data in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -326,8 +317,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1782204F152E3C8D00E213C9 /* main.m in Sources */,
-				17822056152E3C8D00E213C9 /* AppDelegate.mm in Sources */,
+				1782204F152E3C8D00E213C9 /* main.cpp in Sources */,
 				17822093152E3DE600E213C9 /* Assets.cpp in Sources */,
 				17822094152E3DE600E213C9 /* Bob.cpp in Sources */,
 				17822095152E3DE600E213C9 /* Castle.cpp in Sources */,
@@ -370,14 +360,6 @@
 				17822052152E3C8D00E213C9 /* en */,
 			);
 			name = Credits.rtf;
-			sourceTree = "<group>";
-		};
-		17822057152E3C8D00E213C9 /* MainMenu.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				17822058152E3C8D00E213C9 /* en */,
-			);
-			name = MainMenu.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -433,6 +415,7 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "superjumper/superjumper-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				HEADER_SEARCH_PATHS = (
 					../../../../gdx/include,
 					"../../../../backends/backend-glfw/exp",
@@ -454,6 +437,7 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "superjumper/superjumper-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				HEADER_SEARCH_PATHS = (
 					../../../../gdx/include,
 					"../../../../backends/backend-glfw/exp",
