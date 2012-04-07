@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "RendererTest.cpp"
+#import "AlphaTest.h"
 
 @implementation AppDelegate
 
@@ -37,9 +37,9 @@ static void uncaughtExceptionHandler(NSException *exception) {
     NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
     
     // Instantiate the listener
-    ApplicationListener *listener = new RendererTest();
+    ApplicationListener *listener = new AlphaTest();
     // create the application
-    m_app = new IOSApplication(*listener, true);
+    m_app = new IOSApplication(*listener, false);
     
     [application setStatusBarHidden:YES];
     

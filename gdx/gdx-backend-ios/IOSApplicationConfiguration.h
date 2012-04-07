@@ -11,6 +11,8 @@
 
 class IOSApplicationConfiguration
 {
+private:
+    
 public:
     IOSApplicationConfiguration();
     virtual ~IOSApplicationConfiguration();

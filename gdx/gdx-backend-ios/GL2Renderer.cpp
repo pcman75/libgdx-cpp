@@ -93,7 +93,7 @@ void GL2Renderer::render() const
     glClearColor(0.5f, 0.5f, 0.0f, 1);
     glClear(GL_COLOR_BUFFER_BIT);
     
-    applyRotation(m_currentAngle);
+//    applyRotation(m_currentAngle);
     GLuint positionSlot = glGetAttribLocation(m_simpleProgram, "Position");
     GLuint colorSlot = glGetAttribLocation(m_simpleProgram, "SourceColor");
     

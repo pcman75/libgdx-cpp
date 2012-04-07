@@ -32,7 +32,7 @@
         EAGLRenderingAPI api = kEAGLRenderingAPIOpenGLES2;
         context = [[EAGLContext alloc] initWithAPI:api];
         
-        if (!context) {
+        if (!context || true) {
             NSLog(@"OpenGLES20 failed, trying GLES1");
             api = kEAGLRenderingAPIOpenGLES1;
             context = [[EAGLContext alloc] initWithAPI:api];
