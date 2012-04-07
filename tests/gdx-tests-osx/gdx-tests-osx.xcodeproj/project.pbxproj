@@ -286,7 +286,9 @@
 					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/gdx-tests-bvufqwdkchmelmhhkbvwazgaikrk/Build/Products/Debug\"",
 					"\"$(SRCROOT)/../../backends/backend-glfw/extern/glfw-2.7.3/lib/cocoa\"",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -307,7 +309,9 @@
 					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/gdx-tests-bvufqwdkchmelmhhkbvwazgaikrk/Build/Products/Debug\"",
 					"\"$(SRCROOT)/../../backends/backend-glfw/extern/glfw-2.7.3/lib/cocoa\"",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

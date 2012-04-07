@@ -10,6 +10,7 @@ std::list<Mesh*> Mesh::m_meshes;
 
 Mesh::Mesh(bool isStatic,const VertexAttribute& attribute) 
 {
+    init();
 	VertexAttributes attributes(&attribute, 1);
 	if (Gdx.isGLInitialised() || forceVBO) 
 	{
@@ -29,6 +30,7 @@ Mesh::Mesh(bool isStatic,const VertexAttribute& attribute)
 
 Mesh::Mesh(bool isStatic, const VertexAttributes& attributes) 
 {
+    init();
 	if (Gdx.isGLInitialised() || forceVBO) 
 	{
 		m_vertices = new VertexBufferObject(isStatic, attributes);
@@ -46,6 +48,7 @@ Mesh::Mesh(bool isStatic, const VertexAttributes& attributes)
 }
 Mesh::Mesh(bool isStatic, const VertexAttribute attributes[], int attributesLength)
 {
+    init();
 	if (Gdx.isGLInitialised() || forceVBO) 
 	{
 		m_vertices = new VertexBufferObject(isStatic, attributes, attributesLength);
@@ -65,6 +68,7 @@ Mesh::Mesh(bool isStatic, const VertexAttribute attributes[], int attributesLeng
 
 Mesh::Mesh(VertexDataType type, bool isStatic, const VertexAttributes& attributes)
 {
+    init();
 	if (type == VertexArrayType && Gdx.graphics->isGL20Available()) 
 		type = VertexBufferObjectType;
 
