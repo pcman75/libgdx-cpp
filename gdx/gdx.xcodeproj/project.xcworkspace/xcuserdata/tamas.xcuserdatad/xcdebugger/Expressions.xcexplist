@@ -3,6 +3,25 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "SpriteBatch::begin():SpriteBatch.cpp">
+      </ContextState>
+      <ContextState
+         contextName = "Mesh::setVertices(float const*, int):Mesh.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "(float*)vertices">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "VertexArray::setVertices(float const*, int):VertexArray.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "m_attributes.vertexSize() / sizeof(float) * count">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "VertexAttributes::VertexAttributes(VertexAttribute const*, int):VertexAttributes.cpp">
          <PersistentStrings>
             <PersistentString
@@ -17,18 +36,18 @@
          contextName = "SpriteBatch::init(int, int, ShaderProgram*):SpriteBatch.cpp">
       </ContextState>
       <ContextState
-         contextName = "-[GLView initWithFrame:andListener:]:GLView.mm">
-         <PersistentStrings>
-            <PersistentString
-               value = "Gdx">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
          contextName = "VertexBufferObject::createBufferObject():VertexBufferObject.cpp">
          <PersistentStrings>
             <PersistentString
                value = "Gdx.getGLVersion()">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[GLView initWithFrame:andListener:]:GLView.mm">
+         <PersistentStrings>
+            <PersistentString
+               value = "Gdx">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

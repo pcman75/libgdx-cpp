@@ -163,6 +163,11 @@ void IOSGraphics::updateTimes(float elapsedTime,  float timestamp)
 	m_frames++;
 };
 
+void IOSGraphics::updateSize(int width, int height) {
+    m_width = width;
+    m_height = height;
+}
+
 IOSGraphics::~IOSGraphics()
 {
     

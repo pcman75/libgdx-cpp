@@ -57,7 +57,7 @@ void VertexArray::setVertices(const float* vertices, int count)
     delete [] m_buffer;
     m_buffer = NULL;
   }
-	m_buffer = new float[m_attributes.vertexSize() / sizeof(float) * count];
+	m_buffer = new float[sizeof(float) * count];
 	memcpy(m_buffer, vertices, count * sizeof(float));
 }
 

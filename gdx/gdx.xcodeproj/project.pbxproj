@@ -233,6 +233,7 @@
 		026AD4D61523694B000D55E6 /* StringUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 1772CB7F1520F5D900330DB0 /* StringUtils.h */; };
 		026AD4D71523694B000D55E6 /* targetver.h in Headers */ = {isa = PBXBuildFile; fileRef = 1772CB801520F5D900330DB0 /* targetver.h */; };
 		026AD4DD15236982000D55E6 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 026AD4DC15236982000D55E6 /* OpenGL.framework */; };
+		02972EAA1536555700E8016E /* Pong.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 02972EA91536555700E8016E /* Pong.cpp */; };
 		0299B1C2152A1B08005737BF /* GL2Renderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0299B1C1152A1B08005737BF /* GL2Renderer.cpp */; };
 		0299B1C4152A1CCE005737BF /* Simple.frag in Resources */ = {isa = PBXBuildFile; fileRef = 0299B1C3152A1CCE005737BF /* Simple.frag */; };
 		0299B1C8152A1D56005737BF /* Simple.vert in Resources */ = {isa = PBXBuildFile; fileRef = 0299B1C6152A1D0F005737BF /* Simple.vert */; };
@@ -469,12 +470,15 @@
 		026293171524DA6F00D7583F /* IOSTimer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IOSTimer.cpp; sourceTree = "<group>"; };
 		026293181524DA6F00D7583F /* IOSTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IOSTimer.h; sourceTree = "<group>"; };
 		0262931E1524DA7D00D7583F /* IOSGraphics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = IOSGraphics.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		0262931F1524DD2200D7583F /* AlphaTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlphaTest.h; sourceTree = "<group>"; };
 		026293201524DD2200D7583F /* GdxTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GdxTest.h; sourceTree = "<group>"; };
 		026293221524DDA700D7583F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.0.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
 		026AD3FB15236934000D55E6 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.0.sdk/System/Library/Frameworks/OpenGLES.framework; sourceTree = DEVELOPER_DIR; };
 		026AD4DB1523694B000D55E6 /* libgdx-ios.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libgdx-ios.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		026AD4DC15236982000D55E6 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		02972EA71536517500E8016E /* FloatTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FloatTest.h; sourceTree = "<group>"; };
+		02972EA81536545300E8016E /* Pong.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pong.h; sourceTree = "<group>"; };
+		02972EA91536555700E8016E /* Pong.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Pong.cpp; sourceTree = "<group>"; };
+		02972EAB1536587800E8016E /* AlphaTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlphaTest.h; sourceTree = "<group>"; };
 		0299B1BF152A1AB2005737BF /* Renderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Renderer.h; sourceTree = "<group>"; };
 		0299B1C1152A1B08005737BF /* GL2Renderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GL2Renderer.cpp; sourceTree = "<group>"; };
 		0299B1C3152A1CCE005737BF /* Simple.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = Simple.frag; path = shaders/Simple.frag; sourceTree = "<group>"; };
@@ -763,7 +767,10 @@
 		026293211524DD2800D7583F /* tests */ = {
 			isa = PBXGroup;
 			children = (
-				0262931F1524DD2200D7583F /* AlphaTest.h */,
+				02972EAB1536587800E8016E /* AlphaTest.h */,
+				02972EA91536555700E8016E /* Pong.cpp */,
+				02972EA81536545300E8016E /* Pong.h */,
+				02972EA71536517500E8016E /* FloatTest.h */,
 				026293201524DD2200D7583F /* GdxTest.h */,
 				0299B1C9152A1E3A005737BF /* RendererTest.cpp */,
 			);
@@ -1348,7 +1355,7 @@
 		1772CA821520F4A300330DB0 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0430;
 				ORGANIZATIONNAME = Home;
 			};
 			buildConfigurationList = 1772CA851520F4A300330DB0 /* Build configuration list for PBXProject "gdx" */;
@@ -1397,6 +1404,7 @@
 				0262931D1524DA7000D7583F /* IOSTimer.cpp in Sources */,
 				0299B1C2152A1B08005737BF /* GL2Renderer.cpp in Sources */,
 				0299B1CA152A1E3A005737BF /* RendererTest.cpp in Sources */,
+				02972EAA1536555700E8016E /* Pong.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1632,6 +1640,10 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "gdx-backend-ios/gdx-backend-ios-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"TARGET_IOS=1",
+					"DEBUG=1",
+				);
 				INFOPLIST_FILE = "gdx-backend-ios/gdx-backend-ios-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1652,6 +1664,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "gdx-backend-ios/gdx-backend-ios-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = "TARGET_IOS=1";
 				INFOPLIST_FILE = "gdx-backend-ios/gdx-backend-ios-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
