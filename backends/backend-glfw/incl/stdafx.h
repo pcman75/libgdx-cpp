@@ -23,6 +23,13 @@
 #ifdef __APPLE__
     #include <CoreFoundation/CFBundle.h>
     #include <CoreFoundation/CFURL.h>
+
+    #include <unistd.h>
+    #include <sys/types.h>
+    #include <pwd.h>
+
+    #include <libgen.h>
+    #include <sys/stat.h>
 #endif
 
 #define GL_GLEXT_PROTOTYPES

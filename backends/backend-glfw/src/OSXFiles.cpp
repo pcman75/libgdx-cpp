@@ -44,9 +44,10 @@ FileHandle* OSXFiles::internalHandle (const std::string& path) const
 /** Convenience method that returns a {@link FileType#External} file handle. */
 FileHandle* OSXFiles::externalHandle (const std::string& path) const
 {
-    return NULL; 
+    std::string externalStoragePath;
+	getExternalStoragePath(externalStoragePath);
+	return new FileHandle(externalStoragePath + "/" + path, External);
 }
-
 
 /** Convenience method that returns a {@link FileType#Absolute} file handle. */
 FileHandle* OSXFiles::absoluteHandle (const std::string& path) const
@@ -58,7 +59,10 @@ FileHandle* OSXFiles::absoluteHandle (const std::string& path) const
  * the desktop. */
 void OSXFiles::getExternalStoragePath(std::string& str) const
 {
-   
+    struct passwd *pw = getpwuid(getuid());
+    
+	const char *homedir = pw->pw_dir;
+	str = homedir; 
 }
 
 /** Returns true if the external storage is ready for file IO. Eg, on Android, the SD card is not available when mounted for use
@@ -70,7 +74,10 @@ bool OSXFiles::isExternalStorageAvailable() const
 
 bool OSXFiles::isDirectory( const std::string& path) const
 {
-    return false;
+    struct stat filestatus;
+	stat( path.c_str(), &filestatus);
+    bool isDir = S_ISDIR(filestatus.st_mode);
+    return isDir;
 }
 
 void OSXFiles::list( const std::string& path, std::vector< FileHandle>& handles) const
@@ -80,7 +87,12 @@ void OSXFiles::list( const std::string& path, std::vector< FileHandle>& handles)
 
 void OSXFiles::mkdir( const std::string& path) const
 {
-    
+    int test = ::mkdir(path.c_str(), 0777);  
+    if(test)
+    {
+        std::string err = "cannot create directory " + path;
+        ::perror(err.c_str());
+    }
 }
 
 bool OSXFiles::recursiveDeleteDirectory(const std::string& path) const

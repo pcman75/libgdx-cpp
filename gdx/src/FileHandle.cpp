@@ -295,12 +295,12 @@ void FileHandle::mkdirs() const
 		if(*p == '/') 
 		{ 
 			*p = 0; 
-			if(!Gdx.files->isDirectory(path)) 
+			if(*path && !Gdx.files->isDirectory(path)) 
 				Gdx.files->mkdir(path);
 			*p = '/';
 		}
 	}
-	if(!Gdx.files->isDirectory(path)) 
+	if(*path && !Gdx.files->isDirectory(path)) 
 		Gdx.files->mkdir(path);
 
 	free(path);

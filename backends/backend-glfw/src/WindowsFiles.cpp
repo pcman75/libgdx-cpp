@@ -42,23 +42,9 @@ FileHandle* WindowsFiles::absoluteHandle(const std::string& path) const
 
 void WindowsFiles::getExternalStoragePath(std::string& externalPath) const
 {
-#ifdef WIN32
 	char path[MAX_PATH] = "";
 	HRESULT hr = ::SHGetFolderPathA(NULL, CSIDL_PROFILE, NULL, SHGFP_TYPE_CURRENT, path);
 	externalPath = path;
-#else
-	throw GdxRuntimeException("method not implemented");
-	/*
-	#include <unistd.h>
-	#include <sys/types.h>
-	#include <pwd.h>
-
-	struct passwd *pw = getpwuid(getuid());
-
-	const char *homedir = pw->pw_dir;
-	externalPath = homedir;
-	*/
-#endif
 }
 
 bool WindowsFiles::isExternalStorageAvailable() const

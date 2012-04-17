@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1750FB7E153E100E005A9525 /* OSXFiles.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1750FB7D153E100E005A9525 /* OSXFiles.cpp */; };
 		1772CA05151F963500330DB0 /* glew.c in Sources */ = {isa = PBXBuildFile; fileRef = 1772C910151F963400330DB0 /* glew.c */; };
 		1772CA06151F963500330DB0 /* glew.h in Headers */ = {isa = PBXBuildFile; fileRef = 1772C911151F963400330DB0 /* glew.h */; };
 		1772CA07151F963500330DB0 /* glext.h in Headers */ = {isa = PBXBuildFile; fileRef = 1772C912151F963400330DB0 /* glext.h */; };
 		1772CA72151F963500330DB0 /* glxext.h in Headers */ = {isa = PBXBuildFile; fileRef = 1772CA02151F963500330DB0 /* glxext.h */; };
 		1772CA73151F963500330DB0 /* wglew.h in Headers */ = {isa = PBXBuildFile; fileRef = 1772CA03151F963500330DB0 /* wglew.h */; };
 		1772CA74151F963500330DB0 /* wglext.h in Headers */ = {isa = PBXBuildFile; fileRef = 1772CA04151F963500330DB0 /* wglext.h */; };
-		17821FE11528F72100E213C9 /* OSXFiles.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17821FE01528F72100E213C9 /* OSXFiles.cpp */; };
 		17821FE41528F78D00E213C9 /* OSXFiles.h in Headers */ = {isa = PBXBuildFile; fileRef = 17821FE31528F78D00E213C9 /* OSXFiles.h */; };
 		17822023152CEF1200E213C9 /* WoglFileHandleStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17822022152CEF1200E213C9 /* WoglFileHandleStream.cpp */; };
 		17D05D56151F94A4002CBB67 /* GlfwApplication.h in Headers */ = {isa = PBXBuildFile; fileRef = 17D05D2E151F94A4002CBB67 /* GlfwApplication.h */; };
@@ -43,13 +43,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1750FB7D153E100E005A9525 /* OSXFiles.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OSXFiles.cpp; sourceTree = "<group>"; };
 		1772C910151F963400330DB0 /* glew.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = glew.c; sourceTree = "<group>"; };
 		1772C911151F963400330DB0 /* glew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = glew.h; sourceTree = "<group>"; };
 		1772C912151F963400330DB0 /* glext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = glext.h; sourceTree = "<group>"; };
 		1772CA02151F963500330DB0 /* glxext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = glxext.h; sourceTree = "<group>"; };
 		1772CA03151F963500330DB0 /* wglew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = wglew.h; sourceTree = "<group>"; };
 		1772CA04151F963500330DB0 /* wglext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = wglext.h; sourceTree = "<group>"; };
-		17821FE01528F72100E213C9 /* OSXFiles.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = OSXFiles.cpp; path = ../exp/OSXFiles.cpp; sourceTree = "<group>"; };
 		17821FE31528F78D00E213C9 /* OSXFiles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSXFiles.h; sourceTree = "<group>"; };
 		17822022152CEF1200E213C9 /* WoglFileHandleStream.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WoglFileHandleStream.cpp; sourceTree = "<group>"; };
 		17D05D26151F9453002CBB67 /* libbackend-glfw.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libbackend-glfw.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -156,6 +156,7 @@
 		17D05D44151F94A4002CBB67 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				1750FB7D153E100E005A9525 /* OSXFiles.cpp */,
 				17822022152CEF1200E213C9 /* WoglFileHandleStream.cpp */,
 				17D05D45151F94A4002CBB67 /* GlfwApplication.cpp */,
 				17D05D46151F94A4002CBB67 /* GlfwGraphics.cpp */,
@@ -165,7 +166,6 @@
 				17D05D4A151F94A4002CBB67 /* GlfwThreading.cpp */,
 				17D05D4B151F94A4002CBB67 /* GlfwTimer.cpp */,
 				17D05D4C151F94A4002CBB67 /* GlfwWaitCondition.cpp */,
-				17821FE01528F72100E213C9 /* OSXFiles.cpp */,
 				17D05D4D151F94A4002CBB67 /* stdafx.cpp */,
 				17D05D4E151F94A4002CBB67 /* WindowsAudio.cpp */,
 			);
@@ -264,8 +264,8 @@
 				17D05D72151F94A4002CBB67 /* GlfwWaitCondition.cpp in Sources */,
 				17D05D73151F94A4002CBB67 /* stdafx.cpp in Sources */,
 				1772CA05151F963500330DB0 /* glew.c in Sources */,
-				17821FE11528F72100E213C9 /* OSXFiles.cpp in Sources */,
 				17822023152CEF1200E213C9 /* WoglFileHandleStream.cpp in Sources */,
+				1750FB7E153E100E005A9525 /* OSXFiles.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
