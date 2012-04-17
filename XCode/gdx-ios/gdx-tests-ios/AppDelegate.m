@@ -1,70 +1,28 @@
 //
 //  AppDelegate.m
-//  gdx-backend-ios
+//  gdx-tests-ios
 //
-//  Created by Tamas Jano on 29/03/2012.
+//  Created by Tamas Jano on 21/03/2012.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#include <iostream>
-#include <sstream>
-#include <string>
-#include <vector>
-#include <set>
-#include <list>
-#include <map>
-#include <algorithm>
-#include <iterator>
-
 #import "AppDelegate.h"
-#import "AlphaTest.h"
 
 @implementation AppDelegate
 
-@synthesize m_window = _window;
-//@synthesize rootViewController = _rootViewController;
-
-static void uncaughtExceptionHandler(NSException *exception) {
-    NSLog(@"CRASH: %@", exception);
-    NSLog(@"Stack Trace: %@", [exception callStackSymbols]);
-    // Internal error reporting
-}
-
--(AppDelegate*) initWithApplication:(IOSApplication*)application
-{
-    if (self = [super init]) 
-    {
-        m_app = application;
-    };
-    
-    return self;
-    
-};
+@synthesize window = _window;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{    
-    // set up exception handler
-    NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
-    
-    // Instantiate the listener
-    ApplicationListener *listener = new AlphaTest();
-    // create the application
-    m_app = new IOSApplication(*listener, false);
-    
-    [application setStatusBarHidden:YES];
-    
-    CGRect screenBounds = [[UIScreen mainScreen] bounds];
-    
-    self.m_window = [[UIWindow alloc] initWithFrame:screenBounds];
-    
-    m_view = [[GLView alloc] initWithFrame:screenBounds andListener:listener];
-    
-    [self.m_window addSubview:m_view];
-    [self.m_window makeKeyAndVisible];
-    
+{
+    // Override point for customization after application launch.
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+        UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
+        UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
+        splitViewController.delegate = (id)navigationController.topViewController;
+    }
     return YES;
 }
-
+							
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     /*
@@ -93,8 +51,6 @@ static void uncaughtExceptionHandler(NSException *exception) {
     /*
      Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
      */
-    [m_view startRenderLoop];
-    
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
@@ -104,14 +60,6 @@ static void uncaughtExceptionHandler(NSException *exception) {
      Save data if appropriate.
      See also applicationDidEnterBackground:.
      */
-    [m_view stopRenderLoop];
-    
-    //    if (m_view) {
-    //        [m_view dealloc];
-    //    }
-    
 }
 
-- (IBAction)startGame:(id)sender {
-}
 @end

@@ -31,7 +31,7 @@ public:
 	
 	virtual bool needsGL20()
 	{
-		return true;
+		return false;
 	}
 	
 	void create () 

@@ -94,6 +94,7 @@
     //our lesson needs to know the size of the renderbuffer so it can work with the right aspect ratio
     if(listener != NULL)
     {
+        ((IOSGraphics*)Gdx.graphics)->updateSize(framebufferWidth, framebufferHeight);
         listener->resize(framebufferWidth, framebufferHeight);
     }
     

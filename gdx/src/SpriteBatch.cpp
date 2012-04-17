@@ -97,12 +97,12 @@ void SpriteBatch::init(int size, int buffers, ShaderProgram* defaultShader)
 {
 	m_numBuffers = buffers;
 	m_buffers = new Mesh*[buffers];
-
+    std::string texAttributeName = std::string(ShaderProgram::TEXCOORD_ATTRIBUTE) + "0";
 	for(int i = 0; i < buffers; i++)
 	{
 		VertexAttribute attributes[] = {VertexAttribute(VertexAttributes::Position, 2, ShaderProgram::POSITION_ATTRIBUTE), 
 			VertexAttribute(VertexAttributes::ColorPacked, 4, ShaderProgram::COLOR_ATTRIBUTE),
-			VertexAttribute(VertexAttributes::TextureCoordinates, 2, (std::string(ShaderProgram::TEXCOORD_ATTRIBUTE) + "0").c_str())};
+			VertexAttribute(VertexAttributes::TextureCoordinates, 2, texAttributeName)};
 		m_buffers[i] = new Mesh(Mesh::VertexArrayType, false, VertexAttributes(attributes, sizeof(attributes)/sizeof(attributes[0])));
 	}
 

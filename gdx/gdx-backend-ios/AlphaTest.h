@@ -28,6 +28,12 @@ class AlphaTest  :
 public:
 	
 	GDX_DEFINE_CREATOR(AlphaTest);
+	
+	virtual bool needsGL20()
+	{
+		return false;
+	}
+	
 	void create () 
 	{
 		Pixmap* pixmap = new Pixmap(256, 256, Pixmap::Format::RGBA8888);
@@ -47,11 +53,11 @@ public:
 
 	void render ()
 	{
-        glClearColor(0.25, 0, 0, 1);
+        glClearColor(0.88, 0.5, 0, 0.9);
 		glClear(GL_COLOR_BUFFER_BIT);
 
 		m_batch->begin();
-		m_batch->draw(m_texture, 0, 0, 256, 256, 0, 0, 256, 256, false, false);
+		m_batch->draw(m_texture, 0, 0, 128, 256, 0, 0, 256, 256, false, false);
 		m_batch->end();
 	}
 

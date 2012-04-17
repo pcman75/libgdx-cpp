@@ -229,7 +229,7 @@
 		17D05D1D151F9453002CBB67 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0430;
 				ORGANIZATIONNAME = Home;
 			};
 			buildConfigurationList = 17D05D20151F9453002CBB67 /* Build configuration list for PBXProject "backend-glfw" */;

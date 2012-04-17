@@ -61,6 +61,7 @@ public:
 
     virtual void updateTimes();
     virtual void updateTimes(float elapsedTime,  float timestamp);
+    virtual void updateSize(int width, int height);
 };
 
 #endif
