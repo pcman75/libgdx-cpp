@@ -18,6 +18,7 @@
 
 #import "AppDelegate.h"
 #import "AlphaTest.h"
+#import "Pong.h"
 
 @implementation AppDelegate
 

@@ -2,8 +2,8 @@
 //  main.m
 //  gdx-tests-ios
 //
-//  Created by Tamas Jano on 21/03/2012.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Created by Cosmin Manoliu on 4/17/12.
+//  Copyright (c) 2012 Home. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
