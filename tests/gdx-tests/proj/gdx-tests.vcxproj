@@ -77,7 +77,7 @@
     </Link>
     <CustomBuildStep>
       <Command>xcopy /i /y ..\data $(OutDir)\data</Command>
-      <Outputs>$(OutDir)\data</Outputs>
+      <Outputs>$(OutDir)\data\test3.png</Outputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">

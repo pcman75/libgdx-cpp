@@ -318,6 +318,9 @@ bool FileHandle::exists() const
 //  * @throw GdxRuntimeException if this file handle is a {@link FileType#Classpath} or {@link FileType#Internal} file. */
 bool FileHandle::remove() const
 {
+	if(m_type != External)
+		throw GdxRuntimeException("File must be External");
+
 	int result = ::remove(m_strFullPath.c_str());
 	if(result)
 	{
@@ -375,6 +378,7 @@ void FileHandle::moveTo(const FileHandle* dest) const
 size_t FileHandle::length() const
 {
 	struct stat filestatus;
+	memset(&filestatus, 0, sizeof(filestatus));
 	stat( m_strFullPath.c_str(), &filestatus);
 	return filestatus.st_size;
 }

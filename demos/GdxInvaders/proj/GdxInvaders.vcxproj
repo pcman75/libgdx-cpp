@@ -146,7 +146,7 @@
       <Command>xcopy /i /y ..\data $(OutDir)\data</Command>
     </CustomBuildStep>
     <CustomBuildStep>
-      <Outputs>$(OutDir)\data</Outputs>
+      <Outputs>$(OutDir)\data\ship.png</Outputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">

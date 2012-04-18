@@ -242,13 +242,19 @@ void FilesTest::testExternal()
 
 	if(handle->length() != 3) 
 		fail();
+	
+	FileHandle* copy = Gdx.files->externalHandle(path + "-copy");
+	copy->remove();
+	if(copy->exists()) 
+		fail();
+	
+	handle->copyTo(copy);
+	if(!copy->exists()) 
+		fail();
+
+	if(copy->length() != 3) 
+		fail();
 	/*
-	FileHandle copy = Gdx.files.external(path + "-copy");
-	copy.delete();
-	if(copy.exists()) fail();
-	handle.copyTo(copy);
-	if(!copy.exists()) fail();
-	if(copy.length() != 3) fail();
 	FileHandle move = Gdx.files.external(path + "-move");
 	move.delete();
 	if(move.exists()) fail();

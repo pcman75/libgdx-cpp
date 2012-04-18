@@ -163,7 +163,7 @@
       <Command>xcopy /i /y ..\data $(OutDir)\data</Command>
     </CustomBuildStep>
     <CustomBuildStep>
-      <Outputs>$(OutDir)\data</Outputs>
+      <Outputs>$(OutDir)\data\jump.ogg</Outputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
