@@ -136,7 +136,8 @@ void IOSGraphics::setGlVersion(GlVersion version)
 
 void IOSGraphics::updateTimes() 
 {
-	m_deltaTime = (m_timer.systemNanoSeconds() - m_lastFrameTime) / 10.0E9f;
+    // convert to seconds
+	m_deltaTime = (m_timer.systemNanoSeconds() - m_lastFrameTime) * 1.0E-9f;
 	m_lastFrameTime = m_timer.systemNanoSeconds();
     
 	if(m_timer.systemNanoSeconds() - m_frameStart > 10E9) 
@@ -147,21 +148,6 @@ void IOSGraphics::updateTimes()
 	}
 	m_frames++;
 }
-
-
-void IOSGraphics::updateTimes(float elapsedTime,  float timestamp)
-{
-	m_deltaTime = (timestamp - m_lastFrameTime) / 10.0E9f;
-	m_lastFrameTime = timestamp;
-    
-	if(timestamp - m_frameStart > 10E9) 
-	{
-		m_fps = m_frames;
-		m_frames = 0;
-		m_frameStart = timestamp;
-	}
-	m_frames++;
-};
 
 void IOSGraphics::updateSize(int width, int height) {
     m_width = width;

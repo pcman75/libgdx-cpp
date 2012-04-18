@@ -26,9 +26,9 @@ private:
     
     GlVersion   m_glVersion;
 	IOSTimer    m_timer;
-	long long   m_frameStart;
-	long long   m_lastFrameTime;
-	float       m_deltaTime;
+	uint64_t    m_frameStart;
+	uint64_t    m_lastFrameTime;
+	double      m_deltaTime;
 	int         m_fps;
 	int         m_frames;
     
@@ -60,7 +60,6 @@ public:
     virtual void setGlVersion(GlVersion version);
 
     virtual void updateTimes();
-    virtual void updateTimes(float elapsedTime,  float timestamp);
     virtual void updateSize(int width, int height);
 };
 

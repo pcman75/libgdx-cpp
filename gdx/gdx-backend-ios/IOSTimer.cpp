@@ -8,6 +8,7 @@
 
 #include "IOSTimer.h"
 #include <sys/time.h>
+#include <mach/mach_time.h>
 
 IOSTimer::IOSTimer(void)
 {
@@ -15,11 +16,13 @@ IOSTimer::IOSTimer(void)
 
 long long IOSTimer::systemNanoSeconds()
 {
-    timeval time;
-    gettimeofday(&time, NULL);
-	return  (long long)1000 * time.tv_usec;
+    static mach_timebase_info_data_t info;
+    mach_timebase_info(&info);
+    uint64_t now = mach_absolute_time();	
+    //    now *= info.numer;
+    //    now /= info.denom;
+    return now;
 }
-
 
 void IOSTimer::startTimer()
 {

@@ -201,11 +201,8 @@
             listener->render();
         }
         
-        float elapsedSeconds = displayLink.timestamp - timestamp;
-        timestamp = displayLink.timestamp;
-//        NSLog(@"elapsedSeconds=%f  timestamp=%f", elapsedSeconds, timestamp);
         // update deltaTime
-        ((IOSGraphics*)Gdx.graphics)->updateTimes(elapsedSeconds, timestamp);
+        ((IOSGraphics*)Gdx.graphics)->updateTimes();
 
         //finally, get the color buffer we rendered to, and pass it to iOS
         //so it can display our awesome results!
