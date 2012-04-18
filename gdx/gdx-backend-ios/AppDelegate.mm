@@ -48,7 +48,7 @@ static void uncaughtExceptionHandler(NSException *exception) {
     NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
     
     // Instantiate the listener
-    ApplicationListener *listener = new AlphaTest();
+    ApplicationListener *listener = new Pong();
     // create the application
     m_app = new IOSApplication(*listener, false);
     

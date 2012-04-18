@@ -201,7 +201,7 @@ public:
 
 private:
 	void init(const std::string& strFullPath, FileType type);
-
+    int removeDirectory(const char *path) const;
 protected:
   std::string m_strFullPath;
   FileType m_type;

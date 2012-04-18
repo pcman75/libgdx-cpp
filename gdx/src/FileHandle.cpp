@@ -333,17 +333,84 @@ bool FileHandle::remove() const
 	return result == 0;
 }
 
+int FileHandle::removeDirectory(const char *path) const
+{
+    DIR *d = opendir(path);
+    size_t path_len = strlen(path);
+    int r = -1;
+    
+    if (d)
+    {
+        struct dirent *p;
+        
+        r = 0;
+        
+        while (!r && (p=readdir(d)))
+        {
+            int r2 = -1;
+            char *buf;
+            size_t len;
+            
+            /* Skip the names "." and ".." as we don't want to recurse on them. */
+            if (!strcmp(p->d_name, ".") || !strcmp(p->d_name, ".."))
+            {
+                continue;
+            }
+            
+            len = path_len + strlen(p->d_name) + 2; 
+            buf = new char[len];
+            
+            if (buf)
+            {
+                struct stat statbuf;
+                
+                snprintf(buf, len, "%s/%s", path, p->d_name);
+                
+                if (!stat(buf, &statbuf))
+                {
+                    if (S_ISDIR(statbuf.st_mode))
+                    {
+                        r2 = removeDirectory(buf);
+                    }
+                    else
+                    {
+                        r2 = unlink(buf);
+                    }
+                }
+                
+                delete[] buf;
+            }
+            
+            r = r2;
+        }
+        
+        closedir(d);
+    }
+    
+    if (!r)
+    {
+        r = rmdir(path);
+    }
+    
+    return r;
+}
 
 /** Deletes this file or directory and all children, recursively.
 * @throw GdxRuntimeException if this file handle is a {@link FileType#Classpath} or {@link FileType#Internal} file. */
 bool FileHandle::removeRecursive() const
 {
+    /* TODO: remove this
 	bool result = ::remove(m_strFullPath.c_str()) == 0;
 	if(!result)
 	{
 		result = Gdx.files->recursiveDeleteDirectory(m_strFullPath.c_str());
 	}
 	return result;
+     */
+    bool result = ::remove(m_strFullPath.c_str()) == 0;
+    if(!result)
+        result = removeDirectory(m_strFullPath.c_str()) == 0;
+    return result;
 }
 
 

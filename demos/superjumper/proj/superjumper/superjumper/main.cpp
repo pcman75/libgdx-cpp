@@ -5,12 +5,7 @@
 //  Created by Cosmin Manoliu on 4/5/12.
 //  Copyright (c) 2012 Home. All rights reserved.
 //
-#include <iostream>
-#include <sstream>
-#include <string>
-#include <vector>
-#include <list>
-#include <map>
+#include "stdafx.h"
 
 #include "GlfwApplication.h"
 #include "SuperJumper.h"

@@ -28,6 +28,7 @@
     #endif
     #include <libgen.h>
     #include <sys/stat.h> //mkdir
+    #include <dirent.h>
 #else
     #define GL_GLEXT_PROTOTYPES
 	#include <glew.h>

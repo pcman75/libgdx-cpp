@@ -74,9 +74,10 @@ bool OSXFiles::isExternalStorageAvailable() const
 
 bool OSXFiles::isDirectory( const std::string& path) const
 {
+    bool isDir = false;
     struct stat filestatus;
-	stat( path.c_str(), &filestatus);
-    bool isDir = S_ISDIR(filestatus.st_mode);
+    if(!stat(path.c_str(), &filestatus))
+       isDir = S_ISDIR(filestatus.st_mode);
     return isDir;
 }
 
