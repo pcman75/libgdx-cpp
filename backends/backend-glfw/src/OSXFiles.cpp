@@ -98,12 +98,76 @@ void OSXFiles::mkdir( const std::string& path) const
 
 bool OSXFiles::recursiveDeleteDirectory(const std::string& path) const
 {
-    return false; 
+    return removeDirectory(path.c_str()) == 0; 
 }
 
+
+int OSXFiles::removeDirectory(const char *path) const
+{
+    DIR *d = opendir(path);
+    size_t path_len = strlen(path);
+    int r = -1;
+    
+    if (d)
+    {
+        struct dirent *p;
+        
+        r = 0;
+        
+        while (!r && (p=readdir(d)))
+        {
+            int r2 = -1;
+            char *buf;
+            size_t len;
+            
+            /* Skip the names "." and ".." as we don't want to recurse on them. */
+            if (!strcmp(p->d_name, ".") || !strcmp(p->d_name, ".."))
+            {
+                continue;
+            }
+            
+            len = path_len + strlen(p->d_name) + 2; 
+            buf = new char[len];
+            
+            if (buf)
+            {
+                struct stat statbuf;
+                
+                snprintf(buf, len, "%s/%s", path, p->d_name);
+                
+                if (!stat(buf, &statbuf))
+                {
+                    if (S_ISDIR(statbuf.st_mode))
+                    {
+                        r2 = removeDirectory(buf);
+                    }
+                    else
+                    {
+                        r2 = unlink(buf);
+                    }
+                }
+                
+                delete[] buf;
+            }
+            
+            r = r2;
+        }
+        
+        closedir(d);
+    }
+    
+    if (!r)
+    {
+        r = rmdir(path);
+    }
+    
+    return r;
+}
 
 FileHandleStream* OSXFiles::getStream( const std::string& path, FileAccess nFileAccess, StreamType nStreamType) const
 {
     FileHandleStream* pRet = new WoglFileHandleStream(path, nFileAccess, nStreamType);
 	return pRet;
 }
+
+//http://stackoverflow.com/questions/3680730/c-fileio-copy-vs-systemcp-file1-x-file2-x

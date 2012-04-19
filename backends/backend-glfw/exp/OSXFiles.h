@@ -46,4 +46,7 @@ public:
 	virtual bool recursiveDeleteDirectory(const std::string& path) const;
     
 	virtual FileHandleStream* getStream( const std::string& path, FileAccess nFileAccess, StreamType nStreamType) const;
+
+private:
+	int removeDirectory(const char *path) const;
 };

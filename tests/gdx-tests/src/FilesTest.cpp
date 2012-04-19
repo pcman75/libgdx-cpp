@@ -254,15 +254,32 @@ void FilesTest::testExternal()
 
 	if(copy->length() != 3) 
 		fail();
+	
+	FileHandle* move = Gdx.files->externalHandle(path + "-move");
+	move->remove();
+	if(move->exists()) 
+		fail();
+	copy->moveTo(move);
+	if(!move->exists()) 
+		fail();
+	if(move->length() != 3) 
+		fail();
+	move->removeRecursive();
+	if(move->exists()) 
+		fail();
+	delete copy;
+	delete move;
+
 	/*
-	FileHandle move = Gdx.files.external(path + "-move");
-	move.delete();
-	if(move.exists()) fail();
-	copy.moveTo(move);
-	if(!move.exists()) fail();
-	if(move.length() != 3) fail();
-	move.deleteDirectory();
-	if(move.exists()) fail();
+	std::ifstream input;
+	handle->read(input);
+
+	if(input.read(bytes) != 3) 
+		fail();
+	input.close();
+	*/
+
+	/*
 	InputStream input = handle.read();
 	byte[] bytes = new byte[6];
 	if(input.read(bytes) != 3) fail();

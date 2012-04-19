@@ -94,8 +94,8 @@ FileHandle* FileHandle::child(const string& name) const
 {
 	/*
 	public FileHandle child (String name) {
-		if (file.getPath().length() == 0) return new FileHandle(new File(name), type);
-		return new FileHandle(new File(file, name), type);
+	if (file.getPath().length() == 0) return new FileHandle(new File(name), type);
+	return new FileHandle(new File(file, name), type);
 	}
 	*/
 	//TODO: review this
@@ -333,84 +333,16 @@ bool FileHandle::remove() const
 	return result == 0;
 }
 
-int FileHandle::removeDirectory(const char *path) const
-{
-    DIR *d = opendir(path);
-    size_t path_len = strlen(path);
-    int r = -1;
-    
-    if (d)
-    {
-        struct dirent *p;
-        
-        r = 0;
-        
-        while (!r && (p=readdir(d)))
-        {
-            int r2 = -1;
-            char *buf;
-            size_t len;
-            
-            /* Skip the names "." and ".." as we don't want to recurse on them. */
-            if (!strcmp(p->d_name, ".") || !strcmp(p->d_name, ".."))
-            {
-                continue;
-            }
-            
-            len = path_len + strlen(p->d_name) + 2; 
-            buf = new char[len];
-            
-            if (buf)
-            {
-                struct stat statbuf;
-                
-                snprintf(buf, len, "%s/%s", path, p->d_name);
-                
-                if (!stat(buf, &statbuf))
-                {
-                    if (S_ISDIR(statbuf.st_mode))
-                    {
-                        r2 = removeDirectory(buf);
-                    }
-                    else
-                    {
-                        r2 = unlink(buf);
-                    }
-                }
-                
-                delete[] buf;
-            }
-            
-            r = r2;
-        }
-        
-        closedir(d);
-    }
-    
-    if (!r)
-    {
-        r = rmdir(path);
-    }
-    
-    return r;
-}
-
 /** Deletes this file or directory and all children, recursively.
 * @throw GdxRuntimeException if this file handle is a {@link FileType#Classpath} or {@link FileType#Internal} file. */
 bool FileHandle::removeRecursive() const
 {
-    /* TODO: remove this
 	bool result = ::remove(m_strFullPath.c_str()) == 0;
 	if(!result)
 	{
-		result = Gdx.files->recursiveDeleteDirectory(m_strFullPath.c_str());
+		result = Gdx.files->recursiveDeleteDirectory(m_strFullPath);
 	}
 	return result;
-     */
-    bool result = ::remove(m_strFullPath.c_str()) == 0;
-    if(!result)
-        result = removeDirectory(m_strFullPath.c_str()) == 0;
-    return result;
 }
 
 
@@ -425,8 +357,61 @@ bool FileHandle::removeRecursive() const
 *        or copying failed. */
 void FileHandle::copyTo(const FileHandle* dest) const
 {
-	//TODO: implement this
-	throw GdxRuntimeException("not implemented");
+	/*
+	boolean sourceDir = isDirectory();
+	if (!sourceDir) {
+	if (dest.isDirectory()) dest = dest.child(name());
+	copyFile(this, dest);
+	return;
+	}
+	if (dest.exists()) {
+	if (!dest.isDirectory()) throw new GdxRuntimeException("Destination exists but is not a directory: " + dest);
+	} else {
+	dest.mkdirs();
+	if (!dest.isDirectory()) throw new GdxRuntimeException("Destination directory cannot be created: " + dest);
+	}
+	if (!sourceDir) dest = dest.child(name());
+	copyDirectory(this, dest);
+	*/
+	bool sourceIsDir = isDirectory();
+	if (!sourceIsDir) 
+	{
+		if (dest->isDirectory()) 
+		{
+			dest = dest->child(name());
+			copyFile(this, dest);
+			delete dest;
+		}
+		else
+		{
+			copyFile(this, dest);
+		}
+		return;
+
+	}
+
+	if (dest->exists()) 
+	{
+		if (!dest->isDirectory()) 
+			throw new GdxRuntimeException("Destination exists but is not a directory: " + dest->toString());
+	} 
+	else 
+	{
+		dest->mkdirs();
+		if (!dest->isDirectory()) 
+			throw new GdxRuntimeException("Destination directory cannot be created: " + dest->toString());
+	}
+
+	if (!sourceIsDir)
+	{
+		dest = dest->child(name());
+		copyDirectory(this, dest);
+		delete dest;
+	}
+	else
+	{
+		copyDirectory(this, dest);
+	}
 }
 
 
@@ -435,8 +420,10 @@ void FileHandle::copyTo(const FileHandle* dest) const
 *        {@link FileType#Internal} file. */
 void FileHandle::moveTo(const FileHandle* dest) const
 {
-	//TODO: implement this
-	throw GdxRuntimeException("not implemented");
+	if(m_type != External)
+		throw GdxRuntimeException("File must be External");
+	if(!Gdx.files->moveFile(m_strFullPath.c_str(), dest->m_strFullPath.c_str()))
+		throw GdxRuntimeException("Failed to move " + m_strFullPath + " to " + dest->m_strFullPath);
 }
 
 
@@ -480,4 +467,29 @@ FileHandle* FileHandle::tempDirectory(std::string prefix)
 {
 	//TODO: implement this
 	throw GdxRuntimeException("not implemented");
+}
+
+void FileHandle::copyFile(const FileHandle* source, const FileHandle* dest) 
+{
+	if(!Gdx.files->copyFile(source->m_strFullPath.c_str(), dest->m_strFullPath.c_str()))
+		throw GdxRuntimeException("failed to copy " + source->m_strFullPath + " to " + dest->m_strFullPath);
+}
+
+void FileHandle::copyDirectory(const FileHandle* sourceDir, const FileHandle* destDir) 
+{
+	destDir->mkdirs();
+	vector<FileHandle> files;
+	sourceDir->list(files);
+	for (int i = 0, n = files.size(); i < n; i++) 
+	{
+		FileHandle* srcFile = &files[i];
+		FileHandle* destFile = destDir->child(srcFile->name());
+		if (srcFile->isDirectory())
+			copyDirectory(srcFile, destFile);
+		else
+			copyFile(srcFile, destFile);
+
+		delete srcFile;
+		delete destFile;
+	}
 }

@@ -29,7 +29,7 @@
     #include <pwd.h>
 
     #include <libgen.h>
-    #include <sys/stat.h>
+    //#include <sys/stat.h>
 #endif
 
 #define GL_GLEXT_PROTOTYPES
@@ -47,4 +47,5 @@
 
 #include <stdlib.h>
 #include <stdio.h>
-
+#include <sys/types.h> //stat() (get the file size)
+#include <sys/stat.h>

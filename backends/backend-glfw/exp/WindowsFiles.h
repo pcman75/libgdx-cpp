@@ -39,7 +39,8 @@ public:
   virtual bool recursiveDeleteDirectory(const std::string& path) const;
 
   virtual FileHandleStream* getStream(const std::string& path, FileAccess nFileAccess, StreamType nStreamType) const;
-
+  bool copyFile(const char* source, const char* dest) const;
+  bool moveFile(const char* source, const char* dest) const;
 private:
 	bool isDots(const TCHAR* str) const;
 };

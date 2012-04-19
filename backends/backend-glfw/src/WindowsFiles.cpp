@@ -1,7 +1,7 @@
 #include "StdAfx.h"
 #include "WindowsFiles.h"
 #include "WoglFileHandleStream.h"
-
+#include "GdxRuntimeException.h"
 
 WindowsFiles::WindowsFiles(void)
 {
@@ -161,11 +161,28 @@ bool WindowsFiles::recursiveDeleteDirectory(const std::string& path) const
        }
     }
    FindClose(hFind);                  // close the file handle
-   return RemoveDirectory(path.c_str());     // remove the empty directory
+   return RemoveDirectory(path.c_str()) == TRUE;     // remove the empty directory
 }
 
 FileHandleStream* WindowsFiles::getStream(const std::string& path, FileAccess nFileAccess, StreamType nStreamType) const
 {
 	FileHandleStream* pRet = new WoglFileHandleStream( path, nFileAccess, nStreamType);
 	return pRet;
+}
+
+bool WindowsFiles::copyFile(const char* source, const char* dest) const
+{
+	return ::CopyFileA(source, dest, TRUE) == TRUE;
+}
+
+bool WindowsFiles::moveFile(const char* source, const char* dest) const
+{
+	struct stat filestatus;
+	if(!stat( dest, &filestatus))
+	{
+		//destination exists so I delete it before trying to move over it
+		::DeleteFileA(dest);
+	}
+
+	return ::MoveFileA(source, dest) == TRUE;
 }

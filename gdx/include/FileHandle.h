@@ -202,6 +202,9 @@ public:
 private:
 	void init(const std::string& strFullPath, FileType type);
     int removeDirectory(const char *path) const;
+	static void copyFile(const FileHandle* source, const FileHandle* dest);
+	static void copyDirectory(const FileHandle* sourceDir, const FileHandle* destDir);
+
 protected:
   std::string m_strFullPath;
   FileType m_type;
