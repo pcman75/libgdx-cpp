@@ -55,5 +55,4 @@ public:
 	virtual FileHandleStream* getStream( const std::string& path, FileAccess nFileAccess, StreamType nStreamType) const = 0;
 
 	virtual bool copyFile(const char* source, const char* dest) const = 0;
-	virtual bool moveFile(const char* source, const char* dest) const = 0;
 };

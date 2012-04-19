@@ -174,15 +174,3 @@ bool WindowsFiles::copyFile(const char* source, const char* dest) const
 {
 	return ::CopyFileA(source, dest, TRUE) == TRUE;
 }
-
-bool WindowsFiles::moveFile(const char* source, const char* dest) const
-{
-	struct stat filestatus;
-	if(!stat( dest, &filestatus))
-	{
-		//destination exists so I delete it before trying to move over it
-		::DeleteFileA(dest);
-	}
-
-	return ::MoveFileA(source, dest) == TRUE;
-}

@@ -83,6 +83,21 @@ bool OSXFiles::isDirectory( const std::string& path) const
 
 void OSXFiles::list( const std::string& path, std::vector< FileHandle>& handles) const
 {
+    DIR *dir = opendir(path.c_str());
+    if (dir)
+    {
+        struct dirent* item;        
+        while((item = readdir(dir)))
+        {
+            // Skip the names "." and ".."
+            if (!strcmp(item->d_name, ".") || !strcmp(item->d_name, ".."))
+            {
+                continue;
+            }
+            handles.push_back( FileHandle( path + "/" + item->d_name));
+        }
+        closedir(dir);
+    }
     
 }
 
@@ -110,10 +125,8 @@ int OSXFiles::removeDirectory(const char *path) const
     
     if (d)
     {
-        struct dirent *p;
-        
+        struct dirent *p;        
         r = 0;
-        
         while (!r && (p=readdir(d)))
         {
             int r2 = -1;
@@ -132,9 +145,7 @@ int OSXFiles::removeDirectory(const char *path) const
             if (buf)
             {
                 struct stat statbuf;
-                
                 snprintf(buf, len, "%s/%s", path, p->d_name);
-                
                 if (!stat(buf, &statbuf))
                 {
                     if (S_ISDIR(statbuf.st_mode))
@@ -146,16 +157,13 @@ int OSXFiles::removeDirectory(const char *path) const
                         r2 = unlink(buf);
                     }
                 }
-                
                 delete[] buf;
             }
             
             r = r2;
         }
-        
         closedir(d);
     }
-    
     if (!r)
     {
         r = rmdir(path);
@@ -170,4 +178,11 @@ FileHandleStream* OSXFiles::getStream( const std::string& path, FileAccess nFile
 	return pRet;
 }
 
-//http://stackoverflow.com/questions/3680730/c-fileio-copy-vs-systemcp-file1-x-file2-x
+bool OSXFiles::copyFile(const char* source, const char* dest) const
+{
+    
+    int ok = ::copyfile(source, dest, NULL, COPYFILE_ALL);
+    return ok == 0;
+}
+
+

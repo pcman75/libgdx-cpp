@@ -422,10 +422,9 @@ void FileHandle::moveTo(const FileHandle* dest) const
 {
 	if(m_type != External)
 		throw GdxRuntimeException("File must be External");
-	if(!Gdx.files->moveFile(m_strFullPath.c_str(), dest->m_strFullPath.c_str()))
+	if(std::rename(m_strFullPath.c_str(), dest->m_strFullPath.c_str()))
 		throw GdxRuntimeException("Failed to move " + m_strFullPath + " to " + dest->m_strFullPath);
 }
-
 
 /** Returns the length in bytes of this file, or 0 if this file is a directory, does not exist, or the size cannot otherwise be
 * determined. */

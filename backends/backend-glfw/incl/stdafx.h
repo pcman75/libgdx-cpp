@@ -25,11 +25,15 @@
     #include <CoreFoundation/CFURL.h>
 
     #include <unistd.h>
-    #include <sys/types.h>
+    //#include <sys/types.h>
     #include <pwd.h>
 
     #include <libgen.h>
-    //#include <sys/stat.h>
+    #include <dirent.h>
+    #include <fcntl.h>
+    #include <sys/socket.h>
+    #include <sys/uio.h>
+    #include <copyfile.h>
 #endif
 
 #define GL_GLEXT_PROTOTYPES
