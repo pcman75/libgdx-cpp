@@ -83,6 +83,7 @@ bool OSXFiles::isDirectory( const std::string& path) const
 
 void OSXFiles::list( const std::string& path, std::vector< FileHandle>& handles) const
 {
+	handles.clear();
     DIR *dir = opendir(path.c_str());
     if (dir)
     {

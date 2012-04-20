@@ -188,7 +188,9 @@ void FileHandle::write(bool append, ofstream& stream) const
 	parentHandle->mkdirs();
 	delete parentHandle;
 
-	stream.open(m_strFullPath.c_str());
+	std::ios_base::openmode mode;
+	mode = append? ios_base::out | ios_base::app: ios_base::out | ios_base::trunc;
+	stream.open(m_strFullPath.c_str(), mode);
 	if(stream.fail())
 	{
 		throw GdxRuntimeException("Error writing file: " + m_strFullPath);
@@ -318,8 +320,8 @@ bool FileHandle::exists() const
 //  * @throw GdxRuntimeException if this file handle is a {@link FileType#Classpath} or {@link FileType#Internal} file. */
 bool FileHandle::remove() const
 {
-	if(m_type != External)
-		throw GdxRuntimeException("File must be External");
+	if(m_type == Internal)
+		throw GdxRuntimeException("File must not be Internal");
 
 	int result = ::remove(m_strFullPath.c_str());
 	if(result)
@@ -420,8 +422,8 @@ void FileHandle::copyTo(const FileHandle* dest) const
 *        {@link FileType#Internal} file. */
 void FileHandle::moveTo(const FileHandle* dest) const
 {
-	if(m_type != External)
-		throw GdxRuntimeException("File must be External");
+	if(m_type == Internal)
+		throw GdxRuntimeException("File must not be Internal");
 	if(std::rename(m_strFullPath.c_str(), dest->m_strFullPath.c_str()))
 		throw GdxRuntimeException("Failed to move " + m_strFullPath + " to " + dest->m_strFullPath);
 }

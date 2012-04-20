@@ -71,6 +71,7 @@ bool WindowsFiles::isDirectory(const std::string& path) const
 
 void WindowsFiles::list(const std::string& path, std::vector< FileHandle>& handles) const
 {
+	handles.clear();
 	if( isDirectory( path))
 	{
 		WIN32_FIND_DATA FileData; 
