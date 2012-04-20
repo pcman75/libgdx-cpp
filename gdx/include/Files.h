@@ -28,16 +28,16 @@ public:
 	* @param type Determines how the path is resolved.
 	* @throws GdxRuntimeException if the type is classpath or internal and the file does not exist.
 	* @see FileType */
-	virtual FileHandle* getFileHandle (const std::string& path, FileType type) const = 0;
+	virtual FileHandle getFileHandle (const std::string& path, FileType type) const = 0;
 
 	/** Convenience method that returns a {@link FileType#Internal} file handle. */
-	virtual FileHandle* internalHandle (const std::string& path) const = 0;
+	virtual FileHandle internalHandle (const std::string& path) const = 0;
 
 	/** Convenience method that returns a {@link FileType#External} file handle. */
-	virtual FileHandle* externalHandle (const std::string& path) const = 0;
+	virtual FileHandle externalHandle (const std::string& path) const = 0;
 
 	/** Convenience method that returns a {@link FileType#Absolute} file handle. */
-	virtual FileHandle* absoluteHandle (const std::string& path) const = 0;
+	virtual FileHandle absoluteHandle (const std::string& path) const = 0;
 
 	/** Returns the external storage path directory. This is the SD card on Android and the home directory of the current user on
 	* the desktop. */

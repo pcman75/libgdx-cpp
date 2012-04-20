@@ -50,16 +50,17 @@ public:
 		m_mustStopSound = false;
 
 		/** the file to playback **/
-		static const char* FILE = "cloudconnected.ogg";
+		static const char* FILE = "data/cloudconnected.ogg";
 
 		// copy ogg file to SD card, can't playback from assets
-		FileHandle* externalFile = Gdx.files->externalHandle(FILE);
-		//Gdx.files.internal(FILE).copyTo(externalFile);
+		FileHandle externalFile = Gdx.files->externalHandle(FILE);
+		externalFile.parent().removeRecursive();
+		Gdx.files->internalHandle(FILE).copyTo(externalFile);
 		
+
 		// Create the m_decoder and log some properties. Note that we need
 		// an external or absolute file
 		m_decoder = new VorbisDecoder(externalFile);
-		delete externalFile;
 
 		std::stringstream logMsg;
 		logMsg << "channels: " << m_decoder->getChannels() << ", rate: " << m_decoder->getRate() << ", length: " << m_decoder->getLength();

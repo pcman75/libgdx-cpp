@@ -19,13 +19,13 @@ OSXFiles::OSXFiles()
  * @param type Determines how the path is resolved.
  * @throws GdxRuntimeException if the type is classpath or internal and the file does not exist.
  * @see FileType */
-FileHandle* OSXFiles::getFileHandle (const std::string& path, FileType type) const
+FileHandle OSXFiles::getFileHandle (const std::string& path, FileType type) const
 {
-    return NULL; 
+    return FileHandle(path, type);
 }
 
 /** Convenience method that returns a {@link FileType#Internal} file handle. */
-FileHandle* OSXFiles::internalHandle (const std::string& path) const
+FileHandle OSXFiles::internalHandle (const std::string& path) const
 {
     unsigned char pathBuf[PATH_MAX];
     CFBundleRef mainBundle;
@@ -38,21 +38,21 @@ FileHandle* OSXFiles::internalHandle (const std::string& path) const
     std::string fullPath((char*)pathBuf);
     fullPath += "/";
     fullPath += path;
-    return new FileHandle(fullPath, Internal); 
+    return FileHandle(fullPath, Internal); 
 }
 
 /** Convenience method that returns a {@link FileType#External} file handle. */
-FileHandle* OSXFiles::externalHandle (const std::string& path) const
+FileHandle OSXFiles::externalHandle (const std::string& path) const
 {
     std::string externalStoragePath;
 	getExternalStoragePath(externalStoragePath);
-	return new FileHandle(externalStoragePath + "/" + path, External);
+	return FileHandle(externalStoragePath + "/" + path, External);
 }
 
 /** Convenience method that returns a {@link FileType#Absolute} file handle. */
-FileHandle* OSXFiles::absoluteHandle (const std::string& path) const
+FileHandle OSXFiles::absoluteHandle (const std::string& path) const
 {
-    return new FileHandle(path, Absolute); 
+    return FileHandle(path, Absolute); 
 }
 
 /** Returns the external storage path directory. This is the SD card on Android and the home directory of the current user on

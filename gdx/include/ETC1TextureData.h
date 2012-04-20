@@ -35,8 +35,8 @@ private:
 	void init();
 
 public:
-	ETC1TextureData(const FileHandle* file);
-	ETC1TextureData(const FileHandle* file, bool useMipMaps);
+	ETC1TextureData(const FileHandle& file);
+	ETC1TextureData(const FileHandle& file, bool useMipMaps);
 	ETC1TextureData(const ETC1Data& encodedImage, bool useMipMaps);
 	
 	TextureDataType getType();

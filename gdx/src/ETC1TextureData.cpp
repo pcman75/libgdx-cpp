@@ -10,14 +10,14 @@ void ETC1TextureData::init()
 }
 
 
-ETC1TextureData::ETC1TextureData(const FileHandle* file)
-	:m_file(*file), m_useMipMaps(false)
+ETC1TextureData::ETC1TextureData(const FileHandle& file)
+	:m_file(file), m_useMipMaps(false)
 {
 	init();
 }
 
-ETC1TextureData::ETC1TextureData(const FileHandle* file, bool useMipMaps)
-	:m_file(*file), m_useMipMaps(useMipMaps)
+ETC1TextureData::ETC1TextureData(const FileHandle& file, bool useMipMaps)
+	:m_file(file), m_useMipMaps(useMipMaps)
 {
 	init();
 }

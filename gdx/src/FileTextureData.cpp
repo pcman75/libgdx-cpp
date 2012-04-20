@@ -6,11 +6,9 @@
 
 bool FileTextureData::copyToPOT = false;
 
-FileTextureData::FileTextureData(const FileHandle* file, Pixmap* preloadedPixmap, Pixmap::Format format, bool useMipMaps)
-	:m_pixmap(preloadedPixmap), m_format(format)
+FileTextureData::FileTextureData(const FileHandle& file, Pixmap* preloadedPixmap, Pixmap::Format format, bool useMipMaps)
+	:m_pixmap(preloadedPixmap), m_format(format), m_file(file)
 {
-	//TODO: review this. who delete the m_file?
-	m_file = file;
 	m_width = 0;
 	m_height = 0;
 	m_isPrepared = false;
@@ -124,7 +122,7 @@ bool FileTextureData::isManaged()
 	return true;
 }
 
-const FileHandle* FileTextureData::getFileHandle()
+const FileHandle& FileTextureData::getFileHandle()
 {
 	return m_file;
 }

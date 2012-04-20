@@ -23,7 +23,7 @@ BitmapFont::BitmapFontData::~BitmapFontData()
 	delete[] glyphs;
 }
 
-BitmapFont::BitmapFontData::BitmapFontData(const FileHandle* fontFile, bool flip)
+BitmapFont::BitmapFontData::BitmapFontData(const FileHandle& fontFile, bool flip)
 	:capHeight(1), scaleX(1), scaleY(1),
 	m_lineHeight(0.f), ascent(0.f), descent(0.f), down(0.f), spaceWidth(0.f), 
 	m_flipped(flip)
@@ -35,36 +35,36 @@ BitmapFont::BitmapFontData::BitmapFontData(const FileHandle* fontFile, bool flip
 	char* line = new char[lineMax];
 
     std::ifstream reader;
-    fontFile->read(reader); 
+    fontFile.read(reader); 
 	try
 	{
         reader.getline(	line, lineMax);// info 
 	
 		reader.getline(	line, lineMax);
 		if(reader.fail())
-			throw new GdxRuntimeException("Invalid font file: " + fontFile->getFullPathName());
+			throw new GdxRuntimeException("Invalid font file: " + fontFile.getFullPathName());
 		
 		vector<string> common;
 		StringTokenizer::split(line, common);
 		if(common.size() < 4) 
-			throw new GdxRuntimeException("Invalid font file: " + fontFile->getFullPathName());
+			throw new GdxRuntimeException("Invalid font file: " + fontFile.getFullPathName());
 
 		if(!StringUtils::startsWith(common[1], "lineHeight="))
-			throw new GdxRuntimeException("Invalid font file: " + fontFile->getFullPathName());
+			throw new GdxRuntimeException("Invalid font file: " + fontFile.getFullPathName());
 		m_lineHeight = atoi(common[1].substr(11).c_str());
 		
 		if(!StringUtils::startsWith(common[2], "base="))
-			throw new GdxRuntimeException("Invalid font file: " + fontFile->getFullPathName());
+			throw new GdxRuntimeException("Invalid font file: " + fontFile.getFullPathName());
 		int baseLine = atoi(common[2].substr(5).c_str());
 
 		reader.getline(	line, lineMax);
 		if(reader.fail()) 
-			throw new GdxRuntimeException("Invalid font file: " + fontFile->getFullPathName());
+			throw new GdxRuntimeException("Invalid font file: " + fontFile.getFullPathName());
 
 		vector<string> pageLine;
 		StringTokenizer::split(line, pageLine);
 		if(!StringUtils::startsWith(pageLine[2], "file=")) 
-			throw new GdxRuntimeException("Invalid font file: " + fontFile->getFullPathName());
+			throw new GdxRuntimeException("Invalid font file: " + fontFile.getFullPathName());
 		
 		string imgFilename;
 		if(StringUtils::endsWith(pageLine[2], "\""))
@@ -76,11 +76,9 @@ BitmapFont::BitmapFontData::BitmapFontData(const FileHandle* fontFile, bool flip
 			imgFilename = pageLine[2].substr(5, pageLine[2].length() - 6);
 		}
 
-		FileHandle* parent = fontFile->parent();
-     FileHandle* child = parent->child(imgFilename.c_str());
-     m_imagePath = child->getFullPathName();
-     delete child;
-     delete parent;
+		FileHandle parent = fontFile.parent();
+     FileHandle child = parent.child(imgFilename.c_str());
+     m_imagePath = child.getFullPathName();
         
         
 		descent = 0;
@@ -210,7 +208,7 @@ BitmapFont::BitmapFontData::BitmapFontData(const FileHandle* fontFile, bool flip
 	{
 		delete[] line;
 
-		throw new GdxRuntimeException("Error loading font file: " + fontFile->getFullPathName());
+		throw new GdxRuntimeException("Error loading font file: " + fontFile.getFullPathName());
 	}
 }
 

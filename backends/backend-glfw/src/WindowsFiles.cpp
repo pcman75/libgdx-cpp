@@ -11,12 +11,12 @@ WindowsFiles::~WindowsFiles(void)
 {
 }
 
-FileHandle* WindowsFiles::getFileHandle(const std::string& path, FileType type) const
+FileHandle WindowsFiles::getFileHandle(const std::string& path, FileType type) const
 {
-	return new FileHandle(path, type);
+	return FileHandle(path, type);
 }
 
-FileHandle* WindowsFiles::internalHandle(const std::string& path) const
+FileHandle WindowsFiles::internalHandle(const std::string& path) const
 {
 	char modulePath[MAX_PATH] = {0};
 	char drive[_MAX_DRIVE] = {0};
@@ -25,19 +25,19 @@ FileHandle* WindowsFiles::internalHandle(const std::string& path) const
 	::GetModuleFileName(NULL, modulePath, MAX_PATH);
 	_splitpath(modulePath, drive, dir, NULL, NULL);
 	std::string fullPath = std::string(drive) + dir + path;
-	return new FileHandle(fullPath, Internal);
+	return FileHandle(fullPath, Internal);
 }
 
-FileHandle* WindowsFiles::externalHandle(const std::string& path) const
+FileHandle WindowsFiles::externalHandle(const std::string& path) const
 {
 	std::string externalStoragePath;
 	getExternalStoragePath(externalStoragePath);
-	return new FileHandle(externalStoragePath + "/" + path, External);
+	return FileHandle(externalStoragePath + "/" + path, External);
 }
 
-FileHandle* WindowsFiles::absoluteHandle(const std::string& path) const
+FileHandle WindowsFiles::absoluteHandle(const std::string& path) const
 {
-	return new FileHandle(path, Absolute);
+	return FileHandle(path, Absolute);
 }
 
 void WindowsFiles::getExternalStoragePath(std::string& externalPath) const
@@ -147,12 +147,21 @@ bool WindowsFiles::recursiveDeleteDirectory(const std::string& path) const
             RemoveDirectory(fileName);
              strcpy(fileName, dirPath);
          }
+		 else
+		 {
+			 if(!::DeleteFile(fileName))
+			 {
+				// some error occurred; close the handle and return FALSE
+				FindClose(hFind);
+				return false;
+			 }
+		 }
       }
       else 
 	  {
          // no more files there
          if(GetLastError() == ERROR_NO_MORE_FILES)
-         bSearch = false;
+			bSearch = false;
          else 
 		 {
             // some error occurred; close the handle and return FALSE

@@ -27,7 +27,7 @@ public:
 
 	/** Writes the pixmap as a PNG. Note this method uses quite a bit of working memory. {@link #writeCIM(FileHandle, Pixmap)} is
 	 * faster if the file does not need to be read outside of libgdx. */
-	static void writePNG(const FileHandle* file, Pixmap* pixmap);
+	static void writePNG(const FileHandle& file, Pixmap* pixmap);
 
 	/** @author mzechner 
 	class CIM

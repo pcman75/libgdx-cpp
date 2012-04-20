@@ -128,9 +128,9 @@ public:
   /** Returns a handle to the child with the specified name.
   * @throw GdxRuntimeException if this file handle is a {@link FileType#Classpath} or {@link FileType#Internal} and the child
   *        doesn't exist. */
-  FileHandle* child(const std::string& name) const;
+  FileHandle child(const std::string& name) const;
 
-  FileHandle* parent() const;
+  FileHandle parent() const;
 
   /** @throw GdxRuntimeException if this file handle is a {@link FileType#Classpath} or {@link FileType#Internal} file. */
   void mkdirs() const;
@@ -156,12 +156,12 @@ public:
   * as a subdirectory.
   * @throw GdxRuntimeException if the destination file handle is a {@link FileType#Classpath} or {@link FileType#Internal} file,
   *        or copying failed. */
-  void copyTo(const FileHandle* dest) const;
+  void copyTo(const FileHandle& dest) const;
 
   /** Moves this file to the specified file, overwriting the file if it already exists.
   * @throw GdxRuntimeException if the source or destination file handle is a {@link FileType#Classpath} or
   *        {@link FileType#Internal} file. */
-  void moveTo(const FileHandle* dest) const;
+  void moveTo(const FileHandle& dest) const;
 
   /** Returns the length in bytes of this file, or 0 if this file is a directory, does not exist, or the size cannot otherwise be
   * determined. */
@@ -176,15 +176,15 @@ public:
   std::string toString () const;
 
   /**Delete the temp file after finish working with it!*/
-  static FileHandle* tempFile();
+  static FileHandle tempFile();
   /**Delete the temp directory after finish working with it!*/
-  static FileHandle* tempDirectory();
+  static FileHandle tempDirectory();
 
 private:
 	void init(const std::string& strFullPath, FileType type);
     int removeDirectory(const char *path) const;
-	static void copyFile(const FileHandle* source, const FileHandle* dest);
-	static void copyDirectory(const FileHandle* sourceDir, const FileHandle* destDir);
+	static void copyFile(const FileHandle& source, const FileHandle& dest);
+	static void copyDirectory(const FileHandle& sourceDir, const FileHandle& destDir);
 
 protected:
   std::string m_strFullPath;

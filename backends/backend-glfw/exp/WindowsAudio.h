@@ -71,7 +71,7 @@ public:
 	 *
 	 * @return the new Sound
 	 * @throws GdxRuntimeException in case the sound could not be loaded */
-	virtual Sound* newSound(const FileHandle* fileHandle);
+	virtual Sound* newSound(const FileHandle& fileHandle);
 
 	/** Creates a new {@link Music} instance which is used to play back a music stream from a file. Currently supported formats are
 	 * WAV, MP3 and OGG. The Music instance has to be disposed if it is no longer used via the {@link Music#dispose()} method.
@@ -81,5 +81,5 @@ public:
 	 * @param file the FileHandle
 	 * @return the new Music or null if the Music could not be loaded
 	 * @throws GdxRuntimeException in case the music could not be loaded */
-	virtual Music* newMusic(const FileHandle* file);
+	virtual Music* newMusic(const FileHandle& file);
 };

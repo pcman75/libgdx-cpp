@@ -45,7 +45,7 @@ AudioRecorder* WindowsAudio::newAudioRecorder(int samplingRate, bool isMono)
 *
 * @return the new Sound
 * @throws GdxRuntimeException in case the sound could not be loaded */
-Sound* WindowsAudio::newSound(const FileHandle* fileHandle)
+Sound* WindowsAudio::newSound(const FileHandle& fileHandle)
 {
 	return new GdxSound();
 }
@@ -58,7 +58,7 @@ Sound* WindowsAudio::newSound(const FileHandle* fileHandle)
 * @param file the FileHandle
 * @return the new Music or null if the Music could not be loaded
 * @throws GdxRuntimeException in case the music could not be loaded */
-Music* WindowsAudio::newMusic(const FileHandle* file)
+Music* WindowsAudio::newMusic(const FileHandle& file)
 {
 	//TODO:
 	return new GdxMusic();

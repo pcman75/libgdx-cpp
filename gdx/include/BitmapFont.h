@@ -94,7 +94,7 @@ public:
 		float xHeight;
 
 	public:
-		BitmapFontData(const FileHandle* fontFile, bool flip);
+		BitmapFontData(const FileHandle& fontFile, bool flip);
 		~BitmapFontData();
 
 	private:
@@ -145,23 +145,23 @@ public:
 	 * @param region The texture region containing the glyphs. The glyphs must be relative to the lower left corner (ie, the region
 	 *           should not be flipped). If the region is NULL the glyph images are loaded from the image path in the font file.
 	 * @param flip If true, the glyphs will be flipped for use with a perspective where 0,0 is the upper left corner. */
-	BitmapFont(const FileHandle* fontFile, TextureRegion* region, bool flip);
+	BitmapFont(const FileHandle& fontFile, TextureRegion* region, bool flip);
 
 	/** Creates a BitmapFont from a BMFont file. The image file name is read from the BMFont file and the image is loaded from the
 	 * same directory.
 	 * @param flip If true, the glyphs will be flipped for use with a perspective where 0,0 is the upper left corner. */
-	BitmapFont(const FileHandle* fontFile, bool flip);
+	BitmapFont(const FileHandle& fontFile, bool flip);
 
 	/** Creates a BitmapFont from a BMFont file, using the specified image for glyphs. Any image specified in the BMFont file is
 	 * ignored.
 	 * @param flip If true, the glyphs will be flipped for use with a perspective where 0,0 is the upper left corner. */
-	BitmapFont(const FileHandle* fontFile, const FileHandle* imageFile, bool flip);
+	BitmapFont(const FileHandle& fontFile, const FileHandle& imageFile, bool flip);
 
 	/** Creates a BitmapFont from a BMFont file, using the specified image for glyphs. Any image specified in the BMFont file is
 	 * ignored.
 	 * @param flip If true, the glyphs will be flipped for use with a perspective where 0,0 is the upper left corner.
 	 * @param integer If true, rendering positions will be at integer values to avoid filtering artifacts.s */
-	BitmapFont(const FileHandle* fontFile, const FileHandle* imageFile, bool flip, bool integer);
+	BitmapFont(const FileHandle& fontFile, const FileHandle& imageFile, bool flip, bool integer);
 
 	/** Constructs a new BitmapFont from the given {@link BitmapFontData} and {@link TextureRegion}. If the TextureRegion is NULL,
 	 * the image path is read from the BitmapFontData. The dispose() method will not dispose the texture of the region if the
@@ -174,7 +174,7 @@ public:
 private:
 	void init();
 
-	void init(const FileHandle* fontFile, const FileHandle* imageFile, bool flip, bool integer);
+	void init(const FileHandle& fontFile, const FileHandle& imageFile, bool flip, bool integer);
 
 	void init(BitmapFontData* data, TextureRegion* region, bool integer);
 

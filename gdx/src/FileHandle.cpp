@@ -90,7 +90,7 @@ bool FileHandle::isDirectory() const
 /** Returns a handle to the child with the specified name.
 * @throw GdxRuntimeException if this file handle is a {@link FileType#Classpath} or {@link FileType#Internal} and the child
 * doesn't exist. */
-FileHandle* FileHandle::child(const string& name) const
+FileHandle FileHandle::child(const string& name) const
 {
 	/*
 	public FileHandle child (String name) {
@@ -99,7 +99,7 @@ FileHandle* FileHandle::child(const string& name) const
 	}
 	*/
 	//TODO: review this
-	return new FileHandle(m_strFullPath + "/" + name, m_type);
+	return FileHandle(m_strFullPath + "/" + name, m_type);
 }
 
 FileHandleStream* FileHandle::getStream( FileAccess nFileAccess, StreamType nStreamType) const
@@ -184,9 +184,8 @@ void FileHandle::readBytes(unsigned char* pWhere, size_t size) const
 *        {@link FileType#Internal} file, or if it could not be written. */
 void FileHandle::write(bool append, ofstream& stream) const
 {
-	FileHandle* parentHandle = parent();
-	parentHandle->mkdirs();
-	delete parentHandle;
+	FileHandle parentHandle = parent();
+	parentHandle.mkdirs();
 
 	std::ios_base::openmode mode;
 	mode = append? ios_base::out | ios_base::app: ios_base::out | ios_base::trunc;
@@ -240,13 +239,13 @@ void FileHandle::writeBytes(const unsigned char* bytes, size_t size, bool append
 //void list( std::string suffix, std::vector< FileHandle> &handles) const;
 
 
-FileHandle* FileHandle::parent() const
+FileHandle FileHandle::parent() const
 {
 	int nIndex = m_strFullPath.rfind('/');
 	if( string::npos == nIndex) 
-		return new FileHandle(m_strFullPath, m_type);
+		return FileHandle(m_strFullPath, m_type);
 
-	return new FileHandle(m_strFullPath.substr( 0, nIndex), m_type);
+	return FileHandle(m_strFullPath.substr( 0, nIndex), m_type);
 }
 
 //
@@ -325,7 +324,7 @@ bool FileHandle::removeRecursive() const
 * as a subdirectory.
 * @throw GdxRuntimeException if the destination file handle is a {@link FileType#Classpath} or {@link FileType#Internal} file,
 *        or copying failed. */
-void FileHandle::copyTo(const FileHandle* dest) const
+void FileHandle::copyTo(const FileHandle& destination) const
 {
 	/*
 	boolean sourceDir = isDirectory();
@@ -343,57 +342,47 @@ void FileHandle::copyTo(const FileHandle* dest) const
 	if (!sourceDir) dest = dest.child(name());
 	copyDirectory(this, dest);
 	*/
+	FileHandle dest = destination;
 	bool sourceIsDir = isDirectory();
 	if (!sourceIsDir) 
 	{
-		if (dest->isDirectory()) 
+		if (dest.isDirectory()) 
 		{
-			dest = dest->child(name());
-			copyFile(this, dest);
-			delete dest;
+			dest = dest.child(name());
 		}
-		else
-		{
-			copyFile(this, dest);
-		}
+		copyFile(*this, dest);
 		return;
-
 	}
 
-	if (dest->exists()) 
+	if (dest.exists()) 
 	{
-		if (!dest->isDirectory()) 
-			throw new GdxRuntimeException("Destination exists but is not a directory: " + dest->toString());
+		if (!dest.isDirectory()) 
+			throw new GdxRuntimeException("Destination exists but is not a directory: " + dest.toString());
 	} 
 	else 
 	{
-		dest->mkdirs();
-		if (!dest->isDirectory()) 
-			throw new GdxRuntimeException("Destination directory cannot be created: " + dest->toString());
+		dest.mkdirs();
+		if (!dest.isDirectory()) 
+			throw new GdxRuntimeException("Destination directory cannot be created: " + dest.toString());
 	}
 
 	if (!sourceIsDir)
 	{
-		dest = dest->child(name());
-		copyDirectory(this, dest);
-		delete dest;
+		dest = dest.child(name());
 	}
-	else
-	{
-		copyDirectory(this, dest);
-	}
+	copyDirectory(*this, dest);
 }
 
 
 /** Moves this file to the specified file, overwriting the file if it already exists.
 * @throw GdxRuntimeException if the source or destination file handle is a {@link FileType#Classpath} or
 *        {@link FileType#Internal} file. */
-void FileHandle::moveTo(const FileHandle* dest) const
+void FileHandle::moveTo(const FileHandle& dest) const
 {
 	if(m_type == Internal)
 		throw GdxRuntimeException("File must not be Internal");
-	if(std::rename(m_strFullPath.c_str(), dest->m_strFullPath.c_str()))
-		throw GdxRuntimeException("Failed to move " + m_strFullPath + " to " + dest->m_strFullPath);
+	if(std::rename(m_strFullPath.c_str(), dest.m_strFullPath.c_str()))
+		throw GdxRuntimeException("Failed to move " + m_strFullPath + " to " + dest.m_strFullPath);
 }
 
 /** Returns the length in bytes of this file, or 0 if this file is a directory, does not exist, or the size cannot otherwise be
@@ -424,54 +413,52 @@ std::string FileHandle::toString() const
 	return m_strFullPath;
 }
 
-FileHandle* FileHandle::tempFile()
+FileHandle FileHandle::tempFile()
 {
 	char* tempFileName = ::tmpnam(NULL);
-	FileHandle* tempHandle = new FileHandle(tempFileName);
+	FileHandle tempHandle(tempFileName);
 	std::ofstream output;
-	tempHandle->write(false, output);
+	tempHandle.write(false, output);
 	if(output.fail())
 	{
-		throw GdxRuntimeException("Error creating temp file " + tempHandle->m_strFullPath);
+		throw GdxRuntimeException("Error creating temp file " + tempHandle.m_strFullPath);
 	}
 	output.close();
 	return tempHandle;
 }
 
-FileHandle* FileHandle::tempDirectory()
+FileHandle FileHandle::tempDirectory()
 {
 	char* tempFileName = ::tmpnam(NULL);
-	FileHandle* tempHandle = new FileHandle(tempFileName);
+	FileHandle tempHandle(tempFileName);
 	Gdx.files->mkdir(tempFileName);
-	if(!tempHandle->exists())
+	if(!tempHandle.exists())
 	{
-		throw GdxRuntimeException("Error creating temp directory " + tempHandle->m_strFullPath);
+		throw GdxRuntimeException("Error creating temp directory " + tempHandle.m_strFullPath);
 	}
 	
 	return tempHandle;
 }
 
-void FileHandle::copyFile(const FileHandle* source, const FileHandle* dest) 
+void FileHandle::copyFile(const FileHandle& source, const FileHandle& dest) 
 {
-	if(!Gdx.files->copyFile(source->m_strFullPath.c_str(), dest->m_strFullPath.c_str()))
-		throw GdxRuntimeException("failed to copy " + source->m_strFullPath + " to " + dest->m_strFullPath);
+	dest.parent().mkdirs();
+	if(!Gdx.files->copyFile(source.m_strFullPath.c_str(), dest.m_strFullPath.c_str()))
+		throw GdxRuntimeException("failed to copy " + source.m_strFullPath + " to " + dest.m_strFullPath);
 }
 
-void FileHandle::copyDirectory(const FileHandle* sourceDir, const FileHandle* destDir) 
+void FileHandle::copyDirectory(const FileHandle& sourceDir, const FileHandle& destDir) 
 {
-	destDir->mkdirs();
+	destDir.mkdirs();
 	vector<FileHandle> files;
-	sourceDir->list(files);
+	sourceDir.list(files);
 	for (int i = 0, n = files.size(); i < n; i++) 
 	{
-		FileHandle* srcFile = &files[i];
-		FileHandle* destFile = destDir->child(srcFile->name());
-		if (srcFile->isDirectory())
+		FileHandle srcFile = files[i];
+		FileHandle destFile = destDir.child(srcFile.name());
+		if (srcFile.isDirectory())
 			copyDirectory(srcFile, destFile);
 		else
 			copyFile(srcFile, destFile);
-
-		delete srcFile;
-		delete destFile;
 	}
 }

@@ -93,12 +93,12 @@ Pixmap::Pixmap(const unsigned char* encodedData, int len)
 * supported.
 *
 * @param file the {@link FileHandle} */
-Pixmap::Pixmap (const FileHandle* file)
+Pixmap::Pixmap (const FileHandle& file)
 	: m_color(0)
 {   
-  size_t nSize = file->length();
+  size_t nSize = file.length();
   unsigned char* pBuff = new unsigned char [nSize];
-    file->readBytes(pBuff, nSize);
+    file.readBytes(pBuff, nSize);
 
 	m_pixmap.createFrom( pBuff, nSize, 0);
   delete [] pBuff;

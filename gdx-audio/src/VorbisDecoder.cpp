@@ -3,13 +3,13 @@
 #include "GdxRuntimeException.h"
 #include "OggFile.h"
 
-VorbisDecoder::VorbisDecoder(const FileHandle* file)
+VorbisDecoder::VorbisDecoder(const FileHandle& file)
 {
 	m_buffer = NULL;
 
-	if(file->type() != External && file->type() != Absolute)
+	if(file.type() != External && file.type() != Absolute)
 		throw new GdxRuntimeException("File must be absolute or external!");
-	std::string filename = file->getFullPathName().c_str();
+	std::string filename = file.getFullPathName().c_str();
 
 	//m_handle = openFile(file->file().getAbsolutePath());
 	m_handle = openFile(filename.c_str());

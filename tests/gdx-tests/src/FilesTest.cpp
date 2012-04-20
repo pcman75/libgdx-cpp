@@ -15,10 +15,9 @@ void FilesTest::create()
 		message += "External storage path: " + externalStoragePath + "\n";
 		try
 		{
-			FileHandle* cube = Gdx.files->internalHandle("data/cube.obj");
+			FileHandle cube = Gdx.files->internalHandle("data/cube.obj");
 			std::ifstream in;
-			cube->read(in);
-			delete cube;
+			cube.read(in);
 			try
 			{
 				in.close();
@@ -37,10 +36,9 @@ void FilesTest::create()
 
 		try
 		{
-			FileHandle* testFile = Gdx.files->externalHandle("test.txt");
+			FileHandle testFile = Gdx.files->externalHandle("test.txt");
 			std::ofstream testStream;
-			testFile->write(false, testStream);
-			delete testFile;
+			testFile.write(false, testStream);
 			testStream << "test";
 			testStream.close();
 			
@@ -57,11 +55,10 @@ void FilesTest::create()
 		
 		try
 		{
-			FileHandle* testFile = Gdx.files->externalHandle("test.txt");
+			FileHandle testFile = Gdx.files->externalHandle("test.txt");
 			std::ifstream in;
-			testFile->read(in);
+			testFile.read(in);
 			in.close();
-			delete testFile;
 			message += "Open external success\n";
 		}
 		catch(GdxRuntimeException e)
@@ -69,42 +66,37 @@ void FilesTest::create()
 			message += "Couldn't open internal externalstorage/test.txt\n";
 		}
 
-		FileHandle* file = Gdx.files->externalHandle("test.txt");
-		if(!file->remove())
+		FileHandle file = Gdx.files->externalHandle("test.txt");
+		if(!file.remove())
 		{
 			message += "Couldn't delete externalstorage/test.txt";
 		}
-		delete file;
 
 		file = Gdx.files->externalHandle("this/is/a/test");
-		file->mkdirs();
-		file->remove();
+		file.mkdirs();
+		file.remove();
 
-		//memory leak here
-		if(!file->parent()->remove())
+		if(!file.parent().remove())
 			message += "failed to remove this/is/a/ directory";
-		//bigger leak here
-		if(!file->parent()->parent()->parent()->removeRecursive())
-			message += "failed to remove this directory";
-
-		delete file;
 		
+		if(!file.parent().parent().parent().removeRecursive())
+			message += "failed to remove this directory";
 	}
 	else
 	{
 		message += "External storage not available";
 	}
 
-	FileHandle* tmp = FileHandle::tempFile();
-	tmp->length();
-	message += "Temp file created: " + tmp->toString() + "\n";
-	tmp->remove();
+	FileHandle tmp = FileHandle::tempFile();
+	tmp.length();
+	message += "Temp file created: " + tmp.toString() + "\n";
+	tmp.remove();
 
 	tmp = FileHandle::tempDirectory();
-	if(!tmp->isDirectory())
+	if(!tmp.isDirectory())
 		fail();
-	message += "Temp directory created: " + tmp->toString() + "\n";
-	tmp->remove();
+	message += "Temp directory created: " + tmp.toString() + "\n";
+	tmp.remove();
 
 	try
 	{
@@ -132,15 +124,15 @@ bool FilesTest::needsGL20()
 
 void FilesTest::testInternal()
 {
-	FileHandle* handle = Gdx.files->internalHandle("data/badlogic.jpg");
-	if(!handle->exists()) 
+	FileHandle handle = Gdx.files->internalHandle("data/badlogic.jpg");
+	if(!handle.exists()) 
 		fail();
-	if(handle->isDirectory()) 
+	if(handle.isDirectory()) 
 		fail();
 
 	try 
 	{
-		handle->remove();
+		handle.remove();
 		fail();
 	}
 	catch(GdxRuntimeException expected)
@@ -148,15 +140,15 @@ void FilesTest::testInternal()
 	}
 
 	std::vector<FileHandle> files;
-	handle->list(files);
+	handle.list(files);
 	if(files.size() != 0)
 		fail();
-	if(!handle->parent()->exists()) 
+	if(!handle.parent().exists()) 
 		fail();
 	try 
 	{
 		std::ifstream input;
-		handle->read(input);
+		handle.read(input);
 		input.close();
 		//TODO: why???
 		fail();
@@ -165,94 +157,91 @@ void FilesTest::testInternal()
 	{
 	}
 
-	FileHandle* dir;
+	FileHandle dir;
 	dir = Gdx.files->internalHandle("data");
 
-	if(!dir->exists()) 
+	if(!dir.exists()) 
 		fail();
-	if(!dir->isDirectory()) 
+	if(!dir.isDirectory()) 
 		fail();
 
-	dir->list(files);
+	dir.list(files);
 	if(files.size() == 0)
 		fail();
 	
-	FileHandle* child = dir->child("badlogic.jpg");
-	delete dir;
-
-	if(child->name() != "badlogic.jpg")
+	FileHandle child = dir.child("badlogic.jpg");
+	if(child.name() != "badlogic.jpg")
 		fail();
 
-	if(child->nameWithoutExtension() != "badlogic")
+	if(child.nameWithoutExtension() != "badlogic")
 		fail();
 
-	if(child->extension() != "jpg") 
+	if(child.extension() != "jpg") 
 		fail();
 	
-	if(!child->parent()->exists()) 
+	if(!child.parent().exists()) 
 		fail();
-	delete child;
 
-	FileHandle* copy = Gdx.files->externalHandle("badlogic.jpg-copy");
-	copy->remove();
-	if(copy->exists()) 
+	FileHandle copy = Gdx.files->externalHandle("badlogic.jpg-copy");
+	copy.remove();
+	if(copy.exists()) 
 		fail();
-	handle->copyTo(copy);
+	handle.copyTo(copy);
 
-	if(!copy->exists()) 
+	if(!copy.exists()) 
 		fail();
-	if(copy->length() != 68465) 
+	if(copy.length() != 68465) 
 		fail();
-	copy->remove();
+	copy.remove();
 	
-	if(copy->exists()) 
+	if(copy.exists()) 
 		fail();
 }
 
 void FilesTest::testExternal()
 {
 	std::string path = "meow";
-	FileHandle* handle = Gdx.files->externalHandle(path);
-	handle->remove();
-	if(handle->exists()) 
+	FileHandle handle = Gdx.files->externalHandle(path);
+	handle.remove();
+	if(handle.exists()) 
 		fail();
-	if(handle->isDirectory()) 
+	if(handle.isDirectory()) 
 		fail();
-	if(handle->remove()) 
+	if(handle.remove()) 
 		fail();
 
 	std::vector<FileHandle> handles;
-	handle->list(handles);
+	handle.list(handles);
 	if(handles.size() != 0)
 		fail();
 
-	if(handle->child("meow")->exists()) 
+	if(handle.child("meow").exists()) 
 		fail();
 
-	if(!handle->parent()->exists()) 
+	if(!handle.parent().exists()) 
 		fail();
 	try 
 	{
 		std::ifstream in;
-		handle->read(in);
+		handle.read(in);
 		in.close();
 		fail();
 	}
 	catch(GdxRuntimeException ignored)
 	{
 	}
-	handle->mkdirs();
-	if(!handle->exists()) 
+	handle.mkdirs();
+	if(!handle.exists()) 
 		fail();
-	if(!handle->isDirectory()) 
+	if(!handle.isDirectory()) 
 		fail();
-	handle->list(handles);
+	handle.list(handles);
 	if(handles.size() != 0)
 		fail();
 
-	handle->child("meow")->mkdirs();
+	handle.child("meow").mkdirs();
 
-	handle->list(handles);
+	handle.list(handles);
 	if(handles.size() != 1) 
 		fail();
 	
@@ -260,55 +249,53 @@ void FilesTest::testExternal()
 	if(child.name() != "meow")
 		fail();
 	
-	if(!child.parent()->exists()) 
+	if(!child.parent().exists()) 
 		fail();
 	
-	if(!handle->removeRecursive()) 
+	if(!handle.removeRecursive()) 
 		fail();
 	
 	
-	if(handle->exists()) 
+	if(handle.exists()) 
 		fail();
 	
 	std::ofstream output;
-	handle->write(false, output);
+	handle.write(false, output);
 	output << "moo";
 	output.close();
-	if(!handle->exists()) 
+	if(!handle.exists()) 
 		fail();
 
-	if(handle->length() != 3) 
+	if(handle.length() != 3) 
 		fail();
 	
-	FileHandle* copy = Gdx.files->externalHandle(path + "-copy");
-	copy->remove();
-	if(copy->exists()) 
+	FileHandle copy = Gdx.files->externalHandle(path + "-copy");
+	copy.remove();
+	if(copy.exists()) 
 		fail();
 	
-	handle->copyTo(copy);
-	if(!copy->exists()) 
+	handle.copyTo(copy);
+	if(!copy.exists()) 
 		fail();
 
-	if(copy->length() != 3) 
+	if(copy.length() != 3) 
 		fail();
 	
-	FileHandle* move = Gdx.files->externalHandle(path + "-move");
-	move->remove();
-	if(move->exists()) 
+	FileHandle move = Gdx.files->externalHandle(path + "-move");
+	move.remove();
+	if(move.exists()) 
 		fail();
-	copy->moveTo(move);
-	if(!move->exists()) 
+	copy.moveTo(move);
+	if(!move.exists()) 
 		fail();
-	if(move->length() != 3) 
+	if(move.length() != 3) 
 		fail();
-	move->removeRecursive();
-	if(move->exists()) 
+	move.removeRecursive();
+	if(move.exists()) 
 		fail();
-	delete copy;
-	delete move;
 
 	std::ifstream input;
-	handle->read(input);
+	handle.read(input);
 
 	char bytes[7];
 	input.read(bytes, 3);
@@ -317,40 +304,40 @@ void FilesTest::testExternal()
 		fail();
 	input.close();
 
-	handle->write(true, output);
+	handle.write(true, output);
 	output << "cow";
 	output.close();
-	if(handle->length() != 6) 
+	if(handle.length() != 6) 
 		fail();
 
-	handle->readBytes((unsigned char*)bytes, 6);
+	handle.readBytes((unsigned char*)bytes, 6);
 	bytes[6] = 0;
 	if(strcmp("moocow", bytes))
 		fail();
-	if(handle->isDirectory()) fail();
+	if(handle.isDirectory()) fail();
 	
 	std::vector<FileHandle> files;
-	handle->list(files);
+	handle.list(files);
 	if(files.size() != 0) 
 		fail();
 
-	if(handle->name() != "meow")
+	if(handle.name() != "meow")
 		fail();
 	
-	if(handle->nameWithoutExtension() != "meow")
+	if(handle.nameWithoutExtension() != "meow")
 		fail();
-	if(handle->extension() != "")
+	if(handle.extension() != "")
 		fail();
 	
-	handle->remove();
+	handle.remove();
 
-	if(handle->exists()) 
+	if(handle.exists()) 
 		fail();
-	if(handle->isDirectory()) 
+	if(handle.isDirectory()) 
 		fail();
 	
-	handle->remove();
-	handle->removeRecursive();
+	handle.remove();
+	handle.removeRecursive();
 }
 
 void FilesTest::testAbsolute()
@@ -359,47 +346,47 @@ void FilesTest::testAbsolute()
 	Gdx.files->getExternalStoragePath(path);
 	path += "/meow";
 
-	FileHandle* handle = Gdx.files->absoluteHandle(path);
-	handle->remove();
-	if(handle->exists()) 
+	FileHandle handle = Gdx.files->absoluteHandle(path);
+	handle.remove();
+	if(handle.exists()) 
 		fail();
-	if(handle->isDirectory()) 
+	if(handle.isDirectory()) 
 		fail();
-	if(handle->remove()) 
+	if(handle.remove()) 
 		fail();
 
 	std::vector<FileHandle> handles;
-	handle->list(handles);
+	handle.list(handles);
 	if(handles.size() != 0)
 		fail();
 
-	if(handle->child("meow")->exists()) 
+	if(handle.child("meow").exists()) 
 		fail();
 
-	if(!handle->parent()->exists()) 
+	if(!handle.parent().exists()) 
 		fail();
 	try 
 	{
 		std::ifstream in;
-		handle->read(in);
+		handle.read(in);
 		in.close();
 		fail();
 	}
 	catch(GdxRuntimeException ignored)
 	{
 	}
-	handle->mkdirs();
-	if(!handle->exists()) 
+	handle.mkdirs();
+	if(!handle.exists()) 
 		fail();
-	if(!handle->isDirectory()) 
+	if(!handle.isDirectory()) 
 		fail();
-	handle->list(handles);
+	handle.list(handles);
 	if(handles.size() != 0)
 		fail();
 
-	handle->child("meow")->mkdirs();
+	handle.child("meow").mkdirs();
 
-	handle->list(handles);
+	handle.list(handles);
 	if(handles.size() != 1) 
 		fail();
 	
@@ -407,55 +394,53 @@ void FilesTest::testAbsolute()
 	if(child.name() != "meow")
 		fail();
 	
-	if(!child.parent()->exists()) 
+	if(!child.parent().exists()) 
 		fail();
 	
-	if(!handle->removeRecursive()) 
+	if(!handle.removeRecursive()) 
 		fail();
 	
 	
-	if(handle->exists()) 
+	if(handle.exists()) 
 		fail();
 	
 	std::ofstream output;
-	handle->write(false, output);
+	handle.write(false, output);
 	output << "moo";
 	output.close();
-	if(!handle->exists()) 
+	if(!handle.exists()) 
 		fail();
 
-	if(handle->length() != 3) 
+	if(handle.length() != 3) 
 		fail();
 	
-	FileHandle* copy = Gdx.files->absoluteHandle(path + "-copy");
-	copy->remove();
-	if(copy->exists()) 
+	FileHandle copy = Gdx.files->absoluteHandle(path + "-copy");
+	copy.remove();
+	if(copy.exists()) 
 		fail();
 	
-	handle->copyTo(copy);
-	if(!copy->exists()) 
+	handle.copyTo(copy);
+	if(!copy.exists()) 
 		fail();
 
-	if(copy->length() != 3) 
+	if(copy.length() != 3) 
 		fail();
 	
-	FileHandle* move = Gdx.files->absoluteHandle(path + "-move");
-	move->remove();
-	if(move->exists()) 
+	FileHandle move = Gdx.files->absoluteHandle(path + "-move");
+	move.remove();
+	if(move.exists()) 
 		fail();
-	copy->moveTo(move);
-	if(!move->exists()) 
+	copy.moveTo(move);
+	if(!move.exists()) 
 		fail();
-	if(move->length() != 3) 
+	if(move.length() != 3) 
 		fail();
-	move->removeRecursive();
-	if(move->exists()) 
+	move.removeRecursive();
+	if(move.exists()) 
 		fail();
-	delete copy;
-	delete move;
 
 	std::ifstream input;
-	handle->read(input);
+	handle.read(input);
 
 	char bytes[7];
 	input.read(bytes, 3);
@@ -464,40 +449,40 @@ void FilesTest::testAbsolute()
 		fail();
 	input.close();
 
-	handle->write(true, output);
+	handle.write(true, output);
 	output << "cow";
 	output.close();
-	if(handle->length() != 6) 
+	if(handle.length() != 6) 
 		fail();
 
-	handle->readBytes((unsigned char*)bytes, 6);
+	handle.readBytes((unsigned char*)bytes, 6);
 	bytes[6] = 0;
 	if(strcmp("moocow", bytes))
 		fail();
-	if(handle->isDirectory()) fail();
+	if(handle.isDirectory()) fail();
 	
 	std::vector<FileHandle> files;
-	handle->list(files);
+	handle.list(files);
 	if(files.size() != 0) 
 		fail();
 
-	if(handle->name() != "meow")
+	if(handle.name() != "meow")
 		fail();
 	
-	if(handle->nameWithoutExtension() != "meow")
+	if(handle.nameWithoutExtension() != "meow")
 		fail();
-	if(handle->extension() != "")
+	if(handle.extension() != "")
 		fail();
 	
-	handle->remove();
+	handle.remove();
 
-	if(handle->exists()) 
+	if(handle.exists()) 
 		fail();
-	if(handle->isDirectory()) 
+	if(handle.isDirectory()) 
 		fail();
 	
-	handle->remove();
-	handle->removeRecursive();
+	handle.remove();
+	handle.removeRecursive();
 }
 void FilesTest::fail()
 {

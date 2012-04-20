@@ -25,11 +25,11 @@
 /** Opens the given file for mp3 decoding. Throws an GdxRuntimeException in case the file could not be opened.
 *
 * @param filename the filename */
-Mpg123Decoder::Mpg123Decoder(const FileHandle* file)
+Mpg123Decoder::Mpg123Decoder(const FileHandle& file)
 {
-	if(file->type() != External && file->type() != Absolute)
+	if(file.type() != External && file.type() != Absolute)
 		throw new GdxRuntimeException("File must be absolute or external!");
-	std::string filename = file->getFullPathName().c_str();
+	std::string filename = file.getFullPathName();
 
 	mpg123_handle *mh = NULL;
 	int  channels = 0, encoding = 0;
