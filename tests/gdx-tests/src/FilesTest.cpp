@@ -95,6 +95,17 @@ void FilesTest::create()
 		message += "External storage not available";
 	}
 
+	FileHandle* tmp = FileHandle::tempFile();
+	tmp->length();
+	message += "Temp file created: " + tmp->toString() + "\n";
+	tmp->remove();
+
+	tmp = FileHandle::tempDirectory();
+	if(!tmp->isDirectory())
+		fail();
+	message += "Temp directory created: " + tmp->toString() + "\n";
+	tmp->remove();
+
 	try
 	{
 		testInternal();

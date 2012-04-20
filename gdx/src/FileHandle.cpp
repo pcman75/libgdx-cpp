@@ -112,7 +112,7 @@ FileHandleStream* FileHandle::getStream( FileAccess nFileAccess, StreamType nStr
 * @throw GdxRuntimeException if the file handle represents a directory, doesn't exist, or could not be read. */
 void FileHandle::read(ifstream& stream) const
 {
-	stream.open(m_strFullPath.c_str());
+	stream.open(m_strFullPath.c_str(), ios_base::binary);
 	if(stream.fail())
 	{
 		throw GdxRuntimeException("Error reading file: " + m_strFullPath);
@@ -123,7 +123,7 @@ void FileHandle::read(ifstream& stream) const
 * @throw GdxRuntimeException if the file handle represents a directory, doesn't exist, or could not be read. */
 void FileHandle::reader(ifstream& stream) const
 {
-	stream.open(m_strFullPath.c_str(), ios_base::binary);
+	stream.open(m_strFullPath.c_str());
 	if(stream.fail())
 	{
 		throw GdxRuntimeException("Error reading file: " + m_strFullPath);
@@ -132,7 +132,7 @@ void FileHandle::reader(ifstream& stream) const
 
 /** Reads the entire file into the string using the platform's default charset.
 * @throw GdxRuntimeException if the file handle represents a directory, doesn't exist, or could not be read. */
-void FileHandle::readstring(string& str) const
+void FileHandle::readString(string& str) const
 {
 	ifstream stream;
 	read(stream);
@@ -162,7 +162,7 @@ void FileHandle::readstring(const string& charset, std::string& str) const
 void FileHandle::readBytes(unsigned char* pWhere, size_t size) const
 {
 	ifstream stream;
-	reader(stream);
+	read(stream);
 	stream.read((char*)pWhere, size);
 
 	//try to read one more byte
@@ -201,67 +201,35 @@ void FileHandle::write(bool append, ofstream& stream) const
 * will be created if necessary.
 * @param append If false, this file will be overwritten if it exists, otherwise it will be appended.
 * @throw GdxRuntimeException if this file handle represents a directory, if it is a {@link FileType#Classpath} or
-*        {@link FileType#Internal} file, or if it could not be written. */
+*        {@link FileType#Internal} file, or if it could not be written. 
 void FileHandle::write(ifstream& input, bool append) const
 {
 	//TODO: implement this
 	throw GdxRuntimeException("not implemented");
 }
-
-
-/** Returns a writer for writing to this file using the default charset. Parent directories will be created if necessary.
-* @param append If false, this file will be overwritten if it exists, otherwise it will be appended.
-* @throw GdxRuntimeException if this file handle represents a directory, if it is a {@link FileType#Classpath} or
-*        {@link FileType#Internal} file, or if it could not be written. */
-void FileHandle::writer(bool append, ofstream& stream) const
-{
-	//TODO: implement this
-	throw GdxRuntimeException("not implemented");
-}
-
-/** Returns a writer for writing to this file. Parent directories will be created if necessary.
-* @param append If false, this file will be overwritten if it exists, otherwise it will be appended.
-* @param charset May be null to use the default charset.
-* @throw GdxRuntimeException if this file handle represents a directory, if it is a {@link FileType#Classpath} or
-*        {@link FileType#Internal} file, or if it could not be written. */
-void FileHandle::writer(bool append, const string& charset, ofstream& stream) const
-{
-	//TODO: implement this
-	throw GdxRuntimeException("not implemented");
-}
-
-
+*/
 /** Writes the specified string to the file using the default charset. Parent directories will be created if necessary.
 * @param append If false, this file will be overwritten if it exists, otherwise it will be appended.
 * @throw GdxRuntimeException if this file handle represents a directory, if it is a {@link FileType#Classpath} or
 *        {@link FileType#Internal} file, or if it could not be written. */
-void FileHandle::writestring(const string& str, bool append) const
+void FileHandle::writeString(const string& str, bool append) const
 {
-	//TODO: implement this
-	throw GdxRuntimeException("not implemented");
+	std::ofstream output;
+	write(append, output);
+	output << str;
+	output.close();
 }
-
-
-/** Writes the specified string to the file as UTF-8. Parent directories will be created if necessary.
-* @param append If false, this file will be overwritten if it exists, otherwise it will be appended.
-* @param charset May be null to use the default charset.
-* @throw GdxRuntimeException if this file handle represents a directory, if it is a {@link FileType#Classpath} or
-*        {@link FileType#Internal} file, or if it could not be written. */
-void FileHandle::writestring(const string& str, bool append, const string& charset) const
-{
-	//TODO: implement this
-	throw GdxRuntimeException("not implemented");
-}
-
 
 /** Writes the specified bytes to the file. Parent directories will be created if necessary.
 * @param append If false, this file will be overwritten if it exists, otherwise it will be appended.
 * @throw GdxRuntimeException if this file handle represents a directory, if it is a {@link FileType#Classpath} or
 *        {@link FileType#Internal} file, or if it could not be written. */
-void FileHandle::writeBytes(const unsigned char*, size_t size, bool append) const
+void FileHandle::writeBytes(const unsigned char* bytes, size_t size, bool append) const
 {
-	//TODO: implement this
-	throw GdxRuntimeException("not implemented");
+	std::ofstream output;
+	write(append, output);
+	output.write((const char*)bytes, size);
+	output.close();
 }
 
 
@@ -442,32 +410,45 @@ size_t FileHandle::length() const
 /** Returns the last modified time in milliseconds for this file. Zero is returned if the file doesn't exist. Zero is returned
 * for {@link FileType#Classpath} files. On Android, zero is returned for {@link FileType#Internal} files. On the desktop, zero
 * is returned for {@link FileType#Internal} files on the classpath. */
-//TODO: long it's enough?
 long long FileHandle::lastModified() const
 {
-	//TODO: implement this
-	throw GdxRuntimeException("not implemented");
+	struct stat filestatus;
+	memset(&filestatus, 0, sizeof(filestatus));
+	stat(m_strFullPath.c_str(), &filestatus);
+	return filestatus.st_mtime;
 }
 
 
 std::string FileHandle::toString() const
 {
-	//TODO: implement this
-	throw GdxRuntimeException("not implemented");
+	return m_strFullPath;
 }
 
-
-FileHandle* FileHandle::tempFile(const std::string prefix)
+FileHandle* FileHandle::tempFile()
 {
-	//TODO: implement this
-	throw GdxRuntimeException("not implemented");
+	char* tempFileName = ::tmpnam(NULL);
+	FileHandle* tempHandle = new FileHandle(tempFileName);
+	std::ofstream output;
+	tempHandle->write(false, output);
+	if(output.fail())
+	{
+		throw GdxRuntimeException("Error creating temp file " + tempHandle->m_strFullPath);
+	}
+	output.close();
+	return tempHandle;
 }
 
-
-FileHandle* FileHandle::tempDirectory(std::string prefix)
+FileHandle* FileHandle::tempDirectory()
 {
-	//TODO: implement this
-	throw GdxRuntimeException("not implemented");
+	char* tempFileName = ::tmpnam(NULL);
+	FileHandle* tempHandle = new FileHandle(tempFileName);
+	Gdx.files->mkdir(tempFileName);
+	if(!tempHandle->exists())
+	{
+		throw GdxRuntimeException("Error creating temp directory " + tempHandle->m_strFullPath);
+	}
+	
+	return tempHandle;
 }
 
 void FileHandle::copyFile(const FileHandle* source, const FileHandle* dest) 

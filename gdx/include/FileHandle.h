@@ -69,7 +69,7 @@ public:
 
   /** Reads the entire file into a std::string using the platform's default charset.
   * @throw GdxRuntimeException if the file handle represents a directory, doesn't exist, or could not be read. */
-  void readstring(std::string& str) const;
+  void readString(std::string& str) const;
   
 
   /** Reads the entire file into a std::string using the specified charset.
@@ -94,33 +94,13 @@ public:
   * @param append If false, this file will be overwritten if it exists, otherwise it will be appended.
   * @throw GdxRuntimeException if this file handle represents a directory, if it is a {@link FileType#Classpath} or
   *        {@link FileType#Internal} file, or if it could not be written. */
-  void write(std::ifstream& input, bool append) const;
-
-  /** Returns a writer for writing to this file using the default charset. Parent directories will be created if necessary.
-  * @param append If false, this file will be overwritten if it exists, otherwise it will be appended.
-  * @throw GdxRuntimeException if this file handle represents a directory, if it is a {@link FileType#Classpath} or
-  *        {@link FileType#Internal} file, or if it could not be written. */
-  void writer(bool append, std::ofstream& stream) const;
-
-  /** Returns a writer for writing to this file. Parent directories will be created if necessary.
-  * @param append If false, this file will be overwritten if it exists, otherwise it will be appended.
-  * @param charset May be null to use the default charset.
-  * @throw GdxRuntimeException if this file handle represents a directory, if it is a {@link FileType#Classpath} or
-  *        {@link FileType#Internal} file, or if it could not be written. */
-  void writer(bool append, const std::string& charset, std::ofstream& stream) const;
+  //void write(std::ifstream& input, bool append) const;
 
   /** Writes the specified std::string to the file using the default charset. Parent directories will be created if necessary.
   * @param append If false, this file will be overwritten if it exists, otherwise it will be appended.
   * @throw GdxRuntimeException if this file handle represents a directory, if it is a {@link FileType#Classpath} or
   *        {@link FileType#Internal} file, or if it could not be written. */
-  void writestring(const std::string& str, bool append) const;
-
-  /** Writes the specified std::string to the file as UTF-8. Parent directories will be created if necessary.
-  * @param append If false, this file will be overwritten if it exists, otherwise it will be appended.
-  * @param charset May be null to use the default charset.
-  * @throw GdxRuntimeException if this file handle represents a directory, if it is a {@link FileType#Classpath} or
-  *        {@link FileType#Internal} file, or if it could not be written. */
-  void writestring(const std::string& str, bool append, const std::string& charset) const;
+  void writeString(const std::string& str, bool append) const;
 
   /** Writes the specified bytes to the file. Parent directories will be created if necessary.
   * @param append If false, this file will be overwritten if it exists, otherwise it will be appended.
@@ -195,9 +175,10 @@ public:
 
   std::string toString () const;
 
-  static FileHandle* tempFile(const std::string prefix);
-  
-  static FileHandle* tempDirectory(std::string prefix);
+  /**Delete the temp file after finish working with it!*/
+  static FileHandle* tempFile();
+  /**Delete the temp directory after finish working with it!*/
+  static FileHandle* tempDirectory();
 
 private:
 	void init(const std::string& strFullPath, FileType type);
