@@ -2,13 +2,6 @@
 #include "SpriteBatchTest.h"
 #include <time.h>
 
-long nTime = 0;
-long nanoTime()
-{
-	nTime += 10000;
-	return nTime;
-}
-
 SpriteBatchTest::SpriteBatchTest()
 {
 	// init random numbers
@@ -19,7 +12,8 @@ SpriteBatchTest::SpriteBatchTest()
 	spriteBatch = NULL;
 
 	SPRITES = 100 / 2;
-	startTime = nanoTime();
+    
+	
 	frames = 0;
 
 	texture = texture2 = NULL;
@@ -72,33 +66,32 @@ void SpriteBatchTest::renderNormal()
 		SCALE_SPEED = -1;
 	}
 
-	long start = nanoTime();
+	timer->startTimer();
 	spriteBatch->begin();
-	begin = (nanoTime() - start) / 1000000000.0f;
+	begin = timer->stopTimer() / 1000000000.0f;
 
-
-	start = nanoTime();
+    timer->startTimer();
 	for (int i = 0; i < sprites.size(); i += 6)
 		spriteBatch->draw( texture, sprites[i], sprites[i + 1], 16, 16, 32, 32, scale, scale, angle, 0, 0, 32, 32, false, false);
-	draw1 = (nanoTime() - start) / 1000000000.0f;
+	draw1 = timer->stopTimer() / 1000000000.0f;
 
-	start = nanoTime();
+    timer->startTimer();
 	for (int i = 0; i < sprites2.size(); i += 6)
 		spriteBatch->draw( texture2, sprites2[i], sprites2[i + 1], 16, 16, 32, 32, scale, scale, angle, 0, 0, 32, 32, false, false);
-	draw2 = (nanoTime() - start) / 1000000000.0f;
+	draw2 = timer->stopTimer() / 1000000000.0f;
 
-	start = nanoTime();
+	timer->startTimer();
 	// spriteBatch->drawText(font, "Question?", 100, 300, Color.RED);
 	// spriteBatch->drawText(font, "and another this is a test", 200, 100, Color.WHITE);
 	// spriteBatch->drawText(font, "all hail and another this is a test", 200, 200, Color.WHITE);
 	// spriteBatch->drawText(font, "normal fps: " + Gdx.graphics->getFramesPerSecond(), 10, 30, Color.RED);
-	drawText = (nanoTime() - start) / 1000000000.0f;
+	drawText = timer->stopTimer() / 1000000000.0f;
 
-	start = nanoTime();
+	timer->startTimer();
 	spriteBatch->end();
-	end = (nanoTime() - start) / 1000000000.0f;
+	end = timer->stopTimer() / 1000000000.0f;
 
-	if (nanoTime() - startTime > 1000000000) 
+	//if (nanoTime() - startTime > 1000000000) 
 	{
 		/*
 		std::stringstream stream;
@@ -138,9 +131,9 @@ void SpriteBatchTest::renderSprites ()
 	float draw2 = 0;
 	float drawText = 0;
 
-	long start = nanoTime();
+	timer->startTimer();
 	spriteBatch->begin();
-	begin = (nanoTime() - start) / 1000000000.0f;
+	begin = timer->stopTimer() / 1000000000.0f;
 
 	float angleInc = ROTATION_SPEED * Gdx.graphics->getDeltaTime();
 	scale += SCALE_SPEED * Gdx.graphics->getDeltaTime();
@@ -153,49 +146,51 @@ void SpriteBatchTest::renderSprites ()
 		SCALE_SPEED = -1;
 	}
 
-	start = nanoTime();
+	timer->startTimer();
 	for (int i = 0; i < SPRITES; i++) 
 	{
 		if (angleInc != 0) sprites3[i].rotate(angleInc); // this is aids
 		if (scale != 1) sprites3[i].setScale(scale); // this is aids
 		sprites3[i].draw( spriteBatch);
 	}
-	draw1 = (nanoTime() - start) / 1000000000.0f;
+	draw1 = timer->stopTimer() / 1000000000.0f;
 
-	start = nanoTime();
+	timer->startTimer();
 	for (int i = SPRITES; i < SPRITES << 1; i++) {
 		if (angleInc != 0) sprites3[i].rotate(angleInc); // this is aids
 		if (scale != 1) sprites3[i].setScale(scale); // this is aids
 		sprites3[i].draw( spriteBatch);
 	}
 
-	draw2 = (nanoTime() - start) / 1000000000.0f;
+	draw2 = timer->stopTimer() / 1000000000.0f;
 
-	start = nanoTime();
+	timer->startTimer();
 	// spriteBatch->drawText(font, "Question?", 100, 300, Color.RED);
 	// spriteBatch->drawText(font, "and another this is a test", 200, 100, Color.WHITE);
 	// spriteBatch->drawText(font, "all hail and another this is a test", 200, 200, Color.WHITE);
 	// spriteBatch->drawText(font, "Sprite fps: " + Gdx.graphics->getFramesPerSecond(), 10, 30, Color.RED);
-	drawText = (nanoTime() - start) / 1000000000.0f;
+	drawText = timer->stopTimer() / 1000000000.0f;
 
-	start = nanoTime();
+	timer->startTimer();
 	spriteBatch->end();
-	end = (nanoTime() - start) / 1000000000.0f;
+	end = timer->stopTimer() / 1000000000.0f;
 
-	if (nanoTime() - startTime > 1000000000) 
+	//if (nanoTime() - startTime > 1000000000) 
 	{
 		/*
 		Gdx.app.log("SpriteBatch", "fps: " + frames + ", render calls: " + spriteBatch->renderCalls + ", " + begin + ", " + draw1
 		+ ", " + draw2 + ", " + drawText + ", " + end);
 		*/
-		frames = 0;
-		startTime = nanoTime();
+		//frames = 0;
+		//startTime = nanoTime();
 	}
 	frames++;
 }
 
 void SpriteBatchTest::create () 
 {
+    timer = Gdx.app->createTimer();
+    
 	spriteBatch = new SpriteBatch( 1000);
 
 	Pixmap* pixmap = new Pixmap(Gdx.files->internalHandle("data/badlogicsmall.jpg"));

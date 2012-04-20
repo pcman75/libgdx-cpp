@@ -13,7 +13,6 @@ class SpriteBatchTest :
 {
 private:
 	int SPRITES;
-	long startTime;
 	int frames;
 	Texture* texture;
 	Texture* texture2;
@@ -27,6 +26,7 @@ private:
 	float scale;
 	float SCALE_SPEED;
 	int renderMethod;
+    Timer* timer;
 
 public:
 	SpriteBatchTest();

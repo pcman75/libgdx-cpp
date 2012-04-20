@@ -25,7 +25,6 @@ class SpriteBatchShaderTest :
 {
 	static const int SPRITES = 400;
 
-	long startTime;
 	int frames;
 
 	Texture* texture;

@@ -164,7 +164,6 @@ void FilesTest::testInternal()
 	catch(GdxRuntimeException ignored)
 	{
 	}
-	handle;
 
 	FileHandle* dir;
 	dir = Gdx.files->internalHandle("data");
