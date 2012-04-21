@@ -8,7 +8,6 @@
 
 #include "stdafx.h"
 #include "OSXFiles.h"
-#include "WoglFileHandleStream.h"
 
 OSXFiles::OSXFiles()
 {
@@ -171,12 +170,6 @@ int OSXFiles::removeDirectory(const char *path) const
     }
     
     return r;
-}
-
-FileHandleStream* OSXFiles::getStream( const std::string& path, FileAccess nFileAccess, StreamType nStreamType) const
-{
-    FileHandleStream* pRet = new WoglFileHandleStream(path, nFileAccess, nStreamType);
-	return pRet;
 }
 
 bool OSXFiles::copyFile(const char* source, const char* dest) const

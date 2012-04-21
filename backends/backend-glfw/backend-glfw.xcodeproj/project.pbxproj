@@ -15,7 +15,6 @@
 		1772CA73151F963500330DB0 /* wglew.h in Headers */ = {isa = PBXBuildFile; fileRef = 1772CA03151F963500330DB0 /* wglew.h */; };
 		1772CA74151F963500330DB0 /* wglext.h in Headers */ = {isa = PBXBuildFile; fileRef = 1772CA04151F963500330DB0 /* wglext.h */; };
 		17821FE41528F78D00E213C9 /* OSXFiles.h in Headers */ = {isa = PBXBuildFile; fileRef = 17821FE31528F78D00E213C9 /* OSXFiles.h */; };
-		17822023152CEF1200E213C9 /* WoglFileHandleStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17822022152CEF1200E213C9 /* WoglFileHandleStream.cpp */; };
 		17D05D56151F94A4002CBB67 /* GlfwApplication.h in Headers */ = {isa = PBXBuildFile; fileRef = 17D05D2E151F94A4002CBB67 /* GlfwApplication.h */; };
 		17D05D57151F94A4002CBB67 /* GlfwGraphics.h in Headers */ = {isa = PBXBuildFile; fileRef = 17D05D2F151F94A4002CBB67 /* GlfwGraphics.h */; };
 		17D05D58151F94A4002CBB67 /* GlfwInput.h in Headers */ = {isa = PBXBuildFile; fileRef = 17D05D30151F94A4002CBB67 /* GlfwInput.h */; };
@@ -25,7 +24,6 @@
 		17D05D5C151F94A4002CBB67 /* GlfwTimer.h in Headers */ = {isa = PBXBuildFile; fileRef = 17D05D34151F94A4002CBB67 /* GlfwTimer.h */; };
 		17D05D5D151F94A4002CBB67 /* GlfwWaitCondition.h in Headers */ = {isa = PBXBuildFile; fileRef = 17D05D35151F94A4002CBB67 /* GlfwWaitCondition.h */; };
 		17D05D5E151F94A4002CBB67 /* WindowsAudio.h in Headers */ = {isa = PBXBuildFile; fileRef = 17D05D36151F94A4002CBB67 /* WindowsAudio.h */; };
-		17D05D60151F94A4002CBB67 /* WoglFileHandleStream.h in Headers */ = {isa = PBXBuildFile; fileRef = 17D05D38151F94A4002CBB67 /* WoglFileHandleStream.h */; };
 		17D05D66151F94A4002CBB67 /* GdxMusic.h in Headers */ = {isa = PBXBuildFile; fileRef = 17D05D3F151F94A4002CBB67 /* GdxMusic.h */; };
 		17D05D67151F94A4002CBB67 /* GdxSound.h in Headers */ = {isa = PBXBuildFile; fileRef = 17D05D40151F94A4002CBB67 /* GdxSound.h */; };
 		17D05D68151F94A4002CBB67 /* stdafx.h in Headers */ = {isa = PBXBuildFile; fileRef = 17D05D41151F94A4002CBB67 /* stdafx.h */; };
@@ -51,7 +49,6 @@
 		1772CA03151F963500330DB0 /* wglew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = wglew.h; sourceTree = "<group>"; };
 		1772CA04151F963500330DB0 /* wglext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = wglext.h; sourceTree = "<group>"; };
 		17821FE31528F78D00E213C9 /* OSXFiles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSXFiles.h; sourceTree = "<group>"; };
-		17822022152CEF1200E213C9 /* WoglFileHandleStream.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WoglFileHandleStream.cpp; sourceTree = "<group>"; };
 		17D05D26151F9453002CBB67 /* libbackend-glfw.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libbackend-glfw.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		17D05D2E151F94A4002CBB67 /* GlfwApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlfwApplication.h; sourceTree = "<group>"; };
 		17D05D2F151F94A4002CBB67 /* GlfwGraphics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlfwGraphics.h; sourceTree = "<group>"; };
@@ -62,7 +59,6 @@
 		17D05D34151F94A4002CBB67 /* GlfwTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlfwTimer.h; sourceTree = "<group>"; };
 		17D05D35151F94A4002CBB67 /* GlfwWaitCondition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlfwWaitCondition.h; sourceTree = "<group>"; };
 		17D05D36151F94A4002CBB67 /* WindowsAudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WindowsAudio.h; sourceTree = "<group>"; };
-		17D05D38151F94A4002CBB67 /* WoglFileHandleStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WoglFileHandleStream.h; sourceTree = "<group>"; };
 		17D05D3F151F94A4002CBB67 /* GdxMusic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GdxMusic.h; sourceTree = "<group>"; };
 		17D05D40151F94A4002CBB67 /* GdxSound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GdxSound.h; sourceTree = "<group>"; };
 		17D05D41151F94A4002CBB67 /* stdafx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stdafx.h; sourceTree = "<group>"; };
@@ -136,7 +132,6 @@
 				17D05D34151F94A4002CBB67 /* GlfwTimer.h */,
 				17D05D35151F94A4002CBB67 /* GlfwWaitCondition.h */,
 				17D05D36151F94A4002CBB67 /* WindowsAudio.h */,
-				17D05D38151F94A4002CBB67 /* WoglFileHandleStream.h */,
 			);
 			path = exp;
 			sourceTree = "<group>";
@@ -157,7 +152,6 @@
 			isa = PBXGroup;
 			children = (
 				1750FB7D153E100E005A9525 /* OSXFiles.cpp */,
-				17822022152CEF1200E213C9 /* WoglFileHandleStream.cpp */,
 				17D05D45151F94A4002CBB67 /* GlfwApplication.cpp */,
 				17D05D46151F94A4002CBB67 /* GlfwGraphics.cpp */,
 				17D05D47151F94A4002CBB67 /* GlfwInput.cpp */,
@@ -188,7 +182,6 @@
 				17D05D5C151F94A4002CBB67 /* GlfwTimer.h in Headers */,
 				17D05D5D151F94A4002CBB67 /* GlfwWaitCondition.h in Headers */,
 				17D05D5E151F94A4002CBB67 /* WindowsAudio.h in Headers */,
-				17D05D60151F94A4002CBB67 /* WoglFileHandleStream.h in Headers */,
 				17D05D66151F94A4002CBB67 /* GdxMusic.h in Headers */,
 				17D05D67151F94A4002CBB67 /* GdxSound.h in Headers */,
 				17D05D68151F94A4002CBB67 /* stdafx.h in Headers */,
@@ -264,7 +257,6 @@
 				17D05D72151F94A4002CBB67 /* GlfwWaitCondition.cpp in Sources */,
 				17D05D73151F94A4002CBB67 /* stdafx.cpp in Sources */,
 				1772CA05151F963500330DB0 /* glew.c in Sources */,
-				17822023152CEF1200E213C9 /* WoglFileHandleStream.cpp in Sources */,
 				1750FB7E153E100E005A9525 /* OSXFiles.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

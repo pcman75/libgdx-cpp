@@ -166,7 +166,6 @@
     <ClCompile Include="..\src\GlfwInput.cpp" />
     <ClCompile Include="..\src\GlfwTimer.cpp" />
     <ClCompile Include="..\src\GlfwApplication.cpp" />
-    <ClCompile Include="..\src\WoglFileHandleStream.cpp" />
     <ClCompile Include="..\src\WindowsFiles.cpp" />
     <ClCompile Include="..\src\GlfwGraphics.cpp" />
   </ItemGroup>
@@ -180,7 +179,6 @@
     <ClInclude Include="..\exp\GlfwInput.h" />
     <ClInclude Include="..\exp\GlfwTimer.h" />
     <ClInclude Include="..\exp\GlfwApplication.h" />
-    <ClInclude Include="..\exp\WoglFileHandleStream.h" />
     <ClInclude Include="..\exp\WindowsFiles.h" />
     <ClInclude Include="..\exp\WoglGLCommon.h" />
     <ClInclude Include="..\exp\GlfwGraphics.h" />

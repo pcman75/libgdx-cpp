@@ -114,9 +114,6 @@
     <ClCompile Include="..\src\FileHandle.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\FileHandleStream.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\Files.cpp">
       <Filter>src</Filter>
     </ClCompile>
@@ -342,9 +339,6 @@
       <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="..\include\FileHandle.h">
-      <Filter>include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\FileHandleStream.h">
       <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="..\include\Files.h">

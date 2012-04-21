@@ -1,6 +1,5 @@
 #pragma once
 
-#include "FileHandleStream.h"
 #include "GdxRuntimeException.h"
 
 class WavInputStream 
@@ -9,10 +8,10 @@ public:
 	int channels, sampleRate, dataRemaining;
 
 private:
-	FileHandleStream* m_file;
+	std::ifstream m_file;
 
 public:
-	WavInputStream(FileHandleStream* file);
+	WavInputStream(const FileHandle& file);
 	int readData(char buffer[], int bufLen);
 	int skip(int count);
 	char read();

@@ -16,7 +16,6 @@
 #pragma once
 
 
-#include "FileHandleStream.h"
 #include "Mesh.h"
 
 
@@ -30,5 +29,5 @@ public:
 	 * 
 	 * @param in the InputStream
 	 * @return a Mesh holding the OBJ data or null in case something went wrong. */
-	static Mesh* loadObj(FileHandleStream* in);
+	static Mesh* loadObj(const FileHandle& in);
 };

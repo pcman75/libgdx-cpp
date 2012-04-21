@@ -6,24 +6,10 @@ Renderer::Renderer(Application* app)
 	: m_invaderAngle(0), m_lastScore(0), m_lastLives(0), m_lastWave(0)
 {
 	m_spriteBatch = new SpriteBatch();
-
-
-	FileHandleStream* in = Gdx.files->internalHandle("data/ship.obj").getStream(Read, Binary);
-	m_shipMesh = ModelLoaderOld::loadObj(in);
-	delete in;
-
-	in = Gdx.files->internalHandle("data/invader.obj").getStream(Read, Binary);
-	m_invaderMesh = ModelLoaderOld::loadObj(in);
-	delete in;
-
-	//FileHandleStream* in;
-	in = Gdx.files->internalHandle("data/block.obj").getStream(Read, Binary);
-	m_blockMesh = ModelLoaderOld::loadObj(in);
-	delete in;
-
-	in = Gdx.files->internalHandle("data/shot.obj").getStream(Read, Binary);
-	m_shotMesh = ModelLoaderOld::loadObj(in);
-	delete in;
+	m_shipMesh = ModelLoaderOld::loadObj( Gdx.files->internalHandle("data/ship.obj"));
+	m_invaderMesh = ModelLoaderOld::loadObj(Gdx.files->internalHandle("data/invader.obj"));
+	m_blockMesh = ModelLoaderOld::loadObj(Gdx.files->internalHandle("data/block.obj"));
+	m_shotMesh = ModelLoaderOld::loadObj(Gdx.files->internalHandle("data/shot.obj"));
 
 	m_shipTexture = new Texture(Gdx.files->internalHandle("data/ship.png"), Pixmap::Format::RGB565, true);
 	m_shipTexture->setFilter(Texture::TextureFilter::MipMap, Texture::TextureFilter::Linear);

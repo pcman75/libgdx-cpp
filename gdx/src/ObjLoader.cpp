@@ -8,7 +8,7 @@ using namespace std;
 /** Loads a Wavefront OBJ file from the given input stream.
 * 
 * @param in the InputStream */
-Mesh* ObjLoader::loadObj (FileHandleStream* in) 
+Mesh* ObjLoader::loadObj (const FileHandle& in) 
 {
 	return loadObj(in, false);
 }
@@ -17,24 +17,10 @@ Mesh* ObjLoader::loadObj (FileHandleStream* in)
 * 
 * @param in the InputStream
 * @param flipV whether to flip the v texture coordinate or not */
-Mesh* ObjLoader::loadObj(FileHandleStream* in, bool flipV) 
+Mesh* ObjLoader::loadObj(const FileHandle& in, bool flipV) 
 {
-	//TODO: this is ugly
-	//do something else after implementing proper "File" abstraction
-	const int maxBuf = 1024;
-	char* line = new char[maxBuf];
 	std::string objFile;
-
-	line = in->readLine(line, maxBuf);
-	
-	while(line) 
-	{
-		objFile.append(line);
-		objFile.append("\n");
-		line = in->readLine(line, maxBuf);
-	}
-
-	delete[] line;
+	in.readString(objFile);
 	return loadObjFromString(objFile.c_str(), flipV);
 }
 

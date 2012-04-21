@@ -15,8 +15,6 @@
 ******************************************************************************/
 #pragma once
 
-#include "FileHandleStream.h"
-
 enum FileType 
 {
   /** Path relative to the asset directory on Android and to the application's root directory on the desktop. On the desktop,
@@ -50,9 +48,6 @@ public:
   std::string getFullPathName() const;
   FileType type() const;
 
-
-  //TODO: remove this
-  FileHandleStream* getStream( FileAccess nFileAccess, StreamType nStreamType) const;
 
   /** Returns a std::fstream that represents this file handle. Note the returned file will only be usable for
 	 * {@link FileType#Absolute} and {@link FileType#External} file handles. */

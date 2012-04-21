@@ -49,7 +49,6 @@
 		026AD4181523694B000D55E6 /* FadeOut.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1772CBA21520F5E600330DB0 /* FadeOut.cpp */; };
 		026AD4191523694B000D55E6 /* FadeTo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1772CBA31520F5E600330DB0 /* FadeTo.cpp */; };
 		026AD41A1523694B000D55E6 /* FileHandle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1772CBA41520F5E600330DB0 /* FileHandle.cpp */; };
-		026AD41B1523694B000D55E6 /* FileHandleStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1772CBA51520F5E600330DB0 /* FileHandleStream.cpp */; };
 		026AD41C1523694B000D55E6 /* Files.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1772CBA61520F5E600330DB0 /* Files.cpp */; };
 		026AD41D1523694B000D55E6 /* FileTextureData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1772CBA71520F5E600330DB0 /* FileTextureData.cpp */; };
 		026AD41E1523694B000D55E6 /* Forever.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1772CBA81520F5E600330DB0 /* Forever.cpp */; };
@@ -147,7 +146,6 @@
 		026AD47C1523694B000D55E6 /* FadeOut.h in Headers */ = {isa = PBXBuildFile; fileRef = 1772CAB31520F5C700330DB0 /* FadeOut.h */; };
 		026AD47D1523694B000D55E6 /* FadeTo.h in Headers */ = {isa = PBXBuildFile; fileRef = 1772CAB41520F5C700330DB0 /* FadeTo.h */; };
 		026AD47E1523694B000D55E6 /* FileHandle.h in Headers */ = {isa = PBXBuildFile; fileRef = 1772CAB51520F5C700330DB0 /* FileHandle.h */; };
-		026AD47F1523694B000D55E6 /* FileHandleStream.h in Headers */ = {isa = PBXBuildFile; fileRef = 1772CAB61520F5C700330DB0 /* FileHandleStream.h */; };
 		026AD4801523694B000D55E6 /* Files.h in Headers */ = {isa = PBXBuildFile; fileRef = 1772CAB71520F5C700330DB0 /* Files.h */; };
 		026AD4811523694B000D55E6 /* FileTextureData.h in Headers */ = {isa = PBXBuildFile; fileRef = 1772CAB81520F5C700330DB0 /* FileTextureData.h */; };
 		026AD4821523694B000D55E6 /* Forever.h in Headers */ = {isa = PBXBuildFile; fileRef = 1772CAB91520F5C700330DB0 /* Forever.h */; };
@@ -267,7 +265,6 @@
 		1772CB221520F5C700330DB0 /* FadeOut.h in Headers */ = {isa = PBXBuildFile; fileRef = 1772CAB31520F5C700330DB0 /* FadeOut.h */; };
 		1772CB231520F5C700330DB0 /* FadeTo.h in Headers */ = {isa = PBXBuildFile; fileRef = 1772CAB41520F5C700330DB0 /* FadeTo.h */; };
 		1772CB241520F5C700330DB0 /* FileHandle.h in Headers */ = {isa = PBXBuildFile; fileRef = 1772CAB51520F5C700330DB0 /* FileHandle.h */; };
-		1772CB251520F5C700330DB0 /* FileHandleStream.h in Headers */ = {isa = PBXBuildFile; fileRef = 1772CAB61520F5C700330DB0 /* FileHandleStream.h */; };
 		1772CB261520F5C700330DB0 /* Files.h in Headers */ = {isa = PBXBuildFile; fileRef = 1772CAB71520F5C700330DB0 /* Files.h */; };
 		1772CB271520F5C700330DB0 /* FileTextureData.h in Headers */ = {isa = PBXBuildFile; fileRef = 1772CAB81520F5C700330DB0 /* FileTextureData.h */; };
 		1772CB281520F5C700330DB0 /* Forever.h in Headers */ = {isa = PBXBuildFile; fileRef = 1772CAB91520F5C700330DB0 /* Forever.h */; };
@@ -379,7 +376,6 @@
 		1772CC031520F5E600330DB0 /* FadeOut.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1772CBA21520F5E600330DB0 /* FadeOut.cpp */; };
 		1772CC041520F5E600330DB0 /* FadeTo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1772CBA31520F5E600330DB0 /* FadeTo.cpp */; };
 		1772CC051520F5E600330DB0 /* FileHandle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1772CBA41520F5E600330DB0 /* FileHandle.cpp */; };
-		1772CC061520F5E600330DB0 /* FileHandleStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1772CBA51520F5E600330DB0 /* FileHandleStream.cpp */; };
 		1772CC071520F5E600330DB0 /* Files.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1772CBA61520F5E600330DB0 /* Files.cpp */; };
 		1772CC081520F5E600330DB0 /* FileTextureData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1772CBA71520F5E600330DB0 /* FileTextureData.cpp */; };
 		1772CC091520F5E600330DB0 /* Forever.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1772CBA81520F5E600330DB0 /* Forever.cpp */; };
@@ -514,7 +510,6 @@
 		1772CAB31520F5C700330DB0 /* FadeOut.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FadeOut.h; sourceTree = "<group>"; };
 		1772CAB41520F5C700330DB0 /* FadeTo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FadeTo.h; sourceTree = "<group>"; };
 		1772CAB51520F5C700330DB0 /* FileHandle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileHandle.h; sourceTree = "<group>"; };
-		1772CAB61520F5C700330DB0 /* FileHandleStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileHandleStream.h; sourceTree = "<group>"; };
 		1772CAB71520F5C700330DB0 /* Files.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Files.h; sourceTree = "<group>"; };
 		1772CAB81520F5C700330DB0 /* FileTextureData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileTextureData.h; sourceTree = "<group>"; };
 		1772CAB91520F5C700330DB0 /* Forever.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Forever.h; sourceTree = "<group>"; };
@@ -626,7 +621,6 @@
 		1772CBA21520F5E600330DB0 /* FadeOut.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FadeOut.cpp; sourceTree = "<group>"; };
 		1772CBA31520F5E600330DB0 /* FadeTo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FadeTo.cpp; sourceTree = "<group>"; };
 		1772CBA41520F5E600330DB0 /* FileHandle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FileHandle.cpp; sourceTree = "<group>"; };
-		1772CBA51520F5E600330DB0 /* FileHandleStream.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FileHandleStream.cpp; sourceTree = "<group>"; };
 		1772CBA61520F5E600330DB0 /* Files.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Files.cpp; sourceTree = "<group>"; };
 		1772CBA71520F5E600330DB0 /* FileTextureData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FileTextureData.cpp; sourceTree = "<group>"; };
 		1772CBA81520F5E600330DB0 /* Forever.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Forever.cpp; sourceTree = "<group>"; };
@@ -853,7 +847,6 @@
 				1772CAB31520F5C700330DB0 /* FadeOut.h */,
 				1772CAB41520F5C700330DB0 /* FadeTo.h */,
 				1772CAB51520F5C700330DB0 /* FileHandle.h */,
-				1772CAB61520F5C700330DB0 /* FileHandleStream.h */,
 				1772CAB71520F5C700330DB0 /* Files.h */,
 				1772CAB81520F5C700330DB0 /* FileTextureData.h */,
 				1772CAB91520F5C700330DB0 /* Forever.h */,
@@ -979,7 +972,6 @@
 				1772CBA21520F5E600330DB0 /* FadeOut.cpp */,
 				1772CBA31520F5E600330DB0 /* FadeTo.cpp */,
 				1772CBA41520F5E600330DB0 /* FileHandle.cpp */,
-				1772CBA51520F5E600330DB0 /* FileHandleStream.cpp */,
 				1772CBA61520F5E600330DB0 /* Files.cpp */,
 				1772CBA71520F5E600330DB0 /* FileTextureData.cpp */,
 				1772CBA81520F5E600330DB0 /* Forever.cpp */,
@@ -1087,7 +1079,6 @@
 				026AD47C1523694B000D55E6 /* FadeOut.h in Headers */,
 				026AD47D1523694B000D55E6 /* FadeTo.h in Headers */,
 				026AD47E1523694B000D55E6 /* FileHandle.h in Headers */,
-				026AD47F1523694B000D55E6 /* FileHandleStream.h in Headers */,
 				026AD4801523694B000D55E6 /* Files.h in Headers */,
 				026AD4811523694B000D55E6 /* FileTextureData.h in Headers */,
 				026AD4821523694B000D55E6 /* Forever.h in Headers */,
@@ -1208,7 +1199,6 @@
 				1772CB221520F5C700330DB0 /* FadeOut.h in Headers */,
 				1772CB231520F5C700330DB0 /* FadeTo.h in Headers */,
 				1772CB241520F5C700330DB0 /* FileHandle.h in Headers */,
-				1772CB251520F5C700330DB0 /* FileHandleStream.h in Headers */,
 				1772CB261520F5C700330DB0 /* Files.h in Headers */,
 				1772CB271520F5C700330DB0 /* FileTextureData.h in Headers */,
 				1772CB281520F5C700330DB0 /* Forever.h in Headers */,
@@ -1440,7 +1430,6 @@
 				026AD4181523694B000D55E6 /* FadeOut.cpp in Sources */,
 				026AD4191523694B000D55E6 /* FadeTo.cpp in Sources */,
 				026AD41A1523694B000D55E6 /* FileHandle.cpp in Sources */,
-				026AD41B1523694B000D55E6 /* FileHandleStream.cpp in Sources */,
 				026AD41C1523694B000D55E6 /* Files.cpp in Sources */,
 				026AD41D1523694B000D55E6 /* FileTextureData.cpp in Sources */,
 				026AD41E1523694B000D55E6 /* Forever.cpp in Sources */,
@@ -1543,7 +1532,6 @@
 				1772CC031520F5E600330DB0 /* FadeOut.cpp in Sources */,
 				1772CC041520F5E600330DB0 /* FadeTo.cpp in Sources */,
 				1772CC051520F5E600330DB0 /* FileHandle.cpp in Sources */,
-				1772CC061520F5E600330DB0 /* FileHandleStream.cpp in Sources */,
 				1772CC071520F5E600330DB0 /* Files.cpp in Sources */,
 				1772CC081520F5E600330DB0 /* FileTextureData.cpp in Sources */,
 				1772CC091520F5E600330DB0 /* Forever.cpp in Sources */,

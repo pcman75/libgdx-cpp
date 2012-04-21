@@ -175,7 +175,6 @@
     </ClCompile>
     <ClCompile Include="..\src\Camera.cpp" />
     <ClCompile Include="..\src\Circle.cpp" />
-    <ClCompile Include="..\src\FileHandleStream.cpp" />
     <ClCompile Include="..\src\Files.cpp" />
     <ClCompile Include="..\src\BoundingBox.cpp" />
     <ClCompile Include="..\src\Color.cpp" />
@@ -302,7 +301,6 @@
     <ClInclude Include="..\include\ETC1Data.h" />
     <ClInclude Include="..\include\ETC1TextureData.h" />
     <ClInclude Include="..\include\FileHandle.h" />
-    <ClInclude Include="..\include\FileHandleStream.h" />
     <ClInclude Include="..\include\Files.h" />
     <ClInclude Include="..\include\FileTextureData.h" />
     <ClInclude Include="..\include\Frustum.h" />

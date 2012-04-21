@@ -18,6 +18,7 @@
 #include <set>
 #include <list>
 #include <map>
+#include <fstream>
 
 #include <ogg.h>
 #include <ivorbiscodec.h>

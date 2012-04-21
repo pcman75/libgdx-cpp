@@ -2,7 +2,7 @@
 #include "ModelLoaderOld.h"
 #include "ObjLoader.h"
 
-Mesh* ModelLoaderOld::loadObj(FileHandleStream* in) 
+Mesh* ModelLoaderOld::loadObj(const FileHandle& in) 
 {
 	return ObjLoader::loadObj(in);
 }

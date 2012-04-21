@@ -12,7 +12,6 @@ class WavDecoder :
 {
 private:
 	class WavInputStream* m_in;
-	FileHandleStream* m_fileHandleStream;
 
 public:
 	/**

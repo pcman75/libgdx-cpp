@@ -1,5 +1,5 @@
 #pragma once
-#include "files.h"
+#include "Files.h"
 
 // Win implementation of Files class
 //
@@ -37,8 +37,6 @@ public:
   virtual void      list(const std::string& path, std::vector<FileHandle>& handles) const;
   virtual void      mkdir( const std::string& path) const;
   virtual bool recursiveDeleteDirectory(const std::string& path) const;
-
-  virtual FileHandleStream* getStream(const std::string& path, FileAccess nFileAccess, StreamType nStreamType) const;
   bool copyFile(const char* source, const char* dest) const;
 
 private:

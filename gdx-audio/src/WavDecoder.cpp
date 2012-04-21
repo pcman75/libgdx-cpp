@@ -5,13 +5,11 @@
 
 WavDecoder::WavDecoder(const FileHandle& file)
 {
-	m_fileHandleStream = file.getStream(Read, Binary);
-	m_in = new WavInputStream(m_fileHandleStream);
+	m_in = new WavInputStream(file);
 }
 
 WavDecoder::~WavDecoder()
 {
-	delete m_fileHandleStream;
 	delete m_in;
 }
 

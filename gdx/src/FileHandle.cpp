@@ -102,12 +102,6 @@ FileHandle FileHandle::child(const string& name) const
 	return FileHandle(m_strFullPath + "/" + name, m_type);
 }
 
-FileHandleStream* FileHandle::getStream( FileAccess nFileAccess, StreamType nStreamType) const
-{
-	return Gdx.app->getFiles()->getStream( m_strFullPath, nFileAccess, nStreamType);
-}
-
-
 /** open the stream for reading this file as bytes.
 * @throw GdxRuntimeException if the file handle represents a directory, doesn't exist, or could not be read. */
 void FileHandle::read(ifstream& stream) const
@@ -135,8 +129,9 @@ void FileHandle::reader(ifstream& stream) const
 void FileHandle::readString(string& str) const
 {
 	ifstream stream;
-	read(stream);
-	stream >> str;
+	reader(stream);
+	std::istreambuf_iterator<char> eos;
+	str.assign(std::istreambuf_iterator<char>(stream), eos);
 	stream.close();
 	if(stream.fail())
 	{
