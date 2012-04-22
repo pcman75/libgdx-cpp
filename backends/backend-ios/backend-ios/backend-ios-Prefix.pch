@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'backend-ios' target in the 'backend-ios' project
+//
+
+#ifdef __OBJC__
+    #import <Foundation/Foundation.h>
+#endif
