@@ -1,19 +1,28 @@
 //
 //  AppDelegate.h
-//  gdx-tests-ios
+//  gdx-backend-ios
 //
-//  Created by Cosmin Manoliu on 4/17/12.
-//  Copyright (c) 2012 Home. All rights reserved.
+//  Created by Tamas Jano on 29/03/2012.
+//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
+#import "GLView.h"
+#import "IOSApplication.h"
 
-@class ViewController;
+//@class RootViewController;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
+{
+    UIWindow*                   m_window;
+    GLView*                     m_view;
+    IOSApplication*             m_app;
+    
+}
 
-@property (strong, nonatomic) UIWindow *window;
+@property (strong, nonatomic) UIWindow *m_window;
+//@property (nonatomic, retain) RootViewController *rootViewController;
 
-@property (strong, nonatomic) ViewController *viewController;
+-(AppDelegate*) initWithApplication:(IOSApplication*)application;
 
 @end

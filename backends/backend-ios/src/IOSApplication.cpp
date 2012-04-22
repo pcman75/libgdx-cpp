@@ -6,7 +6,6 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#include <iostream>
 #include "IOSApplication.h"
 #include "IOSApplicationConfiguration.h"
 #include "IOSGraphics.h"

@@ -8,15 +8,33 @@
 
 /* Begin PBXBuildFile section */
 		1714A6BC1544690800EBA48A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1714A6BB1544690800EBA48A /* Foundation.framework */; };
-		1714A6C21544690800EBA48A /* backend_ios.m in Sources */ = {isa = PBXBuildFile; fileRef = 1714A6C11544690800EBA48A /* backend_ios.m */; };
+		17F398A31544A74B003B5812 /* backend-ios-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 17F3989C1544A74B003B5812 /* backend-ios-Prefix.pch */; };
+		17F398A51544A74B003B5812 /* GLView.h in Headers */ = {isa = PBXBuildFile; fileRef = 17F3989E1544A74B003B5812 /* GLView.h */; };
+		17F398A61544A74B003B5812 /* IOSApplication.h in Headers */ = {isa = PBXBuildFile; fileRef = 17F3989F1544A74B003B5812 /* IOSApplication.h */; };
+		17F398A71544A74B003B5812 /* IOSApplicationConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = 17F398A01544A74B003B5812 /* IOSApplicationConfiguration.h */; };
+		17F398A81544A74B003B5812 /* IOSGraphics.h in Headers */ = {isa = PBXBuildFile; fileRef = 17F398A11544A74B003B5812 /* IOSGraphics.h */; };
+		17F398A91544A74B003B5812 /* IOSTimer.h in Headers */ = {isa = PBXBuildFile; fileRef = 17F398A21544A74B003B5812 /* IOSTimer.h */; };
+		17F398B21544A756003B5812 /* GLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 17F398AC1544A756003B5812 /* GLView.mm */; };
+		17F398B31544A756003B5812 /* IOSApplication.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17F398AD1544A756003B5812 /* IOSApplication.cpp */; };
+		17F398B41544A756003B5812 /* IOSApplicationConfiguration.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17F398AE1544A756003B5812 /* IOSApplicationConfiguration.cpp */; };
+		17F398B51544A756003B5812 /* IOSGraphics.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17F398AF1544A756003B5812 /* IOSGraphics.cpp */; };
+		17F398B61544A756003B5812 /* IOSTimer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17F398B01544A756003B5812 /* IOSTimer.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1714A6B81544690800EBA48A /* libbackend-ios.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libbackend-ios.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1714A6BB1544690800EBA48A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		1714A6BF1544690800EBA48A /* backend-ios-Prefix.pch */ = {isa = PBXFileReference; path = "backend-ios-Prefix.pch"; sourceTree = "<group>"; };
-		1714A6C01544690800EBA48A /* backend_ios.h */ = {isa = PBXFileReference; path = backend_ios.h; sourceTree = "<group>"; };
-		1714A6C11544690800EBA48A /* backend_ios.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = backend_ios.m; sourceTree = "<group>"; };
+		17F3989C1544A74B003B5812 /* backend-ios-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "backend-ios-Prefix.pch"; path = "../incl/backend-ios-Prefix.pch"; sourceTree = "<group>"; };
+		17F3989E1544A74B003B5812 /* GLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLView.h; sourceTree = "<group>"; };
+		17F3989F1544A74B003B5812 /* IOSApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IOSApplication.h; sourceTree = "<group>"; };
+		17F398A01544A74B003B5812 /* IOSApplicationConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IOSApplicationConfiguration.h; sourceTree = "<group>"; };
+		17F398A11544A74B003B5812 /* IOSGraphics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IOSGraphics.h; sourceTree = "<group>"; };
+		17F398A21544A74B003B5812 /* IOSTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IOSTimer.h; sourceTree = "<group>"; };
+		17F398AC1544A756003B5812 /* GLView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLView.mm; sourceTree = "<group>"; };
+		17F398AD1544A756003B5812 /* IOSApplication.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IOSApplication.cpp; sourceTree = "<group>"; };
+		17F398AE1544A756003B5812 /* IOSApplicationConfiguration.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IOSApplicationConfiguration.cpp; sourceTree = "<group>"; };
+		17F398AF1544A756003B5812 /* IOSGraphics.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IOSGraphics.cpp; sourceTree = "<group>"; };
+		17F398B01544A756003B5812 /* IOSTimer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IOSTimer.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -34,7 +52,9 @@
 		1714A6AD1544690800EBA48A = {
 			isa = PBXGroup;
 			children = (
-				1714A6BD1544690800EBA48A /* backend-ios */,
+				17F398AA1544A756003B5812 /* src */,
+				17F3989B1544A74B003B5812 /* incl */,
+				1714A6BE1544690800EBA48A /* Supporting Files */,
 				1714A6BA1544690800EBA48A /* Frameworks */,
 				1714A6B91544690800EBA48A /* Products */,
 			);
@@ -56,22 +76,39 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		1714A6BD1544690800EBA48A /* backend-ios */ = {
-			isa = PBXGroup;
-			children = (
-				1714A6C01544690800EBA48A /* backend_ios.h */,
-				1714A6C11544690800EBA48A /* backend_ios.m */,
-				1714A6BE1544690800EBA48A /* Supporting Files */,
-			);
-			path = "backend-ios";
-			sourceTree = "<group>";
-		};
 		1714A6BE1544690800EBA48A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				1714A6BF1544690800EBA48A /* backend-ios-Prefix.pch */,
+				17F3989C1544A74B003B5812 /* backend-ios-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			path = "backend-ios";
+			sourceTree = "<group>";
+		};
+		17F3989B1544A74B003B5812 /* incl */ = {
+			isa = PBXGroup;
+			children = (
+				17F3989E1544A74B003B5812 /* GLView.h */,
+				17F3989F1544A74B003B5812 /* IOSApplication.h */,
+				17F398A01544A74B003B5812 /* IOSApplicationConfiguration.h */,
+				17F398A11544A74B003B5812 /* IOSGraphics.h */,
+				17F398A21544A74B003B5812 /* IOSTimer.h */,
+			);
+			name = incl;
+			path = ../incl;
+			sourceTree = "<group>";
+		};
+		17F398AA1544A756003B5812 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				17F398AC1544A756003B5812 /* GLView.mm */,
+				17F398AD1544A756003B5812 /* IOSApplication.cpp */,
+				17F398AE1544A756003B5812 /* IOSApplicationConfiguration.cpp */,
+				17F398AF1544A756003B5812 /* IOSGraphics.cpp */,
+				17F398B01544A756003B5812 /* IOSTimer.cpp */,
+			);
+			name = src;
+			path = ../src;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -81,6 +118,12 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17F398A31544A74B003B5812 /* backend-ios-Prefix.pch in Headers */,
+				17F398A51544A74B003B5812 /* GLView.h in Headers */,
+				17F398A61544A74B003B5812 /* IOSApplication.h in Headers */,
+				17F398A71544A74B003B5812 /* IOSApplicationConfiguration.h in Headers */,
+				17F398A81544A74B003B5812 /* IOSGraphics.h in Headers */,
+				17F398A91544A74B003B5812 /* IOSTimer.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,7 +178,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1714A6C21544690800EBA48A /* backend_ios.m in Sources */,
+				17F398B21544A756003B5812 /* GLView.mm in Sources */,
+				17F398B31544A756003B5812 /* IOSApplication.cpp in Sources */,
+				17F398B41544A756003B5812 /* IOSApplicationConfiguration.cpp in Sources */,
+				17F398B51544A756003B5812 /* IOSGraphics.cpp in Sources */,
+				17F398B61544A756003B5812 /* IOSTimer.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -187,7 +234,8 @@
 			buildSettings = {
 				DSTROOT = /tmp/backend_ios.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "backend-ios/backend-ios-Prefix.pch";
+				GCC_PREFIX_HEADER = "../incl/backend-ios-Prefix.pch";
+				HEADER_SEARCH_PATHS = ../../../gdx/include;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -199,7 +247,8 @@
 			buildSettings = {
 				DSTROOT = /tmp/backend_ios.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "backend-ios/backend-ios-Prefix.pch";
+				GCC_PREFIX_HEADER = "../incl/backend-ios-Prefix.pch";
+				HEADER_SEARCH_PATHS = ../../../gdx/include;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -225,6 +274,7 @@
 				1714A6C71544690800EBA48A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

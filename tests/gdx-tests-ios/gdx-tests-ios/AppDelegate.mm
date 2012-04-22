@@ -1,31 +1,69 @@
 //
 //  AppDelegate.m
-//  gdx-tests-ios
+//  gdx-backend-ios
 //
-//  Created by Cosmin Manoliu on 4/17/12.
-//  Copyright (c) 2012 Home. All rights reserved.
+//  Created by Tamas Jano on 29/03/2012.
+//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
+
+#include <iostream>
+#include <sstream>
+#include <string>
+#include <vector>
+#include <set>
+#include <list>
+#include <map>
+#include <algorithm>
+#include <iterator>
 
 #import "AppDelegate.h"
-
-#import "ViewController.h"
+#import "AlphaTest.h"
+#import "Pong.h"
+#import "OrthoCamBorderTest.h"
 
 @implementation AppDelegate
 
-@synthesize window = _window;
-@synthesize viewController = _viewController;
+@synthesize m_window = _window;
+//@synthesize rootViewController = _rootViewController;
+
+static void uncaughtExceptionHandler(NSException *exception) {
+    NSLog(@"CRASH: %@", exception);
+    NSLog(@"Stack Trace: %@", [exception callStackSymbols]);
+    // Internal error reporting
+}
+
+-(AppDelegate*) initWithApplication:(IOSApplication*)application
+{
+    if (self = [super init]) 
+    {
+        m_app = application;
+    };
+    
+    return self;
+    
+};
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        self.viewController = [[ViewController alloc] initWithNibName:@"ViewController_iPhone" bundle:nil];
-    } else {
-        self.viewController = [[ViewController alloc] initWithNibName:@"ViewController_iPad" bundle:nil];
-    }
-    self.window.rootViewController = self.viewController;
-    [self.window makeKeyAndVisible];
+{    
+    // set up exception handler
+    NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
+    
+    // Instantiate the listener
+    ApplicationListener *listener = new OrthoCamBorderTest();
+    // create the application
+    m_app = new IOSApplication(*listener, false);
+    
+    [application setStatusBarHidden:YES];
+    
+    CGRect screenBounds = [[UIScreen mainScreen] bounds];
+    
+    self.m_window = [[UIWindow alloc] initWithFrame:screenBounds];
+    
+    m_view = [[GLView alloc] initWithFrame:screenBounds andListener:listener];
+    
+    [self.m_window addSubview:m_view];
+    [self.m_window makeKeyAndVisible];
+    
     return YES;
 }
 
@@ -57,6 +95,8 @@
     /*
      Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
      */
+    [m_view startRenderLoop];
+    
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
@@ -66,6 +106,14 @@
      Save data if appropriate.
      See also applicationDidEnterBackground:.
      */
+    [m_view stopRenderLoop];
+    
+    //    if (m_view) {
+    //        [m_view dealloc];
+    //    }
+    
 }
 
+- (IBAction)startGame:(id)sender {
+}
 @end

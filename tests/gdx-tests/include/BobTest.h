@@ -86,6 +86,7 @@ public:
 		bobModel->setAutoBind(false);
 	}
 
+       
 	void render()
 	{
 		float deltaTime = min(Gdx.graphics->getDeltaTime(), 0.1f);
@@ -99,8 +100,11 @@ public:
 		glClear(GL_COLOR_BUFFER_BIT);
 		glMatrixMode(GL_PROJECTION);
 		glLoadIdentity();
-		glOrtho(0, 320, 0, 480, 1, -1);
-
+		
+        //TODO glOrtho missing???:
+#ifndef TARGET_IOS        
+        glOrtho(0, 320, 0, 480, 1, -1);
+#endif
 		glMatrixMode(GL_MODELVIEW);
 
 		glEnable(GL_BLEND);

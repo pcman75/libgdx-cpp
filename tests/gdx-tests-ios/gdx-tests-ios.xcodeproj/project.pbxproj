@@ -14,12 +14,14 @@
 		1750FB5D153E08A9005A9525 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1750FB5C153E08A9005A9525 /* OpenGLES.framework */; };
 		1750FB63153E08A9005A9525 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1750FB61153E08A9005A9525 /* InfoPlist.strings */; };
 		1750FB65153E08A9005A9525 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1750FB64153E08A9005A9525 /* main.m */; };
-		1750FB69153E08A9005A9525 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1750FB68153E08A9005A9525 /* AppDelegate.m */; };
-		1750FB6B153E08A9005A9525 /* Shader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 1750FB6A153E08A9005A9525 /* Shader.fsh */; };
-		1750FB6D153E08A9005A9525 /* Shader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 1750FB6C153E08A9005A9525 /* Shader.vsh */; };
+		1750FB69153E08A9005A9525 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1750FB68153E08A9005A9525 /* AppDelegate.mm */; };
 		1750FB70153E08A9005A9525 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1750FB6F153E08A9005A9525 /* ViewController.m */; };
 		1750FB73153E08A9005A9525 /* ViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1750FB71153E08A9005A9525 /* ViewController_iPhone.xib */; };
 		1750FB76153E08A9005A9525 /* ViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1750FB74153E08A9005A9525 /* ViewController_iPad.xib */; };
+		17F3985215448162003B5812 /* libbackend-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 17F3985115448162003B5812 /* libbackend-ios.a */; };
+		17F398561544817B003B5812 /* libgdx-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 17F398551544817B003B5812 /* libgdx-ios.a */; };
+		17F3986A1544830A003B5812 /* libgdx-tests-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 17F398691544830A003B5812 /* libgdx-tests-ios.a */; };
+		17F3987715449D90003B5812 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17F3987615449D90003B5812 /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,14 +35,16 @@
 		1750FB62153E08A9005A9525 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1750FB64153E08A9005A9525 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1750FB66153E08A9005A9525 /* gdx-tests-ios-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "gdx-tests-ios-Prefix.pch"; sourceTree = "<group>"; };
-		1750FB67153E08A9005A9525 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		1750FB68153E08A9005A9525 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		1750FB6A153E08A9005A9525 /* Shader.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = Shader.fsh; path = Shaders/Shader.fsh; sourceTree = "<group>"; };
-		1750FB6C153E08A9005A9525 /* Shader.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = Shader.vsh; path = Shaders/Shader.vsh; sourceTree = "<group>"; };
-		1750FB6E153E08A9005A9525 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		1750FB6F153E08A9005A9525 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		1750FB67153E08A9005A9525 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = "gdx-tests-ios/AppDelegate.h"; sourceTree = "<group>"; };
+		1750FB68153E08A9005A9525 /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = "gdx-tests-ios/AppDelegate.mm"; sourceTree = "<group>"; };
+		1750FB6E153E08A9005A9525 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = "gdx-tests-ios/ViewController.h"; sourceTree = "<group>"; };
+		1750FB6F153E08A9005A9525 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = "gdx-tests-ios/ViewController.m"; sourceTree = "<group>"; };
 		1750FB72153E08A9005A9525 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController_iPhone.xib; sourceTree = "<group>"; };
 		1750FB75153E08A9005A9525 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController_iPad.xib; sourceTree = "<group>"; };
+		17F3985115448162003B5812 /* libbackend-ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libbackend-ios.a"; path = "../../backends/backend-ios/build/Release-iphoneos/libbackend-ios.a"; sourceTree = "<group>"; };
+		17F398551544817B003B5812 /* libgdx-ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgdx-ios.a"; path = "../../gdx/build/Release-iphoneos/libgdx-ios.a"; sourceTree = "<group>"; };
+		17F398691544830A003B5812 /* libgdx-tests-ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgdx-tests-ios.a"; path = "../gdx-tests/build/Release-iphoneos/libgdx-tests-ios.a"; sourceTree = "<group>"; };
+		17F3987615449D90003B5812 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +52,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17F3987715449D90003B5812 /* QuartzCore.framework in Frameworks */,
+				17F3986A1544830A003B5812 /* libgdx-tests-ios.a in Frameworks */,
+				17F398561544817B003B5812 /* libgdx-ios.a in Frameworks */,
+				17F3985215448162003B5812 /* libbackend-ios.a in Frameworks */,
 				1750FB55153E08A9005A9525 /* UIKit.framework in Frameworks */,
 				1750FB57153E08A9005A9525 /* Foundation.framework in Frameworks */,
 				1750FB59153E08A9005A9525 /* CoreGraphics.framework in Frameworks */,
@@ -62,7 +70,17 @@
 		1750FB45153E08A8005A9525 = {
 			isa = PBXGroup;
 			children = (
-				1750FB5E153E08A9005A9525 /* gdx-tests-ios */,
+				1750FB67153E08A9005A9525 /* AppDelegate.h */,
+				1750FB68153E08A9005A9525 /* AppDelegate.mm */,
+				1750FB6E153E08A9005A9525 /* ViewController.h */,
+				1750FB6F153E08A9005A9525 /* ViewController.m */,
+				1750FB71153E08A9005A9525 /* ViewController_iPhone.xib */,
+				1750FB74153E08A9005A9525 /* ViewController_iPad.xib */,
+				1750FB5F153E08A9005A9525 /* Supporting Files */,
+				17F3987615449D90003B5812 /* QuartzCore.framework */,
+				17F398691544830A003B5812 /* libgdx-tests-ios.a */,
+				17F398551544817B003B5812 /* libgdx-ios.a */,
+				17F3985115448162003B5812 /* libbackend-ios.a */,
 				1750FB53153E08A9005A9525 /* Frameworks */,
 				1750FB51153E08A9005A9525 /* Products */,
 			);
@@ -88,22 +106,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		1750FB5E153E08A9005A9525 /* gdx-tests-ios */ = {
-			isa = PBXGroup;
-			children = (
-				1750FB67153E08A9005A9525 /* AppDelegate.h */,
-				1750FB68153E08A9005A9525 /* AppDelegate.m */,
-				1750FB6A153E08A9005A9525 /* Shader.fsh */,
-				1750FB6C153E08A9005A9525 /* Shader.vsh */,
-				1750FB6E153E08A9005A9525 /* ViewController.h */,
-				1750FB6F153E08A9005A9525 /* ViewController.m */,
-				1750FB71153E08A9005A9525 /* ViewController_iPhone.xib */,
-				1750FB74153E08A9005A9525 /* ViewController_iPad.xib */,
-				1750FB5F153E08A9005A9525 /* Supporting Files */,
-			);
-			path = "gdx-tests-ios";
-			sourceTree = "<group>";
-		};
 		1750FB5F153E08A9005A9525 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -113,6 +115,7 @@
 				1750FB66153E08A9005A9525 /* gdx-tests-ios-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			path = "gdx-tests-ios";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -167,8 +170,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1750FB63153E08A9005A9525 /* InfoPlist.strings in Resources */,
-				1750FB6B153E08A9005A9525 /* Shader.fsh in Resources */,
-				1750FB6D153E08A9005A9525 /* Shader.vsh in Resources */,
 				1750FB73153E08A9005A9525 /* ViewController_iPhone.xib in Resources */,
 				1750FB76153E08A9005A9525 /* ViewController_iPad.xib in Resources */,
 			);
@@ -182,7 +183,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1750FB65153E08A9005A9525 /* main.m in Sources */,
-				1750FB69153E08A9005A9525 /* AppDelegate.m in Sources */,
+				1750FB69153E08A9005A9525 /* AppDelegate.mm in Sources */,
 				1750FB70153E08A9005A9525 /* ViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -204,6 +205,7 @@
 				1750FB72153E08A9005A9525 /* en */,
 			);
 			name = ViewController_iPhone.xib;
+			path = "gdx-tests-ios";
 			sourceTree = "<group>";
 		};
 		1750FB74153E08A9005A9525 /* ViewController_iPad.xib */ = {
@@ -212,6 +214,7 @@
 				1750FB75153E08A9005A9525 /* en */,
 			);
 			name = ViewController_iPad.xib;
+			path = "gdx-tests-ios";
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -270,7 +273,16 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "gdx-tests-ios/gdx-tests-ios-Prefix.pch";
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
+				HEADER_SEARCH_PATHS = (
+					"../../backends/backend-ios/incl",
+					../../gdx/include,
+					"../../tests/gdx-tests/include",
+				);
 				INFOPLIST_FILE = "gdx-tests-ios/gdx-tests-ios-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/gdx-testing-osx-gixlikwjboncinfzefiysvwhyepd/Build/Products/Debug\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -282,7 +294,16 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "gdx-tests-ios/gdx-tests-ios-Prefix.pch";
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
+				HEADER_SEARCH_PATHS = (
+					"../../backends/backend-ios/incl",
+					../../gdx/include,
+					"../../tests/gdx-tests/include",
+				);
 				INFOPLIST_FILE = "gdx-tests-ios/gdx-tests-ios-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/gdx-testing-osx-gixlikwjboncinfzefiysvwhyepd/Build/Products/Debug\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -307,6 +328,7 @@
 				1750FB7B153E08A9005A9525 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

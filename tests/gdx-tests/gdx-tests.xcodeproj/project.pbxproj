@@ -55,6 +55,18 @@
 		17D05D11151F8832002CBB67 /* SpriteBatchTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17D05CDA151F8832002CBB67 /* SpriteBatchTest.cpp */; };
 		17D05D12151F8832002CBB67 /* stdafx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17D05CDB151F8832002CBB67 /* stdafx.cpp */; };
 		17D05D13151F8832002CBB67 /* VertexBufferObjectShaderTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17D05CDC151F8832002CBB67 /* VertexBufferObjectShaderTest.cpp */; };
+		17F3985E15448291003B5812 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17F3985D15448291003B5812 /* Foundation.framework */; };
+		17F3986B15448475003B5812 /* FilesTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 175147911522679400915FB2 /* FilesTest.cpp */; };
+		17F3986C15448475003B5812 /* GdxTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17D05CD3151F8832002CBB67 /* GdxTests.cpp */; };
+		17F3986D15448475003B5812 /* MatrixJNITest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17D05CD4151F8832002CBB67 /* MatrixJNITest.cpp */; };
+		17F3986E15448475003B5812 /* MeshShaderTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17D05CD5151F8832002CBB67 /* MeshShaderTest.cpp */; };
+		17F3986F15448475003B5812 /* PixmapBlendingTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17D05CD6151F8832002CBB67 /* PixmapBlendingTest.cpp */; };
+		17F3987015448475003B5812 /* PixmapTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17D05CD7151F8832002CBB67 /* PixmapTest.cpp */; };
+		17F3987115448475003B5812 /* Pong.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17D05CD8151F8832002CBB67 /* Pong.cpp */; };
+		17F3987215448475003B5812 /* SpriteBatchRotationTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17D05CD9151F8832002CBB67 /* SpriteBatchRotationTest.cpp */; };
+		17F3987315448475003B5812 /* SpriteBatchTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17D05CDA151F8832002CBB67 /* SpriteBatchTest.cpp */; };
+		17F3987415448475003B5812 /* stdafx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17D05CDB151F8832002CBB67 /* stdafx.cpp */; };
+		17F3987515448475003B5812 /* VertexBufferObjectShaderTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17D05CDC151F8832002CBB67 /* VertexBufferObjectShaderTest.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -107,6 +119,8 @@
 		17D05CDA151F8832002CBB67 /* SpriteBatchTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SpriteBatchTest.cpp; sourceTree = "<group>"; };
 		17D05CDB151F8832002CBB67 /* stdafx.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = stdafx.cpp; sourceTree = "<group>"; };
 		17D05CDC151F8832002CBB67 /* VertexBufferObjectShaderTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VertexBufferObjectShaderTest.cpp; sourceTree = "<group>"; };
+		17F3985B15448291003B5812 /* libgdx-tests-ios.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libgdx-tests-ios.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		17F3985D15448291003B5812 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,16 +131,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		17F3985815448291003B5812 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				17F3985E15448291003B5812 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		17D05C91151F87E6002CBB67 = {
 			isa = PBXGroup;
 			children = (
+				17F3985C15448291003B5812 /* Frameworks */,
 				17D05CA3151F8832002CBB67 /* incl */,
 				17D05CA7151F8832002CBB67 /* include */,
-				17D05CD1151F8832002CBB67 /* src */,
 				17D05C9D151F87E6002CBB67 /* Products */,
+				17D05CD1151F8832002CBB67 /* src */,
 			);
 			sourceTree = "<group>";
 		};
@@ -134,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				17D05C9C151F87E6002CBB67 /* libgdx-tests.a */,
+				17F3985B15448291003B5812 /* libgdx-tests-ios.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -207,6 +231,14 @@
 			path = src;
 			sourceTree = "<group>";
 		};
+		17F3985C15448291003B5812 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				17F3985D15448291003B5812 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -254,6 +286,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		17F3985915448291003B5812 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
@@ -272,6 +311,23 @@
 			name = "gdx-tests";
 			productName = "gdx-tests";
 			productReference = 17D05C9C151F87E6002CBB67 /* libgdx-tests.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		17F3985A15448291003B5812 /* gdx-tests-ios */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 17F3986715448291003B5812 /* Build configuration list for PBXNativeTarget "gdx-tests-ios" */;
+			buildPhases = (
+				17F3985715448291003B5812 /* Sources */,
+				17F3985815448291003B5812 /* Frameworks */,
+				17F3985915448291003B5812 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "gdx-tests-ios";
+			productName = "gdx-tests-ios";
+			productReference = 17F3985B15448291003B5812 /* libgdx-tests-ios.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -296,6 +352,7 @@
 			projectRoot = "";
 			targets = (
 				17D05C9B151F87E6002CBB67 /* gdx-tests */,
+				17F3985A15448291003B5812 /* gdx-tests-ios */,
 			);
 		};
 /* End PBXProject section */
@@ -316,6 +373,24 @@
 				17D05D12151F8832002CBB67 /* stdafx.cpp in Sources */,
 				17D05D13151F8832002CBB67 /* VertexBufferObjectShaderTest.cpp in Sources */,
 				175147921522679400915FB2 /* FilesTest.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		17F3985715448291003B5812 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				17F3986B15448475003B5812 /* FilesTest.cpp in Sources */,
+				17F3986C15448475003B5812 /* GdxTests.cpp in Sources */,
+				17F3986D15448475003B5812 /* MatrixJNITest.cpp in Sources */,
+				17F3986E15448475003B5812 /* MeshShaderTest.cpp in Sources */,
+				17F3986F15448475003B5812 /* PixmapBlendingTest.cpp in Sources */,
+				17F3987015448475003B5812 /* PixmapTest.cpp in Sources */,
+				17F3987115448475003B5812 /* Pong.cpp in Sources */,
+				17F3987215448475003B5812 /* SpriteBatchRotationTest.cpp in Sources */,
+				17F3987315448475003B5812 /* SpriteBatchTest.cpp in Sources */,
+				17F3987415448475003B5812 /* stdafx.cpp in Sources */,
+				17F3987515448475003B5812 /* VertexBufferObjectShaderTest.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -372,6 +447,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				EXECUTABLE_PREFIX = lib;
+				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
 				HEADER_SEARCH_PATHS = (
 					../../gdx/include,
 					"../../gdx-audio/include",
@@ -386,12 +462,57 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				EXECUTABLE_PREFIX = lib;
+				GCC_PREPROCESSOR_DEFINITIONS = "";
 				HEADER_SEARCH_PATHS = (
 					../../gdx/include,
 					"../../gdx-audio/include",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = "";
+			};
+			name = Release;
+		};
+		17F3986515448291003B5812 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				DSTROOT = /tmp/gdx_tests_ios.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					TARGET_IOS,
+					"$(inherited)",
+				);
+				HEADER_SEARCH_PATHS = (
+					../../gdx/include,
+					"../../gdx-audio/include",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		17F3986615448291003B5812 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				DSTROOT = /tmp/gdx_tests_ios.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
+				GCC_PREPROCESSOR_DEFINITIONS = TARGET_IOS;
+				HEADER_SEARCH_PATHS = (
+					../../gdx/include,
+					"../../gdx-audio/include",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
@@ -412,6 +533,15 @@
 			buildConfigurations = (
 				17D05CA1151F87E6002CBB67 /* Debug */,
 				17D05CA2151F87E6002CBB67 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		17F3986715448291003B5812 /* Build configuration list for PBXNativeTarget "gdx-tests-ios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				17F3986515448291003B5812 /* Debug */,
+				17F3986615448291003B5812 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

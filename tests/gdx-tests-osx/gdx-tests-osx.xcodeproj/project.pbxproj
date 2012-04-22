@@ -25,7 +25,7 @@
 		17821FE61529036200E213C9 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		17821FF7152A5DC100E213C9 /* libglfw.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libglfw.a; path = "../../backends/backend-glfw/extern/glfw-2.7.3/lib/cocoa/libglfw.a"; sourceTree = "<group>"; };
 		1782201E152CD37100E213C9 /* data */ = {isa = PBXFileReference; lastKnownFileType = folder; name = data; path = "../gdx-tests/data"; sourceTree = "<group>"; };
-		1783F0001528F1A90005F670 /* libgdx-macos.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgdx-macos.a"; path = "libgdx-macos.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1783F0001528F1A90005F670 /* libgdx-macos.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libgdx-macos.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		17861009151A76030091BA8D /* gdx-tests-osx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "gdx-tests-osx.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1786100D151A76030091BA8D /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		17861010151A76030091BA8D /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -39,8 +39,8 @@
 		1786101F151A76030091BA8D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		17861020151A76030091BA8D /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
 		17861023151A76030091BA8D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		17D05D18151F9326002CBB67 /* libgdx-tests.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgdx-tests.a"; path = "libgdx-tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		17D05D7C151F94D2002CBB67 /* libbackend-glfw.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libbackend-glfw.a"; path = "libbackend-glfw.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		17D05D18151F9326002CBB67 /* libgdx-tests.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libgdx-tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		17D05D7C151F94D2002CBB67 /* libbackend-glfw.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libbackend-glfw.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,12 +64,12 @@
 			isa = PBXGroup;
 			children = (
 				1782201E152CD37100E213C9 /* data */,
-				17821FF7152A5DC100E213C9 /* libglfw.a */,
-				1783F0001528F1A90005F670 /* libgdx-macos.a */,
-				17D05D7C151F94D2002CBB67 /* libbackend-glfw.a */,
-				17D05D18151F9326002CBB67 /* libgdx-tests.a */,
-				17861013151A76030091BA8D /* gdx-tests-osx */,
 				1786100C151A76030091BA8D /* Frameworks */,
+				17861013151A76030091BA8D /* gdx-tests-osx */,
+				17D05D7C151F94D2002CBB67 /* libbackend-glfw.a */,
+				1783F0001528F1A90005F670 /* libgdx-macos.a */,
+				17D05D18151F9326002CBB67 /* libgdx-tests.a */,
+				17821FF7152A5DC100E213C9 /* libglfw.a */,
 				1786100A151A76030091BA8D /* Products */,
 			);
 			sourceTree = "<group>";

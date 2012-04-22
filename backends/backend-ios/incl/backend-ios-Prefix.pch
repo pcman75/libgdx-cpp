@@ -5,3 +5,10 @@
 #ifdef __OBJC__
     #import <Foundation/Foundation.h>
 #endif
+
+#include <iostream>
+#include <sstream>
+#include <string>
+#include <vector>
+#include <list>
+#include <map>

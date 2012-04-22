@@ -19,11 +19,20 @@
 #endif
 
 #if defined(__APPLE_CC__)
-    #include <OpenGL/gl.h>
-    #include <OpenGL/glext.h>
+    #if defined (TARGET_IOS)
+        #include <OpenGLES/ES1/gl.h>
+        #include <OpenGLES/ES1/glext.h>
+        #include <OpenGLES/ES2/gl.h>
+        #include <OpenGLES/ES2/glext.h>
+    #else
+        #include <OpenGL/gl.h>
+        #include <OpenGL/glext.h>
+    #endif
     #include <libgen.h>
     #include <sys/stat.h> //mkdir
 #endif
+
+
 
 #include <iostream>
 #include <sstream>
