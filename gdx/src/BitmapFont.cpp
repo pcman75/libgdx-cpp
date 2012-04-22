@@ -4,9 +4,9 @@
 
 ///////////////////////////////////////////////////////////////
 //BitmapFont
-const int BitmapFont::LOG2_PAGE_SIZE = 9;
-const int BitmapFont::PAGE_SIZE = 1 << LOG2_PAGE_SIZE;
-const int BitmapFont::PAGES = 0x10000 / PAGE_SIZE;
+const int BitmapFont::LOG2_FONT_PAGE_SIZE = 9;
+const int BitmapFont::FONT_PAGE_SIZE = 1 << LOG2_FONT_PAGE_SIZE;
+const int BitmapFont::PAGES = 0x10000 / FONT_PAGE_SIZE;
 
 const char BitmapFont::m_xChars[] = {'x', 'e', 'a', 'o', 'n', 's', 'r', 'c', 'u', 'm', 'v', 'w', 'z'};
 const char BitmapFont::m_capChars[] = {'M', 'N', 'B', 'D', 'C', 'E', 'F', 'K', 'A', 'G', 'H', 'I', 'J', 'L', 'O', 'P', 'Q', 'R', 'S',
@@ -157,7 +157,7 @@ void BitmapFont::load(BitmapFontData* data)
 		if(page == NULL) 
 			continue;
 		
-		for(int j = 0; j < PAGE_SIZE; j++)
+		for(int j = 0; j < FONT_PAGE_SIZE; j++)
 		{
 			Glyph* glyph = page[j];
 		

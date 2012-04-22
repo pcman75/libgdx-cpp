@@ -10,9 +10,9 @@ int BitmapFont::Glyph::getKerning(char ch)
 {
 	if(kerning)
 	{
-		char* page = kerning[ch >> LOG2_PAGE_SIZE];
+		char* page = kerning[ch >> LOG2_FONT_PAGE_SIZE];
 		if(page) 
-			return page[ch & PAGE_SIZE - 1];
+			return page[ch & FONT_PAGE_SIZE - 1];
 	}
 	return 0;
 }
@@ -24,13 +24,13 @@ void BitmapFont::Glyph::setKerning(int ch, int value)
 		kerning = new char*[PAGES];
 		memset(kerning, 0, PAGES * sizeof(char*));
 	}
-	char* page = kerning[ch >> LOG2_PAGE_SIZE];
+	char* page = kerning[ch >> LOG2_FONT_PAGE_SIZE];
 	if(!page) 
 	{
-		kerning[ch >> LOG2_PAGE_SIZE] = page = new char[PAGE_SIZE];
-		memset(page, 0, PAGE_SIZE * sizeof(char));
+		kerning[ch >> LOG2_FONT_PAGE_SIZE] = page = new char[FONT_PAGE_SIZE];
+		memset(page, 0, FONT_PAGE_SIZE * sizeof(char));
 	}
-	page[ch & PAGE_SIZE - 1] = (char)value;
+	page[ch & FONT_PAGE_SIZE - 1] = (char)value;
 }
 
 BitmapFont::Glyph::~Glyph()

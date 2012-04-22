@@ -108,8 +108,8 @@ public:
 	};
 
 private:
-	static const int LOG2_PAGE_SIZE;
-	static const int PAGE_SIZE;
+	static const int LOG2_FONT_PAGE_SIZE;
+	static const int FONT_PAGE_SIZE;
 	static const int PAGES;
 
 	static const char m_xChars[];

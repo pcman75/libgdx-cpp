@@ -20,6 +20,7 @@
 #import "AlphaTest.h"
 #import "Pong.h"
 #import "OrthoCamBorderTest.h"
+#import "FilesTest.h"
 
 @implementation AppDelegate
 

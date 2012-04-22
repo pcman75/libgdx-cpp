@@ -12,7 +12,7 @@ BitmapFont::BitmapFontData::~BitmapFontData()
 		Glyph** page = this->glyphs[i];
 		if(page)
 		{
-			for(int j = 0; j < PAGE_SIZE; j++)
+			for(int j = 0; j < FONT_PAGE_SIZE; j++)
 			{
 				//delete the glyph
 				delete page[j];
@@ -184,7 +184,7 @@ BitmapFont::BitmapFontData::BitmapFontData(const FileHandle& fontFile, bool flip
 				if(page == NULL) 
 					continue;
 
-				for(int j = 0; j < PAGE_SIZE; j++)
+				for(int j = 0; j < FONT_PAGE_SIZE; j++)
 				{
 					Glyph* glyph = page[j];
 					if(glyph == NULL || glyph->height == 0 || glyph->width == 0)
@@ -215,13 +215,13 @@ BitmapFont::BitmapFontData::BitmapFontData(const FileHandle& fontFile, bool flip
 
 void BitmapFont::BitmapFontData::setGlyph(int ch, Glyph* glyph)
 {
-	Glyph** page = glyphs[ch / PAGE_SIZE];
+	Glyph** page = glyphs[ch / FONT_PAGE_SIZE];
 	if(!page)
 	{
-		glyphs[ch / PAGE_SIZE] = page = new Glyph*[PAGE_SIZE];
-		memset(page, 0, PAGE_SIZE * sizeof(void*));
+		glyphs[ch / FONT_PAGE_SIZE] = page = new Glyph*[FONT_PAGE_SIZE];
+		memset(page, 0, FONT_PAGE_SIZE * sizeof(void*));
 	}
-	page[ch & PAGE_SIZE - 1] = glyph;
+	page[ch & FONT_PAGE_SIZE - 1] = glyph;
 }
 
 BitmapFont::Glyph* BitmapFont::BitmapFontData::getFirstGlyph()
@@ -231,7 +231,7 @@ BitmapFont::Glyph* BitmapFont::BitmapFontData::getFirstGlyph()
 		Glyph** page = this->glyphs[i];
 		if(!page) 
 			continue;
-		for(int j = 0; j < PAGE_SIZE; j++)
+		for(int j = 0; j < FONT_PAGE_SIZE; j++)
 		{
 			Glyph* glyph = page[j];
 			if(glyph == NULL || glyph->height == 0 || glyph->width == 0) 
@@ -244,9 +244,9 @@ BitmapFont::Glyph* BitmapFont::BitmapFontData::getFirstGlyph()
 
 BitmapFont::Glyph* BitmapFont::BitmapFontData::getGlyph(char ch)
 {
-	Glyph** page = glyphs[ch / PAGE_SIZE];
+	Glyph** page = glyphs[ch / FONT_PAGE_SIZE];
 	if(page) 
-		return page[ch & PAGE_SIZE - 1];
+		return page[ch & FONT_PAGE_SIZE - 1];
 	return NULL;
 }
 
