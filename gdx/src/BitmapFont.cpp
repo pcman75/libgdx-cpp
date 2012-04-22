@@ -186,7 +186,7 @@ void BitmapFont::load(BitmapFontData* data)
 *         instance is used for all methods that return TextBounds. */
 BitmapFont::TextBounds& BitmapFont::draw(SpriteBatch* spriteBatch, const std::string& str, float x, float y)
 {
-	return draw(spriteBatch, str, x, y, 0, str.length());
+	return draw(spriteBatch, str, x, y, 0, (int)str.length());
 }
 
 /** Draws a substring at the specified position.
@@ -329,7 +329,7 @@ BitmapFont::TextBounds& BitmapFont::drawMultiLine(SpriteBatch* spriteBatch, cons
 	float down = m_data->down;
 	int start = 0;
 	int numLines = 0;
-	int length = str.length();
+	size_t length = str.length();
 	float maxWidth = 0;
 	while(start < length)
 	{
@@ -380,7 +380,7 @@ BitmapFont::TextBounds& BitmapFont::drawWrapped(SpriteBatch* spriteBatch, const 
 	float down = m_data->down;
 	int start = 0;
 	int numLines = 0;
-	int length = str.length();
+	size_t length = str.length();
 	float maxWidth = 0;
 	while(start < length)
 	{
@@ -446,7 +446,7 @@ BitmapFont::TextBounds& BitmapFont::drawWrapped(SpriteBatch* spriteBatch, const 
 * TextBounds. */
 BitmapFont::TextBounds& BitmapFont::getBounds(const std::string& str)
 {
-	return getBounds(str, 0, str.length());
+	return getBounds(str, 0, (int)str.length());
 }
 
 /** Returns the size of the specified substring. The height is the distance from the top of most capital letters in the font
@@ -491,7 +491,7 @@ BitmapFont::TextBounds& BitmapFont::getMultiLineBounds(const std::string& str)
 	int start = 0;
 	float maxWidth = 0;
 	int numLines = 0;
-	int length = str.length();
+	size_t length = str.length();
 	while(start < length)
 	{
 		int lineEnd = indexOf(str, '\n', start);
@@ -515,7 +515,7 @@ BitmapFont::TextBounds& BitmapFont::getWrappedBounds(const std::string& str, flo
 	float down = m_data->down;
 	int start = 0;
 	int numLines = 0;
-	int length = str.length();
+	size_t length = str.length();
 	float maxWidth = 0;
 	while(start < length)
 	{

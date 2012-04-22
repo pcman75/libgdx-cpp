@@ -129,7 +129,7 @@ void GlfwApplication::printDebugString(const char* str)
 #ifdef WIN32
     ::OutputDebugString(str);
 #else
-    printf(str);
+    printf("%s", str);
 #endif
 }
 

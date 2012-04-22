@@ -8,7 +8,7 @@ bool StringUtils::startsWith(const std::string& str, const char* with)
 
 bool StringUtils::endsWith(const std::string& str, const char* with)
 {
-	int lenWidth = strlen(with);
-	int lenStr = str.size();
+	size_t lenWidth = strlen(with);
+	size_t lenStr = str.size();
 	return str.compare(lenStr - lenWidth, strlen(with), with) == 0;
 }
