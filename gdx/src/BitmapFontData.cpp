@@ -29,21 +29,19 @@ BitmapFont::BitmapFontData::BitmapFontData(const FileHandle& fontFile, bool flip
 	m_flipped(flip)
 {
 	glyphs = new Glyph**[PAGES];
-	memset(glyphs, 0, PAGES * sizeof(void*));
+	memset(glyphs, 0, PAGES * sizeof(void*));	
 
-	const int lineMax = 2048;
-	char* line = new char[lineMax];
-
-    std::ifstream reader;
-    fontFile.read(reader); 
+	std::string line;
+	std::ifstream reader;
+	fontFile.reader(reader); 
 	try
 	{
-        reader.getline(	line, lineMax);// info 
-	
-		reader.getline(	line, lineMax);
+		getline(reader, line); // info 
+
+		getline(reader, line);
 		if(reader.fail())
 			throw new GdxRuntimeException("Invalid font file: " + fontFile.getFullPathName());
-		
+
 		vector<string> common;
 		StringTokenizer::split(line, common);
 		if(common.size() < 4) 
@@ -52,12 +50,12 @@ BitmapFont::BitmapFontData::BitmapFontData(const FileHandle& fontFile, bool flip
 		if(!StringUtils::startsWith(common[1], "lineHeight="))
 			throw new GdxRuntimeException("Invalid font file: " + fontFile.getFullPathName());
 		m_lineHeight = atoi(common[1].substr(11).c_str());
-		
+
 		if(!StringUtils::startsWith(common[2], "base="))
 			throw new GdxRuntimeException("Invalid font file: " + fontFile.getFullPathName());
 		int baseLine = atoi(common[2].substr(5).c_str());
 
-		reader.getline(	line, lineMax);
+		getline(reader, line);
 		if(reader.fail()) 
 			throw new GdxRuntimeException("Invalid font file: " + fontFile.getFullPathName());
 
@@ -65,7 +63,7 @@ BitmapFont::BitmapFontData::BitmapFontData(const FileHandle& fontFile, bool flip
 		StringTokenizer::split(line, pageLine);
 		if(!StringUtils::startsWith(pageLine[2], "file=")) 
 			throw new GdxRuntimeException("Invalid font file: " + fontFile.getFullPathName());
-		
+
 		string imgFilename;
 		if(StringUtils::endsWith(pageLine[2], "\""))
 		{
@@ -77,15 +75,15 @@ BitmapFont::BitmapFontData::BitmapFontData(const FileHandle& fontFile, bool flip
 		}
 
 		FileHandle parent = fontFile.parent();
-     FileHandle child = parent.child(imgFilename.c_str());
-     m_imagePath = child.getFullPathName();
-        
-        
+		FileHandle child = parent.child(imgFilename);
+		m_imagePath = child.getFullPathName();
+
+
 		descent = 0;
 
 		while(true)
 		{
-			reader.getline(	line, lineMax);
+			getline(reader, line);
 			if(reader.eof() || reader.fail()) 
 				break;
 			if(StringUtils::startsWith(line, "kernings ")) 
@@ -126,10 +124,10 @@ BitmapFont::BitmapFontData::BitmapFontData(const FileHandle& fontFile, bool flip
 
 		while(true)
 		{
-        reader.getline(	line, lineMax);
+			getline(reader, line);
 			if(reader.eof() || reader.fail()) 
 				break;
-            
+
 			if(!StringUtils::startsWith(line, "kerning ")) 
 				break;
 
@@ -180,7 +178,7 @@ BitmapFont::BitmapFontData::BitmapFontData(const FileHandle& fontFile, bool flip
 			for(int i = 0; i < PAGES; i++)
 			{
 				Glyph** page = this->glyphs[i];
-			
+
 				if(page == NULL) 
 					continue;
 
@@ -206,9 +204,7 @@ BitmapFont::BitmapFontData::BitmapFontData(const FileHandle& fontFile, bool flip
 	}
 	catch(GdxRuntimeException& ex)
 	{
-		delete[] line;
-
-		throw new GdxRuntimeException("Error loading font file: " + fontFile.getFullPathName());
+		throw GdxRuntimeException("Error loading font file: " + fontFile.getFullPathName());
 	}
 }
 
