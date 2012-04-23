@@ -113,8 +113,8 @@ Mesh::~Mesh(void)
 
 void Mesh::init()
 {
-	VertexData* m_vertices = NULL;
-	IndexData* m_indices  = NULL;
+	m_vertices = NULL;
+	m_indices  = NULL;
 	m_autoBind = true;
 	m_isVertexArray = true;
 	m_refCount = 0;

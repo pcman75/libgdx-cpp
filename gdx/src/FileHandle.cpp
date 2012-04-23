@@ -247,7 +247,7 @@ FileHandle FileHandle::parent() const
 /** @throw GdxRuntimeException if this file handle is a {@link FileType#Classpath} or {@link FileType#Internal} file. */
 void FileHandle::mkdirs() const
 {
-	char* path = _strdup(m_strFullPath.c_str());
+	char* path = strdup(m_strFullPath.c_str());
 	char *p; 
 	size_t len; 
 	len = strlen(path); 
@@ -275,7 +275,7 @@ void FileHandle::mkdirs() const
 * will always return false. */
 bool FileHandle::exists() const
 {
-	return _access(m_strFullPath.c_str(), 0) == 0;
+	return access(m_strFullPath.c_str(), 0) == 0;
 }
 
 //  /** Deletes this file or empty directory and returns success. Will not delete a directory that has children.
@@ -291,7 +291,7 @@ bool FileHandle::remove() const
 		//maybe it's a directory
 		if(isDirectory())
 		{
-			result = _rmdir(m_strFullPath.c_str());
+			result = rmdir(m_strFullPath.c_str());
 		}
 	}
 	return result == 0;
@@ -382,7 +382,7 @@ void FileHandle::moveTo(const FileHandle& dest) const
 
 /** Returns the length in bytes of this file, or 0 if this file is a directory, does not exist, or the size cannot otherwise be
 * determined. */
-size_t FileHandle::length() const
+long long FileHandle::length() const
 {
 	struct stat filestatus;
 	memset(&filestatus, 0, sizeof(filestatus));

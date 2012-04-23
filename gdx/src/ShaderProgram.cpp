@@ -522,7 +522,6 @@ void ShaderProgram::fetchAttributes ()
 	{
 		GLsizei size = 0;
 		GLenum type = -1;
-        GLsizei length = 0;
         
         std::string name;
         getActiveAttrib(m_program, i, &size, &type, name); 

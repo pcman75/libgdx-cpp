@@ -96,7 +96,7 @@ Pixmap::Pixmap(const unsigned char* encodedData, int len)
 Pixmap::Pixmap (const FileHandle& file)
 	: m_color(0)
 {   
-  size_t nSize = file.length();
+  size_t nSize = (size_t)file.length();
   unsigned char* pBuff = new unsigned char [nSize];
     file.readBytes(pBuff, nSize);
 
