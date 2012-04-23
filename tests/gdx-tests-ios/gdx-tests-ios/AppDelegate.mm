@@ -21,6 +21,11 @@
 #import "Pong.h"
 #import "OrthoCamBorderTest.h"
 #import "FilesTest.h"
+#import "VertexArrayTest.h"
+#import "SpriteBatchTest.h"
+#import "IndexBufferObjectClassTest.h"
+#import "PixmapTest.h"
+#import "TextureDataTest.h"
 
 @implementation AppDelegate
 
@@ -50,7 +55,7 @@ static void uncaughtExceptionHandler(NSException *exception) {
     NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
     
     // Instantiate the listener
-    ApplicationListener *listener = new OrthoCamBorderTest();
+    ApplicationListener *listener = new TextureDataTest();
     // create the application
     m_app = new IOSApplication(*listener, false);
     
