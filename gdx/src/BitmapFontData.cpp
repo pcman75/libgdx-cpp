@@ -204,9 +204,7 @@ BitmapFont::BitmapFontData::BitmapFontData(const FileHandle& fontFile, bool flip
 	}
 	catch(GdxRuntimeException&)
 	{
-		delete[] line;
-
-		throw new GdxRuntimeException("Error loading font file: " + fontFile.getFullPathName());
+		throw GdxRuntimeException("Error loading font file: " + fontFile.getFullPathName());
 	}
 }
 

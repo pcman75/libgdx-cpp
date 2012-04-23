@@ -133,7 +133,7 @@ void Pong::updateGame()
 		score = leftScore + " : " + rightScore;
 		// we set the left paddle multiplicator here which governs
 		// how fast the left paddle can follow the ball.
-		leftPaddleMulti = min(1, MathUtils::randomFloat() + 0.3f);
+		leftPaddleMulti = min(1.0f, MathUtils::randomFloat() + 0.3f);
 	}
 
 	if(ball.x > 240)
@@ -145,7 +145,7 @@ void Pong::updateGame()
 		score = leftScore + " : " + rightScore;
 		// we set the left paddle multiplicator here which governs
 		// how fast the left paddle can follow the ball.
-		leftPaddleMulti = min(1, MathUtils::randomFloat() + 0.3f);
+		leftPaddleMulti = min(1.0f, MathUtils::randomFloat() + 0.3f);
 	}
 
 	// if the ball is hitting the bottom or top we
@@ -169,7 +169,7 @@ void Pong::updateGame()
 	{
 		ball.x = rightPaddle.x - 6; // set the position of a little so we don't get to this code in the next frame
 		ballDirection.x = -ballDirection.x;
-		float sign = MathUtils::sign(ball.y - rightPaddle.y);
+		int sign = MathUtils::sign(ball.y - rightPaddle.y);
 		ballDirection.y = sign * fabs(ball.y - rightPaddle.y) / 30; // reflect it depending on where the paddle was
 		// hit
 		ballDirection.nor();
@@ -183,14 +183,14 @@ void Pong::updateGame()
 	{
 		ball.x = leftPaddle.x + 6; // set the position of a little so we don't get to this code in the next frame
 		ballDirection.x = -ballDirection.x;
-		float sign = MathUtils::sign(ball.y - leftPaddle.y);
+		int sign = MathUtils::sign(ball.y - leftPaddle.y);
 		ballDirection.y = sign * fabs(ball.y - leftPaddle.y) / 30; // reflect it depending on where the paddle was hit
 		ballDirection.nor();
 		ballSpeed += 10; // and faster!
 		if(ballSpeed > 300) ballSpeed = 300;
 		// we set the left paddle multiplicator here which governs
 		// how fast the left paddle can follow the ball.
-		leftPaddleMulti = min(1, MathUtils::randomFloat() + 0.3f);
+		leftPaddleMulti = min(1.0f, MathUtils::randomFloat() + 0.3f);
 	}
 
 	
@@ -211,7 +211,7 @@ void Pong::updateGame()
 	// the left paddle
 	if(ballDirection.x < 0)
 	{
-		float dir = MathUtils::sign(ball.y - leftPaddle.y);
+		int dir = MathUtils::sign(ball.y - leftPaddle.y);
 		leftPaddle.y += dir * deltaTime * (ballSpeed * leftPaddleMulti);
 		if(dir > 0 && leftPaddle.y > ball.y) leftPaddle.y = ball.y;
 		if(dir < 0 && leftPaddle.y < ball.y) leftPaddle.y = ball.y;

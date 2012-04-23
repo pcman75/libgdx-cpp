@@ -8,7 +8,7 @@ GlfwTimer::GlfwTimer(void)
 
 long long GlfwTimer::systemNanoSeconds()
 {
-	return  (long long)10E9 * ::glfwGetTime();
+	return  (long long)((long long)10E9 * ::glfwGetTime());
 }
 
 
@@ -20,5 +20,5 @@ void GlfwTimer::startTimer()
 long long GlfwTimer::stopTimer()
 {
 	double now = ::glfwGetTime();
-	return (long long)10E9 * (now - m_start);
+	return (long long)((long long)10E9 * (now - m_start));
 }
