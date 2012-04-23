@@ -28,7 +28,7 @@ void Sequence::act (float delta)
 		return;
 	}
 
-	if (currAction >= actions.size()) 
+	if (currAction >= ( int) actions.size()) 
   {
 		callActionCompletedListener();
 		return;
@@ -39,13 +39,13 @@ void Sequence::act (float delta)
   {
 		actions[currAction]->callActionCompletedListener();
 		currAction++;
-		if (currAction < actions.size()) actions[currAction]->setTarget(target);
+		if( currAction < ( int) actions.size()) actions[currAction]->setTarget(target);
 	}
 }
 
 bool Sequence::isDone () 
 {
-	return currAction >= actions.size();
+	return currAction >= ( int) actions.size();
 }
 
 void Sequence::finish () 

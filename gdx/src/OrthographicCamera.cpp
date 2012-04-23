@@ -125,7 +125,7 @@ void OrthographicCamera::update(bool updateFrustum)
 * @param yDown whether y should be pointing down */
 void OrthographicCamera::setToOrtho(bool yDown)
 {
-	setToOrtho(yDown, Gdx.graphics->getWidth(), Gdx.graphics->getHeight());
+	setToOrtho(yDown, ( float) Gdx.graphics->getWidth(), ( float) Gdx.graphics->getHeight());
 }
 
 /** Sets this camera to an orthographic projection, centered at (viewportWidth/2, viewportHeight/2), with the y-axis pointing up

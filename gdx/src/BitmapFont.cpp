@@ -209,8 +209,8 @@ BitmapFont::TextBounds& BitmapFont::draw(SpriteBatch* spriteBatch, const std::st
 	{
 		if(m_integer)
 		{
-			y = (int)y;
-			x = (int)x;
+			y = ( float) (int)y;
+			x = ( float) (int)x;
 		}
 		while(start < end)
 		{
@@ -219,7 +219,7 @@ BitmapFont::TextBounds& BitmapFont::draw(SpriteBatch* spriteBatch, const std::st
 			{
 				spriteBatch->draw(texture, //
 					x + lastGlyph->xoffset, y + lastGlyph->yoffset, //
-					lastGlyph->width, lastGlyph->height, //
+					( float) lastGlyph->width, ( float) lastGlyph->height, //
 					lastGlyph->u, lastGlyph->v, lastGlyph->u2, lastGlyph->v2);
 				x += lastGlyph->xadvance;
 				break;
@@ -233,11 +233,11 @@ BitmapFont::TextBounds& BitmapFont::draw(SpriteBatch* spriteBatch, const std::st
 				continue;
 			x += lastGlyph->getKerning(ch);
 			if(m_integer) 
-				x = (int)x;
+				x = ( float) ( (int)x);
 			lastGlyph = g;
 			spriteBatch->draw(texture, //
 				x + lastGlyph->xoffset, y + lastGlyph->yoffset, //
-				lastGlyph->width, lastGlyph->height, //
+				( float) lastGlyph->width, ( float) lastGlyph->height, //
 				lastGlyph->u, lastGlyph->v, lastGlyph->u2, lastGlyph->v2);
 			x += g->xadvance;
 		}
@@ -329,7 +329,7 @@ BitmapFont::TextBounds& BitmapFont::drawMultiLine(SpriteBatch* spriteBatch, cons
 	float down = m_data->down;
 	int start = 0;
 	int numLines = 0;
-	size_t length = str.length();
+	int length = ( int) str.length();
 	float maxWidth = 0;
 	while(start < length)
 	{
@@ -375,12 +375,12 @@ BitmapFont::TextBounds& BitmapFont::drawWrapped(SpriteBatch* spriteBatch, const 
 	HAlignment alignment)
 {
 	if(wrapWidth <= 0) 
-		wrapWidth = INT_MAX;
+		wrapWidth = ( float) INT_MAX;
 	float batchColor = spriteBatch->getColor().toFloatBits();
 	float down = m_data->down;
 	int start = 0;
 	int numLines = 0;
-	size_t length = str.length();
+	int length = ( int) str.length();
 	float maxWidth = 0;
 	while(start < length)
 	{
@@ -491,7 +491,7 @@ BitmapFont::TextBounds& BitmapFont::getMultiLineBounds(const std::string& str)
 	int start = 0;
 	float maxWidth = 0;
 	int numLines = 0;
-	size_t length = str.length();
+	int length = ( int) str.length();
 	while(start < length)
 	{
 		int lineEnd = indexOf(str, '\n', start);
@@ -511,11 +511,11 @@ BitmapFont::TextBounds& BitmapFont::getMultiLineBounds(const std::string& str)
 * TextBounds. */
 BitmapFont::TextBounds& BitmapFont::getWrappedBounds(const std::string& str, float wrapWidth)
 {
-	if(wrapWidth <= 0) wrapWidth = INT_MAX;
+	if(wrapWidth <= 0) wrapWidth = ( float) INT_MAX;
 	float down = m_data->down;
 	int start = 0;
 	int numLines = 0;
-	size_t length = str.length();
+	int length = ( int) str.length();
 	float maxWidth = 0;
 	while(start < length)
 	{
@@ -585,13 +585,13 @@ void BitmapFont::computeGlyphAdvancesAndPositions(const std::string& str, std::v
 			{
 				if(lastGlyph != NULL) width += lastGlyph->getKerning(ch);
 				lastGlyph = g;
-				glyphAdvances.push_back(g->xadvance);
-				glyphPositions.push_back(width);
+				glyphAdvances.push_back( ( float) g->xadvance);
+				glyphPositions.push_back( ( float) width);
 				width += g->xadvance;
 			}
 		}
-		glyphAdvances.push_back(0);
-		glyphPositions.push_back(width);
+		glyphAdvances.push_back(0.f);
+		glyphPositions.push_back( ( float) width);
 	}
 	else
 	{
@@ -602,15 +602,15 @@ void BitmapFont::computeGlyphAdvancesAndPositions(const std::string& str, std::v
 			Glyph* g = m_data->getGlyph(ch);
 			if(g != NULL)
 			{
-				if(lastGlyph != NULL) width += lastGlyph->getKerning(ch) * scaleX;
+				if(lastGlyph != NULL) width += ( int) ( lastGlyph->getKerning(ch) * scaleX);
 				lastGlyph = g;
-				glyphAdvances.push_back(g->xadvance * scaleX);
-				glyphPositions.push_back(width);
+				glyphAdvances.push_back( ( float) ( g->xadvance * scaleX));
+				glyphPositions.push_back( ( float) width);
 				width += g->xadvance;
 			}
 		}
-		glyphAdvances.push_back(0);
-		glyphPositions.push_back(width);
+		glyphAdvances.push_back(0.f);
+		glyphPositions.push_back( ( float) width);
 	}
 }
 
@@ -646,9 +646,9 @@ int BitmapFont::computeVisibleGlyphs(const std::string& str, int start, int end,
 			Glyph* g = m_data->getGlyph(ch);
 			if(g != NULL)
 			{
-				if(lastGlyph != NULL) width += lastGlyph->getKerning(ch) * scaleX;
+				if(lastGlyph != NULL) width += ( int) ( lastGlyph->getKerning(ch) * scaleX);
 				if(width + g->xadvance * scaleX > availableWidth) break;
-				width += g->xadvance * scaleX;
+				width += ( int) ( g->xadvance * scaleX);
 				lastGlyph = g;
 			}
 		}

@@ -441,5 +441,5 @@ Quaternion& Quaternion::mul(float scalar)
 
 float Quaternion::toRadians(float angle)
 {
-	return angle * M_PI / 180;
+	return ( float) ( angle * M_PI / 180);
 }

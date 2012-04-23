@@ -162,7 +162,7 @@ void TextureRegion::setRegionY(int y)
 /** Returns the region's width. May be negative if the texture region is flipped horizontally. */
 int TextureRegion::getRegionWidth()
 {
-	return round((m_u2 - m_u) * m_texture->getWidth());
+	return ( int) round((m_u2 - m_u) * m_texture->getWidth());
 }
 
 void TextureRegion::setRegionWidth(int width)
@@ -173,7 +173,7 @@ void TextureRegion::setRegionWidth(int width)
 /** Returns the region's height. May be negative if the texture region is flipped horizontally. */
 int TextureRegion::getRegionHeight()
 {
-	return round((m_v2 - m_v) * m_texture->getHeight());
+	return ( int) round((m_v2 - m_v) * m_texture->getHeight());
 }
 
 void TextureRegion::setRegionHeight(int height)

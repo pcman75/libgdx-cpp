@@ -40,7 +40,7 @@ void Sprite::init(Texture* texture, int srcX, int srcY, int srcWidth, int srcHei
 	m_texture = texture;
 	TextureRegion::setRegion(srcX, srcY, srcWidth, srcHeight);
 	setColor(1, 1, 1, 1);
-	setSize(abs(srcWidth), abs(srcHeight));
+	setSize( ( float) abs(srcWidth), ( float) abs(srcHeight));
 	setOrigin(m_width / 2, m_height / 2);
 }
 
@@ -83,7 +83,7 @@ Sprite::Sprite(TextureRegion* region)
 	init();
 	TextureRegion::setRegion(region);
 	setColor(1, 1, 1, 1);
-	setSize(abs(region->getRegionWidth()), abs(region->getRegionHeight()));
+	setSize( ( float) abs(region->getRegionWidth()), ( float) abs(region->getRegionHeight()));
 	setOrigin(m_width / 2, m_height / 2);
 }
 
@@ -96,7 +96,7 @@ Sprite::Sprite(TextureRegion* region, int srcX, int srcY, int srcWidth, int srcH
 	init();
 	TextureRegion::setRegion(region, srcX, srcY, srcWidth, srcHeight);
 	setColor(1, 1, 1, 1);
-	setSize(abs(srcWidth), abs(srcHeight));
+	setSize( ( float) abs(srcWidth), ( float) abs(srcHeight));
 	setOrigin(m_width / 2, m_height / 2);
 }
 

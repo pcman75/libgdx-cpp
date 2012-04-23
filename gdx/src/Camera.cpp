@@ -96,7 +96,7 @@ void Camera::unproject(Vector3& vec, float viewportX, float viewportY, float vie
 * @param vec the point in window coordinates */
 void Camera::unproject(Vector3& vec)
 {
-	unproject(vec, 0.f, 0.f, Gdx.graphics->getWidth(), Gdx.graphics->getHeight());
+	unproject( vec, 0.f, 0.f, ( float) Gdx.graphics->getWidth(), ( float) Gdx.graphics->getHeight());
 }
 
 /** Projects the {@link Vector3} given in object/world space to window coordinates. It's the same as
@@ -107,7 +107,7 @@ void Camera::unproject(Vector3& vec)
 * @param vec the position in object/world space. */
 void Camera::project(Vector3& vec)
 {
-	project(vec, 0, 0, Gdx.graphics->getWidth(), Gdx.graphics->getHeight());
+	project(vec, 0.f, 0.f, ( float) Gdx.graphics->getWidth(), ( float) Gdx.graphics->getHeight());
 }
 
 /** Projects the {@link Vector3} given in object/world space to window coordinates. It's the same as
@@ -157,5 +157,5 @@ Ray& Camera::getPickRay(float x, float y, float viewportX, float viewportY, floa
 * @return the picking Ray. */
 Ray& Camera::getPickRay(float x, float y)
 {
-	return getPickRay(x, y, 0, 0, Gdx.graphics->getWidth(), Gdx.graphics->getHeight());
+	return getPickRay( x, y, 0.f, 0.f, ( float) Gdx.graphics->getWidth(), ( float) Gdx.graphics->getHeight());
 }

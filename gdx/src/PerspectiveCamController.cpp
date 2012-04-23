@@ -18,8 +18,8 @@ PerspectiveCamController::PerspectiveCamController( const PerspectiveCamera& cam
 bool PerspectiveCamController::touchDown (int x, int y, int pointer, int button) 
 {
 	mode = Rotate;
-	last.set(x, y);
-	tCurr.set(x, y);
+	last.set( ( float) x, ( float) y);
+	tCurr.set( ( float) x, ( float) y);
 	return true;
 }
 
@@ -33,7 +33,7 @@ bool PerspectiveCamController::touchUp (int x, int y, int pointer, int button)
 bool PerspectiveCamController::touchDragged (int x, int y, int pointer) 
 {
 	if (pointer != 0) return false;
-	delta.set(x, y).sub(last);
+	delta.set( ( float) x, ( float) y).sub(last);
 
 	if (mode == Rotate) {
 		point.set(cam.position).sub(lookAt);
@@ -54,12 +54,12 @@ bool PerspectiveCamController::touchDragged (int x, int y, int pointer)
 		cam.fieldOfView -= -delta.y / 10;
 	}
 	if (mode == Translate) {
-		tCurr.set(x, y);
+		tCurr.set( ( float) x, ( float) y);
 		translated = true;
 	}
 
 	cam.update();
-	last.set(x, y);
+	last.set( ( float) x, ( float) y);
 	return true;
 }
 

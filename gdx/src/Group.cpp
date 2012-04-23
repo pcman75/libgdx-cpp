@@ -74,7 +74,7 @@ void Group::act( float delta)
       toRemove.push_back( child);
 		}
 	}
-  for( int nIdx = 0; nIdx < toRemove.size(); nIdx++)
+  for( unsigned long nIdx = 0; nIdx < toRemove.size(); nIdx++)
   {
     removeActor( toRemove[ nIdx]);
   }
