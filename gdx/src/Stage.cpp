@@ -435,7 +435,7 @@ Actor* Stage::hit( float x, float y)
 	* @param out the output {@link Vector2}. */
 void Stage::toStageCoordinates ( int x, int y, Vector2& out) 
 {
-	camera->unproject( tmp.set( x, y, 0));
+	camera->unproject( tmp.set( ( float) x, ( float) y, 0.f));
 	out.x = tmp.x;
 	out.y = tmp.y;
 }

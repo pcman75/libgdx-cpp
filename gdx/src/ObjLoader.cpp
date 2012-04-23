@@ -172,7 +172,7 @@ Mesh* ObjLoader::loadObjFromString (const std::string& obj, bool flipV)
 		attributes.push_back(VertexAttribute(VertexAttributes::TextureCoordinates, 2, texName.c_str()));
 	}
 
-	mesh = new Mesh(true, attributes.data(), attributes.size());
+	mesh = new Mesh(true, &attributes[0], attributes.size());
 	mesh->setVertices(verts, vertsLen);
 
 	//cleanup

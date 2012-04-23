@@ -10,10 +10,10 @@ Parallel::Parallel( std::vector<Action*> actions)
 		finished.resize( actions.size());
 
 	size_t len = actions.size();
-	for (int i = 0; i < len; i++)
+	for( size_t i = 0; i < len; i++)
 		finished[i] = false;
 
-	for (int i = 0; i < len; i++)
+	for (size_t i = 0; i < len; i++)
 		this->actions.push_back( actions[i]);
 }
 
@@ -25,7 +25,7 @@ void Parallel::setTarget (Actor* actor)
 {
 	target = actor;
 	size_t len = actions.size();
-	for (int i = 0; i < len; i++)
+	for (size_t i = 0; i < len; i++)
 		actions[i]->setTarget(actor);
 }
 
@@ -34,7 +34,7 @@ void Parallel::act (float delta)
 	size_t len = actions.size();
 	bool allDone = true;
 	Action* action;
-	for (int i = 0; i < len; i++) 
+	for (size_t i = 0; i < len; i++) 
   {
 		action = actions[i];
 		if (!action->isDone()) 
@@ -58,7 +58,7 @@ void Parallel::act (float delta)
 bool Parallel::isDone () 
 {
 	size_t len = actions.size();
-	for (int i = 0; i < len; i++)
+	for (size_t i = 0; i < len; i++)
 		if (actions[i]->isDone() == false) return false;
 
 	return true;
@@ -67,7 +67,7 @@ bool Parallel::isDone ()
 void Parallel::finish () 
 {
 	size_t len = actions.size();
-	for (int i = 0; i < len; i++) 
+	for (size_t i = 0; i < len; i++) 
   {
 		if (!finished[i]) actions[i]->finish();
 	}

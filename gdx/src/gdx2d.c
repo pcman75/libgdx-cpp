@@ -49,18 +49,18 @@ void generate_look_ups() {
 	lu6 = malloc(sizeof(uint32_t) * 64);
 
 	for(i = 0; i < 16; i++) {
-		lu4[i] = (uint32_t) i / 15.0f * 255;
-		lu5[i] = (uint32_t) i / 31.0f * 255;
-		lu6[i] = (uint32_t) i / 63.0f * 255;
+		lu4[i] = (uint32_t) ( i / 15.0f * 255);
+		lu5[i] = (uint32_t) ( i / 31.0f * 255);
+		lu6[i] = (uint32_t) ( i / 63.0f * 255);
 	}
 
 	for(i = 16; i < 32; i++) {
-		lu5[i] = (uint32_t) i / 31.0f * 255;
-		lu6[i] = (uint32_t) i / 63.0f * 255;
+		lu5[i] = (uint32_t) ( i / 31.0f * 255);
+		lu6[i] = (uint32_t) ( i / 63.0f * 255);
 	}
 
 	for(i = 32; i < 64; i++) {
-		lu6[i] = (uint32_t) i / 63.0f * 255;
+		lu6[i] = (uint32_t) ( i / 63.0f * 255);
 	}
 }
 
@@ -393,7 +393,7 @@ void gdx2d_clear(const gdx2d_pixmap* pixmap, uint32_t col) {
 int32_t in_pixmap(const gdx2d_pixmap* pixmap, int32_t x, int32_t y) {
 	if(x < 0 || y < 0)
 		return 0;
-	if(x >= pixmap->width || y >= pixmap->height)
+	if(x >= ( int32_t) pixmap->width || y >= ( int32_t) pixmap->height)
 		return 0;
 	return -1;
 }
@@ -530,7 +530,7 @@ void vline(const gdx2d_pixmap* pixmap, int32_t y1, int32_t y2, int32_t x, uint32
 	uint32_t stride = bpp * pixmap->width;
 	uint32_t col_format = to_format(pixmap->format, col);
 
-	if(x < 0 || x >= pixmap->width) return;
+	if(x < 0 || x >= ( int32_t) pixmap->width) return;
 
 	if(y1 > y2) {
 		tmp = y1;
@@ -676,10 +676,10 @@ void blit_same_size(const gdx2d_pixmap* src_pixmap, const gdx2d_pixmap* dst_pixm
 	uint32_t spitch = sbpp * src_pixmap->width;
 	uint32_t dpitch = dbpp * dst_pixmap->width;
 
-	int sx = src_x;
-	int sy = src_y;
-	int dx = dst_x;
-	int dy = dst_y;
+	uint32_t sx = src_x;
+	uint32_t sy = src_y;
+	uint32_t dx = dst_x;
+	uint32_t dy = dst_y;
 
 	const void* src_ptr;
 	const void* dst_ptr;
@@ -725,12 +725,12 @@ void blit_bilinear(const gdx2d_pixmap* src_pixmap, const gdx2d_pixmap* dst_pixma
 	float x_diff = 0;
 	float y_diff = 0;
 
-	int dx = dst_x;
-	int dy = dst_y;
-	int sx = src_x;
-	int sy = src_y;
-	int i = 0;
-	int j = 0;
+	uint32_t dx = dst_x;
+	uint32_t dy = dst_y;
+	uint32_t sx = src_x;
+	uint32_t sy = src_y;
+	uint32_t i = 0;
+	uint32_t j = 0;
 
 	const unsigned char* dst_ptr;
 	const unsigned char* src_ptr;
@@ -814,12 +814,12 @@ void blit_linear(const gdx2d_pixmap* src_pixmap, const gdx2d_pixmap* dst_pixmap,
 	uint32_t x_ratio = (src_width << 16) / dst_width + 1;
 	uint32_t y_ratio = (src_height << 16) / dst_height + 1;
 
-	int dx = dst_x;
-	int dy = dst_y;
-	int sx = src_x;
-	int sy = src_y;
-	int i = 0;
-	int j = 0;
+	uint32_t dx = dst_x;
+	uint32_t dy = dst_y;
+	uint32_t sx = src_x;
+	uint32_t sy = src_y;
+	uint32_t i = 0;
+	uint32_t j = 0;
 
 	const void* src_ptr;
 	const void* dst_ptr;

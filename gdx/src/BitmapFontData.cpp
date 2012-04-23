@@ -51,7 +51,7 @@ BitmapFont::BitmapFontData::BitmapFontData(const FileHandle& fontFile, bool flip
 
 		if(!StringUtils::startsWith(common[1], "lineHeight="))
 			throw new GdxRuntimeException("Invalid font file: " + fontFile.getFullPathName());
-		m_lineHeight = atoi(common[1].substr(11).c_str());
+		m_lineHeight = ( float) atoi(common[1].substr(11).c_str());
 		
 		if(!StringUtils::startsWith(common[2], "base="))
 			throw new GdxRuntimeException("Invalid font file: " + fontFile.getFullPathName());
@@ -121,7 +121,7 @@ BitmapFont::BitmapFontData::BitmapFontData(const FileHandle& fontFile, bool flip
 			tokens.nextToken();
 			glyph->xadvance = atoi(tokens.nextToken().c_str());
 			if(glyph->width > 0 && glyph->height > 0) 
-				descent = min(baseLine + glyph->yoffset, descent);
+				descent = min( ( float) ( baseLine + glyph->yoffset), descent);
 		}
 
 		while(true)
@@ -156,7 +156,7 @@ BitmapFont::BitmapFontData::BitmapFontData(const FileHandle& fontFile, bool flip
 			spaceGlyph->xadvance = xadvanceGlyph->xadvance;
 			setGlyph(' ', spaceGlyph);
 		}
-		spaceWidth = spaceGlyph != NULL ? spaceGlyph->xadvance + spaceGlyph->width : 1;
+		spaceWidth = spaceGlyph != NULL ? ( float) ( spaceGlyph->xadvance + spaceGlyph->width) : 1;
 
 		Glyph* xGlyph = NULL;
 		for(int i = 0; i < 13; i++)
@@ -167,7 +167,7 @@ BitmapFont::BitmapFontData::BitmapFontData(const FileHandle& fontFile, bool flip
 		}
 		if(xGlyph == NULL) 
 			xGlyph = getFirstGlyph();
-		xHeight = xGlyph->height;
+		xHeight = ( float) xGlyph->height;
 
 		Glyph* capGlyph = NULL;
 		for(int i = 0; i < 26; i++)
@@ -189,12 +189,12 @@ BitmapFont::BitmapFontData::BitmapFontData(const FileHandle& fontFile, bool flip
 					Glyph* glyph = page[j];
 					if(glyph == NULL || glyph->height == 0 || glyph->width == 0)
 						continue;
-					capHeight = max(capHeight, glyph->height);
+					capHeight = max(capHeight, ( float) glyph->height);
 				}
 			}
 		}
 		else
-			capHeight = capGlyph->height;
+			capHeight = ( float) capGlyph->height;
 
 		ascent = baseLine - capHeight;
 		down = -m_lineHeight;
@@ -204,8 +204,9 @@ BitmapFont::BitmapFontData::BitmapFontData(const FileHandle& fontFile, bool flip
 			down = -down;
 		}
 	}
-	catch(GdxRuntimeException& ex)
+	catch(GdxRuntimeException&)
 	{
+
 		delete[] line;
 
 		throw new GdxRuntimeException("Error loading font file: " + fontFile.getFullPathName());

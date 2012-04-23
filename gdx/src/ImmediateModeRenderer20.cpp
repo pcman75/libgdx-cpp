@@ -116,7 +116,7 @@ void ImmediateModeRenderer20::init(int maxVertices, bool hasNormals, bool hasCol
 	std::vector<VertexAttribute> attribs;
 	buildVertexAttributes(hasNormals, hasColors, numTexCoords, attribs);
 	
-	m_mesh = new Mesh(false, attribs.data(), attribs.size());
+	m_mesh = new Mesh(false, &attribs[0], attribs.size());
 	std::string vertexShader;
 	createVertexShader(hasNormals, hasColors, numTexCoords, vertexShader);
 	std::string fragmentShader;

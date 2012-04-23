@@ -247,7 +247,7 @@ FileHandle FileHandle::parent() const
 /** @throw GdxRuntimeException if this file handle is a {@link FileType#Classpath} or {@link FileType#Internal} file. */
 void FileHandle::mkdirs() const
 {
-	char* path = strdup(m_strFullPath.c_str());
+	char* path = _strdup(m_strFullPath.c_str());
 	char *p; 
 	size_t len; 
 	len = strlen(path); 
@@ -275,7 +275,7 @@ void FileHandle::mkdirs() const
 * will always return false. */
 bool FileHandle::exists() const
 {
-	return access(m_strFullPath.c_str(), 0) == 0;
+	return _access(m_strFullPath.c_str(), 0) == 0;
 }
 
 //  /** Deletes this file or empty directory and returns success. Will not delete a directory that has children.
@@ -291,7 +291,7 @@ bool FileHandle::remove() const
 		//maybe it's a directory
 		if(isDirectory())
 		{
-			result = rmdir(m_strFullPath.c_str());
+			result = _rmdir(m_strFullPath.c_str());
 		}
 	}
 	return result == 0;

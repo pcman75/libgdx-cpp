@@ -108,6 +108,8 @@ bool InputMultiplexer::touchDragged(int x, int y, int pointer)
 	for(InputProcessorsListIterator it; it != m_processors.end(); it++)
 		if((*it)->touchDragged(x, y , pointer)) 
 			return true;
+
+  return false;
 }
 
 bool InputMultiplexer::touchMoved(int x, int y)
@@ -115,6 +117,8 @@ bool InputMultiplexer::touchMoved(int x, int y)
 	for(InputProcessorsListIterator it; it != m_processors.end(); it++)
 		if((*it)->touchMoved(x, y)) 
 			return true;
+
+  return false;
 }
 
 bool InputMultiplexer::scrolled(int amount)
@@ -122,4 +126,6 @@ bool InputMultiplexer::scrolled(int amount)
 	for(InputProcessorsListIterator it; it != m_processors.end(); it++)
 		if((*it)->scrolled(amount)) 
 			return true;
+
+  return false;
 }
