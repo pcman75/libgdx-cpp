@@ -363,7 +363,12 @@ void Texture::dispose()
 	if(m_glHandle == 0) 
 		return;
 	if(Gdx.isGLInitialised())
+	{
 		glDeleteTextures(1, &m_glHandle);
+		GLenum test = glGetError();
+		if(test != GL_NO_ERROR)
+			throw GdxRuntimeException("cannot delete texture");
+	}
 	if(m_data->isManaged())
 	{
 		TextureMapIterator it = m_managedTextures.find(Gdx.app);

@@ -43,7 +43,6 @@
 class GdxClass 
 {
 public:
-	//TODO: store pointer and make accesor returning reference 
 	Application* app;
 	Graphics* graphics;
 	Audio* audio;

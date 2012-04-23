@@ -62,6 +62,8 @@ public:
 
 	void dispose()
 	{
+		m_texture->dispose();
+		delete m_texture;
 		m_batch->dispose();
 		delete m_batch;
 	}
