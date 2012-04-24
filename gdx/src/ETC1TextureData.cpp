@@ -46,9 +46,9 @@ void ETC1TextureData::prepare()
 {
 	/*TODO:
 	if(m_isPrepared) 
-		throw new GdxRuntimeException("Already prepared");
+		throw GdxRuntimeException("Already prepared");
 	if(m_file == NULL && m_data == null) 
-		throw new GdxRuntimeException("Can only load once from ETC1Data");
+		throw GdxRuntimeException("Can only load once from ETC1Data");
 	if(m_file != null)
 	{
 		m_data = new ETC1Data(m_file);
@@ -63,7 +63,7 @@ void ETC1TextureData::prepare()
 void ETC1TextureData::consumeCompressedData()
 {
 	/*TODO:
-	if(!m_isPrepared) throw new GdxRuntimeException("Call prepare() before calling consumeCompressedData()");
+	if(!m_isPrepared) throw GdxRuntimeException("Call prepare() before calling consumeCompressedData()");
 
 	//TODO: review platforms condition. iPhone does not support ETC1. Windows or Mac does?
 	if(Gdx.app->getType() == Application::Windows || Gdx.app->getType() == Application::Mac || Gdx.graphics->isGL20Available() == false)
@@ -93,13 +93,13 @@ void ETC1TextureData::consumeCompressedData()
 
 Pixmap* ETC1TextureData::consumePixmap()
 {
-	throw new GdxRuntimeException("This TextureData implementation does not return a Pixmap");
+	throw GdxRuntimeException("This TextureData implementation does not return a Pixmap");
 }
 
 
 bool ETC1TextureData::disposePixmap()
 {
-	throw new GdxRuntimeException("This TextureData implementation does not return a Pixmap");
+	throw GdxRuntimeException("This TextureData implementation does not return a Pixmap");
 }
 
 

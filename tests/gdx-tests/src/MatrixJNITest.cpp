@@ -54,7 +54,7 @@ void MatrixJNITest::create()
 	check(vec, fvecs, 3, 5);
 
 	if (mat1.det() != Matrix4::det(mat1.val)) 
-		throw new GdxRuntimeException("det doesn't work");
+		throw GdxRuntimeException("det doesn't work");
 
 	mat2.set(mat1);
 	mat1.inv();
@@ -128,7 +128,7 @@ void MatrixJNITest::bench()
 void MatrixJNITest::check(const Vector3& vec, const float* fvec) 
 {
 	if (vec.x != fvec[0] || vec.y != fvec[1] || vec.z != fvec[2]) 
-		throw new GdxRuntimeException("vectors are not equal");
+		throw GdxRuntimeException("vectors are not equal");
 }
 
 void MatrixJNITest::check(const Vector3& vec, const float* fvec, int numVecs, int stride) 
@@ -136,7 +136,7 @@ void MatrixJNITest::check(const Vector3& vec, const float* fvec, int numVecs, in
 	for (int i = 0; i < numVecs; i++) 
 	{
 		if (vec.x != fvec[0] || vec.y != fvec[1] || vec.z != fvec[2]) 
-			throw new GdxRuntimeException("vectors are not equal");
+			throw GdxRuntimeException("vectors are not equal");
 	}
 }
 
@@ -145,6 +145,6 @@ void MatrixJNITest::check(const Matrix4& mat1, const Matrix4& mat2)
 	for (int i = 0; i < 16; i++) 
 	{
 		if (mat1.val[i] != mat2.val[i])
-			throw new GdxRuntimeException("matrices not equal");
+			throw GdxRuntimeException("matrices not equal");
 	}
 }

@@ -22,7 +22,7 @@ int Pixmap::Format::toGdx2DPixmapFormat(Format format)
 	if (format == RGBA4444) return Gdx2DPixmap::GDX2D_FORMAT_RGBA4444;
 	if (format == RGB888) return Gdx2DPixmap::GDX2D_FORMAT_RGB888;
 	if (format == RGBA8888) return Gdx2DPixmap::GDX2D_FORMAT_RGBA8888;
-	throw new GdxRuntimeException(std::string("Unknown Format"));
+	throw GdxRuntimeException(std::string("Unknown Format"));
 }
 
 Pixmap::Format Pixmap::Format::fromGdx2DPixmapFormat (int format)
@@ -34,7 +34,7 @@ Pixmap::Format Pixmap::Format::fromGdx2DPixmapFormat (int format)
 	if (format == Gdx2DPixmap::GDX2D_FORMAT_RGBA4444) return RGBA4444;
 	if (format == Gdx2DPixmap::GDX2D_FORMAT_RGB888) return RGB888;
 	if (format == Gdx2DPixmap::GDX2D_FORMAT_RGBA8888) return RGBA8888;
-	throw new GdxRuntimeException(std::string("Unknown Gdx2DPixmap Format"));
+	throw GdxRuntimeException(std::string("Unknown Gdx2DPixmap Format"));
 }
 bool Pixmap::Format::operator==(const Format& other)
 {
@@ -100,7 +100,7 @@ Pixmap::Pixmap (const FileHandle& file)
   unsigned char* pBuff = new unsigned char [nSize];
     file.readBytes(pBuff, nSize);
 
-	m_pixmap.createFrom( pBuff, nSize, 0);
+	m_pixmap.createFrom( pBuff, (int)nSize, 0);
   delete [] pBuff;
 }
 

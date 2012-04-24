@@ -42,7 +42,7 @@ ETC1Data::ETC1Data(const FileHandle& pkmFile)
 	}
 	catch(Exception e)
 	{
-	throw new GdxRuntimeException("Couldn't load pkm file '" + pkmFile + "'", e);
+	throw GdxRuntimeException("Couldn't load pkm file '" + pkmFile + "'", e);
 	}
 	finally
 	{
@@ -91,7 +91,7 @@ void ETC1Data::write(const FileHandle& file)
 	}
 	catch(Exception e)
 	{
-	throw new GdxRuntimeException("Couldn't write PKM file to '" + file + "'", e);
+	throw GdxRuntimeException("Couldn't write PKM file to '" + file + "'", e);
 	}
 	finally
 	{

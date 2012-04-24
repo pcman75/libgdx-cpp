@@ -10,7 +10,7 @@ TextureRegion::TextureRegion()
 TextureRegion::TextureRegion(Texture* texture)
 {
 	if(texture == NULL) 
-		throw new GdxRuntimeException("texture cannot be null.");
+		throw GdxRuntimeException("texture cannot be null.");
 	m_texture = texture;
 	setRegion(0, 0, texture->getWidth(), texture->getHeight());
 }

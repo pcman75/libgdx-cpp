@@ -116,7 +116,7 @@ void ImmediateModeRenderer20::init(int maxVertices, bool hasNormals, bool hasCol
 	std::vector<VertexAttribute> attribs;
 	buildVertexAttributes(hasNormals, hasColors, numTexCoords, attribs);
 	
-	m_mesh = new Mesh(false, &attribs[0], attribs.size());
+	m_mesh = new Mesh(false, &attribs[0], (int)attribs.size());
 	std::string vertexShader;
 	createVertexShader(hasNormals, hasColors, numTexCoords, vertexShader);
 	std::string fragmentShader;
@@ -124,7 +124,7 @@ void ImmediateModeRenderer20::init(int maxVertices, bool hasNormals, bool hasCol
 
 	m_defaultShader = new ShaderProgram(vertexShader, fragmentShader);
 	if(!m_defaultShader->isCompiled())
-		throw new GdxRuntimeException("Couldn't compile immediate mode default shader!\n" + m_defaultShader->getLog());
+		throw GdxRuntimeException("Couldn't compile immediate mode default shader!\n" + m_defaultShader->getLog());
 
 	m_numTexCoords = numTexCoords;
 	m_vertices = new float[maxVertices * (m_mesh->getVertexAttributes().vertexSize() / 4)];

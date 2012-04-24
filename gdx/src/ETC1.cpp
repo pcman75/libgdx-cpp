@@ -15,7 +15,7 @@ int ETC1::getPixelSize(Pixmap::Format format)
 		return 2;
 	if(format == Pixmap::Format::RGB888) 
 		return 3;
-	throw new GdxRuntimeException("Can only handle RGB565 or RGB888 images");
+	throw GdxRuntimeException("Can only handle RGB565 or RGB888 images");
 }
 
 /** Encodes the image via the ETC1 compression scheme. Only {@link Format#RGB565} and {@link Format#RGB888} are supported.

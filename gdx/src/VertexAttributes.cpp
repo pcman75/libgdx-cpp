@@ -6,7 +6,7 @@
 VertexAttributes::VertexAttributes(const VertexAttribute* attributes, int attributesLength) 
 {
 	if (attributesLength < 1) 
-		throw new GdxRuntimeException("attributes must be >= 1");
+		throw GdxRuntimeException("attributes must be >= 1");
 	m_attributesLength = attributesLength;
 	m_attributes = new VertexAttribute[attributesLength];
 
@@ -29,29 +29,29 @@ void VertexAttributes::checkValidity ()
 		if (attribute.usage == Position) 
 		{
 			if (pos) 
-				throw new GdxRuntimeException("two position attributes were specified");
+				throw GdxRuntimeException("two position attributes were specified");
 			pos = true;
 		}
 
 		if (attribute.usage == Normal) 
 		{
 			if (nors) 
-				throw new GdxRuntimeException("two normal attributes were specified");
+				throw GdxRuntimeException("two normal attributes were specified");
 		}
 
 		if (attribute.usage == Color || attribute.usage == ColorPacked) 
 		{
 			if (attribute.numComponents != 4) 
-				throw new GdxRuntimeException("color attribute must have 4 components");
+				throw GdxRuntimeException("color attribute must have 4 components");
 
 			if (cols) 
-				throw new GdxRuntimeException("two color attributes were specified");
+				throw GdxRuntimeException("two color attributes were specified");
 			cols = true;
 		}
 	}
 
 	if (pos == false) 
-		throw new GdxRuntimeException("no position attribute was specified");
+		throw GdxRuntimeException("no position attribute was specified");
 }
 
 int VertexAttributes::calculateOffsets ()

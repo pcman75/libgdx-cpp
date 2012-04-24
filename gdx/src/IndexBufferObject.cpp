@@ -62,7 +62,7 @@ short* IndexBufferObject::getBuffer () {
 
 void IndexBufferObject::bind () 
 {
-	if (m_bufferHandle == 0) throw new GdxRuntimeException("buuh");
+	if (m_bufferHandle == 0) throw GdxRuntimeException("buuh");
 
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_bufferHandle);
     if (m_isDirty) 

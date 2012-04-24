@@ -45,7 +45,7 @@ void InputMultiplexer::removeProcessor(InputProcessor* processor)
 */
 int InputMultiplexer::size()
 {
-	return m_processors.size();
+	return (int)m_processors.size();
 }
 
 void InputMultiplexer::clear()

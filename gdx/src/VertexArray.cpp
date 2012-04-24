@@ -101,7 +101,7 @@ void VertexArray::bind ()
 			break;
 
 		default:
-			throw new GdxRuntimeException("unkown vertex attribute type");
+			throw GdxRuntimeException("unkown vertex attribute type");
 		}
 	}
 
@@ -133,7 +133,7 @@ void VertexArray::unbind ()
 			textureUnit++;
 			break;
 		default:
-			throw new GdxRuntimeException("unkown vertex attribute type");
+			throw GdxRuntimeException("unkown vertex attribute type");
 		}
 	}
 	m_isBound = false;

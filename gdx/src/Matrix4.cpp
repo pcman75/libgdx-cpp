@@ -231,7 +231,7 @@ Matrix4& Matrix4::idt()
 Matrix4& Matrix4::inv()
 {
 	if(!inv(val))
-		throw new GdxRuntimeException("non-invertible matrix");
+		throw GdxRuntimeException("non-invertible matrix");
 	return *this;
 }
 

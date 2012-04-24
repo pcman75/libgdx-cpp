@@ -38,7 +38,7 @@ void FileTextureData::prepare()
 	//and delete it????
 
 	if(m_isPrepared) 
-		throw new GdxRuntimeException("Already prepared");
+		throw GdxRuntimeException("Already prepared");
 	if(m_pixmap == NULL)
 	{
 		//TODO: implement cim files
@@ -79,7 +79,7 @@ Pixmap* FileTextureData::ensurePot(Pixmap* pixmap)
 Pixmap* FileTextureData::consumePixmap()
 {
 	if(!m_isPrepared) 
-		throw new GdxRuntimeException("Call prepare() before calling getPixmap()");
+		throw GdxRuntimeException("Call prepare() before calling getPixmap()");
 	m_isPrepared = false;
 	Pixmap* pixmap = m_pixmap;
 	m_pixmap = NULL;
@@ -136,6 +136,6 @@ TextureData::TextureDataType FileTextureData::getType()
 
 void FileTextureData::consumeCompressedData()
 {
-	throw new GdxRuntimeException("This TextureData implementation does not upload data itself");
+	throw GdxRuntimeException("This TextureData implementation does not upload data itself");
 }
 

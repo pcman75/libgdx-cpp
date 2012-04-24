@@ -72,7 +72,7 @@ void VertexBufferObject::setVertices(const float* vertices, int count)
 void VertexBufferObject::bind()
 {
     if(Gdx.getGlVersion() == GL_VERSION_20)
-        throw new GdxRuntimeException("Only OpenGL version 1.x is supported for VertexBufferObject.bind()");
+        throw GdxRuntimeException("Only OpenGL version 1.x is supported for VertexBufferObject.bind()");
 
 	int bufferSizeInBytes = m_attributes.vertexSize() * m_numVertices;
 
@@ -119,7 +119,7 @@ void VertexBufferObject::bind()
 			break;
 
 		default:
-			throw new GdxRuntimeException("unkown vertex attribute type");
+			throw GdxRuntimeException("unkown vertex attribute type");
 		}
 	}
 
@@ -184,7 +184,7 @@ void VertexBufferObject::unbind()
 			textureUnit++;
 			break;
 		default:
-			throw new GdxRuntimeException("unkown vertex attribute type");
+			throw GdxRuntimeException("unkown vertex attribute type");
 		}
 	}
 	glBindBuffer(GL_ARRAY_BUFFER, 0);

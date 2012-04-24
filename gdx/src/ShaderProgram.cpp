@@ -69,7 +69,7 @@ int ShaderProgram::loadShader (int type, const std::string& source)
 		return -1;
 
     const char *src = source.c_str();
-	GLint length =  source.length();
+	GLint length =  (GLint)source.length();
     glShaderSource(shader, 1, &src, &length);
 	glCompileShader(shader);
 	glGetShaderiv(shader, GL_COMPILE_STATUS, &params);
@@ -165,7 +165,7 @@ int ShaderProgram::fetchUniformLocation (const std::string& name)
 	{
 		location = glGetUniformLocation(m_program, name.c_str());
 		if (location == -1 && pedantic) 
-			throw new GdxRuntimeException(std::string( "no uniform with name '") + name + "' in shader");
+			throw GdxRuntimeException(std::string( "no uniform with name '") + name + "' in shader");
 		m_attributes[name] = location;
 	}
 	else

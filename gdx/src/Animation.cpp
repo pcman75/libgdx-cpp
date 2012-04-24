@@ -3,7 +3,7 @@
 
 Animation::Animation(float frameDuration,const std::list<TextureRegion*>& keyFrames)
 {
-	m_keyFramesNum = keyFrames.size();
+	m_keyFramesNum = (int)keyFrames.size();
 	this->frameDuration = frameDuration;
 	m_keyFrames = new TextureRegion*[keyFrames.size()];
 

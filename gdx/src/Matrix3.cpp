@@ -146,7 +146,7 @@ Matrix3& Matrix3::inv()
 {
 	float determinant = det();
 	if(determinant == 0) 
-		throw new GdxRuntimeException("Can't invert a singular matrix");
+		throw GdxRuntimeException("Can't invert a singular matrix");
 
 	float inv_det = 1.0f / determinant;
 	float m_tmp[] = {0, 0, 0, 0, 0, 0, 0, 0, 0};

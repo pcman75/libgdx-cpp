@@ -22,7 +22,8 @@
 #include "IndexData.h"
 #include "ShaderProgram.h"
 #include "Gdx.h"
-
+#include "BoundingBox.h"
+		
 /** <p>
  * A Mesh holds vertices composed of attributes specified by a {@link VertexAttributes} instance. The vertices are held either in
  * VRAM in form of vertex buffer objects or in RAM in form of vertex arrays. The former variant is more performant and is prefered
@@ -254,19 +255,11 @@ public:
 	float* getVerticesBuffer ();
 
 	/** Calculates the {@link BoundingBox} of the vertices contained in this mesh. In case no vertices are defined yet a
-	 * {@link GdxRuntimeException} is thrown. This method creates a new BoundingBox instance.
-	 * 
-	 * @return the bounding box. */
-	/*
-	BoundingBox calculateBoundingBox ();
-
-	/** Calculates the {@link BoundingBox} of the vertices contained in this mesh. In case no vertices are defined yet a
 	 * {@link GdxRuntimeException} is thrown.
 	 * 
-	 * @param bbox the bounding box to store the result in. */
-	/*
-	void calculateBoundingBox (BoundingBox bbox);
-	*/
+	 * @param bbox the bounding box to store the result in. */	
+	void calculateBoundingBox(BoundingBox& bbox);
+	
 	/** @return the backing shortbuffer holding the indices. Does not have to be a direct buffer on Android! */
 	short* getIndicesBuffer ();
 

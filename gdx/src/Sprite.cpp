@@ -36,7 +36,7 @@ void Sprite::init()
 void Sprite::init(Texture* texture, int srcX, int srcY, int srcWidth, int srcHeight)
 {
 	if(texture == NULL) 
-		throw new GdxRuntimeException("texture cannot be null.");
+		throw GdxRuntimeException("texture cannot be null.");
 	m_texture = texture;
 	TextureRegion::setRegion(srcX, srcY, srcWidth, srcHeight);
 	setColor(1, 1, 1, 1);

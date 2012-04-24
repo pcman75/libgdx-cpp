@@ -5,7 +5,7 @@ Sequence::Sequence( std::vector<Action*> actions)
 {
   currAction = 0;
 	this->actions.clear();
-	int len = actions.size();
+	int len = (int)actions.size();
 	for (int i = 0; i < len; i++)
 		this->actions.push_back( actions[i]);
 }
@@ -57,7 +57,7 @@ void Sequence::finish ()
 Action* Sequence::copy () 
 {
 	Sequence* retAction = new Sequence( std::vector<Action*>());
-	int len = actions.size();
+	int len = (int)actions.size();
 	for (int i = 0; i < len; i++) 
   {
     retAction->actions.push_back( actions[i]->copy());

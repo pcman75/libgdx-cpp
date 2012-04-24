@@ -26,7 +26,7 @@ void Gdx2DPixmap::createFrom(const unsigned char* encodedData, int len, int requ
 	init();
 	m_pixmap = gdx2d_load(encodedData, len, requestedFormat); 
 	if (!m_pixmap) 
-		throw new GdxRuntimeException("couldn't load pixmap");
+		throw GdxRuntimeException("couldn't load pixmap");
 }
 /*
 Gdx2DPixmap (InputStream in, int requestedFormat)
@@ -55,7 +55,7 @@ Gdx2DPixmap::Gdx2DPixmap(int width, int height, int format)
 	init();
 	m_pixmap = gdx2d_new(width, height, format);
 	if (!m_pixmap) 
-		throw new GdxRuntimeException("couldn't load pixmap");
+		throw GdxRuntimeException("couldn't load pixmap");
 }
 
 void Gdx2DPixmap::dispose()
@@ -168,7 +168,7 @@ int Gdx2DPixmap::getGLInternalFormat ()
 	case GDX2D_FORMAT_RGBA4444:
 		return GL_RGBA;
 	default:
-		throw new GdxRuntimeException("unknown format: " + m_pixmap->format);
+		throw GdxRuntimeException("unknown format: " + m_pixmap->format);
 	}
 }
 
@@ -191,7 +191,7 @@ int Gdx2DPixmap::getGLType ()
 	case GDX2D_FORMAT_RGBA4444:
 		return GL_UNSIGNED_SHORT_4_4_4_4;
 	default:
-		throw new GdxRuntimeException("unknown format: " + m_pixmap->format);
+		throw GdxRuntimeException("unknown format: " + m_pixmap->format);
 	}
 }
 

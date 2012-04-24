@@ -52,7 +52,7 @@ public:
 
 		shader = new ShaderProgram(Gdx.files.internal("data/shaders/flattex-vert.glsl").readString(), Gdx.files.internal(
 		                               "data/shaders/flattex-frag.glsl").readString());
-		if(!shader.isCompiled()) throw new GdxRuntimeException("shader error: " + shader.getLog());
+		if(!shader.isCompiled()) throw GdxRuntimeException("shader error: " + shader.getLog());
 
 		textureHW = new Texture(Gdx.files.internal("data/badlogic.jpg"), Format.RGB565, true);
 		MipMapGenerator.setUseHardwareMipMap(false);

@@ -75,7 +75,7 @@ public:
 			}
 			catch(Exception e)
 			{
-				throw new GdxRuntimeException("Couldn't write Pixmap to file '" + file + "'", e);
+				throw GdxRuntimeException("Couldn't write Pixmap to file '" + file + "'", e);
 			}
 			finally
 			{
@@ -122,7 +122,7 @@ public:
 			}
 			catch(Exception e)
 			{
-				throw new GdxRuntimeException("Couldn't read Pixmap from file '" + file + "'", e);
+				throw GdxRuntimeException("Couldn't read Pixmap from file '" + file + "'", e);
 			}
 			finally
 			{
@@ -257,7 +257,7 @@ public:
 				crc = crcTable[(crc ^ element) & 0xFF] ^ crc >>> 8;
 			return crc;
 		}
-
+        */
 		/*
 		 * This method is called to encode the image data as a zlib block as required by the PNG specification. This file comes with
 		 * a minimal ZLIB encoder which uses uncompressed deflate blocks (fast, short, easy, but no compression). If you want

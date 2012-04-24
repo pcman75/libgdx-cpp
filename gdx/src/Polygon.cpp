@@ -12,7 +12,7 @@ Polygon::Polygon( const std::vector<float>& vertices)
 {
   m_scaleX = m_scaleY = 1;
 
-  if( vertices.size() < 6) throw new GdxRuntimeException("polygons must contain at least 3 points.");
+  if( vertices.size() < 6) throw GdxRuntimeException("polygons must contain at least 3 points.");
 	m_vertices = vertices;
 }
 
@@ -21,7 +21,7 @@ std::vector<float> Polygon::getVertices()
 	if( !m_dirty) return m_vertices;
 
 	std::vector<float> retVertices = m_vertices;
-	int numFloats = retVertices.size();
+	int numFloats = (int)retVertices.size();
 
 	float translateX = m_x + m_originX;
 	float translateY = m_y + m_originY;
@@ -118,7 +118,7 @@ float Polygon::area ()
 	float area = 0;
 
 	std::vector<float> vertices = getVertices();
-	int numFloats = vertices.size();
+	int numFloats = (int)vertices.size();
 
 	int x1, y1, x2, y2;
 	for (int i = 0; i < numFloats; i += 2) 
@@ -144,7 +144,7 @@ Rectang Polygon::getBoundingRectangle()
 	float maxX = vertices[0];
 	float maxY = vertices[1];
 
-	int numFloats = vertices.size();
+	int numFloats = (int)vertices.size();
 	for (int i = 2; i < numFloats; i += 2) 
   {
 		minX = minX > vertices[i] ? vertices[i] : minX;
@@ -164,7 +164,7 @@ Rectang Polygon::getBoundingRectangle()
 bool Polygon::contains( float x, float y) 
 {
 	std::vector<float> vertices = getVertices();
-	int numFloats = vertices.size();
+	int numFloats = (int)vertices.size();
 	int intersects = 0;
 
 	for (int i = 0; i < numFloats; i += 2) 

@@ -172,7 +172,7 @@ int Texture::createGLHandle()
 void Texture::load(TextureData* data)
 {
 	if( m_data != NULL && data->isManaged() != m_data->isManaged())
-		throw new GdxRuntimeException("New data must have the same managed status as the old data");
+		throw GdxRuntimeException("New data must have the same managed status as the old data");
 
 	m_data = data;
 
@@ -211,7 +211,7 @@ void Texture::uploadImageData(Pixmap* pixmap)
 	if(m_enforcePotImages && Gdx.getGlVersion() != GL_VERSION_20
 		&& (!MathUtils::isPowerOfTwo(m_data->getWidth()) || !MathUtils::isPowerOfTwo(m_data->getHeight())))
 	{
-		throw new GdxRuntimeException("Texture width and height must be powers of two");
+		throw GdxRuntimeException("Texture width and height must be powers of two");
 	}
 
 	bool disposePixmap = false;
@@ -246,7 +246,7 @@ void Texture::uploadImageData(Pixmap* pixmap)
 /** Used internally to reload after context loss. Creates a new GL handle then calls {@link #load(TextureData)}. */
 void Texture::reload()
 {
-	if(!m_data->isManaged()) throw new GdxRuntimeException("Tried to reload unmanaged Texture");
+	if(!m_data->isManaged()) throw GdxRuntimeException("Tried to reload unmanaged Texture");
 	m_glHandle = createGLHandle();
 	load(m_data);
 }
@@ -276,7 +276,7 @@ void Texture::bind(int unit)
 void Texture::draw(Pixmap* pixmap, int x, int y)
 {
 	if(m_data->isManaged()) 
-		throw new GdxRuntimeException("can't draw to a managed texture");
+		throw GdxRuntimeException("can't draw to a managed texture");
 
 	glBindTexture(GL_TEXTURE_2D, m_glHandle);
 	glTexSubImage2D(GL_TEXTURE_2D, 0, x, y, pixmap->getWidth(), pixmap->getHeight(), pixmap->getGLFormat(),

@@ -230,7 +230,7 @@ ShaderProgram* SpriteBatch::createDefaultShader()
 
 	ShaderProgram* shader = new ShaderProgram(vertexShader, fragmentShader);
 	if(!shader->isCompiled())
-		throw new GdxRuntimeException(std::string("couldn't compile shader: ") + shader->getLog());
+		throw GdxRuntimeException(std::string("couldn't compile shader: ") + shader->getLog());
 	return shader;
 }
 
@@ -241,7 +241,7 @@ ShaderProgram* SpriteBatch::createDefaultShader()
 void SpriteBatch::begin()
 {
 	if(m_drawing) 
-		throw new GdxRuntimeException("you have to call SpriteBatch.end() first");
+		throw GdxRuntimeException("you have to call SpriteBatch.end() first");
 	renderCalls = 0;
 
 	glDepthMask(false);
@@ -268,7 +268,7 @@ void SpriteBatch::begin()
 void SpriteBatch::end()
 {
 	if(!m_drawing) 
-		throw new GdxRuntimeException("SpriteBatch.begin must be called before end.");
+		throw GdxRuntimeException("SpriteBatch.begin must be called before end.");
 	if(m_idx > 0) 
 		renderMesh();
 	m_lastTexture = NULL;
@@ -348,7 +348,7 @@ void SpriteBatch::draw(Texture* texture, float x, float y, float originX, float 
 	float scaleY, float rotation, int srcX, int srcY, int srcWidth, int srcHeight, bool flipX, bool flipY)
 {
 	if(!m_drawing) 
-		throw new GdxRuntimeException("SpriteBatch.begin must be called before draw.");
+		throw GdxRuntimeException("SpriteBatch.begin must be called before draw.");
 
 	//TODO: compare pointers??? It's OK?
 	if(texture != m_lastTexture)
@@ -503,7 +503,7 @@ void SpriteBatch::draw(Texture* texture, float x, float y, float width, float he
 	int srcHeight, bool flipX, bool flipY)
 {
 	if(!m_drawing) 
-		throw new GdxRuntimeException("SpriteBatch.begin must be called before draw.");
+		throw GdxRuntimeException("SpriteBatch.begin must be called before draw.");
 
 	if(texture != m_lastTexture)
 	{
@@ -574,7 +574,7 @@ void SpriteBatch::draw(Texture* texture, float x, float y, float width, float he
 void SpriteBatch::draw(Texture* texture, float x, float y, int srcX, int srcY, int srcWidth, int srcHeight)
 {
 	if(!m_drawing) 
-		throw new GdxRuntimeException("SpriteBatch.begin must be called before draw.");
+		throw GdxRuntimeException("SpriteBatch.begin must be called before draw.");
 
 	if(texture != m_lastTexture)
 	{
@@ -629,7 +629,7 @@ void SpriteBatch::draw(Texture* texture, float x, float y, int srcX, int srcY, i
 void SpriteBatch::draw(Texture* texture, float x, float y, float width, float height, float u, float v, float u2, float v2)
 {
 	if(!m_drawing)
-		throw new GdxRuntimeException("SpriteBatch.begin must be called before draw.");
+		throw GdxRuntimeException("SpriteBatch.begin must be called before draw.");
 
 	if(texture != m_lastTexture)
 	{
@@ -675,7 +675,7 @@ void SpriteBatch::draw(Texture* texture, float x, float y, float width, float he
 * @param y the y-coordinate in screen space */
 void SpriteBatch::draw(Texture* texture, float x, float y)
 {
-	if(!m_drawing) throw new GdxRuntimeException("SpriteBatch.begin must be called before draw.");
+	if(!m_drawing) throw GdxRuntimeException("SpriteBatch.begin must be called before draw.");
 
 	if(texture != m_lastTexture)
 	{
@@ -718,7 +718,7 @@ void SpriteBatch::draw(Texture* texture, float x, float y)
 /** Draws a rectangle with the bottom left corner at x,y and stretching the region to cover the given width and height. */
 void SpriteBatch::draw(Texture* texture, float x, float y, float width, float height)
 {
-	if(!m_drawing) throw new GdxRuntimeException("SpriteBatch.begin must be called before draw.");
+	if(!m_drawing) throw GdxRuntimeException("SpriteBatch.begin must be called before draw.");
 
 	if(texture != m_lastTexture)
 	{
@@ -767,7 +767,7 @@ void SpriteBatch::draw(Texture* texture, float x, float y, float width, float he
 void SpriteBatch::draw(Texture* texture, float* spriteVertices, int offset, int length)
 {
 	if(!m_drawing) 
-		throw new GdxRuntimeException("SpriteBatch.begin must be called before draw.");
+		throw GdxRuntimeException("SpriteBatch.begin must be called before draw.");
 
 	if(texture != m_lastTexture)
 	{
@@ -811,7 +811,7 @@ void SpriteBatch::draw(TextureRegion* region, float x, float y)
 void SpriteBatch::draw(TextureRegion* region, float x, float y, float width, float height)
 {
 	if(!m_drawing) 
-		throw new GdxRuntimeException("SpriteBatch.begin must be called before draw.");
+		throw GdxRuntimeException("SpriteBatch.begin must be called before draw.");
 
 	Texture* texture = region->getTexture();
 	if(texture != m_lastTexture)
@@ -864,7 +864,7 @@ void SpriteBatch::draw(TextureRegion* region, float x, float y, float originX, f
 	float scaleX, float scaleY, float rotation)
 {
 	if(!m_drawing) 
-		throw new GdxRuntimeException("SpriteBatch.begin must be called before draw.");
+		throw GdxRuntimeException("SpriteBatch.begin must be called before draw.");
 
 	Texture* texture = region->getTexture();
 	if(texture != m_lastTexture)
@@ -993,7 +993,7 @@ void SpriteBatch::draw(TextureRegion* region, float x, float y, float originX, f
 	float scaleX, float scaleY, float rotation, bool clockwise)
 {
 	if(!m_drawing) 
-		throw new GdxRuntimeException("SpriteBatch.begin must be called before draw.");
+		throw GdxRuntimeException("SpriteBatch.begin must be called before draw.");
 
 	Texture* texture = region->getTexture();
 	if(texture != m_lastTexture)

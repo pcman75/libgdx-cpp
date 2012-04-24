@@ -398,7 +398,7 @@ void Group::sortChildren( greater<Actor*> comparator)
 void Group::toLocalCoordinates( Actor* descendant, Vector2& point) 
 {
 	if( descendant->parent == NULL) 
-    throw new GdxRuntimeException("Child was not a descendant.");
+    throw GdxRuntimeException("Child was not a descendant.");
 
 	// First convert to the actor's parent coordinates.
 	if( descendant->parent != this) 

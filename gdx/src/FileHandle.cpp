@@ -329,10 +329,10 @@ void FileHandle::copyTo(const FileHandle& destination) const
 	return;
 	}
 	if (dest.exists()) {
-	if (!dest.isDirectory()) throw new GdxRuntimeException("Destination exists but is not a directory: " + dest);
+	if (!dest.isDirectory()) throw GdxRuntimeException("Destination exists but is not a directory: " + dest);
 	} else {
 	dest.mkdirs();
-	if (!dest.isDirectory()) throw new GdxRuntimeException("Destination directory cannot be created: " + dest);
+	if (!dest.isDirectory()) throw GdxRuntimeException("Destination directory cannot be created: " + dest);
 	}
 	if (!sourceDir) dest = dest.child(name());
 	copyDirectory(this, dest);
@@ -352,13 +352,13 @@ void FileHandle::copyTo(const FileHandle& destination) const
 	if (dest.exists()) 
 	{
 		if (!dest.isDirectory()) 
-			throw new GdxRuntimeException("Destination exists but is not a directory: " + dest.toString());
+			throw GdxRuntimeException("Destination exists but is not a directory: " + dest.toString());
 	} 
 	else 
 	{
 		dest.mkdirs();
 		if (!dest.isDirectory()) 
-			throw new GdxRuntimeException("Destination directory cannot be created: " + dest.toString());
+			throw GdxRuntimeException("Destination directory cannot be created: " + dest.toString());
 	}
 
 	if (!sourceIsDir)

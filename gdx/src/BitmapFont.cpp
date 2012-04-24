@@ -572,7 +572,7 @@ void BitmapFont::computeGlyphAdvancesAndPositions(const std::string& str, std::v
 	glyphAdvances.clear();
 	glyphPositions.clear();
 	int index = 0;
-	int end = str.length();
+	int end = (int)str.length();
 	int width = 0;
 	Glyph* lastGlyph = NULL;
 	if(m_data->scaleX == 1)
@@ -781,13 +781,13 @@ void BitmapFont::dispose()
 void BitmapFont::setFixedWidthGlyphs(const std::string& glyphs)
 {
 	int maxAdvance = 0;
-	for(int index = 0, end = glyphs.length(); index < end; index++)
+	for(int index = 0, end = (int)glyphs.length(); index < end; index++)
 	{
 		Glyph* g = m_data->getGlyph(glyphs.at(index));
 		if(g != NULL && g->xadvance > maxAdvance) 
 			maxAdvance = g->xadvance;
 	}
-	for(int index = 0, end = glyphs.length(); index < end; index++)
+	for(int index = 0, end = (int)glyphs.length(); index < end; index++)
 	{
 		Glyph* g = m_data->getGlyph(glyphs.at(index));
 		if(g == NULL) 
@@ -825,7 +825,7 @@ BitmapFont::BitmapFontData* BitmapFont::getData()
 
 int BitmapFont::indexOf(const std::string& text, char ch, int start)
 {
-	const int n = text.length();
+	const int n = (int)text.length();
 	for(; start < n; start++)
 		if(text.at(start) == ch) return start;
 	return n;

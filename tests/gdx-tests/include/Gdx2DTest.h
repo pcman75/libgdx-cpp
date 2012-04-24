@@ -69,9 +69,9 @@ class Gdx2DTest :
 
 		}
 		if(pixmap->getPixel(15, 16) != clearColor) 
-			throw new GdxRuntimeException(std::string("error clear: ") + pixmap->getFormatString());
+			throw GdxRuntimeException(std::string("error clear: ") + pixmap->getFormatString());
 		if(pixmap->getPixel(16, 16) != pixelColor) 
-			throw new GdxRuntimeException(std::string("error pixel: ") + pixmap->getFormatString());
+			throw GdxRuntimeException(std::string("error pixel: ") + pixmap->getFormatString());
 		pixmap->drawLine(0, 0, 31, 31, Color::rgba8888(1, 1, 1, 1));
 		pixmap->drawRect(10, 10, 5, 7, Color::rgba8888(1, 1, 0, 0.5f));
 		pixmap->fillRect(20, 10, 5, 7, Color::rgba8888(0, 1, 1, 0.5f));

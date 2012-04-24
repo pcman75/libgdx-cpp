@@ -61,7 +61,7 @@ TextureData::TextureDataType PixmapTextureData::getType()
 
 void PixmapTextureData::consumeCompressedData()
 {
-	throw new GdxRuntimeException("This TextureData implementation does not upload data itself");
+	throw GdxRuntimeException("This TextureData implementation does not upload data itself");
 }
 
 
@@ -73,6 +73,6 @@ bool PixmapTextureData::isPrepared()
 
 void PixmapTextureData::prepare()
 {
-	throw new GdxRuntimeException("prepare() must not be called on a PixmapTextureData instance as it is already prepared.");
+	throw GdxRuntimeException("prepare() must not be called on a PixmapTextureData instance as it is already prepared.");
 }
 
