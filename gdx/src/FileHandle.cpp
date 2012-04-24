@@ -34,7 +34,7 @@ string FileHandle::getFullPathName() const
 
 string FileHandle::path() const
 {
-	int nIndex = m_strFullPath.rfind('/');
+	int nIndex = (int)m_strFullPath.rfind('/');
 	if( string::npos == nIndex) 
 		return "";
 
@@ -43,7 +43,7 @@ string FileHandle::path() const
 
 string FileHandle::name()  const
 {
-	int nIndex = m_strFullPath.rfind( '/');
+	int nIndex = (int)m_strFullPath.rfind( '/');
 	if( string::npos == nIndex) 
 		return "";
 
@@ -52,7 +52,7 @@ string FileHandle::name()  const
 
 string FileHandle::extension() const
 {
-	int dotIndex = m_strFullPath.rfind( '.');
+	int dotIndex = (int)m_strFullPath.rfind( '.');
 	if( string::npos == dotIndex) return "";
 
 	return m_strFullPath.substr( dotIndex + 1);
@@ -61,7 +61,7 @@ string FileHandle::extension() const
 string FileHandle::nameWithoutExtension()  const
 {
 	string strName = name();
-	int dotIndex = strName.rfind('.');
+	int dotIndex = (int)strName.rfind('.');
 	if (dotIndex == string::npos) 
 		return strName;
 	return strName.substr(0, dotIndex);
@@ -236,7 +236,7 @@ void FileHandle::writeBytes(const unsigned char* bytes, size_t size, bool append
 
 FileHandle FileHandle::parent() const
 {
-	int nIndex = m_strFullPath.rfind('/');
+	int nIndex = (int)m_strFullPath.rfind('/');
 	if( string::npos == nIndex) 
 		return FileHandle(m_strFullPath, m_type);
 
@@ -447,7 +447,7 @@ void FileHandle::copyDirectory(const FileHandle& sourceDir, const FileHandle& de
 	destDir.mkdirs();
 	vector<FileHandle> files;
 	sourceDir.list(files);
-	for (int i = 0, n = files.size(); i < n; i++) 
+	for (int i = 0, n = (int)files.size(); i < n; i++) 
 	{
 		FileHandle srcFile = files[i];
 		FileHandle destFile = destDir.child(srcFile.name());
