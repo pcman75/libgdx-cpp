@@ -340,8 +340,8 @@ void Texture::setWrap(TextureWrap u, TextureWrap v)
 	m_uWrap = u;
 	m_vWrap = v;
 	bind();
-	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, u.getGLEnum());
-	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, v.getGLEnum());
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, (GLfloat)u.getGLEnum());
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, (GLfloat)v.getGLEnum());
 }
 
 void Texture::setFilter(TextureFilter minFilter, TextureFilter magFilter)
@@ -349,8 +349,8 @@ void Texture::setFilter(TextureFilter minFilter, TextureFilter magFilter)
 	m_minFilter = minFilter;
 	m_magFilter = magFilter;
 	bind();
-	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, minFilter.getGLEnum());
-	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, magFilter.getGLEnum());
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, (GLfloat)minFilter.getGLEnum());
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, (GLfloat)magFilter.getGLEnum());
 }
 
 /** Disposes all resources associated with the texture */

@@ -44,11 +44,11 @@ public:
 	void create()
 	{
 		/** the file to playback **/
-		static const char* FILE = "c:/8.12.mp3";
+		static const char* FILE = "data/8.12.mp3";
 
 		// copy ogg file to SD card, can't playback from assets
-		FileHandle externalFile = Gdx.files->absoluteHandle(FILE);
-		//Gdx.files->internalHandle(FILE).copyTo(externalFile);
+		FileHandle externalFile = Gdx.files->externalHandle(FILE);
+		Gdx.files->internalHandle(FILE).copyTo(externalFile);
 
 		// Create the decoder and log some properties. Note that we need
 		// an external or absolute file

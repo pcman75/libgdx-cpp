@@ -73,7 +73,7 @@ Mpg123Decoder::Mpg123Decoder(const FileHandle& file)
 	if( length == MPG123_ERR )
 		mp3->length = 0;
 	else
-		mp3->length = length / rate;
+		mp3->length = (float)length / rate;
 
 	handle = mp3;
 }
@@ -88,7 +88,7 @@ int Mpg123Decoder::readSamples(short samples[], int numSamples)
 		if( mp3->leftSamples > 0 )
 		{
 			short* src = ((short*)mp3->buffer) + mp3->offset;
-			for( ; idx < numSamples && mp3->offset < mp3->buffer_size / 2; mp3->leftSamples--, mp3->offset++, samples++, src++, idx++ )
+			for( ; idx < numSamples && mp3->offset < (int)mp3->buffer_size / 2; mp3->leftSamples--, mp3->offset++, samples++, src++, idx++ )
 			{
 				*samples = *src;
 			}
@@ -117,7 +117,7 @@ int Mpg123Decoder::skipSamples(int numSamples)
 	{
 		if( mp3->leftSamples > 0 )
 		{
-			for( ; idx < numSamples && mp3->offset < mp3->buffer_size / 2; mp3->leftSamples--, mp3->offset++, idx++ );
+			for( ; idx < numSamples && mp3->offset < (int)mp3->buffer_size / 2; mp3->leftSamples--, mp3->offset++, idx++ );
 		}
 		else
 		{

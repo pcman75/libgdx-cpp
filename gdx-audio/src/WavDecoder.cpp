@@ -25,7 +25,7 @@ int WavDecoder::skipSamples(int numSamples)
 	{
 		return (int)m_in->skip(numSamples * 2 * getChannels()) / (2 * getChannels());
 	}
-	catch(GdxRuntimeException& e)
+	catch(GdxRuntimeException&)
 	{
 		Gdx.app->error("WavDecoder", "Couldn't skip");
 		return 0;

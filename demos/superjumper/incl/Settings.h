@@ -19,7 +19,7 @@ class Settings
 {
 public:
 	static bool soundEnabled;
-	static const int highscores[];
+	static int highscores[];
 	static const char* file;
 
 public:

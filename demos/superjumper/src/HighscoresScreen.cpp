@@ -30,7 +30,7 @@ void HighscoresScreen::update(float deltaTime)
 {
 	if (Gdx.input->justTouched()) 
 	{
-		guiCam.unproject(touchPoint.set(Gdx.input->getX(), Gdx.input->getY(), 0));
+		guiCam.unproject(touchPoint.set((float)Gdx.input->getX(), (float)Gdx.input->getY(), 0));
 
 		if (OverlapTester::pointInRectangle(backBounds, touchPoint.x, touchPoint.y)) 
 		{

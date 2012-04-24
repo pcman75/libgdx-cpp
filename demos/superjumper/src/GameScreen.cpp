@@ -64,7 +64,7 @@ void GameScreen::updateRunning(float deltaTime)
 {
 	if(Gdx.input->justTouched())
 	{
-		m_guiCam.unproject(m_touchPoint.set(Gdx.input->getX(), Gdx.input->getY(), 0));
+		m_guiCam.unproject(m_touchPoint.set((float)Gdx.input->getX(), (float)Gdx.input->getY(), 0));
 
 		if(OverlapTester::pointInRectangle(m_pauseBounds, m_touchPoint.x, m_touchPoint.y))
 		{
@@ -118,7 +118,7 @@ void GameScreen::updatePaused()
 {
 	if(Gdx.input->justTouched())
 	{
-		m_guiCam.unproject(m_touchPoint.set(Gdx.input->getX(), Gdx.input->getY(), 0));
+		m_guiCam.unproject(m_touchPoint.set((float)Gdx.input->getX(), (float)Gdx.input->getY(), 0));
 
 		if(OverlapTester::pointInRectangle(m_resumeBounds, m_touchPoint.x, m_touchPoint.y))
 		{

@@ -54,7 +54,7 @@ void WorldRenderer::renderBob()
 	else
 		keyFrame = Assets::bobHit;
 
-	float side = world->bob.velocity.x < 0 ? -1 : 1;
+	float side = world->bob.velocity.x < 0 ? -1.0f : 1.0f;
 	if(side < 0)
 		batch->draw(keyFrame, world->bob.position.x + 0.5f, world->bob.position.y - 0.5f, side * 1, 1);
 	else
@@ -94,7 +94,7 @@ void WorldRenderer::renderSquirrels()
 	for(std::list<Squirrel>::iterator squirrel = world->squirrels.begin(); squirrel != world->squirrels.end(); squirrel++)
 	{
 		TextureRegion* keyFrame = Assets::squirrelFly->getKeyFrame(squirrel->stateTime, true);
-		float side = squirrel->velocity.x < 0 ? -1 : 1;
+		float side = squirrel->velocity.x < 0 ? -1.0f : 1.0f;
 		if(side < 0)
 			batch->draw(keyFrame, squirrel->position.x + 0.5f, squirrel->position.y - 0.5f, side * 1, 1);
 		else

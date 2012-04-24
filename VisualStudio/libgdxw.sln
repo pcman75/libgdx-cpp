@@ -10,7 +10,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "gdx-helloworld", "..\demos\
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "gdx-tests-win", "..\tests\gdx-tests-win\proj\gdx-tests-win.vcxproj", "{B6AF2F3B-0A4A-4CC2-A69F-E56D13678083}"
 	ProjectSection(ProjectDependencies) = postProject
+		{BA63C10D-D033-4C88-97D2-54063BA289FD} = {BA63C10D-D033-4C88-97D2-54063BA289FD}
 		{61B8C145-B580-4A77-A62D-D6F53C8F4DC3} = {61B8C145-B580-4A77-A62D-D6F53C8F4DC3}
+		{43E30B47-63FB-4009-9F8F-EBE856D844A3} = {43E30B47-63FB-4009-9F8F-EBE856D844A3}
+		{DBD14494-A5F4-4726-9E52-1635E8479C3A} = {DBD14494-A5F4-4726-9E52-1635E8479C3A}
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "gdx-tests", "..\tests\gdx-tests\proj\gdx-tests.vcxproj", "{61B8C145-B580-4A77-A62D-D6F53C8F4DC3}"
@@ -25,6 +28,11 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "gdx-audio", "..\gdx-audio\p
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "superjumper", "..\demos\superjumper\proj\superjumper.vcxproj", "{65CB8279-2F18-427E-AB62-C263F0C3CE38}"
+	ProjectSection(ProjectDependencies) = postProject
+		{BA63C10D-D033-4C88-97D2-54063BA289FD} = {BA63C10D-D033-4C88-97D2-54063BA289FD}
+		{43E30B47-63FB-4009-9F8F-EBE856D844A3} = {43E30B47-63FB-4009-9F8F-EBE856D844A3}
+		{DBD14494-A5F4-4726-9E52-1635E8479C3A} = {DBD14494-A5F4-4726-9E52-1635E8479C3A}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GdxInvaders", "..\demos\GdxInvaders\proj\GdxInvaders.vcxproj", "{10804F9E-4D8A-493B-8160-9AAA1BAF2386}"
 	ProjectSection(ProjectDependencies) = postProject

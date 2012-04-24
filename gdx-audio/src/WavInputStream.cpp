@@ -74,7 +74,7 @@ int WavInputStream::readData(char buffer[], int bufLen)
 int WavInputStream::read(char buffer[], int bufLen)
 {
 	m_file.read(buffer, bufLen);
-	return m_file.gcount();
+	return (int)m_file.gcount();
 }
 
 char WavInputStream::read()

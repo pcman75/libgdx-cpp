@@ -262,10 +262,10 @@ BitmapFont::TextBounds& BitmapFont::draw(SpriteBatch* spriteBatch, const std::st
 				else
 				{
 					spriteBatch->draw(texture, //
-						(int)(x + lastGlyph->xoffset * scaleX), //
-						(int)(y + lastGlyph->yoffset * scaleY), //
-						(int)(lastGlyph->width * scaleX), //
-						(int)(lastGlyph->height * scaleY), //
+						(float)(int)(x + lastGlyph->xoffset * scaleX), //
+						(float)(int)(y + lastGlyph->yoffset * scaleY), //
+						(float)(int)(lastGlyph->width * scaleX), //
+						(float)(int)(lastGlyph->height * scaleY), //
 						lastGlyph->u, lastGlyph->v, lastGlyph->u2, lastGlyph->v2);
 				}
 				x += lastGlyph->xadvance * scaleX;
@@ -291,10 +291,10 @@ BitmapFont::TextBounds& BitmapFont::draw(SpriteBatch* spriteBatch, const std::st
 			else
 			{
 				spriteBatch->draw(texture, //
-					(int)(x + lastGlyph->xoffset * scaleX), //
-					(int)(y + lastGlyph->yoffset * scaleY), //
-					(int)(lastGlyph->width * scaleX), //
-					(int)(lastGlyph->height * scaleY), //
+					(float)(int)(x + lastGlyph->xoffset * scaleX), //
+					(float)(int)(y + lastGlyph->yoffset * scaleY), //
+					(float)(int)(lastGlyph->width * scaleX), //
+					(float)(int)(lastGlyph->height * scaleY), //
 					lastGlyph->u, lastGlyph->v, lastGlyph->u2, lastGlyph->v2);
 			}
 			x += g->xadvance * scaleX;
