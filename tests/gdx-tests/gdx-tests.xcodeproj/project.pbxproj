@@ -336,7 +336,7 @@
 		17D05C93151F87E6002CBB67 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0430;
 				ORGANIZATIONNAME = Home;
 			};
 			buildConfigurationList = 17D05C96151F87E6002CBB67 /* Build configuration list for PBXProject "gdx-tests" */;
