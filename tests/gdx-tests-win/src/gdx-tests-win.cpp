@@ -58,7 +58,7 @@ void Controller::Command (HWND hwnd, int controlID, int command)
 						if(wogl)
 							;//WoglApplication(*test, textBuffer, 640, 480, test->needsGL20());
 						else
-							GlfwApplication(*test, textBuffer, 640, 480, test->needsGL20());
+							GlfwApplication(*test, textBuffer, 320, 480, test->needsGL20());
 						delete test;
 					}
 					delete[] textBuffer;

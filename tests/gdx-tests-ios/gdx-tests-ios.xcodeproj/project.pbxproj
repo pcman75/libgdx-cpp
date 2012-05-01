@@ -147,7 +147,7 @@
 		1750FB47153E08A8005A9525 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0430;
 				ORGANIZATIONNAME = Home;
 			};
 			buildConfigurationList = 1750FB4A153E08A8005A9525 /* Build configuration list for PBXProject "gdx-tests-ios" */;

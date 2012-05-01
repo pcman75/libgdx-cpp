@@ -7,6 +7,7 @@
 class Timer 
 {
 public:
+    virtual ~Timer() {}
 	/** Start the timer**/
 	virtual void startTimer() = 0;
 

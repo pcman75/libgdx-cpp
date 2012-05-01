@@ -26,6 +26,7 @@
 #import "IndexBufferObjectClassTest.h"
 #import "PixmapTest.h"
 #import "TextureDataTest.h"
+#import "BitmapFontTest.h"
 
 @implementation AppDelegate
 
@@ -55,7 +56,7 @@ static void uncaughtExceptionHandler(NSException *exception) {
     NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
     
     // Instantiate the listener
-    ApplicationListener *listener = new Pong();
+    ApplicationListener *listener = new IndexBufferObjectClassTest();
     // create the application
     m_app = new IOSApplication(*listener, false);
     
