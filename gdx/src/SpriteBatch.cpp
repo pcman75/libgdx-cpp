@@ -103,7 +103,7 @@ void SpriteBatch::init(int size, int buffers, ShaderProgram* defaultShader)
 		VertexAttribute attributes[] = {VertexAttribute(VertexAttributes::Position, 2, ShaderProgram::POSITION_ATTRIBUTE), 
 			VertexAttribute(VertexAttributes::ColorPacked, 4, ShaderProgram::COLOR_ATTRIBUTE),
 			VertexAttribute(VertexAttributes::TextureCoordinates, 2, texAttributeName)};
-		m_buffers[i] = new Mesh(Mesh::VertexArrayType, false, VertexAttributes(attributes, sizeof(attributes)/sizeof(attributes[0])));
+		m_buffers[i] = new Mesh(false, VertexAttributes(attributes, sizeof(attributes)/sizeof(attributes[0])));
 	}
 
 	m_projectionMatrix.setToOrtho2D(0, 0, (float)Gdx.graphics->getWidth(), (float)Gdx.graphics->getHeight());

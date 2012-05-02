@@ -54,7 +54,6 @@ public:
 	void render ()
 	{
 		glClear(GL_COLOR_BUFFER_BIT);
-
 		m_batch->begin();
 		m_batch->draw(m_texture, 0, 0, 256, 256, 0, 0, 256, 256, false, false);
 		m_batch->end();

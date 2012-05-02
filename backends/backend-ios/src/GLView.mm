@@ -197,6 +197,9 @@
                 listenerInitialised = TRUE;
             }
             
+            //TODO: here is the good place???
+            glViewport(0, 0, Gdx.graphics->getWidth(), Gdx.graphics->getHeight());
+            
             //perform the actual drawing!
             listener->render();
         }

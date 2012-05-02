@@ -27,6 +27,7 @@
 #import "PixmapTest.h"
 #import "TextureDataTest.h"
 #import "BitmapFontTest.h"
+#import "MeshTest.h"
 
 @implementation AppDelegate
 
@@ -56,7 +57,7 @@ static void uncaughtExceptionHandler(NSException *exception) {
     NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
     
     // Instantiate the listener
-    ApplicationListener *listener = new IndexBufferObjectClassTest();
+    ApplicationListener *listener = new SpriteBatchTest();
     // create the application
     m_app = new IOSApplication(*listener, false);
     

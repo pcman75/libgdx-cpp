@@ -307,9 +307,6 @@
     <ClInclude Include="..\include\Gdx.h" />
     <ClInclude Include="..\include\Gdx2DPixmap.h" />
     <ClInclude Include="..\include\GdxRuntimeException.h" />
-    <ClInclude Include="..\include\GL10.h" />
-    <ClInclude Include="..\include\GL11.h" />
-    <ClInclude Include="..\include\GL20.h" />
     <ClInclude Include="..\include\GLCommon.h" />
     <ClInclude Include="..\include\Graphics.h" />
     <ClInclude Include="..\include\IndexBufferObject.h" />

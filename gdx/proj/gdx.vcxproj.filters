@@ -356,15 +356,6 @@
     <ClInclude Include="..\include\GdxRuntimeException.h">
       <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\GL10.h">
-      <Filter>include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\GL11.h">
-      <Filter>include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\GL20.h">
-      <Filter>include</Filter>
-    </ClInclude>
     <ClInclude Include="..\include\GLCommon.h">
       <Filter>include</Filter>
     </ClInclude>
