@@ -43,4 +43,6 @@
 //- (void) setListener:(ApplicationListener*)listener;
 - (void) setApplication:(IOSApplication*) application;
 
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event;
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event;
 @end

@@ -11,6 +11,7 @@
 #include "IOSGraphics.h"
 #include "IOSTimer.h"
 #include "IOSFiles.h"
+#include "IOSInput.h"
 
 IOSApplication::IOSApplication(ApplicationListener& listener, bool useGL20)
 {
@@ -22,7 +23,7 @@ void IOSApplication::initialize(IOSApplicationConfiguration& config)
 {
 	logLevel = LOG_INFO;
 	m_pGraphics = new IOSGraphics(false);
-//	m_pInput = new IOSInput();
+	m_pInput = new IOSInput();
 	m_pFiles = new IOSFiles();
 //	m_pAudio = new IOSAudio();
 	

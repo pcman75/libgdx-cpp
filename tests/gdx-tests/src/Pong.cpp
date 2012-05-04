@@ -196,14 +196,14 @@ void Pong::updateGame()
 	
 	// Has the user touched the screen? then position the paddle
     //TODO:
-	if(false && Gdx.input->isTouched())
+	if(Gdx.input->isTouched())
 	{
 		// get the touch coordinates and translate them
 		// to the game coordinate system.
 		float touchX = 480 * (Gdx.input->getX() / (float)Gdx.graphics->getWidth() - 0.5f);
 		float touchY = 320 * (0.5f - Gdx.input->getY() / (float)Gdx.graphics->getHeight());
 
-		if(touchX > rightPaddle.x)
+		//if(touchX > rightPaddle.x)
 			rightPaddle.y = touchY;
 	}
 	

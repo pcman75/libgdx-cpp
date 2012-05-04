@@ -10,6 +10,7 @@
 #import <OpengLES/EAGLDrawable.h>
 #import "mach/mach_time.h"
 #import <OpenGLES/ES2/gl.h>
+#include "IOSInput.h"
 
 @interface GLView (PrivateMethods)
 - (void)createFramebuffer;
@@ -243,4 +244,33 @@
 //    listener = app->get
     listenerInitialised = FALSE;
 }
+
+- (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    IOSInput* input = (IOSInput*)Gdx.input;
+    input->m_touchDown = true;
+    input->m_justTouched = true;
+    
+    NSArray *touchesArray = [touches allObjects];
+    
+    
+    //TODO: handle all touches
+    //for(int i=0; i<[touchesArray count]; i++)
+    {
+        //UITouch *touch = (UITouch *)[touchesArray objectAtIndex:i];
+        UITouch *touch = (UITouch *)[touchesArray objectAtIndex:0];
+        CGPoint point = [touch locationInView:nil];
+        input->m_touchX = point.x;
+        input->m_touchY = point.y;
+        // do something with 'point'
+    }
+}
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    IOSInput* input = (IOSInput*)Gdx.input;
+    input->m_touchDown = false;
+    
+}
+
 @end
