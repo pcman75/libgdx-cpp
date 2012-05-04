@@ -10,6 +10,8 @@
 #define gdx_ios_IOSTimer_h
 
 #include "Timer.h"
+#include <sys/time.h>
+#include <mach/mach_time.h>
 
 class IOSTimer : public Timer
 {
@@ -26,6 +28,7 @@ public:
 private:
 	double m_start;
 	double m_end;
+    mach_timebase_info_data_t m_timeInfo;
 };
 
 #endif

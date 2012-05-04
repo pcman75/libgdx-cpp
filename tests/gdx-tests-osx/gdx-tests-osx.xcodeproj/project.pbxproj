@@ -151,7 +151,7 @@
 		17861000151A76030091BA8D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0430;
 				ORGANIZATIONNAME = Home;
 			};
 			buildConfigurationList = 17861003151A76030091BA8D /* Build configuration list for PBXProject "gdx-tests-osx" */;

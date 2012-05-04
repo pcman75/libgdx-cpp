@@ -26,9 +26,9 @@ private:
     
     GlVersion   m_glVersion;
 	IOSTimer    m_timer;
-	uint64_t    m_frameStart;
-	uint64_t    m_lastFrameTime;
-	double      m_deltaTime;
+	long long    m_frameStart;
+	long long    m_lastFrameTime;
+	float      m_deltaTime;
 	int         m_fps;
 	int         m_frames;
     

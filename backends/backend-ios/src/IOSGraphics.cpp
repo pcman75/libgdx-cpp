@@ -39,7 +39,7 @@ int IOSGraphics::getHeight()
 
 float IOSGraphics::getDeltaTime()
 {
-    return m_deltaTime;
+    return m_deltaTime ;
 };
 
 int IOSGraphics::getFramesPerSecond()
@@ -136,15 +136,15 @@ void IOSGraphics::setGlVersion(GlVersion version)
 
 void IOSGraphics::updateTimes() 
 {
-    // convert to seconds
-	m_deltaTime = (m_timer.systemNanoSeconds() - m_lastFrameTime) * 1.0E-9f;
-	m_lastFrameTime = m_timer.systemNanoSeconds();
+    long long now = m_timer.systemNanoSeconds();
+	m_deltaTime =  (now - m_lastFrameTime) / 1.0E9;
+	m_lastFrameTime = now;
     
-	if(m_timer.systemNanoSeconds() - m_frameStart > 10E9) 
+	if(now - m_frameStart > 1.0E9) 
 	{
 		m_fps = m_frames;
 		m_frames = 0;
-		m_frameStart = m_timer.systemNanoSeconds();
+		m_frameStart = now;
 	}
 	m_frames++;
 }

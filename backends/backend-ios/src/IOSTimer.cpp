@@ -7,20 +7,16 @@
 //
 
 #include "IOSTimer.h"
-#include <sys/time.h>
-#include <mach/mach_time.h>
 
 IOSTimer::IOSTimer(void)
 {
+    mach_timebase_info(&m_timeInfo);
 }
 
 long long IOSTimer::systemNanoSeconds()
 {
-    static mach_timebase_info_data_t info;
-    mach_timebase_info(&info);
     uint64_t now = mach_absolute_time();	
-    //    now *= info.numer;
-    //    now /= info.denom;
+    now = now * m_timeInfo.numer / m_timeInfo.denom;
     return now;
 }
 
@@ -31,6 +27,6 @@ void IOSTimer::startTimer()
 
 long long IOSTimer::stopTimer()
 {
-	double now = systemNanoSeconds();
-	return (long long)10E9 * (now - m_start);
+	long long now = systemNanoSeconds();
+	return now - m_start;
 }
