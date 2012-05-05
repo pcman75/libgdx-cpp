@@ -38,6 +38,39 @@
 		178220CF152E44C200E213C9 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 178220CE152E44C200E213C9 /* OpenGL.framework */; };
 		178220D1152E492C00E213C9 /* libglfw.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 178220D0152E492C00E213C9 /* libglfw.a */; };
 		178220F4152E4A1000E213C9 /* data in Resources */ = {isa = PBXBuildFile; fileRef = 178220F3152E4A1000E213C9 /* data */; };
+		17D18AA41554FA3500BCE0DC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17D18AA31554FA3500BCE0DC /* UIKit.framework */; };
+		17D18AA61554FA3500BCE0DC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17D18AA51554FA3500BCE0DC /* Foundation.framework */; };
+		17D18AA81554FA3500BCE0DC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17D18AA71554FA3500BCE0DC /* CoreGraphics.framework */; };
+		17D18AAE1554FA3500BCE0DC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 17D18AAC1554FA3500BCE0DC /* InfoPlist.strings */; };
+		17D18AB01554FA3500BCE0DC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D18AAF1554FA3500BCE0DC /* main.m */; };
+		17D18ABA1554FCCA00BCE0DC /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 17D18AB91554FCCA00BCE0DC /* AppDelegate.mm */; };
+		17D18ABD1555006A00BCE0DC /* libbackend-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 17D18ABB1555006900BCE0DC /* libbackend-ios.a */; };
+		17D18ABE1555006A00BCE0DC /* libgdx-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 17D18ABC1555006900BCE0DC /* libgdx-ios.a */; };
+		17D18AC0155500D700BCE0DC /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17D18ABF155500D700BCE0DC /* OpenGLES.framework */; };
+		17D18AC11555023200BCE0DC /* Assets.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1782207D152E3DE600E213C9 /* Assets.cpp */; };
+		17D18AC21555023200BCE0DC /* Bob.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1782207E152E3DE600E213C9 /* Bob.cpp */; };
+		17D18AC31555023200BCE0DC /* Castle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1782207F152E3DE600E213C9 /* Castle.cpp */; };
+		17D18AC41555023200BCE0DC /* Coin.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17822080152E3DE600E213C9 /* Coin.cpp */; };
+		17D18AC51555023200BCE0DC /* DynamicGameObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17822081152E3DE600E213C9 /* DynamicGameObject.cpp */; };
+		17D18AC61555023200BCE0DC /* Game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17822082152E3DE600E213C9 /* Game.cpp */; };
+		17D18AC71555023200BCE0DC /* GameObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17822083152E3DE600E213C9 /* GameObject.cpp */; };
+		17D18AC81555023200BCE0DC /* GameScreen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17822084152E3DE600E213C9 /* GameScreen.cpp */; };
+		17D18AC91555023200BCE0DC /* HelpScreen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17822085152E3DE600E213C9 /* HelpScreen.cpp */; };
+		17D18ACA1555023200BCE0DC /* HighscoresScreen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17822086152E3DE600E213C9 /* HighscoresScreen.cpp */; };
+		17D18ACB1555023200BCE0DC /* MainMenuScreen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17822087152E3DE600E213C9 /* MainMenuScreen.cpp */; };
+		17D18ACC1555023200BCE0DC /* OverlapTester.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17822088152E3DE600E213C9 /* OverlapTester.cpp */; };
+		17D18ACD1555023200BCE0DC /* Platform.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17822089152E3DE600E213C9 /* Platform.cpp */; };
+		17D18ACE1555023200BCE0DC /* Screen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1782208A152E3DE600E213C9 /* Screen.cpp */; };
+		17D18ACF1555023200BCE0DC /* Settings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1782208B152E3DE600E213C9 /* Settings.cpp */; };
+		17D18AD01555023200BCE0DC /* SoundController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1782208C152E3DE600E213C9 /* SoundController.cpp */; };
+		17D18AD11555023200BCE0DC /* Spring.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1782208D152E3DE600E213C9 /* Spring.cpp */; };
+		17D18AD21555023200BCE0DC /* Squirrel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1782208E152E3DE600E213C9 /* Squirrel.cpp */; };
+		17D18AD31555023200BCE0DC /* stdafx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1782208F152E3DE600E213C9 /* stdafx.cpp */; };
+		17D18AD41555023200BCE0DC /* SuperJumper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17822090152E3DE600E213C9 /* SuperJumper.cpp */; };
+		17D18AD51555023200BCE0DC /* World.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17822091152E3DE600E213C9 /* World.cpp */; };
+		17D18AD61555023200BCE0DC /* WorldRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17822092152E3DE600E213C9 /* WorldRenderer.cpp */; };
+		17D18AD81555069E00BCE0DC /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17D18AD71555069E00BCE0DC /* QuartzCore.framework */; };
+		17D18AD9155508E600BCE0DC /* data in Resources */ = {isa = PBXBuildFile; fileRef = 178220F3152E4A1000E213C9 /* data */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -106,6 +139,20 @@
 		178220CE152E44C200E213C9 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		178220D0152E492C00E213C9 /* libglfw.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libglfw.a; path = "../../../../backends/backend-glfw/extern/glfw-2.7.3/lib/cocoa/libglfw.a"; sourceTree = "<group>"; };
 		178220F3152E4A1000E213C9 /* data */ = {isa = PBXFileReference; lastKnownFileType = folder; name = data; path = ../../../data; sourceTree = "<group>"; };
+		17D18AA11554FA3500BCE0DC /* superjumper-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "superjumper-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		17D18AA31554FA3500BCE0DC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		17D18AA51554FA3500BCE0DC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		17D18AA71554FA3500BCE0DC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
+		17D18AAB1554FA3500BCE0DC /* superjumper-ios-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "superjumper-ios-Info.plist"; sourceTree = "<group>"; };
+		17D18AAD1554FA3500BCE0DC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		17D18AAF1554FA3500BCE0DC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		17D18AB11554FA3500BCE0DC /* superjumper-ios-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "superjumper-ios-Prefix.pch"; sourceTree = "<group>"; };
+		17D18AB21554FA3600BCE0DC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		17D18AB91554FCCA00BCE0DC /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
+		17D18ABB1555006900BCE0DC /* libbackend-ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libbackend-ios.a"; path = "../../../../../../Library/Developer/Xcode/DerivedData/gdx-testing-osx-gixlikwjboncinfzefiysvwhyepd/Build/Products/Debug-iphoneos/libbackend-ios.a"; sourceTree = "<group>"; };
+		17D18ABC1555006900BCE0DC /* libgdx-ios.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = "libgdx-ios.a"; path = "../../../../gdx/build/Release-iphoneos/libgdx-ios.a"; sourceTree = "<group>"; };
+		17D18ABF155500D700BCE0DC /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk/System/Library/Frameworks/OpenGLES.framework; sourceTree = DEVELOPER_DIR; };
+		17D18AD71555069E00BCE0DC /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,17 +168,35 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		17D18A9E1554FA3500BCE0DC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				17D18AD81555069E00BCE0DC /* QuartzCore.framework in Frameworks */,
+				17D18AC0155500D700BCE0DC /* OpenGLES.framework in Frameworks */,
+				17D18ABD1555006A00BCE0DC /* libbackend-ios.a in Frameworks */,
+				17D18ABE1555006A00BCE0DC /* libgdx-ios.a in Frameworks */,
+				17D18AA41554FA3500BCE0DC /* UIKit.framework in Frameworks */,
+				17D18AA61554FA3500BCE0DC /* Foundation.framework in Frameworks */,
+				17D18AA81554FA3500BCE0DC /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		17822033152E3C8D00E213C9 = {
 			isa = PBXGroup;
 			children = (
+				17D18AD71555069E00BCE0DC /* QuartzCore.framework */,
+				17D18ABF155500D700BCE0DC /* OpenGLES.framework */,
+				17D18ABB1555006900BCE0DC /* libbackend-ios.a */,
+				17D18ABC1555006900BCE0DC /* libgdx-ios.a */,
 				178220D0152E492C00E213C9 /* libglfw.a */,
-				178220CE152E44C200E213C9 /* OpenGL.framework */,
 				178220CC152E449900E213C9 /* libbackend-glfw.a */,
 				178220CA152E449200E213C9 /* libgdx-macos.a */,
 				17822048152E3C8D00E213C9 /* superjumper */,
+				17D18AA91554FA3500BCE0DC /* superjumper-ios */,
 				17822041152E3C8D00E213C9 /* Frameworks */,
 				1782203F152E3C8D00E213C9 /* Products */,
 			);
@@ -141,6 +206,7 @@
 			isa = PBXGroup;
 			children = (
 				1782203E152E3C8D00E213C9 /* superjumper.app */,
+				17D18AA11554FA3500BCE0DC /* superjumper-ios.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -148,7 +214,11 @@
 		17822041152E3C8D00E213C9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				178220CE152E44C200E213C9 /* OpenGL.framework */,
 				17822042152E3C8D00E213C9 /* Cocoa.framework */,
+				17D18AA31554FA3500BCE0DC /* UIKit.framework */,
+				17D18AA51554FA3500BCE0DC /* Foundation.framework */,
+				17D18AA71554FA3500BCE0DC /* CoreGraphics.framework */,
 				17822044152E3C8D00E213C9 /* Other Frameworks */,
 			);
 			name = Frameworks;
@@ -253,12 +323,33 @@
 			path = ../../../src;
 			sourceTree = "<group>";
 		};
+		17D18AA91554FA3500BCE0DC /* superjumper-ios */ = {
+			isa = PBXGroup;
+			children = (
+				17D18AB91554FCCA00BCE0DC /* AppDelegate.mm */,
+				17D18AB21554FA3600BCE0DC /* AppDelegate.h */,
+				17D18AAA1554FA3500BCE0DC /* Supporting Files */,
+			);
+			path = "superjumper-ios";
+			sourceTree = "<group>";
+		};
+		17D18AAA1554FA3500BCE0DC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				17D18AAB1554FA3500BCE0DC /* superjumper-ios-Info.plist */,
+				17D18AAC1554FA3500BCE0DC /* InfoPlist.strings */,
+				17D18AAF1554FA3500BCE0DC /* main.m */,
+				17D18AB11554FA3500BCE0DC /* superjumper-ios-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1782203D152E3C8D00E213C9 /* superjumper */ = {
+		1782203D152E3C8D00E213C9 /* superjumper-osx */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1782205C152E3C8D00E213C9 /* Build configuration list for PBXNativeTarget "superjumper" */;
+			buildConfigurationList = 1782205C152E3C8D00E213C9 /* Build configuration list for PBXNativeTarget "superjumper-osx" */;
 			buildPhases = (
 				1782203A152E3C8D00E213C9 /* Sources */,
 				1782203B152E3C8D00E213C9 /* Frameworks */,
@@ -268,9 +359,26 @@
 			);
 			dependencies = (
 			);
-			name = superjumper;
+			name = "superjumper-osx";
 			productName = superjumper;
 			productReference = 1782203E152E3C8D00E213C9 /* superjumper.app */;
+			productType = "com.apple.product-type.application";
+		};
+		17D18AA01554FA3500BCE0DC /* superjumper-ios */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 17D18AB71554FA3600BCE0DC /* Build configuration list for PBXNativeTarget "superjumper-ios" */;
+			buildPhases = (
+				17D18A9D1554FA3500BCE0DC /* Sources */,
+				17D18A9E1554FA3500BCE0DC /* Frameworks */,
+				17D18A9F1554FA3500BCE0DC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "superjumper-ios";
+			productName = "superjumper-ios";
+			productReference = 17D18AA11554FA3500BCE0DC /* superjumper-ios.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -294,7 +402,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1782203D152E3C8D00E213C9 /* superjumper */,
+				1782203D152E3C8D00E213C9 /* superjumper-osx */,
+				17D18AA01554FA3500BCE0DC /* superjumper-ios */,
 			);
 		};
 /* End PBXProject section */
@@ -307,6 +416,15 @@
 				1782204D152E3C8D00E213C9 /* InfoPlist.strings in Resources */,
 				17822053152E3C8D00E213C9 /* Credits.rtf in Resources */,
 				178220F4152E4A1000E213C9 /* data in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		17D18A9F1554FA3500BCE0DC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				17D18AAE1554FA3500BCE0DC /* InfoPlist.strings in Resources */,
+				17D18AD9155508E600BCE0DC /* data in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,6 +461,37 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		17D18A9D1554FA3500BCE0DC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				17D18AB01554FA3500BCE0DC /* main.m in Sources */,
+				17D18ABA1554FCCA00BCE0DC /* AppDelegate.mm in Sources */,
+				17D18AC11555023200BCE0DC /* Assets.cpp in Sources */,
+				17D18AC21555023200BCE0DC /* Bob.cpp in Sources */,
+				17D18AC31555023200BCE0DC /* Castle.cpp in Sources */,
+				17D18AC41555023200BCE0DC /* Coin.cpp in Sources */,
+				17D18AC51555023200BCE0DC /* DynamicGameObject.cpp in Sources */,
+				17D18AC61555023200BCE0DC /* Game.cpp in Sources */,
+				17D18AC71555023200BCE0DC /* GameObject.cpp in Sources */,
+				17D18AC81555023200BCE0DC /* GameScreen.cpp in Sources */,
+				17D18AC91555023200BCE0DC /* HelpScreen.cpp in Sources */,
+				17D18ACA1555023200BCE0DC /* HighscoresScreen.cpp in Sources */,
+				17D18ACB1555023200BCE0DC /* MainMenuScreen.cpp in Sources */,
+				17D18ACC1555023200BCE0DC /* OverlapTester.cpp in Sources */,
+				17D18ACD1555023200BCE0DC /* Platform.cpp in Sources */,
+				17D18ACE1555023200BCE0DC /* Screen.cpp in Sources */,
+				17D18ACF1555023200BCE0DC /* Settings.cpp in Sources */,
+				17D18AD01555023200BCE0DC /* SoundController.cpp in Sources */,
+				17D18AD11555023200BCE0DC /* Spring.cpp in Sources */,
+				17D18AD21555023200BCE0DC /* Squirrel.cpp in Sources */,
+				17D18AD31555023200BCE0DC /* stdafx.cpp in Sources */,
+				17D18AD41555023200BCE0DC /* SuperJumper.cpp in Sources */,
+				17D18AD51555023200BCE0DC /* World.cpp in Sources */,
+				17D18AD61555023200BCE0DC /* WorldRenderer.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
@@ -360,6 +509,14 @@
 				17822052152E3C8D00E213C9 /* en */,
 			);
 			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		17D18AAC1554FA3500BCE0DC /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				17D18AAD1554FA3500BCE0DC /* en */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -454,6 +611,73 @@
 			};
 			name = Release;
 		};
+		17D18AB51554FA3600BCE0DC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "superjumper-ios/superjumper-ios-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					TARGET_IOS,
+				);
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				HEADER_SEARCH_PATHS = (
+					../../../../gdx/include,
+					"../../../../backends/backend-ios/incl",
+				);
+				INFOPLIST_FILE = "superjumper-ios/superjumper-ios-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../../../../Library/Developer/Xcode/DerivedData/gdx-testing-osx-gixlikwjboncinfzefiysvwhyepd/Build/Products/Debug-iphoneos\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		17D18AB61554FA3600BCE0DC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "superjumper-ios/superjumper-ios-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = TARGET_IOS;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				HEADER_SEARCH_PATHS = (
+					../../../../gdx/include,
+					"../../../../backends/backend-ios/incl",
+				);
+				INFOPLIST_FILE = "superjumper-ios/superjumper-ios-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../../../../Library/Developer/Xcode/DerivedData/gdx-testing-osx-gixlikwjboncinfzefiysvwhyepd/Build/Products/Debug-iphoneos\"",
+				);
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -466,7 +690,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1782205C152E3C8D00E213C9 /* Build configuration list for PBXNativeTarget "superjumper" */ = {
+		1782205C152E3C8D00E213C9 /* Build configuration list for PBXNativeTarget "superjumper-osx" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1782205D152E3C8D00E213C9 /* Debug */,
@@ -474,6 +698,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		17D18AB71554FA3600BCE0DC /* Build configuration list for PBXNativeTarget "superjumper-ios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				17D18AB51554FA3600BCE0DC /* Debug */,
+				17D18AB61554FA3600BCE0DC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

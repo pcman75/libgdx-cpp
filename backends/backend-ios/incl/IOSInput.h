@@ -9,7 +9,10 @@ public:
 	bool m_justTouched;
 	int m_touchX;
 	int m_touchY;
-
+    
+    float m_accelX;
+    float m_accelY;
+    float m_accelZ;
 	//std::set<int> m_keys;
 
 private:

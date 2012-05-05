@@ -74,7 +74,8 @@ void GameScreen::updateRunning(float deltaTime)
 		}
 	}
 
-	if(Gdx.app->getType() == Application::Android)
+    Application::ApplicationType type = Gdx.app->getType();
+	if( type == Application::Android || type == Application::iOS)
 	{
 		m_world->update(deltaTime, Gdx.input->getAccelerometerX());
 	}

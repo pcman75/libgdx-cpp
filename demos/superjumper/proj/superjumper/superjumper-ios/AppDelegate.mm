@@ -17,17 +17,9 @@
 #include <iterator>
 
 #import "AppDelegate.h"
-#import "AlphaTest.h"
-#import "Pong.h"
-#import "OrthoCamBorderTest.h"
-#import "FilesTest.h"
-#import "VertexArrayTest.h"
-#import "SpriteBatchTest.h"
-#import "IndexBufferObjectClassTest.h"
-#import "PixmapTest.h"
-#import "TextureDataTest.h"
-#import "BitmapFontTest.h"
-#import "MeshTest.h"
+#include "SuperJumper.h"
+
+#import "IOSAccelerometerHandler.h"
 
 @implementation AppDelegate
 
@@ -57,7 +49,7 @@ static void uncaughtExceptionHandler(NSException *exception) {
     NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
     
     // Instantiate the listener
-    ApplicationListener *listener = new Pong();
+    ApplicationListener *listener = new SuperJumper();
     // create the application
     m_app = new IOSApplication(*listener, false);
     
@@ -72,6 +64,9 @@ static void uncaughtExceptionHandler(NSException *exception) {
     [self.m_window addSubview:m_view];
     [self.m_window makeKeyAndVisible];
     
+    //TODO:
+    m_accelHandler = [IOSAccelerometerHandler alloc];
+    [m_accelHandler configureAccelerometer];	
     return YES;
 }
 

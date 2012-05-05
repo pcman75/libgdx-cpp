@@ -6,7 +6,9 @@ IOSInput::IOSInput(void)
 	m_touchDown = false;
 	m_justTouched = false;
 	m_touchX = m_touchY = 0;
-
+    m_accelX = .0f;
+    m_accelY = .0f;
+    m_accelZ = .0f;
 	processor = NULL;
 }
 
@@ -17,19 +19,19 @@ IOSInput::~IOSInput(void)
 /** @return The value of the accelerometer on its x-axis. ranges between [-10,10]. */
 float IOSInput::getAccelerometerX()
 {
-	return 0.f;
+	return m_accelX;
 }
 
 /** @return The value of the accelerometer on its y-axis. ranges between [-10,10]. */
 float IOSInput::getAccelerometerY()
 {
-	return 0.f;
+	return m_accelY;
 }
 
 /** @return The value of the accelerometer on its y-axis. ranges between [-10,10]. */
 float IOSInput::getAccelerometerZ()
 {
-	return 0.f;
+	return m_accelZ;
 }
 
 /** @return the last touch x coordinate in screen coordinates. The screen origin is the top left corner. */

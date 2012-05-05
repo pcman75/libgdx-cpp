@@ -3,8 +3,6 @@
 
 #include "stdafx.h"
 #include "SuperJumper.h"
-#include "GlfwApplication.h"
-
 #include "MainMenuScreen.h"
 #include "Settings.h"
 #include "Assets.h"

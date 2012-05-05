@@ -61,7 +61,7 @@ Threading* IOSApplication::getThreading()
 };
 void IOSApplication::log(const char* tag, const char* message)
 {
-    
+    printf("%s:\t%s\n", tag, message);
 };
 
 void IOSApplication::error (const char* tag, const char* message)

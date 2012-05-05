@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "GLView.h"
 #import "IOSApplication.h"
+#import "IOSAccelerometerHandler.h"
 
 //@class RootViewController;
 
@@ -17,7 +18,7 @@
     UIWindow*                   m_window;
     GLView*                     m_view;
     IOSApplication*             m_app;
-    
+    IOSAccelerometerHandler* m_accelHandler;
 }
 
 @property (strong, nonatomic) UIWindow *m_window;
