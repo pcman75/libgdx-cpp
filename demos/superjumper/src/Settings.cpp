@@ -29,7 +29,6 @@ void Settings::load()
 
 void Settings::save()
 {
-    /*
 	std::ofstream out;
 	Gdx.files->externalHandle(file).write(false, out);
 
@@ -45,7 +44,7 @@ void Settings::save()
 	{
 		Gdx.app->log("save", std::string("error saving high score ") + e.what());
 	}
-	out.close();*/
+	out.close();
 }
 
 void Settings::addScore(int score)

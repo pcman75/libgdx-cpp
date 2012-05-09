@@ -52,10 +52,24 @@ string FileHandle::name()  const
 
 string FileHandle::extension() const
 {
-	int dotIndex = (int)m_strFullPath.rfind( '.');
-	if( string::npos == dotIndex) return "";
+    size_t pos = m_strFullPath.length();
+    const char* curChar = m_strFullPath.c_str() + pos;
+    while(--pos)
+    {
+        --curChar;
+        if(*curChar == '\\' || *curChar == '/')
+        {
+            pos = -1;//exit loop
+            break;
+        }
+        else if(*curChar == '.')
+            break;
+    }
+    
+	if( pos == -1 ) 
+        return "";
 
-	return m_strFullPath.substr( dotIndex + 1);
+	return m_strFullPath.substr(pos + 1);
 }
 
 string FileHandle::nameWithoutExtension()  const
@@ -410,7 +424,7 @@ std::string FileHandle::toString() const
 
 FileHandle FileHandle::tempFile()
 {
-	char* tempFileName = ::tmpnam(NULL);
+	std::string tempFileName = Gdx.files->getTempFileName();
 	FileHandle tempHandle(tempFileName);
 	std::ofstream output;
 	tempHandle.write(false, output);
@@ -424,7 +438,9 @@ FileHandle FileHandle::tempFile()
 
 FileHandle FileHandle::tempDirectory()
 {
-	char* tempFileName = ::tmpnam(NULL);
+    std::string tempFileName = Gdx.files->getTempFileName();
+    
+    //::tmpnam(NULL);
 	FileHandle tempHandle(tempFileName);
 	Gdx.files->mkdir(tempFileName);
 	if(!tempHandle.exists())

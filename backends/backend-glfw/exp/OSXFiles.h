@@ -45,7 +45,7 @@ public:
     
 	virtual bool recursiveDeleteDirectory(const std::string& path) const;
     virtual bool copyFile(const char* source, const char* dest) const;
-
+    virtual std::string getTempFileName();
 private:
 	int removeDirectory(const char *path) const;
 };

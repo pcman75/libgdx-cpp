@@ -177,3 +177,8 @@ bool WindowsFiles::copyFile(const char* source, const char* dest) const
 {
 	return ::CopyFileA(source, dest, TRUE) == TRUE;
 }
+
+std::string WindowsFiles::getTempFileName()
+{
+    return ::tmpnam(NULL);
+}

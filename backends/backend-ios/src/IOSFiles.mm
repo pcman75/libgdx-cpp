@@ -6,6 +6,7 @@
 //  Copyright (c) 2012 Home. All rights reserved.
 //
 
+#import "Foundation/NSArray.h"
 #include "IOSFiles.h"
 
 IOSFiles::IOSFiles()
@@ -57,10 +58,9 @@ FileHandle IOSFiles::absoluteHandle (const std::string& path) const
  * the desktop. */
 void IOSFiles::getExternalStoragePath(std::string& str) const
 {
-    struct passwd *pw = getpwuid(getuid());
-    
-	const char *homedir = pw->pw_dir;
-	str = homedir; 
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    str = [documentsDirectory UTF8String];
 }
 
 /** Returns true if the external storage is ready for file IO. Eg, on Android, the SD card is not available when mounted for use
@@ -178,4 +178,17 @@ bool IOSFiles::copyFile(const char* source, const char* dest) const
     return ok == 0;
 }
 
-
+std::string IOSFiles::getTempFileName()
+{
+    int i = 1;
+    while (YES)
+    {
+        NSString *currentPath = [NSTemporaryDirectory() stringByAppendingPathComponent:[NSString stringWithFormat:@"%i.tmp", i]];
+        if (![[NSFileManager defaultManager] fileExistsAtPath:currentPath])
+            return [currentPath UTF8String];
+        else
+        {
+            i++;
+        }
+    }
+}

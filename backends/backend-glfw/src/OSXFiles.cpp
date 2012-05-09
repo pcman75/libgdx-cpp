@@ -179,4 +179,8 @@ bool OSXFiles::copyFile(const char* source, const char* dest) const
     return ok == 0;
 }
 
+std::string OSXFiles::getTempFileName()
+{
+    return ::tmpnam(NULL);
+}
 

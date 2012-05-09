@@ -38,7 +38,7 @@ public:
   virtual void      mkdir( const std::string& path) const;
   virtual bool recursiveDeleteDirectory(const std::string& path) const;
   bool copyFile(const char* source, const char* dest) const;
-
+  virtual std::string getTempFileName();
 private:
 	bool isDots(const TCHAR* str) const;
 };
