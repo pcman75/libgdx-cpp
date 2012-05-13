@@ -12,11 +12,22 @@
 #include "IOSTimer.h"
 #include "IOSFiles.h"
 #include "IOSInput.h"
+#include "ApplicationDelegate.h"
+#import <UIKit/UIKit.h>
 
-IOSApplication::IOSApplication(ApplicationListener& listener, bool useGL20)
+IOSApplication::IOSApplication(ApplicationListener& listener, bool useGL20, int argc, char *argv[])
 {
+    m_listener = &listener;
     IOSApplicationConfiguration* config = new IOSApplicationConfiguration();
     initialize(*config);
+    
+    @autoreleasepool 
+    {
+        //refference ApplicationDelegate otherwise it's stripped by the linker
+        //and UIApplicationMain will not find it
+        [ApplicationDelegate alloc];
+        UIApplicationMain(argc, argv, nil, @"ApplicationDelegate");
+    }
 };
 
 void IOSApplication::initialize(IOSApplicationConfiguration& config) 
@@ -33,7 +44,15 @@ void IOSApplication::initialize(IOSApplicationConfiguration& config)
 	Gdx.audio = m_pAudio;
 	Gdx.files = m_pFiles;
 //	Gdx.threading = m_pThreading;
+    
+    
 };
+
+ApplicationListener* IOSApplication::getApplicationListener()
+{
+    return m_listener;
+};
+
 
 Graphics* IOSApplication::getGraphics()
 {

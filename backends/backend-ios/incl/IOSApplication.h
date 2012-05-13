@@ -17,7 +17,7 @@
 class IOSApplication : public Application {
 
 public:
-    IOSApplication(ApplicationListener& listener, bool useGL20);
+    IOSApplication(ApplicationListener& listener, bool useGL20, int argc, char *argv[]);
 
     virtual ~IOSApplication();
 
@@ -47,6 +47,7 @@ public:
     
 	virtual void exit ();
 
+    ApplicationListener* getApplicationListener();
 private:
     void initialize(IOSApplicationConfiguration& config);
 
@@ -55,6 +56,7 @@ private:
 	Files* m_pFiles;
 	Audio* m_pAudio;
     Threading* m_pThreading;
+    ApplicationListener* m_listener;
 	int logLevel;
 };
 

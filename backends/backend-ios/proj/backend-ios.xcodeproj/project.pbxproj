@@ -22,10 +22,12 @@
 		17F398A81544A74B003B5812 /* IOSGraphics.h in Headers */ = {isa = PBXBuildFile; fileRef = 17F398A11544A74B003B5812 /* IOSGraphics.h */; };
 		17F398A91544A74B003B5812 /* IOSTimer.h in Headers */ = {isa = PBXBuildFile; fileRef = 17F398A21544A74B003B5812 /* IOSTimer.h */; };
 		17F398B21544A756003B5812 /* GLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 17F398AC1544A756003B5812 /* GLView.mm */; };
-		17F398B31544A756003B5812 /* IOSApplication.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17F398AD1544A756003B5812 /* IOSApplication.cpp */; };
+		17F398B31544A756003B5812 /* IOSApplication.mm in Sources */ = {isa = PBXBuildFile; fileRef = 17F398AD1544A756003B5812 /* IOSApplication.mm */; };
 		17F398B41544A756003B5812 /* IOSApplicationConfiguration.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17F398AE1544A756003B5812 /* IOSApplicationConfiguration.cpp */; };
 		17F398B51544A756003B5812 /* IOSGraphics.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17F398AF1544A756003B5812 /* IOSGraphics.cpp */; };
 		17F398B61544A756003B5812 /* IOSTimer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17F398B01544A756003B5812 /* IOSTimer.cpp */; };
+		17F85B55156058CD00420A1F /* ApplicationDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 17F85B54156058CD00420A1F /* ApplicationDelegate.mm */; };
+		17F85B58156058DC00420A1F /* ApplicationDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 17F85B57156058DC00420A1F /* ApplicationDelegate.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,10 +47,12 @@
 		17F398A11544A74B003B5812 /* IOSGraphics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IOSGraphics.h; sourceTree = "<group>"; };
 		17F398A21544A74B003B5812 /* IOSTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IOSTimer.h; sourceTree = "<group>"; };
 		17F398AC1544A756003B5812 /* GLView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLView.mm; sourceTree = "<group>"; };
-		17F398AD1544A756003B5812 /* IOSApplication.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IOSApplication.cpp; sourceTree = "<group>"; };
+		17F398AD1544A756003B5812 /* IOSApplication.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = IOSApplication.mm; sourceTree = "<group>"; };
 		17F398AE1544A756003B5812 /* IOSApplicationConfiguration.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IOSApplicationConfiguration.cpp; sourceTree = "<group>"; };
 		17F398AF1544A756003B5812 /* IOSGraphics.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IOSGraphics.cpp; sourceTree = "<group>"; };
 		17F398B01544A756003B5812 /* IOSTimer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IOSTimer.cpp; sourceTree = "<group>"; };
+		17F85B54156058CD00420A1F /* ApplicationDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ApplicationDelegate.mm; sourceTree = "<group>"; };
+		17F85B57156058DC00420A1F /* ApplicationDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationDelegate.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +108,7 @@
 		17F3989B1544A74B003B5812 /* incl */ = {
 			isa = PBXGroup;
 			children = (
+				17F85B57156058DC00420A1F /* ApplicationDelegate.h */,
 				17D18AE11555481700BCE0DC /* IOSAccelerometerHandler.h */,
 				17A345761554700000FE8089 /* IOSInput.h */,
 				17D229991544B6E5006E19D0 /* IOSFiles.h */,
@@ -120,11 +125,12 @@
 		17F398AA1544A756003B5812 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				17F85B54156058CD00420A1F /* ApplicationDelegate.mm */,
 				17D18ADB1555410F00BCE0DC /* IOSAccelerometerHandler.mm */,
 				17A3457315546FE600FE8089 /* IOSInput.cpp */,
 				17D229961544B6DB006E19D0 /* IOSFiles.mm */,
 				17F398AC1544A756003B5812 /* GLView.mm */,
-				17F398AD1544A756003B5812 /* IOSApplication.cpp */,
+				17F398AD1544A756003B5812 /* IOSApplication.mm */,
 				17F398AE1544A756003B5812 /* IOSApplicationConfiguration.cpp */,
 				17F398AF1544A756003B5812 /* IOSGraphics.cpp */,
 				17F398B01544A756003B5812 /* IOSTimer.cpp */,
@@ -149,6 +155,7 @@
 				17D2299A1544B6E5006E19D0 /* IOSFiles.h in Headers */,
 				17A345771554700000FE8089 /* IOSInput.h in Headers */,
 				17D18AE21555481700BCE0DC /* IOSAccelerometerHandler.h in Headers */,
+				17F85B58156058DC00420A1F /* ApplicationDelegate.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -204,13 +211,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				17F398B21544A756003B5812 /* GLView.mm in Sources */,
-				17F398B31544A756003B5812 /* IOSApplication.cpp in Sources */,
+				17F398B31544A756003B5812 /* IOSApplication.mm in Sources */,
 				17F398B41544A756003B5812 /* IOSApplicationConfiguration.cpp in Sources */,
 				17F398B51544A756003B5812 /* IOSGraphics.cpp in Sources */,
 				17F398B61544A756003B5812 /* IOSTimer.cpp in Sources */,
 				17D229971544B6DB006E19D0 /* IOSFiles.mm in Sources */,
 				17A3457415546FE600FE8089 /* IOSInput.cpp in Sources */,
 				17D18ADD1555410F00BCE0DC /* IOSAccelerometerHandler.mm in Sources */,
+				17F85B55156058CD00420A1F /* ApplicationDelegate.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

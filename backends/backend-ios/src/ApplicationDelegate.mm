@@ -16,12 +16,11 @@
 #include <algorithm>
 #include <iterator>
 
-#import "AppDelegate.h"
-#include "SuperJumper.h"
+#import "ApplicationDelegate.h"
 
 #import "IOSAccelerometerHandler.h"
 
-@implementation AppDelegate
+@implementation ApplicationDelegate
 
 @synthesize m_window = _window;
 //@synthesize rootViewController = _rootViewController;
@@ -32,7 +31,7 @@ static void uncaughtExceptionHandler(NSException *exception) {
     // Internal error reporting
 }
 
--(AppDelegate*) initWithApplication:(IOSApplication*)application
+-(ApplicationDelegate*) initWithApplication:(IOSApplication*)application
 {
     if (self = [super init]) 
     {
@@ -48,10 +47,7 @@ static void uncaughtExceptionHandler(NSException *exception) {
     // set up exception handler
     NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
     
-    // Instantiate the listener
-    ApplicationListener *listener = new SuperJumper();
-    // create the application
-    m_app = new IOSApplication(*listener, false);
+    m_app = (IOSApplication*)Gdx.app;
     
     [application setStatusBarHidden:YES];
     
@@ -59,7 +55,7 @@ static void uncaughtExceptionHandler(NSException *exception) {
     
     self.m_window = [[UIWindow alloc] initWithFrame:screenBounds];
     
-    m_view = [[GLView alloc] initWithFrame:screenBounds andListener:listener];
+    m_view = [[GLView alloc] initWithFrame:screenBounds andListener:m_app->getApplicationListener()];
     
     [self.m_window addSubview:m_view];
     [self.m_window makeKeyAndVisible];

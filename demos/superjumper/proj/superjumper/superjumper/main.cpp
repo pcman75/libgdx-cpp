@@ -7,11 +7,19 @@
 //
 #include "stdafx.h"
 
+#ifdef TARGET_IOS
+#include "IOSApplication.h"
+#else
 #include "GlfwApplication.h"
+#endif
 #include "SuperJumper.h"
 
 int main(int argc, char *argv[])
 {
     SuperJumper superJumper;
+#ifdef TARGET_IOS
+    IOSApplication(superJumper, true, argc, argv);
+#else
     GlfwApplication(superJumper, "Super Jumper", 320, 480, true);
+#endif
 }

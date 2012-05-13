@@ -38,12 +38,10 @@
 		178220CF152E44C200E213C9 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 178220CE152E44C200E213C9 /* OpenGL.framework */; };
 		178220D1152E492C00E213C9 /* libglfw.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 178220D0152E492C00E213C9 /* libglfw.a */; };
 		178220F4152E4A1000E213C9 /* data in Resources */ = {isa = PBXBuildFile; fileRef = 178220F3152E4A1000E213C9 /* data */; };
+		17ABC917156045CA00F5002E /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1782204E152E3C8D00E213C9 /* main.cpp */; };
 		17D18AA41554FA3500BCE0DC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17D18AA31554FA3500BCE0DC /* UIKit.framework */; };
 		17D18AA61554FA3500BCE0DC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17D18AA51554FA3500BCE0DC /* Foundation.framework */; };
 		17D18AA81554FA3500BCE0DC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17D18AA71554FA3500BCE0DC /* CoreGraphics.framework */; };
-		17D18AAE1554FA3500BCE0DC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 17D18AAC1554FA3500BCE0DC /* InfoPlist.strings */; };
-		17D18AB01554FA3500BCE0DC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D18AAF1554FA3500BCE0DC /* main.m */; };
-		17D18ABA1554FCCA00BCE0DC /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 17D18AB91554FCCA00BCE0DC /* AppDelegate.mm */; };
 		17D18ABD1555006A00BCE0DC /* libbackend-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 17D18ABB1555006900BCE0DC /* libbackend-ios.a */; };
 		17D18ABE1555006A00BCE0DC /* libgdx-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 17D18ABC1555006900BCE0DC /* libgdx-ios.a */; };
 		17D18AC0155500D700BCE0DC /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17D18ABF155500D700BCE0DC /* OpenGLES.framework */; };
@@ -71,10 +69,11 @@
 		17D18AD61555023200BCE0DC /* WorldRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17822092152E3DE600E213C9 /* WorldRenderer.cpp */; };
 		17D18AD81555069E00BCE0DC /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17D18AD71555069E00BCE0DC /* QuartzCore.framework */; };
 		17D18AD9155508E600BCE0DC /* data in Resources */ = {isa = PBXBuildFile; fileRef = 178220F3152E4A1000E213C9 /* data */; };
+		17F85B5B15605FC100420A1F /* superjumper-ios-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 17F85B5915605FC000420A1F /* superjumper-ios-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1782203E152E3C8D00E213C9 /* superjumper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = superjumper.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1782203E152E3C8D00E213C9 /* superjumper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = superjumper.app; path = "superjumper-osx.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		17822042152E3C8D00E213C9 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		17822045152E3C8D00E213C9 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		17822046152E3C8D00E213C9 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -143,16 +142,12 @@
 		17D18AA31554FA3500BCE0DC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		17D18AA51554FA3500BCE0DC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		17D18AA71554FA3500BCE0DC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
-		17D18AAB1554FA3500BCE0DC /* superjumper-ios-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "superjumper-ios-Info.plist"; sourceTree = "<group>"; };
-		17D18AAD1554FA3500BCE0DC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		17D18AAF1554FA3500BCE0DC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		17D18AB11554FA3500BCE0DC /* superjumper-ios-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "superjumper-ios-Prefix.pch"; sourceTree = "<group>"; };
-		17D18AB21554FA3600BCE0DC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		17D18AB91554FCCA00BCE0DC /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
 		17D18ABB1555006900BCE0DC /* libbackend-ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libbackend-ios.a"; path = "../../../../../../Library/Developer/Xcode/DerivedData/gdx-testing-osx-gixlikwjboncinfzefiysvwhyepd/Build/Products/Debug-iphoneos/libbackend-ios.a"; sourceTree = "<group>"; };
-		17D18ABC1555006900BCE0DC /* libgdx-ios.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = "libgdx-ios.a"; path = "../../../../gdx/build/Release-iphoneos/libgdx-ios.a"; sourceTree = "<group>"; };
+		17D18ABC1555006900BCE0DC /* libgdx-ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgdx-ios.a"; path = "../../../../gdx/build/Release-iphoneos/libgdx-ios.a"; sourceTree = "<group>"; };
 		17D18ABF155500D700BCE0DC /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk/System/Library/Frameworks/OpenGLES.framework; sourceTree = DEVELOPER_DIR; };
 		17D18AD71555069E00BCE0DC /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
+		17F85B5915605FC000420A1F /* superjumper-ios-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "superjumper-ios-Info.plist"; sourceTree = "<group>"; };
+		17F85B5A15605FC000420A1F /* superjumper-ios-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "superjumper-ios-Prefix.pch"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,7 +191,6 @@
 				178220CC152E449900E213C9 /* libbackend-glfw.a */,
 				178220CA152E449200E213C9 /* libgdx-macos.a */,
 				17822048152E3C8D00E213C9 /* superjumper */,
-				17D18AA91554FA3500BCE0DC /* superjumper-ios */,
 				17822041152E3C8D00E213C9 /* Frameworks */,
 				1782203F152E3C8D00E213C9 /* Products */,
 			);
@@ -248,6 +242,8 @@
 		17822049152E3C8D00E213C9 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				17F85B5915605FC000420A1F /* superjumper-ios-Info.plist */,
+				17F85B5A15605FC000420A1F /* superjumper-ios-Prefix.pch */,
 				1782204A152E3C8D00E213C9 /* superjumper-Info.plist */,
 				1782204B152E3C8D00E213C9 /* InfoPlist.strings */,
 				1782204E152E3C8D00E213C9 /* main.cpp */,
@@ -323,27 +319,6 @@
 			path = ../../../src;
 			sourceTree = "<group>";
 		};
-		17D18AA91554FA3500BCE0DC /* superjumper-ios */ = {
-			isa = PBXGroup;
-			children = (
-				17D18AB91554FCCA00BCE0DC /* AppDelegate.mm */,
-				17D18AB21554FA3600BCE0DC /* AppDelegate.h */,
-				17D18AAA1554FA3500BCE0DC /* Supporting Files */,
-			);
-			path = "superjumper-ios";
-			sourceTree = "<group>";
-		};
-		17D18AAA1554FA3500BCE0DC /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				17D18AAB1554FA3500BCE0DC /* superjumper-ios-Info.plist */,
-				17D18AAC1554FA3500BCE0DC /* InfoPlist.strings */,
-				17D18AAF1554FA3500BCE0DC /* main.m */,
-				17D18AB11554FA3500BCE0DC /* superjumper-ios-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -416,6 +391,7 @@
 				1782204D152E3C8D00E213C9 /* InfoPlist.strings in Resources */,
 				17822053152E3C8D00E213C9 /* Credits.rtf in Resources */,
 				178220F4152E4A1000E213C9 /* data in Resources */,
+				17F85B5B15605FC100420A1F /* superjumper-ios-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -423,7 +399,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				17D18AAE1554FA3500BCE0DC /* InfoPlist.strings in Resources */,
 				17D18AD9155508E600BCE0DC /* data in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -465,8 +440,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				17D18AB01554FA3500BCE0DC /* main.m in Sources */,
-				17D18ABA1554FCCA00BCE0DC /* AppDelegate.mm in Sources */,
 				17D18AC11555023200BCE0DC /* Assets.cpp in Sources */,
 				17D18AC21555023200BCE0DC /* Bob.cpp in Sources */,
 				17D18AC31555023200BCE0DC /* Castle.cpp in Sources */,
@@ -489,6 +462,7 @@
 				17D18AD41555023200BCE0DC /* SuperJumper.cpp in Sources */,
 				17D18AD51555023200BCE0DC /* World.cpp in Sources */,
 				17D18AD61555023200BCE0DC /* WorldRenderer.cpp in Sources */,
+				17ABC917156045CA00F5002E /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -509,14 +483,6 @@
 				17822052152E3C8D00E213C9 /* en */,
 			);
 			name = Credits.rtf;
-			sourceTree = "<group>";
-		};
-		17D18AAC1554FA3500BCE0DC /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				17D18AAD1554FA3500BCE0DC /* en */,
-			);
-			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -622,7 +588,7 @@
 					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "superjumper-ios/superjumper-ios-Prefix.pch";
+				GCC_PREFIX_HEADER = "superjumper/superjumper-ios-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					TARGET_IOS,
@@ -632,7 +598,7 @@
 					../../../../gdx/include,
 					"../../../../backends/backend-ios/incl",
 				);
-				INFOPLIST_FILE = "superjumper-ios/superjumper-ios-Info.plist";
+				INFOPLIST_FILE = "superjumper/superjumper-ios-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -663,7 +629,7 @@
 					../../../../gdx/include,
 					"../../../../backends/backend-ios/incl",
 				);
-				INFOPLIST_FILE = "superjumper-ios/superjumper-ios-Info.plist";
+				INFOPLIST_FILE = "superjumper/superjumper-ios-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -706,6 +672,7 @@
 				17D18AB61554FA3600BCE0DC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

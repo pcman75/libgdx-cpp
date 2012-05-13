@@ -55,9 +55,10 @@ static void uncaughtExceptionHandler(NSException *exception) {
 {    
     // set up exception handler
     NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
+    [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
     
     // Instantiate the listener
-    ApplicationListener *listener = new FilesTest();
+    ApplicationListener *listener = new AlphaTest();
     // create the application
     m_app = new IOSApplication(*listener, false);
     

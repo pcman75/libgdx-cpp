@@ -1,8 +1,8 @@
 //
-//  AppDelegate.h
+//  ApplicationDelegate.h
 //  gdx-backend-ios
 //
-//  Created by Tamas Jano on 29/03/2012.
+//  Created by Cosmin Manoliu on 13/05/2012.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
@@ -13,7 +13,7 @@
 
 //@class RootViewController;
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface ApplicationDelegate : UIResponder <UIApplicationDelegate>
 {
     UIWindow*                   m_window;
     GLView*                     m_view;
@@ -24,6 +24,6 @@
 @property (strong, nonatomic) UIWindow *m_window;
 //@property (nonatomic, retain) RootViewController *rootViewController;
 
--(AppDelegate*) initWithApplication:(IOSApplication*)application;
+-(ApplicationDelegate*) initWithApplication:(IOSApplication*)application;
 
 @end
