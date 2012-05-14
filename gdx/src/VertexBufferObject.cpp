@@ -56,6 +56,8 @@ void VertexBufferObject::setVertices(const float* vertices, int count)
 {
 	int bufferSizeInBytes = sizeof(GLfloat) * count;
 	m_numVertices = bufferSizeInBytes / m_attributes.vertexSize();
+    
+    delete[] m_buffer;
 	m_buffer = new float[count];
 	memcpy(m_buffer, vertices, bufferSizeInBytes);
 	m_isDirty = true;
