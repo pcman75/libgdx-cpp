@@ -50,6 +50,8 @@ static void uncaughtExceptionHandler(NSException *exception) {
     m_app = (IOSApplication*)Gdx.app;
     
     [application setStatusBarHidden:YES];
+    //prevent screen dimming
+    [application setIdleTimerDisabled:YES];
     
     CGRect screenBounds = [[UIScreen mainScreen] bounds];
     

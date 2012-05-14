@@ -73,7 +73,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1782203E152E3C8D00E213C9 /* superjumper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = superjumper.app; path = "superjumper-osx.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1782203E152E3C8D00E213C9 /* superjumper-osx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "superjumper-osx.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		17822042152E3C8D00E213C9 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		17822045152E3C8D00E213C9 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		17822046152E3C8D00E213C9 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -199,7 +199,7 @@
 		1782203F152E3C8D00E213C9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1782203E152E3C8D00E213C9 /* superjumper.app */,
+				1782203E152E3C8D00E213C9 /* superjumper-osx.app */,
 				17D18AA11554FA3500BCE0DC /* superjumper-ios.app */,
 			);
 			name = Products;
@@ -336,7 +336,7 @@
 			);
 			name = "superjumper-osx";
 			productName = superjumper;
-			productReference = 1782203E152E3C8D00E213C9 /* superjumper.app */;
+			productReference = 1782203E152E3C8D00E213C9 /* superjumper-osx.app */;
 			productType = "com.apple.product-type.application";
 		};
 		17D18AA01554FA3500BCE0DC /* superjumper-ios */ = {
@@ -362,7 +362,7 @@
 		17822035152E3C8D00E213C9 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0430;
 				ORGANIZATIONNAME = Home;
 			};
 			buildConfigurationList = 17822038152E3C8D00E213C9 /* Build configuration list for PBXProject "superjumper" */;
@@ -538,7 +538,7 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "superjumper/superjumper-Prefix.pch";
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = (
 					../../../../gdx/include,
 					"../../../../backends/backend-glfw/exp",
@@ -560,7 +560,7 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "superjumper/superjumper-Prefix.pch";
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = (
 					../../../../gdx/include,
 					"../../../../backends/backend-glfw/exp",
