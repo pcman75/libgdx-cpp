@@ -30,6 +30,13 @@ IOSApplication::IOSApplication(ApplicationListener& listener, bool useGL20, int 
     }
 };
 
+IOSApplication::IOSApplication(ApplicationListener& listener, bool useGL20)
+{
+    m_listener = &listener;
+    IOSApplicationConfiguration* config = new IOSApplicationConfiguration();
+    initialize(*config);
+};
+
 void IOSApplication::initialize(IOSApplicationConfiguration& config) 
 {
 	logLevel = LOG_INFO;

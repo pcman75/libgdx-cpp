@@ -18,6 +18,7 @@ class IOSApplication : public Application {
 
 public:
     IOSApplication(ApplicationListener& listener, bool useGL20, int argc, char *argv[]);
+    IOSApplication(ApplicationListener& listener, bool useGL20);
 
     virtual ~IOSApplication();
 

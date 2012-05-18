@@ -16,6 +16,23 @@
 		1750FB65153E08A9005A9525 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1750FB64153E08A9005A9525 /* main.m */; };
 		1750FB69153E08A9005A9525 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1750FB68153E08A9005A9525 /* AppDelegate.mm */; };
 		17A2CC0A1545FAB20072E0A6 /* data in Resources */ = {isa = PBXBuildFile; fileRef = 17A2CC091545FAB20072E0A6 /* data */; };
+		17C486EC15659BB80053F6FE /* libbackend-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 17C486E915659BB80053F6FE /* libbackend-ios.a */; };
+		17C486ED15659BB80053F6FE /* libgdx-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 17C486EA15659BB80053F6FE /* libgdx-ios.a */; };
+		17C486EE15659BB80053F6FE /* libgdx-tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 17C486EB15659BB80053F6FE /* libgdx-tests.a */; };
+		17C486EF15659BDB0053F6FE /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1750FB5C153E08A9005A9525 /* OpenGLES.framework */; };
+		17C486F015659BFB0053F6FE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17F3987615449D90003B5812 /* QuartzCore.framework */; };
+		17D2FEF91564454A0028F779 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1750FB54153E08A9005A9525 /* UIKit.framework */; };
+		17D2FEFA1564454A0028F779 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1750FB56153E08A9005A9525 /* Foundation.framework */; };
+		17D2FEFB1564454A0028F779 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1750FB58153E08A9005A9525 /* CoreGraphics.framework */; };
+		17D2FF011564454A0028F779 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 17D2FEFF1564454A0028F779 /* InfoPlist.strings */; };
+		17D2FF031564454A0028F779 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D2FF021564454A0028F779 /* main.m */; };
+		17D2FF071564454A0028F779 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D2FF061564454A0028F779 /* AppDelegate.m */; };
+		17D2FF0A1564454A0028F779 /* MasterViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 17D2FF091564454A0028F779 /* MasterViewController.mm */; };
+		17D2FF0D1564454A0028F779 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D2FF0C1564454A0028F779 /* DetailViewController.m */; };
+		17D2FF101564454A0028F779 /* MasterViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17D2FF0E1564454A0028F779 /* MasterViewController_iPhone.xib */; };
+		17D2FF131564454A0028F779 /* MasterViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17D2FF111564454A0028F779 /* MasterViewController_iPad.xib */; };
+		17D2FF161564454A0028F779 /* DetailViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17D2FF141564454A0028F779 /* DetailViewController_iPhone.xib */; };
+		17D2FF191564454A0028F779 /* DetailViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17D2FF171564454A0028F779 /* DetailViewController_iPad.xib */; };
 		17F3985215448162003B5812 /* libbackend-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 17F3985115448162003B5812 /* libbackend-ios.a */; };
 		17F398561544817B003B5812 /* libgdx-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 17F398551544817B003B5812 /* libgdx-ios.a */; };
 		17F3986A1544830A003B5812 /* libgdx-tests-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 17F398691544830A003B5812 /* libgdx-tests-ios.a */; };
@@ -36,6 +53,24 @@
 		1750FB67153E08A9005A9525 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = "gdx-tests-ios/AppDelegate.h"; sourceTree = "<group>"; };
 		1750FB68153E08A9005A9525 /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = "gdx-tests-ios/AppDelegate.mm"; sourceTree = "<group>"; };
 		17A2CC091545FAB20072E0A6 /* data */ = {isa = PBXFileReference; lastKnownFileType = folder; name = data; path = "../gdx-tests/data"; sourceTree = "<group>"; };
+		17C486E915659BB80053F6FE /* libbackend-ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libbackend-ios.a"; path = "../../../../Library/Developer/Xcode/DerivedData/gdx-testing-osx-gixlikwjboncinfzefiysvwhyepd/Build/Products/Debug-iphoneos/libbackend-ios.a"; sourceTree = "<group>"; };
+		17C486EA15659BB80053F6FE /* libgdx-ios.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = "libgdx-ios.a"; path = "../../gdx/build/Release-iphoneos/libgdx-ios.a"; sourceTree = "<group>"; };
+		17C486EB15659BB80053F6FE /* libgdx-tests.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgdx-tests.a"; path = "../../../../Library/Developer/Xcode/DerivedData/gdx-testing-osx-gixlikwjboncinfzefiysvwhyepd/Build/Products/Debug/libgdx-tests.a"; sourceTree = "<group>"; };
+		17D2FEF7156445490028F779 /* gdx-tests-ios2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "gdx-tests-ios2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		17D2FEFE1564454A0028F779 /* gdx-tests-ios2-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "gdx-tests-ios2-Info.plist"; sourceTree = "<group>"; };
+		17D2FF001564454A0028F779 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		17D2FF021564454A0028F779 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		17D2FF041564454A0028F779 /* gdx-tests-ios2-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "gdx-tests-ios2-Prefix.pch"; sourceTree = "<group>"; };
+		17D2FF051564454A0028F779 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		17D2FF061564454A0028F779 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		17D2FF081564454A0028F779 /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
+		17D2FF091564454A0028F779 /* MasterViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = MasterViewController.mm; sourceTree = "<group>"; };
+		17D2FF0B1564454A0028F779 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		17D2FF0C1564454A0028F779 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		17D2FF0F1564454A0028F779 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MasterViewController_iPhone.xib; sourceTree = "<group>"; };
+		17D2FF121564454A0028F779 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MasterViewController_iPad.xib; sourceTree = "<group>"; };
+		17D2FF151564454A0028F779 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/DetailViewController_iPhone.xib; sourceTree = "<group>"; };
+		17D2FF181564454A0028F779 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/DetailViewController_iPad.xib; sourceTree = "<group>"; };
 		17F3985115448162003B5812 /* libbackend-ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libbackend-ios.a"; path = "../../backends/backend-ios/build/Release-iphoneos/libbackend-ios.a"; sourceTree = "<group>"; };
 		17F398551544817B003B5812 /* libgdx-ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgdx-ios.a"; path = "../../gdx/build/Release-iphoneos/libgdx-ios.a"; sourceTree = "<group>"; };
 		17F398691544830A003B5812 /* libgdx-tests-ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgdx-tests-ios.a"; path = "../gdx-tests/build/Release-iphoneos/libgdx-tests-ios.a"; sourceTree = "<group>"; };
@@ -59,12 +94,30 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		17D2FEF4156445490028F779 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				17C486F015659BFB0053F6FE /* QuartzCore.framework in Frameworks */,
+				17C486EF15659BDB0053F6FE /* OpenGLES.framework in Frameworks */,
+				17C486EC15659BB80053F6FE /* libbackend-ios.a in Frameworks */,
+				17C486ED15659BB80053F6FE /* libgdx-ios.a in Frameworks */,
+				17C486EE15659BB80053F6FE /* libgdx-tests.a in Frameworks */,
+				17D2FEF91564454A0028F779 /* UIKit.framework in Frameworks */,
+				17D2FEFA1564454A0028F779 /* Foundation.framework in Frameworks */,
+				17D2FEFB1564454A0028F779 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		1750FB45153E08A8005A9525 = {
 			isa = PBXGroup;
 			children = (
+				17C486E915659BB80053F6FE /* libbackend-ios.a */,
+				17C486EA15659BB80053F6FE /* libgdx-ios.a */,
+				17C486EB15659BB80053F6FE /* libgdx-tests.a */,
 				17A2CC091545FAB20072E0A6 /* data */,
 				1750FB67153E08A9005A9525 /* AppDelegate.h */,
 				1750FB68153E08A9005A9525 /* AppDelegate.mm */,
@@ -73,6 +126,7 @@
 				17F398691544830A003B5812 /* libgdx-tests-ios.a */,
 				17F398551544817B003B5812 /* libgdx-ios.a */,
 				17F3985115448162003B5812 /* libbackend-ios.a */,
+				17D2FEFC1564454A0028F779 /* gdx-tests-ios2 */,
 				1750FB53153E08A9005A9525 /* Frameworks */,
 				1750FB51153E08A9005A9525 /* Products */,
 			);
@@ -82,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				1750FB50153E08A9005A9525 /* gdx-tests-ios.app */,
+				17D2FEF7156445490028F779 /* gdx-tests-ios2.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -110,6 +165,35 @@
 			path = "gdx-tests-ios";
 			sourceTree = "<group>";
 		};
+		17D2FEFC1564454A0028F779 /* gdx-tests-ios2 */ = {
+			isa = PBXGroup;
+			children = (
+				17D2FF051564454A0028F779 /* AppDelegate.h */,
+				17D2FF061564454A0028F779 /* AppDelegate.m */,
+				17D2FF081564454A0028F779 /* MasterViewController.h */,
+				17D2FF091564454A0028F779 /* MasterViewController.mm */,
+				17D2FF0B1564454A0028F779 /* DetailViewController.h */,
+				17D2FF0C1564454A0028F779 /* DetailViewController.m */,
+				17D2FF0E1564454A0028F779 /* MasterViewController_iPhone.xib */,
+				17D2FF111564454A0028F779 /* MasterViewController_iPad.xib */,
+				17D2FF141564454A0028F779 /* DetailViewController_iPhone.xib */,
+				17D2FF171564454A0028F779 /* DetailViewController_iPad.xib */,
+				17D2FEFD1564454A0028F779 /* Supporting Files */,
+			);
+			path = "gdx-tests-ios2";
+			sourceTree = "<group>";
+		};
+		17D2FEFD1564454A0028F779 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				17D2FEFE1564454A0028F779 /* gdx-tests-ios2-Info.plist */,
+				17D2FEFF1564454A0028F779 /* InfoPlist.strings */,
+				17D2FF021564454A0028F779 /* main.m */,
+				17D2FF041564454A0028F779 /* gdx-tests-ios2-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -128,6 +212,23 @@
 			name = "gdx-tests-ios";
 			productName = "gdx-tests-ios";
 			productReference = 1750FB50153E08A9005A9525 /* gdx-tests-ios.app */;
+			productType = "com.apple.product-type.application";
+		};
+		17D2FEF6156445490028F779 /* gdx-tests-ios2 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 17D2FF1C1564454A0028F779 /* Build configuration list for PBXNativeTarget "gdx-tests-ios2" */;
+			buildPhases = (
+				17D2FEF3156445490028F779 /* Sources */,
+				17D2FEF4156445490028F779 /* Frameworks */,
+				17D2FEF5156445490028F779 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "gdx-tests-ios2";
+			productName = "gdx-tests-ios2";
+			productReference = 17D2FEF7156445490028F779 /* gdx-tests-ios2.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -152,6 +253,7 @@
 			projectRoot = "";
 			targets = (
 				1750FB4F153E08A9005A9525 /* gdx-tests-ios */,
+				17D2FEF6156445490028F779 /* gdx-tests-ios2 */,
 			);
 		};
 /* End PBXProject section */
@@ -163,6 +265,18 @@
 			files = (
 				1750FB63153E08A9005A9525 /* InfoPlist.strings in Resources */,
 				17A2CC0A1545FAB20072E0A6 /* data in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		17D2FEF5156445490028F779 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				17D2FF011564454A0028F779 /* InfoPlist.strings in Resources */,
+				17D2FF101564454A0028F779 /* MasterViewController_iPhone.xib in Resources */,
+				17D2FF131564454A0028F779 /* MasterViewController_iPad.xib in Resources */,
+				17D2FF161564454A0028F779 /* DetailViewController_iPhone.xib in Resources */,
+				17D2FF191564454A0028F779 /* DetailViewController_iPad.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -178,6 +292,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		17D2FEF3156445490028F779 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				17D2FF031564454A0028F779 /* main.m in Sources */,
+				17D2FF071564454A0028F779 /* AppDelegate.m in Sources */,
+				17D2FF0A1564454A0028F779 /* MasterViewController.mm in Sources */,
+				17D2FF0D1564454A0028F779 /* DetailViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
@@ -187,6 +312,46 @@
 				1750FB62153E08A9005A9525 /* en */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		17D2FEFF1564454A0028F779 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				17D2FF001564454A0028F779 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		17D2FF0E1564454A0028F779 /* MasterViewController_iPhone.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				17D2FF0F1564454A0028F779 /* en */,
+			);
+			name = MasterViewController_iPhone.xib;
+			sourceTree = "<group>";
+		};
+		17D2FF111564454A0028F779 /* MasterViewController_iPad.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				17D2FF121564454A0028F779 /* en */,
+			);
+			name = MasterViewController_iPad.xib;
+			sourceTree = "<group>";
+		};
+		17D2FF141564454A0028F779 /* DetailViewController_iPhone.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				17D2FF151564454A0028F779 /* en */,
+			);
+			name = DetailViewController_iPhone.xib;
+			sourceTree = "<group>";
+		};
+		17D2FF171564454A0028F779 /* DetailViewController_iPad.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				17D2FF181564454A0028F779 /* en */,
+			);
+			name = DetailViewController_iPad.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -281,6 +446,54 @@
 			};
 			name = Release;
 		};
+		17D2FF1A1564454A0028F779 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "gdx-tests-ios2/gdx-tests-ios2-Prefix.pch";
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				HEADER_SEARCH_PATHS = (
+					"../../backends/backend-ios/incl",
+					../../gdx/include,
+					"../../tests/gdx-tests/include",
+				);
+				INFOPLIST_FILE = "gdx-tests-ios2/gdx-tests-ios2-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/gdx-testing-osx-gixlikwjboncinfzefiysvwhyepd/Build/Products/Debug-iphoneos\"",
+					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/gdx-testing-osx-gixlikwjboncinfzefiysvwhyepd/Build/Products/Debug\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		17D2FF1B1564454A0028F779 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "gdx-tests-ios2/gdx-tests-ios2-Prefix.pch";
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				HEADER_SEARCH_PATHS = (
+					"../../backends/backend-ios/incl",
+					../../gdx/include,
+					"../../tests/gdx-tests/include",
+				);
+				INFOPLIST_FILE = "gdx-tests-ios2/gdx-tests-ios2-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/gdx-testing-osx-gixlikwjboncinfzefiysvwhyepd/Build/Products/Debug-iphoneos\"",
+					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/gdx-testing-osx-gixlikwjboncinfzefiysvwhyepd/Build/Products/Debug\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -298,6 +511,15 @@
 			buildConfigurations = (
 				1750FB7A153E08A9005A9525 /* Debug */,
 				1750FB7B153E08A9005A9525 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		17D2FF1C1564454A0028F779 /* Build configuration list for PBXNativeTarget "gdx-tests-ios2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				17D2FF1A1564454A0028F779 /* Debug */,
+				17D2FF1B1564454A0028F779 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
