@@ -148,7 +148,7 @@
 {
     NSDate *object = [_objects objectAtIndex:indexPath.row];
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-	    if (!self.detailViewController) {
+	    //if (!self.detailViewController) {
 	        //self.detailViewController = [[DetailViewController alloc] initWithNibName:@"DetailViewController_iPhone" bundle:nil];
             // Instantiate the listener
             ApplicationListener *listener = new AlphaTest();
@@ -161,9 +161,11 @@
             self.detailViewController = [[DetailViewController alloc] init];
             
             self.detailViewController.view = view;
+            CGRect viewRect = CGRectMake(0, 0, 320, 480);
+            [view initWithFrame:viewRect andListener:listener];
             
-            [view initWithFrame:view.bounds andListener:listener];
-	    }
+            [view startRenderLoop];
+	    //}
 	    self.detailViewController.detailItem = object;
         [self.navigationController pushViewController:self.detailViewController animated:YES];
     } else {
